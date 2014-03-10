@@ -9,7 +9,7 @@
 
     <Grid Background="#FF333333">
         <Grid Height="30" Margin="0" VerticalAlignment="Top" Background="#FF29A2FF" IsEnabled="False"/>
-        <TabControl x:Name="TabControl_Main" TabStripPlacement="Left" Background="{x:Null}" BorderBrush="{x:Null}" BorderThickness="0">
+        <TabControl x:Name="TabControl_Main" TabStripPlacement="Left" Background="{x:Null}" BorderBrush="{x:Null}" BorderThickness="0" Margin="-2">
             <TabItem Header="快捷界面" Width="150" Height="40" Margin="0,82,0,-82">
                 <Grid>
                     <Frame x:Name="Frame_快捷界面" Content="" Margin="0" NavigationUIVisibility="Hidden"/>
