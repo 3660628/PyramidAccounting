@@ -14,6 +14,7 @@
 				</MultiTrigger.Conditions>
 				<Setter Property="Background" TargetName="Bd" Value="#FF6DC0FF"/>
 				<Setter Property="BorderBrush" TargetName="Bd" Value="White"/>
+                <Setter Property="Foreground" Value="White"/>
 			</MultiTrigger>
 			<MultiTrigger>
 				<MultiTrigger.Conditions>
@@ -21,6 +22,7 @@
 					<Condition Property="IsMouseOver" Value="False"/>
 				</MultiTrigger.Conditions>
 				<Setter Property="Background" TargetName="Bd" Value="#FF6DC0FF"/>
+                <Setter Property="Foreground" Value="White"/>
 			</MultiTrigger>
 		</ControlTemplate.Triggers>
 	</ControlTemplate>
