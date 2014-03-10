@@ -8,6 +8,7 @@
                 <ResourceDictionary Source="View\ResourceDictionarys\Button\Common.xaml" />
                 <ResourceDictionary Source="View\ResourceDictionarys\Button\MinMaxClose.xaml" />
                 <ResourceDictionary Source="View\ResourceDictionarys\TabControl\MainTabControl.xaml" />
+                <ResourceDictionary Source="View\ResourceDictionarys\TabControl\TwoTabControl.xaml" />
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Application.Resources>
