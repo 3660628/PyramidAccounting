@@ -8,7 +8,7 @@
 	Title="Page_Two_账簿管理">
 
     <Grid>
-        <StatusBar Height="25" Margin="0" VerticalAlignment="Bottom"/>
+        <StatusBar Height="25" Margin="0" VerticalAlignment="Bottom" Background="DarkGray"/>
         <TabControl Margin="0,0,0,25">
             <TabItem Header="TabItem">
                 <Grid Background="#FFE5E5E5"/>
