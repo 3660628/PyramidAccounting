@@ -22,11 +22,17 @@ namespace PA
         public MainWindow()
         {
             InitializeComponent();
+            this.Frame_MainTabControl.Content = new PA.View.Pages.Page_MainTabControl();
         }
 
         private void Window_MainWindow_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             this.DragMove();
+        }
+
+        private void Button_Close_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
         }
     }
 }

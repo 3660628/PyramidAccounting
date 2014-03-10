@@ -4,18 +4,27 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       mc:Ignorable="d" 
-      d:DesignHeight="500 " d:DesignWidth="600"
+      d:DesignHeight="575 " d:DesignWidth="1000"
 	Title="Page_MainTabControl">
 
-    <Grid>
-        <TabControl Margin="0" TabStripPlacement="Left">
-            <TabItem Header="TabItem">
+    <Grid Background="#FF333333">
+        <Grid Height="30" Margin="0" VerticalAlignment="Top" Background="#FF29A2FF"/>
+        <TabControl TabStripPlacement="Left">
+            <TabItem Header="快捷界面" Width="150" Height="40" Margin="0,82,0,-82">
                 <Grid Background="#FFE5E5E5"/>
             </TabItem>
-            <TabItem Header="TabItem">
+            <TabItem Header="凭证管理" Width="150" Height="40" Margin="0,82,0,-82">
+                <Grid Background="#FFE5E5E5"/>
+            </TabItem>
+            <TabItem Header="账簿管理" Width="150" Height="40" Margin="0,82,0,-82">
+                <Grid Background="#FFE5E5E5"/>
+            </TabItem>
+            <TabItem Header="报表管理" Width="150" Height="40" Margin="0,82,0,-82">
+                <Grid Background="#FFE5E5E5"/>
+            </TabItem>
+            <TabItem Header="系统管理" Width="150" Height="40" Margin="0,82,0,-82">
                 <Grid Background="#FFE5E5E5"/>
             </TabItem>
         </TabControl>
-
     </Grid>
 </Page>
