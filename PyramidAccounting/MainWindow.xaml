@@ -6,8 +6,8 @@
         <Grid Margin="0,25,0,0">
             <Frame x:Name="Frame_MainTabControl" Content="" Margin="0" NavigationUIVisibility="Hidden"/>
         </Grid>
-        <Button x:Name="Button_Min" Content="Button" HorizontalAlignment="Left" Margin="906,0,0,0" VerticalAlignment="Top" Width="28" Height="20"/>
-        <Button x:Name="Button_Max" Content="Button" HorizontalAlignment="Left" Margin="934,0,0,0" VerticalAlignment="Top" Width="28" Height="20"/>
-        <Button x:Name="Button_Close" Content="Button" HorizontalAlignment="Right" Margin="0,0,10,0" VerticalAlignment="Top" Width="28" Height="20" Click="Button_Close_Click"/>
+        <Button x:Name="Button_Min" Content="Button" HorizontalAlignment="Right" Margin="0,0,66,0" VerticalAlignment="Top" Width="28" Height="20" Template="{DynamicResource ButtonControlTemplate_Min}"/>
+        <Button x:Name="Button_Max" Content="Button" HorizontalAlignment="Right" Margin="0,0,38,0" VerticalAlignment="Top" Width="28" Height="20" Template="{DynamicResource ButtonControlTemplate_Max}"/>
+        <Button x:Name="Button_Close" Content="Button" HorizontalAlignment="Right" Margin="0,0,10,0" VerticalAlignment="Top" Width="28" Height="20" Click="Button_Close_Click" Template="{DynamicResource ButtonControlTemplate_Close}"/>
     </Grid>
 </Window>
