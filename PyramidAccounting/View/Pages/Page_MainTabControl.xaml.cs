@@ -22,6 +22,11 @@ namespace PA.View.Pages
         public Page_MainTabControl()
         {
             InitializeComponent();
+            this.Frame_快捷界面.Content = new PA.View.Pages.TwoTabControl.Page_Two_快捷界面();
+            this.Frame_凭证管理.Content = new PA.View.Pages.TwoTabControl.Page_Two_凭证管理();
+            this.Frame_账簿管理.Content = new PA.View.Pages.TwoTabControl.Page_Two_账簿管理();
+            this.Frame_报表管理.Content = new PA.View.Pages.TwoTabControl.Page_Two_报表管理();
+            this.Frame_系统管理.Content = new PA.View.Pages.TwoTabControl.Page_Two_系统管理();
         }
     }
 }

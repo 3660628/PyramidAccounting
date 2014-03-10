@@ -9,5 +9,8 @@
         <Button x:Name="Button_Min" Content="Button" HorizontalAlignment="Right" Margin="0,0,66,0" VerticalAlignment="Top" Width="28" Height="20" Template="{DynamicResource ButtonControlTemplate_Min}"/>
         <Button x:Name="Button_Max" Content="Button" HorizontalAlignment="Right" Margin="0,0,38,0" VerticalAlignment="Top" Width="28" Height="20" Template="{DynamicResource ButtonControlTemplate_Max}"/>
         <Button x:Name="Button_Close" Content="Button" HorizontalAlignment="Right" Margin="0,0,10,0" VerticalAlignment="Top" Width="28" Height="20" Click="Button_Close_Click" Template="{DynamicResource ButtonControlTemplate_Close}"/>
+        <Image HorizontalAlignment="Left" Height="50" VerticalAlignment="Top" Width="50" Source="View/Images/Logo/Pyramid_Logo_white_128x128.png" Margin="10,0,0,0"/>
+        <Label Content="金字塔" HorizontalAlignment="Left" Margin="60,3,0,0" VerticalAlignment="Top" Foreground="White"/>
+        <Label Content="会计" HorizontalAlignment="Left" Margin="60,19,0,0" VerticalAlignment="Top" Foreground="White"/>
     </Grid>
 </Window>
