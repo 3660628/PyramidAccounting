@@ -10,10 +10,10 @@
     <Grid>
         <StatusBar Height="25" Margin="0" VerticalAlignment="Bottom" Background="DarkGray"/>
         <TabControl Margin="0,0,0,25" BorderBrush="White">
-            <TabItem Header="快捷导航" Margin="16,-2,-20,-1" Template="{DynamicResource TabItemControlTemplate_TwoTabHeader}">
+            <TabItem Header="会计流程" Margin="20,-2,-20,-1" Template="{DynamicResource TabItemControlTemplate_TwoTabHeader}">
                 <Grid Background="#FFE5E5E5"/>
             </TabItem>
-            <TabItem Header="TabItem" Margin="30,-2,-34,-1" Template="{DynamicResource TabItemControlTemplate_TwoTabHeader}">
+            <TabItem Header="帐套管理" Margin="30,-2,-30,-1" Template="{DynamicResource TabItemControlTemplate_TwoTabHeader}">
                 <Grid Background="#FFE5E5E5"/>
             </TabItem>
         </TabControl>
