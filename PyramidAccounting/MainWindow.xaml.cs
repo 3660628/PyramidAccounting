@@ -34,5 +34,15 @@ namespace PA
         {
             this.Close();
         }
+
+        private void Button_Max_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Button_Min_Click(object sender, RoutedEventArgs e)
+        {
+            this.WindowState = System.Windows.WindowState.Minimized;
+        }
     }
 }
