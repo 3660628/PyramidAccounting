@@ -137,6 +137,15 @@
     <AppDesigner Include="Properties\" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="View\Images\Button\MinMaxClose\Close.png" />
+    <Resource Include="View\Images\Button\MinMaxClose\CloseAct.png" />
+    <Resource Include="View\Images\Button\MinMaxClose\CloseSel.png" />
+    <Resource Include="View\Images\Button\MinMaxClose\Max.png" />
+    <Resource Include="View\Images\Button\MinMaxClose\MaxAct.png" />
+    <Resource Include="View\Images\Button\MinMaxClose\MaxSel.png" />
+    <Resource Include="View\Images\Button\MinMaxClose\Min.png" />
+    <Resource Include="View\Images\Button\MinMaxClose\MinAct.png" />
+    <Resource Include="View\Images\Button\MinMaxClose\MinSel.png" />
     <Resource Include="View\Images\Logo\Pyramid_Logo_white_128x128.ico" />
     <Resource Include="View\Images\Logo\Pyramid_Logo_white_128x128.png" />
     <None Include="Docs\Readme.txt">

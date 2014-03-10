@@ -23,5 +23,10 @@ namespace PA
         {
             InitializeComponent();
         }
+
+        private void Window_MainWindow_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            this.DragMove();
+        }
     }
 }

@@ -1,7 +1,7 @@
-﻿<Window x:Class="PA.MainWindow"
+﻿<Window x:Name="Window_MainWindow" x:Class="PA.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="MainWindow" Height="600" Width="1000" WindowStartupLocation="CenterScreen">
+        Title="MainWindow" Height="600" Width="1000" WindowStartupLocation="CenterScreen" WindowStyle="None" AllowsTransparency="True" MouseLeftButtonDown="Window_MainWindow_MouseLeftButtonDown">
     <Grid>
         
     </Grid>
