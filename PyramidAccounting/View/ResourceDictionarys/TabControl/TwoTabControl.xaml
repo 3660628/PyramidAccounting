@@ -61,47 +61,6 @@
 						<Trigger Property="Selector.IsSelected" Value="False">
 							<Setter Property="Background" TargetName="Bd" Value="#FF6DC0FF"/>
 						</Trigger>
-						<Trigger Property="TabStripPlacement" Value="Bottom">
-							<Setter Property="BorderThickness" TargetName="Bd" Value="1,0,1,1"/>
-						</Trigger>
-						<Trigger Property="TabStripPlacement" Value="Left">
-							<Setter Property="BorderThickness" TargetName="Bd" Value="1,1,0,1"/>
-						</Trigger>
-						<Trigger Property="TabStripPlacement" Value="Right">
-							<Setter Property="BorderThickness" TargetName="Bd" Value="0,1,1,1"/>
-						</Trigger>
-						<MultiTrigger>
-							<MultiTrigger.Conditions>
-								<Condition Property="IsSelected" Value="true"/>
-								<Condition Property="TabStripPlacement" Value="Top"/>
-							</MultiTrigger.Conditions>
-							<Setter Property="Margin" Value="-2,-2,-2,-1"/>
-							<Setter Property="Margin" TargetName="Content" Value="0,0,0,1"/>
-						</MultiTrigger>
-						<MultiTrigger>
-							<MultiTrigger.Conditions>
-								<Condition Property="IsSelected" Value="true"/>
-								<Condition Property="TabStripPlacement" Value="Bottom"/>
-							</MultiTrigger.Conditions>
-							<Setter Property="Margin" Value="-2,-1,-2,-2"/>
-							<Setter Property="Margin" TargetName="Content" Value="0,1,0,0"/>
-						</MultiTrigger>
-						<MultiTrigger>
-							<MultiTrigger.Conditions>
-								<Condition Property="IsSelected" Value="true"/>
-								<Condition Property="TabStripPlacement" Value="Left"/>
-							</MultiTrigger.Conditions>
-							<Setter Property="Margin" Value="-2,-2,-1,-2"/>
-							<Setter Property="Margin" TargetName="Content" Value="0,0,1,0"/>
-						</MultiTrigger>
-						<MultiTrigger>
-							<MultiTrigger.Conditions>
-								<Condition Property="IsSelected" Value="true"/>
-								<Condition Property="TabStripPlacement" Value="Right"/>
-							</MultiTrigger.Conditions>
-							<Setter Property="Margin" Value="-1,-2,-2,-2"/>
-							<Setter Property="Margin" TargetName="Content" Value="1,0,0,0"/>
-						</MultiTrigger>
 						<Trigger Property="IsEnabled" Value="false">
 							<Setter Property="Background" TargetName="Bd" Value="{StaticResource TabItemDisabledBackground}"/>
 							<Setter Property="BorderBrush" TargetName="Bd" Value="{StaticResource TabItemDisabledBorderBrush}"/>
