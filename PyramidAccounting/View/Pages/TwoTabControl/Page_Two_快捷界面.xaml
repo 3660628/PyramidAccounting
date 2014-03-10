@@ -9,7 +9,7 @@
 
     <Grid>
         <StatusBar Height="25" Margin="0" VerticalAlignment="Bottom" Background="DarkGray"/>
-        <TabControl Margin="0,0,0,25">
+        <TabControl Margin="0,0,0,25" BorderThickness="0">
             <TabItem Header="快捷导航" Margin="16,-2,-20,-1" Template="{DynamicResource TabItemControlTemplate_TwoTabHeader}">
                 <Grid Background="#FFE5E5E5"/>
             </TabItem>
