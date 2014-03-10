@@ -15,11 +15,11 @@ using System.Windows.Shapes;
 namespace PA.View.Pages
 {
     /// <summary>
-    /// Interaction logic for Page1.xaml
+    /// Interaction logic for Page_MainTabControl.xaml
     /// </summary>
-    public partial class Page1 : Page
+    public partial class Page_MainTabControl : Page
     {
-        public Page1()
+        public Page_MainTabControl()
         {
             InitializeComponent();
         }

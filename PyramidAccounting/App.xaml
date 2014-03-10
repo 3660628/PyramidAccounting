@@ -5,7 +5,8 @@
     <Application.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
-                <ResourceDictionary Source="View\ResourceDictionarys\Button.xaml" />
+                <ResourceDictionary Source="View\ResourceDictionarys\Button\MinMaxClose.xaml" />
+                <ResourceDictionary Source="View\ResourceDictionarys\TabControl\MainTabControl.xaml" />
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Application.Resources>

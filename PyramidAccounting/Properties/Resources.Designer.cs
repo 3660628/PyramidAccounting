@@ -59,5 +59,14 @@ namespace PA.Properties {
                 resourceCulture = value;
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string DatabaseTable {
+            get {
+                return ResourceManager.GetString("DatabaseTable", resourceCulture);
+            }
+        }
     }
 }
