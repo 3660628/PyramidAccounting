@@ -11,27 +11,27 @@
         <Grid Height="29" Margin="0" VerticalAlignment="Top" Background="#FF29A2FF" IsEnabled="False"/>
         <TabControl x:Name="TabControl_Main" TabStripPlacement="Left" Background="{x:Null}" BorderBrush="{x:Null}" BorderThickness="0" Margin="-2">
             <TabItem Header="快捷界面" Width="150" Height="40" Margin="-1,82,1,-82" Template="{DynamicResource TabItemControlTemplate_MainTabItem}">
-                <Grid>
+                <Grid Margin="-4,0,0,0">
                     <Frame x:Name="Frame_快捷界面" Content="" Margin="0" NavigationUIVisibility="Hidden"/>
                 </Grid>
             </TabItem>
             <TabItem Header="凭证管理" Width="150" Height="40" Margin="-1,82,1,-82" Template="{DynamicResource TabItemControlTemplate_MainTabItem}">
-                <Grid>
+                <Grid Margin="-4,0,0,0">
                     <Frame x:Name="Frame_凭证管理" Content="" Margin="0" NavigationUIVisibility="Hidden"/>
                 </Grid>
             </TabItem>
             <TabItem Header="账簿管理" Width="150" Height="40" Margin="-1,82,1,-82" Template="{DynamicResource TabItemControlTemplate_MainTabItem}">
-                <Grid>
+                <Grid Margin="-4,0,0,0">
                     <Frame x:Name="Frame_账簿管理" Content="" Margin="0" NavigationUIVisibility="Hidden"/>
                 </Grid>
             </TabItem>
             <TabItem Header="报表管理" Width="150" Height="40" Margin="-1,82,1,-82" Template="{DynamicResource TabItemControlTemplate_MainTabItem}">
-                <Grid>
+                <Grid Margin="-4,0,0,0">
                     <Frame x:Name="Frame_报表管理" Content="" Margin="0" NavigationUIVisibility="Hidden"/>
                 </Grid>
             </TabItem>
             <TabItem Header="系统管理" Width="150" Height="40" Margin="-1,82,1,-82" Template="{DynamicResource TabItemControlTemplate_MainTabItem}">
-                <Grid>
+                <Grid Margin="-4,0,0,0">
                     <Frame x:Name="Frame_系统管理" Content="" Margin="0" NavigationUIVisibility="Hidden"/>
                 </Grid>
             </TabItem>
