@@ -13,7 +13,7 @@
             <TabItem Header="TabItem" Margin="16,-2,-20,-1" Template="{DynamicResource TabItemControlTemplate_TwoTabHeader}">
                 <Grid Background="#FFE5E5E5"/>
             </TabItem>
-            <TabItem Header="TabItem" Margin="30,-2,-34,-1">
+            <TabItem Header="TabItem" Margin="30,-2,-34,-1" Template="{DynamicResource TabItemControlTemplate_TwoTabHeader}">
                 <Grid Background="#FFE5E5E5"/>
             </TabItem>
         </TabControl>

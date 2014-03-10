@@ -2,7 +2,7 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
 	<ControlTemplate x:Key="TabItemControlTemplate_TwoTabHeader" TargetType="{x:Type TabItem}">
 		<Grid x:Name="grid" Width="Auto" Height="Auto">
-			<Border x:Name="Bd" BorderThickness="1,1,1,0" Margin="0" Background="White" Padding="10,5">
+			<Border x:Name="Bd" BorderThickness="1,1,1,0" Margin="0" Background="White" Padding="15,5">
 				<ContentPresenter x:Name="Content" ContentSource="Header" HorizontalAlignment="{Binding HorizontalContentAlignment, RelativeSource={RelativeSource AncestorType={x:Type ItemsControl}}}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{Binding VerticalContentAlignment, RelativeSource={RelativeSource AncestorType={x:Type ItemsControl}}}"/>
 			</Border>
 		</Grid>
@@ -12,7 +12,7 @@
 					<Condition Property="Selector.IsSelected" Value="False"/>
 					<Condition Property="IsMouseOver" Value="True"/>
 				</MultiTrigger.Conditions>
-				<Setter Property="Background" TargetName="Bd" Value="#FF952727"/>
+				<Setter Property="Background" TargetName="Bd" Value="#FF3179B0"/>
 			</MultiTrigger>
 			<MultiTrigger>
 				<MultiTrigger.Conditions>
