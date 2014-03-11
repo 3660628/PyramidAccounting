@@ -11,7 +11,16 @@
         <StatusBar Height="25" Margin="0" VerticalAlignment="Bottom" Background="DarkGray"/>
         <TabControl Margin="0,0,0,25" BorderBrush="White">
             <TabItem Header="本期凭证" Margin="20,-2,-20,-1" Template="{DynamicResource TabItemControlTemplate_TwoTabHeader}">
-                <Grid Background="White"/>
+                <Grid Background="White">
+                    <Button x:Name="Button_Add" Content="新增" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="50"/>
+                    <Button x:Name="Button_Del" Content="删除" HorizontalAlignment="Left" Margin="70,10,0,0" VerticalAlignment="Top" Width="50"/>
+                    <Button x:Name="Button_Review" Content="审核" HorizontalAlignment="Left" Margin="130,10,0,0" VerticalAlignment="Top" Width="50"/>
+                    <Button x:Name="Button_DisReview" Content="反审核" HorizontalAlignment="Left" Margin="190,10,0,0" VerticalAlignment="Top" Width="50"/>
+                    <Button x:Name="Button_Print" Content="打印" HorizontalAlignment="Left" Margin="250,10,0,0" VerticalAlignment="Top" Width="50"/>
+                    <DataGrid x:Name="DataGrid_本期凭证" ItemsSource="{Binding}" HorizontalAlignment="Left" Margin="10,35,0,0" VerticalAlignment="Top" Width="775"/>
+                    <Label Content="凭证张数：" HorizontalAlignment="Left" Margin="639,10,0,0" VerticalAlignment="Top"/>
+                    <TextBlock HorizontalAlignment="Left" Margin="714,15,0,0" TextWrapping="Wrap" Text="null" VerticalAlignment="Top"/>
+                </Grid>
             </TabItem>
             <TabItem Header="全部凭证" Margin="30,-2,-30,-1" Template="{DynamicResource TabItemControlTemplate_TwoTabHeader}">
                 <Grid Background="White"/>

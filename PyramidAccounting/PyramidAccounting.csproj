@@ -186,7 +186,7 @@
   <ItemGroup>
     <Resource Include="View\Pages\Pop\快捷界面\Readme.txt" />
     <Resource Include="Model\ComboBox\Readme.txt" />
-    <Resource Include="Model\DateGrid\Readme.txt" />
+    <Resource Include="Model\DataGrid\Readme.txt" />
     <Resource Include="ViewModel\Readme.txt" />
     <None Include="Resources\DatabaseTable.sql" />
     <Resource Include="View\Images\Button\MinMaxClose\Close.png" />
