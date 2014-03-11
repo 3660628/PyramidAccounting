@@ -10,7 +10,8 @@ CREATE TABLE T_VOUCHER (								--凭证表
     ACCOUNTANT        TEXT,								--会计主管
     BOOKEEPER         TEXT,								--记账
     REVIEWER          TEXT,								--复核
-    DOCUMENTMARKER    TEXT 								--制单
+    DOCUMENTMARKER    TEXT, 							--制单
+	REVIEWER          INTEGER,							--复核标记  0：未审核，1：已审核
 );
 CREATE TABLE T_VOUCHER_DETAIL (							--凭证明细表
     ID            INTEGER PRIMARY KEY,					--ID
