@@ -78,6 +78,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Helper\DataBase\DataBase.cs" />
     <Compile Include="Helper\DataBase\DBInitialize.cs" />
     <Compile Include="Helper\XMLHelper\XMLReader.cs" />
     <Compile Include="View\Pages\Page_MainTabControl.xaml.cs">

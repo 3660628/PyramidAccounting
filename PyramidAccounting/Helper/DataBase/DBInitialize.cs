@@ -5,14 +5,18 @@ using System.Text;
 using System.Data.SQLite;
 using System.IO;
 
-namespace PA.Data
+namespace PA.Helper.DataBase
 {
     public class DBInitialize
     {
-        public static string dataSource = "";
+        public static string dataSource = "Data\\test.db";
         public static string dbPassword = "";
 
         public DBInitialize()
+        {
+            Console.WriteLine("DBInitialize");
+        }
+        public void Initalize()
         {
             //新建数据库
             SQLiteConnection.CreateFile(dataSource);
@@ -24,7 +28,20 @@ namespace PA.Data
             conn.Open();
             conn.Close();
 
+            DataBase db = new DataBase();
+            List<string> tableList = new List<string>();
+            tableList = getSqlList(Properties.Resources.DatabaseTable);
+            db.BatchOperate(tableList);
+        }
 
+        public static SQLiteConnection getDBConnection()
+        {
+            SQLiteConnection conn = new SQLiteConnection();
+            SQLiteConnectionStringBuilder connstr = new SQLiteConnectionStringBuilder();
+            connstr.DataSource = dataSource;
+            conn.ConnectionString = connstr.ToString();
+            //conn.SetPassword(password);
+            return conn;
         }
         /// <summary>
         /// 获取SQL创建脚步方法，封装成List<string>
