@@ -184,6 +184,7 @@
     <AppDesigner Include="Properties\" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="Model\DateGrid\Readme.txt" />
     <Resource Include="View\Pages\Pop\快捷界面\Readme.txt" />
     <Resource Include="Model\ComboBox\Readme.txt" />
     <Resource Include="Model\DataGrid\Readme.txt" />
