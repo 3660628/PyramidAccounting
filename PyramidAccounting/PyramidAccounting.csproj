@@ -81,6 +81,7 @@
     <Compile Include="Helper\DataBase\DataBase.cs" />
     <Compile Include="Helper\DataBase\DBInitialize.cs" />
     <Compile Include="Helper\XMLHelper\XMLReader.cs" />
+    <Compile Include="Model\DataGrid\Model_凭证单.cs" />
     <Compile Include="Model\DataGrid\Model_凭证明细.cs" />
     <Compile Include="Model\DataGrid\Model_凭证管理.cs" />
     <Compile Include="View\Pages\Page_MainTabControl.xaml.cs">
@@ -103,9 +104,6 @@
     </Compile>
     <Compile Include="View\Windows\AboutWindow.xaml.cs">
       <DependentUpon>AboutWindow.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="View\Windows\Win_凭证输入.xaml.cs">
-      <DependentUpon>Win_凭证输入.xaml</DependentUpon>
     </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -163,10 +161,6 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\Windows\Win_凭证输入.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">
@@ -186,7 +180,6 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <None Include="app.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

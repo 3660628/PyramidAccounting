@@ -10,16 +10,16 @@ CREATE TABLE T_VOUCHER (								--凭证表
     VOUCHER_NO        TEXT,								--凭证号
     OP_TIME           DATETIME,							--制表时间
     WORD              TEXT,								--字
-    NUMBER            TEXT,								--号
+    NUMBER            INTEGER,							--号
     SUBSIDIARY_COUNTS INTEGER,							--附属单证数
     FEE_DEBIT         DECIMAL,							--合计借方总额
     FEE_CREDIT        DECIMAL,							--合计贷方总额
     ACCOUNTANT        TEXT,								--会计主管
     BOOKEEPER         TEXT,								--记账
     REVIEWER          TEXT,								--审核
-	REVIEWER          INTEGER,							--复核标记  0：未审核，1：已审核
+	REVIEW_MARK       INTEGER,							--复核标记  0：未审核，1：已审核
 	DELETE_MARK		  INTEGER DEFAULT ( 0 ),            --删除标志   -1表示已删除
-	BOOK_ID			  TEXT								--账套ID  DEFAULT
+	BOOK_ID			  TEXT  							--账套ID  DEFAULT
 );
 CREATE TABLE T_VOUCHER_DETAIL (							--凭证明细表
     ID            INTEGER PRIMARY KEY,					--ID
