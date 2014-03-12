@@ -8,7 +8,6 @@ namespace PA.Helper.DataBase
 {
     class StartUpInit
     {
-        private string path = Properties.Settings.Default.Path;
         private string defaultDBName = "PyramidAccounting.db";
         private string guidePath = "Guid.jb";
         public StartUpInit()
