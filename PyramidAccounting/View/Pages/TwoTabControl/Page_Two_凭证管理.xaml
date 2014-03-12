@@ -17,21 +17,21 @@
                     <Button x:Name="Button_Review" Content="审核" HorizontalAlignment="Left" Margin="130,10,0,0" VerticalAlignment="Top" Width="50"/>
                     <Button x:Name="Button_DisReview" Content="反审核" HorizontalAlignment="Left" Margin="190,10,0,0" VerticalAlignment="Top" Width="50"/>
                     <Button x:Name="Button_Print" Content="打印" HorizontalAlignment="Left" Margin="250,10,0,0" VerticalAlignment="Top" Width="50"/>
-                    <DataGrid x:Name="DataGrid_本期凭证" ItemsSource="{Binding}" HorizontalAlignment="Left" Margin="10,35,0,0" VerticalAlignment="Top" Width="775">
+                    <DataGrid x:Name="DataGrid_本期凭证" ItemsSource="{Binding}" HorizontalAlignment="Stretch" Margin="10,44,0,0" VerticalAlignment="Stretch">
                         <DataGrid.Columns>
-                            <DataGridTextColumn Header="凭证号" Width="80"/>
-                            <DataGridTextColumn Header="制表日期" Width="80"/>
-                            <DataGridTextColumn Header="摘要" Width="120"/>
-                            <DataGridTextColumn Header="科目编号" Width="80"/>
-                            <DataGridTextColumn Header="科目名称" Width="120" />
-                            <DataGridTextColumn Header="借方金额" Width="80"/>
-                            <DataGridTextColumn Header="贷方金额" Width="80"/>
-                            <DataGridTextColumn Header="当前期数" Width="70"/>
-                            <DataGridTextColumn Header="审核状态" Width="70"/>
+                            <DataGridTextColumn Header="凭证号"/>
+                            <DataGridTextColumn Header="制表日期"/>
+                            <DataGridTextColumn Header="摘要"/>
+                            <DataGridTextColumn Header="科目编号"/>
+                            <DataGridTextColumn Header="科目名称" />
+                            <DataGridTextColumn Header="借方金额" />
+                            <DataGridTextColumn Header="贷方金额" />
+                            <DataGridTextColumn Header="当前期数" />
+                            <DataGridTextColumn Header="审核状态" />
                         </DataGrid.Columns>
                     </DataGrid>
-                    <Label Content="凭证张数：" HorizontalAlignment="Left" Margin="639,10,0,0" VerticalAlignment="Top"/>
-                    <TextBlock HorizontalAlignment="Left" Margin="714,15,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top"/>
+                    <Label Content="凭证张数：" HorizontalAlignment="Right" Margin="0,10,73,0" VerticalAlignment="Top"/>
+                    <TextBlock HorizontalAlignment="Right" Margin="0,14,60,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top"/>
                 </Grid>
             </TabItem>
             <TabItem Header="全部凭证" Margin="30,-2,-30,-1" Template="{DynamicResource TabItemControlTemplate_TwoTabHeader}">
