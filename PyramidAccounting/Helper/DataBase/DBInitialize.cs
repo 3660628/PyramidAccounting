@@ -9,7 +9,7 @@ namespace PA.Helper.DataBase
 {
     public class DBInitialize
     {
-        public static string dataSource = "Data\\test.db";
+        public static string dataSource = "Data\\" + new StartUpInit().LoadDBName();
         public static string dbPassword = "";
 
         public DBInitialize()
