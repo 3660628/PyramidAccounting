@@ -32,6 +32,9 @@ namespace PA.Helper.DataBase
             List<string> tableList = new List<string>();
             tableList = getSqlList(Properties.Resources.DatabaseTable);
             db.BatchOperate(tableList);
+            tableList.Clear();
+            tableList = getSqlList(Properties.Resources.DatabaseData);
+            db.BatchOperate(tableList);
         }
 
         public static SQLiteConnection getDBConnection()
