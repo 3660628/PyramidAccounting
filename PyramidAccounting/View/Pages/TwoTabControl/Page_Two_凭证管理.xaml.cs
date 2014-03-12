@@ -23,5 +23,6 @@ namespace PA.View.Pages.TwoTabControl
         {
             InitializeComponent();
         }
+
     }
 }
