@@ -11,7 +11,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using PA.Model.EventArgss;
+using PA.Model.CustomEventArgs;
 
 namespace PA.View.Pages.Pop.凭证录入
 {

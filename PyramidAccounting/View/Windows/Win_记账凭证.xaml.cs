@@ -12,7 +12,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using System.Data;
 using PA.Model.DataGrid;
-using PA.Model.EventArgss;
+using PA.Model.CustomEventArgs;
 
 namespace PA.View.Windows
 {

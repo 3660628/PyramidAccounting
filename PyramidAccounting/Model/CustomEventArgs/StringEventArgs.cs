@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace PA.Model.EventArgss
+namespace PA.Model.CustomEventArgs
 {
     public class StringEventArgs : EventArgs
     {
