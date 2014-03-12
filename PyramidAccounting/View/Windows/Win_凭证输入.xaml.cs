@@ -13,10 +13,12 @@ using System.Windows.Shapes;
 
 namespace PA.View.Windows
 {
-
-    public partial class AboutWindow : Window
+    /// <summary>
+    /// Interaction logic for Win_凭证输入.xaml
+    /// </summary>
+    public partial class Win_凭证输入 : Window
     {
-        public AboutWindow()
+        public Win_凭证输入()
         {
             InitializeComponent();
         }
@@ -24,6 +26,11 @@ namespace PA.View.Windows
         private void Button_Close_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
+        }
+
+        private void Window_凭证输入_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            this.DragMove();
         }
     }
 }

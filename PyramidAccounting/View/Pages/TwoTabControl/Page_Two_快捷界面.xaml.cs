@@ -23,5 +23,35 @@ namespace PA.View.Pages.TwoTabControl
         {
             InitializeComponent();
         }
+
+        private void Button_凭证输入_Click(object sender, RoutedEventArgs e)
+        {
+            new PA.View.Windows.Win_凭证输入().Show();
+        }
+
+        private void Button_凭证审核_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Button_凭证过账_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Button_查询修改_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Button_本月结账_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Button_账目查询_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

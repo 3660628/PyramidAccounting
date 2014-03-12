@@ -28,12 +28,12 @@
                         <RowDefinition Height="46*"/>
                         <RowDefinition Height="5*"/>
                     </Grid.RowDefinitions>
-                    <Button Content="凭证输入" HorizontalAlignment="Center" Margin="0" VerticalAlignment="Center" Width="150" Height="168" Grid.Row="1" Grid.Column="1"/>
-                    <Button Content="凭证审核" HorizontalAlignment="Center" Margin="0" VerticalAlignment="Center" Width="150" Height="168" Grid.Column="2" Grid.Row="1"/>
-                    <Button Content="凭证过账" HorizontalAlignment="Center" Margin="0" VerticalAlignment="Center" Width="150" Height="168" Grid.Column="3" Grid.Row="1"/>
-                    <Button Content="查询修改" HorizontalAlignment="Center" Margin="0" VerticalAlignment="Center" Width="150" Height="168" Grid.Row="2" Grid.Column="1"/>
-                    <Button Content="本月结账" HorizontalAlignment="Center" Margin="0" VerticalAlignment="Center" Width="150" Height="168" Grid.Column="2" Grid.Row="2"/>
-                    <Button Content="账目查询" HorizontalAlignment="Center" Margin="0" VerticalAlignment="Center" Width="150" Height="168" Grid.Column="3" Grid.Row="2"/>
+                    <Button x:Name="Button_凭证输入" Content="凭证输入" HorizontalAlignment="Center" Margin="0" VerticalAlignment="Center" Width="150" Height="168" Grid.Row="1" Grid.Column="1" Click="Button_凭证输入_Click"/>
+                    <Button x:Name="Button_凭证审核" Content="凭证审核" HorizontalAlignment="Center" Margin="0" VerticalAlignment="Center" Width="150" Height="168" Grid.Column="2" Grid.Row="1" Click="Button_凭证审核_Click"/>
+                    <Button x:Name="Button_凭证过账" Content="凭证过账" HorizontalAlignment="Center" Margin="0" VerticalAlignment="Center" Width="150" Height="168" Grid.Column="3" Grid.Row="1" Click="Button_凭证过账_Click"/>
+                    <Button x:Name="Button_查询修改" Content="查询修改" HorizontalAlignment="Center" Margin="0" VerticalAlignment="Center" Width="150" Height="168" Grid.Row="2" Grid.Column="1" Click="Button_查询修改_Click"/>
+                    <Button x:Name="Button_本月结账" Content="本月结账" HorizontalAlignment="Center" Margin="0" VerticalAlignment="Center" Width="150" Height="168" Grid.Column="2" Grid.Row="2" Click="Button_本月结账_Click"/>
+                    <Button x:Name="Button_账目查询" Content="账目查询" HorizontalAlignment="Center" Margin="0" VerticalAlignment="Center" Width="150" Height="168" Grid.Column="3" Grid.Row="2" Click="Button_账目查询_Click"/>
                 </Grid>
             </TabItem>
             <TabItem Header="帐套信息" Margin="30,-2,-30,-1" Template="{DynamicResource TabItemControlTemplate_TwoTabHeader}">
