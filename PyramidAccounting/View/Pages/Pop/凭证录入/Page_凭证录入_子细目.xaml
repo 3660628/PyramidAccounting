@@ -8,6 +8,7 @@
 	Title="Page_凭证录入_子细目">
 
     <Grid>
-        
+        <Label Content="子细目" HorizontalAlignment="Left" Margin="38,36,0,0" VerticalAlignment="Top"/>
+
     </Grid>
 </Page>

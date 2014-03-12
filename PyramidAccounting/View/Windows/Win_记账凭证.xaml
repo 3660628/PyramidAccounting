@@ -56,7 +56,7 @@
                     <DropShadowEffect ShadowDepth="0"/>
                 </Grid.Effect>
                 <Grid Margin="0" VerticalAlignment="Top" Height="25" Background="#FF29A2FF"/>
-                <Frame Content="" Margin="0,25,0,0" NavigationUIVisibility="Hidden"/>
+                <Frame x:Name="Frame_科目子细目" Content="" Margin="0,25,0,0" NavigationUIVisibility="Hidden"/>
                 <Button x:Name="Button_PopupClose" Content="Button" HorizontalAlignment="Right" Margin="0" VerticalAlignment="Top" Width="28" Height="20" Template="{DynamicResource ButtonControlTemplate_Close}" Click="Button_PopupClose_Click"/>
             </Grid>
         </Popup>

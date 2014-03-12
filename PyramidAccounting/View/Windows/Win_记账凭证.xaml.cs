@@ -94,11 +94,13 @@ namespace PA.View.Windows
             CellHeader = DoubleClickCell.Column.Header.ToString();
             if (DoubleClickCell.Column.Header.ToString() == "科目")
             {
+                this.Frame_科目子细目.Content = new PA.View.Pages.Pop.凭证录入.Page_凭证录入_科目();
                 this.Popup_科目子细目.IsOpen = true;
                 this.Window_记账凭证.IsEnabled = false;
             }
             else if (DoubleClickCell.Column.Header.ToString() == "子细目")
             {
+                this.Frame_科目子细目.Content = new PA.View.Pages.Pop.凭证录入.Page_凭证录入_子细目();
                 this.Popup_科目子细目.IsOpen = true;
                 this.Window_记账凭证.IsEnabled = false;
             }
