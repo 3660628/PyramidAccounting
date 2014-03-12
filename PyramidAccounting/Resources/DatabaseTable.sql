@@ -1,3 +1,9 @@
+CREATE TABLE T_BOOKS (									--账套表
+    ID                TEXT PRIMARY KEY,					--账套ID
+    BOOK_NAME         TEXT,								--账套名称
+    CREATE_DATE       DATE,								--账套启用日期
+    ACCOUNTING_SYSTEM TEXT								--会计制度
+);
 CREATE TABLE T_VOUCHER (								--凭证表
     ID                INTEGER  PRIMARY KEY,             --凭证ID
     VOUCHER_NO        TEXT,								--凭证号
@@ -9,9 +15,9 @@ CREATE TABLE T_VOUCHER (								--凭证表
     FEE_CREDIT        DECIMAL,							--合计贷方总额
     ACCOUNTANT        TEXT,								--会计主管
     BOOKEEPER         TEXT,								--记账
-    REVIEWER          TEXT,								--复核
-    DOCUMENTMARKER    TEXT, 							--制单
+    REVIEWER          TEXT,								--审核
 	REVIEWER          INTEGER,							--复核标记  0：未审核，1：已审核
+	BOOK_ID			  TEXT								--账套ID  DEFAULT
 );
 CREATE TABLE T_VOUCHER_DETAIL (							--凭证明细表
     ID            INTEGER PRIMARY KEY,					--ID
@@ -21,5 +27,13 @@ CREATE TABLE T_VOUCHER_DETAIL (							--凭证明细表
     DETAIL        TEXT,									--子细目
     BOOKKEEP_MARK INTEGER,								--记账
     DEBIT         DECIMAL,								--借方
-    CREDIT        DECIMAL    							--贷方
+    CREDIT        DECIMAL,    							--贷方
+	BOOK_ID			  TEXT								--账套ID  DEFAULT
+);
+CREATE TABLE T_USER (									--用户表
+	USERID INTEGER PRIMARY KEY,							--USERID
+	USER_NAME TEXT NOT NULL UNIQUE,						--用户名
+	PASSWORD TEXT DEFAULT (123456),						--密码
+	PHONE_NO TEXT,										--手机号码
+	AUTHORITY INTEGER DEFAULT (0)						--权限     0：表示记账  1：审核   2：会计主管
 );
