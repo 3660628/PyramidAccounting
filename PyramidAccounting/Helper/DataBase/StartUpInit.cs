@@ -13,6 +13,11 @@ namespace PA.Helper.DataBase
         private string guidePath = "Guid.jb";
         public StartUpInit()
         {
+            
+        }
+
+        public void Init()
+        {
             string currentDBName = LoadDBName();
             List<string> folderList = new List<string>();
             folderList.Add("Data");
