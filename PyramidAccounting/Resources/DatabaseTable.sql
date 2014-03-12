@@ -2,7 +2,8 @@ CREATE TABLE T_BOOKS (									--账套表
     ID                TEXT PRIMARY KEY,					--账套ID
     BOOK_NAME         TEXT,								--账套名称
     CREATE_DATE       DATE,								--账套启用日期
-    ACCOUNTING_SYSTEM TEXT								--会计制度
+    ACCOUNTING_SYSTEM TEXT,								--会计制度
+	DELETE_MARK		  INTEGER DEFAULT ( 0 )				--删除标志    -1表示已删除
 );
 CREATE TABLE T_VOUCHER (								--凭证表
     ID                INTEGER  PRIMARY KEY,             --凭证ID
@@ -17,6 +18,7 @@ CREATE TABLE T_VOUCHER (								--凭证表
     BOOKEEPER         TEXT,								--记账
     REVIEWER          TEXT,								--审核
 	REVIEWER          INTEGER,							--复核标记  0：未审核，1：已审核
+	DELETE_MARK		  INTEGER DEFAULT ( 0 ),            --删除标志   -1表示已删除
 	BOOK_ID			  TEXT								--账套ID  DEFAULT
 );
 CREATE TABLE T_VOUCHER_DETAIL (							--凭证明细表
@@ -28,7 +30,7 @@ CREATE TABLE T_VOUCHER_DETAIL (							--凭证明细表
     BOOKKEEP_MARK INTEGER,								--记账
     DEBIT         DECIMAL,								--借方
     CREDIT        DECIMAL,    							--贷方
-	BOOK_ID			  TEXT								--账套ID  DEFAULT
+	BOOK_ID		  TEXT									--账套ID  DEFAULT
 );
 CREATE TABLE T_SUBJECT (								--科目表
     ID           INTEGER PRIMARY KEY,					--ID
@@ -38,8 +40,17 @@ CREATE TABLE T_SUBJECT (								--科目表
 );
 CREATE TABLE T_USER (									--用户表
 	USERID INTEGER PRIMARY KEY,							--USERID
-	USER_NAME TEXT NOT NULL UNIQUE,						--用户名
+	USERNAME TEXT NOT NULL UNIQUE,						--用户名
+	REALNAME TEXT,										--用户姓名
 	PASSWORD TEXT DEFAULT (123456),						--密码
 	PHONE_NO TEXT,										--手机号码
 	AUTHORITY INTEGER DEFAULT (0)						--权限     0：表示记账  1：审核   2：会计主管
+);
+CREATE TABLE T_RECORD (									--操作日志表
+    ID          INTEGER  PRIMARY KEY,					--ID
+    OP_TIME     DATETIME,								--日期
+    USERNAME    TEXT,									--用户名
+    REALNAME    TEXT,									--姓名
+    OP_TYPE     TEXT,									--操作类型
+    LOG         TEXT									--日志
 );
