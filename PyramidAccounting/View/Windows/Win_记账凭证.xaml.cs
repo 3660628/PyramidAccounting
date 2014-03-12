@@ -60,7 +60,10 @@ namespace PA.View.Windows
 
         private void Window_凭证输入_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            this.DragMove();
+            if (!this.Popup_科目子细目.IsOpen)
+            {
+                this.DragMove();
+            }
         }
 
         private void Button_保存_Click(object sender, RoutedEventArgs e)
@@ -80,11 +83,21 @@ namespace PA.View.Windows
 
         }
 
-        private void DataGrid_凭证明细_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        private void DataGrid_凭证明细_Cell_MouseDoubleClick(object sender, RoutedEventArgs e)
         {
-
+            DataGridCellInfo DoubleClickCell = this.DataGrid_凭证明细.CurrentCell;
+            if (DoubleClickCell.Column.Header.ToString() == "科目" || DoubleClickCell.Column.Header.ToString() == "子细目")
+            {
+                this.Popup_科目子细目.IsOpen = true;
+                this.Window_记账凭证.IsEnabled = false;
+            }
         }
 
+        private void Button_PopupClose_Click(object sender, RoutedEventArgs e)
+        {
+            this.Popup_科目子细目.IsOpen = false;
+            this.Window_记账凭证.IsEnabled = true;
+        }
 
         #endregion
     }
