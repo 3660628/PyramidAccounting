@@ -45,7 +45,7 @@ namespace PA.Model.DataGrid
         public string 子细目
         {
             get { return deal; }
-            set { deal = value; }
+            set { deal = value; NotifyPropertyChanged("子细目"); }
         }
 
         public string 科目编号
@@ -72,18 +72,7 @@ namespace PA.Model.DataGrid
             set { id = value; }
         }
 
-        #region INotifyPropertyChanged Members
-
         public event PropertyChangedEventHandler PropertyChanged;
-
-        #endregion
-
-        #region Private Helpers
-
-        /// <summary>
-        /// cell内容改变事件
-        /// </summary>
-        /// <param name="propertyName"></param>
         private void NotifyPropertyChanged(string propertyName)
         {
             if (PropertyChanged != null)
@@ -92,6 +81,5 @@ namespace PA.Model.DataGrid
             }
         }
 
-        #endregion
     }
 }

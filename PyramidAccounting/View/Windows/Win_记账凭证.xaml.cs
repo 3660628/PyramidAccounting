@@ -21,6 +21,9 @@ namespace PA.View.Windows
     public partial class Win_记账凭证 : Window
     {
         Model_凭证单 Voucher = new Model_凭证单();
+        private int CellId;
+        private string CellHeader;
+
         public Win_记账凭证()
         {
             InitializeComponent();
@@ -30,8 +33,6 @@ namespace PA.View.Windows
         #region 非事件
         private void InitData()
         {
-            this.DatePicker_Date.SelectedDate = DateTime.Now;
-            //Model_凭证单 InitVoucher = new Model_凭证单();
             Voucher.凭证明细 = new List<Model_凭证明细>();
             for (int i = 0; i < 6; i++)
             {
@@ -39,20 +40,18 @@ namespace PA.View.Windows
                 a.ID = i;
                 Voucher.凭证明细.Add(a);
             }
-            this.DataGrid_凭证明细.ItemsSource = Voucher.凭证明细;
+            FillData();
         }
         private void FillData()
         {
-
+            this.DatePicker_Date.SelectedDate = DateTime.Now;
+            this.ComboBox_总收付转.SelectedIndex = 0;
+            this.TextBox_号.Text = "0";
+            this.DataGrid_凭证明细.ItemsSource = Voucher.凭证明细;
         }
         private Model_凭证单 GetData()
         {
-            Model_凭证单 NewVoucher = new Model_凭证单();
-            NewVoucher.制表时间 = (DateTime)this.DatePicker_Date.SelectedDate;
-            NewVoucher.字 = this.ComboBox_总收付转.Text;
-            NewVoucher.号 = int.Parse(this.TextBox_号.Text);
-            NewVoucher.凭证明细 = this.DataGrid_凭证明细.ItemsSource as List<Model_凭证明细>;
-            return NewVoucher;
+            return Voucher;
         }
         #endregion
 
@@ -86,13 +85,13 @@ namespace PA.View.Windows
         {
             
         }
-        private Model_凭证明细 SelectedRow;
-        private int id;
+        
         private void DataGrid_凭证明细_Cell_MouseDoubleClick(object sender, RoutedEventArgs e)
         {
-            SelectedRow = (Model_凭证明细)(this.DataGrid_凭证明细 as DataGrid).SelectedItems[0];
+            Model_凭证明细 SelectedRow = (Model_凭证明细)(this.DataGrid_凭证明细 as DataGrid).SelectedItems[0];
             DataGridCellInfo DoubleClickCell = this.DataGrid_凭证明细.CurrentCell;
-            id = SelectedRow.ID;
+            CellId = SelectedRow.ID;
+            CellHeader = DoubleClickCell.Column.Header.ToString();
             if (DoubleClickCell.Column.Header.ToString() == "科目")
             {
                 this.Popup_科目子细目.IsOpen = true;
@@ -109,7 +108,7 @@ namespace PA.View.Windows
         {
             this.Popup_科目子细目.IsOpen = false;
             this.Window_记账凭证.IsEnabled = true;
-            Voucher.凭证明细[id].科目编号 = "asd";
+            Voucher.凭证明细[CellId].科目编号 = "asd";
         }
 
         #endregion
