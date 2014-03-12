@@ -86,7 +86,12 @@ namespace PA.View.Windows
         private void DataGrid_凭证明细_Cell_MouseDoubleClick(object sender, RoutedEventArgs e)
         {
             DataGridCellInfo DoubleClickCell = this.DataGrid_凭证明细.CurrentCell;
-            if (DoubleClickCell.Column.Header.ToString() == "科目" || DoubleClickCell.Column.Header.ToString() == "子细目")
+            if (DoubleClickCell.Column.Header.ToString() == "科目")
+            {
+                this.Popup_科目子细目.IsOpen = true;
+                this.Window_记账凭证.IsEnabled = false;
+            }
+            else if(DoubleClickCell.Column.Header.ToString() == "子细目")
             {
                 this.Popup_科目子细目.IsOpen = true;
                 this.Window_记账凭证.IsEnabled = false;
