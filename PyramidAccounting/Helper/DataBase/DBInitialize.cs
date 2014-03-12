@@ -14,7 +14,7 @@ namespace PA.Helper.DataBase
 
         public DBInitialize()
         {
-            Console.WriteLine("DBInitialize");
+            Log.Write("DBInitialize");
         }
         public void Initialize()
         {

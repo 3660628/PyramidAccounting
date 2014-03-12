@@ -82,6 +82,7 @@
     </ApplicationDefinition>
     <Compile Include="Helper\DataBase\DataBase.cs" />
     <Compile Include="Helper\DataBase\DBInitialize.cs" />
+    <Compile Include="Helper\DataBase\Log.cs" />
     <Compile Include="Helper\DataBase\StartUpInit.cs" />
     <Compile Include="Helper\XMLHelper\XMLReader.cs" />
     <Compile Include="Model\DataGrid\Model_凭证单.cs" />
