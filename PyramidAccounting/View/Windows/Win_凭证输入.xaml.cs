@@ -22,22 +22,29 @@ namespace PA.View.Windows
         public Win_凭证输入()
         {
             InitializeComponent();
-            Model_凭证单 m = new Model_凭证单();
-            m.凭证明细 = new List<Model_凭证明细>();
+            this.DatePicker_Date.SelectedDate = DateTime.Now;
+            Model_凭证单 InitVoucher = new Model_凭证单();
+            InitVoucher.凭证明细 = new List<Model_凭证明细>();
             for (int i = 0; i < 6; i++ )
             {
-                m.凭证明细.Add(new Model_凭证明细());
+                InitVoucher.凭证明细.Add(new Model_凭证明细());
             }
-            this.DataGrid_凭证明细.ItemsSource = m.凭证明细;
+            this.DataGrid_凭证明细.ItemsSource = InitVoucher.凭证明细;
         }
 
         #region 非事件
-        private void InsertData()
+        private Model_凭证单 GetData()
         {
-
+            Model_凭证单 NewVoucher = new Model_凭证单();
+            NewVoucher.制表时间 = (DateTime)this.DatePicker_Date.SelectedDate;
+            NewVoucher.字 = this.ComboBox_总收付转.SelectedValue.ToString();
+            NewVoucher.号 = int.Parse(this.TextBox_号.Text);
+            NewVoucher.凭证明细 = this.DataGrid_凭证明细.ItemsSource as List<Model_凭证明细>;
+            return NewVoucher;
         }
         #endregion
 
+        #region 控件事件
         private void Button_Close_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
@@ -50,16 +57,23 @@ namespace PA.View.Windows
 
         private void Button_保存_Click(object sender, RoutedEventArgs e)
         {
-            InsertData();
+            GetData();
             this.Close();
         }
 
         private void Button_保存并新增_Click(object sender, RoutedEventArgs e)
         {
-            InsertData();
+            GetData();
         }
 
         private void Button_打印_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        #endregion
+
+        private void DataGrid_凭证明细_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
 
         }
