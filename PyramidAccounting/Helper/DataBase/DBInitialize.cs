@@ -16,7 +16,7 @@ namespace PA.Helper.DataBase
         {
             Console.WriteLine("DBInitialize");
         }
-        public void Initalize()
+        public void Initialize()
         {
             //新建数据库
             SQLiteConnection.CreateFile(dataSource);

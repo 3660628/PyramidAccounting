@@ -8,5 +8,8 @@
     <Setting Name="MainWindowRect" Type="System.Windows.Rect" Scope="User">
       <Value Profile="(Default)">0,0,0,0</Value>
     </Setting>
+    <Setting Name="Path" Type="System.String" Scope="User">
+      <Value Profile="(Default)">C:\</Value>
+    </Setting>
   </Settings>
 </SettingsFile>
