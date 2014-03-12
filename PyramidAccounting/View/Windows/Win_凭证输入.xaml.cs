@@ -22,17 +22,25 @@ namespace PA.View.Windows
         public Win_凭证输入()
         {
             InitializeComponent();
+            InitData();
+        }
+
+        #region 非事件
+        private void InitData()
+        {
             this.DatePicker_Date.SelectedDate = DateTime.Now;
             Model_凭证单 InitVoucher = new Model_凭证单();
             InitVoucher.凭证明细 = new List<Model_凭证明细>();
-            for (int i = 0; i < 6; i++ )
+            for (int i = 0; i < 6; i++)
             {
                 InitVoucher.凭证明细.Add(new Model_凭证明细());
             }
             this.DataGrid_凭证明细.ItemsSource = InitVoucher.凭证明细;
         }
+        private void FillData()
+        {
 
-        #region 非事件
+        }
         private Model_凭证单 GetData()
         {
             Model_凭证单 NewVoucher = new Model_凭证单();
@@ -64,6 +72,7 @@ namespace PA.View.Windows
         private void Button_保存并新增_Click(object sender, RoutedEventArgs e)
         {
             GetData();
+            InitData();
         }
 
         private void Button_打印_Click(object sender, RoutedEventArgs e)
@@ -71,11 +80,12 @@ namespace PA.View.Windows
 
         }
 
-        #endregion
-
         private void DataGrid_凭证明细_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
 
         }
+
+
+        #endregion
     }
 }

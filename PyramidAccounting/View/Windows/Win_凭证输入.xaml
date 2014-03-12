@@ -39,6 +39,6 @@
             <ComboBoxItem Content="转"/>
         </ComboBox>
         <Label Content="号" HorizontalAlignment="Right" Margin="0,67,10,0" VerticalAlignment="Top"/>
-        <Label Content="字" HorizontalAlignment="Left" Margin="696,69,0,0" VerticalAlignment="Top"/>
+        <Label Content="字" HorizontalAlignment="Left" Margin="696,67,0,0" VerticalAlignment="Top"/>
     </Grid>
 </Window>
