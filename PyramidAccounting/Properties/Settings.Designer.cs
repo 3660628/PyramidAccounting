@@ -22,5 +22,29 @@ namespace PA.Properties {
                 return defaultInstance;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool isMainWindowMax {
+            get {
+                return ((bool)(this["isMainWindowMax"]));
+            }
+            set {
+                this["isMainWindowMax"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0,0,0,0")]
+        public global::System.Windows.Rect MainWindowRect {
+            get {
+                return ((global::System.Windows.Rect)(this["MainWindowRect"]));
+            }
+            set {
+                this["MainWindowRect"] = value;
+            }
+        }
     }
 }

@@ -14,16 +14,36 @@ using System.Windows.Shapes;
 
 namespace PA
 {
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
     public partial class MainWindow : Window
     {
+        Rect WorkRect = SystemParameters.WorkArea;
+
         public MainWindow()
         {
             InitializeComponent();
             this.Frame_MainTabControl.Content = new PA.View.Pages.Page_MainTabControl();
         }
+
+        #region 非事件方法
+
+        private void MaxWindow()
+        {
+            this.Top = 0;
+            this.Left = 0;
+            this.Width = WorkRect.Width;
+            this.Height = WorkRect.Height;
+            Properties.Settings.Default.isMainWindowMax = true;
+        }
+        private void NormalWindowRect()
+        {
+            this.Height = Properties.Settings.Default.MainWindowRect.Height;
+            this.Width = Properties.Settings.Default.MainWindowRect.Width;
+            this.Left = Properties.Settings.Default.MainWindowRect.Left;
+            this.Top = Properties.Settings.Default.MainWindowRect.Top;
+            Properties.Settings.Default.isMainWindowMax = false;
+        }
+
+        #endregion
 
         private void Window_MainWindow_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
@@ -37,12 +57,29 @@ namespace PA
 
         private void Button_Max_Click(object sender, RoutedEventArgs e)
         {
-
+            if (Properties.Settings.Default.isMainWindowMax == true)
+            {
+                this.NormalWindowRect();
+            }
+            else
+            {
+                Properties.Settings.Default.MainWindowRect = new Rect(this.Left, this.Top, this.Width, this.Height);
+                this.MaxWindow();
+            }
         }
 
         private void Button_Min_Click(object sender, RoutedEventArgs e)
         {
             this.WindowState = System.Windows.WindowState.Minimized;
+        }
+
+        private void Window_MainWindow_SizeChanged(object sender, SizeChangedEventArgs e)
+        {
+            if (this.ActualHeight > WorkRect.Height || this.ActualWidth > WorkRect.Width)
+            {
+                this.WindowState = System.Windows.WindowState.Normal;
+                Button_Max_Click(null, null);
+            }
         }
     }
 }
