@@ -14,9 +14,7 @@ using System.Windows.Shapes;
 
 namespace PA.View.Pages.TwoTabControl
 {
-    /// <summary>
-    /// Interaction logic for Page_Two_快捷界面.xaml
-    /// </summary>
+
     public partial class Page_Two_快捷界面 : Page
     {
         public Page_Two_快捷界面()
@@ -26,7 +24,9 @@ namespace PA.View.Pages.TwoTabControl
 
         private void Button_凭证输入_Click(object sender, RoutedEventArgs e)
         {
-            new PA.View.Windows.Win_凭证输入().Show();
+            PA.View.Windows.Win_凭证输入 win = new PA.View.Windows.Win_凭证输入();
+
+            win.Show();
         }
 
         private void Button_凭证审核_Click(object sender, RoutedEventArgs e)

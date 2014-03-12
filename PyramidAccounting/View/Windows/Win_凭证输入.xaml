@@ -1,7 +1,7 @@
 ﻿<Window x:Name="Window_凭证输入" x:Class="PA.View.Windows.Win_凭证输入"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="凭证输入" Height="300" Width="600" WindowStyle="None" AllowsTransparency="True" WindowStartupLocation="CenterScreen" MouseLeftButtonDown="Window_凭证输入_MouseLeftButtonDown" Background="{x:Null}">
+        Title="凭证输入" Height="300" Width="600" WindowStyle="None" AllowsTransparency="True" WindowStartupLocation="CenterScreen" MouseLeftButtonDown="Window_凭证输入_MouseLeftButtonDown" Background="{x:Null}" Topmost="True">
     <Grid Background="White" Margin="5">
         <Grid.Effect>
             <DropShadowEffect ShadowDepth="0"/>
