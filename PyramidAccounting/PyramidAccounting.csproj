@@ -81,6 +81,7 @@
     <Compile Include="Helper\DataBase\DataBase.cs" />
     <Compile Include="Helper\DataBase\DBInitialize.cs" />
     <Compile Include="Helper\XMLHelper\XMLReader.cs" />
+    <Compile Include="Model\DataGrid\Model_凭证管理.cs" />
     <Compile Include="View\Pages\Page_MainTabControl.xaml.cs">
       <DependentUpon>Page_MainTabControl.xaml</DependentUpon>
     </Compile>
