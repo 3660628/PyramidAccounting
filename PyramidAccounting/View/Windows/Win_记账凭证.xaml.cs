@@ -32,7 +32,7 @@ namespace PA.View.Windows
         }
 
         #region 自定义事件
-        private void doFillData(object sender, StringEventArgs e)
+        private void ThisFillData(object sender, StringEventArgs e)
         {
             this.Popup_科目子细目.IsOpen = false;
             this.Window_记账凭证.IsEnabled = true;
@@ -112,7 +112,7 @@ namespace PA.View.Windows
             if (DoubleClickCell.Column.Header.ToString() == "科目")
             {
                 PA.View.Pages.Pop.凭证录入.Page_凭证录入_科目 page = new PA.View.Pages.Pop.凭证录入.Page_凭证录入_科目();
-                page.FillDate += new Pages.Pop.凭证录入.Page_凭证录入_科目_FillDateEventHandle(doFillData);
+                page.FillDate += new Pages.Pop.凭证录入.Page_凭证录入_科目_FillDateEventHandle(ThisFillData);
                 this.Frame_科目子细目.Content = page;
                 this.Popup_科目子细目.IsOpen = true;
                 this.Window_记账凭证.IsEnabled = false;
@@ -120,7 +120,7 @@ namespace PA.View.Windows
             else if (DoubleClickCell.Column.Header.ToString() == "子细目")
             {
                 PA.View.Pages.Pop.凭证录入.Page_凭证录入_子细目 page = new PA.View.Pages.Pop.凭证录入.Page_凭证录入_子细目();
-                page.FillDate += new Pages.Pop.凭证录入.Page_凭证录入_子细目_FillDateEventHandle(doFillData);
+                page.FillDate += new Pages.Pop.凭证录入.Page_凭证录入_子细目_FillDateEventHandle(ThisFillData);
                 this.Frame_科目子细目.Content = page;
                 this.Popup_科目子细目.IsOpen = true;
                 this.Window_记账凭证.IsEnabled = false;
