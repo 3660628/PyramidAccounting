@@ -30,6 +30,12 @@ CREATE TABLE T_VOUCHER_DETAIL (							--凭证明细表
     CREDIT        DECIMAL,    							--贷方
 	BOOK_ID			  TEXT								--账套ID  DEFAULT
 );
+CREATE TABLE T_SUBJECT (								--科目表
+    ID           INTEGER PRIMARY KEY,					--ID
+    SUBJECT_ID   TEXT,									--科目编号
+    SUBJECT_NAME TEXT,									--科目名称
+    PARENT_ID    INTEGER DEFAULT ( 0 )					--父节点ID，用于区分科目和子细目  0表示科目  不为0是为科目的编号
+);
 CREATE TABLE T_USER (									--用户表
 	USERID INTEGER PRIMARY KEY,							--USERID
 	USER_NAME TEXT NOT NULL UNIQUE,						--用户名
