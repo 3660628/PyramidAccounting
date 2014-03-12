@@ -8,7 +8,7 @@
 	Title="Page_凭证录入_科目">
 
     <Grid>
-        <Label Content="科目" HorizontalAlignment="Left" Margin="39,34,0,0" VerticalAlignment="Top"/>
+        <Label Content="科目" HorizontalAlignment="Left" Margin="39,34,0,0" VerticalAlignment="Top" MouseDoubleClick="Label_MouseDoubleClick"/>
 
     </Grid>
 </Page>

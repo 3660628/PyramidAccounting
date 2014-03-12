@@ -11,17 +11,33 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using PA.Model.EventArgss;
 
 namespace PA.View.Pages.Pop.凭证录入
 {
-    /// <summary>
-    /// Interaction logic for Page_凭证录入_科目.xaml
-    /// </summary>
+    public delegate void Page_凭证录入_科目_FillDateEventHandle(object sender, StringEventArgs e);
+
     public partial class Page_凭证录入_科目 : Page
     {
+        public event Page_凭证录入_科目_FillDateEventHandle FillDate;
         public Page_凭证录入_科目()
         {
             InitializeComponent();
+        }
+
+        private void DoFillDate(string str)
+        {
+            if(FillDate != null)
+            {
+                StringEventArgs e = new StringEventArgs();
+                e.Str = str;
+                FillDate(this, e);
+            }
+        }
+
+        private void Label_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            DoFillDate("科目1");
         }
     }
 }
