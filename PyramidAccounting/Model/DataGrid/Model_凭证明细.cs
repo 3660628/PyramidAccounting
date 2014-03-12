@@ -27,19 +27,19 @@ namespace PA.Model.DataGrid
         public decimal 贷方
         {
             get { return credit; }
-            set { credit = value; }
+            set { credit = value; NotifyPropertyChanged("贷方"); }
         }
 
         public decimal 借方
         {
             get { return debit; }
-            set { debit = value; }
+            set { debit = value; NotifyPropertyChanged("借方"); }
         }
 
         public int 记账
         {
             get { return bookkeep_mark; }
-            set { bookkeep_mark = value; }
+            set { bookkeep_mark = value; NotifyPropertyChanged("记账"); }
         }
 
         public string 子细目
