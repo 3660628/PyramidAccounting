@@ -7,6 +7,7 @@
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="View\ResourceDictionarys\Button\Common.xaml" />
                 <ResourceDictionary Source="View\ResourceDictionarys\Button\MinMaxClose.xaml" />
+                <ResourceDictionary Source="View\ResourceDictionarys\DataGrid\DataGridCell.xaml" />
                 <ResourceDictionary Source="View\ResourceDictionarys\DataGrid\DataGridHeader.xaml" />
                 <ResourceDictionary Source="View\ResourceDictionarys\DataGrid\VoucherMoneyShow.xaml" />
                 <ResourceDictionary Source="View\ResourceDictionarys\DataGrid\VoucherMoneyEditing.xaml" />
