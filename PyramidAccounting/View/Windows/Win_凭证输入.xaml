@@ -9,6 +9,14 @@
         <Grid Margin="0" VerticalAlignment="Top" Height="25" Background="#FF29A2FF" IsEnabled="False"/>
 
         <Button x:Name="Button_Close" Content="Button" HorizontalAlignment="Right" Margin="0,0,10,0" VerticalAlignment="Top" Width="28" Height="20" Template="{DynamicResource ButtonControlTemplate_Close}" Click="Button_Close_Click"/>
+        <DataGrid HorizontalAlignment="Left" Margin="46,85,0,0" VerticalAlignment="Top" Width="510" Height="152">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="摘要"/>
+                <DataGridTextColumn Header="会计科目"/>
+                <DataGridTextColumn Header="借方"/>
+                <DataGridTextColumn Header="贷方"/>
+            </DataGrid.Columns>
+        </DataGrid>
 
     </Grid>
 </Window>
