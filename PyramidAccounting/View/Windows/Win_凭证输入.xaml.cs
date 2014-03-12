@@ -32,5 +32,20 @@ namespace PA.View.Windows
         {
             this.DragMove();
         }
+
+        private void Button_保存_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Button_保存并新增_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Button_打印_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
