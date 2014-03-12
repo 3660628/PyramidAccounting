@@ -23,7 +23,6 @@ namespace PA.View.Windows
     {
         Model_凭证单 Voucher = new Model_凭证单();
         private int CellId;
-        private string CellHeader;
 
         public Win_记账凭证()
         {
@@ -36,11 +35,11 @@ namespace PA.View.Windows
         {
             this.Popup_科目子细目.IsOpen = false;
             this.Window_记账凭证.IsEnabled = true;
-            if (CellHeader == "科目")
+            if (typeof(PA.View.Pages.Pop.凭证录入.Page_凭证录入_科目).IsInstanceOfType(sender))
             {
                 Voucher.凭证明细[CellId].科目编号 = e.Str;
             }
-            else if (CellHeader == "子细目")
+            else if (typeof(PA.View.Pages.Pop.凭证录入.Page_凭证录入_子细目).IsInstanceOfType(sender))
             {
                 Voucher.凭证明细[CellId].子细目 = e.Str;
             }
@@ -108,7 +107,6 @@ namespace PA.View.Windows
             Model_凭证明细 SelectedRow = (Model_凭证明细)(this.DataGrid_凭证明细 as DataGrid).SelectedItems[0];
             DataGridCellInfo DoubleClickCell = this.DataGrid_凭证明细.CurrentCell;
             CellId = SelectedRow.ID;
-            CellHeader = DoubleClickCell.Column.Header.ToString();
             if (DoubleClickCell.Column.Header.ToString() == "科目")
             {
                 PA.View.Pages.Pop.凭证录入.Page_凭证录入_科目 page = new PA.View.Pages.Pop.凭证录入.Page_凭证录入_科目();
