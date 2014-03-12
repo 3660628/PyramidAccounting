@@ -45,7 +45,7 @@ namespace PA.View.Windows
         {
             Model_凭证单 NewVoucher = new Model_凭证单();
             NewVoucher.制表时间 = (DateTime)this.DatePicker_Date.SelectedDate;
-            NewVoucher.字 = this.ComboBox_总收付转.SelectedValue.ToString();
+            NewVoucher.字 = this.ComboBox_总收付转.Text;
             NewVoucher.号 = int.Parse(this.TextBox_号.Text);
             NewVoucher.凭证明细 = this.DataGrid_凭证明细.ItemsSource as List<Model_凭证明细>;
             return NewVoucher;
