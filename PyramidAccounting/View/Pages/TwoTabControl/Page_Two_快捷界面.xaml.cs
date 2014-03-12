@@ -24,7 +24,7 @@ namespace PA.View.Pages.TwoTabControl
 
         private void Button_凭证输入_Click(object sender, RoutedEventArgs e)
         {
-            PA.View.Windows.Win_凭证输入 win = new PA.View.Windows.Win_凭证输入();
+            PA.View.Windows.Win_记账凭证 win = new PA.View.Windows.Win_记账凭证();
 
             win.ShowDialog();
         }

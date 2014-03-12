@@ -17,9 +17,9 @@ namespace PA.View.Windows
     /// <summary>
     /// Interaction logic for Win_凭证输入.xaml
     /// </summary>
-    public partial class Win_凭证输入 : Window
+    public partial class Win_记账凭证 : Window
     {
-        public Win_凭证输入()
+        public Win_记账凭证()
         {
             InitializeComponent();
             InitData();

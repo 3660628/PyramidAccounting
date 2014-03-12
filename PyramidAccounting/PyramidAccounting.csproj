@@ -109,8 +109,8 @@
     <Compile Include="View\Windows\AboutWindow.xaml.cs">
       <DependentUpon>AboutWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\Windows\Win_凭证输入.xaml.cs">
-      <DependentUpon>Win_凭证输入.xaml</DependentUpon>
+    <Compile Include="View\Windows\Win_记账凭证.xaml.cs">
+      <DependentUpon>Win_记账凭证.xaml</DependentUpon>
     </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -184,7 +184,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\Windows\Win_凭证输入.xaml">
+    <Page Include="View\Windows\Win_记账凭证.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

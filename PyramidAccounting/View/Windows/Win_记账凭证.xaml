@@ -1,7 +1,7 @@
-﻿<Window x:Name="Window_凭证输入" x:Class="PA.View.Windows.Win_凭证输入"
+﻿<Window x:Name="Window_记账凭证" x:Class="PA.View.Windows.Win_记账凭证"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="凭证输入" Height="450
+        Title="记账凭证" Height="450
         " Width="800" WindowStyle="None" AllowsTransparency="True" WindowStartupLocation="CenterScreen" MouseLeftButtonDown="Window_凭证输入_MouseLeftButtonDown" Background="{x:Null}" Topmost="True">
     <Grid Background="White" Margin="5">
         <Grid.Effect>
@@ -40,5 +40,9 @@
         </ComboBox>
         <Label Content="号" HorizontalAlignment="Right" Margin="0,67,10,0" VerticalAlignment="Top"/>
         <Label Content="字" HorizontalAlignment="Left" Margin="696,67,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="Label_会计主管" Content="Label" HorizontalAlignment="Left" Margin="73,0,0,10" VerticalAlignment="Bottom"/>
+        <Label x:Name="Label_制单人" Content="Label" HorizontalAlignment="Left" Margin="312,0,0,10" VerticalAlignment="Bottom"/>
+        <Label x:Name="Label_复核" Content="Label" HorizontalAlignment="Left" Margin="541,0,0,10" VerticalAlignment="Bottom"/>
+        <Label x:Name="Label_审核状态" Content="Label" HorizontalAlignment="Left" Margin="472,49,0,0" VerticalAlignment="Top"/>
     </Grid>
 </Window>
