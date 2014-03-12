@@ -11,11 +11,11 @@
         </Grid>
 
         <Button x:Name="Button_Close" Content="Button" HorizontalAlignment="Right" Margin="0,0,10,0" VerticalAlignment="Top" Width="28" Height="20" Template="{DynamicResource ButtonControlTemplate_Close}" Click="Button_Close_Click"/>
-        <DataGrid Margin="10,85,10,0" VerticalAlignment="Top" Height="250" AutoGenerateColumns="False" SelectionUnit="Cell" CanUserReorderColumns="False" CanUserResizeColumns="False" CanUserSortColumns="False" CanUserAddRows="False" CanUserDeleteRows="False" CanUserResizeRows="False">
+        <DataGrid x:Name="DataGrid_凭证明细" Margin="10,112,10,0" VerticalAlignment="Top" Height="236" AutoGenerateColumns="False" SelectionUnit="Cell" CanUserReorderColumns="False" CanUserResizeColumns="False" CanUserSortColumns="False" CanUserAddRows="False" CanUserDeleteRows="False" CanUserResizeRows="False" SelectionMode="Single" HeadersVisibility="Column">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="摘要" MinWidth="150"/>
-                <DataGridComboBoxColumn Header="会计科目" MinWidth="150"/>
-                <DataGridTextColumn Header="子细目" MinWidth="150"/>
+                <DataGridTextColumn Header="摘要" Binding="{Binding 摘要}" Width="*"/>
+                <DataGridComboBoxColumn Header="科目" MinWidth="120"/>
+                <DataGridComboBoxColumn Header="子细目" MinWidth="120"/>
                 <DataGridCheckBoxColumn Header="记账" MinWidth="40"/>
                 <DataGridTextColumn Header="借方金额" MinWidth="150"/>
                 <DataGridTextColumn Header="贷方金额" MinWidth="150"/>
@@ -28,6 +28,13 @@
         <Label Content="会计主管" HorizontalAlignment="Left" Margin="10,355,0,0" VerticalAlignment="Top" VerticalContentAlignment="Bottom"/>
         <Label Content="制单人" HorizontalAlignment="Left" Margin="249,355,0,0" VerticalAlignment="Top" VerticalContentAlignment="Bottom"/>
         <Label Content="复核" HorizontalAlignment="Left" Margin="502,355,0,0" VerticalAlignment="Top" VerticalContentAlignment="Bottom"/>
+        <Label Content="日期" HorizontalAlignment="Left" Margin="10,55,0,0" VerticalAlignment="Top"/>
+        <DatePicker HorizontalAlignment="Left" Margin="49,56,0,0" VerticalAlignment="Top"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="689,57,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="64"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="596,57,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="61"/>
+        <ComboBox HorizontalAlignment="Left" Margin="532,59,0,0" VerticalAlignment="Top" Width="59"/>
+        <Label Content="号" HorizontalAlignment="Left" Margin="758,55,0,0" VerticalAlignment="Top"/>
+        <Label Content="字" HorizontalAlignment="Left" Margin="662,55,0,0" VerticalAlignment="Top"/>
 
     </Grid>
 </Window>
