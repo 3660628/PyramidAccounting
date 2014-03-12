@@ -2,10 +2,11 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.ComponentModel;
 
 namespace PA.Model.DataGrid
 {
-    class Model_凭证单
+    class Model_凭证单 : INotifyPropertyChanged
     {
         private int id;
         private string voucher_no;
@@ -112,5 +113,27 @@ namespace PA.Model.DataGrid
             get { return voucherDetail; }
             set { voucherDetail = value; }
         }
+
+        #region INotifyPropertyChanged Members
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        #endregion
+
+        #region Private Helpers
+
+        /// <summary>
+        /// cell内容改变事件
+        /// </summary>
+        /// <param name="propertyName"></param>
+        private void NotifyPropertyChanged(string propertyName)
+        {
+            if (PropertyChanged != null)
+            {
+                PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+            }
+        }
+
+        #endregion
     }
 }

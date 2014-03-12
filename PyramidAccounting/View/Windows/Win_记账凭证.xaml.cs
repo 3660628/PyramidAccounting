@@ -10,6 +10,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.Data;
 using PA.Model.DataGrid;
 
 namespace PA.View.Windows
@@ -19,6 +20,7 @@ namespace PA.View.Windows
     /// </summary>
     public partial class Win_记账凭证 : Window
     {
+        Model_凭证单 Voucher = new Model_凭证单();
         public Win_记账凭证()
         {
             InitializeComponent();
@@ -29,13 +31,15 @@ namespace PA.View.Windows
         private void InitData()
         {
             this.DatePicker_Date.SelectedDate = DateTime.Now;
-            Model_凭证单 InitVoucher = new Model_凭证单();
-            InitVoucher.凭证明细 = new List<Model_凭证明细>();
+            //Model_凭证单 InitVoucher = new Model_凭证单();
+            Voucher.凭证明细 = new List<Model_凭证明细>();
             for (int i = 0; i < 6; i++)
             {
-                InitVoucher.凭证明细.Add(new Model_凭证明细());
+                Model_凭证明细 a = new Model_凭证明细();
+                a.ID = i;
+                Voucher.凭证明细.Add(a);
             }
-            this.DataGrid_凭证明细.ItemsSource = InitVoucher.凭证明细;
+            this.DataGrid_凭证明细.ItemsSource = Voucher.凭证明细;
         }
         private void FillData()
         {
@@ -80,18 +84,21 @@ namespace PA.View.Windows
 
         private void Button_打印_Click(object sender, RoutedEventArgs e)
         {
-
+            
         }
-
+        private Model_凭证明细 SelectedRow;
+        private int id;
         private void DataGrid_凭证明细_Cell_MouseDoubleClick(object sender, RoutedEventArgs e)
         {
+            SelectedRow = (Model_凭证明细)(this.DataGrid_凭证明细 as DataGrid).SelectedItems[0];
             DataGridCellInfo DoubleClickCell = this.DataGrid_凭证明细.CurrentCell;
+            id = SelectedRow.ID;
             if (DoubleClickCell.Column.Header.ToString() == "科目")
             {
                 this.Popup_科目子细目.IsOpen = true;
                 this.Window_记账凭证.IsEnabled = false;
             }
-            else if(DoubleClickCell.Column.Header.ToString() == "子细目")
+            else if (DoubleClickCell.Column.Header.ToString() == "子细目")
             {
                 this.Popup_科目子细目.IsOpen = true;
                 this.Window_记账凭证.IsEnabled = false;
@@ -102,6 +109,7 @@ namespace PA.View.Windows
         {
             this.Popup_科目子细目.IsOpen = false;
             this.Window_记账凭证.IsEnabled = true;
+            Voucher.凭证明细[id].科目编号 = "asd";
         }
 
         #endregion

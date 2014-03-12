@@ -2,10 +2,11 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.ComponentModel;
 
 namespace PA.Model.DataGrid
 {
-    class Model_凭证明细
+    class Model_凭证明细 : INotifyPropertyChanged
     {
         private int id;
         private string parentid;
@@ -50,7 +51,7 @@ namespace PA.Model.DataGrid
         public string 科目编号
         {
             get { return subject_id; }
-            set { subject_id = value; }
+            set { subject_id = value; NotifyPropertyChanged("科目编号"); }
         }
 
         public string 摘要
@@ -70,5 +71,27 @@ namespace PA.Model.DataGrid
             get { return id; }
             set { id = value; }
         }
+
+        #region INotifyPropertyChanged Members
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        #endregion
+
+        #region Private Helpers
+
+        /// <summary>
+        /// cell内容改变事件
+        /// </summary>
+        /// <param name="propertyName"></param>
+        private void NotifyPropertyChanged(string propertyName)
+        {
+            if (PropertyChanged != null)
+            {
+                PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+            }
+        }
+
+        #endregion
     }
 }

@@ -2,7 +2,7 @@
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="记账凭证" Height="450
-        " Width="800" WindowStyle="None" AllowsTransparency="True" WindowStartupLocation="CenterScreen" MouseLeftButtonDown="Window_凭证输入_MouseLeftButtonDown" Background="{x:Null}" Topmost="True">
+        " Width="800" WindowStyle="None" AllowsTransparency="True" WindowStartupLocation="CenterScreen" MouseLeftButtonDown="Window_凭证输入_MouseLeftButtonDown" Background="{x:Null}">
     <Grid Background="White" Margin="5">
         <Grid.Effect>
             <DropShadowEffect ShadowDepth="0"/>
@@ -12,15 +12,16 @@
         </Grid>
 
         <Button x:Name="Button_Close" Content="Button" HorizontalAlignment="Right" Margin="0,0,10,0" VerticalAlignment="Top" Width="28" Height="20" Template="{DynamicResource ButtonControlTemplate_Close}" Click="Button_Close_Click"/>
-        <DataGrid x:Name="DataGrid_凭证明细" Margin="10,97,10,0" VerticalAlignment="Top" AutoGenerateColumns="False" SelectionUnit="Cell" CanUserReorderColumns="False" CanUserResizeColumns="False" CanUserSortColumns="False" CanUserAddRows="False" CanUserDeleteRows="False" CanUserResizeRows="False" SelectionMode="Single" HeadersVisibility="Column" RowHeight="40" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle_凭证录入}" HorizontalGridLinesBrush="Gray" VerticalGridLinesBrush="Gray" HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Disabled" Height="271" ScrollViewer.CanContentScroll="False" CellStyle="{DynamicResource DataGridCellStyle_凭证录入}">
+        <DataGrid x:Name="DataGrid_凭证明细" Margin="10,97,10,0" VerticalAlignment="Top" AutoGenerateColumns="False" CanUserReorderColumns="False" CanUserResizeColumns="False" CanUserSortColumns="False" CanUserAddRows="False" CanUserDeleteRows="False" CanUserResizeRows="False" SelectionMode="Single" HeadersVisibility="Column" RowHeight="40" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle_凭证录入}" HorizontalGridLinesBrush="Gray" VerticalGridLinesBrush="Gray" HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Disabled" Height="271" ScrollViewer.CanContentScroll="False" CellStyle="{DynamicResource DataGridCellStyle_凭证录入}">
             <DataGrid.Resources>
                 <Style TargetType="DataGridRow">
                     <EventSetter Event="MouseDoubleClick" Handler="DataGrid_凭证明细_Cell_MouseDoubleClick" />
                 </Style>
             </DataGrid.Resources>
             <DataGrid.Columns>
+                <DataGridTextColumn Binding="{Binding ID}" Visibility="Hidden"/>
                 <DataGridTextColumn Header="摘要" Binding="{Binding 摘要}" Width="190" ElementStyle="{DynamicResource TextBlockStyle_左对齐}"/>
-                <DataGridTextColumn Header="科目" Width="120" Binding="{Binding 科目编号}" ElementStyle="{DynamicResource TextBlockStyle_居中对齐}" IsReadOnly="True"/>
+                <DataGridTextColumn Header="科目" Width="120" Binding="{Binding 科目编号}" ElementStyle="{DynamicResource TextBlockStyle_居中对齐}"/>
                 <DataGridTextColumn Header="子细目" Width="120" Binding="{Binding 子细目}" ElementStyle="{DynamicResource TextBlockStyle_居中对齐}" IsReadOnly="True"/>
                 <DataGridTextColumn Header="记账" Width="40" Binding="{Binding 记账}" ElementStyle="{DynamicResource TextBlockStyle_居中对齐}" IsReadOnly="True"/>
                 <DataGridTextColumn Header="借方金额" Width="150" Binding="{Binding 借方}" ElementStyle="{DynamicResource TextBlockStyle_右对齐}"/>
