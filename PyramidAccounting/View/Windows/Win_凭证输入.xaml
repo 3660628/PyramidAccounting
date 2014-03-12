@@ -12,9 +12,9 @@
         </Grid>
 
         <Button x:Name="Button_Close" Content="Button" HorizontalAlignment="Right" Margin="0,0,10,0" VerticalAlignment="Top" Width="28" Height="20" Template="{DynamicResource ButtonControlTemplate_Close}" Click="Button_Close_Click"/>
-        <DataGrid x:Name="DataGrid_凭证明细" Margin="10,97,10,0" VerticalAlignment="Top" Height="300" AutoGenerateColumns="False" SelectionUnit="Cell" CanUserReorderColumns="False" CanUserResizeColumns="False" CanUserSortColumns="False" CanUserAddRows="False" CanUserDeleteRows="False" CanUserResizeRows="False" SelectionMode="Single" HeadersVisibility="Column" RowHeight="40" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle_凭证录入}" HorizontalGridLinesBrush="Gray" VerticalGridLinesBrush="Gray">
+        <DataGrid x:Name="DataGrid_凭证明细" Margin="10,97,10,0" VerticalAlignment="Top" AutoGenerateColumns="False" SelectionUnit="Cell" CanUserReorderColumns="False" CanUserResizeColumns="False" CanUserSortColumns="False" CanUserAddRows="False" CanUserDeleteRows="False" CanUserResizeRows="False" SelectionMode="Single" HeadersVisibility="Column" RowHeight="40" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle_凭证录入}" HorizontalGridLinesBrush="Gray" VerticalGridLinesBrush="Gray" HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Disabled" Height="270" ScrollViewer.CanContentScroll="False">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="摘要" Binding="{Binding 摘要}" MinWidth="188" ElementStyle="{DynamicResource TextBlockStyle_左对齐}"/>
+                <DataGridTextColumn Header="摘要" Binding="{Binding 摘要}" MinWidth="190" ElementStyle="{DynamicResource TextBlockStyle_左对齐}"/>
                 <DataGridTextColumn Header="科目" MinWidth="120" Binding="{Binding 科目编号}" ElementStyle="{DynamicResource TextBlockStyle_居中对齐}"/>
                 <DataGridTextColumn Header="子细目" MinWidth="120" Binding="{Binding 子细目}" ElementStyle="{DynamicResource TextBlockStyle_居中对齐}"/>
                 <DataGridTextColumn Header="记账" MinWidth="40" Binding="{Binding 记账}" ElementStyle="{DynamicResource TextBlockStyle_居中对齐}"/>
@@ -25,17 +25,20 @@
         <Button x:Name="Button_保存并新增" Content="保存并新增" HorizontalAlignment="Left" Margin="10,30,0,0" VerticalAlignment="Top" Width="75" Click="Button_保存并新增_Click"/>
         <Button x:Name="Button_保存" Content="保存" HorizontalAlignment="Left" Margin="90,30,0,0" VerticalAlignment="Top" Width="75" Click="Button_保存_Click"/>
         <Button x:Name="Button_打印" Content="打印" HorizontalAlignment="Right" Margin="0,30,10,0" VerticalAlignment="Top" Width="75" Click="Button_打印_Click"/>
-        <Label Content="记账凭证" HorizontalAlignment="Center" Margin="0,30,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="18"/>
+        <Label Content="记账凭证" HorizontalAlignment="Center" Margin="0,30,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="20"/>
         <Label Content="会计主管" HorizontalAlignment="Left" Margin="10,355,0,10" VerticalAlignment="Bottom" VerticalContentAlignment="Bottom"/>
         <Label Content="制单人" HorizontalAlignment="Left" Margin="249,355,0,10" VerticalAlignment="Bottom" VerticalContentAlignment="Bottom"/>
         <Label Content="复核" HorizontalAlignment="Left" Margin="502,355,0,10" VerticalAlignment="Bottom" VerticalContentAlignment="Bottom"/>
-        <Label Content="日期" HorizontalAlignment="Left" Margin="10,55,0,0" VerticalAlignment="Top"/>
-        <DatePicker HorizontalAlignment="Left" Margin="49,56,0,0" VerticalAlignment="Top"/>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="689,57,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="64"/>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="596,57,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="61"/>
-        <ComboBox HorizontalAlignment="Left" Margin="532,59,0,0" VerticalAlignment="Top" Width="59"/>
-        <Label Content="号" HorizontalAlignment="Left" Margin="758,55,0,0" VerticalAlignment="Top"/>
-        <Label Content="字" HorizontalAlignment="Left" Margin="662,55,0,0" VerticalAlignment="Top"/>
-
+        <Label Content="日期" HorizontalAlignment="Left" Margin="10,67,0,0" VerticalAlignment="Top"/>
+        <DatePicker HorizontalAlignment="Left" Margin="49,67,0,0" VerticalAlignment="Top" Width="120"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="723,69,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="30"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="661,69,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="30"/>
+        <ComboBox HorizontalAlignment="Right" Margin="0,69,134,0" VerticalAlignment="Top" Height="23">
+            <ComboBoxItem Content="总" IsSelected="True"/>
+            <ComboBoxItem Content="收"/>
+            <ComboBoxItem Content="付"/>
+        </ComboBox>
+        <Label Content="号" HorizontalAlignment="Right" Margin="0,67,10,0" VerticalAlignment="Top"/>
+        <Label Content="字" HorizontalAlignment="Left" Margin="696,69,0,0" VerticalAlignment="Top"/>
     </Grid>
 </Window>

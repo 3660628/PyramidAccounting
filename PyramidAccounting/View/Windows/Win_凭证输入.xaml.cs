@@ -31,6 +31,13 @@ namespace PA.View.Windows
             this.DataGrid_凭证明细.ItemsSource = m.凭证明细;
         }
 
+        #region 非事件
+        private void InsertData()
+        {
+
+        }
+        #endregion
+
         private void Button_Close_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
@@ -43,12 +50,13 @@ namespace PA.View.Windows
 
         private void Button_保存_Click(object sender, RoutedEventArgs e)
         {
-
+            InsertData();
+            this.Close();
         }
 
         private void Button_保存并新增_Click(object sender, RoutedEventArgs e)
         {
-
+            InsertData();
         }
 
         private void Button_打印_Click(object sender, RoutedEventArgs e)
