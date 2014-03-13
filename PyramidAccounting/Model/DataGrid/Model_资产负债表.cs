@@ -9,20 +9,20 @@ namespace PA.Model.DataGrid
     {
         private string col_01;  //科目编号
         private string col_02;  //资产部类
-        private decimal col_03; //年初数
-        private decimal col_04; //期末数
+        private string col_03; //年初数
+        private string col_04; //期末数
         private string col_05;
         private string col_06;
-        private decimal col_07;
-        private decimal col_08;
+        private string col_07;
+        private string col_08;
 
-        public decimal Col_08
+        public string Col_08
         {
             get { return col_08; }
             set { col_08 = value; }
         }
 
-        public decimal Col_07
+        public string Col_07
         {
             get { return col_07; }
             set { col_07 = value; }
@@ -40,13 +40,13 @@ namespace PA.Model.DataGrid
             set { col_05 = value; }
         }
 
-        public decimal Col_04
+        public string Col_04
         {
             get { return col_04; }
             set { col_04 = value; }
         }
 
-        public decimal Col_03
+        public string Col_03
         {
             get { return col_03; }
             set { col_03 = value; }

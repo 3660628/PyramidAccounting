@@ -23,6 +23,7 @@ namespace PA.View.Pages.TwoTabControl
         public Page_Two_报表管理()
         {
             InitializeComponent();
+            TextBlock_制表单位.Text = Properties.Settings.Default.Company;   //程序启动后加载当前公司名称
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -33,10 +34,14 @@ namespace PA.View.Pages.TwoTabControl
         private List<Model_资产负债表> test()
         {
             List<Model_资产负债表> list = new List<Model_资产负债表>();
-            Model_资产负债表 m = new Model_资产负债表();
-            m.Col_02 = "一、资产类";
-            m.Col_06 = "二、负债类";
-            list.Add(m);
+            Model_资产负债表 m_0 = new Model_资产负债表();
+            m_0.Col_02 = "一、资产类";
+            m_0.Col_06 = "二、负债类";
+            list.Add(m_0);
+            Model_资产负债表 m_1 = new Model_资产负债表();
+            m_1.Col_01 = "1001";
+            m_1.Col_02 = "库存现金";
+            m_1.Col_05 = "";
             return list;
         }
     }
