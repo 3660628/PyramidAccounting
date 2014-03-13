@@ -122,7 +122,7 @@ namespace PA.View.Windows
             Console.WriteLine(Voucher.制表时间);
             Console.WriteLine(Voucher.字);
             Console.WriteLine(Voucher.号);
-            //Console.WriteLine(Voucher.制表时间);
+            Console.WriteLine(Voucher.凭证明细[0].摘要);
         }
         
         private void DataGrid_凭证明细_Cell_MouseDoubleClick(object sender, RoutedEventArgs e)
@@ -145,6 +145,17 @@ namespace PA.View.Windows
                 this.Frame_科目子细目.Content = page;
                 this.Popup_科目子细目.IsOpen = true;
                 this.Window_记账凭证.IsEnabled = false;
+            }
+            else if (DoubleClickCell.Column.Header.ToString() == "记账")
+            {
+                if (Voucher.凭证明细[CellId].记账 == null)
+                {
+                    Voucher.凭证明细[CellId].记账 = "√";
+                }
+                else
+                {
+                    Voucher.凭证明细[CellId].记账 = null;
+                }
             }
         }
 

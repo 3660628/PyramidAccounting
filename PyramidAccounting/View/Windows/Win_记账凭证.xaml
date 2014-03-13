@@ -62,8 +62,8 @@
         <Label x:Name="Label_制单人" Content="" HorizontalAlignment="Left" Margin="312,0,0,10" VerticalAlignment="Bottom"/>
         <Label x:Name="Label_复核" Content="" HorizontalAlignment="Left" Margin="541,0,0,10" VerticalAlignment="Bottom"/>
         <Label x:Name="Label_审核状态" Content="Label" HorizontalAlignment="Left" Margin="472,49,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="Label_借方合计" Content="0.0" HorizontalAlignment="Center" Margin="526,373,206,0" VerticalAlignment="Top"/>
-        <Label x:Name="Label_贷方合计" Content="0.0" HorizontalAlignment="Center" Margin="676,373,56,0" VerticalAlignment="Top"/>
+        <Label x:Name="Label_借方合计" Content="0.0" HorizontalAlignment="Right" Margin="0,373,160,0" VerticalAlignment="Top"/>
+        <Label x:Name="Label_贷方合计" Content="0.0" HorizontalAlignment="Right" Margin="0,373,10,0" VerticalAlignment="Top"/>
 
         <!--弹出面板-->
         <Popup x:Name="Popup_科目子细目" Placement="MousePoint">
