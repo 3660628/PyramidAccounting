@@ -23,6 +23,20 @@ namespace PA.View.Pages.Pop.凭证录入
         public Page_凭证录入_科目()
         {
             InitializeComponent();
+            List<string> li = new List<string>();
+            li.Add("1");
+            li.Add("2");
+            li.Add("3");
+            li.Add("4");
+            li.Add("5");
+            li.Add("6");
+            li.Add("7");
+            li.Add("8");
+            li.Add("9");
+            li.Add("10");
+            li.Add("11");
+            li.Add("12");
+            this.ListBox_1.ItemsSource = li;
         }
 
         private void DoFillDate(string str)
@@ -35,9 +49,9 @@ namespace PA.View.Pages.Pop.凭证录入
             }
         }
 
-        private void Label_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        private void ListBox_1_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
-            DoFillDate("科目1");
+            DoFillDate(this.ListBox_1.SelectedValue.ToString());
         }
     }
 }
