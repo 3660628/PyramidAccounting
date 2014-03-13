@@ -252,7 +252,6 @@
     <Resource Include="View\Images\Logo\Pyramid_Logo_white_128x128.ico" />
     <Resource Include="View\Images\Logo\Pyramid_Logo_white_128x128.png" />
     <Resource Include="Docs\Readme.txt" />
-    <Resource Include="Helper\ExcelHelper\Readme.txt" />
     <Resource Include="Data\Readme.txt" />
     <None Include="Docs\dotNetFx40_Full_setup.exe">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
