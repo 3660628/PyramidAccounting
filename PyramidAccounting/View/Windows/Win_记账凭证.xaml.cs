@@ -88,6 +88,19 @@ namespace PA.View.Windows
             Voucher.复核 = this.Label_复核.Content.ToString();
             return Voucher;
         }
+        private void Count合计()
+        {
+            Voucher.凭证明细 = this.DataGrid_凭证明细.ItemsSource as List<Model_凭证明细>;
+            decimal count借方 = 0m;
+            decimal count贷方 = 0m;
+            for (int i = 0; i < 6; i++ )
+            {
+                count借方 += Voucher.凭证明细[i].借方;
+                count贷方 += Voucher.凭证明细[i].贷方;
+            }
+            this.Label_借方合计.Content = count借方.ToString();
+            this.Label_贷方合计.Content = count贷方.ToString();
+        }
         #endregion
 
         #region 控件事件
@@ -172,7 +185,22 @@ namespace PA.View.Windows
 
         private void DataGrid_凭证明细_CellEditEnding(object sender, DataGridCellEditEndingEventArgs e)
         {
-
+            string newValue = (e.EditingElement as TextBox).Text.Trim();
+            Model_凭证明细 SelectedRow = (Model_凭证明细)(sender as DataGrid).SelectedItems[0];
+            string Header = e.Column.Header.ToString();
+            if (Header == "借方金额" && (SelectedRow.ID + 2) % 2 == 0)
+            {
+                Voucher.凭证明细[SelectedRow.ID].借方 = decimal.Parse(newValue);
+                Voucher.凭证明细[SelectedRow.ID].贷方 = 0m;
+                Voucher.凭证明细[SelectedRow.ID + 1].贷方 = decimal.Parse((e.EditingElement as TextBox).Text.Trim());
+            }
+            else if (Header == "贷方金额" && (SelectedRow.ID + 2) % 2 == 1)
+            {
+                Voucher.凭证明细[SelectedRow.ID].贷方 = decimal.Parse(newValue);
+                Voucher.凭证明细[SelectedRow.ID].借方 = 0m;
+                Voucher.凭证明细[SelectedRow.ID - 1].借方 = decimal.Parse((e.EditingElement as TextBox).Text.Trim());
+            }
+            Count合计();
         }
 
         private void TextBox_附属单证_MouseWheel(object sender, MouseWheelEventArgs e)
