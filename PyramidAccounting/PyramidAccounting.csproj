@@ -98,6 +98,7 @@
     <Compile Include="Model\DataGrid\Model_科目管理.cs" />
     <Compile Include="Model\CustomEventArgs\StringEventArgs.cs" />
     <Compile Include="Model\DataGrid\Model_资产负债表.cs" />
+    <Compile Include="ViewModel\ViewModel_记账凭证.cs" />
     <Compile Include="View\Pages\Page_MainTabControl.xaml.cs">
       <DependentUpon>Page_MainTabControl.xaml</DependentUpon>
     </Compile>
@@ -244,7 +245,6 @@
     <Content Include="Resources\DatabaseData.sql" />
     <Resource Include="View\Pages\Pop\快捷界面\Readme.txt" />
     <Resource Include="Model\ComboBox\Readme.txt" />
-    <Resource Include="ViewModel\Readme.txt" />
     <None Include="Resources\DatabaseTable.sql" />
     <Resource Include="View\Images\Button\MinMaxClose\Close.png" />
     <Resource Include="View\Images\Button\MinMaxClose\CloseAct.png" />
