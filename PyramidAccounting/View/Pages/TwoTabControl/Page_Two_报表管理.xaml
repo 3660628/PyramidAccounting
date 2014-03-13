@@ -17,14 +17,16 @@
                     <Button Content="导出" HorizontalAlignment="Right" Margin="0,10,20,0" VerticalAlignment="Top" Width="75"/>
                     <DataGrid x:Name="DataGrid_资产负债表" ItemsSource="{Binding}" AutoGenerateColumns="False" HorizontalAlignment="Stretch" Margin="10,60,0,0" VerticalAlignment="Top" IsReadOnly="True">
                         <DataGrid.Columns>
+                            <DataGridTextColumn Binding="{Binding Col_00}" Header="序号" />
                             <DataGridTextColumn Binding="{Binding Col_01}" Header="科目编号" />
                             <DataGridTextColumn Binding="{Binding Col_02}" Header="资产部类"/>
                             <DataGridTextColumn Binding="{Binding Col_03}" Header="年初数" />
                             <DataGridTextColumn Binding="{Binding Col_04}" Header="期末数" />
-                            <DataGridTextColumn Binding="{Binding Col_05}" Header="科目编号" />
-                            <DataGridTextColumn Binding="{Binding Col_06}" Header="负债部类"/>
-                            <DataGridTextColumn Binding="{Binding Col_07}" Header="年初数" />
-                            <DataGridTextColumn Binding="{Binding Col_08}" Header="期末数" />
+                            <DataGridTextColumn Binding="{Binding Col_05}" Header="序号" />
+                            <DataGridTextColumn Binding="{Binding Col_06}" Header="科目编号"/>
+                            <DataGridTextColumn Binding="{Binding Col_07}" Header="负债部类" />
+                            <DataGridTextColumn Binding="{Binding Col_08}" Header="年初数" />
+                            <DataGridTextColumn Binding="{Binding Col_09}" Header="期末数" />
                         </DataGrid.Columns>
                     </DataGrid>
                     <Label Content="制表单位：" HorizontalAlignment="Left" Margin="10,36,0,0" VerticalAlignment="Top"/>

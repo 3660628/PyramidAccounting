@@ -7,6 +7,7 @@ namespace PA.Model.DataGrid
 {
     class Model_资产负债表
     {
+        private string col_00;  //序号
         private string col_01;  //科目编号
         private string col_02;  //资产部类
         private string col_03; //年初数
@@ -15,6 +16,14 @@ namespace PA.Model.DataGrid
         private string col_06;
         private string col_07;
         private string col_08;
+        private string col_09; //序号
+
+        public string Col_09
+        {
+            get { return col_09; }
+            set { col_09 = value; }
+        }
+
 
         public string Col_08
         {
@@ -62,6 +71,11 @@ namespace PA.Model.DataGrid
         {
             get { return col_01; }
             set { col_01 = value; }
+        }
+        public string Col_00
+        {
+            get { return col_00; }
+            set { col_00 = value; }
         }
     }
 }
