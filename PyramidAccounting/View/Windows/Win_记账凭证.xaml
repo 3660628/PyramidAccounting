@@ -38,7 +38,7 @@
         <Label Content="日期" HorizontalAlignment="Left" Margin="10,67,0,0" VerticalAlignment="Top"/>
         <DatePicker x:Name="DatePicker_Date" HorizontalAlignment="Left" Margin="49,67,0,0" VerticalAlignment="Top" Width="120" SelectedDateFormat="Short"/>
         <TextBox x:Name="TextBox_号" HorizontalAlignment="Left" Margin="723,72,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="30" BorderThickness="0,0,0,1" TextAlignment="Center" FontSize="14"/>
-        <ComboBox x:Name="ComboBox_总收付转" HorizontalAlignment="Right" Margin="0,69,99,0" VerticalAlignment="Top" Height="23">
+        <ComboBox x:Name="ComboBox_总收付转" HorizontalAlignment="Right" Margin="0,69,99,0" VerticalAlignment="Top">
             <ComboBoxItem Content="总" IsSelected="True"/>
             <ComboBoxItem Content="收"/>
             <ComboBoxItem Content="付"/>
