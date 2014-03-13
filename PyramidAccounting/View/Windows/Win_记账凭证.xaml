@@ -60,5 +60,11 @@
                 <Button x:Name="Button_PopupClose" Content="Button" HorizontalAlignment="Right" Margin="0" VerticalAlignment="Top" Width="28" Height="20" Template="{DynamicResource ButtonControlTemplate_Close}" Click="Button_PopupClose_Click"/>
             </Grid>
         </Popup>
+        <Label Content="附属单证" HorizontalAlignment="Left" Margin="10,373,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="TextBox_附属单证" HorizontalAlignment="Left" Height="23" Margin="73,375,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="40" BorderThickness="0,0,0,1" TextAlignment="Center"/>
+        <Label Content="张" HorizontalAlignment="Left" Margin="118,373,0,0" VerticalAlignment="Top"/>
+        <Label Content="合计" HorizontalAlignment="Left" Margin="304,373,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="Label_借方合计" Content="借方合计" HorizontalAlignment="Center" Margin="526,373,206,0" VerticalAlignment="Top"/>
+        <Label x:Name="Label_贷方合计" Content="贷方合计" HorizontalAlignment="Center" Margin="676,373,56,0" VerticalAlignment="Top"/>
     </Grid>
 </Window>

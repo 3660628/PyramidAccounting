@@ -4,11 +4,11 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       mc:Ignorable="d" 
-      d:DesignHeight="300" d:DesignWidth="300"
+      d:DesignHeight="225" d:DesignWidth="200"
 	Title="Page_凭证录入_子细目">
 
     <Grid>
-        <Label Content="子细目" HorizontalAlignment="Left" Margin="38,36,0,0" VerticalAlignment="Top"/>
-
+        <ListBox Margin="0,38,0,0" BorderThickness="0,1,0,0"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="10,10,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
     </Grid>
 </Page>

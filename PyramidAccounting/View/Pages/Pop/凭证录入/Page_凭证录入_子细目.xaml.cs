@@ -25,7 +25,7 @@ namespace PA.View.Pages.Pop.凭证录入
             InitializeComponent();
         }
 
-        private void DoFillDate(string str)
+        private void OnFillDate(string str)
         {
             if (FillDate != null)
             {
