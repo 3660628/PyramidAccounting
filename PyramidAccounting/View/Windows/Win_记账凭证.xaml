@@ -10,8 +10,26 @@
         <Grid Margin="0" VerticalAlignment="Top" Height="25" Background="#FF29A2FF" IsEnabled="False">
             <Label x:Name="Label_Win标题" Content="" HorizontalAlignment="Center" Margin="0" Foreground="White"/>
         </Grid>
+        <!--显示用Label-->
+        <Label Content="日期" HorizontalAlignment="Left" Margin="10,67,0,0" VerticalAlignment="Top"/>
+        <Label Content="记账凭证" HorizontalAlignment="Center" Margin="0,30,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="20"/>
+        <Label Content="字" HorizontalAlignment="Left" Margin="696,67,0,0" VerticalAlignment="Top"/>
+        <Label Content="号" HorizontalAlignment="Right" Margin="0,67,10,0" VerticalAlignment="Top"/>
+        <Label Content="附属单证" HorizontalAlignment="Left" Margin="10,373,0,0" VerticalAlignment="Top"/>
+        <Label Content="张" HorizontalAlignment="Left" Margin="118,373,0,0" VerticalAlignment="Top"/>
+        <Label Content="会计主管" HorizontalAlignment="Left" Margin="10,355,0,10" VerticalAlignment="Bottom" VerticalContentAlignment="Bottom"/>
+        <Label Content="制单人" HorizontalAlignment="Left" Margin="249,355,0,10" VerticalAlignment="Bottom" VerticalContentAlignment="Bottom"/>
+        <Label Content="复核" HorizontalAlignment="Left" Margin="502,355,0,10" VerticalAlignment="Bottom" VerticalContentAlignment="Bottom"/>
+        <Label Content="合计" HorizontalAlignment="Left" Margin="304,373,0,0" VerticalAlignment="Top"/>
+        <!--end显示用Label-->
 
+        <!--Button-->
         <Button x:Name="Button_Close" Content="Button" HorizontalAlignment="Right" Margin="0,0,10,0" VerticalAlignment="Top" Width="28" Height="20" Template="{DynamicResource ButtonControlTemplate_Close}" Click="Button_Close_Click"/>
+        <Button x:Name="Button_保存并新增" Content="保存并新增" HorizontalAlignment="Left" Margin="10,30,0,0" VerticalAlignment="Top" Width="75" Click="Button_保存并新增_Click"/>
+        <Button x:Name="Button_保存" Content="保存" HorizontalAlignment="Left" Margin="90,30,0,0" VerticalAlignment="Top" Width="75" Click="Button_保存_Click"/>
+        <Button x:Name="Button_打印" Content="打印" HorizontalAlignment="Right" Margin="0,30,10,0" VerticalAlignment="Top" Width="75" Click="Button_打印_Click"/>
+
+
         <DataGrid x:Name="DataGrid_凭证明细" Margin="10,97,10,0" VerticalAlignment="Top" AutoGenerateColumns="False" CanUserReorderColumns="False" CanUserResizeColumns="False" CanUserSortColumns="False" CanUserAddRows="False" CanUserDeleteRows="False" CanUserResizeRows="False" SelectionMode="Single" HeadersVisibility="Column" RowHeight="40" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle_凭证录入}" HorizontalGridLinesBrush="Gray" VerticalGridLinesBrush="Gray" HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Disabled" Height="271" ScrollViewer.CanContentScroll="False" CellStyle="{DynamicResource DataGridCellStyle_凭证录入}" BeginningEdit="DataGrid_凭证明细_BeginningEdit" CellEditEnding="DataGrid_凭证明细_CellEditEnding">
             <DataGrid.Resources>
                 <Style TargetType="DataGridRow">
@@ -28,43 +46,36 @@
                 <DataGridTextColumn Header="贷方金额" Width="150" Binding="{Binding 贷方}" ElementStyle="{DynamicResource TextBlockStyle_右对齐}"/>
             </DataGrid.Columns>
         </DataGrid>
-        <Button x:Name="Button_保存并新增" Content="保存并新增" HorizontalAlignment="Left" Margin="10,30,0,0" VerticalAlignment="Top" Width="75" Click="Button_保存并新增_Click"/>
-        <Button x:Name="Button_保存" Content="保存" HorizontalAlignment="Left" Margin="90,30,0,0" VerticalAlignment="Top" Width="75" Click="Button_保存_Click"/>
-        <Button x:Name="Button_打印" Content="打印" HorizontalAlignment="Right" Margin="0,30,10,0" VerticalAlignment="Top" Width="75" Click="Button_打印_Click"/>
-        <Label Content="记账凭证" HorizontalAlignment="Center" Margin="0,30,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="20"/>
-        <Label Content="会计主管" HorizontalAlignment="Left" Margin="10,355,0,10" VerticalAlignment="Bottom" VerticalContentAlignment="Bottom"/>
-        <Label Content="制单人" HorizontalAlignment="Left" Margin="249,355,0,10" VerticalAlignment="Bottom" VerticalContentAlignment="Bottom"/>
-        <Label Content="复核" HorizontalAlignment="Left" Margin="502,355,0,10" VerticalAlignment="Bottom" VerticalContentAlignment="Bottom"/>
-        <Label Content="日期" HorizontalAlignment="Left" Margin="10,67,0,0" VerticalAlignment="Top"/>
         <DatePicker x:Name="DatePicker_Date" HorizontalAlignment="Left" Margin="49,67,0,0" VerticalAlignment="Top" Width="120" SelectedDateFormat="Short"/>
+        
         <TextBox x:Name="TextBox_号" HorizontalAlignment="Left" Margin="723,72,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="30" BorderThickness="0,0,0,1" TextAlignment="Center" FontSize="14"/>
+        <TextBox x:Name="TextBox_附属单证" HorizontalAlignment="Left" Margin="73,377,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="40" BorderThickness="0,0,0,1" TextAlignment="Center" FontSize="14"/>
+
         <ComboBox x:Name="ComboBox_总收付转" HorizontalAlignment="Right" Margin="0,69,99,0" VerticalAlignment="Top">
             <ComboBoxItem Content="总" IsSelected="True"/>
             <ComboBoxItem Content="收"/>
             <ComboBoxItem Content="付"/>
             <ComboBoxItem Content="转"/>
         </ComboBox>
-        <Label Content="号" HorizontalAlignment="Right" Margin="0,67,10,0" VerticalAlignment="Top"/>
-        <Label Content="字" HorizontalAlignment="Left" Margin="696,67,0,0" VerticalAlignment="Top"/>
+        <!--Label-->
         <Label x:Name="Label_会计主管" Content="Label" HorizontalAlignment="Left" Margin="73,0,0,10" VerticalAlignment="Bottom"/>
         <Label x:Name="Label_制单人" Content="Label" HorizontalAlignment="Left" Margin="312,0,0,10" VerticalAlignment="Bottom"/>
         <Label x:Name="Label_复核" Content="Label" HorizontalAlignment="Left" Margin="541,0,0,10" VerticalAlignment="Bottom"/>
         <Label x:Name="Label_审核状态" Content="Label" HorizontalAlignment="Left" Margin="472,49,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="Label_借方合计" Content="借方合计" HorizontalAlignment="Center" Margin="526,373,206,0" VerticalAlignment="Top"/>
+        <Label x:Name="Label_贷方合计" Content="贷方合计" HorizontalAlignment="Center" Margin="676,373,56,0" VerticalAlignment="Top"/>
+
+
+        <!--弹出面板-->
         <Popup x:Name="Popup_科目子细目" Placement="MousePoint">
             <Grid Background="White" Height="250" Width="200" Margin="1">
                 <Grid.Effect>
                     <DropShadowEffect ShadowDepth="0"/>
                 </Grid.Effect>
                 <Grid Margin="0" VerticalAlignment="Top" Height="25" Background="#FF29A2FF"/>
-                <Frame x:Name="Frame_科目子细目" Content="" Margin="0,25,0,0" NavigationUIVisibility="Hidden"/>
                 <Button x:Name="Button_PopupClose" Content="Button" HorizontalAlignment="Right" Margin="0" VerticalAlignment="Top" Width="28" Height="20" Template="{DynamicResource ButtonControlTemplate_Close}" Click="Button_PopupClose_Click"/>
+                <Frame x:Name="Frame_科目子细目" Content="" Margin="0,25,0,0" NavigationUIVisibility="Hidden"/>
             </Grid>
         </Popup>
-        <Label Content="附属单证" HorizontalAlignment="Left" Margin="10,373,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="TextBox_附属单证" HorizontalAlignment="Left" Margin="73,377,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="40" BorderThickness="0,0,0,1" TextAlignment="Center" FontSize="14"/>
-        <Label Content="张" HorizontalAlignment="Left" Margin="118,373,0,0" VerticalAlignment="Top"/>
-        <Label Content="合计" HorizontalAlignment="Left" Margin="304,373,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="Label_借方合计" Content="借方合计" HorizontalAlignment="Center" Margin="526,373,206,0" VerticalAlignment="Top"/>
-        <Label x:Name="Label_贷方合计" Content="贷方合计" HorizontalAlignment="Center" Margin="676,373,56,0" VerticalAlignment="Top"/>
     </Grid>
 </Window>
