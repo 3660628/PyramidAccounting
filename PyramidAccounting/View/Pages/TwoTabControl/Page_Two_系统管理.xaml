@@ -17,17 +17,17 @@
             <TabItem Header="科目设置" Margin="30,-2,-30,-1" Template="{DynamicResource TabItemControlTemplate_TwoTabHeader}">
                 <Grid Background="White">
                     <Label Content="类别" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" FontSize="16"/>
-                    <Button x:Name="Button_资产" Content="成本" HorizontalAlignment="Left" Margin="50,10,0,0" VerticalAlignment="Top" Width="70" Height="24"/>
-                    <Button x:Name="Button_负债" Content="负债" HorizontalAlignment="Left" Margin="120,10,0,0" VerticalAlignment="Top" Width="70" Height="24"/>
-                    <Button x:Name="Button_权益" Content="所有者权益" HorizontalAlignment="Left" Margin="190,10,0,0" VerticalAlignment="Top" Width="72" Height="24"/>
-                    <Button x:Name="Button_成本" Content="成本" HorizontalAlignment="Left" Margin="262,10,0,0" VerticalAlignment="Top" Width="70" Height="24"/>
-                    <Button x:Name="Button_损益" Content="损益" HorizontalAlignment="Left" Margin="332,10,0,0" VerticalAlignment="Top" Width="70" Height="24"/>
-                    <DataGrid x:Name="DataGrid_科目设置" ItemsSource="{Binding}" HorizontalAlignment="Stretch" Margin="10,44,0,0" VerticalAlignment="Stretch">
+                    <Button x:Name="Button_资产" Content="资产类" HorizontalAlignment="Left" Margin="50,10,0,0" VerticalAlignment="Top" Width="70" Height="24"/>
+                    <Button x:Name="Button_负债" Content="负债类" HorizontalAlignment="Left" Margin="120,10,0,0" VerticalAlignment="Top" Width="70" Height="24"/>
+                    <Button x:Name="Button_净资产" Content="净资产类" HorizontalAlignment="Left" Margin="190,10,0,0" VerticalAlignment="Top" Width="72" Height="24"/>
+                    <Button x:Name="Button_收入" Content="收入类" HorizontalAlignment="Left" Margin="262,10,0,0" VerticalAlignment="Top" Width="70" Height="24"/>
+                    <Button x:Name="Button_支出" Content="支出类" HorizontalAlignment="Left" Margin="332,10,0,0" VerticalAlignment="Top" Width="70" Height="24"/>
+                    <DataGrid x:Name="DataGrid_科目设置" ItemsSource="{Binding}" AutoGenerateColumns="False" HorizontalAlignment="Stretch" Margin="10,44,0,0" VerticalAlignment="Stretch">
                         <DataGrid.Columns>
+                            <DataGridTextColumn Header="序号" />
                             <DataGridTextColumn Header="科目编号" />
                             <DataGridTextColumn Header="科目名称"/>
-                            <DataGridTextColumn Header="方向"/>
-                            <DataGridTextColumn Header="期初余额"/>
+                            <DataGridTextColumn Header="年初数"/>
                             <DataGridCheckBoxColumn Header="是否启用" />
                         </DataGrid.Columns>
                     </DataGrid>

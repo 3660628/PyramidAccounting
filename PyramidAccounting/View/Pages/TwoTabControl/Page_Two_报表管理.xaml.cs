@@ -25,7 +25,7 @@ namespace PA.View.Pages.TwoTabControl
         public Page_Two_报表管理()
         {
             InitializeComponent();
-            TextBlock_制表单位.Text = Properties.Settings.Default.Company;   //程序启动后加载当前公司名称
+            TextBlock_编制单位.Text = Properties.Settings.Default.Company;   //程序启动后加载当前公司名称
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -45,36 +45,82 @@ namespace PA.View.Pages.TwoTabControl
             m_0.Col_07 = "二、负债类";
             list.Add(m_0);
             DataTable dt = new DataTable();
-            string sql = "SELECT ID,SUBJECT_ID,SUBJECT_NAME FROM T_SUBJECT WHERE USED_MARK <>- 1 AND PARENT_ID = 0 ORDER BY ID";
+            string sql = "SELECT SID,SUBJECT_ID,SUBJECT_NAME FROM T_SUBJECT WHERE USED_MARK <>- 1 AND PARENT_ID = 0 ORDER BY ID";
             dt = new DataBase().Query(sql).Tables[0];
-            int count = 0;
-            for (int i = 0; i < 20; i++)
+            for (int i = 0; i < 40; i++)
             {
-                DataRow dr = dt.Rows[i];
                 Model_资产负债表 m = new Model_资产负债表();
-                if (i == 5 || i == 6)
+                DataRow dr;
+                DataRow dr2;
+                if (i < 19)
                 {
-                    m.Col_00="";
+                    dr = dt.Rows[i];
+                    m.Col_00 = dr[0].ToString();
+                    m.Col_01 = dr[1].ToString();
+                    m.Col_02 = dr[2].ToString();
                 }
-                else
+                else if(i > 20 && i < 27)
                 {
-                    count++;
-                    m.Col_00 = count.ToString();
+                    dr = dt.Rows[i+29];
+                    m.Col_00 = dr[0].ToString();
+                    m.Col_01 = dr[1].ToString();
+                    m.Col_02 = dr[2].ToString();
                 }
-                m.Col_01 = dr[1].ToString();
-                m.Col_02 = dr[2].ToString();
-
-                DataRow dr2 = dt.Rows[i+20];
+                
+                if (i < 11)
+                {
+                    dr2 = dt.Rows[i + 19];
+                    m.Col_05 = dr2[0].ToString();
+                    m.Col_06 = dr2[1].ToString();
+                    m.Col_07 = dr2[2].ToString();
+                }
                 if (i == 11)
                 {
-                    m.Col_05 = "";
                     m.Col_07 = "三、净资产类";
-                    m.Col_08 = "";
                 }
-                else if(i>11)
+                else if (i > 11 && i != 19 && i != 21 && i < 27)
                 {
-                    m.Col_07 = dr2[1].ToString();
-                    m.Col_08 = dr2[2].ToString();
+                    dr2 = dt.Rows[i + 18];
+                    m.Col_05 = dr2[0].ToString();
+                    m.Col_06 = dr2[1].ToString();
+                    m.Col_07 = dr2[2].ToString();
+                }
+                else if (i > 29 && i <35)
+                {
+                    dr2 = dt.Rows[i + 16];
+                    m.Col_05 = dr2[0].ToString();
+                    m.Col_06 = dr2[1].ToString();
+                    m.Col_07 = dr2[2].ToString();
+                }
+                if (i == 19)
+                {
+                    m.Col_00 = "";
+                    m.Col_01 = "";
+                    m.Col_02 = "资产合计";
+                }
+                if (i == 21)
+                {
+                    m.Col_00 = "";
+                    m.Col_01 = "";
+                    m.Col_02 = "五、支出类";
+                }
+                if (i == 27)
+                {
+                    m.Col_02 = "支出合计";
+                    m.Col_07 = "负债合计";
+                }
+                if (i == 28)
+                {
+                    m.Col_07 = "四、收入类";
+                }
+                if (i == 36)
+                {
+                    m.Col_07 = "收入合计";
+                }
+                if (i ==  38)
+                {
+                    m.Col_02 = "资产部合计";
+                    m.Col_07 = "负债部合计";
                 }
                 list.Add(m);
             }
