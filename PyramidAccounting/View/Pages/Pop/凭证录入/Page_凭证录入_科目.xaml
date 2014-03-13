@@ -4,11 +4,12 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       mc:Ignorable="d" 
-      d:DesignHeight="300" d:DesignWidth="300"
+      d:DesignHeight="225" d:DesignWidth="200"
 	Title="Page_凭证录入_科目">
 
     <Grid>
-        <ListBox x:Name="ListBox_1" HorizontalAlignment="Left" Height="100" Margin="10,64,0,0" VerticalAlignment="Top" Width="100" MouseDoubleClick="ListBox_1_MouseDoubleClick"/>
+        <ListBox x:Name="ListBox_科目" Margin="0,38,0,0" MouseDoubleClick="ListBox_科目_MouseDoubleClick" BorderThickness="0,1,0,0"/>
+        <TextBox x:Name="TextBox_科目搜索" HorizontalAlignment="Left" Height="23" Margin="10,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="106"/>
 
     </Grid>
 </Page>

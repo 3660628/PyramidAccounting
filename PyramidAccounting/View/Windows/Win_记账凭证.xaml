@@ -51,7 +51,7 @@
         <Label x:Name="Label_复核" Content="Label" HorizontalAlignment="Left" Margin="541,0,0,10" VerticalAlignment="Bottom"/>
         <Label x:Name="Label_审核状态" Content="Label" HorizontalAlignment="Left" Margin="472,49,0,0" VerticalAlignment="Top"/>
         <Popup x:Name="Popup_科目子细目" Placement="MousePoint">
-            <Grid Background="White" Height="200" Width="300" Margin="1">
+            <Grid Background="White" Height="250" Width="200" Margin="1">
                 <Grid.Effect>
                     <DropShadowEffect ShadowDepth="0"/>
                 </Grid.Effect>

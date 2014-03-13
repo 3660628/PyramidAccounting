@@ -36,7 +36,7 @@ namespace PA.View.Pages.Pop.凭证录入
             li.Add("10");
             li.Add("11");
             li.Add("12");
-            this.ListBox_1.ItemsSource = li;
+            this.ListBox_科目.ItemsSource = li;
         }
 
         private void DoFillDate(string str)
@@ -49,9 +49,9 @@ namespace PA.View.Pages.Pop.凭证录入
             }
         }
 
-        private void ListBox_1_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        private void ListBox_科目_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
-            DoFillDate(this.ListBox_1.SelectedValue.ToString());
+            DoFillDate(this.ListBox_科目.SelectedValue.ToString());
         }
     }
 }
