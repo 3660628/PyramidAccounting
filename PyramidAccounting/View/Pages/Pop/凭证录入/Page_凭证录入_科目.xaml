@@ -9,7 +9,7 @@
 
     <Grid>
         <ListBox x:Name="ListBox_科目" Margin="0,38,0,0" MouseDoubleClick="ListBox_科目_MouseDoubleClick" BorderThickness="0,1,0,0"/>
-        <TextBox x:Name="TextBox_科目搜索" HorizontalAlignment="Left" Height="23" Margin="10,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="106"/>
+        <TextBox x:Name="TextBox_科目搜索" HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="106"/>
 
     </Grid>
 </Page>

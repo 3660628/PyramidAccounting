@@ -12,7 +12,7 @@
         </Grid>
 
         <Button x:Name="Button_Close" Content="Button" HorizontalAlignment="Right" Margin="0,0,10,0" VerticalAlignment="Top" Width="28" Height="20" Template="{DynamicResource ButtonControlTemplate_Close}" Click="Button_Close_Click"/>
-        <DataGrid x:Name="DataGrid_凭证明细" Margin="10,97,10,0" VerticalAlignment="Top" AutoGenerateColumns="False" CanUserReorderColumns="False" CanUserResizeColumns="False" CanUserSortColumns="False" CanUserAddRows="False" CanUserDeleteRows="False" CanUserResizeRows="False" SelectionMode="Single" HeadersVisibility="Column" RowHeight="40" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle_凭证录入}" HorizontalGridLinesBrush="Gray" VerticalGridLinesBrush="Gray" HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Disabled" Height="271" ScrollViewer.CanContentScroll="False" CellStyle="{DynamicResource DataGridCellStyle_凭证录入}">
+        <DataGrid x:Name="DataGrid_凭证明细" Margin="10,97,10,0" VerticalAlignment="Top" AutoGenerateColumns="False" CanUserReorderColumns="False" CanUserResizeColumns="False" CanUserSortColumns="False" CanUserAddRows="False" CanUserDeleteRows="False" CanUserResizeRows="False" SelectionMode="Single" HeadersVisibility="Column" RowHeight="40" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle_凭证录入}" HorizontalGridLinesBrush="Gray" VerticalGridLinesBrush="Gray" HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Disabled" Height="271" ScrollViewer.CanContentScroll="False" CellStyle="{DynamicResource DataGridCellStyle_凭证录入}" BeginningEdit="DataGrid_凭证明细_BeginningEdit" CellEditEnding="DataGrid_凭证明细_CellEditEnding">
             <DataGrid.Resources>
                 <Style TargetType="DataGridRow">
                     <EventSetter Event="MouseDoubleClick" Handler="DataGrid_凭证明细_Cell_MouseDoubleClick" />
@@ -61,7 +61,7 @@
             </Grid>
         </Popup>
         <Label Content="附属单证" HorizontalAlignment="Left" Margin="10,373,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="TextBox_附属单证" HorizontalAlignment="Left" Height="23" Margin="73,375,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="40" BorderThickness="0,0,0,1" TextAlignment="Center"/>
+        <TextBox x:Name="TextBox_附属单证" HorizontalAlignment="Left" Margin="73,377,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="40" BorderThickness="0,0,0,1" TextAlignment="Center" FontSize="14"/>
         <Label Content="张" HorizontalAlignment="Left" Margin="118,373,0,0" VerticalAlignment="Top"/>
         <Label Content="合计" HorizontalAlignment="Left" Margin="304,373,0,0" VerticalAlignment="Top"/>
         <Label x:Name="Label_借方合计" Content="借方合计" HorizontalAlignment="Center" Margin="526,373,206,0" VerticalAlignment="Top"/>

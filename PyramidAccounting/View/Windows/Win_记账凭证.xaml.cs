@@ -132,5 +132,15 @@ namespace PA.View.Windows
         }
 
         #endregion
+
+        private void DataGrid_凭证明细_BeginningEdit(object sender, DataGridBeginningEditEventArgs e)
+        {
+
+        }
+
+        private void DataGrid_凭证明细_CellEditEnding(object sender, DataGridCellEditEndingEventArgs e)
+        {
+
+        }
     }
 }
