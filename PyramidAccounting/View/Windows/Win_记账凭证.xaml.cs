@@ -47,6 +47,9 @@ namespace PA.View.Windows
         #endregion
 
         #region 非事件
+        /// <summary>
+        /// 初始化数据(空)
+        /// </summary>
         private void InitData()
         {
             Voucher.凭证明细 = new List<Model_凭证明细>();
@@ -56,20 +59,33 @@ namespace PA.View.Windows
                 a.ID = i;
                 Voucher.凭证明细.Add(a);
             }
-            FillData();
-        }
-        private void FillData()
-        {
             this.DatePicker_Date.SelectedDate = DateTime.Now;
-            this.ComboBox_总收付转.SelectedIndex = 0;
-            this.TextBox_号.Text = "0";
             this.DataGrid_凭证明细.ItemsSource = Voucher.凭证明细;
         }
+        /// <summary>
+        /// 填充数据(查看修改)
+        /// </summary>
+        private void FillData()
+        {
+
+        }
+        /// <summary>
+        /// 获取全部数据
+        /// </summary>
+        /// <returns></returns>
         private Model_凭证单 GetData()
         {
+            Voucher.审核标志 = 0;
             Voucher.制表时间 = (DateTime)this.DatePicker_Date.SelectedDate;
             Voucher.字 = this.ComboBox_总收付转.Text;
             Voucher.号 = int.Parse(this.TextBox_号.Text);
+            Voucher.凭证明细 = this.DataGrid_凭证明细.ItemsSource as List<Model_凭证明细>;
+            Voucher.附属单证数 = int.Parse(this.TextBox_附属单证.Text);
+            Voucher.合计借方金额 = decimal.Parse(this.Label_借方合计.Content.ToString());
+            Voucher.合计贷方金额 = decimal.Parse(this.Label_贷方合计.Content.ToString());
+            Voucher.会计主管 = this.Label_会计主管.Content.ToString();
+            Voucher.记账 = this.Label_制单人.Content.ToString();
+            Voucher.审核 = this.Label_复核.Content.ToString();
             return Voucher;
         }
         #endregion
@@ -148,6 +164,23 @@ namespace PA.View.Windows
 
         }
 
+        private void TextBox_附属单证_MouseWheel(object sender, MouseWheelEventArgs e)
+        {
+            if (e.Delta > 0)
+            {
+                this.TextBox_附属单证.Text = (int.Parse(this.TextBox_附属单证.Text) + 1).ToString();
+            }
+            else if (e.Delta < 0)
+            {
+                if (this.TextBox_附属单证.Text != "0")
+                {
+                    this.TextBox_附属单证.Text = (int.Parse(this.TextBox_附属单证.Text) - 1).ToString();
+                }
+            }
+        }
+
         #endregion
+
+        
     }
 }

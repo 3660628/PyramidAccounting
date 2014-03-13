@@ -2,7 +2,7 @@
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="记账凭证" Height="450
-        " Width="800" WindowStyle="None" AllowsTransparency="True" WindowStartupLocation="CenterScreen" MouseLeftButtonDown="Window_凭证输入_MouseLeftButtonDown" Background="{x:Null}">
+        " Width="800" WindowStyle="None" AllowsTransparency="True" WindowStartupLocation="CenterScreen" MouseLeftButtonDown="Window_凭证输入_MouseLeftButtonDown" Background="{x:Null}" ResizeMode="NoResize">
     <Grid Background="White" Margin="5">
         <Grid.Effect>
             <DropShadowEffect ShadowDepth="0"/>
@@ -47,8 +47,8 @@
         </DataGrid>
         <DatePicker x:Name="DatePicker_Date" HorizontalAlignment="Left" Margin="49,67,0,0" VerticalAlignment="Top" Width="120" SelectedDateFormat="Short"/>
         
-        <TextBox x:Name="TextBox_号" HorizontalAlignment="Left" Margin="723,72,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="30" BorderThickness="0,0,0,1" TextAlignment="Center" FontSize="14"/>
-        <TextBox x:Name="TextBox_附属单证" HorizontalAlignment="Left" Margin="73,377,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="40" BorderThickness="0,0,0,1" TextAlignment="Center" FontSize="14"/>
+        <TextBox x:Name="TextBox_号" HorizontalAlignment="Left" Margin="723,72,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="30" BorderThickness="0,0,0,1" TextAlignment="Center" FontSize="14" Text="0"/>
+        <TextBox x:Name="TextBox_附属单证" HorizontalAlignment="Left" Margin="73,377,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="40" BorderThickness="0,0,0,1" TextAlignment="Center" FontSize="14" Text="0" MouseWheel="TextBox_附属单证_MouseWheel"/>
 
         <ComboBox x:Name="ComboBox_总收付转" HorizontalAlignment="Right" Margin="0,69,99,0" VerticalAlignment="Top">
             <ComboBoxItem Content="总" IsSelected="True"/>
@@ -58,12 +58,12 @@
         </ComboBox>
         
         <!--Label-->
-        <Label x:Name="Label_会计主管" Content="Label" HorizontalAlignment="Left" Margin="73,0,0,10" VerticalAlignment="Bottom"/>
-        <Label x:Name="Label_制单人" Content="Label" HorizontalAlignment="Left" Margin="312,0,0,10" VerticalAlignment="Bottom"/>
-        <Label x:Name="Label_复核" Content="Label" HorizontalAlignment="Left" Margin="541,0,0,10" VerticalAlignment="Bottom"/>
+        <Label x:Name="Label_会计主管" Content="" HorizontalAlignment="Left" Margin="73,0,0,10" VerticalAlignment="Bottom"/>
+        <Label x:Name="Label_制单人" Content="" HorizontalAlignment="Left" Margin="312,0,0,10" VerticalAlignment="Bottom"/>
+        <Label x:Name="Label_复核" Content="" HorizontalAlignment="Left" Margin="541,0,0,10" VerticalAlignment="Bottom"/>
         <Label x:Name="Label_审核状态" Content="Label" HorizontalAlignment="Left" Margin="472,49,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="Label_借方合计" Content="借方合计" HorizontalAlignment="Center" Margin="526,373,206,0" VerticalAlignment="Top"/>
-        <Label x:Name="Label_贷方合计" Content="贷方合计" HorizontalAlignment="Center" Margin="676,373,56,0" VerticalAlignment="Top"/>
+        <Label x:Name="Label_借方合计" Content="0.0" HorizontalAlignment="Center" Margin="526,373,206,0" VerticalAlignment="Top"/>
+        <Label x:Name="Label_贷方合计" Content="0.0" HorizontalAlignment="Center" Margin="676,373,56,0" VerticalAlignment="Top"/>
 
         <!--弹出面板-->
         <Popup x:Name="Popup_科目子细目" Placement="MousePoint">
