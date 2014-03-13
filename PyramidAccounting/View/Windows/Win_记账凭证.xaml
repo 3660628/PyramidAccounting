@@ -29,7 +29,6 @@
         <Button x:Name="Button_保存" Content="保存" HorizontalAlignment="Left" Margin="90,30,0,0" VerticalAlignment="Top" Width="75" Click="Button_保存_Click"/>
         <Button x:Name="Button_打印" Content="打印" HorizontalAlignment="Right" Margin="0,30,10,0" VerticalAlignment="Top" Width="75" Click="Button_打印_Click"/>
 
-
         <DataGrid x:Name="DataGrid_凭证明细" Margin="10,97,10,0" VerticalAlignment="Top" AutoGenerateColumns="False" CanUserReorderColumns="False" CanUserResizeColumns="False" CanUserSortColumns="False" CanUserAddRows="False" CanUserDeleteRows="False" CanUserResizeRows="False" SelectionMode="Single" HeadersVisibility="Column" RowHeight="40" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle_凭证录入}" HorizontalGridLinesBrush="Gray" VerticalGridLinesBrush="Gray" HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Disabled" Height="271" ScrollViewer.CanContentScroll="False" CellStyle="{DynamicResource DataGridCellStyle_凭证录入}" BeginningEdit="DataGrid_凭证明细_BeginningEdit" CellEditEnding="DataGrid_凭证明细_CellEditEnding">
             <DataGrid.Resources>
                 <Style TargetType="DataGridRow">
@@ -57,6 +56,7 @@
             <ComboBoxItem Content="付"/>
             <ComboBoxItem Content="转"/>
         </ComboBox>
+        
         <!--Label-->
         <Label x:Name="Label_会计主管" Content="Label" HorizontalAlignment="Left" Margin="73,0,0,10" VerticalAlignment="Bottom"/>
         <Label x:Name="Label_制单人" Content="Label" HorizontalAlignment="Left" Margin="312,0,0,10" VerticalAlignment="Bottom"/>
@@ -64,7 +64,6 @@
         <Label x:Name="Label_审核状态" Content="Label" HorizontalAlignment="Left" Margin="472,49,0,0" VerticalAlignment="Top"/>
         <Label x:Name="Label_借方合计" Content="借方合计" HorizontalAlignment="Center" Margin="526,373,206,0" VerticalAlignment="Top"/>
         <Label x:Name="Label_贷方合计" Content="贷方合计" HorizontalAlignment="Center" Margin="676,373,56,0" VerticalAlignment="Top"/>
-
 
         <!--弹出面板-->
         <Popup x:Name="Popup_科目子细目" Placement="MousePoint">

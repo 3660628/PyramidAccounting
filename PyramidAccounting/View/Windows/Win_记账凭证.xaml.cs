@@ -67,6 +67,9 @@ namespace PA.View.Windows
         }
         private Model_凭证单 GetData()
         {
+            Voucher.制表时间 = (DateTime)this.DatePicker_Date.SelectedDate;
+            Voucher.字 = this.ComboBox_总收付转.Text;
+            Voucher.号 = int.Parse(this.TextBox_号.Text);
             return Voucher;
         }
         #endregion
@@ -99,7 +102,11 @@ namespace PA.View.Windows
 
         private void Button_打印_Click(object sender, RoutedEventArgs e)
         {
-            
+            GetData();
+            Console.WriteLine(Voucher.制表时间);
+            Console.WriteLine(Voucher.字);
+            Console.WriteLine(Voucher.号);
+            //Console.WriteLine(Voucher.制表时间);
         }
         
         private void DataGrid_凭证明细_Cell_MouseDoubleClick(object sender, RoutedEventArgs e)
@@ -131,8 +138,6 @@ namespace PA.View.Windows
             this.Window_记账凭证.IsEnabled = true;
         }
 
-        #endregion
-
         private void DataGrid_凭证明细_BeginningEdit(object sender, DataGridBeginningEditEventArgs e)
         {
 
@@ -142,5 +147,7 @@ namespace PA.View.Windows
         {
 
         }
+
+        #endregion
     }
 }
