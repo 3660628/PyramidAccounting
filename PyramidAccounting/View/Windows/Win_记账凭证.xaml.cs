@@ -78,9 +78,9 @@ namespace PA.View.Windows
             Voucher.审核标志 = 0;
             Voucher.制表时间 = (DateTime)this.DatePicker_Date.SelectedDate;
             Voucher.字 = this.ComboBox_总收付转.Text;
-            Voucher.号 = int.Parse(this.TextBox_号.Text);
+            Voucher.号 = int.Parse(this.TextBox_号.Text.Trim());
             Voucher.凭证明细 = this.DataGrid_凭证明细.ItemsSource as List<Model_凭证明细>;
-            Voucher.附属单证数 = int.Parse(this.TextBox_附属单证.Text);
+            Voucher.附属单证数 = int.Parse(this.TextBox_附属单证.Text.Trim());
             Voucher.合计借方金额 = decimal.Parse(this.Label_借方合计.Content.ToString());
             Voucher.合计贷方金额 = decimal.Parse(this.Label_贷方合计.Content.ToString());
             Voucher.会计主管 = this.Label_会计主管.Content.ToString();
@@ -168,18 +168,35 @@ namespace PA.View.Windows
         {
             if (e.Delta > 0)
             {
-                this.TextBox_附属单证.Text = (int.Parse(this.TextBox_附属单证.Text) + 1).ToString();
+                this.TextBox_附属单证.Text = (int.Parse(this.TextBox_附属单证.Text.Trim()) + 1).ToString();
             }
             else if (e.Delta < 0)
             {
                 if (this.TextBox_附属单证.Text != "0")
                 {
-                    this.TextBox_附属单证.Text = (int.Parse(this.TextBox_附属单证.Text) - 1).ToString();
+                    this.TextBox_附属单证.Text = (int.Parse(this.TextBox_附属单证.Text.Trim()) - 1).ToString();
+                }
+            }
+        }
+
+        private void TextBox_号_MouseWheel(object sender, MouseWheelEventArgs e)
+        {
+            if (e.Delta > 0)
+            {
+                this.TextBox_号.Text = (int.Parse(this.TextBox_号.Text.Trim()) + 1).ToString();
+            }
+            else if (e.Delta < 0)
+            {
+                if (this.TextBox_号.Text != "0")
+                {
+                    this.TextBox_号.Text = (int.Parse(this.TextBox_号.Text.Trim()) - 1).ToString();
                 }
             }
         }
 
         #endregion
+
+        
 
         
     }
