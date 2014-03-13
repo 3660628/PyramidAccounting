@@ -42,13 +42,13 @@ namespace PA.Model.DataGrid
             set { review_mark = value; }
         }
 
-        public string 审核
+        public string 复核
         {
             get { return reviewer; }
             set { reviewer = value; }
         }
 
-        public string 记账
+        public string 制单人
         {
             get { return bookkeeper; }
             set { bookkeeper = value; }

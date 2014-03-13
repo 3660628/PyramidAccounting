@@ -84,8 +84,8 @@ namespace PA.View.Windows
             Voucher.合计借方金额 = decimal.Parse(this.Label_借方合计.Content.ToString());
             Voucher.合计贷方金额 = decimal.Parse(this.Label_贷方合计.Content.ToString());
             Voucher.会计主管 = this.Label_会计主管.Content.ToString();
-            Voucher.记账 = this.Label_制单人.Content.ToString();
-            Voucher.审核 = this.Label_复核.Content.ToString();
+            Voucher.制单人 = this.Label_制单人.Content.ToString();
+            Voucher.复核 = this.Label_复核.Content.ToString();
             return Voucher;
         }
         #endregion
