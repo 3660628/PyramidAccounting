@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Data.SQLite;
 using System.Data;
+using PA.Model.DatabaseTable;
 
 namespace PA.Helper.DataBase
 {
@@ -167,22 +168,38 @@ namespace PA.Helper.DataBase
 
         public bool InsertPackage(string TableName, List<object> Values)
         {
-            List<PA.Model.DataGrid.Model_凭证明细> EntityList = Values.OfType<PA.Model.DataGrid.Model_凭证明细>().ToList();
-            string sql = PA.Helper.DataDefind.SqlString.T_VOUCHER_DETAIL;
+            string sql = "";
+
             SQLiteConnection conn = DBInitialize.getDBConnection();
             conn.Open();
             SQLiteCommand cmd = new SQLiteCommand();
             cmd.CommandText = sql;
-            cmd.Parameters.AddWithValue("@VID", EntityList[0].序号);
-            cmd.Parameters.AddWithValue("@PARENTID", EntityList[0].父节点ID);
-            cmd.Parameters.AddWithValue("@ABSTRACT", EntityList[0].摘要);
-            cmd.Parameters.AddWithValue("@SUBJECT_ID", EntityList[0].科目编号);
-            cmd.Parameters.AddWithValue("@DETAIL", EntityList[0].子细目);
-            cmd.Parameters.AddWithValue("@BOOKKEEP_MARK", EntityList[0].记账);
-            cmd.Parameters.AddWithValue("@DEBIT", EntityList[0].借方);
-            cmd.Parameters.AddWithValue("@CREDIT", EntityList[0].贷方);
-            cmd.Parameters.AddWithValue("@BOOK_ID", EntityList[0].账套ID);
-            cmd.Connection = conn;
+
+            switch (TableName.ToUpper())
+            {
+                case "T_VOUCHER_DETAIL":
+                    sql = PA.Helper.DataDefind.SqlString.T_VOUCHER_DETAIL;
+                    List<Model_凭证明细>  EntityList = Values.OfType<Model_凭证明细>().ToList();
+                    foreach (Model_凭证明细 list in EntityList)
+                    {
+                        cmd.Parameters.AddWithValue("@VID", list.序号);
+                        cmd.Parameters.AddWithValue("@PARENTID", list.父节点ID);
+                        cmd.Parameters.AddWithValue("@ABSTRACT", list.摘要);
+                        cmd.Parameters.AddWithValue("@SUBJECT_ID", list.科目编号);
+                        cmd.Parameters.AddWithValue("@DETAIL", list.子细目);
+                        cmd.Parameters.AddWithValue("@BOOKKEEP_MARK", list.记账);
+                        cmd.Parameters.AddWithValue("@DEBIT", list.借方);
+                        cmd.Parameters.AddWithValue("@CREDIT", list.贷方);
+                        cmd.Parameters.AddWithValue("@BOOK_ID", list.账套ID);
+                        cmd.Connection = conn;
+                        cmd.ExecuteNonQuery();
+                    }
+                    
+                    break;
+            }
+            
+
+
             return false;
         }
         public DataSet SelectPackage(string TableName)
