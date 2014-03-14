@@ -8,20 +8,25 @@ namespace PA.Model.DataGrid
     class Model_科目管理
     {
         private int id;
+        private string sid;
         private string subject_id;
         private string subject_type;
         private string subject_name;
         private string direction;
-        private decimal fee;
+        private string fee;
         private bool used_mark;
-
+        public string 序号
+        {
+            get { return sid; }
+            set { sid = value; }
+        }
         public bool 是否使用
         {
             get { return used_mark; }
             set { used_mark = value; }
         }
 
-        public decimal 年初金额
+        public string 年初金额
         {
             get { return fee; }
             set { fee = value; }

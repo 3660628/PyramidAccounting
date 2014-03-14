@@ -17,18 +17,18 @@
             <TabItem Header="科目设置" Margin="30,-2,-30,-1" Template="{DynamicResource TabItemControlTemplate_TwoTabHeader}">
                 <Grid Background="White">
                     <Label Content="类别" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" FontSize="16"/>
-                    <Button x:Name="Button_资产" Content="资产类" HorizontalAlignment="Left" Margin="50,10,0,0" VerticalAlignment="Top" Width="70" Height="24"/>
-                    <Button x:Name="Button_负债" Content="负债类" HorizontalAlignment="Left" Margin="120,10,0,0" VerticalAlignment="Top" Width="70" Height="24"/>
-                    <Button x:Name="Button_净资产" Content="净资产类" HorizontalAlignment="Left" Margin="190,10,0,0" VerticalAlignment="Top" Width="72" Height="24"/>
-                    <Button x:Name="Button_收入" Content="收入类" HorizontalAlignment="Left" Margin="262,10,0,0" VerticalAlignment="Top" Width="70" Height="24"/>
-                    <Button x:Name="Button_支出" Content="支出类" HorizontalAlignment="Left" Margin="332,10,0,0" VerticalAlignment="Top" Width="70" Height="24"/>
-                    <DataGrid x:Name="DataGrid_科目设置" ItemsSource="{Binding}" AutoGenerateColumns="False" HorizontalAlignment="Stretch" Margin="10,44,0,0" VerticalAlignment="Stretch">
+                    <Button x:Name="Button_资产" Content="资产类" HorizontalAlignment="Left" Margin="50,10,0,0" VerticalAlignment="Top" Width="70" Height="24" Click="Button_资产_Click"/>
+                    <Button x:Name="Button_负债" Content="负债类" HorizontalAlignment="Left" Margin="120,10,0,0" VerticalAlignment="Top" Width="70" Height="24" Click="Button_负债_Click"/>
+                    <Button x:Name="Button_净资产" Content="净资产类" HorizontalAlignment="Left" Margin="190,10,0,0" VerticalAlignment="Top" Width="72" Height="24" Click="Button_净资产_Click"/>
+                    <Button x:Name="Button_收入" Content="收入类" HorizontalAlignment="Left" Margin="262,10,0,0" VerticalAlignment="Top" Width="70" Height="24" Click="Button_收入_Click"/>
+                    <Button x:Name="Button_支出" Content="支出类" HorizontalAlignment="Left" Margin="332,10,0,0" VerticalAlignment="Top" Width="70" Height="24" Click="Button_支出_Click"/>
+                    <DataGrid x:Name="DataGrid_科目设置" ItemsSource="{Binding}" CanUserAddRows="False" AutoGenerateColumns="False" HorizontalAlignment="Stretch" Margin="10,44,0,0" VerticalAlignment="Stretch">
                         <DataGrid.Columns>
-                            <DataGridTextColumn Header="序号" />
-                            <DataGridTextColumn Header="科目编号" />
-                            <DataGridTextColumn Header="科目名称"/>
-                            <DataGridTextColumn Header="年初数"/>
-                            <DataGridCheckBoxColumn Header="是否启用" />
+                            <DataGridTextColumn Binding="{Binding 序号}" Header="序号" IsReadOnly="True" />
+                            <DataGridTextColumn Binding="{Binding 科目编号}" Header="科目编号" IsReadOnly="True"/>
+                            <DataGridTextColumn Binding="{Binding 科目名称}" Header="科目名称" IsReadOnly="True"/>
+                            <DataGridTextColumn Binding="{Binding 年初金额}" Header="年初数"/>
+                            <DataGridCheckBoxColumn Binding="{Binding 是否启用}" Header="是否启用" />
                         </DataGrid.Columns>
                     </DataGrid>
                     </Grid>
