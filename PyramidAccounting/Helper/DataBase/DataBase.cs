@@ -205,12 +205,29 @@ namespace PA.Helper.DataBase
         }
         public DataSet SelectPackage(string TableName)
         {
-            DataSet ds = new DataSet();
-            return ds;
+            return SelectPackage(TableName,"");
         }
         public DataSet SelectPackage(string TableName, string WhereParm)
         {
+            string sql = "Select * from " + TableName + " " + WhereParm;
             DataSet ds = new DataSet();
+            SQLiteConnection conn = DBInitialize.getDBConnection();
+            conn.Open();
+            try
+            {
+                SQLiteDataAdapter my = new SQLiteDataAdapter(sql, conn);
+                my.Fill(ds);
+            }
+            catch (SQLiteException e)
+            {
+                Console.WriteLine(e.Message);
+                Console.WriteLine("SQL{0}:" + sql);
+            }
+            finally
+            {
+                conn.Close();
+                conn.Dispose();
+            }
             return ds;
         }
     }
