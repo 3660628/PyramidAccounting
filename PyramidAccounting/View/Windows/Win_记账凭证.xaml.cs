@@ -22,6 +22,7 @@ namespace PA.View.Windows
     public partial class Win_记账凭证 : Window
     {
         Model_凭证单 Voucher = new Model_凭证单();
+        List<Model_凭证明细> VoucherDetails = new List<Model_凭证明细>();
         private int CellId;
 
         public Win_记账凭证()
@@ -37,11 +38,11 @@ namespace PA.View.Windows
             this.Window_记账凭证.IsEnabled = true;
             if (typeof(PA.View.Pages.Pop.凭证录入.Page_凭证录入_科目).IsInstanceOfType(sender))
             {
-                Voucher.凭证明细[CellId].科目编号 = e.Str;
+                VoucherDetails[CellId].科目编号 = e.Str;
             }
             else if (typeof(PA.View.Pages.Pop.凭证录入.Page_凭证录入_子细目).IsInstanceOfType(sender))
             {
-                Voucher.凭证明细[CellId].子细目 = e.Str;
+                VoucherDetails[CellId].子细目 = e.Str;
             }
         }
         #endregion
@@ -52,15 +53,15 @@ namespace PA.View.Windows
         /// </summary>
         private void InitData()
         {
-            Voucher.凭证明细 = new List<Model_凭证明细>();
+            VoucherDetails = new List<Model_凭证明细>();
             for (int i = 0; i < 6; i++)
             {
                 Model_凭证明细 a = new Model_凭证明细();
                 a.ID = i;
-                Voucher.凭证明细.Add(a);
+                VoucherDetails.Add(a);
             }
             this.DatePicker_Date.SelectedDate = DateTime.Now;
-            this.DataGrid_凭证明细.ItemsSource = Voucher.凭证明细;
+            this.DataGrid_凭证明细.ItemsSource = VoucherDetails;
         }
         /// <summary>
         /// 填充数据(查看修改)
@@ -79,7 +80,7 @@ namespace PA.View.Windows
             Voucher.制表时间 = (DateTime)this.DatePicker_Date.SelectedDate;
             Voucher.字 = this.ComboBox_总收付转.Text;
             Voucher.号 = int.Parse(this.TextBox_号.Text.Trim());
-            Voucher.凭证明细 = this.DataGrid_凭证明细.ItemsSource as List<Model_凭证明细>;
+            VoucherDetails = this.DataGrid_凭证明细.ItemsSource as List<Model_凭证明细>;
             Voucher.附属单证数 = int.Parse(this.TextBox_附属单证.Text.Trim());
             Voucher.合计借方金额 = decimal.Parse(this.Label_借方合计.Content.ToString());
             Voucher.合计贷方金额 = decimal.Parse(this.Label_贷方合计.Content.ToString());
@@ -90,13 +91,13 @@ namespace PA.View.Windows
         }
         private void Count合计()
         {
-            Voucher.凭证明细 = this.DataGrid_凭证明细.ItemsSource as List<Model_凭证明细>;
+            VoucherDetails = this.DataGrid_凭证明细.ItemsSource as List<Model_凭证明细>;
             decimal count借方 = 0m;
             decimal count贷方 = 0m;
             for (int i = 0; i < 6; i++ )
             {
-                count借方 += Voucher.凭证明细[i].借方;
-                count贷方 += Voucher.凭证明细[i].贷方;
+                count借方 += VoucherDetails[i].借方;
+                count贷方 += VoucherDetails[i].贷方;
             }
             this.Label_借方合计.Content = count借方.ToString();
             this.Label_贷方合计.Content = count贷方.ToString();
@@ -157,13 +158,13 @@ namespace PA.View.Windows
             }
             else if (DoubleClickCell.Column.Header.ToString() == "记账")
             {
-                if (Voucher.凭证明细[CellId].记账 == 0)
+                if (VoucherDetails[CellId].记账 == 0)
                 {
-                    Voucher.凭证明细[CellId].记账 = 1;
+                    VoucherDetails[CellId].记账 = 1;
                 }
                 else
                 {
-                    Voucher.凭证明细[CellId].记账 = 0;
+                    VoucherDetails[CellId].记账 = 0;
                 }
             }
         }
@@ -186,15 +187,15 @@ namespace PA.View.Windows
             string Header = e.Column.Header.ToString();
             if (Header == "借方金额" && (SelectedRow.ID + 2) % 2 == 0)
             {
-                Voucher.凭证明细[SelectedRow.ID].借方 = decimal.Parse(newValue);
-                Voucher.凭证明细[SelectedRow.ID].贷方 = 0m;
-                Voucher.凭证明细[SelectedRow.ID + 1].贷方 = decimal.Parse((e.EditingElement as TextBox).Text.Trim());
+                VoucherDetails[SelectedRow.ID].借方 = decimal.Parse(newValue);
+                VoucherDetails[SelectedRow.ID].贷方 = 0m;
+                VoucherDetails[SelectedRow.ID + 1].贷方 = decimal.Parse((e.EditingElement as TextBox).Text.Trim());
             }
             else if (Header == "贷方金额" && (SelectedRow.ID + 2) % 2 == 1)
             {
-                Voucher.凭证明细[SelectedRow.ID].贷方 = decimal.Parse(newValue);
-                Voucher.凭证明细[SelectedRow.ID].借方 = 0m;
-                Voucher.凭证明细[SelectedRow.ID - 1].借方 = decimal.Parse((e.EditingElement as TextBox).Text.Trim());
+                VoucherDetails[SelectedRow.ID].贷方 = decimal.Parse(newValue);
+                VoucherDetails[SelectedRow.ID].借方 = 0m;
+                VoucherDetails[SelectedRow.ID - 1].借方 = decimal.Parse((e.EditingElement as TextBox).Text.Trim());
             }
             Count合计();
         }

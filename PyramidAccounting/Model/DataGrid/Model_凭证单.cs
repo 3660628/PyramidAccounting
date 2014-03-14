@@ -22,7 +22,6 @@ namespace PA.Model.DataGrid
         private int review_mark;
         private int delete_mark;
         private string book_id;
-        private List<Model_凭证明细> voucherDetail;
 
         public string 账套ID
         {
@@ -106,12 +105,6 @@ namespace PA.Model.DataGrid
         {
             get { return id; }
             set { id = value; }
-        }
-
-        internal List<Model_凭证明细> 凭证明细
-        {
-            get { return voucherDetail; }
-            set { voucherDetail = value; }
         }
 
         #region INotifyPropertyChanged Members
