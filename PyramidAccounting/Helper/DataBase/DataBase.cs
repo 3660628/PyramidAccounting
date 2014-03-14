@@ -212,7 +212,7 @@ namespace PA.Helper.DataBase
                 SQLiteCommand cmd = new SQLiteCommand();
                 sql = sql.Replace("@tableName", list.TableName);
                 sql = sql.Replace("@key", list.Key);
-                sql = sql.Replace("@value", "'"+list.Value+"'");
+                sql = sql.Replace("@value", list.Value);
                 sql = sql.Replace("@whereParm", list.WhereParm);
                 cmd.CommandText = sql;
                 cmd.Connection = conn;
