@@ -25,7 +25,7 @@ namespace PA.ViewModel
                 m.科目编号 = d[2].ToString();
                 m.科目名称 = d[4].ToString();
                 m.年初金额 = d[5].ToString();
-                m.是否使用 = Convert.ToInt32(d[7].ToString()) == 0 ? true : false;
+                m.是否启用 = Convert.ToInt32(d[7].ToString()) == 0 ? true : false;
                 list.Add(m);
             }
             return list;

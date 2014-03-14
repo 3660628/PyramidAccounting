@@ -20,7 +20,7 @@ namespace PA.Model.DataGrid
             get { return sid; }
             set { sid = value; }
         }
-        public bool 是否使用
+        public bool 是否启用
         {
             get { return used_mark; }
             set { used_mark = value; }

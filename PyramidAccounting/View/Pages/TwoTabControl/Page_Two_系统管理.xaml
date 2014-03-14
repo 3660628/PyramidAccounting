@@ -28,7 +28,7 @@
                     <Button x:Name="Button_净资产" Content="净资产类" HorizontalAlignment="Left" Margin="190,10,0,0" VerticalAlignment="Top" Width="72" Height="24" Click="Button_净资产_Click"/>
                     <Button x:Name="Button_收入" Content="收入类" HorizontalAlignment="Left" Margin="262,10,0,0" VerticalAlignment="Top" Width="70" Height="24" Click="Button_收入_Click"/>
                     <Button x:Name="Button_支出" Content="支出类" HorizontalAlignment="Left" Margin="332,10,0,0" VerticalAlignment="Top" Width="70" Height="24" Click="Button_支出_Click"/>
-                    <DataGrid x:Name="DataGrid_科目设置" ItemsSource="{Binding}" CanUserAddRows="False" AutoGenerateColumns="False" HorizontalAlignment="Stretch" Margin="10,44,0,0" VerticalAlignment="Stretch">
+                    <DataGrid x:Name="DataGrid_科目设置" ItemsSource="{Binding}" CanUserAddRows="False" AutoGenerateColumns="False" HorizontalAlignment="Stretch" Margin="10,44,0,0" VerticalAlignment="Stretch" Background="White">
                         <DataGrid.Columns>
                             <DataGridTextColumn Binding="{Binding 序号}" Header="序号" IsReadOnly="True" />
                             <DataGridTextColumn Binding="{Binding 科目编号}" Header="科目编号" IsReadOnly="True"/>
