@@ -177,7 +177,7 @@ namespace PA.Helper.DataBase
             switch (TableName.ToUpper())
             {
                 case "T_VOUCHER_DETAIL":
-                    sql = PA.Helper.DataDefind.SqlString.T_VOUCHER_DETAIL;
+                    sql = PA.Helper.DataDefind.SqlString.Insert_T_VOUCHER_DETAIL;
                     List<Model_凭证明细>  EntityList = Values.OfType<Model_凭证明细>().ToList();
                     foreach (Model_凭证明细 list in EntityList)
                     {
@@ -201,6 +201,23 @@ namespace PA.Helper.DataBase
             
 
 
+            return false;
+        }
+        public bool UpdatePackage(string TableName, string key, string value, string whereParm)
+        {
+            string sql = PA.Helper.DataDefind.SqlString.Update_Sql;
+            SQLiteConnection conn = DBInitialize.getDBConnection();
+            conn.Open();
+            SQLiteTransaction strans = conn.BeginTransaction();
+            SQLiteCommand cmd = new SQLiteCommand();
+            cmd.CommandText = sql;
+            cmd.Parameters.AddWithValue("@tableName", TableName);
+            cmd.Parameters.AddWithValue("@key", key);
+            cmd.Parameters.AddWithValue("@value", value);
+            cmd.Parameters.AddWithValue("@whereParm", whereParm);
+            cmd.Connection = conn;
+            cmd.ExecuteNonQuery();
+            strans.Commit();
             return false;
         }
         public DataSet SelectPackage(string TableName)
