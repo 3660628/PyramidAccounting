@@ -31,7 +31,7 @@ namespace PA.Helper.DataBase
             }
             catch (SQLiteException e)
             {
-                //Log.Write(e.Message + "\n 错误SQL语句：" + sql);
+                Log.Write(e.Message + "\n 错误SQL语句：" + sql);
             }
             finally
             {
@@ -68,7 +68,7 @@ namespace PA.Helper.DataBase
             catch (SQLiteException e)
             {
                 strans.Rollback();
-                //Log.Write(e.Message);
+                Log.Write(e.Message);
             }
             finally
             {

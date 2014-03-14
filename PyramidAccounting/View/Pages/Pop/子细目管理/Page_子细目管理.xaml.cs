@@ -9,33 +9,24 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace PA.View.Windows
+namespace PA.View.Pages.Pop.子细目管理
 {
     /// <summary>
-    /// Interaction logic for Win_子细目.xaml
+    /// Interaction logic for Page_子细目管理.xaml
     /// </summary>
-    public partial class Win_子细目 : Window
+    public partial class Page_子细目管理 : Page
     {
-        public Win_子细目()
+        public Page_子细目管理()
         {
             InitializeComponent();
         }
 
         private void Button_Close_Click(object sender, RoutedEventArgs e)
         {
-            this.Close();
-        }
-
-        private void Window_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
-        {
-            this.DragMove();
-        }
-
-        private void Button_Min_Click(object sender, RoutedEventArgs e)
-        {
-            this.WindowState = System.Windows.WindowState.Minimized;
+            this.Visibility = Visibility.Hidden;
         }
     }
 }

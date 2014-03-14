@@ -32,6 +32,18 @@ namespace PA.ViewModel
             }
             return list;
         }
+        public bool CheckSaved()
+        {
+            bool flag = false;
+            string sql = "select sum(fee) from t_subject where used_mark=0";
+            string str = db.GetAllData(sql).Split('\t')[0];
+            int value = Int32.Parse(str.Split(',')[0]);
+            if (value > 0)
+            {
+                flag = true;
+            }
+            return flag;
+        }
         public void Update(List<Model_科目管理> list)
         {
             //do sth

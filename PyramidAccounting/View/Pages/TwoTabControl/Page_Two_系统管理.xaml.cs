@@ -34,7 +34,12 @@ namespace PA.View.Pages.TwoTabControl
         /// </summary>
         private void VisibilityButtonSubject()
         {
-
+            if (new ViewModel_科目管理().CheckSaved())
+            {
+                this.DataGridTextColumn_fee.IsReadOnly = true;
+                this.DataGridTextColumn_mark.IsReadOnly = true;
+                this.Button_科目保存.Visibility = Visibility.Hidden;
+            }
         }
         private List<Model_科目管理> lm = new List<Model_科目管理>();
         private void Button_资产_Click(object sender, RoutedEventArgs e)
@@ -96,11 +101,12 @@ namespace PA.View.Pages.TwoTabControl
             lm.Add(m);
         }
 
-        private void Subject_Row_MouseDoubleClick(object sender, RoutedEventArgs e)
+        private void Button_编辑子细目_Click(object sender, RoutedEventArgs e)
         {
-            PA.View.Windows.Win_子细目 w = new Windows.Win_子细目();
+            Windows.Win_子细目 w = new Windows.Win_子细目();
             w.ShowDialog();
         }
         #endregion
+
     }
 }
