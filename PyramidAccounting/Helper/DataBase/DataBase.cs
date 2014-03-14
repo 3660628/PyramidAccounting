@@ -165,11 +165,24 @@ namespace PA.Helper.DataBase
             return flag;
         }
 
-        public bool InsertPackage(List<object> Values)
+        public bool InsertPackage(string TableName, List<object> Values)
         {
+            List<PA.Model.DataGrid.Model_凭证明细> EntityList = Values.OfType<PA.Model.DataGrid.Model_凭证明细>().ToList();
+            string sql = PA.Helper.DataDefind.SqlString.T_VOUCHER_DETAIL;
             SQLiteConnection conn = DBInitialize.getDBConnection();
             conn.Open();
             SQLiteCommand cmd = new SQLiteCommand();
+            cmd.CommandText = sql;
+            cmd.Parameters.AddWithValue("@VID", EntityList[0].序号);
+            cmd.Parameters.AddWithValue("@PARENTID", EntityList[0].父节点ID);
+            cmd.Parameters.AddWithValue("@ABSTRACT", EntityList[0].摘要);
+            cmd.Parameters.AddWithValue("@SUBJECT_ID", EntityList[0].科目编号);
+            cmd.Parameters.AddWithValue("@DETAIL", EntityList[0].子细目);
+            cmd.Parameters.AddWithValue("@BOOKKEEP_MARK", EntityList[0].记账);
+            cmd.Parameters.AddWithValue("@DEBIT", EntityList[0].借方);
+            cmd.Parameters.AddWithValue("@CREDIT", EntityList[0].贷方);
+            cmd.Parameters.AddWithValue("@BOOK_ID", EntityList[0].账套ID);
+            cmd.Connection = conn;
             return false;
         }
         public DataSet SelectPackage(string TableName)

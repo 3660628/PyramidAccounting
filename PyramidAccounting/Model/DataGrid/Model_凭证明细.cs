@@ -14,7 +14,7 @@ namespace PA.Model.DataGrid
         private string abstract_comments;
         private string subject_id;
         private string deal;
-        private string bookkeep_mark;
+        private int bookkeep_mark;
         private decimal debit;
         private decimal credit;
         private string book_id;
@@ -42,7 +42,7 @@ namespace PA.Model.DataGrid
             set { debit = value; NotifyPropertyChanged("借方"); }
         }
 
-        public string 记账
+        public int 记账
         {
             get { return bookkeep_mark; }
             set { bookkeep_mark = value; NotifyPropertyChanged("记账"); }

@@ -157,13 +157,13 @@ namespace PA.View.Windows
             }
             else if (DoubleClickCell.Column.Header.ToString() == "记账")
             {
-                if (Voucher.凭证明细[CellId].记账 == null)
+                if (Voucher.凭证明细[CellId].记账 == 0)
                 {
-                    Voucher.凭证明细[CellId].记账 = "√";
+                    Voucher.凭证明细[CellId].记账 = 1;
                 }
                 else
                 {
-                    Voucher.凭证明细[CellId].记账 = null;
+                    Voucher.凭证明细[CellId].记账 = 0;
                 }
             }
         }
