@@ -221,11 +221,15 @@ namespace PA.Helper.DataBase
         }
         public DataSet SelectPackage(string TableName)
         {
-            return SelectPackage(TableName,"1=1");
+            return SelectPackage(TableName,"");
         }
         public DataSet SelectPackage(string TableName, string WhereParm)
         {
-            string sql = "Select * from " + TableName + " where " + WhereParm;
+            string sql = "Select * from " + TableName;
+            if (WhereParm != "")
+            {
+                sql += " where " + WhereParm;
+            }
             DataSet ds = new DataSet();
             SQLiteConnection conn = DBInitialize.getDBConnection();
             conn.Open();
