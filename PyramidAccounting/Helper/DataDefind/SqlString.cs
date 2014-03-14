@@ -22,7 +22,6 @@ namespace PA.Helper.DataDefind
             get { return SqlString.insert_T_VOUCHER_DETAIL; }
         } 
 
-
         public static string T_VOUCHER
         {
             get { return SqlString.t_VOUCHER; }

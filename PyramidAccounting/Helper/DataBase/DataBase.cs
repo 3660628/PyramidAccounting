@@ -5,6 +5,7 @@ using System.Text;
 using System.Data.SQLite;
 using System.Data;
 using PA.Model.DataGrid;
+using PA.Model.Database;
 
 namespace PA.Helper.DataBase
 {
@@ -168,8 +169,6 @@ namespace PA.Helper.DataBase
 
         public bool InsertPackage(string TableName, List<object> Values)
         {
-            string sql = "";
-
             SQLiteConnection conn = DBInitialize.getDBConnection();
             conn.Open();
             SQLiteTransaction strans = conn.BeginTransaction();
@@ -177,7 +176,7 @@ namespace PA.Helper.DataBase
             switch (TableName.ToUpper())
             {
                 case "T_VOUCHER_DETAIL":
-                    sql = PA.Helper.DataDefind.SqlString.Insert_T_VOUCHER_DETAIL;
+                    string sql = PA.Helper.DataDefind.SqlString.Insert_T_VOUCHER_DETAIL;
                     List<Model_凭证明细>  EntityList = Values.OfType<Model_凭证明细>().ToList();
                     foreach (Model_凭证明细 list in EntityList)
                     {
@@ -198,35 +197,35 @@ namespace PA.Helper.DataBase
                     break;
             }
             strans.Commit();
-            
-
-
             return false;
         }
-        public bool UpdatePackage(string TableName, string key, string value, string whereParm)
+        public bool UpdatePackage(List<UpdateParm> lists)
         {
             string sql = PA.Helper.DataDefind.SqlString.Update_Sql;
             SQLiteConnection conn = DBInitialize.getDBConnection();
             conn.Open();
             SQLiteTransaction strans = conn.BeginTransaction();
-            SQLiteCommand cmd = new SQLiteCommand();
-            cmd.CommandText = sql;
-            cmd.Parameters.AddWithValue("@tableName", TableName);
-            cmd.Parameters.AddWithValue("@key", key);
-            cmd.Parameters.AddWithValue("@value", value);
-            cmd.Parameters.AddWithValue("@whereParm", whereParm);
-            cmd.Connection = conn;
-            cmd.ExecuteNonQuery();
+            foreach(UpdateParm list in lists)
+            {
+                SQLiteCommand cmd = new SQLiteCommand();
+                cmd.CommandText = sql;
+                cmd.Parameters.AddWithValue("@tableName", list.TableName);
+                cmd.Parameters.AddWithValue("@key", list.Key);
+                cmd.Parameters.AddWithValue("@value", list.Value);
+                cmd.Parameters.AddWithValue("@whereParm", list.WhereParm);
+                cmd.Connection = conn;
+                cmd.ExecuteNonQuery();
+            }
             strans.Commit();
             return false;
         }
         public DataSet SelectPackage(string TableName)
         {
-            return SelectPackage(TableName,"");
+            return SelectPackage(TableName,"1=1");
         }
         public DataSet SelectPackage(string TableName, string WhereParm)
         {
-            string sql = "Select * from " + TableName + " " + WhereParm;
+            string sql = "Select * from " + TableName + " where " + WhereParm;
             DataSet ds = new DataSet();
             SQLiteConnection conn = DBInitialize.getDBConnection();
             conn.Open();
