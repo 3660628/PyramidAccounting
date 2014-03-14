@@ -89,6 +89,7 @@
     <Compile Include="Helper\DataBase\DBInitialize.cs" />
     <Compile Include="Helper\DataBase\Log.cs" />
     <Compile Include="Helper\DataBase\StartUpInit.cs" />
+    <Compile Include="Helper\DataDefind\SqlString.cs" />
     <Compile Include="Helper\ExcelHelper\ExcelReader.cs" />
     <Compile Include="Helper\ExcelHelper\ExcelWriter.cs" />
     <Compile Include="Helper\XMLHelper\XMLReader.cs" />

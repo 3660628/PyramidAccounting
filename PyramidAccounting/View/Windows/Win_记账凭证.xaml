@@ -12,7 +12,7 @@
         </Grid>
         <!--显示用Label-->
         <Label Content="日期" HorizontalAlignment="Left" Margin="10,67,0,0" VerticalAlignment="Top"/>
-        <Label Content="记账凭证" HorizontalAlignment="Center" Margin="0,30,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="20"/>
+        <Label Content="记账凭证" HorizontalAlignment="Center" Margin="0,30,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="22"/>
         <Label Content="字" HorizontalAlignment="Left" Margin="696,67,0,0" VerticalAlignment="Top"/>
         <Label Content="号" HorizontalAlignment="Right" Margin="0,67,10,0" VerticalAlignment="Top"/>
         <Label Content="附属单证" HorizontalAlignment="Left" Margin="10,373,0,0" VerticalAlignment="Top"/>
@@ -61,7 +61,7 @@
         <Label x:Name="Label_会计主管" Content="" HorizontalAlignment="Left" Margin="73,0,0,10" VerticalAlignment="Bottom"/>
         <Label x:Name="Label_制单人" Content="" HorizontalAlignment="Left" Margin="312,0,0,10" VerticalAlignment="Bottom"/>
         <Label x:Name="Label_复核" Content="" HorizontalAlignment="Left" Margin="541,0,0,10" VerticalAlignment="Bottom"/>
-        <Label x:Name="Label_审核状态" Content="Label" HorizontalAlignment="Left" Margin="472,49,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="Label_审核状态" Content="" HorizontalAlignment="Left" Margin="472,49,0,0" VerticalAlignment="Top"/>
         <Label x:Name="Label_借方合计" Content="0.0" HorizontalAlignment="Right" Margin="0,373,160,0" VerticalAlignment="Top"/>
         <Label x:Name="Label_贷方合计" Content="0.0" HorizontalAlignment="Right" Margin="0,373,10,0" VerticalAlignment="Top"/>
 

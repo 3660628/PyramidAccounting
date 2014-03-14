@@ -164,5 +164,23 @@ namespace PA.Helper.DataBase
             }
             return flag;
         }
+
+        public bool InsertPackage(List<object> Values)
+        {
+            SQLiteConnection conn = DBInitialize.getDBConnection();
+            conn.Open();
+            SQLiteCommand cmd = new SQLiteCommand();
+            return false;
+        }
+        public DataSet SelectPackage(string TableName)
+        {
+            DataSet ds = new DataSet();
+            return ds;
+        }
+        public DataSet SelectPackage(string TableName, string WhereParm)
+        {
+            DataSet ds = new DataSet();
+            return ds;
+        }
     }
 }
