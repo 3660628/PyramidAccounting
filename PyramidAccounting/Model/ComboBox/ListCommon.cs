@@ -27,7 +27,7 @@ namespace PA.Model.ComboBox
             DataTable dt = db.Query(sql).Tables[0];
             for (int i = 0; i < dt.Rows.Count; i++)
             {
-                string str = dt.Rows[i][0]+" "+dt.Rows[i][1];
+                string str = dt.Rows[i][0]+"\t"+dt.Rows[i][1];
                 list.Add(str);
             }
             return list;
