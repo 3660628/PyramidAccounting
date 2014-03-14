@@ -12,6 +12,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using PA.Model.DataGrid;
 using PA.ViewModel;
+using PA.Model.CustomEventArgs;
 
 namespace PA.View.Windows
 {
@@ -20,12 +21,18 @@ namespace PA.View.Windows
     /// </summary>
     public partial class Win_子细目 : Window
     {
+        private string value1 = string.Empty;
+        private string value2 = string.Empty;
         private int judge = 0;
         private List<Model_科目管理> lm= new List<Model_科目管理>();
         private ViewModel_科目管理 vm = new ViewModel_科目管理();
-        public Win_子细目()
+        public Win_子细目(string value1,string value2)
         {
             InitializeComponent();
+            this.value1 = value1;
+            this.value2 = value2;
+            this.TextBox_科目编号.Text = this.value1;
+            this.TextBox_科目名称.Text = this.value2;
         }
 
         private void Button_Close_Click(object sender, RoutedEventArgs e)
@@ -40,12 +47,12 @@ namespace PA.View.Windows
                 this.DragMove();
             }
         }
-
+       
         private void Button_Min_Click(object sender, RoutedEventArgs e)
         {
             this.WindowState = System.Windows.WindowState.Minimized;
         }
-
+        #region Button事件
         private void Button_Add_Click(object sender, RoutedEventArgs e)
         {
             judge = 1;
@@ -105,6 +112,6 @@ namespace PA.View.Windows
                 vm.UpdateChildSubject(m);
             }
         }
-
+        #endregion
     }
 }

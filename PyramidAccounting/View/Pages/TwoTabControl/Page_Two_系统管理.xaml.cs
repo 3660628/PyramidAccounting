@@ -14,6 +14,7 @@ using System.Windows.Shapes;
 using PA.ViewModel;
 using PA.Model.DataGrid;
 using System.Data;
+using PA.Model.CustomEventArgs;
 
 namespace PA.View.Pages.TwoTabControl
 {
@@ -103,8 +104,19 @@ namespace PA.View.Pages.TwoTabControl
 
         private void Button_编辑子细目_Click(object sender, RoutedEventArgs e)
         {
-            Windows.Win_子细目 w = new Windows.Win_子细目();
+            
+            Model_科目管理 m = new Model_科目管理();
+            try
+            {
+                 m= DataGrid_科目设置.SelectedItem as Model_科目管理;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+            Windows.Win_子细目 w = new Windows.Win_子细目(m.科目编号,m.科目名称);
             w.ShowDialog();
+
         }
         #endregion
 

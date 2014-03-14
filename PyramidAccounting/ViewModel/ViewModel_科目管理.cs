@@ -85,7 +85,7 @@ namespace PA.ViewModel
 
         public void Insert(List<Model_科目管理> list)
         {
-
+            db.InsertPackage("t_subject", list.OfType<object>().ToList());
         }
 
         public void Delete(List<int> list)
