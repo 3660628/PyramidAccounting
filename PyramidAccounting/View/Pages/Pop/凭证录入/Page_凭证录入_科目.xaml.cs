@@ -12,6 +12,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using PA.Model.CustomEventArgs;
+using PA.Model.ComboBox;
 
 namespace PA.View.Pages.Pop.凭证录入
 {
@@ -23,20 +24,7 @@ namespace PA.View.Pages.Pop.凭证录入
         public Page_凭证录入_科目()
         {
             InitializeComponent();
-            List<string> li = new List<string>();
-            li.Add("1");
-            li.Add("2");
-            li.Add("3");
-            li.Add("4");
-            li.Add("5");
-            li.Add("6");
-            li.Add("7");
-            li.Add("8");
-            li.Add("9");
-            li.Add("10");
-            li.Add("11");
-            li.Add("12");
-            this.ListBox_科目.ItemsSource = li;
+            this.ListBox_科目.ItemsSource = new ListCommon().GetSubjectList();
         }
 
         private void OnFillDate(string str)
@@ -51,7 +39,7 @@ namespace PA.View.Pages.Pop.凭证录入
 
         private void ListBox_科目_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
-            OnFillDate(this.ListBox_科目.SelectedValue.ToString());
+            OnFillDate(this.ListBox_科目.SelectedValue.ToString().Split(' ')[1]);
         }
     }
 }

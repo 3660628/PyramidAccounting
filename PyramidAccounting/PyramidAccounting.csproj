@@ -93,6 +93,7 @@
     <Compile Include="Helper\ExcelHelper\ExcelReader.cs" />
     <Compile Include="Helper\ExcelHelper\ExcelWriter.cs" />
     <Compile Include="Helper\XMLHelper\XMLReader.cs" />
+    <Compile Include="Model\ComboBox\ListCommon.cs" />
     <Compile Include="Model\Database\UpdateParm.cs" />
     <Compile Include="Model\DataGrid\Model_凭证单.cs" />
     <Compile Include="Model\DataGrid\Model_凭证明细.cs" />

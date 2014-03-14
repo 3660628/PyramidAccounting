@@ -37,7 +37,7 @@ namespace PA.ViewModel
         public void Update(List<Model_科目管理> list)
         {
             //do sth
-            
+            //db.UpdatePackage(list);
         }
     }
 }
