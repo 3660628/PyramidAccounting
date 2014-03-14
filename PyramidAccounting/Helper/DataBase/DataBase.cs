@@ -176,6 +176,7 @@ namespace PA.Helper.DataBase
             switch (TableName.ToUpper())
             {
                 case "T_VOUCHER_DETAIL":
+                    #region T_VOUCHER_DETAIL
                     sql = PA.Helper.DataDefind.SqlString.Insert_T_VOUCHER_DETAIL;
                     List<Model_凭证明细> 凭证明细List = Values.OfType<Model_凭证明细>().ToList();
                     foreach (Model_凭证明细 list in 凭证明细List)
@@ -194,8 +195,10 @@ namespace PA.Helper.DataBase
                         cmd.Connection = conn;
                         cmd.ExecuteNonQuery();
                     }
+                    #endregion
                     break;
                 case "T_VOUCHER":
+                    #region T_VOUCHER
                     sql = PA.Helper.DataDefind.SqlString.Insert_T_VOUCHER;
                     List<Model_凭证单> 凭证单List = Values.OfType<Model_凭证单>().ToList();
                     foreach (Model_凭证单 list in 凭证单List)
@@ -218,6 +221,7 @@ namespace PA.Helper.DataBase
                         cmd.Connection = conn;
                         cmd.ExecuteNonQuery();
                     }
+                    #endregion
                     break;
             }
             strans.Commit();
