@@ -11,10 +11,18 @@ namespace PA.Model.ComboBox
     {
         private List<string> list;
         private string sql = string.Empty;
-        public List<string> GetSubjectList()
+        public List<string> GetSubjectList(string condition)
         {
             list = new List<string>();
-            sql = "select subject_id,subject_name from t_subject where used_mark=0 order by id";
+            if (string.IsNullOrEmpty(condition))
+            {
+                sql = "select subject_id,subject_name from t_subject where used_mark=0 order by id";
+            }
+            else
+            {
+                sql = "select subject_id,subject_name from t_subject where used_mark=0 " + "and subject_id like '" + condition +
+                        "%' order by id";
+            }
             DataBase db = new DataBase();
             DataTable dt = db.Query(sql).Tables[0];
             for (int i = 0; i < dt.Rows.Count; i++)
