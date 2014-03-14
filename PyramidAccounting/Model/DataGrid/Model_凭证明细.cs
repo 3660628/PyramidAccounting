@@ -9,6 +9,7 @@ namespace PA.Model.DataGrid
     class Model_凭证明细 : INotifyPropertyChanged
     {
         private int id;
+        private int vid;
         private string parentid;
         private string abstract_comments;
         private string subject_id;
@@ -18,6 +19,11 @@ namespace PA.Model.DataGrid
         private decimal credit;
         private string book_id;
 
+        public int 序号
+        {
+            get { return vid; }
+            set { vid = value; }
+        }
         public string 账套ID
         {
             get { return book_id; }

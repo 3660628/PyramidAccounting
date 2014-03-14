@@ -23,6 +23,7 @@ CREATE TABLE T_VOUCHER (								--凭证表
 );
 CREATE TABLE T_VOUCHER_DETAIL (							--凭证明细表
     ID            INTEGER PRIMARY KEY,					--ID
+	VID			  INTEGER,								--序号，记录当前第几条
     PARENTID      TEXT,									--父节ID，与凭证表VOUCHER_NO相等
     ABSTRACT      TEXT,									--摘要
     SUBJECT_ID    TEXT,									--科目编号
