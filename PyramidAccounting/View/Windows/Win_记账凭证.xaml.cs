@@ -57,7 +57,7 @@ namespace PA.View.Windows
             for (int i = 0; i < 6; i++)
             {
                 Model_凭证明细 a = new Model_凭证明细();
-                a.ID = i;
+                a.序号 = i;
                 VoucherDetails.Add(a);
             }
             this.DatePicker_Date.SelectedDate = DateTime.Now;
