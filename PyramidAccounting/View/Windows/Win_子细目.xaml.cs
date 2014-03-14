@@ -18,6 +18,7 @@ namespace PA.View.Windows
     /// </summary>
     public partial class Win_子细目 : Window
     {
+        private int judge = 0;
         public Win_子细目()
         {
             InitializeComponent();
@@ -30,12 +31,21 @@ namespace PA.View.Windows
 
         private void Window_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            this.DragMove();
+            if (e.ButtonState == MouseButtonState.Pressed)
+            {
+                this.DragMove();
+            }
         }
 
         private void Button_Min_Click(object sender, RoutedEventArgs e)
         {
             this.WindowState = System.Windows.WindowState.Minimized;
+        }
+
+        private void Button_Add_Click(object sender, RoutedEventArgs e)
+        {
+            judge = 1;
+            DataGrid_子细目.CanUserAddRows = true;
         }
     }
 }

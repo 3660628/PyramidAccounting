@@ -15,8 +15,14 @@ namespace PA.Model.DataGrid
         private string direction;
         private string fee;
         private int used_mark;
+        private string parent_id;
         private bool mark;
 
+        public string 父ID
+        {
+            get { return parent_id; }
+            set { parent_id = value; }
+        }
         public bool 是否启用
         {
             get { return mark; }
