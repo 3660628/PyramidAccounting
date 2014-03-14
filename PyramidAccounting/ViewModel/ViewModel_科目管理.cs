@@ -30,5 +30,10 @@ namespace PA.ViewModel
             }
             return list;
         }
+        public void Update(List<Model_科目管理> list)
+        {
+            //do sth
+            string sql = "update t_subject set fee='";
+        }
     }
 }
