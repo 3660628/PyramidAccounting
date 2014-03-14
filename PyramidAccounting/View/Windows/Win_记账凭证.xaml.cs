@@ -140,7 +140,7 @@ namespace PA.View.Windows
         {
             Model_凭证明细 SelectedRow = this.DataGrid_凭证明细.SelectedCells[0].Item as Model_凭证明细;
             DataGridCellInfo DoubleClickCell = this.DataGrid_凭证明细.CurrentCell;
-            CellId = SelectedRow.ID;
+            CellId = SelectedRow.序号;
             if (DoubleClickCell.Column.Header.ToString() == "科目")
             {
                 PA.View.Pages.Pop.凭证录入.Page_凭证录入_科目 page = new PA.View.Pages.Pop.凭证录入.Page_凭证录入_科目();
