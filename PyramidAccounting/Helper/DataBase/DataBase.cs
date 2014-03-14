@@ -227,12 +227,12 @@ namespace PA.Helper.DataBase
         }
         public bool UpdatePackage(List<UpdateParm> lists)
         {
-            string sql = PA.Helper.DataDefind.SqlString.Update_Sql;
             SQLiteConnection conn = DBInitialize.getDBConnection();
             conn.Open();
             SQLiteTransaction strans = conn.BeginTransaction();
             foreach(UpdateParm list in lists)
             {
+                string sql = PA.Helper.DataDefind.SqlString.Update_Sql;
                 SQLiteCommand cmd = new SQLiteCommand();
                 sql = sql.Replace("@tableName", list.TableName);
                 sql = sql.Replace("@key", list.Key);
