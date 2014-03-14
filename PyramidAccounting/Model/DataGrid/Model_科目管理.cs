@@ -21,7 +21,7 @@ namespace PA.Model.DataGrid
             set { used_mark = value; }
         }
 
-        public decimal 期初金额
+        public decimal 年初金额
         {
             get { return fee; }
             set { fee = value; }
