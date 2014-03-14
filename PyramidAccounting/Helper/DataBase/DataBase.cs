@@ -172,13 +172,13 @@ namespace PA.Helper.DataBase
             SQLiteConnection conn = DBInitialize.getDBConnection();
             conn.Open();
             SQLiteTransaction strans = conn.BeginTransaction();
-
+            string sql = "";
             switch (TableName.ToUpper())
             {
                 case "T_VOUCHER_DETAIL":
-                    string sql = PA.Helper.DataDefind.SqlString.Insert_T_VOUCHER_DETAIL;
-                    List<Model_凭证明细>  EntityList = Values.OfType<Model_凭证明细>().ToList();
-                    foreach (Model_凭证明细 list in EntityList)
+                    sql = PA.Helper.DataDefind.SqlString.Insert_T_VOUCHER_DETAIL;
+                    List<Model_凭证明细> 凭证明细List = Values.OfType<Model_凭证明细>().ToList();
+                    foreach (Model_凭证明细 list in 凭证明细List)
                     {
                         SQLiteCommand cmd = new SQLiteCommand();
                         cmd.CommandText = sql;
@@ -190,6 +190,30 @@ namespace PA.Helper.DataBase
                         cmd.Parameters.AddWithValue("@BOOKKEEP_MARK", list.记账);
                         cmd.Parameters.AddWithValue("@DEBIT", list.借方);
                         cmd.Parameters.AddWithValue("@CREDIT", list.贷方);
+                        cmd.Parameters.AddWithValue("@BOOK_ID", list.账套ID);
+                        cmd.Connection = conn;
+                        cmd.ExecuteNonQuery();
+                    }
+                    break;
+                case "T_VOUCHER":
+                    sql = PA.Helper.DataDefind.SqlString.Insert_T_VOUCHER;
+                    List<Model_凭证单> 凭证单List = Values.OfType<Model_凭证单>().ToList();
+                    foreach (Model_凭证单 list in 凭证单List)
+                    {
+                        SQLiteCommand cmd = new SQLiteCommand();
+                        cmd.CommandText = sql;
+                        cmd.Parameters.AddWithValue("@VOUCHER_NO", list.凭证号);
+                        cmd.Parameters.AddWithValue("@OP_TIME", list.制表时间);
+                        cmd.Parameters.AddWithValue("@WORD", list.字);
+                        cmd.Parameters.AddWithValue("@NUMBER", list.号);
+                        cmd.Parameters.AddWithValue("@SUBSIDIARY_COUNTS", list.附属单证数);
+                        cmd.Parameters.AddWithValue("@FEE_DEBIT", list.合计借方金额);
+                        cmd.Parameters.AddWithValue("@FEE_CREDIT", list.合计贷方金额);
+                        cmd.Parameters.AddWithValue("@ACCOUNTANT", list.会计主管);
+                        cmd.Parameters.AddWithValue("@BOOKEEPER", list.制单人);
+                        cmd.Parameters.AddWithValue("@REVIEWER", list.复核);
+                        cmd.Parameters.AddWithValue("@REVIEW_MARK", list.审核标志);
+                        cmd.Parameters.AddWithValue("@DELETE_MARK", list.删除标志);
                         cmd.Parameters.AddWithValue("@BOOK_ID", list.账套ID);
                         cmd.Connection = conn;
                         cmd.ExecuteNonQuery();

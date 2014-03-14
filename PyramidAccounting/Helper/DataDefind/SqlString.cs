@@ -8,10 +8,8 @@ namespace PA.Helper.DataDefind
     class SqlString
     {
         private static readonly string update_Sql = "Update @tableName set @key = @value where @whereParm";
-        private static readonly string insert_T_VOUCHER = "Insert into T_VOUCHER() values()";
-
-        
-
+        private static readonly string insert_T_VOUCHER = "Insert into T_VOUCHER(VOUCHER_NO,OP_TIME,WORD,NUMBER,SUBSIDIARY_COUNTS,FEE_DEBIT,FEE_CREDIT,ACCOUNTANT,BOOKEEPER,REVIEWER,REVIEW_MARK,DELETE_MARK,BOOK_ID) "
+            + "values(@VOUCHER_NO, @OP_TIME, @WORD, @NUMBER, @SUBSIDIARY_COUNTS, @FEE_DEBIT, @FEE_CREDIT, @ACCOUNTANT, @BOOKEEPER, @REVIEWER, @REVIEW_MARK, @DELETE_MARK, @BOOK_ID)";
         private static readonly string insert_T_VOUCHER_DETAIL = "Insert into T_VOUCHER_DETAIL(VID, PARENTID, ABSTRACT, SUBJECT_ID, DETAIL, BOOKKEEP_MARK, DEBIT, CREDIT, BOOK_ID) "
             + "values(@VID, @PARENTID, @ABSTRACT, @SUBJECT_ID, @DETAIL, @BOOKKEEP_MARK, @DEBIT, @CREDIT, @BOOK_ID)";
         
