@@ -140,7 +140,7 @@ namespace PA.View.Windows
         
         private void DataGrid_凭证明细_Cell_MouseDoubleClick(object sender, RoutedEventArgs e)
         {
-            Model_凭证明细 SelectedRow = (Model_凭证明细)(this.DataGrid_凭证明细 as DataGrid).SelectedItems[0];
+            Model_凭证明细 SelectedRow = this.DataGrid_凭证明细.SelectedCells[0].Item as Model_凭证明细;
             DataGridCellInfo DoubleClickCell = this.DataGrid_凭证明细.CurrentCell;
             CellId = SelectedRow.ID;
             if (DoubleClickCell.Column.Header.ToString() == "科目")
@@ -185,8 +185,8 @@ namespace PA.View.Windows
 
         private void DataGrid_凭证明细_CellEditEnding(object sender, DataGridCellEditEndingEventArgs e)
         {
+            Model_凭证明细 SelectedRow = this.DataGrid_凭证明细.SelectedCells[0].Item as Model_凭证明细;
             string newValue = (e.EditingElement as TextBox).Text.Trim();
-            Model_凭证明细 SelectedRow = (Model_凭证明细)(sender as DataGrid).SelectedItems[0];
             string Header = e.Column.Header.ToString();
             if (Header == "借方金额" && (SelectedRow.ID + 2) % 2 == 0)
             {
