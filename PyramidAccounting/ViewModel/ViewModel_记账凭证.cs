@@ -15,7 +15,15 @@ namespace PA.ViewModel
 
         public void InsertData(Model_凭证单 Voucher, List<Model_凭证明细> VoucherDetails)
         {
-            new PA.Helper.DataBase.DataBase().InsertPackage("T_VOUCHER_DETAIL", VoucherDetails.OfType<object>().ToList());
+            //new PA.Helper.DataBase.DataBase().InsertPackage("T_VOUCHER_DETAIL", VoucherDetails.OfType<object>().ToList());
+            List<PA.Model.Database.UpdateParm> lists = new List<Model.Database.UpdateParm>();
+            PA.Model.Database.UpdateParm parm = new Model.Database.UpdateParm();
+            parm.TableName = "T_VOUCHER_DETAIL";
+            parm.Key = "BOOKKEEP_MARK";
+            parm.Value = "1";
+            parm.WhereParm = "vid=1";
+            lists.Add(parm);
+            new PA.Helper.DataBase.DataBase().UpdatePackage(lists);
         }
     }
 }

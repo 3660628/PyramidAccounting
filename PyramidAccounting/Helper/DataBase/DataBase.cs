@@ -197,6 +197,8 @@ namespace PA.Helper.DataBase
                     break;
             }
             strans.Commit();
+            conn.Close();
+            conn.Dispose();
             return false;
         }
         public bool UpdatePackage(List<UpdateParm> lists)
@@ -208,15 +210,17 @@ namespace PA.Helper.DataBase
             foreach(UpdateParm list in lists)
             {
                 SQLiteCommand cmd = new SQLiteCommand();
+                sql = sql.Replace("@tableName", list.TableName);
+                sql = sql.Replace("@key", list.Key);
+                sql = sql.Replace("@value", list.Value);
+                sql = sql.Replace("@whereParm", list.WhereParm);
                 cmd.CommandText = sql;
-                cmd.Parameters.AddWithValue("@tableName", list.TableName);
-                cmd.Parameters.AddWithValue("@key", list.Key);
-                cmd.Parameters.AddWithValue("@value", list.Value);
-                cmd.Parameters.AddWithValue("@whereParm", list.WhereParm);
                 cmd.Connection = conn;
                 cmd.ExecuteNonQuery();
             }
             strans.Commit();
+            conn.Close();
+            conn.Dispose();
             return false;
         }
         public DataSet SelectPackage(string TableName)
