@@ -13,7 +13,7 @@ namespace PA.Model.DataGrid
         private string subject_type;
         private string subject_name;
         private string direction;
-        private decimal fee;
+        private string fee;
         private int used_mark;
         private bool mark;
 
@@ -33,7 +33,7 @@ namespace PA.Model.DataGrid
             set { used_mark = value; }
         }
 
-        public decimal 年初金额
+        public string 年初金额
         {
             get { return fee; }
             set { fee = value; }
