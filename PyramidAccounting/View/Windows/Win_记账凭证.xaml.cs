@@ -120,7 +120,8 @@ namespace PA.View.Windows
 
         private void Button_保存_Click(object sender, RoutedEventArgs e)
         {
-            new PA.ViewModel.ViewModel_记账凭证().InsertData(GetData());
+            GetData();
+            new PA.ViewModel.ViewModel_记账凭证().InsertData(Voucher, VoucherDetails);
             this.Close();
         }
 

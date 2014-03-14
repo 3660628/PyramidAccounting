@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Data.SQLite;
 using System.Data;
-using PA.Model.DatabaseTable;
+using PA.Model.DataGrid;
 
 namespace PA.Helper.DataBase
 {
@@ -172,8 +172,7 @@ namespace PA.Helper.DataBase
 
             SQLiteConnection conn = DBInitialize.getDBConnection();
             conn.Open();
-            SQLiteCommand cmd = new SQLiteCommand();
-            cmd.CommandText = sql;
+            SQLiteTransaction strans = conn.BeginTransaction();
 
             switch (TableName.ToUpper())
             {
@@ -182,6 +181,8 @@ namespace PA.Helper.DataBase
                     List<Model_凭证明细>  EntityList = Values.OfType<Model_凭证明细>().ToList();
                     foreach (Model_凭证明细 list in EntityList)
                     {
+                        SQLiteCommand cmd = new SQLiteCommand();
+                        cmd.CommandText = sql;
                         cmd.Parameters.AddWithValue("@VID", list.序号);
                         cmd.Parameters.AddWithValue("@PARENTID", list.父节点ID);
                         cmd.Parameters.AddWithValue("@ABSTRACT", list.摘要);
@@ -194,9 +195,9 @@ namespace PA.Helper.DataBase
                         cmd.Connection = conn;
                         cmd.ExecuteNonQuery();
                     }
-                    
                     break;
             }
+            strans.Commit();
             
 
 

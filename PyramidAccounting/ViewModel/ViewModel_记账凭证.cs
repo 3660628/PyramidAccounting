@@ -13,9 +13,9 @@ namespace PA.ViewModel
 
         }
 
-        public void InsertData(Model_凭证单 Voucher)
+        public void InsertData(Model_凭证单 Voucher, List<Model_凭证明细> VoucherDetails)
         {
-
+            new PA.Helper.DataBase.DataBase().InsertPackage("T_VOUCHER_DETAIL", VoucherDetails.OfType<object>().ToList());
         }
     }
 }
