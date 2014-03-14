@@ -13,20 +13,27 @@ namespace PA.Model.DataGrid
         private string subject_type;
         private string subject_name;
         private string direction;
-        private string fee;
-        private bool used_mark;
+        private decimal fee;
+        private int used_mark;
+        private bool mark;
+
+        public bool 是否启用
+        {
+            get { return mark; }
+            set { mark = value; }
+        }
         public string 序号
         {
             get { return sid; }
             set { sid = value; }
         }
-        public bool 是否启用
+        public int Used_mark
         {
             get { return used_mark; }
             set { used_mark = value; }
         }
 
-        public string 年初金额
+        public decimal 年初金额
         {
             get { return fee; }
             set { fee = value; }

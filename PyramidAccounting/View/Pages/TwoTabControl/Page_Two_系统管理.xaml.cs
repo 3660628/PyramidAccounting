@@ -22,6 +22,7 @@ namespace PA.View.Pages.TwoTabControl
     /// </summary>
     public partial class Page_Two_系统管理 : Page
     {
+        private int i = 1;
         public Page_Two_系统管理()
         {
             InitializeComponent();
@@ -38,27 +39,32 @@ namespace PA.View.Pages.TwoTabControl
         private List<Model_科目管理> lm = new List<Model_科目管理>();
         private void Button_资产_Click(object sender, RoutedEventArgs e)
         {
-            this.DataGrid_科目设置.ItemsSource = new ViewModel_科目管理().GetData(1);
+            i = 1;
+            this.DataGrid_科目设置.ItemsSource = new ViewModel_科目管理().GetData(i);
         }
 
         private void Button_负债_Click(object sender, RoutedEventArgs e)
         {
-            this.DataGrid_科目设置.ItemsSource = new ViewModel_科目管理().GetData(2);
+            i = 2;
+            this.DataGrid_科目设置.ItemsSource = new ViewModel_科目管理().GetData(i);
         }
 
         private void Button_净资产_Click(object sender, RoutedEventArgs e)
         {
-            this.DataGrid_科目设置.ItemsSource = new ViewModel_科目管理().GetData(3);
+            i = 3;
+            this.DataGrid_科目设置.ItemsSource = new ViewModel_科目管理().GetData(i);
         }
 
         private void Button_收入_Click(object sender, RoutedEventArgs e)
         {
-            this.DataGrid_科目设置.ItemsSource = new ViewModel_科目管理().GetData(4);
+            i = 4;
+            this.DataGrid_科目设置.ItemsSource = new ViewModel_科目管理().GetData(i);
         }
 
         private void Button_支出_Click(object sender, RoutedEventArgs e)
         {
-            this.DataGrid_科目设置.ItemsSource = new ViewModel_科目管理().GetData(5);
+            i = 5;
+            this.DataGrid_科目设置.ItemsSource = new ViewModel_科目管理().GetData(i);
         }
 
         private void Button_科目保存_Click(object sender, RoutedEventArgs e)
@@ -76,16 +82,17 @@ namespace PA.View.Pages.TwoTabControl
                     return;
             }
             new ViewModel_科目管理().Update(lm);
-
             //刷新操作
             Button btn = sender as Button;
             btn.Visibility = Visibility.Hidden;
+            this.DataGrid_科目设置.ItemsSource = new ViewModel_科目管理().GetData(i);
         }
 
         private void DataGrid_科目设置_RowEditEnding(object sender, DataGridRowEditEndingEventArgs e)
         {
             Model_科目管理 m = new Model_科目管理();
             m = e.Row.Item as Model_科目管理;
+            m.Used_mark = m.是否启用 == true ? 0 : 1;
             lm.Add(m);
         }
         #endregion

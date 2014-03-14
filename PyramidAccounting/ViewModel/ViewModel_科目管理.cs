@@ -10,10 +10,10 @@ namespace PA.ViewModel
 {
     class ViewModel_科目管理
     {
+        DataBase db = new DataBase();
         public List<Model_科目管理> GetData(int type)
         {
-            string sql = "select * from t_subject where subject_type=" + type;
-            DataBase db = new DataBase();
+            string sql = "select * from t_subject where subject_type=" + type + " order by id,used_mark";
             DataTable dt = db.Query(sql).Tables[0];
             List<Model_科目管理> list = new List<Model_科目管理>();
             for (int i = 0; i < dt.Rows.Count; i++)
@@ -24,8 +24,12 @@ namespace PA.ViewModel
                 m.序号 = d[1].ToString();
                 m.科目编号 = d[2].ToString();
                 m.科目名称 = d[4].ToString();
-                m.年初金额 = d[5].ToString();
-                m.是否启用 = Convert.ToInt32(d[7].ToString()) == 0 ? true : false;
+                if (d[5].ToString() != "")
+                {
+                    m.年初金额 = Convert.ToDecimal(d[5].ToString());
+                }
+                m.Used_mark = Convert.ToInt32(d[7].ToString());
+                m.是否启用 = m.Used_mark == 0 ? true : false;
                 list.Add(m);
             }
             return list;
@@ -33,7 +37,7 @@ namespace PA.ViewModel
         public void Update(List<Model_科目管理> list)
         {
             //do sth
-            string sql = "update t_subject set fee='";
+            
         }
     }
 }
