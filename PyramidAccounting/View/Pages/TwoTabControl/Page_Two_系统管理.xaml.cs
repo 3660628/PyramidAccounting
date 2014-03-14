@@ -95,6 +95,12 @@ namespace PA.View.Pages.TwoTabControl
             m.Used_mark = m.是否启用 == true ? 0 : 1;
             lm.Add(m);
         }
+
+        private void Subject_Row_MouseDoubleClick(object sender, RoutedEventArgs e)
+        {
+            PA.View.Windows.Win_子细目 w = new Windows.Win_子细目();
+            w.ShowDialog();
+        }
         #endregion
     }
 }

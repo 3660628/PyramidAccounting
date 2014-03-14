@@ -130,6 +130,9 @@
     <Compile Include="View\Windows\AboutWindow.xaml.cs">
       <DependentUpon>AboutWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\Windows\Win_子细目.xaml.cs">
+      <DependentUpon>Win_子细目.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\Windows\Win_记账凭证.xaml.cs">
       <DependentUpon>Win_记账凭证.xaml</DependentUpon>
     </Compile>
@@ -214,6 +217,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\Windows\AboutWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Windows\Win_子细目.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
