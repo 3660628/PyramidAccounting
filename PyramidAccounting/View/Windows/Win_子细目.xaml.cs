@@ -10,6 +10,8 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using PA.Model.DataGrid;
+using PA.ViewModel;
 
 namespace PA.View.Windows
 {
@@ -19,6 +21,8 @@ namespace PA.View.Windows
     public partial class Win_子细目 : Window
     {
         private int judge = 0;
+        private List<Model_科目管理> lm= new List<Model_科目管理>();
+        private ViewModel_科目管理 vm = new ViewModel_科目管理();
         public Win_子细目()
         {
             InitializeComponent();
@@ -47,5 +51,60 @@ namespace PA.View.Windows
             judge = 1;
             DataGrid_子细目.CanUserAddRows = true;
         }
+
+        private void Button_Save_Click(object sender, RoutedEventArgs e)
+        {
+            DataGrid_子细目.CanUserAddRows = false;
+            vm.Insert(lm);
+            lm.Clear();
+        }
+
+        private void Button_Del_Click(object sender, RoutedEventArgs e)
+        {
+            string messageBoxText = "确认删除数据？";
+            string caption = "注意";
+            MessageBoxButton button = MessageBoxButton.YesNo;
+            MessageBoxImage icon = MessageBoxImage.Warning;
+            MessageBoxResult result = MessageBox.Show(messageBoxText, caption, button, icon);
+            switch (result)
+            {
+                case MessageBoxResult.Yes:
+                    break;
+                case MessageBoxResult.No:
+                    return;
+            }
+            List<int> list = new List<int>();
+            for (int i = 0; i < DataGrid_子细目.SelectedItems.Count; i++)
+            {
+                Model_科目管理 m = new Model_科目管理();
+                try
+                {
+                    m = DataGrid_子细目.SelectedItems[i] as Model_科目管理;
+                }
+                catch (Exception)
+                {
+                    
+                }
+                list.Add(m.ID);
+            }
+            vm.Delete(list);
+            list.Clear();
+        }
+
+        private void DataGrid_子细目_RowEditEnding(object sender, DataGridRowEditEndingEventArgs e)
+        {
+            Model_科目管理 m = new Model_科目管理();
+            m = e.Row.Item as Model_科目管理;
+            if (judge == 1)
+            {
+                m.父ID = TextBox_科目编号.Text.ToString();
+                lm.Add(m);
+            }
+            else
+            {
+                vm.UpdateChildSubject(m);
+            }
+        }
+
     }
 }

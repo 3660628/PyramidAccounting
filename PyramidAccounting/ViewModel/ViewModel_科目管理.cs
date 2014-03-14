@@ -46,9 +46,7 @@ namespace PA.ViewModel
         }
         public void Update(List<Model_科目管理> list)
         {
-            //do sth
             List<UpdateParm> upList = new List<UpdateParm>();
-            Console.WriteLine(list.Count);
             foreach (Model_科目管理 m in list)
             {
                 UpdateParm up = new UpdateParm();
@@ -64,8 +62,41 @@ namespace PA.ViewModel
                 up2.WhereParm = "id=" + m.ID;
                 upList.Add(up2);
             }
-            Console.WriteLine(upList.Count);
             db.UpdatePackage(upList);
+        }
+
+        public void UpdateChildSubject(Model_科目管理 m)
+        {
+            List<UpdateParm> upList = new List<UpdateParm>();
+            UpdateParm up = new UpdateParm();
+            up.TableName = "t_subject";
+            up.Key = "subject_id";
+            up.Value = m.科目编号;
+            up.WhereParm = "id=" + m.ID;
+            upList.Add(up);
+            UpdateParm up2 = new UpdateParm();
+            up2.TableName = "t_subject";
+            up2.Key = "subject_name";
+            up2.Value = m.科目名称;
+            up2.WhereParm = "id=" + m.ID;
+            upList.Add(up2);
+            db.UpdatePackage(upList);
+        }
+
+        public void Insert(List<Model_科目管理> list)
+        {
+
+        }
+
+        public void Delete(List<int> list)
+        {
+            List<string> sqlList = new List<string>();
+            foreach(int i in list)
+            {
+                string sql = "delete from t_subject where id=" + i;
+                sqlList.Add(sql);
+            }
+            db.BatchOperate(sqlList);
         }
     }
 }

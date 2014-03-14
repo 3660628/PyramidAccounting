@@ -11,12 +11,12 @@
         <Label x:Name="Label_科目名称" Content="所属科目名称：" HorizontalAlignment="Left" Margin="10,60,0,0" VerticalAlignment="Top"/>
         <TextBox x:Name="TextBox_科目名称" HorizontalAlignment="Left" Height="23" Margin="110,63,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
         <Button x:Name="Button_Add" Content="新增" HorizontalAlignment="right" Margin="0,40,150,0" VerticalAlignment="Top" Width="50" Click="Button_Add_Click"/>
-        <Button x:Name="Button_Save" Content="保存" HorizontalAlignment="right" Margin="0,40,80,0" VerticalAlignment="Top" Width="50"/>
-        <Button x:Name="Button_Del" Content="删除" HorizontalAlignment="right" Margin="0,40,10,0" VerticalAlignment="Top" Width="50"/>
-        <DataGrid x:Name="DataGrid_子细目" HorizontalAlignment="Stretch" Margin="10,100,0,0" VerticalAlignment="Top" CanUserAddRows="False" AutoGenerateColumns="False">
+        <Button x:Name="Button_Save" Content="保存" HorizontalAlignment="right" Margin="0,40,80,0" VerticalAlignment="Top" Width="50" Click="Button_Save_Click"/>
+        <Button x:Name="Button_Del" Content="删除" HorizontalAlignment="right" Margin="0,40,10,0" VerticalAlignment="Top" Width="50" Click="Button_Del_Click"/>
+        <DataGrid x:Name="DataGrid_子细目" ItemsSource="{Binding}" HorizontalAlignment="Stretch" Margin="10,100,0,0" VerticalAlignment="Top" CanUserAddRows="False" AutoGenerateColumns="False" RowEditEnding="DataGrid_子细目_RowEditEnding">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="子细目编号"/>
-                <DataGridTextColumn Header="子细目名称"/>
+                <DataGridTextColumn Binding="{Binding 科目编号,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Header="子细目编号"/>
+                <DataGridTextColumn Binding="{Binding 科目名称,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Header="子细目名称"/>
             </DataGrid.Columns>
         </DataGrid>
     </Grid>

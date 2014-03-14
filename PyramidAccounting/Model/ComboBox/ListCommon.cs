@@ -16,11 +16,11 @@ namespace PA.Model.ComboBox
             list = new List<string>();
             if (string.IsNullOrEmpty(condition))
             {
-                sql = "select subject_id,subject_name from t_subject where used_mark=0 order by id";
+                sql = "select subject_id,subject_name from t_subject where used_mark=0 and parent_id=0 order by id";
             }
             else
             {
-                sql = "select subject_id,subject_name from t_subject where used_mark=0 " + "and subject_id like '" + condition +
+                sql = "select subject_id,subject_name from t_subject where used_mark=0  and parent_id=0 " + "and subject_id like '" + condition +
                         "%' order by id";
             }
             DataBase db = new DataBase();
