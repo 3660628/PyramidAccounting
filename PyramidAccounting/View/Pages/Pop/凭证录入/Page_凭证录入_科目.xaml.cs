@@ -40,7 +40,10 @@ namespace PA.View.Pages.Pop.凭证录入
 
         private void ListBox_科目_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
-            OnFillDate(this.ListBox_科目.SelectedValue.ToString().Split('\t')[1]);
+            if (this.ListBox_科目.SelectedValue != null)
+            {
+                OnFillDate(this.ListBox_科目.SelectedValue.ToString().Split('\t')[1]);
+            }
         }
 
         private void TextBox_科目搜索_TextChanged(object sender, TextChangedEventArgs e)
