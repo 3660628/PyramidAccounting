@@ -289,6 +289,7 @@ namespace PA.Helper.DataBase
         public bool UpdatePackage(List<UpdateParm> lists)
         {
             bool flag = false;
+            string sql = string.Empty;
             SQLiteConnection conn = DBInitialize.getDBConnection();
             conn.Open();
             SQLiteTransaction strans = conn.BeginTransaction();
@@ -296,7 +297,7 @@ namespace PA.Helper.DataBase
             {
                 foreach (UpdateParm list in lists)
                 {
-                    string sql = PA.Helper.DataDefind.SqlString.Update_Sql;
+                    sql = PA.Helper.DataDefind.SqlString.Update_Sql;
                     SQLiteCommand cmd = new SQLiteCommand();
                     sql = sql.Replace("@tableName", list.TableName);
                     sql = sql.Replace("@key", list.Key);
@@ -312,7 +313,8 @@ namespace PA.Helper.DataBase
             catch(Exception ee)
             {
                 strans.Rollback();
-                Console.WriteLine(ee.ToString());
+                Log.Write(ee.Message);
+                Log.Write(sql);
             }
             finally
             {

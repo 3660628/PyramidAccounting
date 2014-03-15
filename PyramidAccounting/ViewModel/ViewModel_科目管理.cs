@@ -12,7 +12,7 @@ namespace PA.ViewModel
     class ViewModel_科目管理
     {
         DataBase db = new DataBase();
-        public List<Model_科目管理> GetData(int type)
+        public List<Model_科目管理> GetSujectData(int type)
         {
             string sql = "select * from t_subject where subject_type=" + type + " order by id,used_mark";
             DataTable dt = db.Query(sql).Tables[0];
@@ -28,6 +28,22 @@ namespace PA.ViewModel
                 m.年初金额 = d[5].ToString();
                 m.Used_mark = Convert.ToInt32(d[7].ToString());
                 m.是否启用 = m.Used_mark == 0 ? true : false;
+                list.Add(m);
+            }
+            return list;
+        }
+        public List<Model_科目管理> GetChildSubjectData(string parent_id)
+        {
+            string sql = "select * from t_subject where parent_id='" + parent_id + "' order by id";
+            DataTable dt = db.Query(sql).Tables[0];
+            List<Model_科目管理> list = new List<Model_科目管理>();
+            for (int i = 0; i < dt.Rows.Count; i++)
+            {
+                Model_科目管理 m = new Model_科目管理();
+                DataRow d = dt.Rows[i];
+                m.ID = Convert.ToInt32(d[0].ToString());
+                m.科目编号 = d[2].ToString();
+                m.科目名称 = d[4].ToString();
                 list.Add(m);
             }
             return list;
@@ -97,6 +113,13 @@ namespace PA.ViewModel
                 sqlList.Add(sql);
             }
             db.BatchOperate(sqlList);
+        }
+
+        public int GetMaxID()
+        {
+            string sql = "select max(id) from t_subject";
+            int i = Int32.Parse(db.GetAllData(sql).Split('\t')[0].Split(',')[0]);
+            return i;
         }
     }
 }

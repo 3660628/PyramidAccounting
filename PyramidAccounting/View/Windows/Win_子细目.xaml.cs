@@ -23,6 +23,7 @@ namespace PA.View.Windows
     {
         private string value1 = string.Empty;
         private string value2 = string.Empty;
+        private bool initFlag = false;
         private int judge = 0;
         private List<Model_科目管理> lm= new List<Model_科目管理>();
         private ViewModel_科目管理 vm = new ViewModel_科目管理();
@@ -37,10 +38,16 @@ namespace PA.View.Windows
         }
         private void check()
         {
-            DataGrid_子细目.Items.Add(new DataGridRow()
+            List<Model_科目管理> dataList = new List<Model_科目管理>();
+            dataList = vm.GetChildSubjectData(value1);
+            if (dataList.Count == 0)
             {
-                Item = new { 科目编号 = "01", 科目名称 = "" }
-            });
+                Model_科目管理 m = new Model_科目管理();
+                m.科目编号 = "01";
+                dataList.Add(m);
+                initFlag = true;
+            }
+            DataGrid_子细目.ItemsSource = dataList;
         }
 
         private void Button_Close_Click(object sender, RoutedEventArgs e)
@@ -110,10 +117,11 @@ namespace PA.View.Windows
         {
             Model_科目管理 m = new Model_科目管理();
             m = e.Row.Item as Model_科目管理;
-            if (judge == 1)
+            if (judge == 1 || initFlag)
             {
                 m.父ID = TextBox_科目编号.Text.ToString();
                 lm.Add(m);
+                initFlag = false;
             }
             else
             {
