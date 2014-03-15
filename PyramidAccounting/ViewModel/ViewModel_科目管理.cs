@@ -53,10 +53,13 @@ namespace PA.ViewModel
             bool flag = false;
             string sql = "select sum(fee) from t_subject where used_mark=0";
             string str = db.GetAllData(sql).Split('\t')[0];
-            int value = Int32.Parse(str.Split(',')[0]);
-            if (value > 0)
+            if (!str.Equals(","))
             {
-                flag = true;
+                return false;
+            }
+            else
+            {
+                    flag = true;
             }
             return flag;
         }
