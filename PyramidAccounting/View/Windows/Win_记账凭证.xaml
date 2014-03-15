@@ -50,7 +50,7 @@
         <TextBox x:Name="TextBox_号" Text="0" HorizontalAlignment="Left" Margin="723,72,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="30" BorderThickness="0,0,0,1" TextAlignment="Center" FontSize="14" MouseWheel="TextBox_号_MouseWheel"/>
         <TextBox x:Name="TextBox_附属单证" Text="0" HorizontalAlignment="Left" Margin="73,377,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="40" BorderThickness="0,0,0,1" TextAlignment="Center" FontSize="14" MouseWheel="TextBox_附属单证_MouseWheel"/>
 
-        <ComboBox x:Name="ComboBox_总收付转" HorizontalAlignment="Right" Margin="0,69,99,0" VerticalAlignment="Top">
+        <ComboBox x:Name="ComboBox_总收付转" HorizontalAlignment="Right" Margin="0,69,99,0" VerticalAlignment="Top" MouseWheel="ComboBox_总收付转_MouseWheel">
             <ComboBoxItem Content="总" IsSelected="True"/>
             <ComboBoxItem Content="收"/>
             <ComboBoxItem Content="付"/>

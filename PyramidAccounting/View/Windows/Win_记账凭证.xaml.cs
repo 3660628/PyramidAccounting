@@ -133,7 +133,7 @@ namespace PA.View.Windows
 
         private void Button_打印_Click(object sender, RoutedEventArgs e)
         {
-            
+            Console.WriteLine(this.ComboBox_总收付转.SelectedIndex);
         }
         
         private void DataGrid_凭证明细_Cell_MouseDoubleClick(object sender, RoutedEventArgs e)
@@ -231,10 +231,19 @@ namespace PA.View.Windows
             }
         }
 
+        private void ComboBox_总收付转_MouseWheel(object sender, MouseWheelEventArgs e)
+        {
+            if (e.Delta > 0 && this.ComboBox_总收付转.SelectedIndex > 0)
+            {
+                this.ComboBox_总收付转.SelectedIndex--;
+            }
+            else if (e.Delta < 0)
+            {
+                this.ComboBox_总收付转.SelectedIndex++;
+            }
+        }
+
+
         #endregion
-
-        
-
-        
     }
 }
