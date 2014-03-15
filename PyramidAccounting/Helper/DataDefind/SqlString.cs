@@ -8,6 +8,7 @@ namespace PA.Helper.DataDefind
     class SqlString
     {
         private static readonly string update_Sql = "Update @tableName set @key = @value where @whereParm";
+        private static readonly string delete_Sql = "Delete from @tableName where @whereParm";
 
         private static readonly string insert_T_BOOKS = "insert into T_BOOKS(ID,BOOK_NAME,CREATE_DATE,ACCOUNTING_SYSTEM,DELETE_MARK) "
             + "values(@ID, @BOOK_NAME, @CREATE_DATE, @ACCOUNTING_SYSTEM, @DELETE_MARK)";
@@ -31,6 +32,11 @@ namespace PA.Helper.DataDefind
             + "values(@OP_TIME, @USERNAME, @REALNAME, @OP_TYPE, @LOG)";
 
         #region GetSet
+        public static string Delete_Sql
+        {
+            get { return SqlString.delete_Sql; }
+        } 
+
         public static string Insert_T_BOOKS
         {
             get { return SqlString.insert_T_BOOKS; }

@@ -354,5 +354,40 @@ namespace PA.Helper.DataBase
             }
             return ds;
         }
+        public bool DeletePackage(string TableName, List<string> whereParm)
+        {
+            bool flag = false;
+            string sql = string.Empty;
+            SQLiteConnection conn = DBInitialize.getDBConnection();
+            conn.Open();
+            SQLiteTransaction strans = conn.BeginTransaction();
+            try
+            {
+                foreach (string parm in whereParm)
+                {
+                    sql = PA.Helper.DataDefind.SqlString.Delete_Sql;
+                    SQLiteCommand cmd = new SQLiteCommand();
+                    sql = sql.Replace("@tableName", TableName);
+                    sql = sql.Replace("@whereParm", parm);
+                    cmd.CommandText = sql;
+                    cmd.Connection = conn;
+                    cmd.ExecuteNonQuery();
+                }
+                strans.Commit();
+                flag = true;
+            }
+            catch (Exception ee)
+            {
+                strans.Rollback();
+                Log.Write(ee.Message);
+                Log.Write(sql);
+            }
+            finally
+            {
+                conn.Close();
+                conn.Dispose();
+            }
+            return flag;
+        }
     }
 }
