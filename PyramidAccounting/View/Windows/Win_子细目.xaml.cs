@@ -33,6 +33,14 @@ namespace PA.View.Windows
             this.value2 = value2;
             this.TextBox_科目编号.Text = this.value1;
             this.TextBox_科目名称.Text = this.value2;
+            check();
+        }
+        private void check()
+        {
+            DataGrid_子细目.Items.Add(new DataGridRow()
+            {
+                Item = new { 科目编号 = "01", 科目名称 = "" }
+            });
         }
 
         private void Button_Close_Click(object sender, RoutedEventArgs e)
