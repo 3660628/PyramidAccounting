@@ -91,7 +91,7 @@ namespace PA.View.Windows
         }
         private void Count合计()
         {
-            VoucherDetails = this.DataGrid_凭证明细.ItemsSource as List<Model_凭证明细>;
+            //VoucherDetails = this.DataGrid_凭证明细.ItemsSource as List<Model_凭证明细>;
             decimal count借方 = 0m;
             decimal count贷方 = 0m;
             for (int i = 0; i < 6; i++ )
@@ -186,17 +186,23 @@ namespace PA.View.Windows
             Model_凭证明细 SelectedRow = this.DataGrid_凭证明细.SelectedCells[0].Item as Model_凭证明细;
             string newValue = (e.EditingElement as TextBox).Text.Trim();
             string Header = e.Column.Header.ToString();
-            if (Header == "借方金额" && (SelectedRow.ID + 2) % 2 == 0)
+            if (Header == "借方金额")
             {
-                VoucherDetails[SelectedRow.ID].借方 = decimal.Parse(newValue);
-                VoucherDetails[SelectedRow.ID].贷方 = 0m;
-                VoucherDetails[SelectedRow.ID + 1].贷方 = decimal.Parse((e.EditingElement as TextBox).Text.Trim());
+                VoucherDetails[SelectedRow.序号].借方 = decimal.Parse(newValue);
+                VoucherDetails[SelectedRow.序号].贷方 = 0m;
+                if ((SelectedRow.序号 + 2) % 2 == 0)
+                {
+                    VoucherDetails[SelectedRow.序号 + 1].贷方 = decimal.Parse((e.EditingElement as TextBox).Text.Trim());
+                }
             }
-            else if (Header == "贷方金额" && (SelectedRow.ID + 2) % 2 == 1)
+            else if (Header == "贷方金额")
             {
-                VoucherDetails[SelectedRow.ID].贷方 = decimal.Parse(newValue);
-                VoucherDetails[SelectedRow.ID].借方 = 0m;
-                VoucherDetails[SelectedRow.ID - 1].借方 = decimal.Parse((e.EditingElement as TextBox).Text.Trim());
+                VoucherDetails[SelectedRow.序号].贷方 = decimal.Parse(newValue);
+                VoucherDetails[SelectedRow.序号].借方 = 0m;
+                if ((SelectedRow.序号 + 2) % 2 == 1)
+                {
+                    VoucherDetails[SelectedRow.序号 - 1].借方 = decimal.Parse((e.EditingElement as TextBox).Text.Trim());
+                }
             }
             Count合计();
         }
