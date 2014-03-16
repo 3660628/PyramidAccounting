@@ -1,4 +1,13 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+	<ControlTemplate x:Key="ButtonControlTemplate_Common" TargetType="{x:Type Button}">
+		<Grid Background="{x:Null}">
+			<Grid.Effect>
+				<DropShadowEffect ShadowDepth="0" Color="#FFA8A8A8"/>
+			</Grid.Effect>
+			<Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Stretch" Height="Auto" Stroke="{x:Null}" VerticalAlignment="Stretch" Width="Auto" RadiusY="1" RadiusX="1"/>
+			<ContentPresenter Margin="0" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+		</Grid>
+	</ControlTemplate>
     
 </ResourceDictionary>
