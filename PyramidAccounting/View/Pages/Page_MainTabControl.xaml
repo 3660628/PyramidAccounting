@@ -9,7 +9,7 @@
 
     <Grid Background="#FF333333">
         <Grid Height="29" Margin="0" VerticalAlignment="Top" Background="#FF29A2FF" IsEnabled="False"/>
-        <Rectangle Fill="#FF1477C3" HorizontalAlignment="Left" Stroke="#FF1477C3" Width="1" Margin="149,29,0,0" Height="556"/>
+        <Rectangle Fill="#FF1477C3" HorizontalAlignment="Left" Stroke="#FF1477C3" Width="1" Margin="149,29,0,0"/>
         <TabControl x:Name="TabControl_Main" TabStripPlacement="Left" Background="{x:Null}" BorderBrush="{x:Null}" BorderThickness="0" Margin="-2">
             <TabItem Header="快捷界面" Width="150" Height="40" Margin="0,82,0,-82" Template="{DynamicResource TabItemControlTemplate_MainTabItem}" Foreground="White">
                 <Grid Margin="-2,0,0,0">
