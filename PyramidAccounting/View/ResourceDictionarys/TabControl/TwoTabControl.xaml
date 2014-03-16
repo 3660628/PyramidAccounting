@@ -16,8 +16,7 @@
 				<Setter Property="Background" TargetName="Bd" Value="#FF6DC0FF"/>
 				<Setter Property="BorderBrush" TargetName="Bd" Value="White"/>
                 <Setter Property="Foreground" Value="White"/>
-                <Setter Property="Stroke" TargetName="rectangle" Value="White"/>
-                <Setter Property="Fill" TargetName="rectangle" Value="White"/>
+                <Setter Property="Height" TargetName="rectangle" Value="2"/>
 			</MultiTrigger>
 			<MultiTrigger>
 				<MultiTrigger.Conditions>
@@ -27,8 +26,6 @@
 				<Setter Property="Background" TargetName="Bd" Value="#FF6DC0FF"/>
                 <Setter Property="Foreground" Value="White"/>
                 <Setter Property="BorderBrush" TargetName="Bd" Value="#FF6DC0FF"/>
-                <Setter Property="Fill" TargetName="rectangle" Value="White"/>
-                <Setter Property="Stroke" TargetName="rectangle" Value="White"/>
                 <Setter Property="Height" TargetName="rectangle" Value="2"/>
 			</MultiTrigger>
 		</ControlTemplate.Triggers>
