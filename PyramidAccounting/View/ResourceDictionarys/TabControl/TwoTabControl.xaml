@@ -2,9 +2,10 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
 	<ControlTemplate x:Key="TabItemControlTemplate_TwoTabHeader" TargetType="{x:Type TabItem}">
 		<Grid x:Name="grid" Width="Auto" Height="Auto">
-			<Border x:Name="Bd" BorderThickness="1" Margin="0" Background="White" Padding="20,5">
+			<Border x:Name="Bd" BorderThickness="1" Margin="0" Background="White" Padding="20,5" BorderBrush="White">
 				<ContentPresenter x:Name="Content" ContentSource="Header" HorizontalAlignment="{Binding HorizontalContentAlignment, RelativeSource={RelativeSource AncestorType={x:Type ItemsControl}}}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{Binding VerticalContentAlignment, RelativeSource={RelativeSource AncestorType={x:Type ItemsControl}}}"/>
 			</Border>
+			<Rectangle x:Name="rectangle" Fill="White" HorizontalAlignment="Stretch" Height="3" Stroke="White" VerticalAlignment="Bottom" Margin="0,0,0,-1"/>
 		</Grid>
 		<ControlTemplate.Triggers>
 			<MultiTrigger>
@@ -15,6 +16,8 @@
 				<Setter Property="Background" TargetName="Bd" Value="#FF6DC0FF"/>
 				<Setter Property="BorderBrush" TargetName="Bd" Value="White"/>
                 <Setter Property="Foreground" Value="White"/>
+                <Setter Property="Stroke" TargetName="rectangle" Value="White"/>
+                <Setter Property="Fill" TargetName="rectangle" Value="White"/>
 			</MultiTrigger>
 			<MultiTrigger>
 				<MultiTrigger.Conditions>
@@ -23,6 +26,10 @@
 				</MultiTrigger.Conditions>
 				<Setter Property="Background" TargetName="Bd" Value="#FF6DC0FF"/>
                 <Setter Property="Foreground" Value="White"/>
+                <Setter Property="BorderBrush" TargetName="Bd" Value="#FF6DC0FF"/>
+                <Setter Property="Fill" TargetName="rectangle" Value="White"/>
+                <Setter Property="Stroke" TargetName="rectangle" Value="White"/>
+                <Setter Property="Height" TargetName="rectangle" Value="2"/>
 			</MultiTrigger>
 		</ControlTemplate.Triggers>
 	</ControlTemplate>
