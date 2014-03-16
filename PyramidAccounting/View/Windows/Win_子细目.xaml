@@ -15,8 +15,8 @@
         <Button x:Name="Button_Del" Content="删除" HorizontalAlignment="right" Margin="0,40,10,0" VerticalAlignment="Top" Width="50" Click="Button_Del_Click"/>
         <DataGrid x:Name="DataGrid_子细目" ItemsSource="{Binding}" HorizontalAlignment="Stretch" Margin="10,100,0,0" VerticalAlignment="Top" CanUserAddRows="False" AutoGenerateColumns="False" RowEditEnding="DataGrid_子细目_RowEditEnding">
             <DataGrid.Columns>
-                <DataGridTextColumn Binding="{Binding 科目编号}" Header="子细目编号"/>
-                <DataGridTextColumn Binding="{Binding 科目名称}" Header="子细目名称"/>
+                <DataGridTextColumn Binding="{Binding 科目编号,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Header="子细目编号"/>
+                <DataGridTextColumn Binding="{Binding 科目名称,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Header="子细目名称"/>
             </DataGrid.Columns>
         </DataGrid>
     </Grid>

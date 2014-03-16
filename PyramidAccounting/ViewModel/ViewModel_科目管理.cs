@@ -97,20 +97,8 @@ namespace PA.ViewModel
 
         public void UpdateChildSubject(Model_科目管理 m)
         {
-            List<UpdateParm> upList = new List<UpdateParm>();
-            UpdateParm up = new UpdateParm();
-            up.TableName = "t_subject";
-            up.Key = "subject_id";
-            up.Value =  m.科目编号 ;   //更新SQL有错误，先该这样
-            up.WhereParm = "id=" + m.ID;
-            upList.Add(up);
-            UpdateParm up2 = new UpdateParm();
-            up2.TableName = "t_subject";
-            up2.Key = "subject_name";
-            up2.Value = m.科目名称;
-            up2.WhereParm = "id=" + m.ID;
-            upList.Add(up2);
-            db.UpdatePackage(upList);
+            string sql = "update t_subject set subject_id='" + m.科目编号 + "',subject_name='" + m.科目名称 + "' where id=" + m.ID;
+            db.Excute(sql);
         }
 
         public void Insert(List<Model_科目管理> list)
