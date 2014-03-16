@@ -35,10 +35,9 @@ namespace PA.View.Pages.TwoTabControl
         /// </summary>
         private void VisibilityButtonSubject()
         {
-            if (new ViewModel_科目管理().CheckSaved())
+            if (new ViewModel_科目管理().IsSaved())
             {
                 this.DataGridTextColumn_fee.IsReadOnly = true;
-                this.DataGridTextColumn_mark.IsReadOnly = true;
                 this.Button_科目保存.Visibility = Visibility.Hidden;
             }
         }
@@ -91,14 +90,13 @@ namespace PA.View.Pages.TwoTabControl
             //刷新操作
             Button btn = sender as Button;
             btn.Visibility = Visibility.Hidden;
-            this.DataGrid_科目设置.ItemsSource = new ViewModel_科目管理().GetSujectData(i);
         }
 
         private void DataGrid_科目设置_RowEditEnding(object sender, DataGridRowEditEndingEventArgs e)
         {
             Model_科目管理 m = new Model_科目管理();
             m = e.Row.Item as Model_科目管理;
-            m.Used_mark = m.是否启用 == true ? 0 : 1;
+            m.Used_mark = m.是否启用 == true ? 1 : 0;
             lm.Add(m);
         }
 
@@ -119,6 +117,26 @@ namespace PA.View.Pages.TwoTabControl
 
         }
         #endregion
+
+        private void CheckBox_启用_Click(object sender, RoutedEventArgs e)
+        {
+            CheckBox b = sender as CheckBox;
+            Model_科目管理 m = new Model_科目管理();
+            try
+            {
+                m = DataGrid_科目设置.SelectedItem as Model_科目管理;
+                m.Used_mark = b.IsChecked == true? 0 : 1;
+                new ViewModel_科目管理().UpdateUsedMark(m);
+            }
+            catch (Exception)
+            {
+            }
+        }
+
+        private void FreshData()
+        {
+            this.DataGrid_科目设置.ItemsSource = new ViewModel_科目管理().GetSujectData(i);
+        }
 
     }
 }

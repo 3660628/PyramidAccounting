@@ -35,7 +35,13 @@
                             <DataGridTextColumn Binding="{Binding 科目编号}" Header="科目编号" IsReadOnly="True"/>
                             <DataGridTextColumn Binding="{Binding 科目名称}" Header="科目名称" IsReadOnly="True"/>
                             <DataGridTextColumn x:Name="DataGridTextColumn_fee" Binding="{Binding 年初金额}" Header="年初数"/>
-                            <DataGridCheckBoxColumn x:Name="DataGridTextColumn_mark" Binding="{Binding 是否启用}" Header="是否启用" />
+                            <DataGridTemplateColumn  x:Name="DataGridTemplateColumn_mark" Header="是否启用">
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <CheckBox x:Name="CheckBox_启用" Style="{StaticResource SliderCheckBox}" IsChecked="{Binding 是否启用}" Click="CheckBox_启用_Click" />
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
                         </DataGrid.Columns>
                     </DataGrid>
                     <Button x:Name="Button_科目保存" Content="保存" HorizontalAlignment="Right" Margin="0,10,200,0" VerticalAlignment="Top" Click="Button_科目保存_Click" Width="70" Height="24"/>

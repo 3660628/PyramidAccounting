@@ -48,12 +48,12 @@ namespace PA.ViewModel
             }
             return list;
         }
-        public bool CheckSaved()
+        public bool IsSaved()
         {
             bool flag = false;
-            string sql = "select sum(fee) from t_subject where used_mark=0";
+            string sql = "select sum(fee) from t_subject";
             string str = db.GetAllData(sql).Split('\t')[0];
-            if (!str.Equals(","))
+            if (str.Equals(","))
             {
                 return false;
             }
@@ -81,6 +81,17 @@ namespace PA.ViewModel
                 up2.WhereParm = "id=" + m.ID;
                 upList.Add(up2);
             }
+            db.UpdatePackage(upList);
+        }
+        public void UpdateUsedMark(Model_科目管理 m)
+        {
+            List<UpdateParm> upList = new List<UpdateParm>();
+            UpdateParm up2 = new UpdateParm();
+            up2.TableName = "t_subject";
+            up2.Key = "used_mark";
+            up2.Value = m.Used_mark.ToString();
+            up2.WhereParm = "id=" + m.ID;
+            upList.Add(up2);
             db.UpdatePackage(upList);
         }
 
