@@ -2,7 +2,10 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
 	<ControlTemplate x:Key="TabItemControlTemplate_MainTabItem" TargetType="{x:Type TabItem}">
 		<Grid>
-			<Border x:Name="Bd" BorderThickness="1,1,1,0" Padding="{TemplateBinding Padding}" Background="#FF29A2FF">
+			<Border x:Name="Bd" BorderThickness="1,1,1,0" Padding="{TemplateBinding Padding}">
+				<Border.Background>
+					<ImageBrush ImageSource="/PyramidAccounting;component/View/Images/TabItems/Tab1_Hl.png"/>
+				</Border.Background>
 				<ContentPresenter x:Name="Content" ContentSource="Header" HorizontalAlignment="{Binding HorizontalContentAlignment, RelativeSource={RelativeSource AncestorType={x:Type ItemsControl}}}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{Binding VerticalContentAlignment, RelativeSource={RelativeSource AncestorType={x:Type ItemsControl}}}"/>
 			</Border>
 		</Grid>

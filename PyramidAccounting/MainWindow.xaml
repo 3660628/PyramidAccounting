@@ -12,6 +12,9 @@
         <Label Content="金字塔" HorizontalAlignment="Left" Margin="65,10,0,0" VerticalAlignment="Top" Foreground="White" FontSize="14"/>
         <Label Content="会计" HorizontalAlignment="Left" Margin="65,30,0,0" VerticalAlignment="Top" Foreground="White"/>
         <Grid HorizontalAlignment="Left" Height="50" Margin="10,15,0,0" VerticalAlignment="Top" Width="50" Background="White">
+            <Grid.Effect>
+                <DropShadowEffect BlurRadius="3"/>
+            </Grid.Effect>
             <Image Margin="0" Source="View/Images/Logo/Pyramid_Logo_white_128x128.png" Width="45" Height="45" HorizontalAlignment="Center" VerticalAlignment="Center"/>
         </Grid>
     </Grid>
