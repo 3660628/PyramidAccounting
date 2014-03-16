@@ -10,7 +10,7 @@
     <Grid>
         <StatusBar Height="25" Margin="0" VerticalAlignment="Bottom" Background="DarkGray"/>
         <TabControl Margin="0,0,0,25" BorderBrush="White">
-            <TabItem Header="本期凭证" Margin="20,-2,-20,-1" Template="{DynamicResource TabItemControlTemplate_TwoTabHeader}">
+            <TabItem Header="本期凭证" Margin="8,-2,-8,-1" Template="{DynamicResource TabItemControlTemplate_TwoTabHeader}">
                 <Grid Background="White">
                     <Button x:Name="Button_Add" Content="新增" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="50"/>
                     <Button x:Name="Button_Del" Content="删除" HorizontalAlignment="Left" Margin="70,10,0,0" VerticalAlignment="Top" Width="50"/>
@@ -34,7 +34,7 @@
                     <TextBlock HorizontalAlignment="Right" Margin="0,14,60,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top"/>
                 </Grid>
             </TabItem>
-            <TabItem Header="全部凭证" Margin="30,-2,-30,-1" Template="{DynamicResource TabItemControlTemplate_TwoTabHeader}">
+            <TabItem Header="全部凭证" Margin="16,-2,-16,-1" Template="{DynamicResource TabItemControlTemplate_TwoTabHeader}">
                 <Grid Background="White">
                     <Button x:Name="Button_All_Add" Content="新增" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="50"/>
                     <Button x:Name="Button_All_Del" Content="删除" HorizontalAlignment="Left" Margin="70,10,0,0" VerticalAlignment="Top" Width="50"/>
