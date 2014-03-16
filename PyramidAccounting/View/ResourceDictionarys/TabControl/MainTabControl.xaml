@@ -6,7 +6,7 @@
 				<Border.Background>
 					<ImageBrush ImageSource="/PyramidAccounting;component/View/Images/TabItems/Tab1_Hl.png"/>
 				</Border.Background>
-				<ContentPresenter x:Name="Content" ContentSource="Header" HorizontalAlignment="{Binding HorizontalContentAlignment, RelativeSource={RelativeSource AncestorType={x:Type ItemsControl}}}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{Binding VerticalContentAlignment, RelativeSource={RelativeSource AncestorType={x:Type ItemsControl}}}"/>
+				<ContentPresenter x:Name="Content" ContentSource="Header" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 			</Border>
 			<Rectangle x:Name="rectangle" Fill="{x:Null}" HorizontalAlignment="Right" Height="Auto" Stroke="{x:Null}" VerticalAlignment="Stretch" Width="1"/>
 		</Grid>
