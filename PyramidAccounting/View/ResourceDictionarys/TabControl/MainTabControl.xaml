@@ -22,6 +22,7 @@
 				<Setter Property="Width" TargetName="rectangle" Value="1"/>
 				<Setter Property="HorizontalAlignment" TargetName="rectangle" Value="Right"/>
 				<Setter Property="Stroke" TargetName="rectangle" Value="#FF1477C3"/>
+				<Setter Property="Margin" TargetName="Content" Value="45,9.38,44,9.38"/>
 			</MultiTrigger>
 			<MultiTrigger>
 				<MultiTrigger.Conditions>
