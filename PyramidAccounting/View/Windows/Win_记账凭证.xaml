@@ -45,7 +45,7 @@
                 <DataGridTextColumn Header="贷方金额" Width="150" Binding="{Binding 贷方}" ElementStyle="{DynamicResource TextBlockStyle_右对齐}"/>
             </DataGrid.Columns>
         </DataGrid>
-        <DatePicker x:Name="DatePicker_Date" HorizontalAlignment="Left" Margin="49,67,0,0" VerticalAlignment="Top" Width="120" SelectedDateFormat="Short"/>
+        <DatePicker x:Name="DatePicker_Date" HorizontalAlignment="Left" Margin="49,69,0,0" VerticalAlignment="Top" Width="120" SelectedDateFormat="Short" BorderThickness="0,0,0,1" FontSize="14" Height="23"/>
 
         <TextBox x:Name="TextBox_号" Text="0" HorizontalAlignment="Left" Margin="723,72,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="30" BorderThickness="0,0,0,1" TextAlignment="Center" FontSize="14" MouseWheel="TextBox_号_MouseWheel"/>
         <TextBox x:Name="TextBox_附属单证" Text="0" HorizontalAlignment="Left" Margin="73,377,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="40" BorderThickness="0,0,0,1" TextAlignment="Center" FontSize="14" MouseWheel="TextBox_附属单证_MouseWheel"/>
