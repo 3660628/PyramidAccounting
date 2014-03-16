@@ -11,29 +11,29 @@
         <Grid Height="29" Margin="0" VerticalAlignment="Top" Background="#FF29A2FF" IsEnabled="False"/>
         <Rectangle Fill="#FF1477C3" HorizontalAlignment="Left" Stroke="#FF1477C3" Width="1" Margin="149,29,0,0"/>
         <TabControl x:Name="TabControl_Main" TabStripPlacement="Left" Background="{x:Null}" BorderBrush="{x:Null}" BorderThickness="0" Margin="-2">
-            <TabItem Header="快捷界面" Width="150" Height="40" Margin="0,82,0,-82" Template="{DynamicResource TabItemControlTemplate_MainTabItem}" Foreground="White">
+            <TabItem FocusVisualStyle="{x:Null}" Header="快捷界面" Width="150" Height="40" Margin="0,82,0,-82" Template="{DynamicResource TabItemControlTemplate_MainTabItem}" Foreground="White">
                 <Grid Margin="-2,0,0,0">
-                    <Frame x:Name="Frame_快捷界面" Content="" Margin="0" NavigationUIVisibility="Hidden"/>
+                    <Frame FocusVisualStyle="{x:Null}" x:Name="Frame_快捷界面" Content="" Margin="0" NavigationUIVisibility="Hidden"/>
                 </Grid>
             </TabItem>
-            <TabItem Header="凭证管理" Width="150" Height="40" Margin="0,81,0,-81" Template="{DynamicResource TabItemControlTemplate_MainTabItem}" Foreground="White">
+            <TabItem FocusVisualStyle="{x:Null}" Header="凭证管理" Width="150" Height="40" Margin="0,81,0,-81" Template="{DynamicResource TabItemControlTemplate_MainTabItem}" Foreground="White">
                 <Grid Margin="-2,0,0,0">
-                    <Frame x:Name="Frame_凭证管理" Content="" Margin="0" NavigationUIVisibility="Hidden"/>
+                    <Frame FocusVisualStyle="{x:Null}" x:Name="Frame_凭证管理" Content="" Margin="0" NavigationUIVisibility="Hidden"/>
                 </Grid>
             </TabItem>
-            <TabItem Header="账簿管理" Width="150" Height="40" Margin="0,80,0,-80" Template="{DynamicResource TabItemControlTemplate_MainTabItem}" Foreground="White">
+            <TabItem FocusVisualStyle="{x:Null}" Header="账簿管理" Width="150" Height="40" Margin="0,80,0,-80" Template="{DynamicResource TabItemControlTemplate_MainTabItem}" Foreground="White">
                 <Grid Margin="-2,0,0,0">
-                    <Frame x:Name="Frame_账簿管理" Content="" Margin="0" NavigationUIVisibility="Hidden"/>
+                    <Frame FocusVisualStyle="{x:Null}" x:Name="Frame_账簿管理" Content="" Margin="0" NavigationUIVisibility="Hidden"/>
                 </Grid>
             </TabItem>
-            <TabItem Header="报表管理" Width="150" Height="40" Margin="0,79,0,-79" Template="{DynamicResource TabItemControlTemplate_MainTabItem}" Foreground="White">
+            <TabItem FocusVisualStyle="{x:Null}" Header="报表管理" Width="150" Height="40" Margin="0,79,0,-79" Template="{DynamicResource TabItemControlTemplate_MainTabItem}" Foreground="White">
                 <Grid Margin="-2,0,0,0">
-                    <Frame x:Name="Frame_报表管理" Content="" Margin="0" NavigationUIVisibility="Hidden"/>
+                    <Frame FocusVisualStyle="{x:Null}" x:Name="Frame_报表管理" Content="" Margin="0" NavigationUIVisibility="Hidden"/>
                 </Grid>
             </TabItem>
-            <TabItem Header="系统管理" Width="150" Height="40" Margin="0,78,0,-78" Template="{DynamicResource TabItemControlTemplate_MainTabItem}" Foreground="White">
+            <TabItem FocusVisualStyle="{x:Null}" Header="系统管理" Width="150" Height="40" Margin="0,78,0,-78" Template="{DynamicResource TabItemControlTemplate_MainTabItem}" Foreground="White">
                 <Grid Margin="-2,0,0,0">
-                    <Frame x:Name="Frame_系统管理" Content="" Margin="0" NavigationUIVisibility="Hidden"/>
+                    <Frame FocusVisualStyle="{x:Null}" x:Name="Frame_系统管理" Content="" Margin="0" NavigationUIVisibility="Hidden"/>
                 </Grid>
             </TabItem>
         </TabControl>
