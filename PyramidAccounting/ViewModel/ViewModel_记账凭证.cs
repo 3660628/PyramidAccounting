@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using PA.Model.DataGrid;
+using PA.Helper.DataDefind;
 
 namespace PA.ViewModel
 {
@@ -15,7 +16,7 @@ namespace PA.ViewModel
 
         public void InsertData(Model_凭证单 Voucher, List<Model_凭证明细> VoucherDetails)
         {
-            new PA.Helper.DataBase.DataBase().InsertPackage("T_VOUCHER_DETAIL", VoucherDetails.OfType<object>().ToList());
+            new PA.Helper.DataBase.DataBase().InsertPackage(DBTablesName.T_VOUCHER_DETAIL, VoucherDetails.OfType<object>().ToList());
         }
 
         public void UpdateData()
