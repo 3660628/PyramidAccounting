@@ -49,7 +49,13 @@ namespace PA.View.Windows
             }
             DataGrid_子细目.ItemsSource = dataList;
         }
-
+        /// <summary>
+        /// 刷新数据的方法
+        /// </summary>
+        private void FreshData()
+        {
+            DataGrid_子细目.ItemsSource = vm.GetChildSubjectData(value1);
+        }
         private void Button_Close_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
@@ -79,6 +85,8 @@ namespace PA.View.Windows
             DataGrid_子细目.CanUserAddRows = false;
             vm.Insert(lm);
             lm.Clear();
+            //刷新数据
+            this.FreshData();
         }
 
         private void Button_Del_Click(object sender, RoutedEventArgs e)
@@ -111,6 +119,7 @@ namespace PA.View.Windows
             }
             vm.Delete(list);
             list.Clear();
+            this.FreshData();
         }
 
         private void DataGrid_子细目_RowEditEnding(object sender, DataGridRowEditEndingEventArgs e)
