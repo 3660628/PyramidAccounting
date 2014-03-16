@@ -15,11 +15,17 @@
 							</ColorAnimationUsingKeyFrames>
 						</Storyboard>
 					</VisualState>
-					<VisualState x:Name="Pressed"/>
+					<VisualState x:Name="Pressed">
+						<Storyboard>
+							<ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Shape.Fill).(SolidColorBrush.Color)" Storyboard.TargetName="rectangle">
+								<EasingColorKeyFrame KeyTime="0" Value="#FF6DC0FF"/>
+							</ColorAnimationUsingKeyFrames>
+						</Storyboard>
+					</VisualState>
 					<VisualState x:Name="Disabled"/>
 				</VisualStateGroup>
 			</VisualStateManager.VisualStateGroups>
-			<Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Stretch" Height="Auto" Stroke="{x:Null}" VerticalAlignment="Stretch" Width="Auto" RadiusY="1" RadiusX="1"/>
+			<Rectangle x:Name="rectangle" Fill="#FFF4F4F5" HorizontalAlignment="Stretch" Height="Auto" Stroke="{x:Null}" VerticalAlignment="Stretch" Width="Auto" RadiusY="1" RadiusX="1"/>
 			<ContentPresenter Margin="0" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 		</Grid>
 	</ControlTemplate>
