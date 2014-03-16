@@ -25,9 +25,9 @@
 
         <!--Button-->
         <Button x:Name="Button_Close" Content="Button" HorizontalAlignment="Right" Margin="0,0,10,0" VerticalAlignment="Top" Width="28" Height="20" Template="{DynamicResource ButtonControlTemplate_Close}" Click="Button_Close_Click"/>
-        <Button x:Name="Button_保存并新增" Content="保存并新增" HorizontalAlignment="Left" Margin="10,30,0,0" VerticalAlignment="Top" Width="75" Click="Button_保存并新增_Click"/>
-        <Button x:Name="Button_保存" Content="保存" HorizontalAlignment="Left" Margin="90,30,0,0" VerticalAlignment="Top" Width="75" Click="Button_保存_Click" Template="{DynamicResource ButtonControlTemplate_Common}" Height="20"/>
-        <Button x:Name="Button_打印" Content="打印" HorizontalAlignment="Right" Margin="0,30,10,0" VerticalAlignment="Top" Width="75" Click="Button_打印_Click"/>
+        <Button x:Name="Button_保存并新增" Content="保存并新增" HorizontalAlignment="Left" Margin="10,35,0,0" VerticalAlignment="Top" Width="85" Click="Button_保存并新增_Click" Template="{DynamicResource ButtonControlTemplate_Common}" Height="20"/>
+        <Button x:Name="Button_保存" Content="保存" HorizontalAlignment="Left" Margin="100,35,0,0" VerticalAlignment="Top" Width="50" Click="Button_保存_Click" Template="{DynamicResource ButtonControlTemplate_Common}" Height="20"/>
+        <Button x:Name="Button_打印" Content="打印" HorizontalAlignment="Right" Margin="0,35,10,0" VerticalAlignment="Top" Width="50" Click="Button_打印_Click" Template="{DynamicResource ButtonControlTemplate_Common}" Height="20"/>
 
         <DataGrid x:Name="DataGrid_凭证明细" Margin="10,97,10,0" VerticalAlignment="Top" AutoGenerateColumns="False" CanUserReorderColumns="False" CanUserResizeColumns="False" CanUserSortColumns="False" CanUserAddRows="False" CanUserDeleteRows="False" CanUserResizeRows="False" SelectionMode="Single" HeadersVisibility="Column" RowHeight="40" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle_凭证录入}" HorizontalGridLinesBrush="Gray" VerticalGridLinesBrush="Gray" HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Disabled" Height="271" ScrollViewer.CanContentScroll="False" CellStyle="{DynamicResource DataGridCellStyle_凭证录入}" BeginningEdit="DataGrid_凭证明细_BeginningEdit" CellEditEnding="DataGrid_凭证明细_CellEditEnding" SelectionUnit="Cell">
             <DataGrid.Resources>
