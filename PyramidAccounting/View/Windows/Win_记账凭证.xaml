@@ -5,7 +5,7 @@
         " Width="800" WindowStyle="None" AllowsTransparency="True" WindowStartupLocation="CenterScreen" MouseLeftButtonDown="Window_凭证输入_MouseLeftButtonDown" Background="{x:Null}" ResizeMode="NoResize">
     <Grid Background="White" Margin="5">
         <Grid.Effect>
-            <DropShadowEffect ShadowDepth="0"/>
+            <DropShadowEffect ShadowDepth="0" BlurRadius="3"/>
         </Grid.Effect>
         <Grid Margin="0" VerticalAlignment="Top" Height="25" Background="#FF29A2FF" IsEnabled="False">
             <Label x:Name="Label_Win标题" Content="" HorizontalAlignment="Center" Margin="0" Foreground="White"/>
