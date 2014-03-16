@@ -13,14 +13,14 @@
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Page.Resources>
-    <Grid>
+    <Grid Margin="-2,0,-3,-3">
         <StatusBar Height="25" Margin="0" VerticalAlignment="Bottom" Background="DarkGray"/>
         <TabControl Margin="0,0,0,25" BorderBrush="White">
-            <TabItem Header="权限设置" Margin="8,-2,-8,-1" Template="{DynamicResource TabItemControlTemplate_TwoTabHeader}">
+            <TabItem FocusVisualStyle="{x:Null}" Header="权限设置" Margin="8,-2,-8,-1" Template="{DynamicResource TabItemControlTemplate_TwoTabHeader}">
                 <Grid Background="White">
                     </Grid>
             </TabItem>
-            <TabItem Header="科目设置" Margin="16,-2,-16,-1" Template="{DynamicResource TabItemControlTemplate_TwoTabHeader}">
+            <TabItem FocusVisualStyle="{x:Null}" Header="科目设置" Margin="16,-2,-16,-1" Template="{DynamicResource TabItemControlTemplate_TwoTabHeader}">
                 <Grid Background="White">
                     <Label Content="类别" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" FontSize="16"/>
                     <Button x:Name="Button_资产" Content="资产类" HorizontalAlignment="Left" Margin="50,10,0,0" VerticalAlignment="Top" Width="70" Height="24" Click="Button_资产_Click"/>
@@ -48,10 +48,10 @@
                     <Button x:Name="Button_编辑子细目" Content="编写子细目" HorizontalAlignment="Right" Margin="0,10,110,0" VerticalAlignment="Top" Width="75" Height="24" Click="Button_编辑子细目_Click"/>
                 </Grid>
             </TabItem>
-            <TabItem Header="数据管理" Margin="24,-2,-24,-1" Template="{DynamicResource TabItemControlTemplate_TwoTabHeader}">
+            <TabItem FocusVisualStyle="{x:Null}" Header="数据管理" Margin="24,-2,-24,-1" Template="{DynamicResource TabItemControlTemplate_TwoTabHeader}">
                 <Grid Background="White"/>
             </TabItem>
-            <TabItem Header="其他设置" Margin="32,-2,-32,-1" Template="{DynamicResource TabItemControlTemplate_TwoTabHeader}">
+            <TabItem FocusVisualStyle="{x:Null}" Header="其他设置" Margin="32,-2,-32,-1" Template="{DynamicResource TabItemControlTemplate_TwoTabHeader}">
                 <Grid Background="White"/>
             </TabItem>
         </TabControl>

@@ -6,9 +6,9 @@
         <Grid Margin="0,25,0,0">
             <Frame x:Name="Frame_MainTabControl" Content="" Margin="0" NavigationUIVisibility="Hidden"/>
         </Grid>
-        <Button x:Name="Button_Min" Content="Button" HorizontalAlignment="Right" Margin="0,0,66,0" VerticalAlignment="Top" Width="28" Height="20" Template="{DynamicResource ButtonControlTemplate_Min}" Click="Button_Min_Click"/>
-        <Button x:Name="Button_Max" Content="Button" HorizontalAlignment="Right" Margin="0,0,38,0" VerticalAlignment="Top" Width="28" Height="20" Template="{DynamicResource ButtonControlTemplate_Max}" Click="Button_Max_Click"/>
-        <Button x:Name="Button_Close" Content="Button" HorizontalAlignment="Right" Margin="0,0,10,0" VerticalAlignment="Top" Width="28" Height="20" Click="Button_Close_Click" Template="{DynamicResource ButtonControlTemplate_Close}"/>
+        <Button FocusVisualStyle="{x:Null}" x:Name="Button_Min" Content="Button" HorizontalAlignment="Right" Margin="0,0,66,0" VerticalAlignment="Top" Width="28" Height="20" Template="{DynamicResource ButtonControlTemplate_Min}" Click="Button_Min_Click"/>
+        <Button FocusVisualStyle="{x:Null}" x:Name="Button_Max" Content="Button" HorizontalAlignment="Right" Margin="0,0,38,0" VerticalAlignment="Top" Width="28" Height="20" Template="{DynamicResource ButtonControlTemplate_Max}" Click="Button_Max_Click"/>
+        <Button FocusVisualStyle="{x:Null}" x:Name="Button_Close" Content="Button" HorizontalAlignment="Right" Margin="0,0,10,0" VerticalAlignment="Top" Width="28" Height="20" Click="Button_Close_Click" Template="{DynamicResource ButtonControlTemplate_Close}"/>
         <Label Content="金字塔" HorizontalAlignment="Left" Margin="65,10,0,0" VerticalAlignment="Top" Foreground="White" FontSize="14"/>
         <Label Content="会计" HorizontalAlignment="Left" Margin="65,30,0,0" VerticalAlignment="Top" Foreground="White"/>
         <Grid HorizontalAlignment="Left" Height="50" Margin="10,15,0,0" VerticalAlignment="Top" Width="50" Background="White">
