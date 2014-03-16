@@ -112,7 +112,7 @@ namespace PA.View.Windows
 
         private void Window_凭证输入_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            if (!this.Popup_科目子细目.IsOpen)
+            if (!this.Popup_科目子细目.IsOpen && e.ButtonState == MouseButtonState.Pressed)
             {
                 this.DragMove();
             }
@@ -151,7 +151,14 @@ namespace PA.View.Windows
             }
             else if (DoubleClickCell.Column.Header.ToString() == "子细目")
             {
-                PA.View.Pages.Pop.凭证录入.Page_凭证录入_子细目 page = new PA.View.Pages.Pop.凭证录入.Page_凭证录入_子细目();
+                //获取科目编号
+                if (string.IsNullOrEmpty(SelectedRow.科目编号))
+                {
+                    MessageBox.Show("请选择科目后再选择子细目");
+                    return;
+                }
+                string str = new PA.ViewModel.ViewModel_科目管理().GetSubjectID(SelectedRow.科目编号);
+                PA.View.Pages.Pop.凭证录入.Page_凭证录入_子细目 page = new PA.View.Pages.Pop.凭证录入.Page_凭证录入_子细目(str);
                 page.FillDate += new Pages.Pop.凭证录入.Page_凭证录入_子细目_FillDateEventHandle(ThisFillData);
                 this.Frame_科目子细目.Content = page;
                 this.Popup_科目子细目.IsOpen = true;

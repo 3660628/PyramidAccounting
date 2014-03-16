@@ -6,7 +6,7 @@ using System.IO;
 
 namespace PA.Helper.DataBase
 {
-    class Log
+    public class Log
     {
         public static void Write(string log)
         {

@@ -83,10 +83,13 @@ namespace PA.View.Windows
         private void Button_Save_Click(object sender, RoutedEventArgs e)
         {
             DataGrid_子细目.CanUserAddRows = false;
-            vm.Insert(lm);
-            lm.Clear();
-            //刷新数据
-            this.FreshData();
+            if (lm.Count > 0)
+            {
+                vm.Insert(lm);
+                lm.Clear();
+                //刷新数据
+                this.FreshData();
+            }
         }
 
         private void Button_Del_Click(object sender, RoutedEventArgs e)

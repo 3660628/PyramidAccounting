@@ -32,5 +32,26 @@ namespace PA.Model.ComboBox
             }
             return list;
         }
+        public List<string> GetChildSubjectList(string condition,string id)
+        {
+            list = new List<string>();
+            if (string.IsNullOrEmpty(id))
+            {
+                sql = "select subject_id,subject_name from t_subject where parent_id='" + id + "' order by id";
+            }
+            else
+            {
+                sql = "select subject_id,subject_name from t_subject where parent_id='" + id + "' and subject_id like '" + condition +
+                        "%' order by id";
+            }
+            DataBase db = new DataBase();
+            DataTable dt = db.Query(sql).Tables[0];
+            for (int i = 0; i < dt.Rows.Count; i++)
+            {
+                string str = dt.Rows[i][0] + "\t" + dt.Rows[i][1];
+                list.Add(str);
+            }
+            return list;
+        }
     }
 }

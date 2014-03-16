@@ -15,6 +15,7 @@ using PA.ViewModel;
 using PA.Model.DataGrid;
 using System.Data;
 using PA.Model.CustomEventArgs;
+using PA.Helper.DataBase;
 
 namespace PA.View.Pages.TwoTabControl
 {
@@ -110,7 +111,7 @@ namespace PA.View.Pages.TwoTabControl
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex.Message);
+                Log.Write(ex.Message);
             }
             Windows.Win_子细目 w = new Windows.Win_子细目(m.科目编号,m.科目名称);
             w.ShowDialog();
@@ -128,8 +129,9 @@ namespace PA.View.Pages.TwoTabControl
                 m.Used_mark = b.IsChecked == true? 0 : 1;
                 new ViewModel_科目管理().UpdateUsedMark(m);
             }
-            catch (Exception)
+            catch (Exception ex)
             {
+                Log.Write(ex.Message);   
             }
         }
 

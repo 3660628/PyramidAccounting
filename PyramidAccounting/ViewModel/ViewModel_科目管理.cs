@@ -101,7 +101,7 @@ namespace PA.ViewModel
             UpdateParm up = new UpdateParm();
             up.TableName = "t_subject";
             up.Key = "subject_id";
-            up.Value = m.科目编号;
+            up.Value =  m.科目编号 ;   //更新SQL有错误，先该这样
             up.WhereParm = "id=" + m.ID;
             upList.Add(up);
             UpdateParm up2 = new UpdateParm();
@@ -129,11 +129,10 @@ namespace PA.ViewModel
             db.BatchOperate(sqlList);
         }
 
-        public int GetMaxID()
+        public string GetSubjectID(string name)
         {
-            string sql = "select max(id) from t_subject";
-            int i = Int32.Parse(db.GetAllData(sql).Split('\t')[0].Split(',')[0]);
-            return i;
+            string sql = "select subject_id from t_subject where subject_name='" + name + "' and parent_id = 0";
+            return db.GetAllData(sql).Split('\t')[0].Split(',')[0];
         }
     }
 }

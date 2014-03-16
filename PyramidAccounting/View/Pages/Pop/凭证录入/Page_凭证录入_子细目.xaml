@@ -8,7 +8,8 @@
 	Title="Page_凭证录入_子细目">
 
     <Grid>
-        <ListBox Margin="0,38,0,0" BorderThickness="0,1,0,0"/>
-        <TextBox HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
+        <ListBox x:Name="ListBox_子细目" Margin="0,38,0,0" BorderThickness="0,1,0,0" MouseDoubleClick="ListBox_子细目_MouseDoubleClick"/>
+        <TextBox x:Name="TextBox_子细目" HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" TextChanged="TextBox_子细目_TextChanged"/>
+        <Button x:Name="Button_确定" Content="确定" HorizontalAlignment="Left" Margin="137,10,-12,0" VerticalAlignment="Top" Width="40" Click="Button_确定_Click" IsDefault="True"/>
     </Grid>
 </Page>
