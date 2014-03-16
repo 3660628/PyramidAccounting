@@ -23,7 +23,7 @@ namespace PA.ViewModel
         {
             List<PA.Model.Database.UpdateParm> lists = new List<Model.Database.UpdateParm>();
             PA.Model.Database.UpdateParm parm = new Model.Database.UpdateParm();
-            parm.TableName = "T_VOUCHER_DETAIL";
+            parm.TableName = DBTablesName.T_VOUCHER_DETAIL;
             parm.Key = "PARENTID";
             parm.Value = "'asdasd'";
             parm.WhereParm = "vid=1";

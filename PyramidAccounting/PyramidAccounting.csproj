@@ -132,9 +132,6 @@
     <Compile Include="View\Pages\TwoTabControl\Page_Two_账簿管理.xaml.cs">
       <DependentUpon>Page_Two_账簿管理.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\Windows\AboutWindow.xaml.cs">
-      <DependentUpon>AboutWindow.xaml</DependentUpon>
-    </Compile>
     <Compile Include="View\Windows\Win_子细目.xaml.cs">
       <DependentUpon>Win_子细目.xaml</DependentUpon>
     </Compile>
@@ -226,10 +223,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\ResourceDictionarys\TabControl\TwoTabControl.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="View\Windows\AboutWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
