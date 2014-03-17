@@ -4,7 +4,7 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       mc:Ignorable="d" 
-      d:DesignHeight="570" d:DesignWidth="800"
+      d:DesignHeight="570" d:DesignWidth="800" TextOptions.TextFormattingMode="Display"
 	Title="Page_Two_系统管理">
     <Page.Resources>
         <ResourceDictionary>
@@ -16,11 +16,11 @@
     <Grid Margin="-3,0,-3,-3">
         <StatusBar Height="25" Margin="0" VerticalAlignment="Bottom" Background="DarkGray"/>
         <TabControl Margin="0,0,0,25" BorderBrush="White">
-            <TabItem FocusVisualStyle="{x:Null}" Header="权限设置" Margin="8,-1,-8,1" Template="{DynamicResource TabItemControlTemplate_TwoTabHeader}">
+            <TabItem FocusVisualStyle="{x:Null}" Header="权限设置" Margin="8,-2,-8,2" Template="{DynamicResource TabItemControlTemplate_TwoTabHeader}">
                 <Grid Background="White">
                     </Grid>
             </TabItem>
-            <TabItem FocusVisualStyle="{x:Null}" Header="科目设置" Margin="16,-1,-16,1" Template="{DynamicResource TabItemControlTemplate_TwoTabHeader}">
+            <TabItem FocusVisualStyle="{x:Null}" Header="科目设置" Margin="16,-2,-16,2" Template="{DynamicResource TabItemControlTemplate_TwoTabHeader}">
                 <Grid Background="White">
                     <Label Content="类别" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" FontSize="16"/>
                     <Button x:Name="Button_资产" Content="资产类" HorizontalAlignment="Left" Margin="50,10,0,0" VerticalAlignment="Top" Width="70" Height="24" Click="Button_资产_Click" Template="{DynamicResource ButtonControlTemplate_Common}"/>
@@ -53,10 +53,10 @@
                     <Button x:Name="Button_编辑子细目" Content="编写子细目" HorizontalAlignment="Right" Margin="0,10,110,0" VerticalAlignment="Top" Width="75" Height="24" Click="Button_编辑子细目_Click" Template="{DynamicResource ButtonControlTemplate_Common}"/>
                 </Grid>
             </TabItem>
-            <TabItem FocusVisualStyle="{x:Null}" Header="数据管理" Margin="24,-1,-24,1" Template="{DynamicResource TabItemControlTemplate_TwoTabHeader}">
+            <TabItem FocusVisualStyle="{x:Null}" Header="数据管理" Margin="24,-2,-24,2" Template="{DynamicResource TabItemControlTemplate_TwoTabHeader}">
                 <Grid Background="White"/>
             </TabItem>
-            <TabItem FocusVisualStyle="{x:Null}" Header="账套管理" Margin="32,-1,-32,1" Template="{DynamicResource TabItemControlTemplate_TwoTabHeader}">
+            <TabItem FocusVisualStyle="{x:Null}" Header="账套管理" Margin="32,-2,-32,2" Template="{DynamicResource TabItemControlTemplate_TwoTabHeader}">
                 <Grid Background="White"/>
             </TabItem>
         </TabControl>
