@@ -30,6 +30,7 @@ namespace PA.View.Pages.TwoTabControl
             InitializeComponent();
             VisibilityButtonSubject();
         }
+        
         #region 科目管理
         /// <summary>
         /// 判断是否已经初始化过年初数据，否则不许修改年初数
@@ -73,6 +74,10 @@ namespace PA.View.Pages.TwoTabControl
             this.DataGrid_科目设置.ItemsSource = new ViewModel_科目管理().GetSujectData(i);
         }
 
+        private void Button_ChangePassword_Click(object sender, RoutedEventArgs e)
+        {
+            
+        }
         private void Button_科目保存_Click(object sender, RoutedEventArgs e)
         {
             string messageBoxText = "年初金额初始化不能修改哦，请确认是否填写完整？";
@@ -156,6 +161,8 @@ namespace PA.View.Pages.TwoTabControl
             Windows.Win_子细目 w = new Windows.Win_子细目(m.科目编号, m.科目名称);
             w.ShowDialog();
         }
+
         #endregion
+
     }
 }

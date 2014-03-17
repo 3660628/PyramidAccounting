@@ -18,7 +18,23 @@
         <TabControl Margin="0,0,0,25" BorderBrush="White">
             <TabItem FocusVisualStyle="{x:Null}" Header="权限设置" Margin="8,-2,-8,2" Template="{DynamicResource TabItemControlTemplate_TwoTabHeader}">
                 <Grid Background="White">
-                    </Grid>
+                    <StackPanel Margin="10" >
+                        <Expander x:Name="Expander_修改密码" Header="修改密码" Margin="0" IsExpanded="True">
+                            <Grid Height="171" Background="White">
+                                <Label Content="旧密码" HorizontalAlignment="Left" Margin="50,10,0,0" VerticalAlignment="Top"/>
+                                <Label Content="新密码" HorizontalAlignment="Left" Margin="50,43,0,0" VerticalAlignment="Top"/>
+                                <Label Content="重复新密码" HorizontalAlignment="Left" Margin="50,76,0,0" VerticalAlignment="Top"/>
+                                <PasswordBox x:Name="PasswordBox_Old" HorizontalAlignment="Left" Margin="141,14,0,0" VerticalAlignment="Top" Width="123"/>
+                                <PasswordBox x:Name="PasswordBox_New" HorizontalAlignment="Left" Margin="141,47,0,0" VerticalAlignment="Top" Width="123"/>
+                                <PasswordBox x:Name="PasswordBox_NewRepeat" HorizontalAlignment="Left" Margin="141,80,0,0" VerticalAlignment="Top" Width="123"/>
+                                <Button x:Name="Button_ChangePassword" Content="修改密码" HorizontalAlignment="Left" Margin="189,123,0,0" VerticalAlignment="Top" Width="75" Foreground="White" Height="25" Click="Button_ChangePassword_Click"/>
+                                <Label x:Name="Label_密码错误" Content="密码错误" HorizontalAlignment="Left" Margin="281,10,0,0" VerticalAlignment="Top" Foreground="Red" Visibility="Collapsed"/>
+                                <Label x:Name="Label_新密码不一致" Content="新密码不一致" HorizontalAlignment="Left" Margin="281,76,0,0" VerticalAlignment="Top" Foreground="Red" Visibility="Collapsed"/>
+                                <Label x:Name="Label_密码修改成功" Content="密码修改成功" HorizontalAlignment="Left" Margin="281,123,0,0" VerticalAlignment="Top" Foreground="Green" Visibility="Collapsed"/>
+                            </Grid>
+                        </Expander>
+                    </StackPanel>
+                </Grid>
             </TabItem>
             <TabItem FocusVisualStyle="{x:Null}" Header="科目设置" Margin="16,-2,-16,2" Template="{DynamicResource TabItemControlTemplate_TwoTabHeader}">
                 <Grid Background="White">
