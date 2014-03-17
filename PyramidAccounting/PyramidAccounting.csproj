@@ -123,6 +123,9 @@
     <Compile Include="View\Pages\Pop\凭证录入\Page_凭证录入_科目.xaml.cs">
       <DependentUpon>Page_凭证录入_科目.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\Pages\Pop\系统管理\Page_修改用户.xaml.cs">
+      <DependentUpon>Page_修改用户.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\Pages\Pop\系统管理\Page_子细目管理.xaml.cs">
       <DependentUpon>Page_子细目管理.xaml</DependentUpon>
     </Compile>
@@ -175,6 +178,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\Pages\Pop\凭证录入\Page_凭证录入_科目.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Pages\Pop\系统管理\Page_修改用户.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

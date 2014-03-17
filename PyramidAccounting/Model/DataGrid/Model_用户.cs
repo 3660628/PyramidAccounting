@@ -35,6 +35,13 @@ namespace PA.Model.DataGrid
         private DateTime create_time;
         private string comments;
         private string time;
+        private string userAuthority;
+
+        public string 用户权限
+        {
+            get { return userAuthority; }
+            set { userAuthority = value; }
+        }
 
         public string 日期
         {
