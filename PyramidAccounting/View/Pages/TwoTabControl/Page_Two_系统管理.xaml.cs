@@ -210,12 +210,50 @@ namespace PA.View.Pages.TwoTabControl
 
         private void Button_修改_Click(object sender, RoutedEventArgs e)
         {
-
+            if (DataGrid_权限设置.SelectedItem != null)
+            {
+                Model_用户 m = DataGrid_权限设置.SelectedItem as Model_用户;
+                Pop.系统管理.Page_修改用户 p = new Pop.系统管理.Page_修改用户(m.ID);
+                this.Grid_Pop弹出.Visibility = Visibility;
+                this.Frame_系统管理_Pop.Content = p;
+                p.CloseEvent += new Pop.系统管理.Page_系统管理_CloseEventHandle(CloseGrid);
+            }
+            else
+            {
+                MessageBox.Show("请选择需要修改的用户");
+            }
         }
 
         private void Button_停用_Click(object sender, RoutedEventArgs e)
         {
 
+            if (DataGrid_权限设置.SelectedItem != null)
+            {
+                Model_用户 m = DataGrid_权限设置.SelectedItem as Model_用户;
+                if (m.是否使用.Equals("停用"))
+                {
+                    MessageBox.Show("当前用户已经停用，请勿重复操作！");
+                    return;
+                }
+                string messageBoxText = "用户停用后，以后改用户将不能登录了，请谨慎操作！";
+                string caption = "注意";
+                MessageBoxButton button = MessageBoxButton.YesNo;
+                MessageBoxImage icon = MessageBoxImage.Warning;
+                MessageBoxResult result = MessageBox.Show(messageBoxText, caption, button, icon);
+                switch (result)
+                {
+                    case MessageBoxResult.Yes:
+                        break;
+                    case MessageBoxResult.No:
+                        return;
+                }
+                vm.StopUse(m.ID);
+                FreshData();
+            }
+            else
+            {
+                MessageBox.Show("请选择需要停用的用户");
+            }
         }
         #endregion
 
