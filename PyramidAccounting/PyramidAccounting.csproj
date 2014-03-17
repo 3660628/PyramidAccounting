@@ -121,6 +121,9 @@
     <Compile Include="View\Pages\Pop\系统管理\Page_子细目管理.xaml.cs">
       <DependentUpon>Page_子细目管理.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\Pages\Pop\系统管理\Page_添加用户.xaml.cs">
+      <DependentUpon>Page_添加用户.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\Pages\TwoTabControl\Page_Two_凭证管理.xaml.cs">
       <DependentUpon>Page_Two_凭证管理.xaml</DependentUpon>
     </Compile>
@@ -171,6 +174,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\Pages\Pop\系统管理\Page_子细目管理.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Pages\Pop\系统管理\Page_添加用户.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
