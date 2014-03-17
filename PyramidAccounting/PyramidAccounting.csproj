@@ -108,6 +108,9 @@
     <Compile Include="View\Pages\Page_MainTabControl.xaml.cs">
       <DependentUpon>Page_MainTabControl.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\Pages\Page_登录页面.xaml.cs">
+      <DependentUpon>Page_登录页面.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\Pages\Pop\凭证录入\Page_凭证录入_子细目.xaml.cs">
       <DependentUpon>Page_凭证录入_子细目.xaml</DependentUpon>
     </Compile>
@@ -151,6 +154,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="View\Pages\Page_MainTabControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Pages\Page_登录页面.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
