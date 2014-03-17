@@ -198,19 +198,19 @@ namespace PA.View.Windows
             {
                 VoucherDetails[SelectedRow.序号].借方 = decimal.Parse(newValue);
                 VoucherDetails[SelectedRow.序号].贷方 = 0m;
-                if ((SelectedRow.序号 + 2) % 2 == 0)
-                {
-                    VoucherDetails[SelectedRow.序号 + 1].贷方 = decimal.Parse((e.EditingElement as TextBox).Text.Trim());
-                }
+                //if ((SelectedRow.序号 + 2) % 2 == 0)
+                //{
+                //    VoucherDetails[SelectedRow.序号 + 1].贷方 = decimal.Parse((e.EditingElement as TextBox).Text.Trim());
+                //}
             }
             else if (Header == "贷方金额")
             {
                 VoucherDetails[SelectedRow.序号].贷方 = decimal.Parse(newValue);
                 VoucherDetails[SelectedRow.序号].借方 = 0m;
-                if ((SelectedRow.序号 + 2) % 2 == 1)
-                {
-                    VoucherDetails[SelectedRow.序号 - 1].借方 = decimal.Parse((e.EditingElement as TextBox).Text.Trim());
-                }
+                //if ((SelectedRow.序号 + 2) % 2 == 1)
+                //{
+                //    VoucherDetails[SelectedRow.序号 - 1].借方 = decimal.Parse((e.EditingElement as TextBox).Text.Trim());
+                //}
             }
             Count合计();
         }
