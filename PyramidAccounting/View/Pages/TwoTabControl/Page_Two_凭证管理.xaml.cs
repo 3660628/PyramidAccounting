@@ -24,5 +24,11 @@ namespace PA.View.Pages.TwoTabControl
             InitializeComponent();
         }
 
+        private void Button_Add_Click(object sender, RoutedEventArgs e)
+        {
+            PA.View.Windows.Win_记账凭证 win = new PA.View.Windows.Win_记账凭证();
+            win.ShowDialog();
+        }
+
     }
 }

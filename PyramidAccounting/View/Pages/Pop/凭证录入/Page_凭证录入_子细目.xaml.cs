@@ -26,7 +26,7 @@ namespace PA.View.Pages.Pop.凭证录入
         {
             InitializeComponent();
             this._name = _name;
-            this.ListBox_子细目.ItemsSource = new ListCommon().GetChildSubjectList("", _name);
+            this.ListBox_子细目.ItemsSource = new ComboBox_科目().GetChildSubjectList("", _name);
         }
 
         private void OnFillDate(string str)
@@ -50,7 +50,7 @@ namespace PA.View.Pages.Pop.凭证录入
         private void TextBox_子细目_TextChanged(object sender, TextChangedEventArgs e)
         {
             TextBox tb = sender as TextBox;
-            this.ListBox_子细目.ItemsSource = new ListCommon().GetChildSubjectList(tb.Text.Trim(), _name);
+            this.ListBox_子细目.ItemsSource = new ComboBox_科目().GetChildSubjectList(tb.Text.Trim(), _name);
         }
 
         private void Button_确定_Click(object sender, RoutedEventArgs e)

@@ -24,7 +24,7 @@ namespace PA.View.Pages.Pop.凭证录入
         public Page_凭证录入_科目()
         {
             InitializeComponent();
-            this.ListBox_科目.ItemsSource = new ListCommon().GetSubjectList("");
+            this.ListBox_科目.ItemsSource = new ComboBox_科目().GetSubjectList("");
             this.TextBox_科目搜索.Focus();
         }
 
@@ -49,7 +49,7 @@ namespace PA.View.Pages.Pop.凭证录入
         private void TextBox_科目搜索_TextChanged(object sender, TextChangedEventArgs e)
         {
             TextBox tb = sender as TextBox;
-            this.ListBox_科目.ItemsSource = new ListCommon().GetSubjectList(tb.Text.Trim());
+            this.ListBox_科目.ItemsSource = new ComboBox_科目().GetSubjectList(tb.Text.Trim());
         }
 
         private void Button_确定_Click(object sender, RoutedEventArgs e)

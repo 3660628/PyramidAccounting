@@ -7,7 +7,7 @@ using PA.Helper.DataBase;
 
 namespace PA.Model.ComboBox
 {
-    class ListCommon
+    class ComboBox_科目
     {
         private List<string> list;
         private string sql = string.Empty;
