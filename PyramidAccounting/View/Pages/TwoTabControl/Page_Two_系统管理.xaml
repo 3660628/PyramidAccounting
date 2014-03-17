@@ -28,7 +28,7 @@
                     <Button x:Name="Button_净资产" Content="净资产类" HorizontalAlignment="Left" Margin="190,10,0,0" VerticalAlignment="Top" Width="72" Height="24" Click="Button_净资产_Click" Template="{DynamicResource ButtonControlTemplate_Common}"/>
                     <Button x:Name="Button_收入" Content="收入类" HorizontalAlignment="Left" Margin="262,10,0,0" VerticalAlignment="Top" Width="70" Height="24" Click="Button_收入_Click" Template="{DynamicResource ButtonControlTemplate_Common}"/>
                     <Button x:Name="Button_支出" Content="支出类" HorizontalAlignment="Left" Margin="332,10,0,0" VerticalAlignment="Top" Width="70" Height="24" Click="Button_支出_Click" Template="{DynamicResource ButtonControlTemplate_Common}"/>
-                    <DataGrid x:Name="DataGrid_科目设置" ItemsSource="{Binding}" CanUserAddRows="False" AutoGenerateColumns="False" HorizontalAlignment="Stretch" Margin="10,44,0,0" VerticalAlignment="Stretch" Background="White" RowEditEnding="DataGrid_科目设置_RowEditEnding" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle_凭证管理}">
+                    <DataGrid x:Name="DataGrid_科目设置" ItemsSource="{Binding}" CanUserAddRows="False" AutoGenerateColumns="False" HorizontalAlignment="Stretch" Margin="10,44,0,0" VerticalAlignment="Stretch" Background="White" RowEditEnding="DataGrid_科目设置_RowEditEnding">
                         <DataGrid.Resources>
                             <!--DataGridRow的双击事件-->
                             <Style TargetType="DataGridRow">
