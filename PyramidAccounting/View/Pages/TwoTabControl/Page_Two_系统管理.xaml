@@ -16,7 +16,7 @@
     <Grid Margin="-3,0,-3,-3">
         <StatusBar Height="25" Margin="0" VerticalAlignment="Bottom" Background="DarkGray"/>
         <TabControl Margin="0,0,0,25" BorderBrush="White">
-            <TabItem FocusVisualStyle="{x:Null}" Header="权限设置" Margin="8,-2,-8,2" Template="{DynamicResource TabItemControlTemplate_TwoTabHeader}">
+            <TabItem FocusVisualStyle="{x:Null}" Header="用户安全" Margin="8,-2,-8,2" Template="{DynamicResource TabItemControlTemplate_TwoTabHeader}">
                 <Grid Background="White">
                     <StackPanel Margin="10" >
                         <Expander x:Name="Expander_修改密码" Header="修改密码" Margin="0" IsExpanded="True">
@@ -31,6 +31,21 @@
                                 <Label x:Name="Label_密码错误" Content="密码错误" HorizontalAlignment="Left" Margin="281,10,0,0" VerticalAlignment="Top" Foreground="Red" Visibility="Collapsed"/>
                                 <Label x:Name="Label_新密码不一致" Content="新密码不一致" HorizontalAlignment="Left" Margin="281,76,0,0" VerticalAlignment="Top" Foreground="Red" Visibility="Collapsed"/>
                                 <Label x:Name="Label_密码修改成功" Content="密码修改成功" HorizontalAlignment="Left" Margin="281,123,0,0" VerticalAlignment="Top" Foreground="Green" Visibility="Collapsed"/>
+                            </Grid>
+                        </Expander>
+                        <Expander x:Name="Expander_权限" Header="权限设置">
+                            <Grid Height="280" Background="White">
+                                <Button x:Name="Button_新增" Content="新增" HorizontalAlignment="Right" Margin="0,20,180,0" VerticalAlignment="Top" Width="75" Click="Button_新增_Click" />
+                                <Button x:Name="Button_修改" Content="修改" HorizontalAlignment="Right" Margin="0,20,100,0" VerticalAlignment="Top" Width="75" Click="Button_修改_Click" />
+                                <Button x:Name="Button_停用" Content="停用" HorizontalAlignment="Right" Margin="0,20,20,0" VerticalAlignment="Top" Width="75" Click="Button_停用_Click"/>
+                                <DataGrid x:Name="DataGrid_权限设置" HorizontalAlignment="Stretch" ItemsSource="{Binding}" AutoGenerateColumns="False" IsReadOnly="True" Margin="10,50,0,0" VerticalAlignment="Top">
+                                    <DataGrid.Columns>
+                                        <DataGridTextColumn Binding="{Binding 序号}" Header="序号" />
+                                        <DataGridTextColumn Binding="{Binding 用户名}" Header="用户名"/>
+                                        <DataGridTextColumn Binding="{Binding 创建日期}" Header="创建时间" />
+                                        <DataGridTextColumn Binding="{Binding 用户说明}" Header="用户说明" />
+                                    </DataGrid.Columns>
+                                </DataGrid>
                             </Grid>
                         </Expander>
                     </StackPanel>

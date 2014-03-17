@@ -7,6 +7,13 @@ namespace PA.Model.DataGrid
 {
     class Model_用户
     {
+        private int rowid;
+
+        public int 序号
+        {
+            get { return rowid; }
+            set { rowid = value; }
+        }
         private int userid;
 
         public int ID

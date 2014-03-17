@@ -193,5 +193,20 @@ namespace PA.View.Pages.TwoTabControl
 
         #endregion
 
+        private void Button_新增_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Button_修改_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Button_停用_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
     }
 }
