@@ -1,8 +1,14 @@
 ﻿<Window x:Class="PA.View.Windows.Win_账套页面"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="Win_账套页面" Height="300" Width="300">
+        Title="账套页面" Height="300" Width="550" WindowStartupLocation="CenterScreen" AllowsTransparency="True" WindowStyle="None" ResizeMode="NoResize" MouseLeftButtonDown="Window_MouseLeftButtonDown">
     <Grid>
-        
+        <Grid Height="35" Margin="0" VerticalAlignment="Top" Background="#FF2CA6E0"/>
+        <Button x:Name="Button_Min" Content="Button" HorizontalAlignment="Right" Margin="0,0,38,0" VerticalAlignment="Top" Width="28" Height="20" Template="{DynamicResource ButtonControlTemplate_Min}" Click="Button_Min_Click"/>
+        <Button x:Name="Button_Close" Content="Button" HorizontalAlignment="Right" VerticalAlignment="Top" Width="28" Template="{DynamicResource ButtonControlTemplate_Close}" Height="20" Margin="0" Click="Button_Close_Click"/>
+        <Grid Height="25" Margin="-120,16,309,0" VerticalAlignment="Top" Width="100" Background="White" RenderTransformOrigin="1.07,3.12">
+            <Label Content="创建账套" Margin="20,0,0,0" />
+        </Grid>
+
     </Grid>
 </Window>
