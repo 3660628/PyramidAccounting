@@ -89,9 +89,16 @@ namespace PA.View.Windows
             Voucher.复核 = this.Label_复核.Content.ToString();
             return Voucher;
         }
+        private bool CheckData()
+        {
+            if (this.Label_借方合计.Content.ToString() == this.Label_贷方合计.Content.ToString())
+            {
+                return true;
+            }
+            return false;
+        }
         private void Count合计()
         {
-            //VoucherDetails = this.DataGrid_凭证明细.ItemsSource as List<Model_凭证明细>;
             decimal count借方 = 0m;
             decimal count贷方 = 0m;
             for (int i = 0; i < 6; i++ )
@@ -121,6 +128,10 @@ namespace PA.View.Windows
         private void Button_保存_Click(object sender, RoutedEventArgs e)
         {
             GetData();
+            if (!CheckData())
+            {
+                return;
+            }
             new PA.ViewModel.ViewModel_记账凭证().InsertData(Voucher, VoucherDetails);
             this.Close();
         }
@@ -128,6 +139,10 @@ namespace PA.View.Windows
         private void Button_保存并新增_Click(object sender, RoutedEventArgs e)
         {
             GetData();
+            if (!CheckData())
+            {
+                return;
+            }
             new PA.ViewModel.ViewModel_记账凭证().InsertData(Voucher, VoucherDetails);
             InitData();
         }
