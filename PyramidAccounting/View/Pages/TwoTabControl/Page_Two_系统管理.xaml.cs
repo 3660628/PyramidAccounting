@@ -196,6 +196,7 @@ namespace PA.View.Pages.TwoTabControl
         private void CloseGrid(object sender, RoutedEventArgs e)
         {
             this.Grid_Pop弹出.Visibility = Visibility.Collapsed;
+            FreshData();
         }
         #endregion
         #region Button 用户安全
@@ -220,8 +221,20 @@ namespace PA.View.Pages.TwoTabControl
 
         private void Expander_权限_Expanded(object sender, RoutedEventArgs e)
         {
+            FreshData();
             this.Expander_修改密码.IsExpanded = false;
         }
-
+        /// <summary>
+        /// 刷新数据
+        /// </summary>
+        private void FreshData()
+        {
+            List<Model_用户> u = new List<Model_用户>();
+            u = vm.GetAllUser();
+            if (u != null)
+            {
+                DataGrid_权限设置.ItemsSource = vm.GetAllUser();
+            }
+        }
     }
 }

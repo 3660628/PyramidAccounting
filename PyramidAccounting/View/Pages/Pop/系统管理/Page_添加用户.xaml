@@ -12,14 +12,16 @@
         <GroupBox Header="编辑" Margin="30,80,41,0" HorizontalAlignment="Stretch" Height="300" Width="400" VerticalAlignment="Top">
             <Grid Background="White">
                 <Label Content="用户名：" HorizontalAlignment="Left" Margin="20,25,0,0" VerticalAlignment="Top"/>
-                <Label Content="用户密码：" HorizontalAlignment="Left" Margin="20,90,0,0" VerticalAlignment="Top"/>
-                <Label Content="用户权限：" HorizontalAlignment="Left" Margin="20,165,0,0" VerticalAlignment="Top"/>
-                <Label Content="用户说明：" HorizontalAlignment="Left" Margin="20,240,0,0" VerticalAlignment="Top"/>
+                <Label Content="用户密码：" HorizontalAlignment="Left" Margin="20,75,0,0" VerticalAlignment="Top"/>
+                <Label Content="真实姓名：" HorizontalAlignment="Left" Margin="20,125,0,0" VerticalAlignment="Top"/>
+                <Label Content="用户权限：" HorizontalAlignment="Left" Margin="20,175,0,0" VerticalAlignment="Top"/>
+                <Label Content="用户说明：" HorizontalAlignment="Left" Margin="20,225,0,0" VerticalAlignment="Top"/>
                 <TextBox x:Name="TextBox_用户名" HorizontalAlignment="Left" Height="23" Margin="90,25,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="120"/>
-                <TextBox x:Name="TextBox_用户密码" HorizontalAlignment="Left" Height="23" Margin="90,90,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="120"/>
-                <ComboBox x:Name="ComboBox_用户权限" HorizontalAlignment="Left" Margin="90,165,0,0" VerticalAlignment="Top" Width="120"/>
-                <TextBox x:Name="TextBox_用户说明" HorizontalAlignment="Left" Height="23" Margin="90,240,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="188"/>
-                 </Grid>
+                <PasswordBox x:Name="TextBox_用户密码" HorizontalAlignment="Left" Height="23" Margin="90,75,0,0" VerticalAlignment="Top" Width="120"/>
+                <TextBox x:Name="TextBox_真实姓名" HorizontalAlignment="Left" Height="23" Margin="90,125,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+                <ComboBox x:Name="ComboBox_用户权限" HorizontalAlignment="Left" Margin="90,175,0,0" VerticalAlignment="Top" Width="120"/>
+                <TextBox x:Name="TextBox_用户说明" HorizontalAlignment="Left" Height="23" Margin="90,225,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="188"/>
+            </Grid>
         </GroupBox>
         <Button x:Name="Button_PopCommit" Content="提交" HorizontalAlignment="Right" Margin="0,0,125,80" Width="80" Click="Button_PopCommit_Click" Grid.Column="1" Height="25" Foreground="White" VerticalAlignment="Bottom" />
         <Button x:Name="Button_PopClose" Content="取消" HorizontalAlignment="Right" Margin="0,0,40,80" VerticalAlignment="Bottom" Width="80" Click="Button_PopClose_Click" Grid.Column="1" Height="25" Foreground="White"/>

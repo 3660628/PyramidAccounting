@@ -8,7 +8,13 @@ namespace PA.Model.DataGrid
     class Model_用户
     {
         private int rowid;
+        private string delete_mark;
 
+        public string 是否使用
+        {
+            get { return delete_mark; }
+            set { delete_mark = value; }
+        }
         public int 序号
         {
             get { return rowid; }
@@ -28,6 +34,13 @@ namespace PA.Model.DataGrid
         private int authority;
         private DateTime create_time;
         private string comments;
+        private string time;
+
+        public string 日期
+        {
+            get { return time; }
+            set { time = value; }
+        }
 
         public string 用户说明
         {

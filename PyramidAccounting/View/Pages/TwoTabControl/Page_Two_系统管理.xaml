@@ -42,8 +42,10 @@
                                     <DataGrid.Columns>
                                         <DataGridTextColumn Binding="{Binding 序号}" Header="序号" />
                                         <DataGridTextColumn Binding="{Binding 用户名}" Header="用户名"/>
-                                        <DataGridTextColumn Binding="{Binding 创建日期}" Header="创建时间" />
+                                        <DataGridTextColumn Binding="{Binding 真实姓名}" Header="真实姓名"/>
+                                        <DataGridTextColumn Binding="{Binding 日期}" Header="创建时间" />
                                         <DataGridTextColumn Binding="{Binding 用户说明}" Header="用户说明" />
+                                        <DataGridTextColumn Binding="{Binding 是否使用}" Header="是否使用" />
                                     </DataGrid.Columns>
                                 </DataGrid>
                             </Grid>
