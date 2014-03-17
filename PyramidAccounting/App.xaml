@@ -13,6 +13,7 @@
                 <ResourceDictionary Source="View\ResourceDictionarys\DataGrid\DataGridHeader.xaml" />
                 <ResourceDictionary Source="View\ResourceDictionarys\DataGrid\VoucherMoneyShow.xaml" />
                 <ResourceDictionary Source="View\ResourceDictionarys\DataGrid\VoucherMoneyEditing.xaml" />
+                <ResourceDictionary Source="View\ResourceDictionarys\ScrollViewer\ScrollBarCommon.xaml" />
                 <ResourceDictionary Source="View\ResourceDictionarys\ScrollViewer\ScrollViewerCommon.xaml" />
                 <ResourceDictionary Source="View\ResourceDictionarys\TabControl\MainTabControl.xaml" />
                 <ResourceDictionary Source="View\ResourceDictionarys\TabControl\TwoTabControl.xaml" />
