@@ -3,7 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="金字塔会计" Height="600" Width="960" WindowStartupLocation="CenterScreen" WindowStyle="None" AllowsTransparency="True" MouseLeftButtonDown="Window_MainWindow_MouseLeftButtonDown" SizeChanged="Window_MainWindow_SizeChanged">
     <Grid Background="#FF29A2FF">
-        <Grid Margin="0,25,0,0">
+        <Grid Margin="0">
             <Frame x:Name="Frame_MainTabControl" Content="" Margin="0" NavigationUIVisibility="Hidden"/>
         </Grid>
         <Button FocusVisualStyle="{x:Null}" x:Name="Button_Min" Content="Button" HorizontalAlignment="Right" Margin="0,0,66,0" VerticalAlignment="Top" Width="28" Height="20" Template="{DynamicResource ButtonControlTemplate_Min}" Click="Button_Min_Click"/>

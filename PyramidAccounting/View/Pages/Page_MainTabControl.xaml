@@ -4,14 +4,14 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       mc:Ignorable="d" 
-      d:DesignHeight="575 " d:DesignWidth="960"
+      d:DesignHeight="600 " d:DesignWidth="960"
 	Title="Page_MainTabControl">
 
     <Grid Background="#FF333333">
-        <Grid Height="28" Margin="0" VerticalAlignment="Top" Background="#FF29A2FF" IsEnabled="False"/>
-        <Rectangle Fill="#FF1477C3" HorizontalAlignment="Left" Stroke="#FF1477C3" Width="2" Margin="148,28,0,0"/>
-        <Rectangle Fill="White" Stroke="White" Margin="149,28,0,0"/>
-        <TabControl x:Name="TabControl_Main" TabStripPlacement="Left" Background="{x:Null}" BorderBrush="{x:Null}" BorderThickness="0" Margin="-2">
+        <Grid Height="53" Margin="0" VerticalAlignment="Top" Background="#FF29A2FF" IsEnabled="False"/>
+        <Rectangle Fill="#FF1477C3" HorizontalAlignment="Left" Stroke="#FF1477C3" Width="2" Margin="148,53,0,0"/>
+        <Rectangle Fill="White" Stroke="White" Margin="149,53,0,0"/>
+        <TabControl x:Name="TabControl_Main" TabStripPlacement="Left" Background="{x:Null}" BorderBrush="{x:Null}" BorderThickness="0" Margin="-2,23,-2,-2">
             <TabItem FocusVisualStyle="{x:Null}" Header="快捷界面" Width="150" Height="40" Margin="0,82,0,-82" Template="{DynamicResource TabItemControlTemplate_MainTabItem}" Foreground="White">
                 <Grid>
                     <Frame FocusVisualStyle="{x:Null}" x:Name="Frame_快捷界面" Content="" Margin="0" NavigationUIVisibility="Hidden"/>
