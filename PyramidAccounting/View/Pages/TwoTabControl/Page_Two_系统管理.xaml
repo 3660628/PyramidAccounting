@@ -60,7 +60,7 @@
                 <Grid Background="White"/>
             </TabItem>
         </TabControl>
-        <Grid Background="#7F000000" Margin="0,28,0,25">
+        <Grid Background="#7F000000" Margin="0,28,0,25" Visibility="Collapsed">
             <Frame x:Name="Frame_系统管理_Pop" Content="" Margin="269,0,0,0" Background="White" NavigationUIVisibility="Hidden"/>
         </Grid>
     </Grid>
