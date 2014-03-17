@@ -58,6 +58,7 @@ namespace PA.View.Windows
             {
                 Model_凭证明细 a = new Model_凭证明细();
                 a.序号 = i;
+                a.摘要 = "asd1\nasd2";
                 VoucherDetails.Add(a);
             }
             this.DatePicker_Date.SelectedDate = DateTime.Now;
