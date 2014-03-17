@@ -60,5 +60,8 @@
                 <Grid Background="White"/>
             </TabItem>
         </TabControl>
+        <Grid Background="#7F000000" Margin="0,28,0,25">
+            <Frame Content="" Margin="269,0,0,0" Background="White" NavigationUIVisibility="Hidden"/>
+        </Grid>
     </Grid>
 </Page>
