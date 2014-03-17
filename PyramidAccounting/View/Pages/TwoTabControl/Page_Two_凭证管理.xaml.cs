@@ -11,6 +11,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using PA.Model.DataGrid;
 
 namespace PA.View.Pages.TwoTabControl
 {
@@ -19,6 +20,7 @@ namespace PA.View.Pages.TwoTabControl
     /// </summary>
     public partial class Page_Two_凭证管理 : Page
     {
+        List<Model_凭证管理> Data_本期凭证 = new List<Model_凭证管理>();
         public Page_Two_凭证管理()
         {
             InitializeComponent();
@@ -27,7 +29,8 @@ namespace PA.View.Pages.TwoTabControl
 
         private void ReflashData()
         {
-
+            Data_本期凭证 = new PA.ViewModel.ViewModel_凭证管理().GetData();
+            this.DataGrid_本期凭证.ItemsSource = Data_本期凭证;
         }
 
         private void Button_Add_Click(object sender, RoutedEventArgs e)
