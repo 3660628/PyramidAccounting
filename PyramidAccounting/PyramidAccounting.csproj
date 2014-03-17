@@ -150,8 +150,14 @@
     <Compile Include="View\Windows\Win_子细目.xaml.cs">
       <DependentUpon>Win_子细目.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\Windows\Win_登录.xaml.cs">
+      <DependentUpon>Win_登录.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\Windows\Win_记账凭证.xaml.cs">
       <DependentUpon>Win_记账凭证.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Windows\Win_账套页面.xaml.cs">
+      <DependentUpon>Win_账套页面.xaml</DependentUpon>
     </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -269,7 +275,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="View\Windows\Win_登录.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\Windows\Win_记账凭证.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Windows\Win_账套页面.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
