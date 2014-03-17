@@ -25,6 +25,7 @@ namespace PA.View.Pages.TwoTabControl
     public partial class Page_Two_系统管理 : Page
     {
         private int i = 1;
+        ViewModel_用户 vm = new ViewModel_用户();
         public Page_Two_系统管理()
         {
             InitializeComponent();
@@ -76,7 +77,35 @@ namespace PA.View.Pages.TwoTabControl
 
         private void Button_ChangePassword_Click(object sender, RoutedEventArgs e)
         {
-            
+            string OldPassword = Secure.TranslatePassword(this.PasswordBox_Old.SecurePassword);
+            string NewPassword = Secure.TranslatePassword(this.PasswordBox_New.SecurePassword);
+            string NewPasswordRepeat = Secure.TranslatePassword(this.PasswordBox_NewRepeat.SecurePassword);
+            string username = PA.Helper.DataDefind.UserInfo.用户名;
+            bool flag = vm.ValidatePassword(username, OldPassword);   //检验旧密码是否一致
+            if (!flag)
+            {
+                this.Label_密码错误.Visibility = System.Windows.Visibility.Visible;
+                return;
+            }
+            if (NewPasswordRepeat.Equals(NewPassword))
+            {
+                if (vm.UpdatePassword(username, NewPassword))
+                {
+                    this.Label_密码修改成功.Visibility = System.Windows.Visibility.Visible;
+                    this.PasswordBox_Old.Clear();
+                    this.PasswordBox_New.Clear();
+                    this.PasswordBox_NewRepeat.Clear();
+                }
+                else
+                {
+                    MessageBox.Show("修改失败，当前数据库锁定！");
+                }
+            }
+            else
+            {
+                this.Label_新密码不一致.Visibility = System.Windows.Visibility.Visible;
+                return;
+            }
         }
         private void Button_科目保存_Click(object sender, RoutedEventArgs e)
         {

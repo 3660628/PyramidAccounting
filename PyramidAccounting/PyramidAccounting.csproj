@@ -92,6 +92,7 @@
     <Compile Include="Helper\DataBase\StartUpInit.cs" />
     <Compile Include="Helper\DataDefind\DBTablesName.cs" />
     <Compile Include="Helper\DataDefind\SqlString.cs" />
+    <Compile Include="Helper\DataDefind\UserInfo.cs" />
     <Compile Include="Helper\ExcelHelper\ExcelReader.cs" />
     <Compile Include="Helper\ExcelHelper\ExcelWriter.cs" />
     <Compile Include="Helper\XMLHelper\XMLReader.cs" />

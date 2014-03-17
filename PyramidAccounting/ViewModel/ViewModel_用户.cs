@@ -15,16 +15,18 @@ namespace PA.ViewModel
         {
 
         }
-        public void Update()
+        public bool UpdatePassword(string username, string password)
         {
-            List<PA.Model.Database.UpdateParm> lists = new List<Model.Database.UpdateParm>();
-            PA.Model.Database.UpdateParm parm = new Model.Database.UpdateParm();
-            parm.TableName = DBTablesName.T_USER;
-            parm.Key = "PARENTID";
-            parm.Value = "'asdasd'";
-            parm.WhereParm = "vid=1";
-            lists.Add(parm);
-            db.UpdatePackage(lists);
+            string sql = "UPDATE T_USER SET PASSWORD='" + password + "' where USER_NAME='" + username + "'";
+            return db.Excute(sql);
+        }
+        public bool ValidatePassword(string username,string password)
+        {
+            string sql = "SELECT * "
+                + " FROM T_USER "
+                + " WHERE USER_NAME='" + username + "'"
+                + " AND PASSWORD='" + password + "'";
+            return db.IsExist(sql);
         }
     }
 }
