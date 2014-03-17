@@ -14,16 +14,19 @@ using System.Windows.Shapes;
 
 namespace PA.View.Pages.Pop.系统管理
 {
+    public delegate void Page_系统管理_CloseEventHandle(object sender, RoutedEventArgs e);
     /// <summary>
     /// Interaction logic for Page_添加用户.xaml
     /// </summary>
     public partial class Page_添加用户 : Page
     {
+        public event Page_系统管理_CloseEventHandle CloseEvent;
         public Page_添加用户()
         {
             InitializeComponent();
             InitComboBox();
         }
+
         private void InitComboBox()
         {
             List<string> list = new List<string>();
@@ -58,7 +61,12 @@ namespace PA.View.Pages.Pop.系统管理
 
         private void Button_PopClose_Click(object sender, RoutedEventArgs e)
         {
+            NowClose(this, e);
+        }
 
+        private void NowClose(object sender, RoutedEventArgs e)
+        {
+            CloseEvent(this, e);
         }
     }
 }

@@ -192,10 +192,19 @@ namespace PA.View.Pages.TwoTabControl
         }
 
         #endregion
-
+        #region 自定义事件
+        private void CloseGrid(object sender, RoutedEventArgs e)
+        {
+            this.Grid_Pop弹出.Visibility = Visibility.Collapsed;
+        }
+        #endregion
+        #region Button 用户安全
         private void Button_新增_Click(object sender, RoutedEventArgs e)
         {
-
+            Pop.系统管理.Page_添加用户 p = new Pop.系统管理.Page_添加用户();
+            this.Grid_Pop弹出.Visibility = Visibility;
+            this.Frame_系统管理_Pop.Content = p;
+            p.CloseEvent += new Pop.系统管理.Page_系统管理_CloseEventHandle(CloseGrid);
         }
 
         private void Button_修改_Click(object sender, RoutedEventArgs e)
@@ -206,6 +215,12 @@ namespace PA.View.Pages.TwoTabControl
         private void Button_停用_Click(object sender, RoutedEventArgs e)
         {
 
+        }
+        #endregion
+
+        private void Expander_权限_Expanded(object sender, RoutedEventArgs e)
+        {
+            this.Expander_修改密码.IsExpanded = false;
         }
 
     }
