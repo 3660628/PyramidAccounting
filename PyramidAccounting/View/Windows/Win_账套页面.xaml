@@ -9,6 +9,18 @@
         <Grid Height="25" Margin="-120,16,309,0" VerticalAlignment="Top" Width="100" Background="White" RenderTransformOrigin="1.07,3.12">
             <Label Content="创建账套" Margin="20,0,0,0" />
         </Grid>
-
+        <Label Content="公司名称：" HorizontalAlignment="Left" Margin="70,70,0,0" VerticalAlignment="Top"/>
+        <Label Content="本位币：" HorizontalAlignment="Left" Margin="70,110,0,0" VerticalAlignment="Top"/>
+        <Label Content="启用期间：" HorizontalAlignment="Left" Margin="70,150,0,0" VerticalAlignment="Top"/>
+        <Label Content="年" HorizontalAlignment="Left" Margin="231,150,0,0" VerticalAlignment="Top"/>
+        <Label Content="期" HorizontalAlignment="Left" Margin="333,150,0,0" VerticalAlignment="Top"/>
+        <Label Content="会计制度" HorizontalAlignment="Left" Margin="70,190,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="TextBox_公司" HorizontalAlignment="Left" Height="23" Margin="155,72,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="200"/>
+        <ComboBox x:Name="ComboBox_money" HorizontalAlignment="Left" Margin="155,110,0,0" VerticalAlignment="Top" Width="200"/>
+        <TextBox x:Name="TextBox_year" HorizontalAlignment="Left" Height="23" Margin="155,150,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="70"/>
+        <TextBox x:Name="TextBox_期" HorizontalAlignment="Left" Height="23" Margin="258,150,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="70"/>
+        <ComboBox x:Name="ComboBox_制度" HorizontalAlignment="Left" Margin="155,190,0,0" VerticalAlignment="Top" Width="200"/>
+        <Button x:Name="Button_创建" Content="创建" HorizontalAlignment="Right" Margin="0,0,120,20" VerticalAlignment="Bottom" Width="75" Click="Button_创建_Click"/>
+        <Button x:Name="Button_取消" Content="取消" HorizontalAlignment="Right" Margin="0,0,30,20" VerticalAlignment="Bottom" Width="75" Click="Button_取消_Click"/>
     </Grid>
 </Window>

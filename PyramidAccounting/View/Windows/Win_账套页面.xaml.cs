@@ -37,5 +37,15 @@ namespace PA.View.Windows
         {
 
         }
+
+        private void Button_创建_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Button_取消_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
