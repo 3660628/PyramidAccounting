@@ -22,5 +22,25 @@ namespace PA.View.Windows
         {
             InitializeComponent();
         }
+
+        private void Button_Min_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Button_Close_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Button_登陆_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Window_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+
+        }
     }
 }
