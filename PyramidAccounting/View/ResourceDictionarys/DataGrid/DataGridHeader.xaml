@@ -19,7 +19,7 @@
     	<Setter Property="Template">
     		<Setter.Value>
     			<ControlTemplate TargetType="{x:Type DataGridColumnHeader}">
-    				<Grid Height="30">
+    				<Grid Height="25">
     					<Themes:DataGridHeaderBorder IsClickable="{TemplateBinding CanUserSort}" IsPressed="{TemplateBinding IsPressed}" IsHovered="{TemplateBinding IsMouseOver}" Padding="{TemplateBinding Padding}" SortDirection="{TemplateBinding SortDirection}" SeparatorBrush="{TemplateBinding SeparatorBrush}" SeparatorVisibility="{TemplateBinding SeparatorVisibility}" HorizontalAlignment="Stretch" Background="#FF99CCFF" BorderThickness="0,0,1,0" BorderBrush="White">
     						<ContentPresenter RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
     					</Themes:DataGridHeaderBorder>
