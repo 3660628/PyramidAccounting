@@ -113,11 +113,18 @@ namespace PA.View.Pages.TwoTabControl
             {
                 Log.Write(ex.Message);
             }
-            Windows.Win_子细目 w = new Windows.Win_子细目(m.科目编号,m.科目名称);
-            w.ShowDialog();
+            if (m != null)
+            {
+                Windows.Win_子细目 w = new Windows.Win_子细目(m.科目编号, m.科目名称);
+                w.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("请选择科目！");
+            }
+            
 
         }
-        #endregion
 
         private void CheckBox_启用_Click(object sender, RoutedEventArgs e)
         {
@@ -135,10 +142,20 @@ namespace PA.View.Pages.TwoTabControl
             }
         }
 
-        private void FreshData()
+        private void DataGrid_科目设置_Row_MouseDoubleClick(object sender, RoutedEventArgs e)
         {
-            this.DataGrid_科目设置.ItemsSource = new ViewModel_科目管理().GetSujectData(i);
+            Model_科目管理 m = new Model_科目管理();
+            try
+            {
+                m = DataGrid_科目设置.SelectedItem as Model_科目管理;
+            }
+            catch (Exception ex)
+            {
+                Log.Write(ex.Message);
+            }
+            Windows.Win_子细目 w = new Windows.Win_子细目(m.科目编号, m.科目名称);
+            w.ShowDialog();
         }
-
+        #endregion
     }
 }
