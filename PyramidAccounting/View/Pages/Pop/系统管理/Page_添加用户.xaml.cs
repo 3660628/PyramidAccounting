@@ -22,8 +22,35 @@ namespace PA.View.Pages.Pop.系统管理
         public Page_添加用户()
         {
             InitializeComponent();
+            InitComboBox();
+        }
+        private void InitComboBox()
+        {
+            List<string> list = new List<string>();
+            list.Add("请选择...");
+            list.Add("记账员");
+            list.Add("审核员");
+            list.Add("会计主管");
+            ComboBox_用户权限.ItemsSource = list;
+            ComboBox_用户权限.SelectedIndex = 0;
         }
 
+        private int ReturnAuthority(string value)
+        {
+            int i = 0;
+            switch (value)
+            {
+                case "记账员":
+                    break;
+                case "审核员":
+                    i = 1;
+                    break;
+                case "会计主管":
+                    i  =2;
+                    break;
+            }
+            return i;
+        }
         private void Button_PopCommit_Click(object sender, RoutedEventArgs e)
         {
 
