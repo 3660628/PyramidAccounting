@@ -22,6 +22,12 @@ namespace PA.View.Pages.TwoTabControl
         public Page_Two_凭证管理()
         {
             InitializeComponent();
+            ReflashData();
+        }
+
+        private void ReflashData()
+        {
+
         }
 
         private void Button_Add_Click(object sender, RoutedEventArgs e)

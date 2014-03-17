@@ -7,6 +7,6 @@ namespace PA.ViewModel
 {
     class ViewModel_凭证管理
     {
-
+        
     }
 }
