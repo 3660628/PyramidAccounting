@@ -51,7 +51,7 @@
             <TabItem FocusVisualStyle="{x:Null}" Header="数据管理" Margin="24,-1,-24,1" Template="{DynamicResource TabItemControlTemplate_TwoTabHeader}">
                 <Grid Background="White"/>
             </TabItem>
-            <TabItem FocusVisualStyle="{x:Null}" Header="其他设置" Margin="32,-1,-32,1" Template="{DynamicResource TabItemControlTemplate_TwoTabHeader}">
+            <TabItem FocusVisualStyle="{x:Null}" Header="账套管理" Margin="32,-1,-32,1" Template="{DynamicResource TabItemControlTemplate_TwoTabHeader}">
                 <Grid Background="White"/>
             </TabItem>
         </TabControl>
