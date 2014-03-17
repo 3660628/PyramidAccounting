@@ -260,7 +260,22 @@ namespace PA.Helper.DataBase
                         break;
                     case "T_USER":
                         #region T_USER
-
+                        sql = PA.Helper.DataDefind.SqlString.Insert_T_USER;
+                        List<Model_用户> 用户List = Values.OfType<Model_用户>().ToList();
+                        foreach (Model_用户 list in 用户List)
+                        {
+                            SQLiteCommand cmd = new SQLiteCommand();
+                            cmd.CommandText = sql;
+                            cmd.Parameters.AddWithValue("@USERNAME", list.用户名);
+                            cmd.Parameters.AddWithValue("@REALNAME", list.真实姓名);
+                            cmd.Parameters.AddWithValue("@PASSWORD", list.密码);
+                            cmd.Parameters.AddWithValue("@PHONE_NO", list.手机号码);
+                            cmd.Parameters.AddWithValue("@AUTHORITY", list.权限);
+                            cmd.Parameters.AddWithValue("@CREATE_TIME", list.创建日期);
+                            cmd.Parameters.AddWithValue("@COMMENTS", list.用户说明);
+                            cmd.Connection = conn;
+                            cmd.ExecuteNonQuery();
+                        }
 
                         #endregion
                         break;

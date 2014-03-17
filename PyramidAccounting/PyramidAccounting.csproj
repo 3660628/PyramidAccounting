@@ -101,9 +101,11 @@
     <Compile Include="Model\DataGrid\Model_凭证单.cs" />
     <Compile Include="Model\DataGrid\Model_凭证明细.cs" />
     <Compile Include="Model\DataGrid\Model_凭证管理.cs" />
+    <Compile Include="Model\DataGrid\Model_用户.cs" />
     <Compile Include="Model\DataGrid\Model_科目管理.cs" />
     <Compile Include="Model\CustomEventArgs\StringEventArgs.cs" />
     <Compile Include="Model\DataGrid\Model_资产负债表.cs" />
+    <Compile Include="ViewModel\ViewModel_用户.cs" />
     <Compile Include="ViewModel\ViewModel_科目管理.cs" />
     <Compile Include="ViewModel\ViewModel_记账凭证.cs" />
     <Compile Include="View\Pages\Page_MainTabControl.xaml.cs">
