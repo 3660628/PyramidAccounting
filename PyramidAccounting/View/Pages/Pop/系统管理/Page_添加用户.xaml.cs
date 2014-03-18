@@ -54,12 +54,34 @@ namespace PA.View.Pages.Pop.系统管理
             m.用户说明 = TextBox_用户说明.Text.Trim();
             return m;
         }
-        private void Button_PopCommit_Click(object sender, RoutedEventArgs e)
+        private bool Validate()
         {
+            string username = TextBox_用户名.Text.Trim();
+            if (string.IsNullOrEmpty(username))
+            {
+                MessageBox.Show("请填写用户名");
+                return false;
+            }
+            else
+            {
+                if (vm.ValidateUserName(username))
+                {
+                    MessageBox.Show("当前用户名已存在，请勿重复添加！");
+                    return false;
+                }
+            }
             if (ComboBox_用户权限.SelectedIndex == 0)
             {
                 MessageBox.Show("请选择用户权限");
                 ComboBox_用户权限.Focus();
+                return false;
+            }
+            return true;
+        }
+        private void Button_PopCommit_Click(object sender, RoutedEventArgs e)
+        {
+            if (!Validate())
+            {
                 return;
             }
             Model_用户 m = SetData();
@@ -77,6 +99,34 @@ namespace PA.View.Pages.Pop.系统管理
         private void NowClose(object sender, RoutedEventArgs e)
         {
             CloseEvent(this, e);
+        }
+
+        private void TextBox_用户名_LostKeyboardFocus(object sender, KeyboardFocusChangedEventArgs e)
+        {
+            bool flag = true;
+            if (string.IsNullOrEmpty(TextBox_用户名.Text.Trim()))
+            {
+                TextBlock_用户名.Text = "请填写用户名";
+                TextBox_用户名.Focus();
+                flag = false;
+            }
+            else
+            {
+                if (vm.ValidateUserName(TextBox_用户名.Text.Trim()))
+                {
+                    TextBlock_用户名.Text = "当前用户名已存在，请勿重复添加！";
+                    flag = false;
+                }
+            }
+            if (flag)
+            {
+                TextBlock_用户名.Text = "";
+                return;
+            }
+            else
+            {
+                TextBlock_用户名.Focus();
+            }
         }
     }
 }

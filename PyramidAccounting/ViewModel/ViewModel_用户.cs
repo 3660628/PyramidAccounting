@@ -101,7 +101,13 @@ namespace PA.ViewModel
         {
             sql = "SELECT * "
                 + " FROM " + DBTablesName.T_USER + " WHERE USERNAME='" + username + "'"
-                + " AND PASSWORD='" + password + "'";
+                + " AND PASSWORD='" + password + "' and delete_mark=0";
+            return db.IsExist(sql);
+        }
+
+        public bool ValidateUserName(string username)
+        {
+            sql = "select 1 from t_user where username='" + username +"' and delete_mark=0";
             return db.IsExist(sql);
         }
     }

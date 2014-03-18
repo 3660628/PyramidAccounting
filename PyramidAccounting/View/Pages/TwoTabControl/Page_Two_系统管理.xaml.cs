@@ -98,7 +98,7 @@ namespace PA.View.Pages.TwoTabControl
                 }
                 else
                 {
-                    MessageBox.Show("修改失败，当前数据库锁定！");
+                    MessageBox.Show("当前尝试修改密码失败，请联系软件开发商！");
                 }
             }
             else
