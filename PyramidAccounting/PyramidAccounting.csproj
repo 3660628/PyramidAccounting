@@ -321,7 +321,6 @@
     <Content Include="Resources\DatabaseData.sql" />
     <Resource Include="View\Images\TabItems\Tab1_Hl.png" />
     <Resource Include="View\Pages\Pop\快捷界面\Readme.txt" />
-    <Resource Include="Model\ComboBox\Readme.txt" />
     <None Include="Resources\DatabaseTable.sql" />
     <Resource Include="View\Images\Button\MinMaxClose\Close.png" />
     <Resource Include="View\Images\Button\MinMaxClose\CloseAct.png" />
