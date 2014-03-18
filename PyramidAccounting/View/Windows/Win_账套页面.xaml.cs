@@ -29,6 +29,8 @@ namespace PA.View.Windows
         public Win_账套页面()
         {
             InitializeComponent();
+            this.Top = Properties.Settings.Default.MainWindowRect.Top;
+            this.Left = Properties.Settings.Default.MainWindowRect.Left;
             InitComboBox();
         }
         private void InitComboBox()
@@ -100,9 +102,17 @@ namespace PA.View.Windows
         private void Button_取消_Click(object sender, RoutedEventArgs e)
         {
             //此处应该是返回登录窗口
-            new PA.Win_SignIn().Show();
+            new PA.Win_SignIn(this.Left, this.Top).Show();
             this.Close();
         }
         #endregion
+
+        private void Window_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            if (e.LeftButton == MouseButtonState.Pressed)
+            {
+                this.DragMove();
+            }
+        }
     }
 }

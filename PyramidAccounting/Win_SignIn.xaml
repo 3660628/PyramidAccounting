@@ -1,7 +1,7 @@
 ﻿<Window x:Class="PA.Win_SignIn"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="登录页面" Height="300" Width="550" WindowStartupLocation="CenterScreen" AllowsTransparency="True" WindowStyle="None" ResizeMode="NoResize" FontFamily="NSimSun" TextOptions.TextFormattingMode="Display">
+        Title="登录页面" Height="300" Width="550" WindowStartupLocation="CenterScreen" AllowsTransparency="True" WindowStyle="None" ResizeMode="NoResize" FontFamily="NSimSun" TextOptions.TextFormattingMode="Display" MouseLeftButtonDown="Window_MouseLeftButtonDown">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="35*"/>

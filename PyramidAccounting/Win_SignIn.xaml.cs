@@ -26,6 +26,15 @@ namespace PA
             new PA.Helper.DataBase.StartUpInit().Init();
             InitComboBox();
         }
+        public Win_SignIn(double Left, double Top)
+        {
+            InitializeComponent();
+            this.WindowStartupLocation = System.Windows.WindowStartupLocation.Manual;
+            this.Left = Left;
+            this.Top = Top;
+            new PA.Helper.DataBase.StartUpInit().Init();
+            InitComboBox();
+        }
         private void InitComboBox()
         {
             ComboBox_账套.ItemsSource = new ComboBox_Common().GetComboBox_帐套();
@@ -50,6 +59,7 @@ namespace PA
             string Password = Secure.TranslatePassword(PasswordBox_登陆密码.SecurePassword);
             if (new ViewModel_用户().ValidateAccount(UserName,Password))
             {
+                Properties.Settings.Default.MainWindowRect = new Rect(this.Left, this.Top, this.Width, this.Height);
                 if (ComboBox_账套.SelectedValue.ToString().Equals("0"))
                 {
                     Win_账套页面 w = new Win_账套页面();
@@ -69,6 +79,14 @@ namespace PA
                 TextBlock_登陆警告信息.Text = "账号或密码错误。";
             }
 
+        }
+
+        private void Window_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            if (e.LeftButton == MouseButtonState.Pressed)
+            {
+                this.DragMove();
+            }
         }
 
     }

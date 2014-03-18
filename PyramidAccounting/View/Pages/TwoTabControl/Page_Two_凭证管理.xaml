@@ -45,7 +45,7 @@
                     <Button x:Name="Button_All_Review" Content="审核" HorizontalAlignment="Left" Margin="130,10,0,0" VerticalAlignment="Top" Width="50" Template="{DynamicResource ButtonControlTemplate_Common}" Height="20"/>
                     <Button x:Name="Button_All_DisReview" Content="反审核" HorizontalAlignment="Left" Margin="190,10,0,0" VerticalAlignment="Top" Width="50" Template="{DynamicResource ButtonControlTemplate_Common}" Height="20"/>
                     <Button x:Name="Button_All_Print" Content="打印" HorizontalAlignment="Left" Margin="250,10,0,0" VerticalAlignment="Top" Width="50" Template="{DynamicResource ButtonControlTemplate_Common}" Height="20"/>
-                    <DataGrid x:Name="DataGrid_全期凭证" HorizontalAlignment="Stretch" Margin="10,44,10,10" VerticalAlignment="Stretch">
+                    <DataGrid x:Name="DataGrid_全期凭证" HorizontalAlignment="Stretch" Margin="10,44,10,10" VerticalAlignment="Stretch" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle_凭证管理}" CellStyle="{DynamicResource DataGridCellStyle_凭证管理}" BorderBrush="#FF99CCFF">
                         <DataGrid.Columns>
                             <DataGridTextColumn Header="凭证号"/>
                             <DataGridTextColumn Header="制表日期"/>
