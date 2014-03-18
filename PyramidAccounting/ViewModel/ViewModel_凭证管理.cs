@@ -10,7 +10,7 @@ namespace PA.ViewModel
 {
     class ViewModel_凭证管理
     {
-        //private string DateFormat = "yyyy-MM-dd";
+        private string DateFormat = "yyyy-MM-dd";
         private string  LastVOUCHER_NO = "";
         private Model_凭证管理 LastData = new Model_凭证管理();
 
@@ -51,8 +51,8 @@ namespace PA.ViewModel
                     LastData.摘要 = dr[2].ToString();
                     LastData.科目编号 = dr[3].ToString();
                     LastData.科目名称 = dr[4].ToString();
-                    LastData.借方金额 = dr[5].ToString();
-                    LastData.贷方金额 = dr[6].ToString();
+                    LastData.借方金额 = (dr[5].ToString() == "0") ? "" : dr[5].ToString();
+                    LastData.贷方金额 = (dr[6].ToString() == "0") ? "" : dr[6].ToString();
                     LastData.当前期数 = dr[7].ToString();
                     LastData.审核状态 = dr[8].ToString();
                 }
@@ -61,8 +61,8 @@ namespace PA.ViewModel
                     LastData.摘要 += "\n" + dr[2].ToString();
                     LastData.科目编号 += "\n" + dr[3].ToString();
                     LastData.科目名称 += "\n" + dr[4].ToString();
-                    LastData.借方金额 += "\n" + dr[5].ToString();
-                    LastData.贷方金额 += "\n" + dr[6].ToString();
+                    LastData.借方金额 += "\n" + ((dr[5].ToString() == "0") ? "" : dr[5].ToString());
+                    LastData.贷方金额 += "\n" + ((dr[6].ToString() == "0") ? "" : dr[6].ToString());
                 }
             }
             if (ds.Tables[0].Rows.Count != 0)
