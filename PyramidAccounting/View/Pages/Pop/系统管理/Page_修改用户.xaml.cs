@@ -45,7 +45,7 @@ namespace PA.View.Pages.Pop.系统管理
         private void InitData(int i)
         {
             Model_用户 m = new Model_用户();
-            m = vm.GetOneUser(i);
+            m = vm.GetUserInfo(i);
             TextBox_用户名.Text = m.用户名;
             TextBox_真实姓名.Text = m.真实姓名;
             ComboBox_用户权限.Text = m.用户权限;

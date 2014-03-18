@@ -49,17 +49,33 @@ namespace PA.ViewModel
             db.Excute(sql);
         }
         /// <summary>
-        /// 获取一个用户
+        /// 根据ID获取一个用户
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
-        public Model_用户 GetOneUser(int id)
+        public Model_用户 GetUserInfo(int id)
         {
             Model_用户 m = new Model_用户();
             sql = "select * from " + DBTablesName.T_USER + " where userid=" + id;
             DataSet ds = db.Query(sql);
             DataRow d = ds.Tables[0].Rows[0];
             m.用户名 = d[1].ToString();
+            m.真实姓名 = d[2].ToString();
+            m.用户权限 = RollbackAuthority(d[5].ToString());
+            m.用户说明 = d[7].ToString();
+            return m;
+        }
+        /// <summary>
+        /// 根据账号获取用户信息
+        /// </summary>
+        /// <param name="username"></param>
+        /// <returns></returns>
+        public Model_用户 GetUserInfo(string username)
+        {
+            Model_用户 m = new Model_用户();
+            sql = "select * from " + DBTablesName.T_USER + " where username='" + username + "'";
+            DataSet ds = db.Query(sql);
+            DataRow d = ds.Tables[0].Rows[0];
             m.真实姓名 = d[2].ToString();
             m.用户权限 = RollbackAuthority(d[5].ToString());
             m.用户说明 = d[7].ToString();

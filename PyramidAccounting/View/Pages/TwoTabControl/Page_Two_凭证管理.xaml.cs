@@ -12,6 +12,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using PA.Model.DataGrid;
+using PA.Helper.DataDefind;
 
 namespace PA.View.Pages.TwoTabControl
 {
@@ -21,6 +22,7 @@ namespace PA.View.Pages.TwoTabControl
     public partial class Page_Two_凭证管理 : Page
     {
         List<Model_凭证管理> Data_本期凭证 = new List<Model_凭证管理>();
+        PA.Helper.XMLHelper.XMLReader xw = new Helper.XMLHelper.XMLReader();
         public Page_Two_凭证管理()
         {
             InitializeComponent();
@@ -31,6 +33,8 @@ namespace PA.View.Pages.TwoTabControl
         {
             this.ComboBox_Review.ItemsSource = new PA.Model.ComboBox.ComboBox_Common().GetComboBox_审核();
             this.ComboBox_Review.SelectedIndex = 0;
+            Label_账套名称.Content += "\t" + xw.ReadXML("帐套信息");
+            Label_操作员.Content += "\t" + CommonInfo.真实姓名;
         }
         private void ReflashData()
         {

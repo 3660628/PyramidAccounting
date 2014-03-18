@@ -22,6 +22,7 @@ namespace PA
     public partial class Win_SignIn : Window
     {
         private XMLWriter xw = new XMLWriter();
+        private ViewModel_用户 vm = new ViewModel_用户();
         public Win_SignIn()
         {
             InitializeComponent();
@@ -29,6 +30,7 @@ namespace PA
             InitComboBox();
             this.TextBox_登陆用户名.Focus();
         }
+
         public Win_SignIn(double Left, double Top)
         {
             InitializeComponent();
@@ -62,7 +64,7 @@ namespace PA
             CommonInfo.账薄号 = id;
             string UserName = TextBox_登陆用户名.Text.Trim();
             string Password = Secure.TranslatePassword(PasswordBox_登陆密码.SecurePassword);
-            if (new ViewModel_用户().ValidateAccount(UserName,Password))
+            if (vm.ValidateAccount(UserName,Password))
             {
                 if (ComboBox_账套.SelectedValue.ToString().Equals("0"))
                 {
@@ -78,6 +80,10 @@ namespace PA
                     xw.WriteXML("公司", new ViewModel_Books().GetCompanyName(id));
                     this.Close();
                 }
+                Model.DataGrid.Model_用户 m = new Model.DataGrid.Model_用户();
+                m = vm.GetUserInfo(UserName);
+                CommonInfo.真实姓名 = m.真实姓名;
+                CommonInfo.用户权限 = m.用户权限;
             }
             else
             {
