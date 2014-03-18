@@ -206,7 +206,6 @@ namespace PA.Helper.DataBase
                         foreach (Model_凭证单 list in 凭证单List)
                         {
                             SQLiteCommand cmd = new SQLiteCommand();
-                            sql = sql.Replace("@T_VOUCHER", TableName);
                             cmd.CommandText = sql;
                             cmd.Parameters.AddWithValue("@VOUCHER_NO", list.凭证号);
                             cmd.Parameters.AddWithValue("@OP_TIME", list.制表时间);
@@ -232,7 +231,6 @@ namespace PA.Helper.DataBase
                         foreach (Model_凭证明细 list in 凭证明细List)
                         {
                             SQLiteCommand cmd = new SQLiteCommand();
-                            sql = sql.Replace("@T_VOUCHER_DETAIL", TableName);
                             cmd.CommandText = sql;
                             cmd.Parameters.AddWithValue("@VID", list.序号);
                             cmd.Parameters.AddWithValue("@PARENTID", list.父节点ID);
@@ -254,7 +252,6 @@ namespace PA.Helper.DataBase
                         foreach (Model_科目管理 list in 科目管理List)
                         {
                             SQLiteCommand cmd = new SQLiteCommand();
-                            sql = sql.Replace("@T_SUBJECT", TableName);
                             cmd.CommandText = sql;
                             cmd.Parameters.AddWithValue("@SID", list.序号);
                             cmd.Parameters.AddWithValue("@SUBJECT_ID", list.科目编号);
