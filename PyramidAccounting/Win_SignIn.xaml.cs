@@ -25,6 +25,7 @@ namespace PA
             InitializeComponent();
             new PA.Helper.DataBase.StartUpInit().Init();
             InitComboBox();
+            this.TextBox_登陆用户名.Focus();
         }
         public Win_SignIn(double Left, double Top)
         {
@@ -34,6 +35,7 @@ namespace PA
             this.Top = Top;
             new PA.Helper.DataBase.StartUpInit().Init();
             InitComboBox();
+            this.TextBox_登陆用户名.Focus();
         }
         private void InitComboBox()
         {
