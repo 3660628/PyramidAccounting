@@ -6,6 +6,7 @@ using System.Data.SQLite;
 using System.Data;
 using PA.Model.DataGrid;
 using PA.Model.Database;
+using PA.Helper.DataDefind;
 
 namespace PA.Helper.DataBase
 {

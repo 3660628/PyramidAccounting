@@ -10,25 +10,25 @@ namespace PA.Helper.DataDefind
         private static readonly string update_Sql = "Update @tableName set @key = @value where @whereParm";
         private static readonly string delete_Sql = "Delete from @tableName where @whereParm";
 
-        private static readonly string insert_T_BOOKS = "insert into T_BOOKS(ID,BOOK_NAME,CREATE_DATE,ACCOUNTING_SYSTEM,DELETE_MARK) "
-            + "values(@ID, @BOOK_NAME, @CREATE_DATE, @ACCOUNTING_SYSTEM, @DELETE_MARK)";
+        private static readonly string insert_T_BOOKS = "insert into T_BOOKS(ID,BOOK_NAME,COMPANY_NAME,CREATE_DATE,ACCOUNTING_SYSTEM,DELETE_MARK) "
+            + "values(@ID, @BOOK_NAME,@COMPANY_NAME, @CREATE_DATE, @ACCOUNTING_SYSTEM, @DELETE_MARK)";
         
-        private static readonly string insert_T_VOUCHER = "Insert into T_VOUCHER(VOUCHER_NO,OP_TIME,WORD,NUMBER,SUBSIDIARY_COUNTS,FEE_DEBIT,FEE_CREDIT,ACCOUNTANT,BOOKEEPER,REVIEWER,REVIEW_MARK,DELETE_MARK,BOOK_ID) "
-            + "values(@VOUCHER_NO, @OP_TIME, @WORD, @NUMBER, @SUBSIDIARY_COUNTS, @FEE_DEBIT, @FEE_CREDIT, @ACCOUNTANT, @BOOKEEPER, @REVIEWER, @REVIEW_MARK, @DELETE_MARK, @BOOK_ID)";
+        private static readonly string insert_T_VOUCHER = "Insert into @T_VOUCHER(VOUCHER_NO,OP_TIME,WORD,NUMBER,SUBSIDIARY_COUNTS,FEE_DEBIT,FEE_CREDIT,ACCOUNTANT,BOOKEEPER,REVIEWER,REVIEW_MARK,DELETE_MARK) "
+            + "values(@VOUCHER_NO, @OP_TIME, @WORD, @NUMBER, @SUBSIDIARY_COUNTS, @FEE_DEBIT, @FEE_CREDIT, @ACCOUNTANT, @BOOKEEPER, @REVIEWER, @REVIEW_MARK, @DELETE_MARK)";
         
-        private static readonly string insert_T_VOUCHER_DETAIL = "Insert into T_VOUCHER_DETAIL(VID, PARENTID, ABSTRACT, SUBJECT_ID, DETAIL, BOOKKEEP_MARK, DEBIT, CREDIT, BOOK_ID) "
-            + "values(@VID, @PARENTID, @ABSTRACT, @SUBJECT_ID, @DETAIL, @BOOKKEEP_MARK, @DEBIT, @CREDIT, @BOOK_ID)";
+        private static readonly string insert_T_VOUCHER_DETAIL = "Insert into @T_VOUCHER_DETAIL(VID, PARENTID, ABSTRACT, SUBJECT_ID, DETAIL, BOOKKEEP_MARK, DEBIT, CREDIT) "
+            + "values(@VID, @PARENTID, @ABSTRACT, @SUBJECT_ID, @DETAIL, @BOOKKEEP_MARK, @DEBIT, @CREDIT)";
         
-        private static readonly string insert_T_SUBJECT = "insert into T_SUBJECT(SID,SUBJECT_ID,SUBJECT_TYPE,SUBJECT_NAME,FEE,PARENT_ID,USED_MARK) "
+        private static readonly string insert_T_SUBJECT = "insert into @T_SUBJECT(SID,SUBJECT_ID,SUBJECT_TYPE,SUBJECT_NAME,FEE,PARENT_ID,USED_MARK) "
             + "values(@SID, @SUBJECT_ID, @SUBJECT_TYPE, @SUBJECT_NAME, @FEE, @PARENT_ID, @USED_MARK)";
         
         private static readonly string insert_T_SUBJECT_TYPE = "insert into T_SUBJECT_TYPE() "
             + "values()";
 
-        private static readonly string insert_T_USER = "insert into T_USER(USERNAME,REALNAME,PASSWORD,PHONE_NO,AUTHORITY,CREATE_TIME,COMMENTS) "
+        private static readonly string insert_T_USER = "insert into @T_USER(USERNAME,REALNAME,PASSWORD,PHONE_NO,AUTHORITY,CREATE_TIME,COMMENTS) "
             + "values(@USERNAME, @REALNAME, @PASSWORD, @PHONE_NO, @AUTHORITY,@CREATE_TIME,@COMMENTS)";
 
-        private static readonly string insert_T_RECORD = "insert into T_RECORD(OP_TIME,USERNAME,REALNAME,OP_TYPE,LOG) "
+        private static readonly string insert_T_RECORD = "insert into @T_RECORD(OP_TIME,USERNAME,REALNAME,OP_TYPE,LOG) "
             + "values(@OP_TIME, @USERNAME, @REALNAME, @OP_TYPE, @LOG)";
 
         #region GetSet
