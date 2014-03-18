@@ -45,7 +45,7 @@ namespace PA
 
         private void Button_登陆_Click(object sender, RoutedEventArgs e)
         {
-            CommonInfo.账薄号 = ComboBox_账套.SelectedValue.ToString();
+            Properties.Settings.Default.BookID = ComboBox_账套.SelectedValue.ToString();
             string UserName = TextBox_登陆用户名.Text.Trim();
             string Password = Secure.TranslatePassword(PasswordBox_登陆密码.SecurePassword);
             if (new ViewModel_用户().ValidateAccount(UserName,Password))
@@ -53,13 +53,14 @@ namespace PA
                 if (ComboBox_账套.SelectedValue.ToString().Equals("0"))
                 {
                     Win_账套页面 w = new Win_账套页面();
-                    w.ShowDialog();
+                    w.Show();
                 }
                 else
                 {
                     MainWindow mw = new MainWindow();
-                    mw.ShowDialog();
+                    mw.Show();
                 }
+                this.Close();
             }
             else
             {

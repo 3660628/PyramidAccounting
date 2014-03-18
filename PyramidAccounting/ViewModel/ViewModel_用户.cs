@@ -6,7 +6,6 @@ using PA.Helper.DataBase;
 using PA.Model.DataGrid;
 using PA.Helper.DataDefind;
 using System.Data;
-using PA.Helper.DataDefind;
 
 namespace PA.ViewModel
 {

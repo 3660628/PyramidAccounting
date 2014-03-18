@@ -10,7 +10,7 @@ namespace PA.ViewModel
 {
     class ViewModel_凭证管理
     {
-        private string DateFormat = "yyyy-MM-dd";
+        //private string DateFormat = "yyyy-MM-dd";
         private string  LastVOUCHER_NO = "";
         private Model_凭证管理 LastData = new Model_凭证管理();
 

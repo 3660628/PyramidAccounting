@@ -11,9 +11,9 @@ namespace PA.Helper.ExcelHelper
 {
     class ExcelReader
     {
-        xls.Application xlApp;
-        xls.Workbook xlWorkBook;
-        xls.Worksheet xlWorkSheet;
+        //xls.Application xlApp;
+        //xls.Workbook xlWorkBook;
+        //xls.Worksheet xlWorkSheet;
         object misValue = System.Reflection.Missing.Value;
 
         public DataSet ExcelDataSource(string filepath, string sheetname)

@@ -46,5 +46,17 @@ namespace PA.Properties {
                 this["MainWindowRect"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string BookID {
+            get {
+                return ((string)(this["BookID"]));
+            }
+            set {
+                this["BookID"] = value;
+            }
+        }
     }
 }
