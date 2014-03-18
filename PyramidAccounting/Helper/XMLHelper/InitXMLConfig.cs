@@ -28,6 +28,8 @@ namespace PA.Helper.XMLHelper
 
             #region 
             XmlElement 系统信息 = xmldoc.CreateElement("系统信息");
+            XmlElement 公司 = xmldoc.CreateElement("公司");
+            公司.InnerText = "公司";
             XmlElement 帐套信息 = xmldoc.CreateElement("帐套信息");
             帐套信息.InnerText = "新建帐套";
             XmlElement 数据库 = xmldoc.CreateElement("数据库");
