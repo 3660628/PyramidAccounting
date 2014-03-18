@@ -4,12 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Data.SQLite;
 using System.IO;
+using PA.Helper.XMLHelper;
 
 namespace PA.Helper.DataBase
 {
     public class DBInitialize
     {
-        public static string dataSource = "Data\\" + new StartUpInit().LoadDBName();
+        public static string dataSource = "Data\\" + new XMLReader().ReadXML("数据库");
         public static string dbPassword = "";
 
         public DBInitialize()
