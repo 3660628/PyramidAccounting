@@ -24,9 +24,14 @@ namespace PA.View.Pages.TwoTabControl
         public Page_Two_凭证管理()
         {
             InitializeComponent();
+            InitData();
             ReflashData();
         }
-
+        private void InitData()
+        {
+            this.ComboBox_Review.ItemsSource = new PA.Model.ComboBox.ComboBox_Common().GetComboBox_审核();
+            this.ComboBox_Review.SelectedIndex = 0;
+        }
         private void ReflashData()
         {
             Data_本期凭证 = new PA.ViewModel.ViewModel_凭证管理().GetData();

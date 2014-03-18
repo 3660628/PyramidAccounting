@@ -49,5 +49,14 @@ namespace PA.Model.ComboBox
             list.Add("RMB");
             return list;
         }
+
+        public List<string> GetComboBox_审核()
+        {
+            List<string> list = new List<string>();
+            list.Add("全部");
+            list.Add("已审核");
+            list.Add("未审核");
+            return list;
+        }
     }
 }
