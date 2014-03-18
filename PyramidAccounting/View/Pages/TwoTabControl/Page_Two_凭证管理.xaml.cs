@@ -34,7 +34,7 @@ namespace PA.View.Pages.TwoTabControl
             this.ComboBox_Review.ItemsSource = new PA.Model.ComboBox.ComboBox_Common().GetComboBox_审核();
             this.ComboBox_Review.SelectedIndex = 0;
             Label_账套名称.Content += "\t" + xw.ReadXML("帐套信息");
-            Label_操作员.Content += "\t" + CommonInfo.真实姓名;
+            Label_操作员.Content += "\t" + CommonInfo.用户权限 + "\t" +CommonInfo.真实姓名;
         }
         private void ReflashData()
         {

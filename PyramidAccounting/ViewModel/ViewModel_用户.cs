@@ -100,6 +100,12 @@ namespace PA.ViewModel
                 case "2":
                     value = "会计主管";
                     break;
+                case "3":
+                    value = "管理员";
+                    break;
+                case "4":
+                    value = "超级管理员";
+                    break;
             }
             return value;
         }
