@@ -100,6 +100,7 @@ namespace PA.View.Windows
         private void Button_取消_Click(object sender, RoutedEventArgs e)
         {
             //此处应该是返回登录窗口
+            new PA.Win_SignIn().Show();
             this.Close();
         }
         #endregion

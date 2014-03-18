@@ -53,7 +53,8 @@ namespace PA
                 if (ComboBox_账套.SelectedValue.ToString().Equals("0"))
                 {
                     Win_账套页面 w = new Win_账套页面();
-                    w.ShowDialog();
+                    w.Show();
+                    this.Close();
                 }
                 else
                 {
