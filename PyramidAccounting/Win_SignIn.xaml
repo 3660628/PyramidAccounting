@@ -16,6 +16,6 @@
         <PasswordBox x:Name="PasswordBox_登陆密码" HorizontalAlignment="Right" Margin="0,150,55,0" VerticalAlignment="Top" Width="172" FontSize="16" Height="22" Grid.Column="1" Grid.Row="1"/>
         <Button FocusVisualStyle="{x:Null}" x:Name="Button_登陆" Content="登录" HorizontalAlignment="Right" Margin="0,190,127,0" VerticalAlignment="Top" Click="Button_登陆_Click" IsDefault="True" Foreground="Black" FontSize="13.333" Width="100" Height="25" Template="{DynamicResource ButtonControlTemplate_Common}"/>
         <Label x:Name="Label_通告" Foreground="LightBlue" Content="您正在使用正版软件，请放心登录" HorizontalAlignment="Left" Margin="323,254,0,0" VerticalAlignment="Top"/>
-        <TextBlock x:Name="TextBlock_登陆警告信息" HorizontalAlignment="Right" Margin="0,225,55,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="172" Height="29" Foreground="Red" FontSize="14" Text="sss"/>
+        <TextBlock x:Name="TextBlock_登陆警告信息" HorizontalAlignment="Right" Margin="0,225,55,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="172" Height="29" Foreground="Red" FontSize="14"/>
     </Grid>
 </Window>

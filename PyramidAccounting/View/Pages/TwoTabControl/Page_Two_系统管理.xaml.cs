@@ -81,7 +81,7 @@ namespace PA.View.Pages.TwoTabControl
             string NewPassword = Secure.TranslatePassword(this.PasswordBox_New.SecurePassword);
             string NewPasswordRepeat = Secure.TranslatePassword(this.PasswordBox_NewRepeat.SecurePassword);
             string username = PA.Helper.DataDefind.CommonInfo.用户名;
-            bool flag = vm.ValidatePassword(username, OldPassword);   //检验旧密码是否一致
+            bool flag = vm.ValidateAccount(username, OldPassword);   //检验旧密码是否一致
             if (!flag)
             {
                 this.Label_密码错误.Visibility = System.Windows.Visibility.Visible;

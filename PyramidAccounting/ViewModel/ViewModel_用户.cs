@@ -97,7 +97,7 @@ namespace PA.ViewModel
             sql = "UPDATE T_USER SET PASSWORD='" + password + "' where USER_NAME='" + username + "'";
             return db.Excute(sql);
         }
-        public bool ValidatePassword(string username,string password)
+        public bool ValidateAccount(string username,string password)
         {
             sql = "SELECT * "
                 + " FROM T_USER "

@@ -352,3 +352,10 @@ VALUES
 		5,
 		'其他支出'
 	);
+INSERT INTO t_user (
+	username,
+	password,
+	authority
+)
+VALUES
+	('admin', '123', 3);

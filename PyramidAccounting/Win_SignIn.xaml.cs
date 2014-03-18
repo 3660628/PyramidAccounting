@@ -13,6 +13,7 @@ using System.Windows.Shapes;
 using PA.Model.ComboBox;
 using PA.Helper.DataBase;
 using PA.Helper.DataDefind;
+using PA.ViewModel;
 
 namespace PA
 {
@@ -43,6 +44,17 @@ namespace PA
         private void Button_登陆_Click(object sender, RoutedEventArgs e)
         {
             CommonInfo.账薄号 = ComboBox_账套.SelectedValue.ToString();
+            string UserName = TextBox_登陆用户名.Text.Trim();
+            string Password = Secure.TranslatePassword(PasswordBox_登陆密码.SecurePassword);
+            if (new ViewModel_用户().ValidateAccount(UserName,Password))
+            {
+
+            }
+            else
+            {
+                TextBlock_登陆警告信息.Text = "账号或密码错误。";
+            }
+
         }
 
         private void Window_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
