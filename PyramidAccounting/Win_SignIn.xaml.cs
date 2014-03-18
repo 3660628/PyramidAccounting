@@ -14,14 +14,11 @@ using PA.Model.ComboBox;
 using PA.Helper.DataBase;
 using PA.Helper.DataDefind;
 
-namespace PA.View.Windows
+namespace PA
 {
-    /// <summary>
-    /// Interaction logic for Win_登录.xaml
-    /// </summary>
-    public partial class Win_登录 : Window
+    public partial class Win_SignIn : Window
     {
-        public Win_登录()
+        public Win_SignIn()
         {
             InitializeComponent();
             InitComboBox();
