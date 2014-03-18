@@ -21,13 +21,6 @@ namespace PA.Model.DataGrid
         private string reviewer;
         private int review_mark;
         private int delete_mark;
-        private string book_id;
-
-        public string 账套ID
-        {
-            get { return book_id; }
-            set { book_id = value; }
-        }
 
         public int 删除标志
         {

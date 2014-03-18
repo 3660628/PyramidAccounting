@@ -66,3 +66,4 @@ CREATE TABLE T_RECORD (									--操作日志表
     OP_TYPE     TEXT,									--操作类型
     LOG         TEXT									--日志
 );
+CREATE INDEX idx_T_SUBJECT ON T_SUBJECT (SUBJECT_ID, PARENT_ID,USED_MARK);
