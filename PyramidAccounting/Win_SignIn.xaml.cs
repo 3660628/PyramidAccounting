@@ -45,7 +45,7 @@ namespace PA
 
         private void Button_登陆_Click(object sender, RoutedEventArgs e)
         {
-            Properties.Settings.Default.BookID = ComboBox_账套.SelectedValue.ToString();
+            CommonInfo.账薄号 = ComboBox_账套.SelectedValue.ToString();
             string UserName = TextBox_登陆用户名.Text.Trim();
             string Password = Secure.TranslatePassword(PasswordBox_登陆密码.SecurePassword);
             if (new ViewModel_用户().ValidateAccount(UserName,Password))

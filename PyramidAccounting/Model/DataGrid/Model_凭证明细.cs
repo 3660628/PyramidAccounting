@@ -17,17 +17,11 @@ namespace PA.Model.DataGrid
         private int bookkeep_mark;
         private decimal debit;
         private decimal credit;
-        private string book_id;
 
         public int 序号
         {
             get { return vid; }
             set { vid = value; }
-        }
-        public string 账套ID
-        {
-            get { return book_id; }
-            set { book_id = value; }
         }
 
         public decimal 贷方

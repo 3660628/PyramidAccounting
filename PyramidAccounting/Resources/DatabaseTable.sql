@@ -21,7 +21,6 @@ CREATE TABLE T_VOUCHER (								--凭证表
     REVIEWER          TEXT,								--审核
 	REVIEW_MARK       INTEGER,							--复核标记  0：未审核，1：已审核
 	DELETE_MARK		  INTEGER DEFAULT ( 0 ),            --删除标志   -1表示已删除
-	BOOK_ID			  TEXT  							--账套ID  DEFAULT
 );
 CREATE TABLE T_VOUCHER_DETAIL (							--凭证明细表
     ID            INTEGER PRIMARY KEY,					--ID
@@ -33,7 +32,6 @@ CREATE TABLE T_VOUCHER_DETAIL (							--凭证明细表
     BOOKKEEP_MARK INTEGER,								--记账
     DEBIT         DECIMAL,								--借方
     CREDIT        DECIMAL,    							--贷方
-	BOOK_ID		  TEXT									--账套ID  DEFAULT
 );
 CREATE TABLE T_SUBJECT (								--科目表
     ID           INTEGER PRIMARY KEY,					--ID

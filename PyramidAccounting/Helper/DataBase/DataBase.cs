@@ -180,8 +180,21 @@ namespace PA.Helper.DataBase
                 {
                     case "T_BOOKS":
                         #region T_BOOKS
-
-
+                        sql = PA.Helper.DataDefind.SqlString.Insert_T_BOOKS;
+                        List<Model_帐套> bookList = Values.OfType<Model_帐套>().ToList();
+                        foreach (Model_帐套 list in bookList)
+                        {
+                            SQLiteCommand cmd = new SQLiteCommand();
+                            cmd.CommandText = sql;
+                            cmd.Parameters.AddWithValue("@ID", list.ID);
+                            cmd.Parameters.AddWithValue("@BOOK_NAME", list.账套名称);
+                            cmd.Parameters.AddWithValue("@COMPANY_NAME", list.单位名称);
+                            cmd.Parameters.AddWithValue("@MONEY_TYPE", list.本位币);
+                            cmd.Parameters.AddWithValue("@CREATE_DATE", list.日期);
+                            cmd.Parameters.AddWithValue("@ACCOUNTING_SYSTEM", list.会计制度);
+                            cmd.Connection = conn;
+                            cmd.ExecuteNonQuery();
+                        }
                         #endregion
                         break;
                     case "T_VOUCHER":
@@ -204,7 +217,6 @@ namespace PA.Helper.DataBase
                             cmd.Parameters.AddWithValue("@REVIEWER", list.复核);
                             cmd.Parameters.AddWithValue("@REVIEW_MARK", list.审核标志);
                             cmd.Parameters.AddWithValue("@DELETE_MARK", list.删除标志);
-                            cmd.Parameters.AddWithValue("@BOOK_ID", list.账套ID);
                             cmd.Connection = conn;
                             cmd.ExecuteNonQuery();
                         }
@@ -226,7 +238,6 @@ namespace PA.Helper.DataBase
                             cmd.Parameters.AddWithValue("@BOOKKEEP_MARK", list.记账);
                             cmd.Parameters.AddWithValue("@DEBIT", list.借方);
                             cmd.Parameters.AddWithValue("@CREDIT", list.贷方);
-                            cmd.Parameters.AddWithValue("@BOOK_ID", list.账套ID);
                             cmd.Connection = conn;
                             cmd.ExecuteNonQuery();
                         }
