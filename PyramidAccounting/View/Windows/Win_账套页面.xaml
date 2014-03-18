@@ -6,8 +6,8 @@
         <Grid Height="35" Margin="0" VerticalAlignment="Top" Background="#FF2CA6E0"/>
         <Button x:Name="Button_Min" Content="Button" HorizontalAlignment="Right" Margin="0,0,38,0" VerticalAlignment="Top" Width="28" Height="20" Template="{DynamicResource ButtonControlTemplate_Min}" Click="Button_Min_Click"/>
         <Button x:Name="Button_Close" Content="Button" HorizontalAlignment="Right" VerticalAlignment="Top" Width="28" Template="{DynamicResource ButtonControlTemplate_Close}" Height="20" Margin="0" Click="Button_Close_Click"/>
-        <Grid Height="25" Margin="-120,16,309,0" VerticalAlignment="Top" Width="100" Background="White" RenderTransformOrigin="1.07,3.12">
-            <Label Content="创建账套" Margin="20,0,0,0" />
+        <Grid Height="25" Margin="20,15,430,0" VerticalAlignment="Top" Background="White" RenderTransformOrigin="1.07,3.12">
+            <Label Content="创建账套" Margin="0" HorizontalAlignment="Center" VerticalAlignment="Center" />
         </Grid>
         <Label Content="单位名称：" HorizontalAlignment="Left" Margin="70,95,0,0" VerticalAlignment="Top"/>
         <Label Content="本位币：" HorizontalAlignment="Left" Margin="70,130,0,0" VerticalAlignment="Top"/>
@@ -22,7 +22,7 @@
         <TextBox x:Name="TextBox_year" HorizontalAlignment="Left" Height="23" Margin="155,162,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="70"/>
         <TextBox x:Name="TextBox_期" HorizontalAlignment="Left" Height="23" Margin="258,162,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="70"/>
         <ComboBox x:Name="ComboBox_制度" HorizontalAlignment="Left" Margin="155,197,0,0" VerticalAlignment="Top" Width="200"/>
-        <Button x:Name="Button_创建" Content="创建" HorizontalAlignment="Right" Margin="0,0,120,20" VerticalAlignment="Bottom" Width="75" Click="Button_创建_Click"/>
-        <Button x:Name="Button_取消" Content="取消" HorizontalAlignment="Right" Margin="0,0,30,20" VerticalAlignment="Bottom" Width="75" Click="Button_取消_Click"/>
+        <Button x:Name="Button_创建" Content="创建" HorizontalAlignment="Right" Margin="0,0,120,20" VerticalAlignment="Bottom" Width="75" Click="Button_创建_Click" Template="{DynamicResource ButtonControlTemplate_CommonBlue}" Height="22" Foreground="White"/>
+        <Button x:Name="Button_取消" Content="取消" HorizontalAlignment="Right" Margin="0,0,30,20" VerticalAlignment="Bottom" Width="75" Click="Button_取消_Click" Template="{DynamicResource ButtonControlTemplate_Common}" Height="22"/>
         </Grid>
 </Window>
