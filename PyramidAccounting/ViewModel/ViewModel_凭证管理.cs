@@ -65,7 +65,10 @@ namespace PA.ViewModel
                     LastData.贷方金额 += "\n" + dr[6].ToString();
                 }
             }
-            datas.Add(LastData);
+            if (ds.Tables[0].Rows.Count != 0)
+            {
+                datas.Add(LastData);
+            }
             return datas;
         }
     }
