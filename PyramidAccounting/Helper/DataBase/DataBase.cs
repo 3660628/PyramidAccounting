@@ -189,7 +189,7 @@ namespace PA.Helper.DataBase
                             SQLiteCommand cmd = new SQLiteCommand();
                             cmd.CommandText = sql;
                             cmd.Parameters.AddWithValue("@ID", list.ID);
-                            cmd.Parameters.AddWithValue("@BOOK_NAME", list.账套名称);
+                            cmd.Parameters.AddWithValue("@BOOK_NAME", list.帐套名称);
                             cmd.Parameters.AddWithValue("@COMPANY_NAME", list.单位名称);
                             cmd.Parameters.AddWithValue("@MONEY_TYPE", list.本位币);
                             cmd.Parameters.AddWithValue("@CREATE_DATE", list.日期);

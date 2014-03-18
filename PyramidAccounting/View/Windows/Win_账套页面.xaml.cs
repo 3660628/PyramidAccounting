@@ -44,13 +44,15 @@ namespace PA.View.Windows
             Model.DataGrid.Model_帐套 m = new Model.DataGrid.Model_帐套();
             m.ID = DateTime.Now.ToString("yyyyMMddHH");
             CommonInfo.账薄号 = m.ID;
-            m.账套名称 = TextBox_账套名称.Text.Trim();
+            m.帐套名称 = TextBox_账套名称.Text.Trim();
             m.单位名称 = TextBox_公司.Text.Trim();
             m.本位币 = ComboBox_money.Text.Trim();
             string date = TextBox_year.Text + "-" + TextBox_期.Text + "-1";
             m.日期 = Convert.ToDateTime(date);
             m.会计制度 = ComboBox_制度.Text.Trim();
             lm.Add(m);
+            //修改下次启动时帐套的显示
+            new PA.Helper.XMLHelper.XMLWriter().WriteXML("帐套信息", m.帐套名称);
             new ViewModel_Books().Insert(lm);  //执行插入
             //调整至主页面
             MainWindow mw = new MainWindow();

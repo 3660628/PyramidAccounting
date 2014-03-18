@@ -13,12 +13,12 @@ namespace PA.Model.ComboBox
         private string sql = string.Empty;
         private DataSet ds = new DataSet();
         private DataBase db = new DataBase();
-        public List<Model_帐套> GetComboBox_账套()
+        public List<Model_帐套> GetComboBox_帐套()
         {
             List<Model_帐套> list = new List<Model_帐套>();
             Model_帐套 def = new Model_帐套();
             def.ID = "0";
-            def.账套名称 = "新建账套";
+            def.帐套名称 = "新建帐套";
             list.Add(def);
             sql = "select id,book_name from t_books where delete_mark=0 order by create_date desc";
             ds = db.Query(sql);
@@ -30,7 +30,7 @@ namespace PA.Model.ComboBox
                     DataRow dr = dt.Rows[i];
                     Model_帐套 m = new Model_帐套();
                     m.ID = dr[0].ToString();
-                    m.账套名称 = dr[1].ToString();
+                    m.帐套名称 = dr[1].ToString();
                     list.Add(m);
                 }
             }

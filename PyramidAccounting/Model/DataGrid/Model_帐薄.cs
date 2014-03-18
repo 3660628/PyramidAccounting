@@ -45,7 +45,7 @@ namespace PA.Model.DataGrid
             set { create_time = value; }
         }
 
-        public string 账套名称
+        public string 帐套名称
         {
             get { return book_name; }
             set { book_name = value; }

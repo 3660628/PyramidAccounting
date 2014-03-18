@@ -28,10 +28,10 @@ namespace PA
         }
         private void InitComboBox()
         {
-            ComboBox_账套.ItemsSource = new ComboBox_Common().GetComboBox_账套();
-            ComboBox_账套.DisplayMemberPath = "账套名称";
+            ComboBox_账套.ItemsSource = new ComboBox_Common().GetComboBox_帐套();
+            ComboBox_账套.DisplayMemberPath = "帐套名称";
             ComboBox_账套.SelectedValuePath = "ID";
-            ComboBox_账套.Text = new PA.Helper.XMLHelper.XMLReader().ReadXML("账套信息");
+            ComboBox_账套.Text = new PA.Helper.XMLHelper.XMLReader().ReadXML("帐套信息");
         }
         private void Button_Min_Click(object sender, RoutedEventArgs e)
         {
@@ -59,7 +59,7 @@ namespace PA
                 {
                     MainWindow mw = new MainWindow();
                     mw.Show();
-                    new PA.Helper.XMLHelper.XMLWriter().WriteXML("账套信息", ComboBox_账套.Text.ToString());
+                    new PA.Helper.XMLHelper.XMLWriter().WriteXML("帐套信息", ComboBox_账套.Text.ToString());
                 }
                 this.Close();
             }
