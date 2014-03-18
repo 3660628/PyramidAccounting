@@ -85,6 +85,24 @@ namespace PA.View.Windows
             DataGrid_子细目.CanUserAddRows = false;
             if (lm.Count > 0)
             {
+                List<Model_科目管理> temp = new List<Model_科目管理>();
+                temp = vm.GetChildSubjectData(value1);
+                foreach (Model_科目管理 m in temp)
+                {
+                    foreach (Model_科目管理 now in lm)
+                    {
+                        if (string.IsNullOrEmpty(now.科目名称))
+                        {
+                            MessageBox.Show("存在科目名称为空，请检查！", "提示");
+                            return;
+                        }
+                        if (m.科目名称.Equals(now.科目名称))
+                        {
+                            MessageBox.Show("无法添加数据哦,请检查下是否填写了一样的科目名称！", "提示");
+                            return;
+                        }
+                    }
+                }
                 vm.Insert(lm);
                 lm.Clear();
                 //刷新数据
