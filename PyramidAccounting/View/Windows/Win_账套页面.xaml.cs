@@ -14,6 +14,7 @@ using PA.ViewModel;
 using PA.Model.Database;
 using PA.Helper.DataBase;
 using PA.Helper.DataDefind;
+using PA.Model.ComboBox;
 
 namespace PA.View.Windows
 {
@@ -23,9 +24,18 @@ namespace PA.View.Windows
     public partial class Win_账套页面 : Window
     {
         private DataBase db = new DataBase();
+        private ComboBox_Common cc = new ComboBox_Common();
         public Win_账套页面()
         {
             InitializeComponent();
+            InitComboBox();
+        }
+        private void InitComboBox()
+        {
+            ComboBox_制度.ItemsSource = cc.GetComboBox_会计制度();
+            ComboBox_制度.SelectedIndex = 0;
+            ComboBox_money.ItemsSource = cc.GetComboBox_本位币();
+            ComboBox_money.SelectedIndex = 0;
         }
 
         private void Button_Min_Click(object sender, RoutedEventArgs e)
