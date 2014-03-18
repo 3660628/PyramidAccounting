@@ -14,6 +14,10 @@ namespace PA.Helper.XMLHelper
         public XMLReader()
         {
             xmldoc = new XmlDocument();
+            if(!Directory.Exists(AppDomain.CurrentDomain.BaseDirectory + "Data"))
+            {
+                Directory.CreateDirectory(AppDomain.CurrentDomain.BaseDirectory + "Data");
+            }
             if (!File.Exists(AppDomain.CurrentDomain.BaseDirectory + "Data\\config.xml"))
             {
                 new InitXMLConfig().InitXML();
