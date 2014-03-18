@@ -111,6 +111,7 @@
     <Compile Include="Model\DataGrid\Model_科目管理.cs" />
     <Compile Include="Model\CustomEventArgs\StringEventArgs.cs" />
     <Compile Include="Model\DataGrid\Model_资产负债表.cs" />
+    <Compile Include="ViewModel\ViewModel_Books.cs" />
     <Compile Include="ViewModel\ViewModel_凭证管理.cs" />
     <Compile Include="ViewModel\ViewModel_用户.cs" />
     <Compile Include="ViewModel\ViewModel_科目管理.cs" />

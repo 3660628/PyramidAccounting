@@ -17,7 +17,7 @@ namespace PA.Model.ComboBox
         {
             List<Model_帐套> list = new List<Model_帐套>();
             Model_帐套 def = new Model_帐套();
-            def.ID = 0;
+            def.ID = "0";
             def.账套名称 = "新建账套";
             list.Add(def);
             sql = "select id,book_name from t_books where delete_mark=0 order by create_date desc";
@@ -29,7 +29,7 @@ namespace PA.Model.ComboBox
                 {
                     DataRow dr = dt.Rows[i];
                     Model_帐套 m = new Model_帐套();
-                    m.ID = Convert.ToInt32(dr[0].ToString());
+                    m.ID = dr[0].ToString();
                     m.账套名称 = dr[1].ToString();
                     list.Add(m);
                 }

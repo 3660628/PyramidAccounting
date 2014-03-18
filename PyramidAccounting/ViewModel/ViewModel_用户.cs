@@ -6,6 +6,7 @@ using PA.Helper.DataBase;
 using PA.Model.DataGrid;
 using PA.Helper.DataDefind;
 using System.Data;
+using PA.Helper.DataDefind;
 
 namespace PA.ViewModel
 {
@@ -19,7 +20,7 @@ namespace PA.ViewModel
         /// <returns></returns>
         public List<Model_用户> GetAllUser()
         {
-            sql = "select * from t_user where username not in ('root','admin') order by delete_mark";
+            sql = "select * from " + DBTablesName.T_USER + " where username not in ('root','admin') order by delete_mark";
             List<Model_用户> list = new List<Model_用户>();
             DataSet ds = db.Query(sql);
             if (ds != null)
@@ -45,7 +46,7 @@ namespace PA.ViewModel
         }
         public void StopUse(int userid)
         {
-            sql = "update t_user set delete_mark= 1 where userid=" + userid;
+            sql = "update " + DBTablesName.T_USER + " set delete_mark= 1 where userid=" + userid;
             db.Excute(sql);
         }
         /// <summary>
@@ -56,7 +57,7 @@ namespace PA.ViewModel
         public Model_用户 GetOneUser(int id)
         {
             Model_用户 m = new Model_用户();
-            sql = "select * from t_user where userid=" + id ;
+            sql = "select * from " + DBTablesName.T_USER + " where userid=" + id;
             DataSet ds = db.Query(sql);
             DataRow d = ds.Tables[0].Rows[0];
             m.用户名 = d[1].ToString();
@@ -67,7 +68,7 @@ namespace PA.ViewModel
         }
         public void Update(Model_用户 m)
         {
-            sql = "update t_user set realname='" + m.真实姓名 + "',authority=" + m.权限 + ",comments='" + m.用户说明 + "' where userid=" + m.ID;
+            sql = "update " + DBTablesName.T_USER + " set realname='" + m.真实姓名 + "',authority=" + m.权限 + ",comments='" + m.用户说明 + "' where userid=" + m.ID;
             db.Excute(sql);
         }
         private string RollbackAuthority(string i)
@@ -90,18 +91,17 @@ namespace PA.ViewModel
 
         public void Insert(List<Model_用户> list)
         {
-            db.InsertPackage("t_user", list.OfType<object>().ToList());
+            db.InsertPackage(DBTablesName.T_USER, list.OfType<object>().ToList());
         }
         public bool UpdatePassword(string username, string password)
         {
-            sql = "UPDATE T_USER SET PASSWORD='" + password + "' where USER_NAME='" + username + "'";
+            sql = "UPDATE " + DBTablesName.T_USER + " SET PASSWORD='" + password + "' where USER_NAME='" + username + "'";
             return db.Excute(sql);
         }
         public bool ValidateAccount(string username,string password)
         {
             sql = "SELECT * "
-                + " FROM T_USER "
-                + " WHERE USER_NAME='" + username + "'"
+                + " FROM " + DBTablesName.T_USER + " WHERE USERNAME='" + username + "'"
                 + " AND PASSWORD='" + password + "'";
             return db.IsExist(sql);
         }

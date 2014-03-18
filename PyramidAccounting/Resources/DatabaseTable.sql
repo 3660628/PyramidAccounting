@@ -1,6 +1,8 @@
 CREATE TABLE T_BOOKS (									--账套表
     ID                TEXT PRIMARY KEY,					--账套ID
     BOOK_NAME         TEXT,								--账套名称
+	COMPANY_NAME	  TEXT,								--单位名称
+	MONEY_TYPE		  TEXT,								--本位币
     CREATE_DATE       DATE,								--账套启用日期
     ACCOUNTING_SYSTEM TEXT,								--会计制度
 	DELETE_MARK		  INTEGER DEFAULT ( 0 )				--删除标志    -1表示已删除

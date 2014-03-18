@@ -21,8 +21,7 @@ namespace PA
         public MainWindow()
         {
             InitializeComponent();
-            Properties.Settings.Default.Company = "HelloWorld";
-            new PA.Helper.DataBase.StartUpInit().Init();
+            
             this.Frame_MainTabControl.Content = new PA.View.Pages.Page_MainTabControl();
         }
 

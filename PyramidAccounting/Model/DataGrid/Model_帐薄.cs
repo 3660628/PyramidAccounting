@@ -7,8 +7,22 @@ namespace PA.Model.DataGrid
 {
     class Model_帐套
     {
-        private int id;
+        private string id;
         private string book_name;
+        private string commpany_name;
+        private string money_type;
+
+        public string 本位币
+        {
+            get { return money_type; }
+            set { money_type = value; }
+        }
+
+        public string 单位名称
+        {
+            get { return commpany_name; }
+            set { commpany_name = value; }
+        }
         private DateTime create_time;
         private string accounting_system;
         private int delete_mark;
@@ -37,7 +51,7 @@ namespace PA.Model.DataGrid
             set { book_name = value; }
         }
 
-        public int ID
+        public string ID
         {
             get { return id; }
             set { id = value; }

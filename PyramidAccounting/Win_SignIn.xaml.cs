@@ -14,6 +14,7 @@ using PA.Model.ComboBox;
 using PA.Helper.DataBase;
 using PA.Helper.DataDefind;
 using PA.ViewModel;
+using PA.View.Windows;
 
 namespace PA
 {
@@ -22,6 +23,7 @@ namespace PA
         public Win_SignIn()
         {
             InitializeComponent();
+            new PA.Helper.DataBase.StartUpInit().Init();
             InitComboBox();
         }
         private void InitComboBox()
@@ -48,7 +50,16 @@ namespace PA
             string Password = Secure.TranslatePassword(PasswordBox_登陆密码.SecurePassword);
             if (new ViewModel_用户().ValidateAccount(UserName,Password))
             {
-
+                if (CommonInfo.账薄号.Equals("0"))
+                {
+                    Win_账套页面 w = new Win_账套页面();
+                    w.ShowDialog();
+                }
+                else
+                {
+                    MainWindow mw = new MainWindow();
+                    mw.ShowDialog();
+                }
             }
             else
             {
