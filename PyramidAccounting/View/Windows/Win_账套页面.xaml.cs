@@ -38,14 +38,6 @@ namespace PA.View.Windows
             this.Close();
         }
 
-        private void Window_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
-        {
-            if (e.ButtonState == MouseButtonState.Pressed)
-            {
-                this.DragMove();
-            }
-        }
-
         private void Button_创建_Click(object sender, RoutedEventArgs e)
         {
             List<Model.DataGrid.Model_帐套> lm = new List<Model.DataGrid.Model_帐套>();
