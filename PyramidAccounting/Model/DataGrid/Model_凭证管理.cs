@@ -8,7 +8,7 @@ namespace PA.Model.DataGrid
     class Model_凭证管理
     {
         private string voucher_no;
-        private string op_time;
+        private string op_time; //DateTime
         private string abstract_comments;
         private string subject_id;
         private string detail;
