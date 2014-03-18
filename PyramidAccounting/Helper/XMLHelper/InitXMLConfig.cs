@@ -34,7 +34,7 @@ namespace PA.Helper.XMLHelper
             帐套信息.InnerText = "新建帐套";
             XmlElement 数据库 = xmldoc.CreateElement("数据库");
             数据库.InnerText = "PyramidAccounting.db";
-
+            系统信息.AppendChild(公司);
             系统信息.AppendChild(帐套信息);
             系统信息.AppendChild(数据库);
 
