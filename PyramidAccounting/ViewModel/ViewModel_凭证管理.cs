@@ -28,9 +28,9 @@ namespace PA.ViewModel
                             + "'当前期数',"
                             + "voucher.REVIEW_MARK"
                         + " FROM "
-                            + DBTablesName.T_VOUCHER + ","
+                            + DBTablesName.T_VOUCHER + " voucher,"
                             + DBTablesName.T_VOUCHER_DETAIL
-                        + " WHERE "
+                        + " detail WHERE "
                             + "voucher.VOUCHER_NO = detail.PARENTID"
                         + " ORDER BY "
                             + "detail.id";

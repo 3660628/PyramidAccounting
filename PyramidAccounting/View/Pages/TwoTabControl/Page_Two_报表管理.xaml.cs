@@ -25,7 +25,7 @@ namespace PA.View.Pages.TwoTabControl
         public Page_Two_报表管理()
         {
             InitializeComponent();
-            TextBlock_编制单位.Text = Properties.Settings.Default.Company;   //程序启动后加载当前公司名称
+            //TextBlock_编制单位.Text = Properties.Settings.Default.Company;   //程序启动后加载当前公司名称
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)

@@ -50,7 +50,7 @@ namespace PA
             string Password = Secure.TranslatePassword(PasswordBox_登陆密码.SecurePassword);
             if (new ViewModel_用户().ValidateAccount(UserName,Password))
             {
-                if (CommonInfo.账薄号.Equals("0"))
+                if (ComboBox_账套.SelectedValue.ToString().Equals("0"))
                 {
                     Win_账套页面 w = new Win_账套页面();
                     w.ShowDialog();

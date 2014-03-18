@@ -13,6 +13,7 @@ using System.Windows.Shapes;
 using PA.ViewModel;
 using PA.Model.Database;
 using PA.Helper.DataBase;
+using PA.Helper.DataDefind;
 
 namespace PA.View.Windows
 {
@@ -50,6 +51,7 @@ namespace PA.View.Windows
             List<Model.DataGrid.Model_帐套> lm = new List<Model.DataGrid.Model_帐套>();
             Model.DataGrid.Model_帐套 m = new Model.DataGrid.Model_帐套();
             m.ID = DateTime.Now.ToString("yyyyMMddHH");
+            CommonInfo.账薄号 = m.ID;
             m.账套名称 = TextBox_账套名称.Text.Trim();
             m.单位名称 = TextBox_公司.Text.Trim();
             m.本位币 = ComboBox_money.Text.Trim();
@@ -59,6 +61,7 @@ namespace PA.View.Windows
             lm.Add(m);
             new ViewModel_Books().Insert(lm);  //执行插入
             //调整至主页面
+            Console.WriteLine(CommonInfo.账薄号);
             MainWindow mw = new MainWindow();
             mw.ShowDialog();
         }
