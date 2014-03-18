@@ -47,7 +47,7 @@ namespace PA.ViewModel
                     Model_凭证管理 data = new Model_凭证管理();
                     LastData = data;
                     LastData.凭证号 = dr[0].ToString();
-                    LastData.制表时间 = Convert.ToDateTime(dr[1]);
+                    LastData.制表时间 = Convert.ToDateTime(dr[1]).ToString(DateFormat);
                     LastData.摘要 = dr[2].ToString();
                     LastData.科目编号 = dr[3].ToString();
                     LastData.科目名称 = dr[4].ToString();
