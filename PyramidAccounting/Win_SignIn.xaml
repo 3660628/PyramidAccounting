@@ -3,19 +3,31 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="登录页面" Height="300" Width="550" WindowStartupLocation="CenterScreen" AllowsTransparency="True" WindowStyle="None" ResizeMode="NoResize" MouseLeftButtonDown="Window_MouseLeftButtonDown" FontFamily="NSimSun" TextOptions.TextFormattingMode="Display">
     <Grid>
-        <Grid Height="35" Margin="0" VerticalAlignment="Top" Background="#FF2CA6E0"/>
-        <Button x:Name="Button_Min" Content="Button" HorizontalAlignment="Right" Margin="0,0,38,0" VerticalAlignment="Top" Width="28" Height="20" Template="{DynamicResource ButtonControlTemplate_Min}" Click="Button_Min_Click"/>
-        <Button x:Name="Button_Close" Content="Button" HorizontalAlignment="Right" VerticalAlignment="Top" Width="28" Template="{DynamicResource ButtonControlTemplate_Close}" Height="20" Margin="0" Click="Button_Close_Click"/>
-        <Grid Height="25" Margin="-120,16,309,0" VerticalAlignment="Top" Width="80" Background="White" RenderTransformOrigin="1.07,3.12">
-            <Label Content="登录" Margin="20,0,0,0" />
+        <Grid.RowDefinitions>
+            <RowDefinition Height="35*"/>
+            <RowDefinition Height="44*"/>
+            <RowDefinition Height="177*"/>
+            <RowDefinition Height="44*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="5*"/>
+            <ColumnDefinition Width="6*"/>
+        </Grid.ColumnDefinitions>
+        <Grid Height="35" Margin="0" VerticalAlignment="Top" Background="#FF2CA6E0" Grid.ColumnSpan="2"/>
+        <Button x:Name="Button_Min" Content="Button" HorizontalAlignment="Right" Margin="0,0,38,0" VerticalAlignment="Top" Width="28" Height="20" Template="{DynamicResource ButtonControlTemplate_Min}" Click="Button_Min_Click" Grid.Column="1"/>
+        <Button x:Name="Button_Close" Content="Button" HorizontalAlignment="Right" VerticalAlignment="Top" Width="28" Template="{DynamicResource ButtonControlTemplate_Close}" Height="20" Margin="0" Click="Button_Close_Click" Grid.Column="1"/>
+        <Grid Height="25" Margin="20,15,155,0" VerticalAlignment="Top" Background="White" RenderTransformOrigin="1.07,3.12" Grid.RowSpan="2">
+            <Label Content="登录" Margin="0" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold" />
         </Grid>
-        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Center" Height="200" Margin="-40,70,0,0" Grid.Row="1" VerticalAlignment="Top" Width="1" Grid.ColumnSpan="2"/>
-        <Image HorizontalAlignment="left" Margin="20,80,0,0" VerticalAlignment="Top" Source="/PyramidAccounting;component/View/Images/Logo/Pyramid_Logo_white_128x128.png" Height="100" Width="200"/>
-        <ComboBox x:Name="ComboBox_账套" HorizontalAlignment="Right" Margin="258,90,55,0" VerticalAlignment="Top" Width="172"/>
-        <TextBox x:Name="TextBox_登陆用户名" HorizontalAlignment="Right" Height="22" Margin="0,120,55,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="172" FontSize="16" Grid.Column="1" Grid.Row="1"/>
-        <PasswordBox x:Name="PasswordBox_登陆密码" HorizontalAlignment="Right" Margin="0,150,55,0" VerticalAlignment="Top" Width="172" FontSize="16" Height="22" Grid.Column="1" Grid.Row="1"/>
-        <Button FocusVisualStyle="{x:Null}" x:Name="Button_登陆" Content="登录" HorizontalAlignment="Right" Margin="0,190,127,0" VerticalAlignment="Top" Click="Button_登陆_Click" IsDefault="True" Foreground="Black" FontSize="13.333" Width="100" Height="25" Template="{DynamicResource ButtonControlTemplate_Common}"/>
-        <Label x:Name="Label_通告" Foreground="LightBlue" Content="您正在使用正版软件，请放心登录" HorizontalAlignment="Left" Margin="323,254,0,0" VerticalAlignment="Top"/>
-        <TextBlock x:Name="TextBlock_登陆警告信息" HorizontalAlignment="Right" Margin="0,225,55,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="172" Height="29" Foreground="Red" FontSize="14"/>
+        <Image HorizontalAlignment="left" Margin="34,0,0,0" VerticalAlignment="Top" Source="View/Images/Logo/Pyramid_Logo_white_128x128.png" Grid.Row="2" Height="88" Width="88"/>
+        <ComboBox x:Name="ComboBox_账套" HorizontalAlignment="Center" Margin="64,0" VerticalAlignment="Top" Width="172" Height="22" Grid.Column="1" Grid.Row="2"/>
+        <TextBox x:Name="TextBox_登陆用户名" HorizontalAlignment="Center" Height="22" Margin="64,29,64,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="172" FontSize="16" Grid.Column="1" Grid.Row="2"/>
+        <PasswordBox x:Name="PasswordBox_登陆密码" HorizontalAlignment="Center" Margin="64,58,64,0" VerticalAlignment="Top" Width="172" FontSize="16" Height="22" Grid.Column="1" Grid.Row="2"/>
+        <Button FocusVisualStyle="{x:Null}" x:Name="Button_登陆" Content="登录" HorizontalAlignment="Right" Margin="0,89,136,0" VerticalAlignment="Top" Click="Button_登陆_Click" IsDefault="True" Foreground="Black" FontSize="13.333" Width="100" Height="25" Template="{DynamicResource ButtonControlTemplate_Common}" Grid.Column="1" Grid.Row="2"/>
+        <TextBlock x:Name="TextBlock_登陆警告信息" HorizontalAlignment="Center" Margin="64,130,64,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="172" Foreground="Red" Grid.Column="1" Grid.Row="2" Height="14"/>
+        <Rectangle Fill="Black" HorizontalAlignment="Right" Margin="0" Stroke="Black" Width="1" Grid.Row="2"/>
+        <TextBlock Grid.Column="1" HorizontalAlignment="Center" Margin="64,0,56,0" Grid.Row="2" TextWrapping="Wrap" Text="您正在使用正版软件，请放心登录" VerticalAlignment="Bottom" Foreground="#FF4486C2"/>
+        <Label Content="金字塔" HorizontalAlignment="Left" Margin="120,13,0,0" Grid.Row="2" VerticalAlignment="Top" Foreground="#FF2984C2" FontWeight="Bold" FontSize="22" FontFamily="Microsoft YaHei"/>
+        <Label Content="财务管理工具" HorizontalAlignment="Left" Margin="120,46,0,0" Grid.Row="2" VerticalAlignment="Top" FontWeight="Bold" FontFamily="Microsoft YaHei" FontSize="14"/>
     </Grid>
 </Window>
