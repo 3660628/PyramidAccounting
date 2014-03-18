@@ -7,13 +7,14 @@ namespace PA.Helper.DataDefind
 {
     class DBTablesName
     {
-        private static readonly string t_BOOKS = "T_BOOKS";
-        private static readonly string t_VOUCHER = "T_VOUCHER";
-        private static readonly string t_VOUCHER_DETAIL = "T_VOUCHER_DETAIL";
-        private static readonly string t_SUBJECT = "T_SUBJECT";
-        private static readonly string t_SUBJECT_TYPE = "T_SUBJECT_TYPE";
-        private static readonly string t_USER = "T_USER";
-        private static readonly string t_RECORD = "T_RECORD";
+        private static string _bookid = CommonInfo.账薄号;
+        private static readonly string t_BOOKS = "T_BOOKS_" + _bookid;
+        private static readonly string t_VOUCHER = "T_VOUCHER_" + _bookid;
+        private static readonly string t_VOUCHER_DETAIL = "T_VOUCHER_DETAILR_" + _bookid;
+        private static readonly string t_SUBJECT = "T_SUBJECTR_" + _bookid;
+        private static readonly string t_SUBJECT_TYPE = "T_SUBJECT_TYPER_" + _bookid;
+        private static readonly string t_USER = "T_USERR_" + _bookid;
+        private static readonly string t_RECORD = "T_RECORDR_" + _bookid;
         
         #region GETSET
         public static string T_BOOKS

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Data;
 using PA.Helper.DataBase;
+using PA.Helper.DataDefind;
 
 namespace PA.Model.ComboBox
 {
@@ -16,11 +17,11 @@ namespace PA.Model.ComboBox
             list = new List<string>();
             if (string.IsNullOrEmpty(condition))
             {
-                sql = "select subject_id,subject_name from t_subject where used_mark=0 and parent_id=0 order by id";
+                sql = "select subject_id,subject_name from " + DBTablesName.T_SUBJECT + " where used_mark=0 and parent_id=0 order by id";
             }
             else
             {
-                sql = "select subject_id,subject_name from t_subject where used_mark=0  and parent_id=0 " + "and subject_id like '" + condition +
+                sql = "select subject_id,subject_name from " + DBTablesName.T_SUBJECT + " where used_mark=0  and parent_id=0 " + "and subject_id like '" + condition +
                         "%' order by id";
             }
             DataBase db = new DataBase();
@@ -37,11 +38,11 @@ namespace PA.Model.ComboBox
             list = new List<string>();
             if (string.IsNullOrEmpty(id))
             {
-                sql = "select subject_id,subject_name from t_subject where parent_id='" + id + "' order by id";
+                sql = "select subject_id,subject_name from " + DBTablesName.T_SUBJECT + " where parent_id='" + id + "' order by id";
             }
             else
             {
-                sql = "select subject_id,subject_name from t_subject where parent_id='" + id + "' and subject_id like '" + condition +
+                sql = "select subject_id,subject_name from " + DBTablesName.T_SUBJECT + " where parent_id='" + id + "' and subject_id like '" + condition +
                         "%' order by id";
             }
             DataBase db = new DataBase();

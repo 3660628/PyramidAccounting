@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Data;
 using PA.Model.DataGrid;
+using PA.Helper.DataDefind;
 
 namespace PA.ViewModel
 {
@@ -27,8 +28,8 @@ namespace PA.ViewModel
                             + "'当前期数',"
                             + "voucher.REVIEW_MARK"
                         + " FROM "
-                            + "T_VOUCHER voucher,"
-                            + "T_VOUCHER_DETAIL detail"
+                            + DBTablesName.T_VOUCHER + ","
+                            + DBTablesName.T_VOUCHER_DETAIL
                         + " WHERE "
                             + "voucher.VOUCHER_NO = detail.PARENTID"
                         + " ORDER BY "

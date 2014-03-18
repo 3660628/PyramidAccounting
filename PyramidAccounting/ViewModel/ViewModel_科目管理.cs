@@ -6,6 +6,7 @@ using PA.Model.DataGrid;
 using PA.Helper.DataBase;
 using System.Data;
 using PA.Model.Database;
+using PA.Helper.DataDefind;
 
 namespace PA.ViewModel
 {
@@ -14,7 +15,7 @@ namespace PA.ViewModel
         DataBase db = new DataBase();
         public List<Model_科目管理> GetSujectData(int type)
         {
-            string sql = "select * from t_subject where subject_type=" + type + " order by id,used_mark";
+            string sql = "select * from " + DBTablesName.T_SUBJECT + " where subject_type=" + type + " order by id,used_mark";
             DataTable dt = db.Query(sql).Tables[0];
             List<Model_科目管理> list = new List<Model_科目管理>();
             for (int i = 0; i < dt.Rows.Count; i++)
@@ -34,7 +35,7 @@ namespace PA.ViewModel
         }
         public List<Model_科目管理> GetChildSubjectData(string parent_id)
         {
-            string sql = "select * from t_subject where parent_id='" + parent_id + "' order by id";
+            string sql = "select * from " + DBTablesName.T_SUBJECT + "  where parent_id='" + parent_id + "' order by id";
             DataTable dt = db.Query(sql).Tables[0];
             List<Model_科目管理> list = new List<Model_科目管理>();
             for (int i = 0; i < dt.Rows.Count; i++)
@@ -51,7 +52,7 @@ namespace PA.ViewModel
         public bool IsSaved()
         {
             bool flag = false;
-            string sql = "select sum(fee) from t_subject";
+            string sql = "select sum(fee) from " + DBTablesName.T_SUBJECT;
             string str = db.GetAllData(sql).Split('\t')[0];
             if (str.Equals(","))
             {
@@ -69,13 +70,13 @@ namespace PA.ViewModel
             foreach (Model_科目管理 m in list)
             {
                 UpdateParm up = new UpdateParm();
-                up.TableName = "t_subject";
+                up.TableName = DBTablesName.T_SUBJECT;
                 up.Key = "fee";
                 up.Value = m.年初金额;
                 up.WhereParm = "id=" + m.ID;
                 upList.Add(up);
                 UpdateParm up2 = new UpdateParm();
-                up2.TableName = "t_subject";
+                up2.TableName = DBTablesName.T_SUBJECT;
                 up2.Key = "used_mark";
                 up2.Value = m.Used_mark.ToString();
                 up2.WhereParm = "id=" + m.ID;
@@ -87,7 +88,7 @@ namespace PA.ViewModel
         {
             List<UpdateParm> upList = new List<UpdateParm>();
             UpdateParm up2 = new UpdateParm();
-            up2.TableName = "t_subject";
+            up2.TableName = DBTablesName.T_SUBJECT;
             up2.Key = "used_mark";
             up2.Value = m.Used_mark.ToString();
             up2.WhereParm = "id=" + m.ID;
@@ -97,13 +98,13 @@ namespace PA.ViewModel
 
         public void UpdateChildSubject(Model_科目管理 m)
         {
-            string sql = "update t_subject set subject_id='" + m.科目编号 + "',subject_name='" + m.科目名称 + "' where id=" + m.ID;
+            string sql = "update " + DBTablesName.T_SUBJECT + " set subject_id='" + m.科目编号 + "',subject_name='" + m.科目名称 + "' where id=" + m.ID;
             db.Excute(sql);
         }
 
         public void Insert(List<Model_科目管理> list)
         {
-            db.InsertPackage("t_subject", list.OfType<object>().ToList());
+            db.InsertPackage(DBTablesName.T_SUBJECT, list.OfType<object>().ToList());
         }
 
         public void Delete(List<int> list)
@@ -111,7 +112,7 @@ namespace PA.ViewModel
             List<string> sqlList = new List<string>();
             foreach(int i in list)
             {
-                string sql = "delete from t_subject where id=" + i;
+                string sql = "delete from " + DBTablesName.T_SUBJECT + " where id=" + i;
                 sqlList.Add(sql);
             }
             db.BatchOperate(sqlList);
@@ -119,7 +120,7 @@ namespace PA.ViewModel
 
         public string GetSubjectID(string name)
         {
-            string sql = "select subject_id from t_subject where subject_name='" + name + "' and parent_id = 0";
+            string sql = "select subject_id from " + DBTablesName.T_SUBJECT + " where subject_name='" + name + "' and parent_id = 0";
             return db.GetAllData(sql).Split('\t')[0].Split(',')[0];
         }
     }
