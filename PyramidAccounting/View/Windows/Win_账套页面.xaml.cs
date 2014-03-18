@@ -33,6 +33,13 @@ namespace PA.View.Windows
             this.Left = Properties.Settings.Default.MainWindowRect.Left;
             InitComboBox();
         }
+        public Win_账套页面(double Left, double Top)
+        {
+            InitializeComponent();
+            this.Left = Left;
+            this.Top = Top;
+            InitComboBox();
+        }
         private void InitComboBox()
         {
             ComboBox_制度.ItemsSource = cc.GetComboBox_会计制度();
