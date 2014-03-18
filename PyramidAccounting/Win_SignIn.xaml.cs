@@ -66,6 +66,10 @@ namespace PA
             string Password = Secure.TranslatePassword(PasswordBox_登陆密码.SecurePassword);
             if (vm.ValidateAccount(UserName,Password))
             {
+                Model.DataGrid.Model_用户 m = new Model.DataGrid.Model_用户();
+                m = vm.GetUserInfo(UserName);
+                CommonInfo.真实姓名 = m.真实姓名;
+                CommonInfo.用户权限 = m.用户权限;
                 if (ComboBox_账套.SelectedValue.ToString().Equals("0"))
                 {
                     Win_账套页面 w = new Win_账套页面(this.Left, this.Top);
@@ -80,10 +84,6 @@ namespace PA
                     xw.WriteXML("公司", new ViewModel_Books().GetCompanyName(id));
                     this.Close();
                 }
-                Model.DataGrid.Model_用户 m = new Model.DataGrid.Model_用户();
-                m = vm.GetUserInfo(UserName);
-                CommonInfo.真实姓名 = m.真实姓名;
-                CommonInfo.用户权限 = m.用户权限;
             }
             else
             {
