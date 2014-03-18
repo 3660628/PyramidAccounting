@@ -10,6 +10,7 @@ namespace PA.Helper.DataBase
     {
         private string defaultDBName = "PyramidAccounting.db";
         private string guidePath = "Guid.jb";
+        private string bookInfoFile = "Info.inf";
         public StartUpInit()
         {
             
@@ -69,23 +70,44 @@ namespace PA.Helper.DataBase
             return dbname;
         }
 
-        /// <summary>
-        /// 改写启动数据库的名称
-        /// </summary>
-        /// <param name="name"></param>
-        public void TruncateGuideFile(string name)
+        public string LoadBookName()
         {
-            FileStream fs;
-            if (!File.Exists(guidePath))
+            string bookName = "新建账套";
+            if (!File.Exists(bookInfoFile))
             {
-                fs = new FileStream(guidePath, FileMode.CreateNew);
+                FileStream fs = new FileStream(bookInfoFile, FileMode.CreateNew);
+                StreamWriter sw = new StreamWriter(fs);
+                sw.Write(bookName);  
+                sw.Flush();
+                sw.Close();
+                fs.Close();
             }
             else
             {
-                fs = new FileStream(guidePath, FileMode.Truncate);
+                StreamReader sr = File.OpenText(bookInfoFile);
+                bookName = sr.ReadToEnd();
+                sr.Close();
+            }
+            return bookName;
+        }
+
+        /// <summary>
+        /// 改写文件内容
+        /// </summary>
+        /// <param name="name"></param>
+        public void Truncate(string comments,string filePath)
+        {
+            FileStream fs;
+            if (!File.Exists(filePath))
+            {
+                fs = new FileStream(filePath, FileMode.CreateNew);
+            }
+            else
+            {
+                fs = new FileStream(filePath, FileMode.Truncate);
             }
             StreamWriter sw = new StreamWriter(fs);
-            sw.Write(name);
+            sw.Write(comments);
             sw.Flush();
             sw.Close();
             fs.Close();
