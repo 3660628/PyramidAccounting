@@ -174,10 +174,11 @@ namespace PA.Helper.DataBase
             SQLiteConnection conn = DBInitialize.getDBConnection();
             conn.Open();
             SQLiteTransaction strans = conn.BeginTransaction();
+            string newTabname = TableName.Replace("_" + CommonInfo.账薄号,"");
             string sql = "";
             try
             {
-                switch (TableName.ToUpper())
+                switch (newTabname.ToUpper())
                 {
                     case "T_BOOKS":
                         #region T_BOOKS
@@ -206,6 +207,7 @@ namespace PA.Helper.DataBase
                         {
                             SQLiteCommand cmd = new SQLiteCommand();
                             cmd.CommandText = sql;
+                            cmd.Parameters.AddWithValue("@T_VOUCHER",TableName);
                             cmd.Parameters.AddWithValue("@VOUCHER_NO", list.凭证号);
                             cmd.Parameters.AddWithValue("@OP_TIME", list.制表时间);
                             cmd.Parameters.AddWithValue("@WORD", list.字);
@@ -231,6 +233,7 @@ namespace PA.Helper.DataBase
                         {
                             SQLiteCommand cmd = new SQLiteCommand();
                             cmd.CommandText = sql;
+                            cmd.Parameters.AddWithValue("@T_VOUCHER_DETAIL", TableName);
                             cmd.Parameters.AddWithValue("@VID", list.序号);
                             cmd.Parameters.AddWithValue("@PARENTID", list.父节点ID);
                             cmd.Parameters.AddWithValue("@ABSTRACT", list.摘要);
@@ -252,6 +255,7 @@ namespace PA.Helper.DataBase
                         {
                             SQLiteCommand cmd = new SQLiteCommand();
                             cmd.CommandText = sql;
+                            cmd.Parameters.AddWithValue("@T_SUBJECT", TableName);
                             cmd.Parameters.AddWithValue("@SID", list.序号);
                             cmd.Parameters.AddWithValue("@SUBJECT_ID", list.科目编号);
                             cmd.Parameters.AddWithValue("@SUBJECT_TYPE", list.类别);
