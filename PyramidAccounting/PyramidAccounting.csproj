@@ -269,6 +269,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="View\ResourceDictionarys\TextBlock\TextBlockCommon.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\Windows\Win_子细目.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

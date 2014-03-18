@@ -17,6 +17,7 @@
                 <ResourceDictionary Source="View\ResourceDictionarys\ScrollViewer\ScrollViewerCommon.xaml" />
                 <ResourceDictionary Source="View\ResourceDictionarys\TabControl\MainTabControl.xaml" />
                 <ResourceDictionary Source="View\ResourceDictionarys\TabControl\TwoTabControl.xaml" />
+                <ResourceDictionary Source="View\ResourceDictionarys\TextBlock\TextBlockCommon.xaml" />
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Application.Resources>
