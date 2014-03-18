@@ -39,7 +39,7 @@ namespace PA.Model.ComboBox
         public List<string> GetComboBox_会计制度()
         {
             List<string> list = new List<string>();
-            list.Add("事业单位会计制度(2013年新制度)");
+            list.Add("事业单位会计制度(2013年)");
             return list;
         }
 
