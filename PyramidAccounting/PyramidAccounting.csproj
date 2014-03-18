@@ -96,6 +96,7 @@
     <Compile Include="Helper\ExcelHelper\ExcelReader.cs" />
     <Compile Include="Helper\ExcelHelper\ExcelWriter.cs" />
     <Compile Include="Helper\XMLHelper\XMLReader.cs" />
+    <Compile Include="Model\ComboBox\ComboBox_Common.cs" />
     <Compile Include="Model\ComboBox\ComboBox_期数.cs" />
     <Compile Include="Model\ComboBox\ComboBox_科目.cs" />
     <Compile Include="Model\CustomEventArgs\ListEventArgs.cs" />
@@ -103,6 +104,7 @@
     <Compile Include="Model\DataGrid\Model_凭证单.cs" />
     <Compile Include="Model\DataGrid\Model_凭证明细.cs" />
     <Compile Include="Model\DataGrid\Model_凭证管理.cs" />
+    <Compile Include="Model\DataGrid\Model_帐薄.cs" />
     <Compile Include="Model\DataGrid\Model_用户.cs" />
     <Compile Include="Model\DataGrid\Model_科目管理.cs" />
     <Compile Include="Model\CustomEventArgs\StringEventArgs.cs" />
