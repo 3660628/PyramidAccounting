@@ -15,11 +15,13 @@ using PA.Helper.DataBase;
 using PA.Helper.DataDefind;
 using PA.ViewModel;
 using PA.View.Windows;
+using PA.Helper.XMLHelper;
 
 namespace PA
 {
     public partial class Win_SignIn : Window
     {
+        private XMLWriter xw = new XMLWriter();
         public Win_SignIn()
         {
             InitializeComponent();
@@ -42,7 +44,7 @@ namespace PA
             ComboBox_账套.ItemsSource = new ComboBox_Common().GetComboBox_帐套();
             ComboBox_账套.DisplayMemberPath = "帐套名称";
             ComboBox_账套.SelectedValuePath = "ID";
-            ComboBox_账套.Text = new PA.Helper.XMLHelper.XMLReader().ReadXML("帐套信息");
+            ComboBox_账套.Text = new XMLReader().ReadXML("帐套信息");
         }
         private void Button_Min_Click(object sender, RoutedEventArgs e)
         {
@@ -56,7 +58,8 @@ namespace PA
 
         private void Button_登陆_Click(object sender, RoutedEventArgs e)
         {
-            CommonInfo.账薄号 = ComboBox_账套.SelectedValue.ToString();
+            string  id = ComboBox_账套.SelectedValue.ToString();
+            CommonInfo.账薄号 = id;
             string UserName = TextBox_登陆用户名.Text.Trim();
             string Password = Secure.TranslatePassword(PasswordBox_登陆密码.SecurePassword);
             if (new ViewModel_用户().ValidateAccount(UserName,Password))
@@ -71,7 +74,8 @@ namespace PA
                 {
                     MainWindow mw = new MainWindow();
                     mw.Show();
-                    new PA.Helper.XMLHelper.XMLWriter().WriteXML("帐套信息", ComboBox_账套.Text.ToString());
+                    xw.WriteXML("帐套信息", ComboBox_账套.Text.ToString());
+                    xw.WriteXML("公司", new ViewModel_Books().GetCompanyName(id));
                     this.Close();
                 }
             }

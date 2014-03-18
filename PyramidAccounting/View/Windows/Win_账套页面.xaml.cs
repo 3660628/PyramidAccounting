@@ -26,32 +26,48 @@ namespace PA.View.Windows
         private DataBase db = new DataBase();
         private ComboBox_Common cc = new ComboBox_Common();
         private ViewModel_Books vb = new ViewModel_Books();
+        private PA.Helper.XMLHelper.XMLWriter xw = new Helper.XMLHelper.XMLWriter();
         public Win_账套页面()
         {
             InitializeComponent();
             this.Top = Properties.Settings.Default.MainWindowRect.Top;
             this.Left = Properties.Settings.Default.MainWindowRect.Left;
-            InitComboBox();
+            InitData();
         }
         public Win_账套页面(double Left, double Top)
         {
             InitializeComponent();
             this.Left = Left;
             this.Top = Top;
-            InitComboBox();
+            InitData();
         }
-        private void InitComboBox()
+        private void InitData()
         {
+            TextBox_公司.Text = new Helper.XMLHelper.XMLReader().ReadXML("公司");
+            string date = DateTime.Now.ToString("yyyy-M-d");
+            TextBox_year.Text = date.Split('-')[0];
+            TextBox_期.Text = date.Split('-')[1];
             ComboBox_制度.ItemsSource = cc.GetComboBox_会计制度();
             ComboBox_制度.SelectedIndex = 0;
             ComboBox_money.ItemsSource = cc.GetComboBox_本位币();
             ComboBox_money.SelectedIndex = 0;
         }
+        /// <summary>
+        /// 校验方法
+        /// </summary>
+        /// <returns>校验结果</returns>
         private bool Validate()
         {
             if (vb.IsBookNameExist(TextBox_账套名称.Text.Trim()))
             {
                 MessageBox.Show("当前填写帐套名称已存在数据库中，请核对！");
+                TextBox_账套名称.Focus();
+                return false;
+            }
+            if (string.IsNullOrEmpty(TextBox_公司.Text.Trim()))
+            {
+                MessageBox.Show("单位名称将作为报表必填项，请填写！");
+                TextBox_公司.Focus();
                 return false;
             }
             if (string.IsNullOrEmpty(TextBox_year.Text.Trim()) || string.IsNullOrEmpty(TextBox_期.Text.Trim()))
@@ -97,8 +113,11 @@ namespace PA.View.Windows
             m.日期 = Convert.ToDateTime(date);
             m.会计制度 = ComboBox_制度.Text.Trim();
             lm.Add(m);
+
             //修改下次启动时帐套的显示
-            new PA.Helper.XMLHelper.XMLWriter().WriteXML("帐套信息", m.帐套名称);
+            xw.WriteXML("帐套信息", m.帐套名称);
+            xw.WriteXML("公司",TextBox_公司.Text.Trim());
+
             new ViewModel_Books().Insert(lm);  //执行插入
             //调整至主页面
             MainWindow mw = new MainWindow();

@@ -30,7 +30,7 @@
                         </DataGrid.Columns>
                     </DataGrid>
                     <Label Content="编制单位：" HorizontalAlignment="Left" Margin="10,36,0,0" VerticalAlignment="Top"/>
-                    <TextBlock x:Name="TextBlock_编制单位" HorizontalAlignment="Left" Margin="80,40,0,0" TextWrapping="Wrap" Text="值1" VerticalAlignment="Top"/>
+                    <TextBlock x:Name="TextBlock_编制单位" HorizontalAlignment="Left" Margin="80,40,0,0" TextWrapping="Wrap" VerticalAlignment="Top"/>
                     <Label Content="单位：元" HorizontalAlignment="Right" Margin="0,38,10,0" VerticalAlignment="Top"/>
                 </Grid>
             </TabItem>
