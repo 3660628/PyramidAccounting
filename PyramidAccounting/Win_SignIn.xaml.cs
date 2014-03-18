@@ -53,15 +53,15 @@ namespace PA
                 if (ComboBox_账套.SelectedValue.ToString().Equals("0"))
                 {
                     Win_账套页面 w = new Win_账套页面();
-                    w.Show();
+                    w.ShowDialog();
                 }
                 else
                 {
                     MainWindow mw = new MainWindow();
                     mw.Show();
                     new PA.Helper.XMLHelper.XMLWriter().WriteXML("帐套信息", ComboBox_账套.Text.ToString());
+                    this.Close();
                 }
-                this.Close();
             }
             else
             {
