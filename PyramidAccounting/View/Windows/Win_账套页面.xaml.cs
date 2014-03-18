@@ -25,6 +25,7 @@ namespace PA.View.Windows
     {
         private DataBase db = new DataBase();
         private ComboBox_Common cc = new ComboBox_Common();
+        private ViewModel_Books vb = new ViewModel_Books();
         public Win_账套页面()
         {
             InitializeComponent();
@@ -37,7 +38,29 @@ namespace PA.View.Windows
             ComboBox_money.ItemsSource = cc.GetComboBox_本位币();
             ComboBox_money.SelectedIndex = 0;
         }
-
+        private bool Validate()
+        {
+            if (vb.IsBookNameExist(TextBox_账套名称.Text.Trim()))
+            {
+                MessageBox.Show("当前填写帐套名称已存在数据库中，请核对！");
+                return false;
+            }
+            if (string.IsNullOrEmpty(TextBox_year.Text.Trim()) || string.IsNullOrEmpty(TextBox_期.Text.Trim()))
+            {
+                MessageBox.Show("当前检测到启用期间未填写完成，请填写后继续！");
+                if (string.IsNullOrEmpty(TextBox_year.Text.Trim()))
+                {
+                    TextBox_year.Focus();
+                }
+                else if (string.IsNullOrEmpty(TextBox_期.Text.Trim()))
+                {
+                    TextBox_期.Focus();
+                }
+                return false;
+            }
+            return true;
+        }
+        #region Button事件
         private void Button_Min_Click(object sender, RoutedEventArgs e)
         {
             this.WindowState = System.Windows.WindowState.Minimized;
@@ -50,6 +73,10 @@ namespace PA.View.Windows
 
         private void Button_创建_Click(object sender, RoutedEventArgs e)
         {
+            if (!Validate())  //校验不成功
+            {
+                return;
+            }
             List<Model.DataGrid.Model_帐套> lm = new List<Model.DataGrid.Model_帐套>();
             Model.DataGrid.Model_帐套 m = new Model.DataGrid.Model_帐套();
             m.ID = DateTime.Now.ToString("yyyyMMddHH");
@@ -75,5 +102,6 @@ namespace PA.View.Windows
             //此处应该是返回登录窗口
             this.Close();
         }
+        #endregion
     }
 }

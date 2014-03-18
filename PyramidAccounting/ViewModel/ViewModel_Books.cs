@@ -30,5 +30,10 @@ namespace PA.ViewModel
             db.BatchOperate(sqlList);
             
         }
+        public bool IsBookNameExist(string bookName)
+        {
+            sql = "select 1 from " + DBTablesName.T_BOOKS + " where book_name='" + bookName +"' and delete_mark=0";
+            return db.IsExist(sql);
+        }
     }
 }
