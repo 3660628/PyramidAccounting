@@ -312,7 +312,7 @@
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <None Include="app.config" />
-    <None Include="Data\打印模板\记账凭证.xls">
+    <None Include="Data\打印\记账凭证.xls">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Include="Data\科目\《行政单位会计制度》财预字[1998]49号.xls">
