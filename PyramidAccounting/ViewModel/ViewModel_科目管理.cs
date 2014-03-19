@@ -15,7 +15,8 @@ namespace PA.ViewModel
         DataBase db = new DataBase();
         public List<Model_科目管理> GetSujectData(int type)
         {
-            string sql = "select a.fee,b.* from t_year_fee a left join " + DBTablesName.T_SUBJECT + " b on a.subject_id=b.subject_id where a.bookid='" + CommonInfo.账薄号 + "' and b.subject_type=" + type + " order by b.id,b.used_mark";
+            string sql = "select a.fee,b.* from " + DBTablesName.T_SUBJECT + " b left join t_year_fee a on a.bookid='" + CommonInfo.账薄号 + "' and a.subject_id=b.subject_id where  b.subject_type=" + type + " order by b.id,b.used_mark";
+            Console.WriteLine(sql);
             DataTable dt = db.Query(sql).Tables[0];
             List<Model_科目管理> list = new List<Model_科目管理>();
             for (int i = 0; i < dt.Rows.Count; i++)
