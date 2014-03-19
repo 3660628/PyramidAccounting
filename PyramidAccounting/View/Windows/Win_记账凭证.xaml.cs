@@ -76,10 +76,10 @@ namespace PA.View.Windows
         /// <returns></returns>
         private Model_凭证单 GetData()
         {
-            Voucher.凭证号 = this.ComboBox_总收付转.Text + this.TextBox_号.Text.Trim();
+            Voucher.凭证号 = this.TextBox_号.Text.Trim();
             Voucher.审核标志 = (this.Label_审核状态.Content.ToString() == "已审核") ? 1 : 0;
             Voucher.制表时间 = (DateTime)this.DatePicker_Date.SelectedDate;
-            Voucher.字 = this.ComboBox_总收付转.Text;
+            //Voucher.字 = this.ComboBox_总收付转.Text;
             Voucher.号 = int.Parse(this.TextBox_号.Text.Trim());
             VoucherDetails = this.DataGrid_凭证明细.ItemsSource as List<Model_凭证明细>;
             foreach (Model_凭证明细 Detail in VoucherDetails)
@@ -154,7 +154,7 @@ namespace PA.View.Windows
 
         private void Button_打印_Click(object sender, RoutedEventArgs e)
         {
-            Console.WriteLine(this.ComboBox_总收付转.SelectedIndex);
+            
         }
         
         private void DataGrid_凭证明细_Cell_MouseDoubleClick(object sender, RoutedEventArgs e)
@@ -262,18 +262,6 @@ namespace PA.View.Windows
                 {
                     this.TextBox_号.Text = (int.Parse(this.TextBox_号.Text.Trim()) - 1).ToString();
                 }
-            }
-        }
-
-        private void ComboBox_总收付转_MouseWheel(object sender, MouseWheelEventArgs e)
-        {
-            if (e.Delta > 0 && this.ComboBox_总收付转.SelectedIndex > 0)
-            {
-                this.ComboBox_总收付转.SelectedIndex--;
-            }
-            else if (e.Delta < 0)
-            {
-                this.ComboBox_总收付转.SelectedIndex++;
             }
         }
 

@@ -13,7 +13,6 @@
         <!--显示用Label-->
         <Label Content="日期" HorizontalAlignment="Left" Margin="10,67,0,0" VerticalAlignment="Top"/>
         <Label Content="记账凭证" HorizontalAlignment="Center" Margin="0,30,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="22"/>
-        <Label Content="字" HorizontalAlignment="Left" Margin="696,67,0,0" VerticalAlignment="Top"/>
         <Label Content="号" HorizontalAlignment="Right" Margin="0,67,10,0" VerticalAlignment="Top"/>
         <Label Content="附属单证" HorizontalAlignment="Left" Margin="10,373,0,0" VerticalAlignment="Top"/>
         <Label Content="张" HorizontalAlignment="Left" Margin="118,373,0,0" VerticalAlignment="Top"/>
@@ -47,16 +46,9 @@
         </DataGrid>
         <DatePicker x:Name="DatePicker_Date" HorizontalAlignment="Left" Margin="49,69,0,0" VerticalAlignment="Top" Width="120" SelectedDateFormat="Short" BorderThickness="0,0,0,1" FontSize="14" Height="23"/>
 
-        <TextBox x:Name="TextBox_号" Text="0" HorizontalAlignment="Left" Margin="723,72,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="30" BorderThickness="0,0,0,1" TextAlignment="Center" FontSize="14" MouseWheel="TextBox_号_MouseWheel"/>
+        <TextBox x:Name="TextBox_号" Text="0" HorizontalAlignment="Right" Margin="0,70,37,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="50" BorderThickness="0,0,0,1" TextAlignment="Center" FontSize="14" MouseWheel="TextBox_号_MouseWheel"/>
         <TextBox x:Name="TextBox_附属单证" Text="0" HorizontalAlignment="Left" Margin="73,377,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="40" BorderThickness="0,0,0,1" TextAlignment="Center" FontSize="14" MouseWheel="TextBox_附属单证_MouseWheel"/>
 
-        <ComboBox x:Name="ComboBox_总收付转" HorizontalAlignment="Right" Margin="0,69,99,0" VerticalAlignment="Top" MouseWheel="ComboBox_总收付转_MouseWheel">
-            <ComboBoxItem Content="总" IsSelected="True"/>
-            <ComboBoxItem Content="收"/>
-            <ComboBoxItem Content="付"/>
-            <ComboBoxItem Content="转"/>
-        </ComboBox>
-        
         <!--Label-->
         <Label x:Name="Label_会计主管" Content="" HorizontalAlignment="Left" Margin="73,0,0,10" VerticalAlignment="Bottom"/>
         <Label x:Name="Label_制单人" Content="" HorizontalAlignment="Left" Margin="312,0,0,10" VerticalAlignment="Bottom"/>
