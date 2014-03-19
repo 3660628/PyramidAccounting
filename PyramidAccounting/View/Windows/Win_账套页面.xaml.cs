@@ -105,7 +105,7 @@ namespace PA.View.Windows
             }
             List<Model.DataGrid.Model_帐套> lm = new List<Model.DataGrid.Model_帐套>();
             Model.DataGrid.Model_帐套 m = new Model.DataGrid.Model_帐套();
-            m.ID = DateTime.Now.ToString("yyyyMMddHH");
+            m.ID = DateTime.Now.ToString("yyyyMMddHHmmss");
             CommonInfo.账薄号 = m.ID;
             CommonInfo.制度索引 = ComboBox_制度.SelectedIndex;
             m.帐套名称 = TextBox_账套名称.Text.Trim();
