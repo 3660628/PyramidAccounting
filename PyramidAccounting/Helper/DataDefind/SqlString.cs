@@ -31,7 +31,16 @@ namespace PA.Helper.DataDefind
         private static readonly string insert_T_RECORD = "insert into @T_RECORD(OP_TIME,USERNAME,REALNAME,OP_TYPE,LOG) "
             + "values(@OP_TIME, @USERNAME, @REALNAME, @OP_TYPE, @LOG)";
 
+        private static readonly string insert_T_YEAR_FEE = "insert into T_YEAR_FEE(SUBJECT_ID,FEE,BOOKID) "
+            + "values(@SUBJECT_ID, @FEE, @BOOKID)";
+
+
         #region GetSet
+        public static string Insert_T_YEAR_FEE
+        {
+            get { return SqlString.insert_T_YEAR_FEE; }
+        } 
+
         public static string Delete_Sql
         {
             get { return SqlString.delete_Sql; }

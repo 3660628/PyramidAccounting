@@ -298,6 +298,11 @@ namespace PA.Helper.DataBase
 
                         #endregion
                         break;
+                    case "T_YEAR_FEE":
+                    #region T_YEAR_FEE
+
+                    #endregion
+                        break;
                 }
                 strans.Commit();
                 flag = true;
