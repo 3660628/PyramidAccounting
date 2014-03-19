@@ -8,7 +8,7 @@
 				</Border.Background>
 				<ContentPresenter x:Name="Content" ContentSource="Header" HorizontalAlignment="{Binding HorizontalContentAlignment, RelativeSource={RelativeSource AncestorType={x:Type ItemsControl}}}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{Binding VerticalContentAlignment, RelativeSource={RelativeSource AncestorType={x:Type ItemsControl}}}"/>
 			</Border>
-			<Rectangle x:Name="rectangle" Fill="{x:Null}" HorizontalAlignment="Right" Height="Auto" Stroke="White" VerticalAlignment="Stretch" Width="1" Margin="0"/>
+			<Rectangle x:Name="rectangle" Fill="{x:Null}" HorizontalAlignment="Right" Height="5" Stroke="#FF1477C3" VerticalAlignment="Top" Width="1" Margin="0,-2,1,0"/>
 		</Grid>
 		<ControlTemplate.Triggers>
 			<MultiTrigger>
@@ -17,9 +17,10 @@
 					<Condition Property="IsMouseOver" Value="False"/>
 				</MultiTrigger.Conditions>
 				<Setter Property="Background" TargetName="Bd" Value="#FF333333"/>
-				<Setter Property="Stroke" TargetName="rectangle" Value="#FF1477C3"/>
 				<Setter Property="Margin" TargetName="rectangle" Value="0,0,1,0"/>
 				<Setter Property="BorderBrush" TargetName="Bd" Value="#FF434343"/>
+				<Setter Property="Height" TargetName="rectangle" Value="Auto"/>
+				<Setter Property="VerticalAlignment" TargetName="rectangle" Value="Stretch"/>
 			</MultiTrigger>
 			<MultiTrigger>
 				<MultiTrigger.Conditions>
