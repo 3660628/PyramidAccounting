@@ -186,7 +186,7 @@ namespace PA.View.Pages.TwoTabControl
             Model_科目管理 m = new Model_科目管理();
             try
             {
-                m = DataGrid_科目设置.SelectedItem as Model_科目管理;
+                m = DataGrid_科目设置.SelectedCells[0].Item as Model_科目管理;
             }
             catch (Exception ex)
             {
