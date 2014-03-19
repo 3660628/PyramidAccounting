@@ -21,7 +21,7 @@
         <ComboBox x:Name="ComboBox_money" HorizontalAlignment="Left" Margin="155,127,0,0" VerticalAlignment="Top" Width="200"/>
         <TextBox x:Name="TextBox_year" HorizontalAlignment="Left" Height="23" Margin="155,162,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="70"/>
         <TextBox x:Name="TextBox_期" HorizontalAlignment="Left" Height="23" Margin="258,162,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="70"/>
-        <ComboBox x:Name="ComboBox_制度" HorizontalAlignment="Left" Margin="155,197,0,0" VerticalAlignment="Top" Width="200"/>
+        <ComboBox x:Name="ComboBox_制度" HorizontalAlignment="Left" Margin="155,197,0,0" VerticalAlignment="Top" Width="250"/>
         <Button x:Name="Button_创建" Content="创建" HorizontalAlignment="Right" Margin="0,0,120,20" VerticalAlignment="Bottom" Width="75" Click="Button_创建_Click" Template="{DynamicResource ButtonControlTemplate_CommonBlue}" Height="22" Foreground="White"/>
         <Button x:Name="Button_取消" Content="取消" HorizontalAlignment="Right" Margin="0,0,30,20" VerticalAlignment="Bottom" Width="75" Click="Button_取消_Click" Template="{DynamicResource ButtonControlTemplate_Common}" Height="22"/>
         </Grid>
