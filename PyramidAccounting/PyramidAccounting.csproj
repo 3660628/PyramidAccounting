@@ -315,7 +315,7 @@
     <None Include="Data\打印模板\记账凭证.xls">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="Data\资产负债表\资产负债表-行政.xls">
+    <None Include="Data\资产负债表\《行政单位会计制度》财预字〔1998〕49号.xls">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Include="Properties\Settings.settings">
