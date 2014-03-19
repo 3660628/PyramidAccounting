@@ -257,7 +257,6 @@ namespace PA.Helper.DataBase
                             cmd.Parameters.AddWithValue("@SUBJECT_ID", list.科目编号);
                             cmd.Parameters.AddWithValue("@SUBJECT_TYPE", list.类别);
                             cmd.Parameters.AddWithValue("@SUBJECT_NAME", list.科目名称);
-                            cmd.Parameters.AddWithValue("@FEE", list.年初金额);
                             cmd.Parameters.AddWithValue("@PARENT_ID", list.父ID);
                             cmd.Parameters.AddWithValue("@USED_MARK", list.是否启用);
                             cmd.Connection = conn;

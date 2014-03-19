@@ -14,8 +14,16 @@ namespace PA.Helper.DataDefind
         private static readonly string t_SUBJECT_TYPE = "T_SUBJECT_TYPE";
         private static readonly string t_USER = "T_USER";
         private static readonly string t_RECORD = "T_RECORD_";
+        private static readonly string t_YEAR_FEE = "T_YEAR_FEE";
+
+
         
         #region GETSET
+
+        public static string T_YEAR_FEE
+        {
+            get { return DBTablesName.t_YEAR_FEE; }
+        } 
         public static string T_BOOKS
         {
             get { return DBTablesName.t_BOOKS; }

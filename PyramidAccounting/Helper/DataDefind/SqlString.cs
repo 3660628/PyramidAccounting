@@ -19,8 +19,8 @@ namespace PA.Helper.DataDefind
         private static readonly string insert_T_VOUCHER_DETAIL = "Insert into @T_VOUCHER_DETAIL(VID, PARENTID, ABSTRACT, SUBJECT_ID, DETAIL, BOOKKEEP_MARK, DEBIT, CREDIT) "
             + "values(@VID, @PARENTID, @ABSTRACT, @SUBJECT_ID, @DETAIL, @BOOKKEEP_MARK, @DEBIT, @CREDIT)";
         
-        private static readonly string insert_T_SUBJECT = "insert into @T_SUBJECT(SID,SUBJECT_ID,SUBJECT_TYPE,SUBJECT_NAME,FEE,PARENT_ID,USED_MARK) "
-            + "values(@SID, @SUBJECT_ID, @SUBJECT_TYPE, @SUBJECT_NAME, @FEE, @PARENT_ID, @USED_MARK)";
+        private static readonly string insert_T_SUBJECT = "insert into @T_SUBJECT(SID,SUBJECT_ID,SUBJECT_TYPE,SUBJECT_NAME,PARENT_ID,USED_MARK) "
+            + "values(@SID, @SUBJECT_ID, @SUBJECT_TYPE, @SUBJECT_NAME, @PARENT_ID, @USED_MARK)";
         
         private static readonly string insert_T_SUBJECT_TYPE = "insert into @T_SUBJECT_TYPE() "
             + "values()";
