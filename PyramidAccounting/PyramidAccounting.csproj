@@ -95,6 +95,7 @@
     <Compile Include="Helper\DataDefind\CommonInfo.cs" />
     <Compile Include="Helper\ExcelHelper\ExcelReader.cs" />
     <Compile Include="Helper\ExcelHelper\ExcelWriter.cs" />
+    <Compile Include="Helper\ExcelHelper\ReadBalanceSheet.cs" />
     <Compile Include="Helper\XMLHelper\InitXMLConfig.cs" />
     <Compile Include="Helper\XMLHelper\XMLReader.cs" />
     <Compile Include="Helper\XMLHelper\XMLWriter.cs" />
