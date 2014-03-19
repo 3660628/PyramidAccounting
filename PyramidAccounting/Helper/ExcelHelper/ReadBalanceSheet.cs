@@ -35,22 +35,20 @@ namespace PA.Helper.ExcelHelper
             foreach (DataRow dr in dt.Rows)
             {
                 BalanceSheetData = new Model_BalanceSheet();
+                if (dr[0].ToString().Length <= 2)
                 {
-                    if (dr[0].ToString().Length <= 2)
-                    {
-                        Type = dr[0].ToString();
-                    }
-                    else
-                    {
-                        BalanceSheetData.Number = int.Parse(dr[0].ToString());
-                        BalanceSheetData.Name = dr[1].ToString();
-                        BalanceSheetData.Type = int.Parse(Type);
-                        BalanceSheetData.DepartmentType = (Type == "1" || Type == "5") ? 1 : 2;
-                        BalanceSheetDatas.Add(BalanceSheetData);
-                    }
+                    Type = dr[0].ToString();
                 }
-                
+                else
+                {
+                    BalanceSheetData.Number = int.Parse(dr[0].ToString());
+                    BalanceSheetData.Name = dr[1].ToString();
+                    BalanceSheetData.Type = int.Parse(Type);
+                    BalanceSheetData.DepartmentType = (Type == "1" || Type == "5") ? 1 : 2;
+                    BalanceSheetDatas.Add(BalanceSheetData);
+                }
             }
+            conn.Close();
             return BalanceSheetDatas;
         }
     }
