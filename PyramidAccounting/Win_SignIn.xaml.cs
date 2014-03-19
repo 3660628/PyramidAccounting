@@ -69,6 +69,7 @@ namespace PA
                 Model.DataGrid.Model_用户 m = new Model.DataGrid.Model_用户();
                 m = vm.GetUserInfo(UserName);
                 CommonInfo.真实姓名 = m.真实姓名;
+                CommonInfo.用户名 = UserName;
                 CommonInfo.用户权限 = m.用户权限;
                 if (ComboBox_账套.SelectedValue.ToString().Equals("0"))
                 {

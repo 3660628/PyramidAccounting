@@ -17,7 +17,7 @@
                 <Label Content="用户权限：" HorizontalAlignment="Left" Margin="20,175,0,0" VerticalAlignment="Top"/>
                 <Label Content="用户说明：" HorizontalAlignment="Left" Margin="20,225,0,0" VerticalAlignment="Top"/>
                 <TextBox x:Name="TextBox_用户名" HorizontalAlignment="Left" Height="23" Margin="90,25,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" LostKeyboardFocus="TextBox_用户名_LostKeyboardFocus"/>
-                <PasswordBox x:Name="TextBox_用户密码" HorizontalAlignment="Left" Height="23" Margin="90,75,0,0" VerticalAlignment="Top" Width="120"/>
+                <PasswordBox x:Name="TextBox_用户密码" HorizontalAlignment="Left" Height="23" Margin="90,75,0,0" VerticalAlignment="Top" Width="120" LostKeyboardFocus="TextBox_用户密码_LostKeyboardFocus"/>
                 <TextBox x:Name="TextBox_真实姓名" HorizontalAlignment="Left" Height="23" Margin="90,125,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
                 <ComboBox x:Name="ComboBox_用户权限" HorizontalAlignment="Left" Margin="90,175,0,0" VerticalAlignment="Top" Width="120"/>
                 <TextBox x:Name="TextBox_用户说明" HorizontalAlignment="Left" Height="23" Margin="90,225,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="188"/>

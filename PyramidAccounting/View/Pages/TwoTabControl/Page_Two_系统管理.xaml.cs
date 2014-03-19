@@ -16,6 +16,7 @@ using PA.Model.DataGrid;
 using System.Data;
 using PA.Model.CustomEventArgs;
 using PA.Helper.DataBase;
+using PA.Helper.DataDefind;
 
 namespace PA.View.Pages.TwoTabControl
 {
@@ -29,19 +30,23 @@ namespace PA.View.Pages.TwoTabControl
         public Page_Two_系统管理()
         {
             InitializeComponent();
-            VisibilityButtonSubject();
+            VisibilityData();
         }
         
         #region 科目管理
         /// <summary>
         /// 判断是否已经初始化过年初数据，否则不许修改年初数
         /// </summary>
-        private void VisibilityButtonSubject()
+        private void VisibilityData()
         {
             if (new ViewModel_科目管理().IsSaved())
             {
                 this.DataGridTextColumn_fee.IsReadOnly = true;
                 this.Button_科目保存.Visibility = Visibility.Hidden;
+            }
+            if (!CommonInfo.用户名.Equals("admin"))
+            {
+                Expander_权限.Visibility = Visibility.Hidden;
             }
         }
         private List<Model_科目管理> lm = new List<Model_科目管理>();
