@@ -44,7 +44,8 @@ CREATE TABLE T_SUBJECT (								--科目表
 );
 CREATE TABLE T_YEAR_FEE (								--科目年初金额设置表
 	SUBJECT_ID   TEXT PRIMARY KEY,						--科目编号
-	FEE			 DECIMAL								--年初金额
+	FEE			 DECIMAL,								--年初金额
+	BOOKID		 TEXT									--账套ID	
 );
 CREATE TABLE T_SUBJECT_TYPE (							--科目类型维表
     TYPE_ID   INTEGER,									--科目类别
