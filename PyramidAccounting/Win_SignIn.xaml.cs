@@ -71,6 +71,7 @@ namespace PA
                 CommonInfo.真实姓名 = m.真实姓名;
                 CommonInfo.用户名 = UserName;
                 CommonInfo.用户权限 = m.用户权限;
+                CommonInfo.制度索引 = Convert.ToInt32(new XMLReader().ReadXML("会计制度"));
                 if (ComboBox_账套.SelectedValue.ToString().Equals("0"))
                 {
                     Win_账套页面 w = new Win_账套页面(this.Left, this.Top);

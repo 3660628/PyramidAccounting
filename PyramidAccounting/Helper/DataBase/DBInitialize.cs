@@ -5,6 +5,9 @@ using System.Text;
 using System.Data.SQLite;
 using System.IO;
 using PA.Helper.XMLHelper;
+using PA.Helper.ExcelHelper;
+using PA.Model.Others;
+using PA.Helper.DataDefind;
 
 namespace PA.Helper.DataBase
 {
@@ -12,6 +15,7 @@ namespace PA.Helper.DataBase
     {
         public static string dataSource = "Data\\" + new XMLReader().ReadXML("数据库");
         public static string dbPassword = "";
+        private ReadBalanceSheet rs = new ReadBalanceSheet();
 
         public DBInitialize()
         {
@@ -30,12 +34,36 @@ namespace PA.Helper.DataBase
             conn.Close();
 
             DataBase db = new DataBase();
-            List<string> tableList = new List<string>();
-            tableList = getSqlList(Properties.Resources.DatabaseTable);
-            db.BatchOperate(tableList);
-            tableList.Clear();
-            tableList = getSqlList(Properties.Resources.DatabaseData);
-            db.BatchOperate(tableList);
+            List<string> dataList = new List<string>();
+            dataList = getSqlList(Properties.Resources.DatabaseTable);
+            db.BatchOperate(dataList);
+            dataList.Clear();
+            dataList = getSqlList(Properties.Resources.DatabaseData);
+            db.BatchOperate(dataList);
+            dataList.Clear();
+            dataList = GetSubjectSqlList();
+            db.BatchOperate(dataList);
+        }
+        private List<string> GetSubjectSqlList()
+        {
+            List<string> list = new List<string>();
+            DirectoryInfo theFolder = new DirectoryInfo("Data\\科目");
+            int i = 0;
+            foreach (FileInfo newFile in theFolder.GetFiles())
+            {
+                List<Model_BalanceSheet> BalanceSheetDatas = new List<Model_BalanceSheet>();
+                BalanceSheetDatas = rs.Read(newFile.FullName);
+                string tableName = "T_SUBJECT" + i;
+                string table_Sql = "create table if not exists " + tableName + " as select * from t_subject where 1=0";
+                list.Add(table_Sql);
+                foreach (Model_BalanceSheet m in BalanceSheetDatas)
+                {
+                    string sql = "insert into " + tableName + "(subject_id,subject_type,subject_name) values ('" + m.Number + "'," + m.Type + ",'" + m.Name + "')";
+                    list.Add(sql);
+                }
+                i++;
+            }
+            return list;
         }
 
         public static SQLiteConnection getDBConnection()

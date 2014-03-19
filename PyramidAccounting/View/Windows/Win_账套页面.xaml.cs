@@ -26,6 +26,7 @@ namespace PA.View.Windows
         private DataBase db = new DataBase();
         private ComboBox_Common cc = new ComboBox_Common();
         private ViewModel_Books vb = new ViewModel_Books();
+        private Helper.XMLHelper.XMLReader xr = new Helper.XMLHelper.XMLReader();
         private PA.Helper.XMLHelper.XMLWriter xw = new Helper.XMLHelper.XMLWriter();
         public Win_账套页面()
         {
@@ -43,12 +44,12 @@ namespace PA.View.Windows
         }
         private void InitData()
         {
-            TextBox_公司.Text = new Helper.XMLHelper.XMLReader().ReadXML("公司");
+            TextBox_公司.Text = xr.ReadXML("公司");
             string date = DateTime.Now.ToString("yyyy-M-d");
             TextBox_year.Text = date.Split('-')[0];
             TextBox_期.Text = date.Split('-')[1];
             ComboBox_制度.ItemsSource = cc.GetComboBox_会计制度();
-            ComboBox_制度.SelectedIndex = 0;
+            ComboBox_制度.SelectedIndex = Convert.ToInt32(xr.ReadXML("会计制度"));
             ComboBox_money.ItemsSource = cc.GetComboBox_本位币();
             ComboBox_money.SelectedIndex = 0;
         }
@@ -106,6 +107,7 @@ namespace PA.View.Windows
             Model.DataGrid.Model_帐套 m = new Model.DataGrid.Model_帐套();
             m.ID = DateTime.Now.ToString("yyyyMMddHH");
             CommonInfo.账薄号 = m.ID;
+            CommonInfo.制度索引 = ComboBox_制度.SelectedIndex;
             m.帐套名称 = TextBox_账套名称.Text.Trim();
             m.单位名称 = TextBox_公司.Text.Trim();
             m.本位币 = ComboBox_money.Text.Trim();

@@ -33,7 +33,7 @@ namespace PA.Helper.DataDefind
 
         public static string T_SUBJECT
         {
-            get { return DBTablesName.t_SUBJECT + CommonInfo.账薄号; }
+            get { return DBTablesName.t_SUBJECT + CommonInfo.制度索引; }
         }
 
         public static string T_SUBJECT_TYPE

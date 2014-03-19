@@ -10,6 +10,16 @@ namespace PA.Helper.DataDefind
         private static string username;
         private static string realname;
         private static string authority;
+        private static int system_index;
+
+        /// <summary>
+        /// 012345 按会计制度下拉框索引值设定
+        /// </summary>
+        public static int 制度索引
+        {
+            get { return CommonInfo.system_index; }
+            set { CommonInfo.system_index = value; }
+        }
 
         public static string 用户权限
         {
@@ -36,6 +46,5 @@ namespace PA.Helper.DataDefind
             get { return CommonInfo.bookid; }
             set { CommonInfo.bookid = value; }
         }
-
     }
 }

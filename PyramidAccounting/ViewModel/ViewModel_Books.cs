@@ -26,13 +26,12 @@ namespace PA.ViewModel
             sqlList.Add(sql);
             sql = "create table " + DBTablesName.T_VOUCHER_DETAIL + " as select * from  t_voucher_detail  where 1=0";
             sqlList.Add(sql);
-            sql = "create table " + DBTablesName.T_SUBJECT + " as select * from  t_subject";
-            sqlList.Add(sql);
             sql = "create table " + DBTablesName.T_RECORD + " as select * from  t_record where 1=0";
             sqlList.Add(sql);
             db.BatchOperate(sqlList);
             
         }
+
         /// <summary>
         /// 判断当前帐套是否存在
         /// </summary>
