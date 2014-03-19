@@ -310,7 +310,9 @@
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <None Include="app.config" />
-    <None Include="Data\记账凭证.xls" />
+    <None Include="Data\打印模板\记账凭证.xls">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Include="Data\资产负债表\资产负债表-行政.xls">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
@@ -338,7 +340,6 @@
     <Resource Include="View\Images\Logo\Pyramid_Logo_white_128x128.ico" />
     <Resource Include="View\Images\Logo\Pyramid_Logo_white_128x128.png" />
     <Resource Include="Docs\Readme.txt" />
-    <Resource Include="Data\Readme.txt" />
     <None Include="Docs\dotNetFx40_Full_setup.exe">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
