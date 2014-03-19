@@ -27,7 +27,7 @@ namespace PA.View.Pages.TwoTabControl
         {
             InitializeComponent();
             TextBlock_编制单位.Text = new PA.Helper.XMLHelper.XMLReader().ReadXML("公司");   //程序启动后加载当前公司名称
-            this.DataGrid_资产负债表.ItemsSource = new ViewModel.ViewModel_ReportManager().GetAccountDebt();
+            //this.DataGrid_资产负债表.ItemsSource = new ViewModel.ViewModel_ReportManager().GetAccountDebt();
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)

@@ -11,6 +11,7 @@ namespace PA.ViewModel
 {
     class ViewModel_ReportManager
     {
+        /*
         /// <summary>
         /// 模型 后改数据库查询获取 并填充到页面
         /// </summary>
@@ -127,6 +128,6 @@ namespace PA.ViewModel
                 list.Add(m);
             }
             return list;
-        }
+        }*/
     }
 }
