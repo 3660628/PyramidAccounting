@@ -15,11 +15,11 @@ namespace PA.Helper.ExcelHelper
     /// </summary>
     class ReadBalanceSheet
     {
-        public List<Model_BalanceSheet> Read(string filepath, string sheetname)
+        public List<Model_BalanceSheet> Read(string filepath)
         {
             //debug
-            filepath = AppDomain.CurrentDomain.BaseDirectory + "Data\\资产负债表\\资产负债表-行政.xls";
-            sheetname = "1997";
+            //filepath = AppDomain.CurrentDomain.BaseDirectory + "Data\\资产负债表\\资产负债表-行政.xls";
+            string sheetname = "科目";
 
             List<Model_BalanceSheet> BalanceSheetDatas = new List<Model_BalanceSheet>();
             Model_BalanceSheet BalanceSheetData = new Model_BalanceSheet();
