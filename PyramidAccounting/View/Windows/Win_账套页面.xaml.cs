@@ -119,7 +119,7 @@ namespace PA.View.Windows
             //修改下次启动时帐套的显示
             xw.WriteXML("帐套信息", m.帐套名称);
             xw.WriteXML("公司",TextBox_公司.Text.Trim());
-            xw.WriteXML("会计制度", ComboBox_制度.Text.ToString());
+            xw.WriteXML("会计制度", ComboBox_制度.SelectedIndex.ToString());
 
 
             new ViewModel_Books().Insert(lm);  //执行插入

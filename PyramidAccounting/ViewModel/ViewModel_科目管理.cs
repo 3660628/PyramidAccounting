@@ -15,19 +15,19 @@ namespace PA.ViewModel
         DataBase db = new DataBase();
         public List<Model_科目管理> GetSujectData(int type)
         {
-            string sql = "select * from " + DBTablesName.T_SUBJECT + " where subject_type=" + type + " order by id,used_mark";
+            string sql = "select a.fee,b.* from t_year_fee a left join " + DBTablesName.T_SUBJECT + " b on a.subject_id=b.subject_id where a.bookid='" + CommonInfo.账薄号 + "' and b.subject_type=" + type + " order by b.id,b.used_mark";
             DataTable dt = db.Query(sql).Tables[0];
             List<Model_科目管理> list = new List<Model_科目管理>();
             for (int i = 0; i < dt.Rows.Count; i++)
             {
                 Model_科目管理 m = new Model_科目管理();
                 DataRow d = dt.Rows[i];
-                m.ID = Convert.ToInt32(d[0].ToString());
-                m.序号 = d[1].ToString();
-                m.科目编号 = d[2].ToString();
-                m.科目名称 = d[4].ToString();
-                m.年初金额 = d[5].ToString();
-                m.Used_mark = Convert.ToInt32(d[7].ToString());
+                m.ID = Convert.ToInt32(d[1].ToString());
+                m.序号 = "" + (i + 1);
+                m.科目编号 = d[3].ToString();
+                m.科目名称 = d[5].ToString();
+                m.年初金额 = d[0].ToString();
+                m.Used_mark = Convert.ToInt32(d[8].ToString());
                 m.是否启用 = m.Used_mark == 0 ? true : false;
                 list.Add(m);
             }
