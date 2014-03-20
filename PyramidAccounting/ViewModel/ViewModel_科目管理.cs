@@ -66,7 +66,7 @@ namespace PA.ViewModel
        
         public void UpdateUsedMark(Model_科目管理 m)
         {
-            string sql = "update " + DBTablesName.T_SUBJECT + " set used_key=" + m.Used_mark + " where id=" + m.ID;
+            string sql = "update " + DBTablesName.T_SUBJECT + " set used_mark=" + m.Used_mark + " where id=" + m.ID;
             db.Excute(sql);
         }
 
