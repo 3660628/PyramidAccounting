@@ -8,7 +8,7 @@ namespace PA.Model.DataGrid
     class Model_年初金额
     {
         private string subject_id;
-        private decimal fee;
+        private string fee;
         private string bookid;
 
         public string 账套ID
@@ -17,7 +17,7 @@ namespace PA.Model.DataGrid
             set { bookid = value; }
         }
 
-        public decimal 年初金额
+        public string 年初金额
         {
             get { return fee; }
             set { fee = value; }

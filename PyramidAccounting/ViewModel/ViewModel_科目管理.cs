@@ -63,51 +63,11 @@ namespace PA.ViewModel
             }
             return list;
         }
-        public bool IsSaved()
-        {
-            bool flag = false;
-            string sql = "select sum(fee) from " + DBTablesName.T_YEAR_FEE + " where bookid='" + CommonInfo.账薄号 + "'";
-            string str = db.GetAllData(sql).Split('\t')[0];
-            if (str.Equals(","))
-            {
-                return false;
-            }
-            else
-            {
-                    flag = true;
-            }
-            return flag;
-        }
-        public void Update(List<Model_科目管理> list)
-        {
-            List<UpdateParm> upList = new List<UpdateParm>();
-            foreach (Model_科目管理 m in list)
-            {
-                UpdateParm up = new UpdateParm();
-                up.TableName = DBTablesName.T_SUBJECT;
-                up.Key = "fee";
-                up.Value = m.年初金额;
-                up.WhereParm = "id=" + m.ID;
-                upList.Add(up);
-                UpdateParm up2 = new UpdateParm();
-                up2.TableName = DBTablesName.T_SUBJECT;
-                up2.Key = "used_mark";
-                up2.Value = m.Used_mark.ToString();
-                up2.WhereParm = "id=" + m.ID;
-                upList.Add(up2);
-            }
-            db.UpdatePackage(upList);
-        }
+       
         public void UpdateUsedMark(Model_科目管理 m)
         {
-            List<UpdateParm> upList = new List<UpdateParm>();
-            UpdateParm up2 = new UpdateParm();
-            up2.TableName = DBTablesName.T_SUBJECT;
-            up2.Key = "used_mark";
-            up2.Value = m.Used_mark.ToString();
-            up2.WhereParm = "id=" + m.ID;
-            upList.Add(up2);
-            db.UpdatePackage(upList);
+            string sql = "update " + DBTablesName.T_SUBJECT + " set used_key=" + m.Used_mark + " where id=" + m.ID;
+            db.Excute(sql);
         }
 
         public void UpdateChildSubject(Model_科目管理 m)

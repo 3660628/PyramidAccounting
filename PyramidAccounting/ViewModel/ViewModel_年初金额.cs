@@ -30,5 +30,37 @@ namespace PA.ViewModel
             db.BatchOperate(sqlList);
         }
 
+        public void Update(List<Model_科目管理> list)
+        {
+            List<string> sqlList = new List<string>();
+            foreach (Model_科目管理 m in list)
+            {
+                Model_年初金额 mm = new Model_年初金额();
+
+                //映射相等
+                mm.科目编号 = m.科目编号;
+                mm.年初金额 = m.年初金额;
+
+                string sql = "update " + DBTablesName.T_YEAR_FEE + " set fee='" + mm.年初金额 + "' where bookid='" + CommonInfo.账薄号 + "'";
+                sqlList.Add(sql);
+            }
+            db.BatchOperate(sqlList);
+        }
+
+        public bool IsSaved()
+        {
+            bool flag = false;
+            string sql = "select sum(fee) from " + DBTablesName.T_YEAR_FEE + " where bookid='" + CommonInfo.账薄号 + "'";
+            string str = db.GetAllData(sql).Split('\t')[0];
+            if (str.Equals(","))
+            {
+                return false;
+            }
+            else
+            {
+                flag = true;
+            }
+            return flag;
+        }
     }
 }

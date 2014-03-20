@@ -64,14 +64,14 @@
                             <Setter TargetName="ForegroundPanel" Property="Background" Value="#46A3FF" />
                             <Trigger.EnterActions>
                                 <BeginStoryboard x:Name="BeginStoryboardCheckedTrue" Storyboard="{StaticResource StoryboardIsChecked}" />
-                                <RemoveStoryboard BeginStoryboardName="BeginStoryboardCheckedFalse" />
+                                <StopStoryboard BeginStoryboardName="BeginStoryboardCheckedFalse" />
                             </Trigger.EnterActions>
                         </Trigger>
                         <Trigger Property="IsChecked" Value="False">
                             <Setter TargetName="ForegroundPanel" Property="Background" Value="#9D9D9D" />
                             <Trigger.EnterActions>
                                 <BeginStoryboard x:Name="BeginStoryboardCheckedFalse" Storyboard="{StaticResource StoryboardIsCheckedOff}" />
-                                <RemoveStoryboard BeginStoryboardName="BeginStoryboardCheckedTrue" />
+                                <StopStoryboard BeginStoryboardName="BeginStoryboardCheckedTrue" />
                             </Trigger.EnterActions>
                         </Trigger>
                     </ControlTemplate.Triggers>
