@@ -53,39 +53,7 @@ namespace PA.View.Windows
             ComboBox_money.ItemsSource = cc.GetComboBox_本位币();
             ComboBox_money.SelectedIndex = 0;
         }
-        /// <summary>
-        /// 校验方法
-        /// </summary>
-        /// <returns>校验结果</returns>
-        private bool Validate()
-        {
-            if (vb.IsBookNameExist(TextBox_账套名称.Text.Trim()))
-            {
-                MessageBox.Show("当前填写帐套名称已存在数据库中，请核对！");
-                TextBox_账套名称.Focus();
-                return false;
-            }
-            if (string.IsNullOrEmpty(TextBox_公司.Text.Trim()))
-            {
-                MessageBox.Show("单位名称将作为报表必填项，请填写！");
-                TextBox_公司.Focus();
-                return false;
-            }
-            if (string.IsNullOrEmpty(TextBox_year.Text.Trim()) || string.IsNullOrEmpty(TextBox_期.Text.Trim()))
-            {
-                MessageBox.Show("当前检测到启用期间未填写完成，请填写后继续！");
-                if (string.IsNullOrEmpty(TextBox_year.Text.Trim()))
-                {
-                    TextBox_year.Focus();
-                }
-                else if (string.IsNullOrEmpty(TextBox_期.Text.Trim()))
-                {
-                    TextBox_期.Focus();
-                }
-                return false;
-            }
-            return true;
-        }
+        
         #region Button事件
         private void Button_Min_Click(object sender, RoutedEventArgs e)
         {
@@ -136,7 +104,6 @@ namespace PA.View.Windows
             new PA.Win_SignIn(this.Left, this.Top).Show();
             this.Close();
         }
-        #endregion
 
         private void Window_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
@@ -145,5 +112,89 @@ namespace PA.View.Windows
                 this.DragMove();
             }
         }
+        #endregion
+        #region 页面验证
+        private void TextBox_账套名称_LostKeyboardFocus(object sender, KeyboardFocusChangedEventArgs e)
+        {
+            string bookName = TextBox_账套名称.Text.Trim();
+            if (string.IsNullOrEmpty(bookName))
+            {
+                TextBlock_账套错误信息.Text = "当前填写账套名称为空，请填写！";
+                TextBox_账套名称.Focus();
+                return;
+            }
+            else
+            {
+                if (vb.IsBookNameExist(TextBox_账套名称.Text.Trim()))
+                {
+                    TextBlock_账套错误信息.Text = "当前填写帐套名称已存在数据库中，请修正！";
+                    TextBox_账套名称.Focus();
+                    return;
+                }
+                else
+                {
+                    TextBlock_账套错误信息.Text = "";
+                }
+            }
+        }
+        private void TextBox_公司_LostKeyboardFocus(object sender, KeyboardFocusChangedEventArgs e)
+        {
+            if (string.IsNullOrEmpty(TextBox_公司.Text.Trim()))
+            {
+                TextBlock_公司错误信息.Text = "单位名称将作为报表必填项，请填写！";
+                TextBox_公司.Focus();
+                return;
+            }
+            else
+            {
+                TextBlock_公司错误信息.Text = "";
+            }
+        }
+        /// <summary>
+        /// 校验方法
+        /// </summary>
+        /// <returns>校验结果</returns>
+        private bool Validate()
+        {
+            string bookName = TextBox_账套名称.Text.Trim();
+            if (string.IsNullOrEmpty(bookName))
+            {
+                MessageBox.Show("当前账套名称为空，请核对！");
+                TextBox_账套名称.Focus();
+                return false;
+            }
+            else
+            {
+                if (vb.IsBookNameExist(TextBox_账套名称.Text.Trim()))
+                {
+                    MessageBox.Show("当前填写帐套名称已存在数据库中，请核对！");
+                    TextBox_账套名称.Focus();
+                    return false;
+                }
+            }
+            if (string.IsNullOrEmpty(TextBox_公司.Text.Trim()))
+            {
+                MessageBox.Show("单位名称将作为报表必填项，请填写！");
+                TextBox_公司.Focus();
+                return false;
+            }
+            if (string.IsNullOrEmpty(TextBox_year.Text.Trim()) || string.IsNullOrEmpty(TextBox_期.Text.Trim()))
+            {
+                MessageBox.Show("当前检测到启用期间未填写完成，请填写后继续！");
+                if (string.IsNullOrEmpty(TextBox_year.Text.Trim()))
+                {
+                    TextBox_year.Focus();
+                }
+                else if (string.IsNullOrEmpty(TextBox_期.Text.Trim()))
+                {
+                    TextBox_期.Focus();
+                }
+                return false;
+            }
+            return true;
+        }
+        #endregion
+
+        
     }
 }
