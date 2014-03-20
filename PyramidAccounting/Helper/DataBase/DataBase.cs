@@ -245,31 +245,6 @@ namespace PA.Helper.DataBase
                         }
                         #endregion
                         break;
-                    case "T_SUBJECT":
-                        #region T_SUBJECT
-                        sql = PA.Helper.DataDefind.SqlString.Insert_T_SUBJECT;
-                        List<Model_科目管理> 科目管理List = Values.OfType<Model_科目管理>().ToList();
-                        foreach (Model_科目管理 list in 科目管理List)
-                        {
-                            SQLiteCommand cmd = new SQLiteCommand();
-                            cmd.CommandText = sql;
-                            cmd.Parameters.AddWithValue("@SID", list.序号);
-                            cmd.Parameters.AddWithValue("@SUBJECT_ID", list.科目编号);
-                            cmd.Parameters.AddWithValue("@SUBJECT_TYPE", list.类别);
-                            cmd.Parameters.AddWithValue("@SUBJECT_NAME", list.科目名称);
-                            cmd.Parameters.AddWithValue("@PARENT_ID", list.父ID);
-                            cmd.Parameters.AddWithValue("@USED_MARK", list.是否启用);
-                            cmd.Connection = conn;
-                            cmd.ExecuteNonQuery();
-                        }
-                        #endregion
-                        break;
-                    case "T_SUBJECT_TYPE":
-                        #region T_SUBJECT_TYPE
-
-
-                        #endregion
-                        break;
                     case "T_USER":
                         #region T_USER
                         sql = PA.Helper.DataDefind.SqlString.Insert_T_USER;
@@ -301,6 +276,25 @@ namespace PA.Helper.DataBase
                     #region T_YEAR_FEE
 
                     #endregion
+                        break;
+                    default:   //科目管理
+                        #region T_SUBJECT
+                        sql = PA.Helper.DataDefind.SqlString.Insert_T_SUBJECT;
+                        List<Model_科目管理> 科目管理List = Values.OfType<Model_科目管理>().ToList();
+                        foreach (Model_科目管理 list in 科目管理List)
+                        {
+                            SQLiteCommand cmd = new SQLiteCommand();
+                            cmd.CommandText = sql;
+                            cmd.Parameters.AddWithValue("@SID", list.序号);
+                            cmd.Parameters.AddWithValue("@SUBJECT_ID", list.科目编号);
+                            cmd.Parameters.AddWithValue("@SUBJECT_TYPE", list.类别);
+                            cmd.Parameters.AddWithValue("@SUBJECT_NAME", list.科目名称);
+                            cmd.Parameters.AddWithValue("@PARENT_ID", list.父ID);
+                            cmd.Parameters.AddWithValue("@USED_MARK", list.是否启用);
+                            cmd.Connection = conn;
+                            cmd.ExecuteNonQuery();
+                        }
+                        #endregion
                         break;
                 }
                 strans.Commit();
