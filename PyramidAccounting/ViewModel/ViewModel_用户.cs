@@ -129,7 +129,7 @@ namespace PA.ViewModel
 
         public bool ValidateUserName(string username)
         {
-            sql = "select 1 from t_user where username='" + username +"' and delete_mark=0";
+            sql = "select 1 from " + DBTablesName.T_USER + " where username='" + username + "' and delete_mark=0";
             return db.IsExist(sql);
         }
     }

@@ -5,6 +5,7 @@ using System.Text;
 using PA.Model.DataGrid;
 using PA.ViewModel;
 using PA.Helper.DataBase;
+using PA.Helper.DataDefind;
 
 namespace PA.ViewModel
 {
@@ -23,7 +24,7 @@ namespace PA.ViewModel
             List<string> sqlList = new List<string>();
             foreach (Model_科目管理 m in list)
             {
-                string sql = "insert into t_yearfee(subject_id,bookid) values('" + m.科目编号 + "','" + bookid + "')";
+                string sql = "insert into " + DBTablesName.T_YEAR_FEE + "(subject_id,bookid) values('" + m.科目编号 + "','" + bookid + "')";
                 sqlList.Add(sql);
             }
             db.BatchOperate(sqlList);
