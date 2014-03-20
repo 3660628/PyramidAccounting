@@ -1,4 +1,4 @@
-﻿INSERT INTO t_subject_type
+﻿INSERT INTO t_subjecttype
 VALUES
 	(999, '未知'),
 	(1, '一、资产类'),
