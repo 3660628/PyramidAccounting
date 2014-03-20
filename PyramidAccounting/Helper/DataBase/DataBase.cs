@@ -268,7 +268,20 @@ namespace PA.Helper.DataBase
                         break;
                     case "T_RECORD":
                         #region T_RECORD
-
+                        sql = PA.Helper.DataDefind.SqlString.Insert_T_RECORD;
+                        List<Model_操作日志> 记录List = Values.OfType<Model_操作日志>().ToList();
+                        foreach (Model_操作日志 list in 记录List)
+                        {
+                            SQLiteCommand cmd = new SQLiteCommand();
+                            cmd.CommandText = sql;
+                            cmd.Parameters.AddWithValue("@OP_TIME", list.日期);
+                            cmd.Parameters.AddWithValue("@USERNAME", list.用户名);
+                            cmd.Parameters.AddWithValue("@REALNAME", list.姓名);
+                            cmd.Parameters.AddWithValue("@OP_TYPE", list.操作类型);
+                            cmd.Parameters.AddWithValue("@LOG", list.日志);
+                            cmd.Connection = conn;
+                            cmd.ExecuteNonQuery();
+                        }
 
                         #endregion
                         break;
