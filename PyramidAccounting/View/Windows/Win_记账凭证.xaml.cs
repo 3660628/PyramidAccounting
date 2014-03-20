@@ -83,15 +83,16 @@ namespace PA.View.Windows
         /// <returns></returns>
         private Model_凭证单 GetData()
         {
-            Voucher.凭证号 = this.TextBox_号.Text.Trim();
+            Voucher.ID = Guid.NewGuid();
+            Console.WriteLine(Voucher.ID);
             Voucher.审核标志 = (this.Label_审核状态.Content.ToString() == "已审核") ? 1 : 0;
             Voucher.制表时间 = (DateTime)this.DatePicker_Date.SelectedDate;
-            //Voucher.字 = this.ComboBox_总收付转.Text;
             Voucher.号 = int.Parse(this.TextBox_号.Text.Trim());
             VoucherDetails = this.DataGrid_凭证明细.ItemsSource as List<Model_凭证明细>;
             foreach (Model_凭证明细 Detail in VoucherDetails)
             {
-                Detail.父节点ID = Voucher.凭证号;
+                Detail.父节点ID = Voucher.ID;
+                Detail.凭证号 = this.TextBox_号.Text.Trim();
             }
             Voucher.附属单证数 = int.Parse(this.TextBox_附属单证.Text.Trim());
             Voucher.合计借方金额 = decimal.Parse(this.Label_借方合计.Content.ToString());
@@ -279,7 +280,7 @@ namespace PA.View.Windows
 
         private void Button_NewDataGrid_Click(object sender, RoutedEventArgs e)
         {
-
+            
         }
     }
 }

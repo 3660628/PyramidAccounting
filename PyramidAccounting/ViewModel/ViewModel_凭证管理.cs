@@ -11,7 +11,7 @@ namespace PA.ViewModel
     class ViewModel_凭证管理
     {
         private string DateFormat = "yyyy-MM-dd";
-        private string  LastVOUCHER_NO = "";
+        private Guid  LastID = Guid.Empty;
         private Model_凭证管理 LastData = new Model_凭证管理();
 
         public List<Model_凭证管理> GetData(string whereParm)
@@ -19,7 +19,7 @@ namespace PA.ViewModel
             List<Model_凭证管理> datas = new List<Model_凭证管理>();
             string sql = "SELECT "
                             + "voucher.ID,"
-                            + "voucher.VOUCHER_NO,"
+                            + "detail.VOUCHER_NO,"
                             + "voucher.OP_TIME,"
                             + "detail.ABSTRACT,"
                             + "detail.SUBJECT_ID,"
@@ -32,39 +32,40 @@ namespace PA.ViewModel
                             + DBTablesName.T_VOUCHER + " voucher,"
                             + DBTablesName.T_VOUCHER_DETAIL + " detail"
                         + " WHERE "
-                            + "voucher.VOUCHER_NO = detail.PARENTID " + whereParm
+                            + "voucher.ID = detail.PARENTID " + whereParm
                         + " ORDER BY "
                             + "detail.id";
             DataSet ds = new PA.Helper.DataBase.DataBase().Query(sql);
             foreach (DataRow dr in ds.Tables[0].Rows)
             {
-                if (LastVOUCHER_NO != dr[1].ToString()) //新凭证
+                if (LastID != Guid.Parse(dr[0].ToString())) //新凭证
                 {
-                    if (LastVOUCHER_NO != "")
+                    if (LastID != Guid.Empty)
                     {
                         datas.Add(LastData);
                     }
-                    LastVOUCHER_NO = dr[1].ToString();
+                    LastID = Guid.Parse(dr[0].ToString());
                     Model_凭证管理 data = new Model_凭证管理();
                     LastData = data;
-                    LastData.ID = int.Parse(dr[0].ToString());
+                    LastData.ID = Guid.Parse( dr[0].ToString()) ;
                     LastData.凭证号 = dr[1].ToString();
                     LastData.制表时间 = Convert.ToDateTime(dr[2]).ToString(DateFormat);
                     LastData.摘要 = dr[3].ToString();
                     LastData.科目编号 = dr[4].ToString() + "-" + dr[5].ToString();
                     LastData.科目名称 = dr[5].ToString();
-                    LastData.借方金额 = (dr[6].ToString() == "0") ? "" : dr[5].ToString();
-                    LastData.贷方金额 = (dr[7].ToString() == "0") ? "" : dr[6].ToString();
+                    LastData.借方金额 = (dr[6].ToString() == "0") ? "" : dr[6].ToString();
+                    LastData.贷方金额 = (dr[7].ToString() == "0") ? "" : dr[7].ToString();
                     LastData.当前期数 = dr[8].ToString();
                     LastData.审核状态 = dr[9].ToString();
                 }
                 else //旧凭证
                 {
-                    LastData.摘要 += "\n" + dr[2].ToString();
-                    LastData.科目编号 += "\n" + dr[3].ToString() + "-" + dr[4].ToString();
-                    LastData.科目名称 += "\n" + dr[4].ToString();
-                    LastData.借方金额 += "\n" + ((dr[5].ToString() == "0") ? "" : dr[5].ToString());
-                    LastData.贷方金额 += "\n" + ((dr[6].ToString() == "0") ? "" : dr[6].ToString());
+                    LastData.凭证号 += "\n" + dr[1].ToString();
+                    LastData.摘要 += "\n" + dr[3].ToString();
+                    LastData.科目编号 += "\n" + dr[4].ToString() + "-" + dr[5].ToString();
+                    LastData.科目名称 += "\n" + dr[5].ToString();
+                    LastData.借方金额 += "\n" + ((dr[6].ToString() == "0") ? "" : dr[6].ToString());
+                    LastData.贷方金额 += "\n" + ((dr[7].ToString() == "0") ? "" : dr[7].ToString());
                 }
             }
             if (ds.Tables[0].Rows.Count != 0)
@@ -90,7 +91,7 @@ namespace PA.ViewModel
             new PA.Helper.DataBase.DataBase().InsertPackage(DBTablesName.T_VOUCHER_DETAIL, NewVoucherDetails.OfType<object>().ToList());
         }
 
-        public void Review(int id)
+        public void Review(Guid id)
         {
             string sql = "update "+DBTablesName.T_VOUCHER+" set review_mark=1 where id="+id;
             List<string> asd = new List<string>();

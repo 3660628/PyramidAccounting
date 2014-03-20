@@ -1,6 +1,5 @@
 ﻿CREATE TABLE T_VOUCHER (								--凭证表
-    ID                INTEGER  PRIMARY KEY,             --凭证ID
-    VOUCHER_NO        TEXT,								--凭证号
+    ID                GUID  PRIMARY KEY,				--凭证ID
     OP_TIME           DATETIME,							--制表时间
     WORD              TEXT,								--字
     NUMBER            INTEGER,							--号
@@ -16,7 +15,8 @@
 CREATE TABLE T_VOUCHERDETAIL (							--凭证明细表
     ID            INTEGER PRIMARY KEY,					--ID
 	VID			  INTEGER,								--序号，记录当前第几条
-    PARENTID      TEXT,									--父节ID，与凭证表VOUCHER_NO相等
+    PARENTID      GUID,									--父节ID，与凭证表ID相等
+	VOUCHER_NO    TEXT,									--凭证号
     ABSTRACT      TEXT,									--摘要
     SUBJECT_ID    TEXT,									--科目编号
     DETAIL        TEXT,									--子细目

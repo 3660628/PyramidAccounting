@@ -7,9 +7,9 @@ namespace PA.Model.DataGrid
 {
     class Model_凭证管理
     {
-        private int id;
+        private Guid id;
 
-        public int ID
+        public Guid ID
         {
             get { return id; }
             set { id = value; }

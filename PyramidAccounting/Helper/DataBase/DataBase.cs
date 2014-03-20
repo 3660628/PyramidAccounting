@@ -211,7 +211,7 @@ namespace PA.Helper.DataBase
                         {
                             SQLiteCommand cmd = new SQLiteCommand();
                             cmd.CommandText = sql;
-                            cmd.Parameters.AddWithValue("@VOUCHER_NO", list.凭证号);
+                            cmd.Parameters.AddWithValue("@ID", list.ID);
                             cmd.Parameters.AddWithValue("@OP_TIME", list.制表时间);
                             cmd.Parameters.AddWithValue("@WORD", list.字);
                             cmd.Parameters.AddWithValue("@NUMBER", list.号);
@@ -238,6 +238,7 @@ namespace PA.Helper.DataBase
                             cmd.CommandText = sql;
                             cmd.Parameters.AddWithValue("@VID", list.序号);
                             cmd.Parameters.AddWithValue("@PARENTID", list.父节点ID);
+                            cmd.Parameters.AddWithValue("@VOUCHER_NO", list.凭证号);
                             cmd.Parameters.AddWithValue("@ABSTRACT", list.摘要);
                             cmd.Parameters.AddWithValue("@SUBJECT_ID", list.科目编号);
                             cmd.Parameters.AddWithValue("@DETAIL", list.子细目);
