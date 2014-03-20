@@ -22,12 +22,12 @@ namespace PA.View.Windows
     {
         public event Win_记账凭证_Submit ESubmit;
         Model_凭证单 Voucher = new Model_凭证单();
-        List<Model_凭证明细> VoucherDetails = new List<Model_凭证明细>();
-        List<Model_凭证明细> VoucherDetailsNow = new List<Model_凭证明细>();
+        List<Model_凭证明细> VoucherDetails = new List<Model_凭证明细>();//所有DataGrid数据集合
+        List<Model_凭证明细> VoucherDetailsNow = new List<Model_凭证明细>();//当前DataGrid的数据
         private int CellId;
 
-        private int PageNow = 1;
-        private int PageAll = 1;
+        private int PageNow = 1;//当前页面
+        private int PageAll = 1;//所有页面
 
         public Win_记账凭证()
         {

@@ -110,15 +110,14 @@ namespace PA
                 }
                 else
                 {
-                    MainWindow mw = new MainWindow();
-                    mw.Show();
                     //这里写日志信息
                     mr.操作类型 = "登录";
                     mr.日志 = "进入了账套：" + bookname;
                     new ViewModel_操作日志().Insert(mr);
 
                     xw.WriteXML("帐套信息", bookname);
-                    xw.WriteXML("公司", new ViewModel_Books().GetCompanyName(id));
+                    MainWindow mw = new MainWindow();
+                    mw.Show();
                     this.Close();
                 }
             }
