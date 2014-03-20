@@ -28,8 +28,8 @@ namespace PA.Helper.DataDefind
         private static readonly string insert_T_USER = "insert into @T_USER(USERNAME,REALNAME,PASSWORD,PHONE_NO,AUTHORITY,CREATE_TIME,COMMENTS) "
             + "values(@USERNAME, @REALNAME, @PASSWORD, @PHONE_NO, @AUTHORITY,@CREATE_TIME,@COMMENTS)";
 
-        private static readonly string insert_T_RECORD = "insert into @T_RECORD(OP_TIME,USERNAME,REALNAME,OP_TYPE,LOG) "
-            + "values(@OP_TIME, @USERNAME, @REALNAME, @OP_TYPE, @LOG)";
+        private static readonly string insert_T_RECORD = "insert into @T_RECORD(OP_TIME,USERNAME,REALNAME,LOG) "
+            + "values(@OP_TIME, @USERNAME, @REALNAME, @LOG)";
 
         private static readonly string insert_T_YEAR_FEE = "insert into T_YEAR_FEE(SUBJECT_ID,FEE,BOOKID) "
             + "values(@SUBJECT_ID, @FEE, @BOOKID)";

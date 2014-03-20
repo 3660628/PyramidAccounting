@@ -12,7 +12,6 @@ namespace PA.Model.DataGrid
         private string op_time;
         private string username;
         private string realname;
-        private string op_type;
         private string log;
 
         public string 日期
@@ -24,12 +23,6 @@ namespace PA.Model.DataGrid
         {
             get { return log; }
             set { log = value; }
-        }
-
-        public string 操作类型
-        {
-            get { return op_type; }
-            set { op_type = value; }
         }
 
         public string 姓名

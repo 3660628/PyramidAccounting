@@ -38,6 +38,5 @@ CREATE TABLE T_RECORD (									--操作日志表
     OP_TIME     DATETIME,								--日期
     USERNAME    TEXT,									--用户名
     REALNAME    TEXT,									--姓名
-    OP_TYPE     TEXT,									--操作类型
     LOG         TEXT									--日志
 );

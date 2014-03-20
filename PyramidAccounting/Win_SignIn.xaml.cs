@@ -111,8 +111,7 @@ namespace PA
                 else
                 {
                     //这里写日志信息
-                    mr.操作类型 = "登录";
-                    mr.日志 = "进入了账套：" + bookname;
+                    mr.日志 = "登录了账套：" + bookname;
                     new ViewModel_操作日志().Insert(mr);
 
                     xw.WriteXML("帐套信息", bookname);

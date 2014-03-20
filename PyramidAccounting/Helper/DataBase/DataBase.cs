@@ -281,7 +281,6 @@ namespace PA.Helper.DataBase
                             cmd.Parameters.AddWithValue("@OP_TIME", list.日期);
                             cmd.Parameters.AddWithValue("@USERNAME", list.用户名);
                             cmd.Parameters.AddWithValue("@REALNAME", list.姓名);
-                            cmd.Parameters.AddWithValue("@OP_TYPE", list.操作类型);
                             cmd.Parameters.AddWithValue("@LOG", list.日志);
                             cmd.Connection = conn;
                             cmd.ExecuteNonQuery();
