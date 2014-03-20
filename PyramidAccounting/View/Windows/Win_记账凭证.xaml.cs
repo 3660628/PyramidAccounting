@@ -84,7 +84,6 @@ namespace PA.View.Windows
         private Model_凭证单 GetData()
         {
             Voucher.ID = Guid.NewGuid();
-            Console.WriteLine(Voucher.ID);
             Voucher.审核标志 = (this.Label_审核状态.Content.ToString() == "已审核") ? 1 : 0;
             Voucher.制表时间 = (DateTime)this.DatePicker_Date.SelectedDate;
             Voucher.号 = int.Parse(this.TextBox_号.Text.Trim());

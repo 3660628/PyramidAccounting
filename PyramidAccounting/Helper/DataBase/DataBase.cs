@@ -225,6 +225,7 @@ namespace PA.Helper.DataBase
                             cmd.Parameters.AddWithValue("@DELETE_MARK", list.删除标志);
                             cmd.Connection = conn;
                             cmd.ExecuteNonQuery();
+                            Console.WriteLine(list.ID);
                         }
                         #endregion
                         break;
