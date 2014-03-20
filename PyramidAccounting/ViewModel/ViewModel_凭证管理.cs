@@ -14,7 +14,7 @@ namespace PA.ViewModel
         private string  LastVOUCHER_NO = "";
         private Model_凭证管理 LastData = new Model_凭证管理();
 
-        public List<Model_凭证管理> GetData()
+        public List<Model_凭证管理> GetData(string whereParm)
         {
             List<Model_凭证管理> datas = new List<Model_凭证管理>();
             string sql = "SELECT "
@@ -31,7 +31,7 @@ namespace PA.ViewModel
                             + DBTablesName.T_VOUCHER + " voucher,"
                             + DBTablesName.T_VOUCHER_DETAIL + " detail"
                         + " WHERE "
-                            + "voucher.VOUCHER_NO = detail.PARENTID"
+                            + "voucher.VOUCHER_NO = detail.PARENTID " + whereParm
                         + " ORDER BY "
                             + "detail.id";
             DataSet ds = new PA.Helper.DataBase.DataBase().Query(sql);

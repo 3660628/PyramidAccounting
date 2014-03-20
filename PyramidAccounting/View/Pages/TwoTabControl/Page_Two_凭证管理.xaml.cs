@@ -47,7 +47,7 @@ namespace PA.View.Pages.TwoTabControl
         }
         private void ReflashData_Tab1()
         {
-            Data_本期凭证 = new PA.ViewModel.ViewModel_凭证管理().GetData();
+            Data_本期凭证 = new PA.ViewModel.ViewModel_凭证管理().GetData("");
             this.DataGrid_本期凭证.ItemsSource = Data_本期凭证;
         }
         private void Button_Add_Click(object sender, RoutedEventArgs e)
