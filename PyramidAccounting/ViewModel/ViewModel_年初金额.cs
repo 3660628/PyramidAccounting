@@ -23,7 +23,7 @@ namespace PA.ViewModel
             List<string> sqlList = new List<string>();
             foreach (Model_科目管理 m in list)
             {
-                string sql = "insert into t_year_fee(subject_id,bookid) values('" + m.科目编号 + "','" + bookid + "')";
+                string sql = "insert into t_yearfee(subject_id,bookid) values('" + m.科目编号 + "','" + bookid + "')";
                 sqlList.Add(sql);
             }
             db.BatchOperate(sqlList);

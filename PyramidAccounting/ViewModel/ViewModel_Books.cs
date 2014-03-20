@@ -25,7 +25,7 @@ namespace PA.ViewModel
             db.InsertPackage(DBTablesName.T_BOOKS, list.OfType<object>().ToList());
             sql = sr.ReadSQL(0, "T_VOUCHER", DBTablesName.T_VOUCHER);
             sqlList.Add(sql);
-            sql = sr.ReadSQL(1, "T_VOUCHER_DETAIL", DBTablesName.T_VOUCHER_DETAIL);
+            sql = sr.ReadSQL(1, "T_VOUCHERDETAIL", DBTablesName.T_VOUCHER_DETAIL);
             sqlList.Add(sql);
             sql = sr.ReadSQL(3, "T_RECORD", DBTablesName.T_RECORD);
             sqlList.Add(sql);
