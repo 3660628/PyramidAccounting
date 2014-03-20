@@ -16,6 +16,7 @@ using PA.Helper.DataDefind;
 using PA.ViewModel;
 using PA.View.Windows;
 using PA.Helper.XMLHelper;
+using PA.Model.DataGrid;
 
 namespace PA
 {
@@ -48,6 +49,8 @@ namespace PA
             ComboBox_账套.SelectedValuePath = "ID";
             ComboBox_账套.Text = new XMLReader().ReadXML("帐套信息");
         }
+
+        #region Button事件
         private void Button_Min_Click(object sender, RoutedEventArgs e)
         {
             this.WindowState = System.Windows.WindowState.Minimized;
@@ -58,12 +61,24 @@ namespace PA
             this.Close();
         }
 
+        private void Window_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            if (e.LeftButton == MouseButtonState.Pressed)
+            {
+                this.DragMove();
+            }
+        }
+
         private void Button_登陆_Click(object sender, RoutedEventArgs e)
         {
+            string bookname = ComboBox_账套.Text.ToString();
             string  id = ComboBox_账套.SelectedValue.ToString();
             CommonInfo.账薄号 = id;
             string UserName = TextBox_登陆用户名.Text.Trim();
             string Password = Secure.TranslatePassword(PasswordBox_登陆密码.SecurePassword);
+
+            Model_操作日志 mr = new Model_操作日志();
+
             if (vm.ValidateAccount(UserName,Password))
             {
                 Model.DataGrid.Model_用户 m = new Model.DataGrid.Model_用户();
@@ -72,17 +87,36 @@ namespace PA
                 CommonInfo.用户名 = UserName;
                 CommonInfo.用户权限 = m.用户权限;
                 CommonInfo.制度索引 = Convert.ToInt32(new XMLReader().ReadXML("会计制度"));
+
+                //先记录一些信息
+                mr.用户名 = UserName;
+                mr.姓名 = m.真实姓名;
+                mr.日期 = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
+
                 if (ComboBox_账套.SelectedValue.ToString().Equals("0"))
                 {
-                    Win_账套页面 w = new Win_账套页面(this.Left, this.Top);
-                    w.Show();
-                    this.Close();
+                    if (m.权限 >= 2)
+                    {
+                        Win_账套页面 w = new Win_账套页面(this.Left, this.Top);
+                        w.Show();
+                        this.Close();
+                    }
+                    else
+                    {
+                        TextBlock_登陆警告信息.Text = "您的权限不够，无法新建账套！";
+                        return;
+                    }
                 }
                 else
                 {
                     MainWindow mw = new MainWindow();
                     mw.Show();
-                    xw.WriteXML("帐套信息", ComboBox_账套.Text.ToString());
+                    //这里写日志信息
+                    mr.操作类型 = "登录";
+                    mr.日志 = "进入了" + bookname;
+                    new ViewModel_操作日志().Insert(mr);
+
+                    xw.WriteXML("帐套信息", bookname);
                     xw.WriteXML("公司", new ViewModel_Books().GetCompanyName(id));
                     this.Close();
                 }
@@ -94,13 +128,6 @@ namespace PA
 
         }
 
-        private void Window_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
-        {
-            if (e.LeftButton == MouseButtonState.Pressed)
-            {
-                this.DragMove();
-            }
-        }
-
+        #endregion
     }
 }

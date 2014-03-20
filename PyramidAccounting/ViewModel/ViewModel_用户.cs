@@ -78,6 +78,7 @@ namespace PA.ViewModel
             DataRow d = ds.Tables[0].Rows[0];
             m.真实姓名 = d[2].ToString();
             m.用户权限 = RollbackAuthority(d[5].ToString());
+            m.权限 = Int32.Parse(d[5].ToString());
             m.用户说明 = d[7].ToString();
             return m;
         }
