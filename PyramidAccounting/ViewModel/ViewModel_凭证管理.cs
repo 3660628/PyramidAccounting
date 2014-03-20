@@ -22,7 +22,7 @@ namespace PA.ViewModel
                             + "voucher.OP_TIME,"
                             + "detail.ABSTRACT,"
                             + "detail.SUBJECT_ID,"
-                            + "'科目名称',"
+                            + "detail.DETAIL,"
                             + "detail.DEBIT,"
                             + "detail.CREDIT,"
                             + "'当前期数',"
@@ -49,7 +49,7 @@ namespace PA.ViewModel
                     LastData.凭证号 = dr[0].ToString();
                     LastData.制表时间 = Convert.ToDateTime(dr[1]).ToString(DateFormat);
                     LastData.摘要 = dr[2].ToString();
-                    LastData.科目编号 = dr[3].ToString();
+                    LastData.科目编号 = dr[3].ToString() + "-" + dr[4].ToString();
                     LastData.科目名称 = dr[4].ToString();
                     LastData.借方金额 = (dr[5].ToString() == "0") ? "" : dr[5].ToString();
                     LastData.贷方金额 = (dr[6].ToString() == "0") ? "" : dr[6].ToString();
@@ -59,7 +59,7 @@ namespace PA.ViewModel
                 else //旧凭证
                 {
                     LastData.摘要 += "\n" + dr[2].ToString();
-                    LastData.科目编号 += "\n" + dr[3].ToString();
+                    LastData.科目编号 += "\n" + dr[3].ToString() + "-" + dr[4].ToString();
                     LastData.科目名称 += "\n" + dr[4].ToString();
                     LastData.借方金额 += "\n" + ((dr[5].ToString() == "0") ? "" : dr[5].ToString());
                     LastData.贷方金额 += "\n" + ((dr[6].ToString() == "0") ? "" : dr[6].ToString());

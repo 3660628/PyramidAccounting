@@ -23,25 +23,21 @@ namespace PA.View.Pages.TwoTabControl
     {
         List<Model_凭证管理> Data_本期凭证 = new List<Model_凭证管理>();
         PA.Helper.XMLHelper.XMLReader xw = new Helper.XMLHelper.XMLReader();
+
         public Page_Two_凭证管理()
         {
             InitializeComponent();
             InitData();
-            ReflashData();
+            ReflashData_Tab1();
         }
-        #region custom event
 
-        private void DoReflashData(object sender, EventArgs e)
+
+
+        #region Tab1
+        private void DoReflashData_Tab1(object sender, EventArgs e)
         {
-            ReflashData();
+            ReflashData_Tab1();
         }
-
-
-        #endregion
-
-
-
-
         private void InitData()
         {
             this.ComboBox_Review.ItemsSource = new PA.Model.ComboBox.ComboBox_Common().GetComboBox_审核();
@@ -49,18 +45,26 @@ namespace PA.View.Pages.TwoTabControl
             Label_账套名称.Content += "\t" + xw.ReadXML("帐套信息");
             Label_操作员.Content += "\t" + CommonInfo.用户权限 + "\t" +CommonInfo.真实姓名;
         }
-        private void ReflashData()
+        private void ReflashData_Tab1()
         {
             Data_本期凭证 = new PA.ViewModel.ViewModel_凭证管理().GetData();
             this.DataGrid_本期凭证.ItemsSource = Data_本期凭证;
         }
-
         private void Button_Add_Click(object sender, RoutedEventArgs e)
         {
             PA.View.Windows.Win_记账凭证 win = new PA.View.Windows.Win_记账凭证();
-            win.ESubmit += new Windows.Win_记账凭证_Submit(DoReflashData);
+            win.ESubmit += new Windows.Win_记账凭证_Submit(DoReflashData_Tab1);
             win.ShowDialog();
         }
+        #endregion
 
+        #region Tab2
+        private void ReflashData_Tab2()
+        {
+
+        }
+
+
+        #endregion
     }
 }

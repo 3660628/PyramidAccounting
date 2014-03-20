@@ -9,12 +9,12 @@ namespace PA.Helper.DataDefind
     {
         private static readonly string t_BOOKS = "T_BOOKS";
         private static readonly string t_VOUCHER = "T_VOUCHER";
-        private static readonly string t_VOUCHER_DETAIL = "T_VOUCHER_DETAIL";
+        private static readonly string t_VOUCHER_DETAIL = "T_VOUCHERDETAIL";
         private static readonly string t_SUBJECT = "T_SUBJECT";
-        private static readonly string t_SUBJECT_TYPE = "T_SUBJECT_TYPE";
+        private static readonly string t_SUBJECT_TYPE = "T_SUBJECTTYPE";
         private static readonly string t_USER = "T_USER";
         private static readonly string t_RECORD = "T_RECORD";
-        private static readonly string t_YEAR_FEE = "T_YEAR_FEE";
+        private static readonly string t_YEAR_FEE = "T_YEARFEE";
 
 
         

@@ -174,7 +174,11 @@ namespace PA.Helper.DataBase
             SQLiteConnection conn = DBInitialize.getDBConnection();
             conn.Open();
             SQLiteTransaction strans = conn.BeginTransaction();
-            string newTabname = TableName.Substring(0, TableName.LastIndexOf("_"));//TableName.Replace("_" + CommonInfo.账薄号,"");
+            string newTabname = TableName;
+            if (TableName.LastIndexOf("_") > 1)
+            {
+                newTabname = TableName.Substring(0, TableName.LastIndexOf("_"));//TableName.Replace("_" + CommonInfo.账薄号,"");
+            }
             string sql = "";
             try
             {
@@ -224,8 +228,8 @@ namespace PA.Helper.DataBase
                         }
                         #endregion
                         break;
-                    case "T_VOUCHER_DETAIL":
-                        #region T_VOUCHER_DETAIL
+                    case "T_VOUCHERDETAIL":
+                        #region T_VOUCHERDETAIL
                         sql = PA.Helper.DataDefind.SqlString.Insert_T_VOUCHER_DETAIL;
                         List<Model_凭证明细> 凭证明细List = Values.OfType<Model_凭证明细>().ToList();
                         foreach (Model_凭证明细 list in 凭证明细List)
@@ -285,8 +289,8 @@ namespace PA.Helper.DataBase
 
                         #endregion
                         break;
-                    case "T_YEAR_FEE":
-                    #region T_YEAR_FEE
+                    case "T_YEARFEE":
+                    #region T_YEARFEE
 
                     #endregion
                         break;
