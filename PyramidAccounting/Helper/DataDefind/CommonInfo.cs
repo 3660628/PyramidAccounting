@@ -10,8 +10,14 @@ namespace PA.Helper.DataDefind
         private static string username;
         private static string realname;
         private static string authority;
+        private static int authority_value;
         private static int system_index;
 
+        public static int 权限值
+        {
+            get { return CommonInfo.authority_value; }
+            set { CommonInfo.authority_value = value; }
+        }
         /// <summary>
         /// 012345 按会计制度下拉框索引值设定
         /// </summary>

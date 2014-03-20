@@ -61,7 +61,7 @@ namespace PA.Model.DataGrid
             set { create_time = value; }
         }
 
-        public int 权限
+        public int 权限值
         {
             get { return authority; }
             set { authority = value; }

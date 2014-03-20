@@ -56,7 +56,7 @@ namespace PA.View.Pages.Pop.系统管理
             Model_用户 m = new Model_用户();
             m.ID = id;
             m.真实姓名 = TextBox_真实姓名.Text.Trim();
-            m.权限 = ComboBox_用户权限.SelectedIndex - 1;
+            m.权限值 = ComboBox_用户权限.SelectedIndex - 1;
             m.用户说明 = TextBox_用户说明.Text.Trim();
             return m;
         }

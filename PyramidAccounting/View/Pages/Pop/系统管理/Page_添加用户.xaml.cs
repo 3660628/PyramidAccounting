@@ -49,7 +49,7 @@ namespace PA.View.Pages.Pop.系统管理
             m.用户名 = TextBox_用户名.Text.Trim();
             m.密码 = Secure.TranslatePassword(TextBox_用户密码.SecurePassword);
             m.真实姓名 = TextBox_真实姓名.Text.Trim();
-            m.权限 = ComboBox_用户权限.SelectedIndex - 1;
+            m.权限值 = ComboBox_用户权限.SelectedIndex - 1;
             m.创建日期 = DateTime.Now;
             m.用户说明 = TextBox_用户说明.Text.Trim();
             return m;

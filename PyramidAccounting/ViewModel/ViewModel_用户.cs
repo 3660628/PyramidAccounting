@@ -78,13 +78,13 @@ namespace PA.ViewModel
             DataRow d = ds.Tables[0].Rows[0];
             m.真实姓名 = d[2].ToString();
             m.用户权限 = RollbackAuthority(d[5].ToString());
-            m.权限 = Int32.Parse(d[5].ToString());
+            m.权限值 = Int32.Parse(d[5].ToString());
             m.用户说明 = d[7].ToString();
             return m;
         }
         public void Update(Model_用户 m)
         {
-            sql = "update " + DBTablesName.T_USER + " set realname='" + m.真实姓名 + "',authority=" + m.权限 + ",comments='" + m.用户说明 + "' where userid=" + m.ID;
+            sql = "update " + DBTablesName.T_USER + " set realname='" + m.真实姓名 + "',authority=" + m.权限值 + ",comments='" + m.用户说明 + "' where userid=" + m.ID;
             db.Excute(sql);
         }
         private string RollbackAuthority(string i)

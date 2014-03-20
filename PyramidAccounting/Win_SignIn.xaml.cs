@@ -86,6 +86,7 @@ namespace PA
                 CommonInfo.真实姓名 = m.真实姓名;
                 CommonInfo.用户名 = UserName;
                 CommonInfo.用户权限 = m.用户权限;
+                CommonInfo.权限值 = m.权限值;
                 CommonInfo.制度索引 = Convert.ToInt32(new XMLReader().ReadXML("会计制度"));
 
                 //先记录一些信息
@@ -95,7 +96,7 @@ namespace PA
 
                 if (ComboBox_账套.SelectedValue.ToString().Equals("0"))
                 {
-                    if (m.权限 >= 2)
+                    if (m.权限值 >= 2)
                     {
                         Win_账套页面 w = new Win_账套页面(this.Left, this.Top);
                         w.Show();
@@ -113,7 +114,7 @@ namespace PA
                     mw.Show();
                     //这里写日志信息
                     mr.操作类型 = "登录";
-                    mr.日志 = "进入了" + bookname;
+                    mr.日志 = "进入了账套：" + bookname;
                     new ViewModel_操作日志().Insert(mr);
 
                     xw.WriteXML("帐套信息", bookname);

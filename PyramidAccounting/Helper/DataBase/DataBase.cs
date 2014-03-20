@@ -261,7 +261,7 @@ namespace PA.Helper.DataBase
                             cmd.Parameters.AddWithValue("@REALNAME", list.真实姓名);
                             cmd.Parameters.AddWithValue("@PASSWORD", list.密码);
                             cmd.Parameters.AddWithValue("@PHONE_NO", list.手机号码);
-                            cmd.Parameters.AddWithValue("@AUTHORITY", list.权限);
+                            cmd.Parameters.AddWithValue("@AUTHORITY", list.权限值);
                             cmd.Parameters.AddWithValue("@CREATE_TIME", list.创建日期);
                             cmd.Parameters.AddWithValue("@COMMENTS", list.用户说明);
                             cmd.Connection = conn;
