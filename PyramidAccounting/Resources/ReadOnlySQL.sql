@@ -13,7 +13,7 @@
 	REVIEW_MARK       INTEGER,							--复核标记  0：未审核，1：已审核
 	DELETE_MARK		  INTEGER DEFAULT ( 0 )             --删除标志   -1表示已删除
 );
-CREATE TABLE T_VOUCHER_DETAIL (							--凭证明细表
+CREATE TABLE T_VOUCHERDETAIL (							--凭证明细表
     ID            INTEGER PRIMARY KEY,					--ID
 	VID			  INTEGER,								--序号，记录当前第几条
     PARENTID      TEXT,									--父节ID，与凭证表VOUCHER_NO相等

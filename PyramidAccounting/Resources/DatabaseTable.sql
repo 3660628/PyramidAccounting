@@ -7,12 +7,12 @@ CREATE TABLE T_BOOKS (									--账套表
     ACCOUNTING_SYSTEM TEXT,								--会计制度
 	DELETE_MARK		  INTEGER DEFAULT ( 0 )				--删除标志    -1表示已删除
 );
-CREATE TABLE T_YEAR_FEE (								--科目年初金额设置表
+CREATE TABLE T_YEARFEE (								--科目年初金额设置表
 	SUBJECT_ID   TEXT,									--科目编号
 	FEE			 DECIMAL,								--年初金额
 	BOOKID		 TEXT									--账套ID	
 );
-CREATE TABLE T_SUBJECT_TYPE (							--科目类型维表
+CREATE TABLE T_SUBJECTTYPE (							--科目类型维表
     TYPE_ID   INTEGER,									--科目类别
     TYPE_NAME TEXT										--类别名称
 );
