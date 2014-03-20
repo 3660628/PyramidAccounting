@@ -93,10 +93,10 @@ namespace PA.ViewModel
 
         public void Review(Guid id)
         {
-            string sql = "update "+DBTablesName.T_VOUCHER+" set review_mark=1 where id="+id;
-            List<string> asd = new List<string>();
-            asd.Add(sql);
-            new PA.Helper.DataBase.DataBase().BatchOperate(asd);
+            string sql = "update "+DBTablesName.T_VOUCHER+" set review_mark=1 where id='" + id + "'";
+            List<string> lists = new List<string>();
+            lists.Add(sql);
+            new PA.Helper.DataBase.DataBase().BatchOperate(lists);
         }
 
 

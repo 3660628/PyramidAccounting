@@ -8,8 +8,8 @@ namespace PA.Model.DataGrid
 {
     class Model_凭证单 : INotifyPropertyChanged
     {
-        
-        private Guid id;
+
+        private string id;
         private DateTime op_time;
         private string word;
         private int number;
@@ -88,7 +88,7 @@ namespace PA.Model.DataGrid
             set { op_time = value; }
         }
 
-        public Guid ID
+        public string ID
         {
             get { return id; }
             set { id = value; }

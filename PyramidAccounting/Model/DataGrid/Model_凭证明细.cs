@@ -10,7 +10,7 @@ namespace PA.Model.DataGrid
     {
         private int id;
         private int vid;
-        private Guid parentid;
+        private string parentid;
         private string voucher_ID;
         private string abstract_comments;
         private string subject_id;
@@ -66,7 +66,7 @@ namespace PA.Model.DataGrid
             set { abstract_comments = value; }
         }
 
-        public Guid 父节点ID
+        public string 父节点ID
         {
             get { return parentid; }
             set { parentid = value; }
