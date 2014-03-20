@@ -17,8 +17,8 @@
         <Label Content="附属单证" HorizontalAlignment="Left" Margin="10,373,0,0" VerticalAlignment="Top"/>
         <Label Content="张" HorizontalAlignment="Left" Margin="118,373,0,0" VerticalAlignment="Top"/>
         <Label Content="会计主管" HorizontalAlignment="Left" Margin="10,355,0,10" VerticalAlignment="Bottom" VerticalContentAlignment="Bottom"/>
-        <Label Content="制单人" HorizontalAlignment="Left" Margin="249,355,0,10" VerticalAlignment="Bottom" VerticalContentAlignment="Bottom"/>
-        <Label Content="复核" HorizontalAlignment="Left" Margin="502,355,0,10" VerticalAlignment="Bottom" VerticalContentAlignment="Bottom"/>
+        <Label Content="制单人" HorizontalAlignment="Left" Margin="204,0,0,10" VerticalAlignment="Bottom" VerticalContentAlignment="Bottom"/>
+        <Label Content="复核" HorizontalAlignment="Left" Margin="375,0,0,10" VerticalAlignment="Bottom" VerticalContentAlignment="Bottom"/>
         <Label Content="合计" HorizontalAlignment="Left" Margin="304,373,0,0" VerticalAlignment="Top"/>
         <!--end显示用Label-->
 
@@ -28,8 +28,10 @@
         <Button FocusVisualStyle="{x:Null}" x:Name="Button_保存" Content="保存" HorizontalAlignment="Left" Margin="100,35,0,0" VerticalAlignment="Top" Width="50" Click="Button_保存_Click" Template="{DynamicResource ButtonControlTemplate_Common}" Height="22"/>
         <Button FocusVisualStyle="{x:Null}" x:Name="Button_打印" Content="打印" HorizontalAlignment="Right" Margin="0,35,10,0" VerticalAlignment="Top" Width="50" Click="Button_打印_Click" Template="{DynamicResource ButtonControlTemplate_Common}" Height="22"/>
         <Button FocusVisualStyle="{x:Null}" x:Name="Button_NewDataGrid" Content="新建页" HorizontalAlignment="Right" Margin="0,0,10,10" VerticalAlignment="Bottom" Width="75" Template="{DynamicResource ButtonControlTemplate_Common}" Height="22" Click="Button_NewDataGrid_Click"/>
+        <Button x:Name="Button_Previous" Content="&lt;" HorizontalAlignment="Left" Margin="610,409,0,0" VerticalAlignment="Top" Width="20" Height="20" Template="{DynamicResource ButtonControlTemplate_Common}" Click="Button_Previous_Click"/>
+        <Button x:Name="Button_Next" Content="&gt;" HorizontalAlignment="Right" Margin="0,0,90,11" VerticalAlignment="Bottom" Width="20" Height="20" Template="{DynamicResource ButtonControlTemplate_Common}" Click="Button_Next_Click"/>
 
-        <DataGrid x:Name="DataGrid_凭证明细" Margin="10,97,10,0" VerticalAlignment="Top" AutoGenerateColumns="False" CanUserReorderColumns="False" CanUserResizeColumns="False" CanUserSortColumns="False" CanUserAddRows="False" CanUserDeleteRows="False" CanUserResizeRows="False" SelectionMode="Single" HeadersVisibility="Column" RowHeight="40" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle_凭证录入}" HorizontalGridLinesBrush="Gray" VerticalGridLinesBrush="Gray" HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Disabled" Height="271" ScrollViewer.CanContentScroll="False" CellStyle="{DynamicResource DataGridCellStyle_凭证录入}" BeginningEdit="DataGrid_凭证明细_BeginningEdit" CellEditEnding="DataGrid_凭证明细_CellEditEnding" SelectionUnit="Cell">
+        <DataGrid x:Name="DataGrid_凭证明细" Margin="10,97,10,0" VerticalAlignment="Top" AutoGenerateColumns="False" CanUserReorderColumns="False" CanUserResizeColumns="False" CanUserSortColumns="False" CanUserAddRows="False" CanUserDeleteRows="False" CanUserResizeRows="False" SelectionMode="Single" HeadersVisibility="Column" RowHeight="40" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle_凭证录入}" HorizontalGridLinesBrush="Gray" VerticalGridLinesBrush="Gray" HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Disabled" Height="271" ScrollViewer.CanContentScroll="False" CellStyle="{DynamicResource DataGridCellStyle_凭证录入}" CellEditEnding="DataGrid_凭证明细_CellEditEnding" SelectionUnit="Cell">
             <DataGrid.Resources>
                 <Style TargetType="DataGridRow">
                     <EventSetter Event="MouseDoubleClick" Handler="DataGrid_凭证明细_Cell_MouseDoubleClick" />
@@ -52,11 +54,12 @@
 
         <!--Label-->
         <Label x:Name="Label_会计主管" Content="" HorizontalAlignment="Left" Margin="73,0,0,10" VerticalAlignment="Bottom"/>
-        <Label x:Name="Label_制单人" Content="" HorizontalAlignment="Left" Margin="312,0,0,10" VerticalAlignment="Bottom"/>
-        <Label x:Name="Label_复核" Content="" HorizontalAlignment="Left" Margin="541,0,0,10" VerticalAlignment="Bottom"/>
+        <Label x:Name="Label_制单人" Content="" HorizontalAlignment="Left" Margin="255,0,0,10" VerticalAlignment="Bottom"/>
+        <Label x:Name="Label_复核" Content="" HorizontalAlignment="Left" Margin="414,0,0,10" VerticalAlignment="Bottom"/>
         <Label x:Name="Label_审核状态" Content="" HorizontalAlignment="Left" Margin="472,49,0,0" VerticalAlignment="Top"/>
         <Label x:Name="Label_借方合计" Content="0.0" HorizontalAlignment="Right" Margin="0,373,160,0" VerticalAlignment="Top"/>
         <Label x:Name="Label_贷方合计" Content="0.0" HorizontalAlignment="Right" Margin="0,373,10,0" VerticalAlignment="Top"/>
+        <TextBlock x:Name="TextBlock_PageNum" HorizontalAlignment="Left" Margin="635,411,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="40" TextAlignment="Center" FontSize="14"><Run Language="zh-cn" Text="1/1"/></TextBlock>
 
         <!--弹出面板-->
         <Popup x:Name="Popup_科目子细目" Placement="MousePoint">
