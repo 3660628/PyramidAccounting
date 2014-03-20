@@ -9,8 +9,8 @@
 
     <Grid>
         <ListBox x:Name="ListBox_科目" Margin="0,38,0,0" MouseDoubleClick="ListBox_科目_MouseDoubleClick" BorderThickness="0,1,0,0"/>
-        <TextBox x:Name="TextBox_科目搜索" HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="106" TextChanged="TextBox_科目搜索_TextChanged"/>
-        <Button x:Name="Button_确定" Content="确定" HorizontalAlignment="Left" Margin="137,10,-12,0" VerticalAlignment="Top" Width="40" Click="Button_确定_Click" IsDefault="True"/>
+        <TextBox x:Name="TextBox_科目搜索" HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" TextChanged="TextBox_科目搜索_TextChanged" Height="18"/>
+        <Button x:Name="Button_确定" Content="确定" HorizontalAlignment="Left" Margin="137,10,-12,0" VerticalAlignment="Top" Width="40" Click="Button_确定_Click" IsDefault="True" Template="{DynamicResource ButtonControlTemplate_Common}" Height="18"/>
 
     </Grid>
 </Page>
