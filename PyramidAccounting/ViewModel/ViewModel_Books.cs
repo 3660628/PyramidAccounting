@@ -22,7 +22,6 @@ namespace PA.ViewModel
         public void Insert(List<Model_帐套> list)
         {
             List<string> sqlList = new List<string>();
-            Console.WriteLine(list.Count);
             db.InsertPackage(DBTablesName.T_BOOKS, list.OfType<object>().ToList());
             sql = sr.ReadSQL(0, "T_VOUCHER", DBTablesName.T_VOUCHER);
             sqlList.Add(sql);
