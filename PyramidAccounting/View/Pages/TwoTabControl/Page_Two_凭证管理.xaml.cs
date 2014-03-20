@@ -28,12 +28,12 @@ namespace PA.View.Pages.TwoTabControl
         {
             InitializeComponent();
             InitData();
-            ReflashData_Tab1();
+            ReflashData();
         }
 
-        private void DoReflashData_Tab1(object sender, EventArgs e)
+        private void DoReflashData(object sender, EventArgs e)
         {
-            ReflashData_Tab1();
+            ReflashData();
         }
         private void InitData()
         {
@@ -42,7 +42,7 @@ namespace PA.View.Pages.TwoTabControl
             Label_账套名称.Content += "\t" + xw.ReadXML("帐套信息");
             Label_操作员.Content += "\t" + CommonInfo.用户权限 + "\t" +CommonInfo.真实姓名;
         }
-        private void ReflashData_Tab1()
+        private void ReflashData()
         {
             Data_本期凭证 = new PA.ViewModel.ViewModel_凭证管理().GetData("");
             this.DataGrid_本期凭证.ItemsSource = Data_本期凭证;
@@ -50,7 +50,7 @@ namespace PA.View.Pages.TwoTabControl
         private void Button_Add_Click(object sender, RoutedEventArgs e)
         {
             PA.View.Windows.Win_记账凭证 win = new PA.View.Windows.Win_记账凭证();
-            win.ESubmit += new Windows.Win_记账凭证_Submit(DoReflashData_Tab1);
+            win.ESubmit += new Windows.Win_记账凭证_Submit(DoReflashData);
             win.ShowDialog();
         }
 
@@ -58,6 +58,7 @@ namespace PA.View.Pages.TwoTabControl
         {
             Model_凭证管理 asd = this.DataGrid_本期凭证.SelectedCells[0].Item as Model_凭证管理;
             new PA.ViewModel.ViewModel_凭证管理().Review(asd.ID);
+            ReflashData();
         }
     }
 }
