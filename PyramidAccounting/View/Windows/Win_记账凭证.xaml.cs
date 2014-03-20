@@ -64,15 +64,22 @@ namespace PA.View.Windows
         /// </summary>
         private void InitData()
         {
-            VoucherDetails = new List<Model_凭证明细>();
             for (int i = 0; i < 6; i++)
             {
                 Model_凭证明细 a = new Model_凭证明细();
                 a.序号 = i;
-                VoucherDetails.Add(a);
+                VoucherDetailsNow.Add(a);
             }
             this.DatePicker_Date.SelectedDate = DateTime.Now;
-            this.DataGrid_凭证明细.ItemsSource = VoucherDetails;
+            this.DataGrid_凭证明细.ItemsSource = VoucherDetailsNow;
+
+            if (VoucherDetails.Count < 6 * PageAll)
+            {
+                for (int i = 0; i < 6; i++)
+                {
+                    VoucherDetails.Add(VoucherDetailsNow[i]);
+                }
+            }
         }
         /// <summary>
         /// 填充数据(查看修改)
@@ -271,20 +278,17 @@ namespace PA.View.Windows
 
         private void Button_NewDataGrid_Click(object sender, RoutedEventArgs e)
         {
-            if (VoucherDetails.Count < 6 * PageAll)
-            {
-                for (int i = 0; i < 6; i++)
-                {
-                    VoucherDetailsNow[i].凭证号 = this.TextBox_号.Text.Trim();
-                    VoucherDetails.Add(VoucherDetailsNow[i]);
-                }
-            }
             VoucherDetailsNow = new List<Model_凭证明细>();
             for (int i = 0; i < 6; i++)
             {
                 Model_凭证明细 a = new Model_凭证明细();
                 a.序号 = i;
                 VoucherDetailsNow.Add(a);
+            }
+            for (int i = 0; i < 6; i++)
+            {
+                //VoucherDetailsNow[i].凭证号 = this.TextBox_号.Text.Trim();
+                VoucherDetails.Add(VoucherDetailsNow[i]);
             }
             this.DataGrid_凭证明细.ItemsSource = VoucherDetailsNow;
             PageAll++;
@@ -294,14 +298,6 @@ namespace PA.View.Windows
 
         private void Button_Previous_Click(object sender, RoutedEventArgs e)
         {
-            if (VoucherDetails.Count < 6*PageAll)
-            {
-                for (int i = 0; i < 6; i++)
-                {
-                    VoucherDetailsNow[i].凭证号 = this.TextBox_号.Text.Trim();
-                    VoucherDetails.Add(VoucherDetailsNow[i]);
-                }
-            }
             if(PageNow > 1)
             {
                 PageNow--;
@@ -317,14 +313,6 @@ namespace PA.View.Windows
 
         private void Button_Next_Click(object sender, RoutedEventArgs e)
         {
-            if (VoucherDetails.Count < 6 * PageAll)
-            {
-                for (int i = 0; i < 6; i++)
-                {
-                    VoucherDetailsNow[i].凭证号 = this.TextBox_号.Text.Trim();
-                    VoucherDetails.Add(VoucherDetailsNow[i]);
-                }
-            }
             if (PageNow < PageAll)
             {
                 PageNow++;
@@ -335,6 +323,14 @@ namespace PA.View.Windows
                     VoucherDetailsNow.Add(VoucherDetails[(PageNow - 1) * 6 + i]);
                 }
                 this.DataGrid_凭证明细.ItemsSource = VoucherDetailsNow;
+            }
+        }
+
+        private void SaveVoucherDetails()
+        {
+            for (int i = 0; i < 6; i++ )
+            {
+                VoucherDetails[(PageNow-1)*6] = VoucherDetailsNow[i];
             }
         }
     }
