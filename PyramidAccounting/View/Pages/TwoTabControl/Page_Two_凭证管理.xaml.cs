@@ -53,5 +53,11 @@ namespace PA.View.Pages.TwoTabControl
             win.ESubmit += new Windows.Win_记账凭证_Submit(DoReflashData_Tab1);
             win.ShowDialog();
         }
+
+        private void Button_Review_Click(object sender, RoutedEventArgs e)
+        {
+            Model_凭证管理 asd = this.DataGrid_本期凭证.SelectedCells[0].Item as Model_凭证管理;
+            new PA.ViewModel.ViewModel_凭证管理().Review(asd.ID);
+        }
     }
 }

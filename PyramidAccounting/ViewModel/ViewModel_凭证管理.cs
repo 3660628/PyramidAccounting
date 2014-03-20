@@ -18,6 +18,7 @@ namespace PA.ViewModel
         {
             List<Model_凭证管理> datas = new List<Model_凭证管理>();
             string sql = "SELECT "
+                            + "voucher.ID,"
                             + "voucher.VOUCHER_NO,"
                             + "voucher.OP_TIME,"
                             + "detail.ABSTRACT,"
@@ -37,24 +38,25 @@ namespace PA.ViewModel
             DataSet ds = new PA.Helper.DataBase.DataBase().Query(sql);
             foreach (DataRow dr in ds.Tables[0].Rows)
             {
-                if (LastVOUCHER_NO != dr[0].ToString()) //新凭证
+                if (LastVOUCHER_NO != dr[1].ToString()) //新凭证
                 {
                     if (LastVOUCHER_NO != "")
                     {
                         datas.Add(LastData);
                     }
-                    LastVOUCHER_NO = dr[0].ToString();
+                    LastVOUCHER_NO = dr[1].ToString();
                     Model_凭证管理 data = new Model_凭证管理();
                     LastData = data;
-                    LastData.凭证号 = dr[0].ToString();
-                    LastData.制表时间 = Convert.ToDateTime(dr[1]).ToString(DateFormat);
-                    LastData.摘要 = dr[2].ToString();
-                    LastData.科目编号 = dr[3].ToString() + "-" + dr[4].ToString();
-                    LastData.科目名称 = dr[4].ToString();
-                    LastData.借方金额 = (dr[5].ToString() == "0") ? "" : dr[5].ToString();
-                    LastData.贷方金额 = (dr[6].ToString() == "0") ? "" : dr[6].ToString();
-                    LastData.当前期数 = dr[7].ToString();
-                    LastData.审核状态 = dr[8].ToString();
+                    LastData.ID = int.Parse(dr[0].ToString());
+                    LastData.凭证号 = dr[1].ToString();
+                    LastData.制表时间 = Convert.ToDateTime(dr[2]).ToString(DateFormat);
+                    LastData.摘要 = dr[3].ToString();
+                    LastData.科目编号 = dr[4].ToString() + "-" + dr[5].ToString();
+                    LastData.科目名称 = dr[5].ToString();
+                    LastData.借方金额 = (dr[6].ToString() == "0") ? "" : dr[5].ToString();
+                    LastData.贷方金额 = (dr[7].ToString() == "0") ? "" : dr[6].ToString();
+                    LastData.当前期数 = dr[8].ToString();
+                    LastData.审核状态 = dr[9].ToString();
                 }
                 else //旧凭证
                 {
@@ -87,5 +89,16 @@ namespace PA.ViewModel
             }
             new PA.Helper.DataBase.DataBase().InsertPackage(DBTablesName.T_VOUCHER_DETAIL, NewVoucherDetails.OfType<object>().ToList());
         }
+
+        public void Review(int id)
+        {
+            string sql = "update "+DBTablesName.T_VOUCHER+" set review_mark=1 where id="+id;
+            List<string> asd = new List<string>();
+            asd.Add(sql);
+            new PA.Helper.DataBase.DataBase().BatchOperate(asd);
+        }
+
+
+
     }
 }

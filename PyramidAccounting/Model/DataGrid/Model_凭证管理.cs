@@ -7,6 +7,13 @@ namespace PA.Model.DataGrid
 {
     class Model_凭证管理
     {
+        private int id;
+
+        public int ID
+        {
+            get { return id; }
+            set { id = value; }
+        }
         private string voucher_no;
         private string op_time; //DateTime
         private string abstract_comments;
