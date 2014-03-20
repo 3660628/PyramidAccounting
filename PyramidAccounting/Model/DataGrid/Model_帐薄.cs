@@ -10,13 +10,7 @@ namespace PA.Model.DataGrid
         private string id;
         private string book_name;
         private string commpany_name;
-        private string money_type;
 
-        public string 本位币
-        {
-            get { return money_type; }
-            set { money_type = value; }
-        }
 
         public string 单位名称
         {

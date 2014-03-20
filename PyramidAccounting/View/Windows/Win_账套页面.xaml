@@ -9,22 +9,20 @@
         <Grid Height="25" Margin="20,15,430,0" VerticalAlignment="Top" Background="White" RenderTransformOrigin="1.07,3.12">
             <Label Content="创建账套" Margin="0" HorizontalAlignment="Center" VerticalAlignment="Center" />
         </Grid>
-        <Label Content="单位名称：" HorizontalAlignment="Left" Margin="70,95,0,0" VerticalAlignment="Top"/>
-        <Label Content="本位币：" HorizontalAlignment="Left" Margin="70,130,0,0" VerticalAlignment="Top"/>
-        <Label Content="启用期间：" HorizontalAlignment="Left" Margin="70,165,0,0" VerticalAlignment="Top"/>
-        <Label Content="年" HorizontalAlignment="Left" Margin="231,162,0,0" VerticalAlignment="Top"/>
-        <Label Content="期" HorizontalAlignment="Left" Margin="333,162,0,0" VerticalAlignment="Top"/>
-        <Label Content="会计制度" HorizontalAlignment="Left" Margin="70,200,0,0" VerticalAlignment="Top"/>
-        <Label Content="账套名称" HorizontalAlignment="Left" Margin="70,60,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="TextBox_账套名称" HorizontalAlignment="Left" Height="23" Margin="155,60,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="200" LostKeyboardFocus="TextBox_账套名称_LostKeyboardFocus"/>
-        <TextBox x:Name="TextBox_公司" HorizontalAlignment="Left" Height="23" Margin="155,92,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="200" LostKeyboardFocus="TextBox_公司_LostKeyboardFocus"/>
-        <ComboBox x:Name="ComboBox_money" HorizontalAlignment="Left" Margin="155,127,0,0" VerticalAlignment="Top" Width="200"/>
-        <TextBox x:Name="TextBox_year" HorizontalAlignment="Left" Height="23" Margin="155,162,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="70"/>
-        <TextBox x:Name="TextBox_期" HorizontalAlignment="Left" Height="23" Margin="258,162,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="70"/>
-        <ComboBox x:Name="ComboBox_制度" HorizontalAlignment="Left" Margin="155,197,0,0" VerticalAlignment="Top" Width="250"/>
+        <Label Content="单位名称：" HorizontalAlignment="Left" Margin="70,60,0,0" VerticalAlignment="Top"/>
+        <Label Content="启用期间：" HorizontalAlignment="Left" Margin="70,110,0,0" VerticalAlignment="Top"/>
+        <Label Content="年" HorizontalAlignment="Left" Margin="231,110,0,0" VerticalAlignment="Top"/>
+        <Label Content="期" HorizontalAlignment="Left" Margin="333,110,0,0" VerticalAlignment="Top"/>
+        <Label Content="会计制度：" HorizontalAlignment="Left" Margin="70,160,0,0" VerticalAlignment="Top"/>
+        <Label Content="账套名称：" HorizontalAlignment="Left" Margin="70,220,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="TextBox_公司" HorizontalAlignment="Left" Height="23" Margin="155,60,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="200" LostKeyboardFocus="TextBox_公司_LostKeyboardFocus" TextChanged="TextBox_公司_TextChanged"/>
+        <TextBox x:Name="TextBox_year" HorizontalAlignment="Left" Height="23" Margin="155,110,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="70"/>
+        <TextBox x:Name="TextBox_期" HorizontalAlignment="Left" Height="23" Margin="258,110,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="70"/>
+        <ComboBox x:Name="ComboBox_制度" HorizontalAlignment="Left" Margin="155,160,0,0" VerticalAlignment="Top" Width="250"/>
+        <TextBox x:Name="TextBox_账套名称" HorizontalAlignment="Left" Height="23" Margin="155,220,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="200" LostKeyboardFocus="TextBox_账套名称_LostKeyboardFocus"/>
         <Button x:Name="Button_创建" Content="创建" HorizontalAlignment="Right" Margin="0,0,120,20" VerticalAlignment="Bottom" Width="75" Click="Button_创建_Click" Template="{DynamicResource ButtonControlTemplate_CommonBlue}" Height="22" Foreground="White"/>
         <Button x:Name="Button_取消" Content="取消" HorizontalAlignment="Right" Margin="0,0,30,20" VerticalAlignment="Bottom" Width="75" Click="Button_取消_Click" Template="{DynamicResource ButtonControlTemplate_Common}" Height="22"/>
         <TextBlock x:Name="TextBlock_账套错误信息" HorizontalAlignment="Left" Margin="375,62,0,0" TextWrapping="Wrap" Foreground="Red" VerticalAlignment="Top"/>
-        <TextBlock x:Name="TextBlock_公司错误信息" HorizontalAlignment="Left" Margin="375,94,0,0" TextWrapping="Wrap" Foreground="Red" VerticalAlignment="Top"/>
+        <TextBlock x:Name="TextBlock_公司错误信息" HorizontalAlignment="Left" Margin="375,224,0,0" TextWrapping="Wrap" Foreground="Red" VerticalAlignment="Top"/>
     </Grid>
 </Window>

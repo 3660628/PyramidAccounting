@@ -28,6 +28,7 @@ namespace PA.View.Windows
         private ViewModel_Books vb = new ViewModel_Books();
         private Helper.XMLHelper.XMLReader xr = new Helper.XMLHelper.XMLReader();
         private PA.Helper.XMLHelper.XMLWriter xw = new Helper.XMLHelper.XMLWriter();
+        private string date = DateTime.Now.ToString("yyyy-M-d");
         public Win_账套页面()
         {
             InitializeComponent();
@@ -45,13 +46,10 @@ namespace PA.View.Windows
         private void InitData()
         {
             TextBox_公司.Text = xr.ReadXML("公司");
-            string date = DateTime.Now.ToString("yyyy-M-d");
             TextBox_year.Text = date.Split('-')[0];
             TextBox_期.Text = date.Split('-')[1];
             ComboBox_制度.ItemsSource = cc.GetComboBox_会计制度();
             ComboBox_制度.SelectedIndex = Convert.ToInt32(xr.ReadXML("会计制度"));
-            ComboBox_money.ItemsSource = cc.GetComboBox_本位币();
-            ComboBox_money.SelectedIndex = 0;
         }
         
         #region Button事件
@@ -78,7 +76,6 @@ namespace PA.View.Windows
             CommonInfo.制度索引 = ComboBox_制度.SelectedIndex;
             m.帐套名称 = TextBox_账套名称.Text.Trim();
             m.单位名称 = TextBox_公司.Text.Trim();
-            m.本位币 = ComboBox_money.Text.Trim();
             string date = TextBox_year.Text + "-" + TextBox_期.Text + "-1";
             m.日期 = Convert.ToDateTime(date);
             m.会计制度 = ComboBox_制度.Text.Trim();
@@ -195,6 +192,13 @@ namespace PA.View.Windows
         }
         #endregion
 
-        
+        private void TextBox_公司_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (TextBox_year.Text.ToString().Equals(""))
+            {
+                TextBox_year.Text = date.Split('-')[0];
+            }
+            this.TextBox_账套名称.Text = TextBox_year.Text.ToString() + TextBox_公司.Text.ToString() + "财务账";
+        }
     }
 }

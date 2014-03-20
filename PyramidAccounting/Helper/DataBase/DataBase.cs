@@ -195,7 +195,6 @@ namespace PA.Helper.DataBase
                             cmd.Parameters.AddWithValue("@ID", list.ID);
                             cmd.Parameters.AddWithValue("@BOOK_NAME", list.帐套名称);
                             cmd.Parameters.AddWithValue("@COMPANY_NAME", list.单位名称);
-                            cmd.Parameters.AddWithValue("@MONEY_TYPE", list.本位币);
                             cmd.Parameters.AddWithValue("@CREATE_DATE", list.日期);
                             cmd.Parameters.AddWithValue("@ACCOUNTING_SYSTEM", list.会计制度);
                             cmd.Connection = conn;
