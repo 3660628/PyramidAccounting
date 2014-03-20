@@ -174,7 +174,7 @@ namespace PA.Helper.DataBase
             SQLiteConnection conn = DBInitialize.getDBConnection();
             conn.Open();
             SQLiteTransaction strans = conn.BeginTransaction();
-            string newTabname = TableName.Replace("_" + CommonInfo.账薄号,"");
+            string newTabname = TableName.Substring(0, TableName.LastIndexOf("_"));//TableName.Replace("_" + CommonInfo.账薄号,"");
             string sql = "";
             try
             {
@@ -277,7 +277,7 @@ namespace PA.Helper.DataBase
 
                     #endregion
                         break;
-                    default:   //科目管理
+                    case "T_SUBJECT":   //科目管理
                         #region T_SUBJECT
                         sql = PA.Helper.DataDefind.SqlString.Insert_T_SUBJECT;
                         List<Model_科目管理> 科目管理List = Values.OfType<Model_科目管理>().ToList();
