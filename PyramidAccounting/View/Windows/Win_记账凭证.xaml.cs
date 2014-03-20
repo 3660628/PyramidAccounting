@@ -35,6 +35,12 @@ namespace PA.View.Windows
             InitData();
         }
 
+        public Win_记账凭证(string guid)
+        {
+            InitializeComponent();
+            
+        }
+
         #region 自定义事件
         private void OnSubmit()
         {
@@ -94,6 +100,7 @@ namespace PA.View.Windows
         /// <returns></returns>
         private Model_凭证单 GetData()
         {
+            SaveVoucherDetails();
             Voucher.ID = Guid.NewGuid().ToString();
             Voucher.审核标志 = (this.Label_审核状态.Content.ToString() == "已审核") ? 1 : 0;
             Voucher.制表时间 = (DateTime)this.DatePicker_Date.SelectedDate;
@@ -129,6 +136,18 @@ namespace PA.View.Windows
             }
             this.Label_借方合计.Content = count借方.ToString();
             this.Label_贷方合计.Content = count贷方.ToString();
+        }
+
+        /// <summary>
+        /// 保存当前DataGrid(VoucherDetailsNow)到总List(VoucherDetails)
+        /// </summary>
+        private void SaveVoucherDetails()
+        {
+            for (int i = 0; i < 6; i++)
+            {
+                VoucherDetailsNow[i].凭证号 = this.TextBox_号.Text;
+                VoucherDetails[(PageNow - 1) * 6 + i] = VoucherDetailsNow[i];
+            }
         }
         #endregion
 
@@ -234,13 +253,14 @@ namespace PA.View.Windows
             {
                 VoucherDetailsNow[SelectedRow.序号].借方 = decimal.Parse(newValue);
                 VoucherDetailsNow[SelectedRow.序号].贷方 = 0m;
+                Count合计();
             }
             else if (Header == "贷方金额")
             {
                 VoucherDetailsNow[SelectedRow.序号].贷方 = decimal.Parse(newValue);
                 VoucherDetailsNow[SelectedRow.序号].借方 = 0m;
+                Count合计();
             }
-            Count合计();
         }
 
         private void TextBox_附属单证_MouseWheel(object sender, MouseWheelEventArgs e)
@@ -274,10 +294,11 @@ namespace PA.View.Windows
         }
 
 
-        #endregion
+        
 
         private void Button_NewDataGrid_Click(object sender, RoutedEventArgs e)
         {
+            SaveVoucherDetails();
             VoucherDetailsNow = new List<Model_凭证明细>();
             for (int i = 0; i < 6; i++)
             {
@@ -287,7 +308,6 @@ namespace PA.View.Windows
             }
             for (int i = 0; i < 6; i++)
             {
-                //VoucherDetailsNow[i].凭证号 = this.TextBox_号.Text.Trim();
                 VoucherDetails.Add(VoucherDetailsNow[i]);
             }
             this.DataGrid_凭证明细.ItemsSource = VoucherDetailsNow;
@@ -309,6 +329,7 @@ namespace PA.View.Windows
                     VoucherDetailsNow.Add(VoucherDetails[(PageNow - 1) * 6 + i]);
                 }
                 this.DataGrid_凭证明细.ItemsSource = VoucherDetailsNow;
+                this.TextBox_号.Text = VoucherDetailsNow[0].凭证号;
             }
         }
 
@@ -325,17 +346,10 @@ namespace PA.View.Windows
                     VoucherDetailsNow.Add(VoucherDetails[(PageNow - 1) * 6 + i]);
                 }
                 this.DataGrid_凭证明细.ItemsSource = VoucherDetailsNow;
+                this.TextBox_号.Text = VoucherDetailsNow[0].凭证号;
             }
         }
-
-        private void SaveVoucherDetails()
-        {
-            for (int i = 0; i < 6; i++ )
-            {
-                VoucherDetailsNow[i].凭证号 = this.TextBox_号.Text;
-                VoucherDetails[(PageNow-1)*6+i] = VoucherDetailsNow[i];
-            }
-        }
+        
 
         private void TextBlock_PageNum_MouseWheel(object sender, MouseWheelEventArgs e)
         {
@@ -348,5 +362,6 @@ namespace PA.View.Windows
                 Button_Previous_Click(null,null);
             }
         }
+        #endregion
     }
 }
