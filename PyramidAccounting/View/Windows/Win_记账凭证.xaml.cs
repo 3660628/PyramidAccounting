@@ -115,7 +115,7 @@ namespace PA.View.Windows
         {
             decimal count借方 = 0m;
             decimal count贷方 = 0m;
-            for (int i = 0; i < 6; i++ )
+            for (int i = 0; i < VoucherDetails.Count; i++)
             {
                 count借方 += VoucherDetails[i].借方;
                 count贷方 += VoucherDetails[i].贷方;
@@ -273,11 +273,10 @@ namespace PA.View.Windows
         {
             if (VoucherDetails.Count < 6 * PageAll)
             {
-                List<Model_凭证明细> VoucherDetailNew = this.DataGrid_凭证明细.ItemsSource as List<Model_凭证明细>;
                 for (int i = 0; i < 6; i++)
                 {
-                    VoucherDetailNew[i].凭证号 = this.TextBox_号.Text.Trim();
-                    VoucherDetails.Add(VoucherDetailNew[i]);
+                    VoucherDetailsNow[i].凭证号 = this.TextBox_号.Text.Trim();
+                    VoucherDetails.Add(VoucherDetailsNow[i]);
                 }
             }
             VoucherDetailsNow = new List<Model_凭证明细>();
@@ -297,11 +296,10 @@ namespace PA.View.Windows
         {
             if (VoucherDetails.Count < 6*PageAll)
             {
-                List<Model_凭证明细> VoucherDetailNew = this.DataGrid_凭证明细.ItemsSource as List<Model_凭证明细>;
                 for (int i = 0; i < 6; i++)
                 {
-                    VoucherDetailNew[i].凭证号 = this.TextBox_号.Text.Trim();
-                    VoucherDetails.Add(VoucherDetailNew[i]);
+                    VoucherDetailsNow[i].凭证号 = this.TextBox_号.Text.Trim();
+                    VoucherDetails.Add(VoucherDetailsNow[i]);
                 }
             }
             if(PageNow > 1)
@@ -321,11 +319,10 @@ namespace PA.View.Windows
         {
             if (VoucherDetails.Count < 6 * PageAll)
             {
-                List<Model_凭证明细> VoucherDetailNew = this.DataGrid_凭证明细.ItemsSource as List<Model_凭证明细>;
                 for (int i = 0; i < 6; i++)
                 {
-                    VoucherDetailNew[i].凭证号 = this.TextBox_号.Text.Trim();
-                    VoucherDetails.Add(VoucherDetailNew[i]);
+                    VoucherDetailsNow[i].凭证号 = this.TextBox_号.Text.Trim();
+                    VoucherDetails.Add(VoucherDetailsNow[i]);
                 }
             }
             if (PageNow < PageAll)
