@@ -59,7 +59,7 @@
         <Label x:Name="Label_审核状态" Content="" HorizontalAlignment="Left" Margin="472,49,0,0" VerticalAlignment="Top"/>
         <Label x:Name="Label_借方合计" Content="0.0" HorizontalAlignment="Right" Margin="0,373,160,0" VerticalAlignment="Top"/>
         <Label x:Name="Label_贷方合计" Content="0.0" HorizontalAlignment="Right" Margin="0,373,10,0" VerticalAlignment="Top"/>
-        <TextBlock x:Name="TextBlock_PageNum" HorizontalAlignment="Left" Margin="635,411,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="40" TextAlignment="Center" FontSize="14"><Run Language="zh-cn" Text="1/1"/></TextBlock>
+        <TextBlock x:Name="TextBlock_PageNum" HorizontalAlignment="Left" Margin="635,411,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="40" TextAlignment="Center" FontSize="14" MouseWheel="TextBlock_PageNum_MouseWheel"><Run Language="zh-cn" Text="1/1"/></TextBlock>
 
         <!--弹出面板-->
         <Popup x:Name="Popup_科目子细目" Placement="MousePoint">

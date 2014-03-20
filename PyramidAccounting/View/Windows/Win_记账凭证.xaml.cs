@@ -49,11 +49,11 @@ namespace PA.View.Windows
             this.Window_记账凭证.IsEnabled = true;
             if (typeof(PA.View.Pages.Pop.凭证录入.Page_凭证录入_科目).IsInstanceOfType(sender))
             {
-                VoucherDetails[CellId].科目编号 = e.Str;
+                VoucherDetailsNow[CellId].科目编号 = e.Str;
             }
             else if (typeof(PA.View.Pages.Pop.凭证录入.Page_凭证录入_子细目).IsInstanceOfType(sender))
             {
-                VoucherDetails[CellId].子细目 = e.Str;
+                VoucherDetailsNow[CellId].子细目 = e.Str;
             }
         }
         #endregion
@@ -300,6 +300,7 @@ namespace PA.View.Windows
         {
             if(PageNow > 1)
             {
+                SaveVoucherDetails();
                 PageNow--;
                 this.TextBlock_PageNum.Text = PageNow + "/" + PageAll;
                 VoucherDetailsNow = new List<Model_凭证明细>();
@@ -315,6 +316,7 @@ namespace PA.View.Windows
         {
             if (PageNow < PageAll)
             {
+                SaveVoucherDetails();
                 PageNow++;
                 this.TextBlock_PageNum.Text = PageNow + "/" + PageAll;
                 VoucherDetailsNow = new List<Model_凭证明细>();
@@ -330,7 +332,20 @@ namespace PA.View.Windows
         {
             for (int i = 0; i < 6; i++ )
             {
-                VoucherDetails[(PageNow-1)*6] = VoucherDetailsNow[i];
+                VoucherDetailsNow[i].凭证号 = this.TextBox_号.Text;
+                VoucherDetails[(PageNow-1)*6+i] = VoucherDetailsNow[i];
+            }
+        }
+
+        private void TextBlock_PageNum_MouseWheel(object sender, MouseWheelEventArgs e)
+        {
+            if (e.Delta > 0)
+            {
+                Button_Next_Click(null,null);
+            }
+            else if (e.Delta < 0)
+            {
+                Button_Previous_Click(null,null);
             }
         }
     }
