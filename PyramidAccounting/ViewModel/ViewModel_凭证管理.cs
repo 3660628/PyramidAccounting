@@ -71,5 +71,21 @@ namespace PA.ViewModel
             }
             return datas;
         }
+
+        public void InsertData(Model_凭证单 Voucher, List<Model_凭证明细> VoucherDetails)
+        {
+            List<Model_凭证单> Vouchers = new List<Model_凭证单>();
+            Vouchers.Add(Voucher);
+            new PA.Helper.DataBase.DataBase().InsertPackage(DBTablesName.T_VOUCHER, Vouchers.OfType<object>().ToList());
+            List<Model_凭证明细> NewVoucherDetails = new List<Model_凭证明细>();
+            foreach (Model_凭证明细 VoucherDetail in VoucherDetails)
+            {
+                if (VoucherDetail.摘要 != "" && VoucherDetail.摘要 != null && VoucherDetail.科目编号 != null)
+                {
+                    NewVoucherDetails.Add(VoucherDetail);
+                }
+            }
+            new PA.Helper.DataBase.DataBase().InsertPackage(DBTablesName.T_VOUCHER_DETAIL, NewVoucherDetails.OfType<object>().ToList());
+        }
     }
 }

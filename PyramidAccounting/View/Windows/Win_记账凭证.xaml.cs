@@ -145,7 +145,7 @@ namespace PA.View.Windows
             {
                 return;
             }
-            new PA.ViewModel.ViewModel_记账凭证().InsertData(Voucher, VoucherDetails);
+            new PA.ViewModel.ViewModel_凭证管理().InsertData(Voucher, VoucherDetails);
             OnSubmit();
             this.Close();
         }
@@ -157,7 +157,7 @@ namespace PA.View.Windows
             {
                 return;
             }
-            new PA.ViewModel.ViewModel_记账凭证().InsertData(Voucher, VoucherDetails);
+            new PA.ViewModel.ViewModel_凭证管理().InsertData(Voucher, VoucherDetails);
             InitData();
         }
 
