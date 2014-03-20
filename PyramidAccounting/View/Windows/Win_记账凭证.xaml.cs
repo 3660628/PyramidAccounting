@@ -276,5 +276,10 @@ namespace PA.View.Windows
 
 
         #endregion
+
+        private void Button_NewDataGrid_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
