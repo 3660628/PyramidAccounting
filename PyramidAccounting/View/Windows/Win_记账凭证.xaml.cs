@@ -16,11 +16,11 @@ using PA.Model.CustomEventArgs;
 
 namespace PA.View.Windows
 {
-    /// <summary>
-    /// Interaction logic for Win_凭证输入.xaml
-    /// </summary>
+    public delegate void Win_记账凭证_Submit(object sender, EventArgs e);
+
     public partial class Win_记账凭证 : Window
     {
+        public event Win_记账凭证_Submit ESubmit;
         Model_凭证单 Voucher = new Model_凭证单();
         List<Model_凭证明细> VoucherDetails = new List<Model_凭证明细>();
         private int CellId;
@@ -32,7 +32,14 @@ namespace PA.View.Windows
         }
 
         #region 自定义事件
-        private void ThisFillData(object sender, StringEventArgs e)
+        private void OnSubmit()
+        {
+            if(this.ESubmit != null)
+            {
+                ESubmit(this, new EventArgs());
+            }
+        }
+        private void DoFillData(object sender, StringEventArgs e)
         {
             this.Popup_科目子细目.IsOpen = false;
             this.Window_记账凭证.IsEnabled = true;
@@ -119,6 +126,7 @@ namespace PA.View.Windows
         #region 控件事件
         private void Button_Close_Click(object sender, RoutedEventArgs e)
         {
+            OnSubmit();
             this.Close();
         }
 
@@ -138,6 +146,7 @@ namespace PA.View.Windows
                 return;
             }
             new PA.ViewModel.ViewModel_记账凭证().InsertData(Voucher, VoucherDetails);
+            OnSubmit();
             this.Close();
         }
 
@@ -165,7 +174,7 @@ namespace PA.View.Windows
             if (DoubleClickCell.Column.Header.ToString() == "科目")
             {
                 PA.View.Pages.Pop.凭证录入.Page_凭证录入_科目 page = new PA.View.Pages.Pop.凭证录入.Page_凭证录入_科目();
-                page.FillDate += new Pages.Pop.凭证录入.Page_凭证录入_科目_FillDateEventHandle(ThisFillData);
+                page.FillDate += new Pages.Pop.凭证录入.Page_凭证录入_科目_FillDateEventHandle(DoFillData);
                 this.Frame_科目子细目.Content = page;
                 this.Popup_科目子细目.IsOpen = true;
                 this.Window_记账凭证.IsEnabled = false;
@@ -180,7 +189,7 @@ namespace PA.View.Windows
                 }
                 string str = new PA.ViewModel.ViewModel_科目管理().GetSubjectID(SelectedRow.科目编号);
                 PA.View.Pages.Pop.凭证录入.Page_凭证录入_子细目 page = new PA.View.Pages.Pop.凭证录入.Page_凭证录入_子细目(str);
-                page.FillDate += new Pages.Pop.凭证录入.Page_凭证录入_子细目_FillDateEventHandle(ThisFillData);
+                page.FillDate += new Pages.Pop.凭证录入.Page_凭证录入_子细目_FillDateEventHandle(DoFillData);
                 this.Frame_科目子细目.Content = page;
                 this.Popup_科目子细目.IsOpen = true;
                 this.Window_记账凭证.IsEnabled = false;

@@ -29,6 +29,19 @@ namespace PA.View.Pages.TwoTabControl
             InitData();
             ReflashData();
         }
+        #region custom event
+
+        private void DoReflashData(object sender, EventArgs e)
+        {
+            ReflashData();
+        }
+
+
+        #endregion
+
+
+
+
         private void InitData()
         {
             this.ComboBox_Review.ItemsSource = new PA.Model.ComboBox.ComboBox_Common().GetComboBox_审核();
@@ -45,6 +58,7 @@ namespace PA.View.Pages.TwoTabControl
         private void Button_Add_Click(object sender, RoutedEventArgs e)
         {
             PA.View.Windows.Win_记账凭证 win = new PA.View.Windows.Win_记账凭证();
+            win.ESubmit += new Windows.Win_记账凭证_Submit(DoReflashData);
             win.ShowDialog();
         }
 
