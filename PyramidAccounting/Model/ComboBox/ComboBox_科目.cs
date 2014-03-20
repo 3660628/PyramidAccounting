@@ -36,7 +36,7 @@ namespace PA.Model.ComboBox
         public List<string> GetChildSubjectList(string condition,string id)
         {
             list = new List<string>();
-            if (string.IsNullOrEmpty(id))
+            if (string.IsNullOrEmpty(condition))
             {
                 sql = "select subject_id,subject_name from " + DBTablesName.T_SUBJECT + " where parent_id='" + id + "' order by id";
             }
