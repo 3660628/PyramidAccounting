@@ -31,9 +31,6 @@ namespace PA.View.Pages.TwoTabControl
             ReflashData_Tab1();
         }
 
-
-
-        #region Tab1
         private void DoReflashData_Tab1(object sender, EventArgs e)
         {
             ReflashData_Tab1();
@@ -56,15 +53,5 @@ namespace PA.View.Pages.TwoTabControl
             win.ESubmit += new Windows.Win_记账凭证_Submit(DoReflashData_Tab1);
             win.ShowDialog();
         }
-        #endregion
-
-        #region Tab2
-        private void ReflashData_Tab2()
-        {
-
-        }
-
-
-        #endregion
     }
 }

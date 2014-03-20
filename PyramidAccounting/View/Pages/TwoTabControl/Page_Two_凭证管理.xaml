@@ -14,7 +14,7 @@
             <Label x:Name="Label_当前期数" Content="当前期数" HorizontalAlignment="Right" Margin="0,0,10,0"/>
         </Grid>
         <TabControl Margin="0,0,0,25" BorderBrush="White">
-            <TabItem FocusVisualStyle="{x:Null}" Header="本期凭证" Margin="8,-1,-8,1" Template="{DynamicResource TabItemControlTemplate_TwoTabHeader}">
+            <TabItem FocusVisualStyle="{x:Null}" Header="凭证管理" Margin="8,-1,-8,1" Template="{DynamicResource TabItemControlTemplate_TwoTabHeader}">
                 <Grid Background="White">
                     <ComboBox x:Name="ComboBox_Date" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="120"/>
                     <ComboBox x:Name="ComboBox_Review" HorizontalAlignment="Left" Margin="145,10,0,0" VerticalAlignment="Top" Width="80"/>
@@ -35,31 +35,6 @@
                             <DataGridTextColumn Header="审核状态"  Binding="{Binding 审核状态}"/>
                         </DataGrid.Columns>
                     </DataGrid>
-                </Grid>
-            </TabItem>
-            <TabItem FocusVisualStyle="{x:Null}" Header="全部凭证" Margin="16,-1,-16,1" Template="{DynamicResource TabItemControlTemplate_TwoTabHeader}">
-                <Grid Background="White">
-                    <ComboBox HorizontalAlignment="Left" Margin="343,10,0,0" VerticalAlignment="Top" Width="120"/>
-                    <Button x:Name="Button_All_Add" Content="新增" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="50" Template="{DynamicResource ButtonControlTemplate_Common}" Height="20"/>
-                    <Button x:Name="Button_All_Del" Content="删除" HorizontalAlignment="Left" Margin="70,10,0,0" VerticalAlignment="Top" Width="50" Template="{DynamicResource ButtonControlTemplate_Common}" Height="20"/>
-                    <Button x:Name="Button_All_Review" Content="审核" HorizontalAlignment="Left" Margin="130,10,0,0" VerticalAlignment="Top" Width="50" Template="{DynamicResource ButtonControlTemplate_Common}" Height="20"/>
-                    <Button x:Name="Button_All_DisReview" Content="反审核" HorizontalAlignment="Left" Margin="190,10,0,0" VerticalAlignment="Top" Width="50" Template="{DynamicResource ButtonControlTemplate_Common}" Height="20"/>
-                    <Button x:Name="Button_All_Print" Content="打印" HorizontalAlignment="Left" Margin="250,10,0,0" VerticalAlignment="Top" Width="50" Template="{DynamicResource ButtonControlTemplate_Common}" Height="20"/>
-                    <DataGrid x:Name="DataGrid_全期凭证" HorizontalAlignment="Stretch" Margin="10,44,10,10" VerticalAlignment="Stretch" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle_凭证管理}" CellStyle="{DynamicResource DataGridCellStyle_凭证管理}" BorderBrush="#FF99CCFF" Background="White">
-                        <DataGrid.Columns>
-                            <DataGridTextColumn Header="凭证号"/>
-                            <DataGridTextColumn Header="制表日期"/>
-                            <DataGridTextColumn Header="摘要"/>
-                            <DataGridTextColumn Header="科目编号"/>
-                            <DataGridTextColumn Header="科目名称" />
-                            <DataGridTextColumn Header="借方金额" />
-                            <DataGridTextColumn Header="贷方金额" />
-                            <DataGridTextColumn Header="当前期数" />
-                            <DataGridTextColumn Header="审核状态" />
-                        </DataGrid.Columns>
-                    </DataGrid>
-                    <Label Content="凭证张数：" HorizontalAlignment="Right" Margin="0,10,73,0" VerticalAlignment="Top"/>
-                    <TextBlock HorizontalAlignment="Right" Margin="0,14,60,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top"/>
                 </Grid>
             </TabItem>
         </TabControl>
