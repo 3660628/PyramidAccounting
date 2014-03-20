@@ -96,6 +96,7 @@
     <Compile Include="Helper\ExcelHelper\ExcelReader.cs" />
     <Compile Include="Helper\ExcelHelper\ExcelWriter.cs" />
     <Compile Include="Helper\ExcelHelper\ReadBalanceSheet.cs" />
+    <Compile Include="Helper\SQLHelper\SQLReader.cs" />
     <Compile Include="Helper\XMLHelper\InitXMLConfig.cs" />
     <Compile Include="Helper\XMLHelper\XMLReader.cs" />
     <Compile Include="Helper\XMLHelper\XMLWriter.cs" />
@@ -108,6 +109,7 @@
     <Compile Include="Model\DataGrid\Model_凭证明细.cs" />
     <Compile Include="Model\DataGrid\Model_凭证管理.cs" />
     <Compile Include="Model\DataGrid\Model_帐薄.cs" />
+    <Compile Include="Model\DataGrid\Model_年初金额.cs" />
     <Compile Include="Model\DataGrid\Model_用户.cs" />
     <Compile Include="Model\DataGrid\Model_科目管理.cs" />
     <Compile Include="Model\CustomEventArgs\StringEventArgs.cs" />
@@ -116,6 +118,7 @@
     <Compile Include="ViewModel\ViewModel_Books.cs" />
     <Compile Include="ViewModel\ViewModel_ReportManager.cs" />
     <Compile Include="ViewModel\ViewModel_凭证管理.cs" />
+    <Compile Include="ViewModel\ViewModel_年初金额.cs" />
     <Compile Include="ViewModel\ViewModel_用户.cs" />
     <Compile Include="ViewModel\ViewModel_科目管理.cs" />
     <Compile Include="ViewModel\ViewModel_记账凭证.cs" />
@@ -328,6 +331,7 @@
   <ItemGroup>
     <Content Include="Lib\Microsoft.Office.Interop.Excel.dll" />
     <Content Include="Resources\DatabaseData.sql" />
+    <Content Include="Resources\ReadOnlySQL.sql" />
     <Resource Include="View\Images\TabItems\Tab1_Hl.png" />
     <Resource Include="View\Pages\Pop\快捷界面\Readme.txt" />
     <None Include="Resources\DatabaseTable.sql" />

@@ -53,8 +53,9 @@ namespace PA.Helper.DataBase
             {
                 List<Model_BalanceSheet> BalanceSheetDatas = new List<Model_BalanceSheet>();
                 BalanceSheetDatas = rs.Read(newFile.FullName);
-                string tableName = "T_SUBJECT_" + i;
-                string table_Sql = "create table if not exists " + tableName + " as select * from t_subject where 1=0";
+                string baseTableName = "T_SUBJECT";
+                string tableName = baseTableName + "_" + i;
+                string table_Sql = new Helper.SQLHelper.SQLReader().ReadSQL(2, baseTableName,tableName);
                 list.Add(table_Sql);
                 foreach (Model_BalanceSheet m in BalanceSheetDatas)
                 {

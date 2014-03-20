@@ -68,10 +68,17 @@ namespace PA.Properties {
         ///	(2, &apos;二、负债类&apos;),
         ///	(
         ///		3,
-        ///		&apos;三、所有者权益类&apos;
+        ///		&apos;三、净资产类&apos;
         ///	),
-        ///	(4, &apos;四、成本类&apos;),
-        ///	(5, &apos;五、损益类&apos;);.
+        ///	(4, &apos;四、收入类&apos;),
+        ///	(5, &apos;五、支出类&apos;);
+        ///INSERT INTO t_user (
+        ///	username,
+        ///	password,
+        ///	authority
+        ///)
+        ///VALUES
+        ///	(&apos;admin&apos;, &apos;123&apos;, 3);.
         /// </summary>
         internal static string DatabaseData {
             get {
@@ -83,19 +90,41 @@ namespace PA.Properties {
         ///   Looks up a localized string similar to CREATE TABLE T_BOOKS (									--账套表
         ///    ID                TEXT PRIMARY KEY,					--账套ID
         ///    BOOK_NAME         TEXT,								--账套名称
+        ///	COMPANY_NAME	  TEXT,								--单位名称
+        ///	MONEY_TYPE		  TEXT,								--本位币
         ///    CREATE_DATE       DATE,								--账套启用日期
         ///    ACCOUNTING_SYSTEM TEXT,								--会计制度
         ///	DELETE_MARK		  INTEGER DEFAULT ( 0 )				--删除标志    -1表示已删除
         ///);
-        ///CREATE TABLE T_VOUCHER (								--凭证表
-        ///    ID                INTEGER  PRIMARY KEY,             --凭证ID
-        ///    VOUCHER_NO        TEXT,								--凭证号
-        ///    OP_TIME           DATETIME,							--制表时间
-        ///    WORD              TEXT,								- [rest of string was truncated]&quot;;.
+        ///CREATE TABLE T_YEAR_FEE (								--科目年初金额设置表
+        ///	SUBJECT_ID   TEXT PRIMARY KEY,						--科目编号
+        ///	FEE			 DECIMAL,								--年初金额
+        ///	BOOKID		 TEXT									--账套ID	
+        /// [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string DatabaseTable {
             get {
                 return ResourceManager.GetString("DatabaseTable", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to CREATE TABLE T_VOUCHER (								--凭证表
+        ///    ID                INTEGER  PRIMARY KEY,             --凭证ID
+        ///    VOUCHER_NO        TEXT,								--凭证号
+        ///    OP_TIME           DATETIME,							--制表时间
+        ///    WORD              TEXT,								--字
+        ///    NUMBER            INTEGER,							--号
+        ///    SUBSIDIARY_COUNTS INTEGER,							--附属单证数
+        ///    FEE_DEBIT         DECIMAL,							--合计借方总额
+        ///    FEE_CREDIT        DECIMAL,							--合计贷方总额
+        ///    ACCOUNTANT        TEXT,								--会计主管
+        ///    BOOKEEPER         TEXT,								--记账
+        ///    REVIEWER    [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string ReadOnlySQL {
+            get {
+                return ResourceManager.GetString("ReadOnlySQL", resourceCulture);
             }
         }
     }

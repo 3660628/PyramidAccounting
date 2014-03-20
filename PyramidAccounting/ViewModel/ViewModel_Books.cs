@@ -6,6 +6,7 @@ using System.Data;
 using PA.Model.DataGrid;
 using PA.Helper.DataDefind;
 using PA.Helper.DataBase;
+using PA.Helper.SQLHelper;
 
 namespace PA.ViewModel
 {
@@ -13,6 +14,7 @@ namespace PA.ViewModel
     {
         private DataBase db = new DataBase();
         private string sql = string.Empty;
+        private SQLReader sr = new SQLReader();
         /// <summary>
         /// 插入方法
         /// </summary>
@@ -22,11 +24,11 @@ namespace PA.ViewModel
             List<string> sqlList = new List<string>();
             Console.WriteLine(list.Count);
             db.InsertPackage(DBTablesName.T_BOOKS, list.OfType<object>().ToList());
-            sql = "create table " + DBTablesName.T_VOUCHER + " as select * from t_voucher where 1=0";
+            sql = sr.ReadSQL(0, "T_VOUCHER", DBTablesName.T_VOUCHER);
             sqlList.Add(sql);
-            sql = "create table " + DBTablesName.T_VOUCHER_DETAIL + " as select * from  t_voucher_detail  where 1=0";
+            sql = sr.ReadSQL(1, "T_VOUCHER_DETAIL", DBTablesName.T_VOUCHER_DETAIL);
             sqlList.Add(sql);
-            sql = "create table " + DBTablesName.T_RECORD + " as select * from  t_record where 1=0";
+            sql = sr.ReadSQL(3, "T_RECORD", DBTablesName.T_RECORD);
             sqlList.Add(sql);
             db.BatchOperate(sqlList);
             

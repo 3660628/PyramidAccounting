@@ -13,6 +13,19 @@ namespace PA.ViewModel
     class ViewModel_科目管理
     {
         DataBase db = new DataBase();
+        public List<Model_科目管理> GetAllSubject()
+        {
+            List<Model_科目管理> list = new List<Model_科目管理>();
+            string sql = "select subject_id from " + DBTablesName.T_SUBJECT;
+            DataTable dt = db.Query(sql).Tables[0];
+            foreach (DataRow dr in dt.Rows)
+            {
+                Model_科目管理 m = new Model_科目管理();
+                m.科目编号 = dr[0].ToString();
+                list.Add(m);
+            }
+            return list;
+        }
         public List<Model_科目管理> GetSujectData(int type)
         {
             string sql = "select a.fee,b.* from " + DBTablesName.T_SUBJECT + " b left join t_year_fee a on a.bookid='" + CommonInfo.账薄号 + "' and a.subject_id=b.subject_id where  b.subject_type=" + type + " order by b.id,b.used_mark";
@@ -28,7 +41,7 @@ namespace PA.ViewModel
                 m.科目编号 = d[3].ToString();
                 m.科目名称 = d[5].ToString();
                 m.年初金额 = d[0].ToString();
-                m.Used_mark = Convert.ToInt32(d[8].ToString());
+                m.Used_mark = Convert.ToInt32(d[7].ToString());
                 m.是否启用 = m.Used_mark == 0 ? true : false;
                 list.Add(m);
             }

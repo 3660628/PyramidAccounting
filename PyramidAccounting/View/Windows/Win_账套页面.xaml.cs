@@ -123,6 +123,7 @@ namespace PA.View.Windows
 
 
             new ViewModel_Books().Insert(lm);  //执行插入
+            new ViewModel_年初金额().Insert(m.ID); //初始化年初金额表，插入数据
             //调整至主页面
             MainWindow mw = new MainWindow();
             mw.Show();
