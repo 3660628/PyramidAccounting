@@ -15,11 +15,11 @@
         <Label Content="期" HorizontalAlignment="Left" Margin="333,110,0,0" VerticalAlignment="Top"/>
         <Label Content="会计制度：" HorizontalAlignment="Left" Margin="70,160,0,0" VerticalAlignment="Top"/>
         <Label Content="账套名称：" HorizontalAlignment="Left" Margin="70,220,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="TextBox_公司" HorizontalAlignment="Left" Margin="155,60,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="200" LostKeyboardFocus="TextBox_公司_LostKeyboardFocus" TextChanged="TextBox_公司_TextChanged" FontSize="14" Height="20"/>
-        <TextBox x:Name="TextBox_year" HorizontalAlignment="Left" Margin="155,110,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="70" FontSize="14" Height="20"/>
-        <TextBox x:Name="TextBox_期" HorizontalAlignment="Left" Margin="258,110,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="70" FontSize="14" Height="20"/>
+        <TextBox x:Name="TextBox_公司" HorizontalAlignment="Left" Margin="155,61,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="200" LostKeyboardFocus="TextBox_公司_LostKeyboardFocus" TextChanged="TextBox_公司_TextChanged" FontSize="14" Height="20"/>
+        <TextBox x:Name="TextBox_year" HorizontalAlignment="Left" Margin="155,111,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="70" FontSize="14" Height="20"/>
+        <TextBox x:Name="TextBox_期" HorizontalAlignment="Left" Margin="258,111,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="70" FontSize="14" Height="20"/>
         <ComboBox x:Name="ComboBox_制度" HorizontalAlignment="Left" Margin="155,160,0,0" VerticalAlignment="Top" Width="250"/>
-        <TextBox x:Name="TextBox_账套名称" HorizontalAlignment="Left" Margin="155,220,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="200" LostKeyboardFocus="TextBox_账套名称_LostKeyboardFocus" FontSize="14" Height="20"/>
+        <TextBox x:Name="TextBox_账套名称" HorizontalAlignment="Left" Margin="155,221,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="200" LostKeyboardFocus="TextBox_账套名称_LostKeyboardFocus" FontSize="14" Height="20"/>
         <Button x:Name="Button_创建" Content="创建" HorizontalAlignment="Right" Margin="0,0,120,20" VerticalAlignment="Bottom" Width="75" Click="Button_创建_Click" Template="{DynamicResource ButtonControlTemplate_CommonBlue}" Height="22" Foreground="White"/>
         <Button x:Name="Button_取消" Content="取消" HorizontalAlignment="Right" Margin="0,0,30,20" VerticalAlignment="Bottom" Width="75" Click="Button_取消_Click" Template="{DynamicResource ButtonControlTemplate_Common}" Height="22"/>
         <TextBlock x:Name="TextBlock_账套错误信息" HorizontalAlignment="Left" Margin="375,62,0,0" TextWrapping="Wrap" Foreground="Red" VerticalAlignment="Top"/>

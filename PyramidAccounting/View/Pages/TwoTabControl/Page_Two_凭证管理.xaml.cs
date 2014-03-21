@@ -60,6 +60,7 @@ namespace PA.View.Pages.TwoTabControl
             switch (DateSelectIndex)
             {
                 case 0:
+
                     break;
             }
             ReflashData(DateParm + ReviewParm);
