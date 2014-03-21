@@ -54,11 +54,11 @@ namespace PA.View.Pages.TwoTabControl
                 if (CommonInfo.验证密码.Equals(CommonInfo.登录密码))
                 {
                     //do sth
-                    MessageBox.Show("当前将进行结账操作，请确认！");
+                    bool? result2 = MessageBox_Del.Show("注意", "当前将进行结账操作，是否继续？");
                 }
                 else
                 {
-                    MessageBox.Show("当前输入密码错误");
+                    MessageBox_Common.Show("当前输入密码错误！");
                 }
             }
         }

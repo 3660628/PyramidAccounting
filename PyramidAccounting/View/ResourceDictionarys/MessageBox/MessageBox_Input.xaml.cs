@@ -62,5 +62,18 @@ namespace PA.View.ResourceDictionarys.MessageBox
             this.DialogResult = false;
             this.Close();
         }
+
+        private void main_Loaded(object sender, RoutedEventArgs e)
+        {
+            this.PreviewKeyDown += new KeyEventHandler(main_PreviewKeyDown);
+        }
+
+        private void main_PreviewKeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
+            {
+                Yes_MouseLeftButtonDown(this, null);
+            }
+        }
     }
 }

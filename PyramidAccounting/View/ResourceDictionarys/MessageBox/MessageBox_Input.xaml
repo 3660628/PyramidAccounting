@@ -3,7 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="MessageBox_Input" Height="130" Width="280" WindowStyle="None"   Background="{x:Null}"  
         ResizeMode="NoResize"  x:Name="main"
-        AllowsTransparency="True" WindowStartupLocation="CenterScreen">
+        AllowsTransparency="True" WindowStartupLocation="CenterScreen" Loaded="main_Loaded">
     <Window.Triggers>
         <EventTrigger RoutedEvent="Window.Loaded" >
             <BeginStoryboard>
@@ -30,12 +30,12 @@
                          HorizontalAlignment="Center" Canvas.Top="50" Height="24" Width="200"/>
             <Border BorderBrush="#FF60C1C1" BorderThickness="0.5" Height="22" 
                     Canvas.Bottom="10" Canvas.Right="85" MouseLeftButtonDown="Yes_MouseLeftButtonDown"
-                 Name="border1" Width="49" Background="#FFC7C7C7" CornerRadius="2">
+                 Name="border1" Width="50" Background="#FFC7C7C7" CornerRadius="2">
                 <TextBlock Text="确定"  HorizontalAlignment="Center" VerticalAlignment="Center"/>
             </Border>
             <Border BorderBrush="#FF60C1C1" BorderThickness="0.5" Height="22" 
                     Canvas.Bottom="10" Canvas.Right="30" MouseLeftButtonDown="No_MouseLeftButtonDown"
-                Name="border2" Width="49" CornerRadius="2" Background="#FFC7C7D1">
+                Name="border2" Width="50" CornerRadius="2" Background="#FFC7C7D1">
                 <TextBlock Text="取消"  HorizontalAlignment="Center" VerticalAlignment="Center"/>
             </Border>
         </Canvas>
