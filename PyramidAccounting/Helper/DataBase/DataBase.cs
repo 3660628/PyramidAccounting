@@ -212,8 +212,6 @@ namespace PA.Helper.DataBase
                             cmd.CommandText = sql;
                             cmd.Parameters.AddWithValue("@ID", list.ID);
                             cmd.Parameters.AddWithValue("@OP_TIME", list.制表时间);
-                            cmd.Parameters.AddWithValue("@WORD", list.字);
-                            cmd.Parameters.AddWithValue("@NUMBER", list.号);
                             cmd.Parameters.AddWithValue("@SUBSIDIARY_COUNTS", list.附属单证数);
                             cmd.Parameters.AddWithValue("@FEE_DEBIT", list.合计借方金额);
                             cmd.Parameters.AddWithValue("@FEE_CREDIT", list.合计贷方金额);

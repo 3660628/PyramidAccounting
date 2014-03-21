@@ -11,8 +11,6 @@ namespace PA.Model.DataGrid
 
         private string id;
         private DateTime op_time;
-        private string word;
-        private int number;
         private int subsidiary_counts;
         private decimal fee_debit;
         private decimal fee_credit;
@@ -68,18 +66,6 @@ namespace PA.Model.DataGrid
         {
             get { return subsidiary_counts; }
             set { subsidiary_counts = value; }
-        }
-
-        public int 号
-        {
-            get { return number; }
-            set { number = value; }
-        }
-
-        public string 字
-        {
-            get { return word; }
-            set { word = value; }
         }
 
         public DateTime 制表时间

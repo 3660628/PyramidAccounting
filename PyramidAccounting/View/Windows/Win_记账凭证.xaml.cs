@@ -95,7 +95,6 @@ namespace PA.View.Windows
             Voucher = new PA.ViewModel.ViewModel_凭证管理().GetVoucher(guid);
             VoucherDetails = new PA.ViewModel.ViewModel_凭证管理().GetVoucherDetails(guid);
             this.DatePicker_Date.SelectedDate = Voucher.制表时间;
-            this.TextBox_号.Text = Voucher.号.ToString();
             this.TextBox_附属单证.Text = Voucher.附属单证数.ToString();
             this.Label_借方合计.Content = Voucher.合计借方金额;
             this.Label_贷方合计.Content = Voucher.合计贷方金额;
@@ -112,6 +111,7 @@ namespace PA.View.Windows
                     VoucherDetailsNow[i] = VoucherDetails[i];
                 }
             }
+            this.TextBox_号.Text = VoucherDetailsNow[0].凭证号;
             this.DataGrid_凭证明细.ItemsSource = VoucherDetailsNow;
             PageAll = new PA.ViewModel.ViewModel_凭证管理().GetPageNum(guid);
             this.TextBlock_PageNum.Text = "1/" + PageAll;
@@ -126,7 +126,6 @@ namespace PA.View.Windows
             Voucher.ID = Guid.NewGuid().ToString();
             Voucher.审核标志 = (this.Label_审核状态.Content.ToString() == "已审核") ? 1 : 0;
             Voucher.制表时间 = (DateTime)this.DatePicker_Date.SelectedDate;
-            Voucher.号 = int.Parse(this.TextBox_号.Text.Trim());
             foreach (Model_凭证明细 Detail in VoucherDetails)
             {
                 Detail.父节点ID = Voucher.ID;
@@ -167,7 +166,7 @@ namespace PA.View.Windows
         {
             for (int i = 0; i < 6; i++)
             {
-                if (i < VoucherDetails.Count - (PageNow - 1) * 6)
+                if (i < VoucherDetails.Count - ((PageNow - 1) * 6))
                 {
                     VoucherDetailsNow[i].凭证号 = this.TextBox_号.Text;
                     VoucherDetails[(PageNow - 1) * 6 + i] = VoucherDetailsNow[i];

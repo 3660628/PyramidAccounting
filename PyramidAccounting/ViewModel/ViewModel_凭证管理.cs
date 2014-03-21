@@ -121,45 +121,77 @@ namespace PA.ViewModel
             {
                 Voucher.ID = dr[0].ToString();
                 Voucher.制表时间 = Convert.ToDateTime(dr[1]);
-                Voucher.字 = dr[2].ToString();
-                Voucher.号 = int.Parse(dr[3].ToString());
-                Voucher.附属单证数 = int.Parse(dr[4].ToString());
-                Voucher.合计借方金额 = decimal.Parse(dr[5].ToString());
-                Voucher.合计贷方金额 = decimal.Parse(dr[6].ToString());
-                Voucher.会计主管 = dr[7].ToString();
-                Voucher.制单人 = dr[8].ToString();
-                Voucher.复核 = dr[9].ToString();
-                Voucher.审核标志 = int.Parse(dr[10].ToString());
-                Voucher.删除标志 = int.Parse(dr[11].ToString());
+                Voucher.附属单证数 = int.Parse(dr[2].ToString());
+                Voucher.合计借方金额 = decimal.Parse(dr[3].ToString());
+                Voucher.合计贷方金额 = decimal.Parse(dr[4].ToString());
+                Voucher.会计主管 = dr[5].ToString();
+                Voucher.制单人 = dr[6].ToString();
+                Voucher.复核 = dr[7].ToString();
+                Voucher.审核标志 = int.Parse(dr[8].ToString());
+                Voucher.删除标志 = int.Parse(dr[9].ToString());
             }
             return Voucher;
         }
         public List<Model_凭证明细> GetVoucherDetails(Guid guid)
         {
-            string VoucherNUm = "";
+            string LastVoucherNum = "";
             int CountNum = 0;
+            bool StartAdd = false;
             List<Model_凭证明细> VoucherDetails = new List<Model_凭证明细>();
             Model_凭证明细 detail;
             string sql = "select * from " + DBTablesName.T_VOUCHER_DETAIL + " where PARENTID='" + guid + "'";
             DataSet ds = new PA.Helper.DataBase.DataBase().Query(sql);
             foreach (DataRow dr in ds.Tables[0].Rows)
             {
-                VoucherNUm = dr[3].ToString();
-
-
+                if (LastVoucherNum == dr[3].ToString() || !StartAdd)
+                {
+                    detail = new Model_凭证明细();
+                    detail.ID = int.Parse(dr[0].ToString());
+                    detail.序号 = int.Parse(dr[1].ToString());
+                    detail.父节点ID = dr[2].ToString();
+                    detail.凭证号 = dr[3].ToString();
+                    detail.摘要 = dr[4].ToString();
+                    detail.科目编号 = dr[5].ToString();
+                    detail.子细目 = dr[6].ToString();
+                    detail.记账 = int.Parse(dr[7].ToString());
+                    detail.借方 = decimal.Parse(dr[8].ToString());
+                    detail.贷方 = decimal.Parse(dr[9].ToString());
+                    VoucherDetails.Add(detail);
+                    LastVoucherNum = dr[3].ToString();
+                    CountNum++;
+                    StartAdd = true;
+                }
+                else
+                {
+                    for (int i = CountNum; i < 6; i++)
+                    {
+                        detail = new Model_凭证明细();
+                        detail.序号 = i;
+                        VoucherDetails.Add(detail);
+                    }
+                    CountNum = 0;
+                    detail = new Model_凭证明细();
+                    detail.ID = int.Parse(dr[0].ToString());
+                    detail.序号 = int.Parse(dr[1].ToString());
+                    detail.父节点ID = dr[2].ToString();
+                    detail.凭证号 = dr[3].ToString();
+                    detail.摘要 = dr[4].ToString();
+                    detail.科目编号 = dr[5].ToString();
+                    detail.子细目 = dr[6].ToString();
+                    detail.记账 = int.Parse(dr[7].ToString());
+                    detail.借方 = decimal.Parse(dr[8].ToString());
+                    detail.贷方 = decimal.Parse(dr[9].ToString());
+                    VoucherDetails.Add(detail);
+                    LastVoucherNum = dr[3].ToString();
+                    CountNum++;
+                }
+            }
+            //补全最后的空白行
+            for (int i = CountNum; i < 6; i++)
+            {
                 detail = new Model_凭证明细();
-                detail.ID = int.Parse(dr[0].ToString());
-                detail.序号 = int.Parse(dr[1].ToString());
-                detail.父节点ID = dr[2].ToString();
-                detail.凭证号 = dr[3].ToString();
-                detail.摘要 = dr[4].ToString();
-                detail.科目编号 = dr[5].ToString();
-                detail.子细目 = dr[6].ToString();
-                detail.记账 = int.Parse(dr[7].ToString());
-                detail.借方 = decimal.Parse(dr[8].ToString());
-                detail.贷方 = decimal.Parse(dr[9].ToString());
+                detail.序号 = i;
                 VoucherDetails.Add(detail);
-                CountNum++;
             }
             return VoucherDetails;
         }
