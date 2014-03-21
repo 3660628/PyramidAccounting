@@ -32,7 +32,7 @@ namespace PA.ViewModel
                             + DBTablesName.T_VOUCHER + " voucher,"
                             + DBTablesName.T_VOUCHER_DETAIL + " detail"
                         + " WHERE "
-                            + "voucher.ID = detail.PARENTID " + whereParm
+                            + "voucher.ID = detail.PARENTID and DELETE_MARK=0 " + whereParm
                         + " ORDER BY "
                             + "detail.id";
             DataSet ds = new PA.Helper.DataBase.DataBase().Query(sql);
@@ -99,7 +99,13 @@ namespace PA.ViewModel
             new PA.Helper.DataBase.DataBase().BatchOperate(lists);
         }
 
-
+        public void Delete(Guid id)
+        {
+            string sql = "update " + DBTablesName.T_VOUCHER + " set DELETE_MARK=-1 where id='" + id + "'";
+            List<string> lists = new List<string>();
+            lists.Add(sql);
+            new PA.Helper.DataBase.DataBase().BatchOperate(lists);
+        }
 
     }
 }

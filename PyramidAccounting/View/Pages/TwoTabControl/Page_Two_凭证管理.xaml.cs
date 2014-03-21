@@ -72,14 +72,27 @@ namespace PA.View.Pages.TwoTabControl
 
         private void Button_Review_Click(object sender, RoutedEventArgs e)
         {
-            Model_凭证管理 asd = this.DataGrid_本期凭证.SelectedCells[0].Item as Model_凭证管理;
-            new PA.ViewModel.ViewModel_凭证管理().Review(asd.ID);
-            ReflashData();
+            if (this.DataGrid_本期凭证.SelectedCells.Count != 0)
+            {
+                Model_凭证管理 asd = this.DataGrid_本期凭证.SelectedCells[0].Item as Model_凭证管理;
+                new PA.ViewModel.ViewModel_凭证管理().Review(asd.ID);
+                ReflashData();
+            }
         }
 
         private void ComboBox_Review_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             ReflashData();
+        }
+
+        private void Button_Del_Click(object sender, RoutedEventArgs e)
+        {
+            if (this.DataGrid_本期凭证.SelectedCells.Count != 0)
+            {
+                Model_凭证管理 asd = this.DataGrid_本期凭证.SelectedCells[0].Item as Model_凭证管理;
+                new PA.ViewModel.ViewModel_凭证管理().Delete(asd.ID);
+                ReflashData();
+            }
         }
     }
 }
