@@ -185,6 +185,11 @@ namespace PA.View.Pages.TwoTabControl
         private void DataGrid_科目设置_Row_MouseDoubleClick(object sender, RoutedEventArgs e)
         {
             Model_科目管理 m = new Model_科目管理();
+            string header = DataGrid_科目设置.CurrentCell.Column.Header.ToString();
+            if(header == "年初数")
+            {
+                return;
+            }
             try
             {
                 m = DataGrid_科目设置.SelectedCells[0].Item as Model_科目管理;

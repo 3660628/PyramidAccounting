@@ -65,7 +65,7 @@
                             <DataGridTextColumn Binding="{Binding 序号}" Header="序号" IsReadOnly="True" />
                             <DataGridTextColumn Binding="{Binding 科目编号}" Header="科目编号" IsReadOnly="True"/>
                             <DataGridTextColumn Binding="{Binding 科目名称}" Header="科目名称" IsReadOnly="True"/>
-                            <DataGridTextColumn x:Name="DataGridTextColumn_fee" Binding="{Binding 年初金额}" Header="年初数"/>
+                            <DataGridTextColumn x:Name="DataGridTextColumn_fee" Binding="{Binding 年初金额}" Header="年初数" MinWidth="100"/>
                             <DataGridTemplateColumn  x:Name="DataGridTemplateColumn_mark" Header="是否启用">
                                 <DataGridTemplateColumn.CellTemplate>
                                     <DataTemplate>
