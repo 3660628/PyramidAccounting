@@ -104,7 +104,7 @@ namespace PA.View.Pages.TwoTabControl
                 }
                 else
                 {
-                    MessageBox.Show("当前尝试修改密码失败，请联系软件开发商！");
+                    MessageBox_Common.Show("当前尝试修改密码失败，请联系软件开发商！");
                 }
             }
             else
@@ -117,15 +117,10 @@ namespace PA.View.Pages.TwoTabControl
         {
             string messageBoxText = "年初金额初始化不能修改哦，请确认是否填写完整？";
             string caption = "注意";
-            MessageBoxButton button = MessageBoxButton.YesNo;
-            MessageBoxImage icon = MessageBoxImage.Warning;
-            MessageBoxResult result = MessageBox.Show(messageBoxText, caption, button, icon);
-            switch (result)
+            bool? result = MessageBox_Del.Show(caption, messageBoxText);
+            if (result == false)
             {
-                case MessageBoxResult.Yes:
-                    break;
-                case MessageBoxResult.No:
-                    return;
+                return;
             }
             new ViewModel_年初金额().Update(lm);
             //刷新操作
@@ -160,7 +155,7 @@ namespace PA.View.Pages.TwoTabControl
             }
             else
             {
-                MessageBox.Show("请选择科目！");
+                MessageBox_Common.Show("请选择科目！");
             }
             
 
@@ -231,7 +226,7 @@ namespace PA.View.Pages.TwoTabControl
             }
             else
             {
-                MessageBox.Show("请选择需要修改的用户");
+                MessageBox_Common.Show("请选择需要修改的用户");
             }
         }
 
@@ -243,7 +238,7 @@ namespace PA.View.Pages.TwoTabControl
                 Model_用户 m = DataGrid_权限设置.SelectedItem as Model_用户;
                 if (m.是否使用.Equals("停用"))
                 {
-                    MessageBox.Show("当前用户已经停用，请勿重复操作！");
+                    MessageBox_Common.Show("当前用户已经停用，请勿重复操作！");
                     return;
                 }
                 string messageBoxText = "用户停用后，将不能登录！";
@@ -259,7 +254,7 @@ namespace PA.View.Pages.TwoTabControl
             }
             else
             {
-                MessageBox.Show("请选择需要停用的用户");
+                MessageBox_Common.Show("请选择需要停用的用户");
             }
         }
         #endregion
