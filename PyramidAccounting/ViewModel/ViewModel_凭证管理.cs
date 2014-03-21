@@ -51,7 +51,7 @@ namespace PA.ViewModel
                     LastData.凭证号 = dr[1].ToString();
                     LastData.制表时间 = Convert.ToDateTime(dr[2]).ToString(DateFormat);
                     LastData.摘要 = dr[3].ToString();
-                    LastData.科目编号 = dr[4].ToString() + "-" + dr[5].ToString();
+                    LastData.科目编号 = dr[4].ToString();
                     LastData.科目名称 = dr[5].ToString();
                     LastData.借方金额 = (dr[6].ToString() == "0") ? "" : dr[6].ToString();
                     LastData.贷方金额 = (dr[7].ToString() == "0") ? "" : dr[7].ToString();
@@ -62,7 +62,7 @@ namespace PA.ViewModel
                 {
                     LastData.凭证号 += "\n" + dr[1].ToString();
                     LastData.摘要 += "\n" + dr[3].ToString();
-                    LastData.科目编号 += "\n" + dr[4].ToString() + "-" + dr[5].ToString();
+                    LastData.科目编号 += "\n" + dr[4].ToString();
                     LastData.科目名称 += "\n" + dr[5].ToString();
                     LastData.借方金额 += "\n" + ((dr[6].ToString() == "0") ? "" : dr[6].ToString());
                     LastData.贷方金额 += "\n" + ((dr[7].ToString() == "0") ? "" : dr[7].ToString());
