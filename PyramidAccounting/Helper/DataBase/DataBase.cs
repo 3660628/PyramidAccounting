@@ -235,6 +235,7 @@ namespace PA.Helper.DataBase
                             cmd.CommandText = sql;
                             cmd.Parameters.AddWithValue("@VID", list.序号);
                             cmd.Parameters.AddWithValue("@PARENTID", list.父节点ID);
+                            cmd.Parameters.AddWithValue("@WORD", list.凭证字);
                             cmd.Parameters.AddWithValue("@VOUCHER_NO", list.凭证号);
                             cmd.Parameters.AddWithValue("@ABSTRACT", list.摘要);
                             cmd.Parameters.AddWithValue("@SUBJECT_ID", list.科目编号);

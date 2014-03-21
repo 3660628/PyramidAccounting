@@ -11,6 +11,7 @@ namespace PA.Model.DataGrid
         private int id;
         private int vid;
         private string parentid;
+        private string word;
         private string voucher_ID;
         private string abstract_comments;
         private string subject_id;
@@ -18,7 +19,11 @@ namespace PA.Model.DataGrid
         private int bookkeep_mark;
         private decimal debit;
         private decimal credit;
-
+        public string 凭证字
+        {
+            get { return word; }
+            set { word = value; }
+        }
         public string 凭证号
         {
             get { return voucher_ID; }

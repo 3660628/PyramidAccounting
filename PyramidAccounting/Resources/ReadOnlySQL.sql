@@ -14,6 +14,7 @@ CREATE TABLE T_VOUCHERDETAIL (							--凭证明细表
     ID            INTEGER PRIMARY KEY,					--ID
 	VID			  INTEGER,								--序号，记录当前第几条
     PARENTID      TEXT,									--父节ID，与凭证表ID相等
+	WORD		  TEXT,									--凭证字
 	VOUCHER_NO    TEXT,									--凭证号
     ABSTRACT      TEXT,									--摘要
     SUBJECT_ID    TEXT,									--科目编号
