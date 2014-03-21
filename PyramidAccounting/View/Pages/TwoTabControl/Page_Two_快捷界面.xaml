@@ -36,9 +36,6 @@
                     <Button FocusVisualStyle="{x:Null}" x:Name="Button_账目查询" Content="账目查询" HorizontalAlignment="Center" Margin="0" VerticalAlignment="Center" Width="150" Height="168" Grid.Column="3" Grid.Row="2" Click="Button_账目查询_Click"/>
                 </Grid>
             </TabItem>
-            <TabItem FocusVisualStyle="{x:Null}" Header="帐套信息" Margin="16,-1,-16,1" Template="{DynamicResource TabItemControlTemplate_TwoTabHeader}">
-                <Grid Background="White"/>
-            </TabItem>
         </TabControl>
     </Grid>
 </Page>
