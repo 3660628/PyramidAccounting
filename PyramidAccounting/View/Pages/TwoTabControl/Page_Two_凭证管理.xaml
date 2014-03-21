@@ -9,7 +9,7 @@
 
     <Grid Margin="-3,0,-3,-3">
         <Grid Height="25" Margin="0" VerticalAlignment="Bottom" Background="#FFA6D9FF">
-            <Label x:Name="Label_账套名称" Content="当前帐套名称" HorizontalAlignment="Left" Margin="10,0,0,0"/>
+            <Label x:Name="Label_账套名称" Content="当前帐套名称" HorizontalAlignment="Left" Margin="9,0,0,0"/>
             <Label x:Name="Label_操作员" Content="操作员" HorizontalAlignment="Center" Margin="0"/>
             <Label x:Name="Label_当前期数" Content="当前期数" HorizontalAlignment="Right" Margin="0,0,10,0"/>
         </Grid>
