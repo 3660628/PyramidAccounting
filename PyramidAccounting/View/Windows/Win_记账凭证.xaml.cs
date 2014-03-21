@@ -35,7 +35,7 @@ namespace PA.View.Windows
             InitData();
         }
 
-        public Win_记账凭证(string guid)
+        public Win_记账凭证(Guid guid)
         {
             InitializeComponent();
             
