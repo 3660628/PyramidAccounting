@@ -17,6 +17,7 @@ using System.Data;
 using PA.Model.CustomEventArgs;
 using PA.Helper.DataBase;
 using PA.Helper.DataDefind;
+using PA.View.ResourceDictionarys.MessageBox;
 
 namespace PA.View.Pages.TwoTabControl
 {
@@ -240,17 +241,13 @@ namespace PA.View.Pages.TwoTabControl
                     MessageBox.Show("当前用户已经停用，请勿重复操作！");
                     return;
                 }
-                string messageBoxText = "用户停用后，以后改用户将不能登录了，请谨慎操作！";
+                string messageBoxText = "用户停用后，将不能登录了，请谨慎操作！";
                 string caption = "注意";
-                MessageBoxButton button = MessageBoxButton.YesNo;
-                MessageBoxImage icon = MessageBoxImage.Warning;
-                MessageBoxResult result = MessageBox.Show(messageBoxText, caption, button, icon);
-                switch (result)
+                bool? result = false;
+                result = MessageBox_Del.Show(caption, messageBoxText);
+                if (result == false)
                 {
-                    case MessageBoxResult.Yes:
-                        break;
-                    case MessageBoxResult.No:
-                        return;
+                    return;
                 }
                 vm.StopUse(m.ID);
                 FreshData();
