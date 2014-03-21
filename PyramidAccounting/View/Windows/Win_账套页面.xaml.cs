@@ -35,6 +35,7 @@ namespace PA.View.Windows
             this.Top = Properties.Settings.Default.MainWindowRect.Top;
             this.Left = Properties.Settings.Default.MainWindowRect.Left;
             InitData();
+            this.TextBox_公司.Focus();
         }
         public Win_账套页面(double Left, double Top)
         {
@@ -42,6 +43,7 @@ namespace PA.View.Windows
             this.Left = Left;
             this.Top = Top;
             InitData();
+            this.TextBox_公司.Focus();
         }
         private void InitData()
         {
