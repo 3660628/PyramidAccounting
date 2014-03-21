@@ -44,19 +44,25 @@ namespace PA.View.Pages.TwoTabControl
         }
         private void ReflashData()
         {
-            int selectindex = this.ComboBox_Review.SelectedIndex;
-            switch (selectindex)
+            int DateSelectIndex = this.ComboBox_Date.SelectedIndex;
+            string DateParm = "";
+            int ReviewSelectIndex = this.ComboBox_Review.SelectedIndex;
+            string ReviewParm = "";
+            switch (ReviewSelectIndex)
             {
-                case 0:
-                    ReflashData("");
-                    break;
                 case 1:
-                    ReflashData(" and REVIEW_MARK=1");
+                    ReviewParm = " and REVIEW_MARK=1";
                     break;
                 case 2:
-                    ReflashData(" and REVIEW_MARK=0");
+                    ReviewParm = " and REVIEW_MARK=0";
                     break;
             }
+            switch (DateSelectIndex)
+            {
+                case 0:
+                    break;
+            }
+            ReflashData(DateParm + ReviewParm);
         }
         private void ReflashData(string parm)
         {
