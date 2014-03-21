@@ -11,6 +11,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using PA.ViewModel;
+using PA.Model.DataGrid;
 using PA.Model.Database;
 using PA.Helper.DataBase;
 using PA.Helper.DataDefind;
@@ -88,9 +89,18 @@ namespace PA.View.Windows
             xw.WriteXML("公司",TextBox_公司.Text.Trim());
             xw.WriteXML("会计制度", ComboBox_制度.SelectedIndex.ToString());
 
+            //数据创建步骤
+            //1.创建账套
+            new ViewModel_Books().Insert(lm);
+            //2.为账套新建初始年初数
+            new ViewModel_年初金额().Insert(m.ID);
 
-            new ViewModel_Books().Insert(lm);  //执行插入
-            new ViewModel_年初金额().Insert(m.ID); //初始化年初金额表，插入数据
+            Model_操作日志 mr = new Model_操作日志();
+            ViewModel_操作日志 vmr = new ViewModel_操作日志();
+            mr = vmr.GetTOperateLog();
+            mr.日志 = "创建了账套：" + m.帐套名称;
+            vmr.Insert(mr);
+
             //调整至主页面
             MainWindow mw = new MainWindow();
             mw.Show();

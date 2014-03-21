@@ -24,6 +24,7 @@ namespace PA
     {
         private XMLWriter xw = new XMLWriter();
         private ViewModel_用户 vm = new ViewModel_用户();
+        private ViewModel_操作日志 vmr = new ViewModel_操作日志();
         public Win_SignIn()
         {
             InitializeComponent();
@@ -77,8 +78,6 @@ namespace PA
             string UserName = TextBox_登陆用户名.Text.Trim();
             string Password = Secure.TranslatePassword(PasswordBox_登陆密码.SecurePassword);
 
-            Model_操作日志 mr = new Model_操作日志();
-
             if (vm.ValidateAccount(UserName,Password))
             {
                 Model.DataGrid.Model_用户 m = new Model.DataGrid.Model_用户();
@@ -90,9 +89,8 @@ namespace PA
                 CommonInfo.制度索引 = Convert.ToInt32(new XMLReader().ReadXML("会计制度"));
 
                 //先记录一些信息
-                mr.用户名 = UserName;
-                mr.姓名 = m.真实姓名;
-                mr.日期 = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
+                Model_操作日志 mr = new Model_操作日志();
+                mr = vmr.GetTOperateLog();
 
                 if (ComboBox_账套.SelectedValue.ToString().Equals("0"))
                 {
@@ -112,7 +110,7 @@ namespace PA
                 {
                     //这里写日志信息
                     mr.日志 = "登录了账套：" + bookname;
-                    new ViewModel_操作日志().Insert(mr);
+                    vmr.Insert(mr);
 
                     xw.WriteXML("帐套信息", bookname);
                     MainWindow mw = new MainWindow();
