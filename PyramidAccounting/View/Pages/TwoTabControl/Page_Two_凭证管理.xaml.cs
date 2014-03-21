@@ -44,7 +44,19 @@ namespace PA.View.Pages.TwoTabControl
         }
         private void ReflashData()
         {
-            ReflashData("");
+            int selectindex = this.ComboBox_Review.SelectedIndex;
+            switch (selectindex)
+            {
+                case 0:
+                    ReflashData("");
+                    break;
+                case 1:
+                    ReflashData(" and REVIEW_MARK=1");
+                    break;
+                case 2:
+                    ReflashData(" and REVIEW_MARK=0");
+                    break;
+            }
         }
         private void ReflashData(string parm)
         {
@@ -67,19 +79,7 @@ namespace PA.View.Pages.TwoTabControl
 
         private void ComboBox_Review_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            int selectindex = this.ComboBox_Review.SelectedIndex;
-            switch (selectindex)
-            {
-                case 0:
-                    ReflashData();
-                    break;
-                case 1:
-                    ReflashData(" and REVIEW_MARK=1");
-                    break;
-                case 2:
-                    ReflashData(" and REVIEW_MARK=0");
-                    break;
-            }
+            ReflashData();
         }
     }
 }
