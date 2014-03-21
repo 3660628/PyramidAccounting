@@ -17,7 +17,7 @@
             <TabItem FocusVisualStyle="{x:Null}" Header="凭证管理" Margin="8,-1,-8,1" Template="{DynamicResource TabItemControlTemplate_TwoTabHeader}">
                 <Grid Background="White">
                     <ComboBox x:Name="ComboBox_Date" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="120"/>
-                    <ComboBox x:Name="ComboBox_Review" HorizontalAlignment="Left" Margin="145,10,0,0" VerticalAlignment="Top" Width="80" DropDownClosed="ComboBox_Review_DropDownClosed"/>
+                    <ComboBox x:Name="ComboBox_Review" HorizontalAlignment="Left" Margin="145,10,0,0" VerticalAlignment="Top" Width="80" SelectionChanged="ComboBox_Review_SelectionChanged"/>
                     <Button FocusVisualStyle="{x:Null}" x:Name="Button_Add" Content="新增" HorizontalAlignment="Right" Margin="0,10,205,0" VerticalAlignment="Top" Width="50" Template="{DynamicResource ButtonControlTemplate_Common}" Height="20" Click="Button_Add_Click"/>
                     <Button FocusVisualStyle="{x:Null}" x:Name="Button_Del" Content="删除" HorizontalAlignment="Right" Margin="0,10,140,0" VerticalAlignment="Top" Width="50" Template="{DynamicResource ButtonControlTemplate_Common}" Height="20"/>
                     <Button FocusVisualStyle="{x:Null}" x:Name="Button_Review" Content="审核" HorizontalAlignment="Right" Margin="0,10,75,0" VerticalAlignment="Top" Width="50" Template="{DynamicResource ButtonControlTemplate_Common}" Height="20" Click="Button_Review_Click"/>

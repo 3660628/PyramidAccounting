@@ -44,7 +44,11 @@ namespace PA.View.Pages.TwoTabControl
         }
         private void ReflashData()
         {
-            Data_本期凭证 = new PA.ViewModel.ViewModel_凭证管理().GetData("");
+            ReflashData("");
+        }
+        private void ReflashData(string parm)
+        {
+            Data_本期凭证 = new PA.ViewModel.ViewModel_凭证管理().GetData(parm);
             this.DataGrid_本期凭证.ItemsSource = Data_本期凭证;
         }
         private void Button_Add_Click(object sender, RoutedEventArgs e)
@@ -61,9 +65,21 @@ namespace PA.View.Pages.TwoTabControl
             ReflashData();
         }
 
-        private void ComboBox_Review_DropDownClosed(object sender, EventArgs e)
+        private void ComboBox_Review_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            Console.WriteLine("asdasd");
+            int selectindex = this.ComboBox_Review.SelectedIndex;
+            switch (selectindex)
+            {
+                case 0:
+                    ReflashData();
+                    break;
+                case 1:
+                    ReflashData(" and REVIEW_MARK=1");
+                    break;
+                case 2:
+                    ReflashData(" and REVIEW_MARK=0");
+                    break;
+            }
         }
     }
 }
