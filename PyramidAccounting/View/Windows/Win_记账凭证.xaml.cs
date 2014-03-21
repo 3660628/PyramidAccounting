@@ -107,13 +107,14 @@ namespace PA.View.Windows
             }
             for (int i = 0; i < VoucherDetails.Count; i++ )
             {
-                while(i<6)
+                if(i<6)
                 {
                     VoucherDetailsNow[i] = VoucherDetails[i];
-                    break;
                 }
             }
             this.DataGrid_凭证明细.ItemsSource = VoucherDetailsNow;
+            PageAll = new PA.ViewModel.ViewModel_凭证管理().GetPageNum(guid);
+            this.TextBlock_PageNum.Text = "1/" + PageAll;
         }
         /// <summary>
         /// 获取全部数据
@@ -166,8 +167,11 @@ namespace PA.View.Windows
         {
             for (int i = 0; i < 6; i++)
             {
-                VoucherDetailsNow[i].凭证号 = this.TextBox_号.Text;
-                VoucherDetails[(PageNow - 1) * 6 + i] = VoucherDetailsNow[i];
+                if (i < VoucherDetails.Count - (PageNow - 1) * 6)
+                {
+                    VoucherDetailsNow[i].凭证号 = this.TextBox_号.Text;
+                    VoucherDetails[(PageNow - 1) * 6 + i] = VoucherDetailsNow[i];
+                }
             }
         }
         #endregion

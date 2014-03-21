@@ -136,12 +136,17 @@ namespace PA.ViewModel
         }
         public List<Model_凭证明细> GetVoucherDetails(Guid guid)
         {
+            string VoucherNUm = "";
+            int CountNum = 0;
             List<Model_凭证明细> VoucherDetails = new List<Model_凭证明细>();
             Model_凭证明细 detail;
             string sql = "select * from " + DBTablesName.T_VOUCHER_DETAIL + " where PARENTID='" + guid + "'";
             DataSet ds = new PA.Helper.DataBase.DataBase().Query(sql);
             foreach (DataRow dr in ds.Tables[0].Rows)
             {
+                VoucherNUm = dr[3].ToString();
+
+
                 detail = new Model_凭证明细();
                 detail.ID = int.Parse(dr[0].ToString());
                 detail.序号 = int.Parse(dr[1].ToString());
@@ -153,11 +158,21 @@ namespace PA.ViewModel
                 detail.记账 = int.Parse(dr[7].ToString());
                 detail.借方 = decimal.Parse(dr[8].ToString());
                 detail.贷方 = decimal.Parse(dr[9].ToString());
-
-
                 VoucherDetails.Add(detail);
+                CountNum++;
             }
             return VoucherDetails;
+        }
+        public int GetPageNum(Guid guid)
+        {
+            int result = 1;
+            string sql = "select count(*) from (SELECT count(*) FROM " + DBTablesName.T_VOUCHER_DETAIL + " WHERE PARENTID = '"+ guid +"' GROUP BY VOUCHER_NO)";
+            DataSet ds = new PA.Helper.DataBase.DataBase().Query(sql);
+            foreach (DataRow dr in ds.Tables[0].Rows)
+            {
+                result = int.Parse(dr[0].ToString());
+            }
+            return result;
         }
     }
 }
