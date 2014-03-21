@@ -39,6 +39,7 @@ namespace PA.View.Windows
         {
             InitializeComponent();
             FillData(guid);
+            this.Button_保存并新增.Visibility = System.Windows.Visibility.Collapsed;
         }
 
         #region 自定义事件
@@ -215,10 +216,7 @@ namespace PA.View.Windows
 
         private void Button_打印_Click(object sender, RoutedEventArgs e)
         {
-            foreach (Model_凭证明细 Detail in VoucherDetails)
-            {
-                Console.WriteLine(Detail.摘要);
-            }
+            
         }
         
         private void DataGrid_凭证明细_Cell_MouseDoubleClick(object sender, RoutedEventArgs e)

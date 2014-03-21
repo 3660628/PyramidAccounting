@@ -143,21 +143,22 @@ namespace PA.ViewModel
             DataSet ds = new PA.Helper.DataBase.DataBase().Query(sql);
             foreach (DataRow dr in ds.Tables[0].Rows)
             {
-                if (LastVoucherNum == dr[3].ToString() || !StartAdd)
+                if (LastVoucherNum == dr[4].ToString() || !StartAdd)
                 {
                     detail = new Model_凭证明细();
                     detail.ID = int.Parse(dr[0].ToString());
                     detail.序号 = int.Parse(dr[1].ToString());
                     detail.父节点ID = dr[2].ToString();
-                    detail.凭证号 = dr[3].ToString();
-                    detail.摘要 = dr[4].ToString();
-                    detail.科目编号 = dr[5].ToString();
-                    detail.子细目 = dr[6].ToString();
-                    detail.记账 = int.Parse(dr[7].ToString());
-                    detail.借方 = decimal.Parse(dr[8].ToString());
-                    detail.贷方 = decimal.Parse(dr[9].ToString());
+                    detail.凭证字 = dr[3].ToString();
+                    detail.凭证号 = dr[4].ToString();
+                    detail.摘要 = dr[5].ToString();
+                    detail.科目编号 = dr[6].ToString();
+                    detail.子细目 = dr[7].ToString();
+                    detail.记账 = int.Parse(dr[8].ToString());
+                    detail.借方 = decimal.Parse(dr[9].ToString());
+                    detail.贷方 = decimal.Parse(dr[10].ToString());
                     VoucherDetails.Add(detail);
-                    LastVoucherNum = dr[3].ToString();
+                    LastVoucherNum = dr[4].ToString();
                     CountNum++;
                     StartAdd = true;
                 }
@@ -174,15 +175,16 @@ namespace PA.ViewModel
                     detail.ID = int.Parse(dr[0].ToString());
                     detail.序号 = int.Parse(dr[1].ToString());
                     detail.父节点ID = dr[2].ToString();
-                    detail.凭证号 = dr[3].ToString();
-                    detail.摘要 = dr[4].ToString();
-                    detail.科目编号 = dr[5].ToString();
-                    detail.子细目 = dr[6].ToString();
-                    detail.记账 = int.Parse(dr[7].ToString());
-                    detail.借方 = decimal.Parse(dr[8].ToString());
-                    detail.贷方 = decimal.Parse(dr[9].ToString());
+                    detail.凭证字 = dr[3].ToString();
+                    detail.凭证号 = dr[4].ToString();
+                    detail.摘要 = dr[5].ToString();
+                    detail.科目编号 = dr[6].ToString();
+                    detail.子细目 = dr[7].ToString();
+                    detail.记账 = int.Parse(dr[8].ToString());
+                    detail.借方 = decimal.Parse(dr[9].ToString());
+                    detail.贷方 = decimal.Parse(dr[10].ToString());
                     VoucherDetails.Add(detail);
-                    LastVoucherNum = dr[3].ToString();
+                    LastVoucherNum = dr[4].ToString();
                     CountNum++;
                 }
             }
