@@ -86,6 +86,7 @@ namespace PA
                 CommonInfo.用户名 = UserName;
                 CommonInfo.用户权限 = m.用户权限;
                 CommonInfo.权限值 = m.权限值;
+                CommonInfo.登录密码 = Password;
                 CommonInfo.制度索引 = Convert.ToInt32(new XMLReader().ReadXML("会计制度"));
 
                 //先记录一些信息

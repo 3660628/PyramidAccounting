@@ -12,6 +12,20 @@ namespace PA.Helper.DataDefind
         private static string authority;
         private static int authority_value;
         private static int system_index;
+        private static string currentPassword;
+        private static string confirmPassword;
+
+        public static string 验证密码
+        {
+            get { return CommonInfo.confirmPassword; }
+            set { CommonInfo.confirmPassword = value; }
+        }
+
+        public static string 登录密码
+        {
+            get { return CommonInfo.currentPassword; }
+            set { CommonInfo.currentPassword = value; }
+        }
 
         public static int 权限值
         {

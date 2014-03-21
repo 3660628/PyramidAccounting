@@ -11,6 +11,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using PA.View.ResourceDictionarys.MessageBox;
+using PA.Helper.DataDefind;
 
 namespace PA.View.Pages.TwoTabControl
 {
@@ -41,12 +43,24 @@ namespace PA.View.Pages.TwoTabControl
 
         private void Button_查询修改_Click(object sender, RoutedEventArgs e)
         {
-
+            
         }
 
         private void Button_本月结账_Click(object sender, RoutedEventArgs e)
         {
-            
+            bool? result = MessageBox_Input.Show("安全确认，请输入密码");
+            if (result == true)
+            {
+                if (CommonInfo.验证密码.Equals(CommonInfo.登录密码))
+                {
+                    //do sth
+                    MessageBox.Show("当前将进行结账操作，请确认！");
+                }
+                else
+                {
+                    MessageBox.Show("当前输入密码错误");
+                }
+            }
         }
 
         private void Button_账目查询_Click(object sender, RoutedEventArgs e)

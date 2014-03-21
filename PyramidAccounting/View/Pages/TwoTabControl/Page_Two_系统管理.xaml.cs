@@ -241,7 +241,7 @@ namespace PA.View.Pages.TwoTabControl
                     MessageBox.Show("当前用户已经停用，请勿重复操作！");
                     return;
                 }
-                string messageBoxText = "用户停用后，将不能登录了，请谨慎操作！";
+                string messageBoxText = "用户停用后，将不能登录！";
                 string caption = "注意";
                 bool? result = false;
                 result = MessageBox_Del.Show(caption, messageBoxText);
