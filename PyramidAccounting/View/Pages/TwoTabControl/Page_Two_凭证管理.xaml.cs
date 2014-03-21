@@ -60,5 +60,10 @@ namespace PA.View.Pages.TwoTabControl
             new PA.ViewModel.ViewModel_凭证管理().Review(asd.ID);
             ReflashData();
         }
+
+        private void ComboBox_Review_DropDownClosed(object sender, EventArgs e)
+        {
+            Console.WriteLine("asdasd");
+        }
     }
 }
