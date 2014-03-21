@@ -24,8 +24,8 @@
 
         <!--Button-->
         <Button FocusVisualStyle="{x:Null}" x:Name="Button_Close" Content="Button" HorizontalAlignment="Right" Margin="0,0,10,0" VerticalAlignment="Top" Width="28" Height="20" Template="{DynamicResource ButtonControlTemplate_Close}" Click="Button_Close_Click"/>
-        <Button FocusVisualStyle="{x:Null}" x:Name="Button_保存并新增" Content="保存并新增" HorizontalAlignment="Left" Margin="10,35,0,0" VerticalAlignment="Top" Width="85" Click="Button_保存并新增_Click" Template="{DynamicResource ButtonControlTemplate_CommonBlue}" Height="22" Foreground="White"/>
-        <Button FocusVisualStyle="{x:Null}" x:Name="Button_保存" Content="保存" HorizontalAlignment="Left" Margin="100,35,0,0" VerticalAlignment="Top" Width="50" Click="Button_保存_Click" Template="{DynamicResource ButtonControlTemplate_Common}" Height="22"/>
+        <Button FocusVisualStyle="{x:Null}" x:Name="Button_保存并新增" Content="保存并新增" HorizontalAlignment="Left" Margin="70,35,0,0" VerticalAlignment="Top" Width="85" Click="Button_保存并新增_Click" Template="{DynamicResource ButtonControlTemplate_CommonBlue}" Height="22" Foreground="White"/>
+        <Button FocusVisualStyle="{x:Null}" x:Name="Button_保存" Content="保存" HorizontalAlignment="Left" Margin="10,35,0,0" VerticalAlignment="Top" Width="50" Click="Button_保存_Click" Template="{DynamicResource ButtonControlTemplate_Common}" Height="22"/>
         <Button FocusVisualStyle="{x:Null}" x:Name="Button_打印" Content="打印" HorizontalAlignment="Right" Margin="0,35,10,0" VerticalAlignment="Top" Width="50" Click="Button_打印_Click" Template="{DynamicResource ButtonControlTemplate_Common}" Height="22"/>
         <Button FocusVisualStyle="{x:Null}" x:Name="Button_NewDataGrid" Content="新建页" HorizontalAlignment="Right" Margin="0,0,10,10" VerticalAlignment="Bottom" Width="75" Template="{DynamicResource ButtonControlTemplate_Common}" Height="22" Click="Button_NewDataGrid_Click"/>
         <Button x:Name="Button_Previous" Content="&lt;" HorizontalAlignment="Left" Margin="610,409,0,0" VerticalAlignment="Top" Width="20" Height="20" Template="{DynamicResource ButtonControlTemplate_Common}" Click="Button_Previous_Click"/>
