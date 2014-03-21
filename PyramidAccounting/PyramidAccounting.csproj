@@ -156,6 +156,9 @@
     <Compile Include="View\Pages\TwoTabControl\Page_Two_账簿管理.xaml.cs">
       <DependentUpon>Page_Two_账簿管理.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\ResourceDictionarys\MessageBox\MessageBox_Del.xaml.cs">
+      <DependentUpon>MessageBox_Del.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\Windows\Win_子细目.xaml.cs">
       <DependentUpon>Win_子细目.xaml</DependentUpon>
     </Compile>
@@ -257,6 +260,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\ResourceDictionarys\DataGrid\VoucherMoneyShow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\ResourceDictionarys\MessageBox\MessageBox_Del.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

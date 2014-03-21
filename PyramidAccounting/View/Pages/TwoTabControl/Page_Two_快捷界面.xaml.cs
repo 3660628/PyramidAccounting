@@ -46,7 +46,7 @@ namespace PA.View.Pages.TwoTabControl
 
         private void Button_本月结账_Click(object sender, RoutedEventArgs e)
         {
-
+            
         }
 
         private void Button_账目查询_Click(object sender, RoutedEventArgs e)
