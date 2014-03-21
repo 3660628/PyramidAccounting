@@ -38,7 +38,7 @@ namespace PA.View.Windows
         public Win_记账凭证(Guid guid)
         {
             InitializeComponent();
-            
+            FillData(guid);
         }
 
         #region 自定义事件
@@ -90,9 +90,30 @@ namespace PA.View.Windows
         /// <summary>
         /// 填充数据(查看修改)
         /// </summary>
-        private void FillData()
+        private void FillData(Guid guid)
         {
-
+            Voucher = new PA.ViewModel.ViewModel_凭证管理().GetVoucher(guid);
+            VoucherDetails = new PA.ViewModel.ViewModel_凭证管理().GetVoucherDetails(guid);
+            this.DatePicker_Date.SelectedDate = Voucher.制表时间;
+            this.TextBox_号.Text = Voucher.号.ToString();
+            this.TextBox_附属单证.Text = Voucher.附属单证数.ToString();
+            this.Label_借方合计.Content = Voucher.合计借方金额;
+            this.Label_贷方合计.Content = Voucher.合计贷方金额;
+            for (int i = 0; i < 6; i++)
+            {
+                Model_凭证明细 a = new Model_凭证明细();
+                a.序号 = i;
+                VoucherDetailsNow.Add(a);
+            }
+            for (int i = 0; i < VoucherDetails.Count; i++ )
+            {
+                while(i<6)
+                {
+                    VoucherDetailsNow[i] = VoucherDetails[i];
+                    break;
+                }
+            }
+            this.DataGrid_凭证明细.ItemsSource = VoucherDetailsNow;
         }
         /// <summary>
         /// 获取全部数据
