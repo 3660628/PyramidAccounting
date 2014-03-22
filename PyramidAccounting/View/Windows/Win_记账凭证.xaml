@@ -40,9 +40,9 @@
             <DataGrid.Columns>
                 <DataGridTextColumn Binding="{Binding 序号}" Visibility="Hidden"/>
                 <DataGridTextColumn Header="摘要" Binding="{Binding 摘要}" Width="190" ElementStyle="{DynamicResource TextBlockStyle_左对齐}"/>
-                <DataGridTextColumn Header="科目" Width="120" Binding="{Binding 科目编号}" ElementStyle="{DynamicResource TextBlockStyle_居中对齐}" IsReadOnly="True"/>
+                <DataGridTextColumn Header="科目" Width="160" Binding="{Binding 科目编号}" ElementStyle="{DynamicResource TextBlockStyle_居中对齐}" IsReadOnly="True"/>
                 <DataGridTextColumn Header="子细目" Width="120" Binding="{Binding 子细目}" ElementStyle="{DynamicResource TextBlockStyle_居中对齐}" IsReadOnly="True"/>
-                <DataGridTextColumn Header="记账" Width="40" Binding="{Binding 记账}" ElementStyle="{DynamicResource TextBlockStyle_居中对齐}" IsReadOnly="True"/>
+                <DataGridTextColumn Header="记账" Width="40" Binding="{Binding 记账}" ElementStyle="{DynamicResource TextBlockStyle_居中对齐}" IsReadOnly="True" Visibility="Hidden"/>
                 <DataGridTextColumn Header="借方金额" Width="150" Binding="{Binding 借方}" ElementStyle="{DynamicResource TextBlockStyle_右对齐}"/>
                 <DataGridTextColumn Header="贷方金额" Width="150" Binding="{Binding 贷方}" ElementStyle="{DynamicResource TextBlockStyle_右对齐}"/>
             </DataGrid.Columns>
