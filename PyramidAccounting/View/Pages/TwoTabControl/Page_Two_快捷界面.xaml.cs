@@ -48,17 +48,20 @@ namespace PA.View.Pages.TwoTabControl
 
         private void Button_本月结账_Click(object sender, RoutedEventArgs e)
         {
-            bool? result = MessageBox_Input.Show("安全确认，请输入密码");
-            if (result == true)
+            bool? result2 = MessageBox_Del.Show("注意", "当前将进行结账操作，是否继续？");
+            if (result2 == true)
             {
-                if (CommonInfo.验证密码.Equals(CommonInfo.登录密码))
+                bool? result = MessageBox_Input.Show("安全确认，请输入密码");
+                if (result == true)
                 {
-                    //do sth
-                    bool? result2 = MessageBox_Del.Show("注意", "当前将进行结账操作，是否继续？");
-                }
-                else
-                {
-                    MessageBox_Common.Show("当前输入密码错误！");
+                    if (CommonInfo.验证密码.Equals(CommonInfo.登录密码))
+                    {
+                        //dosth
+                    }
+                    else
+                    {
+                        MessageBox_Common.Show("当前输入密码错误！");
+                    }
                 }
             }
         }

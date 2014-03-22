@@ -42,10 +42,25 @@ namespace PA.ViewModel
             }
             return list;
         }
-
-        public bool Update(Model_账套 m)
+        /// <summary>
+        /// 更新方法
+        /// </summary>
+        /// <param name="m">传入的账套</param>
+        /// <param name="type">0:更新账套名称，1：进行删除</param>
+        /// <returns></returns>
+        public bool Update(Model_账套 m,int type)
         {
-            sql = "update " + DBTablesName.T_BOOKS + " set book_name='" + m.账套名称 + "' where id='" + m.ID + "'";
+            string _sql = string.Empty;
+            switch (type)
+            {
+                case 0:
+                    _sql = " set book_name='" + m.账套名称 + "'";
+                    break;
+                case 1:
+                    _sql = " set delete_mark=1";
+                    break;
+            }
+            sql = "update " + DBTablesName.T_BOOKS + _sql + " where id='" + m.ID + "'";
             return db.Excute(sql);
         }
         /// <summary>

@@ -46,7 +46,7 @@
                         </Expander>
                         <Expander x:Name="Expander_账套管理" Header="账套管理" Expanded="Expander_账套管理_Expanded">
                             <Grid Height="280" Background="White">
-                                <Button x:Name="Button_删除" Content="删除" HorizontalAlignment="Right" Margin="0,15,20,0" VerticalAlignment="Top" Width="75" />
+                                <Button x:Name="Button_删除" Content="删除" HorizontalAlignment="Right" Margin="0,15,20,0" VerticalAlignment="Top" Width="75" Click="Button_删除_Click" />
                                 <DataGrid x:Name="DataGrid_账套" HorizontalAlignment="Stretch" CanUserAddRows="False" ItemsSource="{Binding}" AutoGenerateColumns="False" Margin="10,40,0,0" VerticalAlignment="Top" RowEditEnding="DataGrid_账套_RowEditEnding">
                                     <DataGrid.Columns>
                                         <DataGridTextColumn Binding="{Binding 序号}" Header="序号" IsReadOnly="True"/>
@@ -56,6 +56,7 @@
                                         <DataGridTextColumn Binding="{Binding 创建时间}" Header="创建时间" IsReadOnly="True" />
                                     </DataGrid.Columns>
                                 </DataGrid>
+                                <TextBlock x:Name="TextBlock_提示" HorizontalAlignment="Left" Margin="20,20,0,0" TextWrapping="Wrap" Text="温馨提示：修改完账套名称，按回车键进行修改哦！" FontSize="10" Foreground="LightCoral" VerticalAlignment="Top"/>
                             </Grid>
                         </Expander>
                     </StackPanel>
