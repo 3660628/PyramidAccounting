@@ -31,6 +31,7 @@ namespace PA.View.Pages.TwoTabControl
         private ViewModel_用户 vm = new ViewModel_用户();
         private ViewModel_Books vmb = new ViewModel_Books();
         private XMLWriter xw = new XMLWriter();
+        private XMLReader xr = new XMLReader();
         private List<Model_科目管理> lm = new List<Model_科目管理>();
 
         public Page_Two_系统管理()
@@ -298,7 +299,7 @@ namespace PA.View.Pages.TwoTabControl
         {
             Model_账套 m = new Model_账套();
             m = e.Row.Item as Model_账套;
-            if (m.账套名称.Equals("ss"))
+            if (m.账套名称.Equals(xr.ReadXML("账套信息")))
             {
                 return;
             }
