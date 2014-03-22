@@ -29,7 +29,6 @@ namespace PA.ViewModel
         public List<Model_科目管理> GetSujectData(int type)
         {
             string sql = "select a.fee,b.* from " + DBTablesName.T_SUBJECT + " b left join t_yearfee a on a.bookid='" + CommonInfo.账薄号 + "' and a.subject_id=b.subject_id where  b.subject_type=" + type + " order by b.id,b.used_mark";
-            Console.WriteLine(sql);
             DataTable dt = db.Query(sql).Tables[0];
             List<Model_科目管理> list = new List<Model_科目管理>();
             for (int i = 0; i < dt.Rows.Count; i++)
