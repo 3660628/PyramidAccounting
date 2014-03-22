@@ -29,6 +29,9 @@ namespace PA.View.Windows
         private int PageNow = 1;//当前页面
         private int PageAll = 1;//所有页面
 
+        private bool isNew = true;
+        private Guid guid = Guid.NewGuid();
+
         public Win_记账凭证()
         {
             InitializeComponent();
@@ -38,8 +41,10 @@ namespace PA.View.Windows
         public Win_记账凭证(Guid guid)
         {
             InitializeComponent();
+            this.guid = guid;
             FillData(guid);
             this.Button_保存并新增.Visibility = System.Windows.Visibility.Collapsed;
+            isNew = false;
         }
 
         #region 自定义事件
@@ -116,6 +121,16 @@ namespace PA.View.Windows
             this.DataGrid_凭证明细.ItemsSource = VoucherDetailsNow;
             PageAll = new PA.ViewModel.ViewModel_凭证管理().GetPageNum(guid);
             this.TextBlock_PageNum.Text = "1/" + PageAll;
+            if (Voucher.审核标志 == 1)
+            {
+                this.Label_审核状态.Content = "已审核";
+                this.Label_审核状态.Foreground = Brushes.Green;
+            }
+            else
+            {
+                this.Label_审核状态.Content = "未审核";
+                this.Label_审核状态.Foreground = Brushes.Red;
+            }
         }
         /// <summary>
         /// 获取全部数据
@@ -124,13 +139,12 @@ namespace PA.View.Windows
         private Model_凭证单 GetData()
         {
             SaveVoucherDetails();
-            Voucher.ID = Guid.NewGuid().ToString();
-            Voucher.审核标志 = (this.Label_审核状态.Content.ToString() == "已审核") ? 1 : 0;
-            Voucher.制表时间 = (DateTime)this.DatePicker_Date.SelectedDate;
             foreach (Model_凭证明细 Detail in VoucherDetails)
             {
                 Detail.父节点ID = Voucher.ID;
             }
+            Voucher.ID = Guid.NewGuid().ToString();
+            Voucher.制表时间 = (DateTime)this.DatePicker_Date.SelectedDate;
             Voucher.附属单证数 = int.Parse(this.TextBox_附属单证.Text.Trim());
             Voucher.合计借方金额 = decimal.Parse(this.Label_借方合计.Content.ToString());
             Voucher.合计贷方金额 = decimal.Parse(this.Label_贷方合计.Content.ToString());
@@ -197,6 +211,10 @@ namespace PA.View.Windows
             if (!CheckData())
             {
                 return;
+            }
+            if(!isNew)
+            {
+                new PA.ViewModel.ViewModel_凭证管理().Delete(guid);
             }
             new PA.ViewModel.ViewModel_凭证管理().InsertData(Voucher, VoucherDetails);
             OnSubmit();
@@ -315,9 +333,6 @@ namespace PA.View.Windows
             }
         }
 
-
-        
-
         private void Button_NewDataGrid_Click(object sender, RoutedEventArgs e)
         {
             SaveVoucherDetails();
@@ -371,7 +386,6 @@ namespace PA.View.Windows
                 this.TextBox_号.Text = VoucherDetailsNow[0].凭证号;
             }
         }
-        
 
         private void TextBlock_PageNum_MouseWheel(object sender, MouseWheelEventArgs e)
         {
