@@ -5,9 +5,10 @@ using System.Text;
 
 namespace PA.Model.DataGrid
 {
-    class Model_帐套
+    class Model_账套
     {
         private string id;
+        private int rowid;
         private string book_name;
         private string commpany_name;
         private string book_date;
@@ -15,6 +16,11 @@ namespace PA.Model.DataGrid
         private string accounting_system;
         private int delete_mark;
 
+        public int 序号
+        {
+            get { return rowid; }
+            set { rowid = value; }
+        }
         public string 启用期间
         {
             get { return book_date; }
@@ -45,7 +51,7 @@ namespace PA.Model.DataGrid
             set { create_time = value; }
         }
 
-        public string 帐套名称
+        public string 账套名称
         {
             get { return book_name; }
             set { book_name = value; }

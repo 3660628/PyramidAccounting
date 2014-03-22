@@ -27,7 +27,8 @@ namespace PA.View.Pages.TwoTabControl
     public partial class Page_Two_系统管理 : Page
     {
         private int i = 1;
-        ViewModel_用户 vm = new ViewModel_用户();
+        private ViewModel_用户 vm = new ViewModel_用户();
+        private ViewModel_Books vmb = new ViewModel_Books();
         public Page_Two_系统管理()
         {
             InitializeComponent();
@@ -273,13 +274,24 @@ namespace PA.View.Pages.TwoTabControl
             u = vm.GetAllUser();
             if (u != null)
             {
-                DataGrid_权限设置.ItemsSource = vm.GetAllUser();
+                DataGrid_权限设置.ItemsSource = u;
             }
         }
 
         private void Expander_账套管理_Expanded(object sender, RoutedEventArgs e)
         {
+            FreshBookData();
+            this.Expander_权限.IsExpanded = false;
+        }
 
+        private void FreshBookData()
+        {
+            List<Model_账套> u = new List<Model_账套>();
+            u = vmb.GetData();
+            if (u != null)
+            {
+                DataGrid_账套.ItemsSource = u;
+            }
         }
     }
 }

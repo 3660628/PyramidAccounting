@@ -50,7 +50,7 @@ namespace PA.View.Windows
         {
             TextBox_公司.Text = xr.ReadXML("公司");
             TextBox_year.Text = date.Split('-')[0];
-            TextBox_期.Text = date.Split('-')[1];
+            TextBox_期.Text = "1";
             ComboBox_制度.ItemsSource = cc.GetComboBox_会计制度();
             ComboBox_制度.SelectedIndex = Convert.ToInt32(xr.ReadXML("会计制度"));
         }
@@ -72,12 +72,12 @@ namespace PA.View.Windows
             {
                 return;
             }
-            List<Model.DataGrid.Model_帐套> lm = new List<Model.DataGrid.Model_帐套>();
-            Model.DataGrid.Model_帐套 m = new Model.DataGrid.Model_帐套();
+            List<Model.DataGrid.Model_账套> lm = new List<Model.DataGrid.Model_账套>();
+            Model.DataGrid.Model_账套 m = new Model.DataGrid.Model_账套();
             m.ID = DateTime.Now.ToString("yyyyMMddHHmmss");
             CommonInfo.账薄号 = m.ID;
             CommonInfo.制度索引 = ComboBox_制度.SelectedIndex;
-            m.帐套名称 = TextBox_账套名称.Text.Trim();
+            m.账套名称 = TextBox_账套名称.Text.Trim();
             m.单位名称 = TextBox_公司.Text.Trim();
             m.启用期间 = TextBox_year.Text + "年" + TextBox_期.Text + "期";
             m.创建时间 = Convert.ToDateTime(DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"));
@@ -85,7 +85,7 @@ namespace PA.View.Windows
             lm.Add(m);
 
             //修改下次启动时帐套的显示
-            xw.WriteXML("帐套信息", m.帐套名称);
+            xw.WriteXML("账套信息", m.账套名称);
             xw.WriteXML("公司",TextBox_公司.Text.Trim());
             xw.WriteXML("会计制度", ComboBox_制度.SelectedIndex.ToString());
 
@@ -98,7 +98,7 @@ namespace PA.View.Windows
             Model_操作日志 mr = new Model_操作日志();
             ViewModel_操作日志 vmr = new ViewModel_操作日志();
             mr = vmr.GetTOperateLog();
-            mr.日志 = "创建了账套：" + m.帐套名称;
+            mr.日志 = "创建了账套：" + m.账套名称;
             vmr.Insert(mr);
 
             //调整至主页面

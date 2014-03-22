@@ -16,19 +16,22 @@ namespace PA.ViewModel
         private string sql = string.Empty;
         private SQLReader sr = new SQLReader();
 
-        public List<Model_帐套> GetData()
+        public List<Model_账套> GetData()
         {
-            List<Model_帐套> list = new List<Model_帐套>();
+            List<Model_账套> list = new List<Model_账套>();
             sql = "select * from " + DBTablesName.T_BOOKS + " where delete_mark=0";
             DataTable dt = db.Query(sql).Tables[0];
+            int i = 1;
             foreach (DataRow dr in dt.Rows)
             {
-                Model_帐套 m = new Model_帐套();
+                Model_账套 m = new Model_账套();
                 m.ID = dr[0].ToString();
-                m.帐套名称 = dr[1].ToString();
+                m.序号 = i;
+                m.账套名称 = dr[1].ToString();
                 m.启用期间 = dr[3].ToString();
                 m.创建时间 = Convert.ToDateTime(dr[4].ToString());
                 m.会计制度 = dr[5].ToString();
+                i++;
 
                 list.Add(m);
             }
@@ -38,7 +41,7 @@ namespace PA.ViewModel
         /// 插入方法
         /// </summary>
         /// <param name="list"></param>
-        public void Insert(List<Model_帐套> list)
+        public void Insert(List<Model_账套> list)
         {
             List<string> sqlList = new List<string>();
             db.InsertPackage(DBTablesName.T_BOOKS, list.OfType<object>().ToList());

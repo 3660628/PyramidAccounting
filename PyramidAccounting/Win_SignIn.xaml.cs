@@ -45,10 +45,10 @@ namespace PA
         }
         private void InitComboBox()
         {
-            ComboBox_账套.ItemsSource = new ComboBox_Common().GetComboBox_帐套();
-            ComboBox_账套.DisplayMemberPath = "帐套名称";
+            ComboBox_账套.ItemsSource = new ComboBox_Common().GetComboBox_账套();
+            ComboBox_账套.DisplayMemberPath = "账套名称";
             ComboBox_账套.SelectedValuePath = "ID";
-            ComboBox_账套.Text = new XMLReader().ReadXML("帐套信息");
+            ComboBox_账套.Text = new XMLReader().ReadXML("账套信息");
         }
 
         #region Button事件
@@ -113,7 +113,7 @@ namespace PA
                     mr.日志 = "登录了账套：" + bookname;
                     vmr.Insert(mr);
 
-                    xw.WriteXML("帐套信息", bookname);
+                    xw.WriteXML("账套信息", bookname);
                     MainWindow mw = new MainWindow();
                     mw.Show();
                     this.Close();

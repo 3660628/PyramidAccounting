@@ -187,13 +187,13 @@ namespace PA.Helper.DataBase
                     case "T_BOOKS":
                         #region T_BOOKS
                         sql = PA.Helper.DataDefind.SqlString.Insert_T_BOOKS;
-                        List<Model_帐套> bookList = Values.OfType<Model_帐套>().ToList();
-                        foreach (Model_帐套 list in bookList)
+                        List<Model_账套> bookList = Values.OfType<Model_账套>().ToList();
+                        foreach (Model_账套 list in bookList)
                         {
                             SQLiteCommand cmd = new SQLiteCommand();
                             cmd.CommandText = sql;
                             cmd.Parameters.AddWithValue("@ID", list.ID);
-                            cmd.Parameters.AddWithValue("@BOOK_NAME", list.帐套名称);
+                            cmd.Parameters.AddWithValue("@BOOK_NAME", list.账套名称);
                             cmd.Parameters.AddWithValue("@COMPANY_NAME", list.单位名称);
                             cmd.Parameters.AddWithValue("@BOOK_TIME",list.启用期间);
                             cmd.Parameters.AddWithValue("@CREATE_DATE", list.创建时间);
