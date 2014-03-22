@@ -28,10 +28,10 @@
                         </Expander>
                         <Expander x:Name="Expander_权限" Header="权限设置" Expanded="Expander_权限_Expanded">
                             <Grid Height="280" Background="White">
-                                <Button x:Name="Button_新增" Content="新增" HorizontalAlignment="Right" Margin="0,20,180,0" VerticalAlignment="Top" Width="75" Click="Button_新增_Click" />
-                                <Button x:Name="Button_修改" Content="修改" HorizontalAlignment="Right" Margin="0,20,100,0" VerticalAlignment="Top" Width="75" Click="Button_修改_Click" />
-                                <Button x:Name="Button_停用" Content="停用" HorizontalAlignment="Right" Margin="0,20,20,0" VerticalAlignment="Top" Width="75" Click="Button_停用_Click"/>
-                                <DataGrid x:Name="DataGrid_权限设置" HorizontalAlignment="Stretch" ItemsSource="{Binding}" AutoGenerateColumns="False" IsReadOnly="True" Margin="10,50,0,0" VerticalAlignment="Top">
+                                <Button x:Name="Button_新增" Content="新增" HorizontalAlignment="Right" Margin="0,15,180,0" VerticalAlignment="Top" Width="75" Click="Button_新增_Click" />
+                                <Button x:Name="Button_修改" Content="修改" HorizontalAlignment="Right" Margin="0,15,100,0" VerticalAlignment="Top" Width="75" Click="Button_修改_Click" />
+                                <Button x:Name="Button_停用" Content="停用" HorizontalAlignment="Right" Margin="0,15,20,0" VerticalAlignment="Top" Width="75" Click="Button_停用_Click"/>
+                                <DataGrid x:Name="DataGrid_权限设置" HorizontalAlignment="Stretch" ItemsSource="{Binding}" AutoGenerateColumns="False" IsReadOnly="True" Margin="10,40,0,0" VerticalAlignment="Top">
                                     <DataGrid.Columns>
                                         <DataGridTextColumn Binding="{Binding 序号}" Header="序号" />
                                         <DataGridTextColumn Binding="{Binding 用户名}" Header="用户名"/>
@@ -40,6 +40,20 @@
                                         <DataGridTextColumn Binding="{Binding 用户说明}" Header="用户说明" />
                                         <DataGridTextColumn Binding="{Binding 日期}" Header="创建时间" />
                                         <DataGridTextColumn Binding="{Binding 是否使用}" Header="是否使用" />
+                                    </DataGrid.Columns>
+                                </DataGrid>
+                            </Grid>
+                        </Expander>
+                        <Expander Header="账套管理">
+                            <Grid Height="280" Background="White">
+                                <Button x:Name="Button_删除" Content="删除" HorizontalAlignment="Right" Margin="0,15,20,0" VerticalAlignment="Top" Width="75" />
+                                <DataGrid x:Name="DataGrid_账套" HorizontalAlignment="Stretch" ItemsSource="{Binding}" AutoGenerateColumns="False" IsReadOnly="True" Margin="10,40,0,0" VerticalAlignment="Top">
+                                    <DataGrid.Columns>
+                                        <DataGridTextColumn Binding="{Binding 序号}" Header="序号" />
+                                        <DataGridTextColumn Binding="{Binding 账套名称,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Header="账套名称"/>
+                                        <DataGridTextColumn Binding="{Binding 启用期间}" Header="启用期间"/>
+                                        <DataGridTextColumn Binding="{Binding 会计制度}" Header="会计制度"/>
+                                        <DataGridTextColumn Binding="{Binding 创建时间}" Header="创建时间" />
                                     </DataGrid.Columns>
                                 </DataGrid>
                             </Grid>

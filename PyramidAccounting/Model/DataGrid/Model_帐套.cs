@@ -10,16 +10,22 @@ namespace PA.Model.DataGrid
         private string id;
         private string book_name;
         private string commpany_name;
+        private string book_date;
+        private DateTime create_time;
+        private string accounting_system;
+        private int delete_mark;
 
+        public string 启用期间
+        {
+            get { return book_date; }
+            set { book_date = value; }
+        }
 
         public string 单位名称
         {
             get { return commpany_name; }
             set { commpany_name = value; }
         }
-        private DateTime create_time;
-        private string accounting_system;
-        private int delete_mark;
 
         public int 删除标志
         {
@@ -33,7 +39,7 @@ namespace PA.Model.DataGrid
             set { accounting_system = value; }
         }
 
-        public DateTime 日期
+        public DateTime 创建时间
         {
             get { return create_time; }
             set { create_time = value; }

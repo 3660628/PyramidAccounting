@@ -79,8 +79,8 @@ namespace PA.View.Windows
             CommonInfo.制度索引 = ComboBox_制度.SelectedIndex;
             m.帐套名称 = TextBox_账套名称.Text.Trim();
             m.单位名称 = TextBox_公司.Text.Trim();
-            string date = TextBox_year.Text + "-" + TextBox_期.Text + "-1";
-            m.日期 = Convert.ToDateTime(date);
+            m.启用期间 = TextBox_year.Text + "年" + TextBox_期.Text + "期";
+            m.创建时间 = Convert.ToDateTime(DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"));
             m.会计制度 = ComboBox_制度.Text.Trim();
             lm.Add(m);
 
