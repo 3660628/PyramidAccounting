@@ -7,23 +7,23 @@
 			</Border>
 		</Grid>
 		<ControlTemplate.Triggers>
-			<MultiTrigger>
+            <Trigger Property="Selector.IsSelected" Value="True">
+                <Setter Property="Foreground" Value="White"/>
+            </Trigger>
+            <MultiTrigger>
 				<MultiTrigger.Conditions>
 					<Condition Property="Selector.IsSelected" Value="False"/>
 					<Condition Property="IsMouseOver" Value="False"/>
 				</MultiTrigger.Conditions>
-				<Setter Property="Background" TargetName="Bd" Value="#FF6DC0FF"/>
+				<Setter Property="Background" TargetName="Bd" Value="White"/>
 				<Setter Property="BorderBrush" TargetName="Bd" Value="White"/>
-				<Setter Property="Foreground" Value="White"/>
 			</MultiTrigger>
 			<MultiTrigger>
 				<MultiTrigger.Conditions>
 					<Condition Property="Selector.IsSelected" Value="False"/>
 					<Condition Property="IsMouseOver" Value="True"/>
 				</MultiTrigger.Conditions>
-				<Setter Property="Background" TargetName="Bd" Value="#FF6DC0FF"/>
-				<Setter Property="Foreground" Value="White"/>
-				<Setter Property="BorderBrush" TargetName="Bd" Value="#FF6DC0FF"/>
+				<Setter Property="Background" TargetName="Bd" Value="White"/>
 			</MultiTrigger>
 		</ControlTemplate.Triggers>
 	</ControlTemplate>
