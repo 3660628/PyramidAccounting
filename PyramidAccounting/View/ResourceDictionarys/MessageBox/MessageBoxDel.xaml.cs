@@ -10,32 +10,29 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-using PA.Helper.DataBase;
-using PA.Helper.DataDefind;
 
 namespace PA.View.ResourceDictionarys.MessageBox
 {
     /// <summary>
-    /// Interaction logic for MessageBox_Input.xaml
+    /// Interaction logic for MessageBox_Del.xaml
     /// </summary>
-    public partial class MessageBox_Input : Window
+    public partial class MessageBoxDel : Window
     {
-        public MessageBox_Input()
+        public MessageBoxDel()
         {
             InitializeComponent();
-            PasswordBox_User.Focus();
         }
+
         public new string Title
         {
             get { return this.lblTitle.Text; }
             set { this.lblTitle.Text = value; }
         }
-        private string password;
 
-        public string Password
+        public string Message
         {
-            get { return password; }
-            set { password = value; }
+            get { return this.lblMsg.Text; }
+            set { this.lblMsg.Text = value; }
         }
         /// <summary>
         /// 静态方法 模拟MESSAGEBOX.Show方法
@@ -43,17 +40,17 @@ namespace PA.View.ResourceDictionarys.MessageBox
         /// <param name="title">标题</param>
         /// <param name="msg">消息</param>
         /// <returns></returns>
-        public static bool? Show(string title)
+        public static bool? Show(string title, string msg)
         {
 
-            var msgBox = new MessageBox_Input();
+            var msgBox = new MessageBoxDel();
             msgBox.Title = title;
+            msgBox.Message = msg;
             return msgBox.ShowDialog();
         }
         private void Yes_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             this.DialogResult = true;
-            CommonInfo.验证密码 = Secure.TranslatePassword(PasswordBox_User.SecurePassword);
             this.Close();
         }
 
@@ -70,9 +67,13 @@ namespace PA.View.ResourceDictionarys.MessageBox
 
         private void main_PreviewKeyDown(object sender, KeyEventArgs e)
         {
-            if (e.Key == Key.Enter)
+            if (e.Key == Key.Y||e.Key==Key.Enter)
             {
                 Yes_MouseLeftButtonDown(this, null);
+            }
+            if (e.Key == Key.N)
+            {
+                No_MouseLeftButtonDown(this, null);
             }
         }
     }

@@ -63,7 +63,7 @@ namespace PA.View.Pages.TwoTabControl
                 }
                 else
                 {
-                    MessageBox_Common.Show("当前尝试修改密码失败，请联系软件开发商！");
+                    MessageBoxCommon.Show("当前尝试修改密码失败，请联系软件开发商！");
                 }
             }
             else
@@ -94,7 +94,7 @@ namespace PA.View.Pages.TwoTabControl
         {
             string messageBoxText = "年初金额初始化不能修改哦，请确认是否填写完整？";
             string caption = "注意";
-            bool? result = MessageBox_Del.Show(caption, messageBoxText);
+            bool? result = MessageBoxDel.Show(caption, messageBoxText);
             if (result == false)
             {
                 return;
@@ -124,7 +124,7 @@ namespace PA.View.Pages.TwoTabControl
             }
             else
             {
-                MessageBox_Common.Show("请选择科目！");
+                MessageBoxCommon.Show("请选择科目！");
             }
         }
 
@@ -193,7 +193,7 @@ namespace PA.View.Pages.TwoTabControl
             }
             else
             {
-                MessageBox_Common.Show("请选择需要修改的用户");
+                MessageBoxCommon.Show("请选择需要修改的用户");
             }
         }
 
@@ -205,13 +205,13 @@ namespace PA.View.Pages.TwoTabControl
                 Model_用户 m = DataGrid_权限设置.SelectedItem as Model_用户;
                 if (m.是否使用.Equals("停用"))
                 {
-                    MessageBox_Common.Show("当前用户已经停用，请勿重复操作！");
+                    MessageBoxCommon.Show("当前用户已经停用，请勿重复操作！");
                     return;
                 }
                 string messageBoxText = "用户停用后，将不能登录！";
                 string caption = "注意";
                 bool? result = false;
-                result = MessageBox_Del.Show(caption, messageBoxText);
+                result = MessageBoxDel.Show(caption, messageBoxText);
                 if (result == false)
                 {
                     return;
@@ -221,7 +221,7 @@ namespace PA.View.Pages.TwoTabControl
             }
             else
             {
-                MessageBox_Common.Show("请选择需要停用的用户");
+                MessageBoxCommon.Show("请选择需要停用的用户");
             }
         }
 
@@ -230,13 +230,13 @@ namespace PA.View.Pages.TwoTabControl
             Model_账套 m = DataGrid_账套.SelectedCells[0].Item as Model_账套;
             if (m.ID.Equals(CommonInfo.账薄号))
             {
-                MessageBox_Common.Show("警告", "您不能删除当前正在使用的账套！");
+                MessageBoxCommon.Show("警告", "您不能删除当前正在使用的账套！");
                 return;
             }
-            bool? result2 = MessageBox_Del.Show("注意", "您正在进行删除账套操作，是否继续？");
+            bool? result2 = MessageBoxDel.Show("注意", "您正在进行删除账套操作，是否继续？");
             if (result2 == true)
             {
-                bool? result = MessageBox_Input.Show("安全确认，请输入密码");
+                bool? result = MessageBoxInput.Show("安全确认，请输入密码");
                 if (result == true)
                 {
                     if (CommonInfo.验证密码.Equals(CommonInfo.登录密码))
@@ -244,16 +244,16 @@ namespace PA.View.Pages.TwoTabControl
                         bool flag = vmb.Update(m, 1);
                         if (flag)
                         {
-                            MessageBox_Common.Show("删除成功！");
+                            MessageBoxCommon.Show("删除成功！");
                         }
                         else
                         {
-                            MessageBox_Common.Show("删除失败！");
+                            MessageBoxCommon.Show("删除失败！");
                         }
                     }
                     else
                     {
-                        MessageBox_Common.Show("当前输入密码错误！");
+                        MessageBoxCommon.Show("当前输入密码错误！");
                     }
                 }
             }
@@ -309,17 +309,17 @@ namespace PA.View.Pages.TwoTabControl
                 bool flag = vmb.Update(m,0);
                 if (flag)
                 {
-                    MessageBox_Common.Show("修改成功！");
+                    MessageBoxCommon.Show("修改成功！");
                     xw.WriteXML("账套信息",m.账套名称);
                 }
                 else
                 {
-                    MessageBox_Common.Show("修改失败，请联系管理员！");
+                    MessageBoxCommon.Show("修改失败，请联系管理员！");
                 }
             }
             else
             {
-                MessageBox_Common.Show("只能修改当前账套名称！");
+                MessageBoxCommon.Show("只能修改当前账套名称！");
             }
         }
         private void DataGrid_科目设置_RowEditEnding(object sender, DataGridRowEditEndingEventArgs e)

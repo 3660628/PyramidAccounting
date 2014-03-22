@@ -14,15 +14,14 @@ using System.Windows.Shapes;
 namespace PA.View.ResourceDictionarys.MessageBox
 {
     /// <summary>
-    /// Interaction logic for MessageBox_Del.xaml
+    /// Interaction logic for MessageBox_Common.xaml
     /// </summary>
-    public partial class MessageBox_Del : Window
+    public partial class MessageBoxCommon : Window
     {
-        public MessageBox_Del()
+        public MessageBoxCommon()
         {
             InitializeComponent();
         }
-
         public new string Title
         {
             get { return this.lblTitle.Text; }
@@ -43,20 +42,22 @@ namespace PA.View.ResourceDictionarys.MessageBox
         public static bool? Show(string title, string msg)
         {
 
-            var msgBox = new MessageBox_Del();
+            var msgBox = new MessageBoxCommon();
             msgBox.Title = title;
+            msgBox.Message = msg;
+            return msgBox.ShowDialog();
+        }
+
+        public static bool? Show(string msg)
+        {
+
+            var msgBox = new MessageBoxCommon();
             msgBox.Message = msg;
             return msgBox.ShowDialog();
         }
         private void Yes_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             this.DialogResult = true;
-            this.Close();
-        }
-
-        private void No_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
-        {
-            this.DialogResult = false;
             this.Close();
         }
 
@@ -67,13 +68,9 @@ namespace PA.View.ResourceDictionarys.MessageBox
 
         private void main_PreviewKeyDown(object sender, KeyEventArgs e)
         {
-            if (e.Key == Key.Y||e.Key==Key.Enter)
+            if (e.Key == Key.O || e.Key == Key.Enter)
             {
                 Yes_MouseLeftButtonDown(this, null);
-            }
-            if (e.Key == Key.N)
-            {
-                No_MouseLeftButtonDown(this, null);
             }
         }
     }

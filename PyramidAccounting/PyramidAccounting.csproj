@@ -156,14 +156,14 @@
     <Compile Include="View\Pages\TwoTabControl\Page_Two_账簿管理.xaml.cs">
       <DependentUpon>Page_Two_账簿管理.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\ResourceDictionarys\MessageBox\MessageBox_Common.xaml.cs">
-      <DependentUpon>MessageBox_Common.xaml</DependentUpon>
+    <Compile Include="View\ResourceDictionarys\MessageBox\MessageBoxCommon.xaml.cs">
+      <DependentUpon>MessageBoxCommon.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\ResourceDictionarys\MessageBox\MessageBox_Del.xaml.cs">
-      <DependentUpon>MessageBox_Del.xaml</DependentUpon>
+    <Compile Include="View\ResourceDictionarys\MessageBox\MessageBoxDel.xaml.cs">
+      <DependentUpon>MessageBoxDel.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\ResourceDictionarys\MessageBox\MessageBox_Input.xaml.cs">
-      <DependentUpon>MessageBox_Input.xaml</DependentUpon>
+    <Compile Include="View\ResourceDictionarys\MessageBox\MessageBoxInput.xaml.cs">
+      <DependentUpon>MessageBoxInput.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\Windows\Win_子细目.xaml.cs">
       <DependentUpon>Win_子细目.xaml</DependentUpon>
@@ -269,15 +269,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\ResourceDictionarys\MessageBox\MessageBox_Common.xaml">
+    <Page Include="View\ResourceDictionarys\MessageBox\MessageBoxCommon.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\ResourceDictionarys\MessageBox\MessageBox_Del.xaml">
+    <Page Include="View\ResourceDictionarys\MessageBox\MessageBoxDel.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\ResourceDictionarys\MessageBox\MessageBox_Input.xaml">
+    <Page Include="View\ResourceDictionarys\MessageBox\MessageBoxInput.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
