@@ -31,6 +31,8 @@ namespace PA.View.Pages.TwoTabControl
         private ViewModel_用户 vm = new ViewModel_用户();
         private ViewModel_Books vmb = new ViewModel_Books();
         private XMLWriter xw = new XMLWriter();
+        private List<Model_科目管理> lm = new List<Model_科目管理>();
+
         public Page_Two_系统管理()
         {
             InitializeComponent();
@@ -52,36 +54,6 @@ namespace PA.View.Pages.TwoTabControl
             {
                 Expander_权限.Visibility = Visibility.Hidden;
             }
-        }
-        private List<Model_科目管理> lm = new List<Model_科目管理>();
-        private void Button_资产_Click(object sender, RoutedEventArgs e)
-        {
-            i = 1;
-            this.DataGrid_科目设置.ItemsSource = new ViewModel_科目管理().GetSujectData(i);
-        }
-
-        private void Button_负债_Click(object sender, RoutedEventArgs e)
-        {
-            i = 2;
-            this.DataGrid_科目设置.ItemsSource = new ViewModel_科目管理().GetSujectData(i);
-        }
-
-        private void Button_净资产_Click(object sender, RoutedEventArgs e)
-        {
-            i = 3;
-            this.DataGrid_科目设置.ItemsSource = new ViewModel_科目管理().GetSujectData(i);
-        }
-
-        private void Button_收入_Click(object sender, RoutedEventArgs e)
-        {
-            i = 4;
-            this.DataGrid_科目设置.ItemsSource = new ViewModel_科目管理().GetSujectData(i);
-        }
-
-        private void Button_支出_Click(object sender, RoutedEventArgs e)
-        {
-            i = 5;
-            this.DataGrid_科目设置.ItemsSource = new ViewModel_科目管理().GetSujectData(i);
         }
 
         private void Button_ChangePassword_Click(object sender, RoutedEventArgs e)
@@ -130,7 +102,6 @@ namespace PA.View.Pages.TwoTabControl
             Button btn = sender as Button;
             btn.Visibility = Visibility.Hidden;
         }
-
 
         private void Button_编辑子细目_Click(object sender, RoutedEventArgs e)
         {
@@ -349,6 +320,12 @@ namespace PA.View.Pages.TwoTabControl
         }
 
         #endregion
+
+        private void TabControl_五大科目_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            int SelectedIndex = this.TabControl_五大科目.SelectedIndex;
+            this.DataGrid_科目设置.ItemsSource = new ViewModel_科目管理().GetSujectData(SelectedIndex+1);
+        }
 
     }
 }
