@@ -139,10 +139,6 @@ namespace PA.View.Windows
         private Model_凭证单 GetData()
         {
             SaveVoucherDetails();
-            foreach (Model_凭证明细 Detail in VoucherDetails)
-            {
-                Detail.父节点ID = Voucher.ID;
-            }
             Voucher.ID = Guid.NewGuid().ToString();
             Voucher.制表时间 = (DateTime)this.DatePicker_Date.SelectedDate;
             Voucher.附属单证数 = int.Parse(this.TextBox_附属单证.Text.Trim());
@@ -151,6 +147,10 @@ namespace PA.View.Windows
             Voucher.会计主管 = this.Label_会计主管.Content.ToString();
             Voucher.制单人 = this.Label_制单人.Content.ToString();
             Voucher.复核 = this.Label_复核.Content.ToString();
+            foreach (Model_凭证明细 Detail in VoucherDetails)
+            {
+                Detail.父节点ID = Voucher.ID;
+            }
             return Voucher;
         }
         private bool CheckData()
