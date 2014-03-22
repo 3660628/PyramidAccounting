@@ -27,7 +27,6 @@ namespace PA.View.Pages.TwoTabControl
     /// </summary>
     public partial class Page_Two_系统管理 : Page
     {
-        private int i = 1;
         private ViewModel_用户 vm = new ViewModel_用户();
         private ViewModel_Books vmb = new ViewModel_Books();
         private XMLWriter xw = new XMLWriter();
@@ -39,23 +38,7 @@ namespace PA.View.Pages.TwoTabControl
             InitializeComponent();
             VisibilityData();
         }
-        
-        #region 科目管理
-        /// <summary>
-        /// 判断是否已经初始化过年初数据，否则不许修改年初数
-        /// </summary>
-        private void VisibilityData()
-        {
-            if (new ViewModel_年初金额().IsSaved())
-            {
-                this.DataGridTextColumn_fee.IsReadOnly = true;
-                this.Button_科目保存.Visibility = Visibility.Hidden;
-            }
-            if (!CommonInfo.用户名.Equals("admin"))
-            {
-                Expander_权限.Visibility = Visibility.Hidden;
-            }
-        }
+        #region 修改密码
 
         private void Button_ChangePassword_Click(object sender, RoutedEventArgs e)
         {
@@ -89,6 +72,24 @@ namespace PA.View.Pages.TwoTabControl
                 return;
             }
         }
+        #endregion
+        #region 科目管理
+        /// <summary>
+        /// 判断是否已经初始化过年初数据，否则不许修改年初数
+        /// </summary>
+        private void VisibilityData()
+        {
+            if (new ViewModel_年初金额().IsSaved())
+            {
+                this.DataGridTextColumn_fee.IsReadOnly = true;
+                this.Button_科目保存.Visibility = Visibility.Hidden;
+            }
+            if (!CommonInfo.用户名.Equals("admin"))
+            {
+                Expander_权限.Visibility = Visibility.Hidden;
+            }
+        }
+
         private void Button_科目保存_Click(object sender, RoutedEventArgs e)
         {
             string messageBoxText = "年初金额初始化不能修改哦，请确认是否填写完整？";
@@ -226,7 +227,7 @@ namespace PA.View.Pages.TwoTabControl
 
         private void Button_删除_Click(object sender, RoutedEventArgs e)
         {
-            Model_账套 m = DataGrid_账套.SelectedItem as Model_账套;
+            Model_账套 m = DataGrid_账套.SelectedCells[0].Item as Model_账套;
             if (m.ID.Equals(CommonInfo.账薄号))
             {
                 MessageBox_Common.Show("警告", "您不能删除当前正在使用的账套！");
