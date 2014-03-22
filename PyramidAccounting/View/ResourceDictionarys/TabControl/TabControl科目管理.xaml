@@ -1,0 +1,31 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+	<ControlTemplate x:Key="TabItemControlTemplate_科目管理" TargetType="{x:Type TabItem}">
+		<Grid x:Name="grid" Width="Auto" Height="Auto">
+			<Border x:Name="Bd" BorderThickness="1" Margin="0" Background="#FF6DC0FF" Padding="20,5" BorderBrush="#FF6DC0FF">
+				<ContentPresenter x:Name="Content" ContentSource="Header" HorizontalAlignment="{Binding HorizontalContentAlignment, RelativeSource={RelativeSource AncestorType={x:Type ItemsControl}}}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{Binding VerticalContentAlignment, RelativeSource={RelativeSource AncestorType={x:Type ItemsControl}}}"/>
+			</Border>
+		</Grid>
+		<ControlTemplate.Triggers>
+			<MultiTrigger>
+				<MultiTrigger.Conditions>
+					<Condition Property="Selector.IsSelected" Value="False"/>
+					<Condition Property="IsMouseOver" Value="False"/>
+				</MultiTrigger.Conditions>
+				<Setter Property="Background" TargetName="Bd" Value="#FF6DC0FF"/>
+				<Setter Property="BorderBrush" TargetName="Bd" Value="White"/>
+				<Setter Property="Foreground" Value="White"/>
+			</MultiTrigger>
+			<MultiTrigger>
+				<MultiTrigger.Conditions>
+					<Condition Property="Selector.IsSelected" Value="False"/>
+					<Condition Property="IsMouseOver" Value="True"/>
+				</MultiTrigger.Conditions>
+				<Setter Property="Background" TargetName="Bd" Value="#FF6DC0FF"/>
+				<Setter Property="Foreground" Value="White"/>
+				<Setter Property="BorderBrush" TargetName="Bd" Value="#FF6DC0FF"/>
+			</MultiTrigger>
+		</ControlTemplate.Triggers>
+	</ControlTemplate>
+    
+</ResourceDictionary>

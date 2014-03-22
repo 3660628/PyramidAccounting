@@ -87,12 +87,12 @@
                     </DataGrid>
                     <Button x:Name="Button_科目保存" Content="保存" HorizontalAlignment="Right" Margin="0,10,95,0" VerticalAlignment="Top" Click="Button_科目保存_Click" Width="70" Height="24" Template="{DynamicResource ButtonControlTemplate_Common}"/>
                     <Button x:Name="Button_编辑子细目" Content="编写子细目" HorizontalAlignment="Right" Margin="0,10,10,0" VerticalAlignment="Top" Width="75" Height="24" Click="Button_编辑子细目_Click" Template="{DynamicResource ButtonControlTemplate_Common}"/>
-                    <TabControl x:Name="TabControl_五大科目" HorizontalAlignment="Left" Height="37" Margin="19,20,0,0" VerticalAlignment="Top" Width="256" BorderThickness="0,1,0,0" SelectionChanged="TabControl_五大科目_SelectionChanged">
-                        <TabItem Header="资产类"/>
-                        <TabItem Header="负债类"/>
-                        <TabItem Header="净资产类"/>
-                        <TabItem Header="收入类"/>
-                        <TabItem Header="支出类"/>
+                    <TabControl x:Name="TabControl_五大科目" HorizontalAlignment="Left" Height="37" Margin="10,12,0,0" VerticalAlignment="Top" Width="583" BorderThickness="0" SelectionChanged="TabControl_五大科目_SelectionChanged" FontSize="14">
+                        <TabItem Header="资产类" Template="{DynamicResource TabItemControlTemplate_科目管理}"/>
+                        <TabItem Header="负债类" Template="{DynamicResource TabItemControlTemplate_科目管理}"/>
+                        <TabItem Header="净资产类" Template="{DynamicResource TabItemControlTemplate_科目管理}"/>
+                        <TabItem Header="收入类" Template="{DynamicResource TabItemControlTemplate_科目管理}"/>
+                        <TabItem Header="支出类" Template="{DynamicResource TabItemControlTemplate_科目管理}"/>
                     </TabControl>
                 </Grid>
             </TabItem>
