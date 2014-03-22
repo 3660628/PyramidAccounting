@@ -1,7 +1,7 @@
 ﻿<Window x:Class="PA.View.ResourceDictionarys.MessageBox.MessageBoxCommon"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="MessageBox_Del" Height="130" Width="280" WindowStyle="None"   Background="{x:Null}"  
+        Title="MessageBoxCommon" Height="130" Width="280" WindowStyle="None"   Background="{x:Null}"  
         ResizeMode="NoResize"  x:Name="main"
         AllowsTransparency="True" WindowStartupLocation="CenterScreen" Loaded="main_Loaded">
     <Window.Triggers>
