@@ -225,6 +225,12 @@ namespace PA.View.Pages.TwoTabControl
 
         private void Button_删除_Click(object sender, RoutedEventArgs e)
         {
+            Model_账套 m = DataGrid_账套.SelectedItem as Model_账套;
+            if (m.ID.Equals(CommonInfo.账薄号))
+            {
+                MessageBox_Common.Show("警告", "您不能删除当前正在使用的账套！");
+                return;
+            }
             bool? result2 = MessageBox_Del.Show("注意", "您正在进行删除账套操作，是否继续？");
             if (result2 == true)
             {
@@ -233,8 +239,7 @@ namespace PA.View.Pages.TwoTabControl
                 {
                     if (CommonInfo.验证密码.Equals(CommonInfo.登录密码))
                     {
-                        Model_账套 m = DataGrid_账套.CurrentItem as Model_账套;
-                        bool flag =  vmb.Update(m,1);
+                        bool flag = vmb.Update(m, 1);
                         if (flag)
                         {
                             MessageBox_Common.Show("删除成功！");
@@ -293,6 +298,10 @@ namespace PA.View.Pages.TwoTabControl
         {
             Model_账套 m = new Model_账套();
             m = e.Row.Item as Model_账套;
+            if (m.账套名称.Equals("ss"))
+            {
+                return;
+            }
             if (m.ID.Equals(CommonInfo.账薄号))
             {
                 bool flag = vmb.Update(m,0);

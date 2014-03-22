@@ -53,7 +53,7 @@
                                         <DataGridTextColumn Binding="{Binding 账套名称,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Header="账套名称"/>
                                         <DataGridTextColumn Binding="{Binding 启用期间}" Header="启用期间" IsReadOnly="True"/>
                                         <DataGridTextColumn Binding="{Binding 会计制度}" Header="会计制度" IsReadOnly="True"/>
-                                        <DataGridTextColumn Binding="{Binding 创建时间}" Header="创建时间" IsReadOnly="True" />
+                                        <DataGridTextColumn Binding="{Binding 创建日期字符串}" Header="创建时间" IsReadOnly="True" />
                                     </DataGrid.Columns>
                                 </DataGrid>
                                 <TextBlock x:Name="TextBlock_提示" HorizontalAlignment="Left" Margin="20,20,0,0" TextWrapping="Wrap" Text="温馨提示：修改完账套名称，按回车键进行修改哦！" FontSize="10" Foreground="LightCoral" VerticalAlignment="Top"/>

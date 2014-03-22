@@ -12,10 +12,16 @@ namespace PA.Model.DataGrid
         private string book_name;
         private string commpany_name;
         private string book_date;
-        private DateTime create_time;
+        private DateTime create_date;
+        private string _create_date;
         private string accounting_system;
         private int delete_mark;
 
+        public string 创建日期字符串
+        {
+            get { return _create_date; }
+            set { _create_date = value; }
+        }
         public int 序号
         {
             get { return rowid; }
@@ -47,8 +53,8 @@ namespace PA.Model.DataGrid
 
         public DateTime 创建时间
         {
-            get { return create_time; }
-            set { create_time = value; }
+            get { return create_date; }
+            set { create_date = value; }
         }
 
         public string 账套名称

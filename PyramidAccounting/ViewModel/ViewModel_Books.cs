@@ -34,7 +34,7 @@ namespace PA.ViewModel
                 m.序号 = i;
                 m.账套名称 = dr[1].ToString();
                 m.启用期间 = dr[3].ToString();
-                m.创建时间 = Convert.ToDateTime(dr[4].ToString());
+                m.创建日期字符串 = dr[4].ToString();
                 m.会计制度 = dr[5].ToString();
                 i++;
 
