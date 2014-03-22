@@ -15,6 +15,25 @@ namespace PA.ViewModel
         private DataBase db = new DataBase();
         private string sql = string.Empty;
         private SQLReader sr = new SQLReader();
+
+        public List<Model_帐套> GetData()
+        {
+            List<Model_帐套> list = new List<Model_帐套>();
+            sql = "select * from " + DBTablesName.T_BOOKS + " where delete_mark=0";
+            DataTable dt = db.Query(sql).Tables[0];
+            foreach (DataRow dr in dt.Rows)
+            {
+                Model_帐套 m = new Model_帐套();
+                m.ID = dr[0].ToString();
+                m.帐套名称 = dr[1].ToString();
+                m.启用期间 = dr[3].ToString();
+                m.创建时间 = Convert.ToDateTime(dr[4].ToString());
+                m.会计制度 = dr[5].ToString();
+
+                list.Add(m);
+            }
+            return list;
+        }
         /// <summary>
         /// 插入方法
         /// </summary>

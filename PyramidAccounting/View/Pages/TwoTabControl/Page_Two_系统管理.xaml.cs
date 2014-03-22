@@ -276,5 +276,10 @@ namespace PA.View.Pages.TwoTabControl
                 DataGrid_权限设置.ItemsSource = vm.GetAllUser();
             }
         }
+
+        private void Expander_账套管理_Expanded(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
