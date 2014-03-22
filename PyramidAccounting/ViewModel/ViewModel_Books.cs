@@ -16,6 +16,11 @@ namespace PA.ViewModel
         private string sql = string.Empty;
         private SQLReader sr = new SQLReader();
 
+
+        /// <summary>
+        /// 获取账套数据的方法
+        /// </summary>
+        /// <returns>一个账套数据集合</returns>
         public List<Model_账套> GetData()
         {
             List<Model_账套> list = new List<Model_账套>();
@@ -36,6 +41,12 @@ namespace PA.ViewModel
                 list.Add(m);
             }
             return list;
+        }
+
+        public bool Update(Model_账套 m)
+        {
+            sql = "update " + DBTablesName.T_BOOKS + " set book_name='" + m.账套名称 + "' where id='" + m.ID + "'";
+            return db.Excute(sql);
         }
         /// <summary>
         /// 插入方法

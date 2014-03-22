@@ -18,6 +18,7 @@ using PA.Model.CustomEventArgs;
 using PA.Helper.DataBase;
 using PA.Helper.DataDefind;
 using PA.View.ResourceDictionarys.MessageBox;
+using PA.Helper.XMLHelper;
 
 namespace PA.View.Pages.TwoTabControl
 {
@@ -29,6 +30,7 @@ namespace PA.View.Pages.TwoTabControl
         private int i = 1;
         private ViewModel_用户 vm = new ViewModel_用户();
         private ViewModel_Books vmb = new ViewModel_Books();
+        private XMLWriter xw = new XMLWriter();
         public Page_Two_系统管理()
         {
             InitializeComponent();
@@ -129,13 +131,6 @@ namespace PA.View.Pages.TwoTabControl
             btn.Visibility = Visibility.Hidden;
         }
 
-        private void DataGrid_科目设置_RowEditEnding(object sender, DataGridRowEditEndingEventArgs e)
-        {
-            Model_科目管理 m = new Model_科目管理();
-            m = e.Row.Item as Model_科目管理;
-            m.Used_mark = m.是否启用 == true ? 1 : 0;
-            lm.Add(m);
-        }
 
         private void Button_编辑子细目_Click(object sender, RoutedEventArgs e)
         {
@@ -158,8 +153,6 @@ namespace PA.View.Pages.TwoTabControl
             {
                 MessageBox_Common.Show("请选择科目！");
             }
-            
-
         }
 
         private void CheckBox_启用_Click(object sender, RoutedEventArgs e)
@@ -281,6 +274,7 @@ namespace PA.View.Pages.TwoTabControl
         private void Expander_账套管理_Expanded(object sender, RoutedEventArgs e)
         {
             FreshBookData();
+            this.Expander_修改密码.IsExpanded = false;
             this.Expander_权限.IsExpanded = false;
         }
 
@@ -293,5 +287,38 @@ namespace PA.View.Pages.TwoTabControl
                 DataGrid_账套.ItemsSource = u;
             }
         }
+
+        #region 行编辑
+        private void DataGrid_账套_RowEditEnding(object sender, DataGridRowEditEndingEventArgs e)
+        {
+            Model_账套 m = new Model_账套();
+            m = e.Row.Item as Model_账套;
+            if (m.ID.Equals(CommonInfo.账薄号))
+            {
+                bool flag = vmb.Update(m);
+                if (flag)
+                {
+                    MessageBox_Common.Show("修改成功！");
+                    xw.WriteXML("账套信息",m.账套名称);
+                }
+                else
+                {
+                    MessageBox_Common.Show("修改失败，请联系管理员！");
+                }
+            }
+            else
+            {
+                MessageBox_Common.Show("您不能修改其他账套名称！");
+            }
+        }
+        private void DataGrid_科目设置_RowEditEnding(object sender, DataGridRowEditEndingEventArgs e)
+        {
+            Model_科目管理 m = new Model_科目管理();
+            m = e.Row.Item as Model_科目管理;
+            m.Used_mark = m.是否启用 == true ? 1 : 0;
+            lm.Add(m);
+        }
+
+        #endregion
     }
 }
