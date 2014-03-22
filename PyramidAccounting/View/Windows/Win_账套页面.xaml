@@ -19,10 +19,9 @@
         <TextBox x:Name="TextBox_year" HorizontalAlignment="Left" Margin="155,111,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="70" FontSize="14" Height="20"/>
         <TextBox x:Name="TextBox_期" HorizontalAlignment="Left" Margin="258,111,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="70" FontSize="14" Height="20"/>
         <ComboBox x:Name="ComboBox_制度" HorizontalAlignment="Left" Margin="155,160,0,0" VerticalAlignment="Top" Width="250"/>
-        <TextBox x:Name="TextBox_账套名称" HorizontalAlignment="Left" Margin="155,221,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="200" LostKeyboardFocus="TextBox_账套名称_LostKeyboardFocus" FontSize="14" Height="20"/>
+        <TextBox x:Name="TextBox_账套名称" HorizontalAlignment="Left" Margin="155,221,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="200" FontSize="14" Height="20"/>
         <Button x:Name="Button_创建" Content="创建" HorizontalAlignment="Right" Margin="0,0,120,20" VerticalAlignment="Bottom" Width="75" Click="Button_创建_Click" Template="{DynamicResource ButtonControlTemplate_CommonBlue}" Height="22" Foreground="White"/>
         <Button x:Name="Button_取消" Content="取消" HorizontalAlignment="Right" Margin="0,0,30,20" VerticalAlignment="Bottom" Width="75" Click="Button_取消_Click" Template="{DynamicResource ButtonControlTemplate_Common}" Height="22"/>
-        <TextBlock x:Name="TextBlock_账套错误信息" HorizontalAlignment="Left" Margin="375,62,0,0" TextWrapping="Wrap" Foreground="Red" VerticalAlignment="Top"/>
         <TextBlock x:Name="TextBlock_公司错误信息" HorizontalAlignment="Left" Margin="375,224,0,0" TextWrapping="Wrap" Foreground="Red" VerticalAlignment="Top"/>
     </Grid>
 </Window>
