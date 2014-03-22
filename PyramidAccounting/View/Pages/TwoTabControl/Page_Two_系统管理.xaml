@@ -56,7 +56,7 @@
                                         <DataGridTextColumn Binding="{Binding 创建日期字符串}" Header="创建时间" IsReadOnly="True" />
                                     </DataGrid.Columns>
                                 </DataGrid>
-                                <TextBlock x:Name="TextBlock_提示" HorizontalAlignment="Left" Margin="20,20,0,0" TextWrapping="Wrap" Text="温馨提示：修改完账套名称，按回车键进行修改哦！" FontWeight="Bold" FontSize="10" Foreground="LightBlue" VerticalAlignment="Top"/>
+                                <TextBlock x:Name="TextBlock_提示" HorizontalAlignment="Left" Margin="10,15,0,0" TextWrapping="Wrap" Text="温馨提示：修改完账套名称，按回车键进行修改哦！" FontWeight="Bold" FontSize="14" Foreground="LightBlue" VerticalAlignment="Top"/>
                             </Grid>
                         </Expander>
                     </StackPanel>
