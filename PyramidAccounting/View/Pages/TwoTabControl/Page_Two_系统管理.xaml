@@ -64,7 +64,7 @@
             </TabItem>
             <TabItem FocusVisualStyle="{x:Null}" Header="科目设置" Margin="16,-1,-16,1" Template="{DynamicResource TabItemControlTemplate_TwoTabHeader}">
                 <Grid Background="White">
-                    <DataGrid x:Name="DataGrid_科目设置" ItemsSource="{Binding}" CanUserAddRows="False" AutoGenerateColumns="False" HorizontalAlignment="Stretch" Margin="10,58,10,10" VerticalAlignment="Stretch" Background="White" RowEditEnding="DataGrid_科目设置_RowEditEnding" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle_凭证管理}" BorderBrush="#FF99CCFF" HeadersVisibility="Column" SelectionUnit="Cell" SelectionMode="Single">
+                    <DataGrid x:Name="DataGrid_科目设置" ItemsSource="{Binding}" CanUserAddRows="False" AutoGenerateColumns="False" HorizontalAlignment="Stretch" Margin="10,54,10,10" VerticalAlignment="Stretch" Background="White" RowEditEnding="DataGrid_科目设置_RowEditEnding" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle_凭证管理}" BorderBrush="#FF99CCFF" HeadersVisibility="Column" SelectionUnit="Cell" SelectionMode="Single">
                         <DataGrid.Resources>
                             <!--DataGridRow的双击事件-->
                             <Style TargetType="DataGridRow">
@@ -85,9 +85,9 @@
                             </DataGridTemplateColumn>
                         </DataGrid.Columns>
                     </DataGrid>
-                    <Button x:Name="Button_科目保存" Content="保存" HorizontalAlignment="Right" Margin="0,10,95,0" VerticalAlignment="Top" Click="Button_科目保存_Click" Width="70" Height="24" Template="{DynamicResource ButtonControlTemplate_Common}"/>
-                    <Button x:Name="Button_编辑子细目" Content="编写子细目" HorizontalAlignment="Right" Margin="0,10,10,0" VerticalAlignment="Top" Width="75" Height="24" Click="Button_编辑子细目_Click" Template="{DynamicResource ButtonControlTemplate_Common}"/>
-                    <TabControl x:Name="TabControl_五大科目" HorizontalAlignment="Left" Margin="10,12,0,0" VerticalAlignment="Top" BorderThickness="0" SelectionChanged="TabControl_五大科目_SelectionChanged" FontSize="14" Height="30">
+                    <Button x:Name="Button_科目保存" Content="保存" HorizontalAlignment="Right" Margin="0,14,95,0" VerticalAlignment="Top" Click="Button_科目保存_Click" Width="70" Height="24" Template="{DynamicResource ButtonControlTemplate_Common}"/>
+                    <Button x:Name="Button_编辑子细目" Content="编写子细目" HorizontalAlignment="Right" Margin="0,14,10,0" VerticalAlignment="Top" Width="75" Height="24" Click="Button_编辑子细目_Click" Template="{DynamicResource ButtonControlTemplate_Common}"/>
+                    <TabControl x:Name="TabControl_五大科目" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" BorderThickness="0" SelectionChanged="TabControl_五大科目_SelectionChanged" FontSize="14" Height="30">
                         <TabControl.Effect>
                             <DropShadowEffect ShadowDepth="0"/>
                         </TabControl.Effect>
