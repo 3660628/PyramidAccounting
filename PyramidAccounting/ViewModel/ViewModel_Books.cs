@@ -36,6 +36,7 @@ namespace PA.ViewModel
                 m.启用期间 = dr[3].ToString();
                 m.创建日期字符串 = dr[4].ToString();
                 m.会计制度 = dr[5].ToString();
+                m.当前期 = Convert.ToInt32(dr[6].ToString());
                 i++;
 
                 list.Add(m);

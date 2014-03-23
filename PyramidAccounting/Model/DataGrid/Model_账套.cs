@@ -16,7 +16,13 @@ namespace PA.Model.DataGrid
         private string _create_date;
         private string accounting_system;
         private int delete_mark;
+        private int period;
 
+        public int 当前期
+        {
+            get { return period; }
+            set { period = value; }
+        }
         public string 创建日期字符串
         {
             get { return _create_date; }

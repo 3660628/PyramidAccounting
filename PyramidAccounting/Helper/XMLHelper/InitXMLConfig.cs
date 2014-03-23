@@ -36,11 +36,13 @@ namespace PA.Helper.XMLHelper
             数据库.InnerText = "PyramidAccounting.db";
             XmlElement 会计制度 = xmldoc.CreateElement("会计制度");
             会计制度.InnerText = "0";
+            XmlElement period = xmldoc.CreateElement("期");
+            period.InnerText = "1";
             系统信息.AppendChild(单位);
             系统信息.AppendChild(帐套信息);
             系统信息.AppendChild(数据库);
             系统信息.AppendChild(会计制度);
-
+            系统信息.AppendChild(period);
             root.AppendChild(系统信息);
             #endregion
 

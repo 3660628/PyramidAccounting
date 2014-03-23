@@ -78,17 +78,20 @@ namespace PA.View.Windows
             m.ID = DateTime.Now.ToString("yyyyMMddHHmmss");
             CommonInfo.账薄号 = m.ID;
             CommonInfo.制度索引 = ComboBox_制度.SelectedIndex;
+            CommonInfo.当前期 = Convert.ToInt32(TextBox_期.Text.Trim());
             m.账套名称 = TextBox_账套名称.Text.Trim();
             m.单位名称 = TextBox_公司.Text.Trim();
             m.启用期间 = TextBox_year.Text + "年" + TextBox_期.Text + "期";
             m.创建时间 = Convert.ToDateTime(DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"));
             m.会计制度 = ComboBox_制度.Text.Trim();
+            m.当前期 = Convert.ToInt32(TextBox_期.Text.Trim());
             lm.Add(m);
 
             //修改下次启动时帐套的显示
             xw.WriteXML("账套信息", m.账套名称);
             xw.WriteXML("公司",TextBox_公司.Text.Trim());
             xw.WriteXML("会计制度", ComboBox_制度.SelectedIndex.ToString());
+            xw.WriteXML("期", TextBox_期.Text.Trim());
 
             //数据创建步骤
             //1.创建账套

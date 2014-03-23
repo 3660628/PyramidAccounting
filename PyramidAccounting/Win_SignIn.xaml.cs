@@ -23,8 +23,10 @@ namespace PA
     public partial class Win_SignIn : Window
     {
         private XMLWriter xw = new XMLWriter();
+        private XMLReader xr = new XMLReader();
         private ViewModel_用户 vm = new ViewModel_用户();
         private ViewModel_操作日志 vmr = new ViewModel_操作日志();
+
         public Win_SignIn()
         {
             InitializeComponent();
@@ -87,7 +89,8 @@ namespace PA
                 CommonInfo.用户权限 = m.用户权限;
                 CommonInfo.权限值 = m.权限值;
                 CommonInfo.登录密码 = Password;
-                CommonInfo.制度索引 = Convert.ToInt32(new XMLReader().ReadXML("会计制度"));
+                CommonInfo.制度索引 = Convert.ToInt32(xr.ReadXML("会计制度"));
+                CommonInfo.当前期 = Convert.ToInt32(xr.ReadXML("期"));
 
                 //先记录一些信息
                 Model_操作日志 mr = new Model_操作日志();

@@ -14,6 +14,14 @@ namespace PA.Helper.DataDefind
         private static int system_index;
         private static string currentPassword;
         private static string confirmPassword;
+        private static int period;
+
+        public static int 当前期
+        {
+            get { return CommonInfo.period; }
+            set { CommonInfo.period = value; }
+        }
+
 
         public static string 验证密码
         {
