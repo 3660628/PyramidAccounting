@@ -13,12 +13,14 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using PA.View.ResourceDictionarys.MessageBox;
 using PA.Helper.DataDefind;
+using PA.Helper.XMLHelper;
 
 namespace PA.View.Pages.TwoTabControl
 {
 
     public partial class Page_Two_快捷界面 : Page
     {
+        private XMLWriter xw = new XMLWriter();
         public Page_Two_快捷界面()
         {
             InitializeComponent();
@@ -56,7 +58,9 @@ namespace PA.View.Pages.TwoTabControl
                 {
                     if (CommonInfo.验证密码.Equals(CommonInfo.登录密码))
                     {
-                        //dosth
+                        //xw.WriteXML("期", (CommonInfo.当前期 + 1).ToString());
+                        //CommonInfo.当前期 ++ ;
+                        //结账操作
                     }
                     else
                     {

@@ -84,9 +84,13 @@ namespace PA.View.Pages.TwoTabControl
                 this.DataGridTextColumn_fee.IsReadOnly = true;
                 this.Button_科目保存.Visibility = Visibility.Hidden;
             }
-            if (!CommonInfo.用户名.Equals("admin"))
+            if (CommonInfo.权限值 < 3)
             {
                 Expander_权限.Visibility = Visibility.Hidden;
+            }
+            if (CommonInfo.权限值 < 2)
+            {
+                Expander_账套管理.Visibility = Visibility.Hidden;
             }
         }
 
@@ -225,45 +229,13 @@ namespace PA.View.Pages.TwoTabControl
             }
         }
 
-        private void Button_删除_Click(object sender, RoutedEventArgs e)
-        {
-            Model_账套 m = DataGrid_账套.SelectedCells[0].Item as Model_账套;
-            if (m.ID.Equals(CommonInfo.账薄号))
-            {
-                MessageBoxCommon.Show("警告", "您不能删除当前正在使用的账套！");
-                return;
-            }
-            bool? result2 = MessageBoxDel.Show("注意", "您正在进行删除账套操作，是否继续？");
-            if (result2 == true)
-            {
-                bool? result = MessageBoxInput.Show("安全确认，请输入密码");
-                if (result == true)
-                {
-                    if (CommonInfo.验证密码.Equals(CommonInfo.登录密码))
-                    {
-                        bool flag = vmb.Update(m, 1);
-                        if (flag)
-                        {
-                            MessageBoxCommon.Show("删除成功！");
-                        }
-                        else
-                        {
-                            MessageBoxCommon.Show("删除失败！");
-                        }
-                    }
-                    else
-                    {
-                        MessageBoxCommon.Show("当前输入密码错误！");
-                    }
-                }
-            }
-        }
         #endregion
         #region Expander事件
         private void Expander_权限_Expanded(object sender, RoutedEventArgs e)
         {
             FreshData();
             this.Expander_修改密码.IsExpanded = false;
+            this.Expander_账套管理.IsExpanded = false;
         }
         /// <summary>
         /// 刷新数据
@@ -280,48 +252,36 @@ namespace PA.View.Pages.TwoTabControl
 
         private void Expander_账套管理_Expanded(object sender, RoutedEventArgs e)
         {
-            FreshBookData();
             this.Expander_修改密码.IsExpanded = false;
             this.Expander_权限.IsExpanded = false;
+            Model_账套 m = new Model_账套();
+            m = vmb.GetData();
+            TextBox_账套名称.Text = m.账套名称;
+            TextBox_制度.Text = m.会计制度;
+            TextBox_启用期间.Text = m.启用期间;
+            TextBox_创建时间.Text = m.创建日期字符串;
         }
-        private void FreshBookData()
-        {
-            List<Model_账套> u = new List<Model_账套>();
-            u = vmb.GetData();
-            if (u != null)
-            {
-                DataGrid_账套.ItemsSource = u;
-            }
-        }
+        
         #endregion
 
-        #region 行编辑
-        private void DataGrid_账套_RowEditEnding(object sender, DataGridRowEditEndingEventArgs e)
+        private void Button_账套修改_Click(object sender, RoutedEventArgs e)
         {
             Model_账套 m = new Model_账套();
-            m = e.Row.Item as Model_账套;
-            if (m.账套名称.Equals(xr.ReadXML("账套信息")))
+            m.账套名称 = TextBox_账套名称.Text.Trim();
+
+            bool flag = vmb.Update(m, 0);
+            if (flag)
             {
-                return;
-            }
-            if (m.ID.Equals(CommonInfo.账薄号))
-            {
-                bool flag = vmb.Update(m,0);
-                if (flag)
-                {
-                    MessageBoxCommon.Show("修改成功！");
-                    xw.WriteXML("账套信息",m.账套名称);
-                }
-                else
-                {
-                    MessageBoxCommon.Show("修改失败，请联系管理员！");
-                }
+                MessageBoxCommon.Show("修改账套名称成功,重启程序生效！");
+                xw.WriteXML("账套信息", m.账套名称);
             }
             else
             {
-                MessageBoxCommon.Show("只能修改当前账套名称！");
-            }
+                MessageBoxCommon.Show("修改账套名称失败！");
+            }    
         }
+        #region 行编辑
+       
         private void DataGrid_科目设置_RowEditEnding(object sender, DataGridRowEditEndingEventArgs e)
         {
             Model_科目管理 m = new Model_科目管理();
@@ -337,6 +297,7 @@ namespace PA.View.Pages.TwoTabControl
             int SelectedIndex = this.TabControl_五大科目.SelectedIndex;
             this.DataGrid_科目设置.ItemsSource = new ViewModel_科目管理().GetSujectData(SelectedIndex+1);
         }
+
 
     }
 }

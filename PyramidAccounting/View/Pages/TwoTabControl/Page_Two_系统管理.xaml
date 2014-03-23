@@ -46,17 +46,15 @@
                         </Expander>
                         <Expander x:Name="Expander_账套管理" Header="账套管理" Expanded="Expander_账套管理_Expanded">
                             <Grid Height="280" Background="White">
-                                <Button x:Name="Button_删除" Content="删除" HorizontalAlignment="Right" Margin="0,15,20,0" VerticalAlignment="Top" Width="75" Click="Button_删除_Click" />
-                                <DataGrid x:Name="DataGrid_账套" HorizontalAlignment="Stretch" CanUserAddRows="False" ItemsSource="{Binding}" AutoGenerateColumns="False" Margin="10,40,0,0" VerticalAlignment="Top" RowEditEnding="DataGrid_账套_RowEditEnding"  BorderBrush="#FF99CCFF" HeadersVisibility="Column" SelectionUnit="Cell" SelectionMode="Single">
-                                    <DataGrid.Columns>
-                                        <DataGridTextColumn Binding="{Binding 序号}" Header="序号" IsReadOnly="True"/>
-                                        <DataGridTextColumn Binding="{Binding 账套名称,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Header="账套名称"/>
-                                        <DataGridTextColumn Binding="{Binding 启用期间}" Header="启用期间" IsReadOnly="True"/>
-                                        <DataGridTextColumn Binding="{Binding 会计制度}" Header="会计制度" IsReadOnly="True"/>
-                                        <DataGridTextColumn Binding="{Binding 创建日期字符串}" Header="创建时间" IsReadOnly="True" />
-                                    </DataGrid.Columns>
-                                </DataGrid>
-                                <TextBlock x:Name="TextBlock_提示" HorizontalAlignment="Left" Margin="10,15,0,0" TextWrapping="Wrap" Text="温馨提示：修改完账套名称，按回车键进行修改哦！" FontWeight="Bold" FontSize="14" Foreground="LightBlue" VerticalAlignment="Top"/>
+                                <Label Content="账套名称：" HorizontalAlignment="Left" Margin="100,20,0,0" VerticalAlignment="Top"/>
+                                <TextBox x:Name="TextBox_账套名称" HorizontalAlignment="Left" Height="23" Margin="170,23,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="279" BorderThickness="0,0,0,1"/>
+                                <Label Content="启用期间：" HorizontalAlignment="Left" Margin="100,70,0,0" VerticalAlignment="Top"/>
+                                <TextBox x:Name="TextBox_启用期间" HorizontalAlignment="Left" Height="23" Margin="170,73,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="279" BorderThickness="1" IsReadOnly="True" />
+                                <Label Content="会计制度：" HorizontalAlignment="Left" Margin="100,120,0,0" VerticalAlignment="Top"/>
+                                <TextBox x:Name="TextBox_制度" HorizontalAlignment="Left" Height="23" Margin="170,123,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="279" IsReadOnly="True"/>
+                                <Label Content="创建时间：" HorizontalAlignment="Left" Margin="100,170,0,0" VerticalAlignment="Top"/>
+                                <TextBox x:Name="TextBox_创建时间" HorizontalAlignment="Left" Height="23" Margin="170,173,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="279" IsReadOnly="True"/>
+                                <Button x:Name="Button_账套修改" Content="修改" HorizontalAlignment="Left" Margin="463,23,0,0" VerticalAlignment="Top" Width="75" Click="Button_账套修改_Click"/>
                             </Grid>
                         </Expander>
                     </StackPanel>

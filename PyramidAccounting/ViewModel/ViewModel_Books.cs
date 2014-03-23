@@ -21,27 +21,19 @@ namespace PA.ViewModel
         /// 获取账套数据的方法
         /// </summary>
         /// <returns>一个账套数据集合</returns>
-        public List<Model_账套> GetData()
+        public Model_账套 GetData()
         {
-            List<Model_账套> list = new List<Model_账套>();
-            sql = "select * from " + DBTablesName.T_BOOKS + " where delete_mark=0";
+            sql = "select * from " + DBTablesName.T_BOOKS + " where id='" + CommonInfo.账薄号 + "'";
             DataTable dt = db.Query(sql).Tables[0];
-            int i = 1;
-            foreach (DataRow dr in dt.Rows)
-            {
-                Model_账套 m = new Model_账套();
-                m.ID = dr[0].ToString();
-                m.序号 = i;
-                m.账套名称 = dr[1].ToString();
-                m.启用期间 = dr[3].ToString();
-                m.创建日期字符串 = dr[4].ToString();
-                m.会计制度 = dr[5].ToString();
-                m.当前期 = Convert.ToInt32(dr[6].ToString());
-                i++;
-
-                list.Add(m);
-            }
-            return list;
+            DataRow dr = dt.Rows[0];
+            Model_账套 m = new Model_账套();
+            m.ID = dr[0].ToString();
+            m.账套名称 = dr[1].ToString();
+            m.启用期间 = dr[3].ToString();
+            m.创建日期字符串 = dr[4].ToString();
+            m.会计制度 = dr[5].ToString();
+            m.当前期 = Convert.ToInt32(dr[6].ToString());
+            return m;
         }
         /// <summary>
         /// 更新方法
@@ -61,7 +53,7 @@ namespace PA.ViewModel
                     _sql = " set delete_mark=1";
                     break;
             }
-            sql = "update " + DBTablesName.T_BOOKS + _sql + " where id='" + m.ID + "'";
+            sql = "update " + DBTablesName.T_BOOKS + _sql + " where id='" + CommonInfo.账薄号 + "'";
             return db.Excute(sql);
         }
         /// <summary>
