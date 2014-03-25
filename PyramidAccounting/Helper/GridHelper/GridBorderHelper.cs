@@ -8,8 +8,17 @@ using System.Windows;
 
 namespace PA.Helper.GridHelper
 {
-    class GridBorderHelper
+    public class GridBorderHelper
     {
+        ////A0B3C6
+        private static SolidColorBrush _BorderBrush = new SolidColorBrush(Colors.Black);
+
+        public static SolidColorBrush BorderBrush
+        {
+            get { return GridBorderHelper._BorderBrush; }
+            set { GridBorderHelper._BorderBrush = value; }
+        }
+
         public static bool GetShowBorder(DependencyObject obj)
         {
             return (bool)obj.GetValue(ShowBorderProperty);
@@ -21,10 +30,8 @@ namespace PA.Helper.GridHelper
         }
 
         public static readonly DependencyProperty ShowBorderProperty =
-            DependencyProperty.RegisterAttached("ShowBorder", typeof(bool), typeof(GridBorderHelper), new PropertyMetadata(OnShowBorderChanged));
+        DependencyProperty.RegisterAttached("ShowBorder", typeof(bool), typeof(GridBorderHelper), new PropertyMetadata(OnShowBorderChanged));
 
-
-        //这是一个事件处理程序，需要手工编写，必须是静态方法
         private static void OnShowBorderChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
             var grid = d as Grid;
@@ -32,23 +39,27 @@ namespace PA.Helper.GridHelper
             {
                 grid.Loaded -= (s, arg) => { };
             }
+
             if ((bool)e.NewValue)
             {
                 grid.Loaded += (s, arg) =>
                 {
 
-                    //这种做法自动将控件移动到Border里面来
+                    //确定行数和列数
+                    var rows = grid.RowDefinitions.Count;
+                    var columns = grid.ColumnDefinitions.Count;
+
                     var controls = grid.Children;
                     var count = controls.Count;
+
 
                     for (int i = 0; i < count; i++)
                     {
                         var item = controls[i] as FrameworkElement;
-                        var border = new Border()
-                        {
-                            BorderBrush = new SolidColorBrush(Colors.LightGray),
-                            BorderThickness = new Thickness(1)
-                        };
+                        Border border = new Border();
+                        border.BorderBrush = BorderBrush;
+                        border.BorderThickness = new Thickness(0, 0, 1, 1);
+
                         var row = Grid.GetRow(item);
                         var column = Grid.GetColumn(item);
                         var rowspan = Grid.GetRowSpan(item);
@@ -59,18 +70,26 @@ namespace PA.Helper.GridHelper
                         Grid.SetRowSpan(border, rowspan);
                         Grid.SetColumnSpan(border, columnspan);
 
-
-                        grid.Children.RemoveAt(i);
-                        border.Child = item;
-                        grid.Children.Insert(i, border);
-
+                        grid.Children.Add(border);
                     }
+
+
+                    //画最外面的边框
+                    Border bo = new Border();
+                    bo.BorderBrush = BorderBrush;
+                    bo.BorderThickness = new Thickness(1, 1, 0, 0);
+                    bo.SetValue(Grid.ColumnProperty, 0);
+                    bo.SetValue(Grid.RowProperty, 0);
+
+                    bo.SetValue(Grid.ColumnSpanProperty, grid.ColumnDefinitions.Count);
+                    bo.SetValue(Grid.RowSpanProperty, grid.RowDefinitions.Count);
+
+                    bo.Tag = "autoBorder";
+                    grid.Children.Add(bo);
                 };
-            }
-            else
-            {
 
             }
         }
+
     }
 }

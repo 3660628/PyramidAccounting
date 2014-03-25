@@ -34,6 +34,10 @@ namespace PA.View.Pages.TwoTabControl
             TextBlock_编制单位.Text = xr.ReadXML("公司");   //程序启动后加载当前公司名称
             this.ComboBox_Date.ItemsSource = cbc.GetComboBox_期数();
             this.ComboBox_Date.SelectedIndex = CommonInfo.当前期 - 1;
+
+            this.ComboBox_Date1.ItemsSource = cbc.GetComboBox_期数();
+            this.ComboBox_Date1.SelectedIndex = CommonInfo.当前期 - 1;
+
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
