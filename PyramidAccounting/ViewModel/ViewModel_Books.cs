@@ -84,15 +84,18 @@ namespace PA.ViewModel
             sql = "select 1 from " + DBTablesName.T_BOOKS + " where book_name='" + bookName +"' and delete_mark=0";
             return db.IsExist(sql);
         }
-        /// <summary>
-        /// 获取单位名称
-        /// </summary>
-        /// <param name="id"></param>
-        /// <returns>单位名称</returns>
-        public string GetCompanyName(string id)
+
+        public int GetPeriod()
         {
-            sql = "select company_name from " + DBTablesName.T_BOOKS + " where delete_mark=0 and id='" + id + "'";
-            return db.GetAllData(sql).Split('\t')[0].Split(',')[0];
+            sql = "select period from " + DBTablesName.T_BOOKS + " where id='" + CommonInfo.账薄号 + "'";
+            string str = db.GetAllData(sql).Split('\t')[0].Split(',')[0];
+            return Convert.ToInt32(str);
+        }
+
+        public bool UpdatePeriod(int value)
+        {
+            sql = "update " + DBTablesName.T_BOOKS + " set period=" + value + " where id='" + CommonInfo.账薄号 + "'";
+            return db.Excute(sql);
         }
     }
 }

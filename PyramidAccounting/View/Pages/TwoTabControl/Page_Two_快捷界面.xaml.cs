@@ -14,6 +14,7 @@ using System.Windows.Shapes;
 using PA.View.ResourceDictionarys.MessageBox;
 using PA.Helper.DataDefind;
 using PA.Helper.XMLHelper;
+using PA.ViewModel;
 
 namespace PA.View.Pages.TwoTabControl
 {
@@ -21,6 +22,7 @@ namespace PA.View.Pages.TwoTabControl
     public partial class Page_Two_快捷界面 : Page
     {
         private XMLWriter xw = new XMLWriter();
+        private ViewModel_Books vmb = new ViewModel_Books();
         public Page_Two_快捷界面()
         {
             InitializeComponent();
@@ -59,6 +61,7 @@ namespace PA.View.Pages.TwoTabControl
                     if (CommonInfo.验证密码.Equals(CommonInfo.登录密码))
                     {
                         //xw.WriteXML("期", (CommonInfo.当前期 + 1).ToString());
+                        //vmb.UpdatePeriod(CommonInfo.当前期 + 1);
                         //CommonInfo.当前期 ++ ;
                         //结账操作
                     }

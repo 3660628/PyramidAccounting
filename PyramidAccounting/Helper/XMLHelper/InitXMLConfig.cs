@@ -37,7 +37,7 @@ namespace PA.Helper.XMLHelper
             XmlElement 会计制度 = xmldoc.CreateElement("会计制度");
             会计制度.InnerText = "0";
             XmlElement period = xmldoc.CreateElement("期");
-            period.InnerText = "1";
+            period.InnerText = "0";
             系统信息.AppendChild(单位);
             系统信息.AppendChild(帐套信息);
             系统信息.AppendChild(数据库);
