@@ -24,7 +24,7 @@ namespace PA.View.Pages.TwoTabControl
     public partial class Page_Two_凭证管理 : Page
     {
         List<Model_凭证管理> Data_本期凭证 = new List<Model_凭证管理>();
-        PA.Helper.XMLHelper.XMLReader xw = new Helper.XMLHelper.XMLReader();
+        PA.Helper.XMLHelper.XMLReader xr = new Helper.XMLHelper.XMLReader();
         private ComboBox_Common cbc = new ComboBox_Common();
 
         public Page_Two_凭证管理()
@@ -44,7 +44,7 @@ namespace PA.View.Pages.TwoTabControl
             this.ComboBox_Date.SelectedIndex = CommonInfo.当前期 - 1;
             this.ComboBox_Review.ItemsSource = cbc.GetComboBox_审核();
             this.ComboBox_Review.SelectedIndex = 0;
-            Label_账套名称.Content += "：" + xw.ReadXML("帐套信息");
+            Label_账套名称.Content += "：" + xr.ReadXML("帐套信息");
             Label_操作员.Content += "：" + CommonInfo.用户权限 + "\t" +CommonInfo.真实姓名;
         }
         private void ReflashData()
