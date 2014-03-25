@@ -14,6 +14,7 @@ using System.Windows.Shapes;
 using PA.Model.DataGrid;
 using PA.Helper.DataDefind;
 using PA.Model.ComboBox;
+using PA.View.ResourceDictionarys.MessageBox;
 
 namespace PA.View.Pages.TwoTabControl
 {
@@ -85,9 +86,16 @@ namespace PA.View.Pages.TwoTabControl
         {
             if (this.DataGrid_本期凭证.SelectedCells.Count != 0)
             {
-                Model_凭证管理 asd = this.DataGrid_本期凭证.SelectedCells[0].Item as Model_凭证管理;
-                new PA.ViewModel.ViewModel_凭证管理().Review(asd.ID);
-                ReflashData();
+                if (CommonInfo.权限值 >= 2)
+                {
+                    Model_凭证管理 asd = this.DataGrid_本期凭证.SelectedCells[0].Item as Model_凭证管理;
+                    new PA.ViewModel.ViewModel_凭证管理().Review(asd.ID);
+                    ReflashData();
+                }
+                else
+                {
+                    MessageBoxCommon.Show("您的权限不够，不能进行审核！");
+                }
             }
         }
 
