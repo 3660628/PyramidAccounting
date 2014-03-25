@@ -101,7 +101,6 @@
     <Compile Include="Helper\XMLHelper\XMLReader.cs" />
     <Compile Include="Helper\XMLHelper\XMLWriter.cs" />
     <Compile Include="Model\ComboBox\ComboBox_Common.cs" />
-    <Compile Include="Model\ComboBox\ComboBox_期数.cs" />
     <Compile Include="Model\ComboBox\ComboBox_科目.cs" />
     <Compile Include="Model\CustomEventArgs\ListEventArgs.cs" />
     <Compile Include="Model\Database\UpdateParm.cs" />

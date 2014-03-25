@@ -5,6 +5,8 @@ using System.Text;
 using System.Data;
 using PA.Model.DataGrid;
 using PA.Helper.DataBase;
+using PA.ViewModel;
+using PA.Helper.DataDefind;
 
 namespace PA.Model.ComboBox
 {
@@ -13,6 +15,8 @@ namespace PA.Model.ComboBox
         private string sql = string.Empty;
         private DataSet ds = new DataSet();
         private DataBase db = new DataBase();
+        private ViewModel_Books vmb = new ViewModel_Books();
+
         public List<Model_账套> GetComboBox_账套()
         {
             List<Model_账套> list = new List<Model_账套>();
@@ -50,6 +54,20 @@ namespace PA.Model.ComboBox
             list.Add("全部");
             list.Add("已审核");
             list.Add("未审核");
+            return list;
+        }
+
+        public List<string> GetComboBox_期数()
+        {
+            List<string> list = new List<string>();
+            string str = vmb.GetValue();
+            string value = str.Split('\t')[0].Split(',')[0].Split('年')[0];
+            int count = CommonInfo.当前期;
+            for (int i = 1; i <= count; i++)
+            {
+                string s = value + "年" + count + "期";
+                list.Add(s);
+            }
             return list;
         }
     }

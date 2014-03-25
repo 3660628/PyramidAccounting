@@ -87,8 +87,7 @@ namespace PA.ViewModel
 
         public int GetPeriod()
         {
-            sql = "select period from " + DBTablesName.T_BOOKS + " where id='" + CommonInfo.账薄号 + "'";
-            string str = db.GetAllData(sql).Split('\t')[0].Split(',')[0];
+            string str = GetValue().Split('\t')[0].Split(',')[1];
             return Convert.ToInt32(str);
         }
 
@@ -96,6 +95,12 @@ namespace PA.ViewModel
         {
             sql = "update " + DBTablesName.T_BOOKS + " set period=" + value + " where id='" + CommonInfo.账薄号 + "'";
             return db.Excute(sql);
+        }
+
+        public string GetValue()
+        {
+            sql = "select book_time,period from " + DBTablesName.T_BOOKS + " where id='" + CommonInfo.账薄号 + "'";
+            return db.GetAllData(sql);
         }
     }
 }

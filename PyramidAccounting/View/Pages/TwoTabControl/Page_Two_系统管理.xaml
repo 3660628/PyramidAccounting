@@ -100,9 +100,6 @@
             <TabItem FocusVisualStyle="{x:Null}" Header="数据管理" Margin="24,-1,-24,1" Template="{DynamicResource TabItemControlTemplate_TwoTabHeader}">
                 <Grid Background="White"/>
             </TabItem>
-            <TabItem FocusVisualStyle="{x:Null}" Header="账套管理" Margin="32,-1,-32,1" Template="{DynamicResource TabItemControlTemplate_TwoTabHeader}">
-                <Grid Background="White"/>
-            </TabItem>
         </TabControl>
         <Grid x:Name="Grid_Pop弹出" Background="#7F000000" Margin="0,28,0,25" Visibility="Collapsed">
             <Frame x:Name="Frame_系统管理_Pop" Content="" Margin="269,0,0,0" Background="White" NavigationUIVisibility="Hidden"/>
