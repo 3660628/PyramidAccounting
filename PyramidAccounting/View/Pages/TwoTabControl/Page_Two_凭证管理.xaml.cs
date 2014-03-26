@@ -30,6 +30,7 @@ namespace PA.View.Pages.TwoTabControl
         public Page_Two_凭证管理()
         {
             InitializeComponent();
+            this.StackPanel_MoreButton.Visibility = System.Windows.Visibility.Collapsed;
             InitData();
             ReflashData();
         }
@@ -140,7 +141,8 @@ namespace PA.View.Pages.TwoTabControl
 
         private void Button_打印_Click(object sender, RoutedEventArgs e)
         {
-
+            new PA.Helper.ExcelHelper.ExcelWriter().ExportVouchers();
+            this.StackPanel_MoreButton.Visibility = System.Windows.Visibility.Collapsed;
         }
     }
 }
