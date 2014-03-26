@@ -19,7 +19,7 @@
                     <Button Content="导出" HorizontalAlignment="Right" Margin="0,10,20,0" VerticalAlignment="Top" Width="75"/>
                     <Label x:Name="Label_编制单位1" Content="编制单位：" HorizontalAlignment="Left" Margin="5,36,0,0" VerticalAlignment="Top"/>
                     <Label Content="单位：元" HorizontalAlignment="Right" Margin="0,38,10,0" VerticalAlignment="Top"/>
-                    <Grid HorizontalAlignment="Stretch" Margin="0,60,0,0" VerticalAlignment="Top" Width="Auto" ShowGridLines="False">
+                    <Grid HorizontalAlignment="Stretch" Margin="10,60,10,0" VerticalAlignment="Top" Width="Auto" ShowGridLines="False">
                         <Grid.RowDefinitions>
                             <RowDefinition Height="25" />
                             <RowDefinition Height="25" />
@@ -158,7 +158,7 @@
                     <Button Content="导出" HorizontalAlignment="Right" Margin="0,10,20,0" VerticalAlignment="Top" Width="75"/>
                     <Label x:Name="Label_编制单位2" Content="编制单位：" HorizontalAlignment="Left" Margin="10,36,0,0" VerticalAlignment="Top"/>
                     <Label Content="单位：元" HorizontalAlignment="Right" Margin="0,38,10,0" VerticalAlignment="Top"/>
-                    <Grid HorizontalAlignment="Stretch" Margin="0,60,0,0" VerticalAlignment="Top" Width="AUTO" ShowGridLines="False">
+                    <Grid HorizontalAlignment="Stretch" Margin="10,60,10,0" VerticalAlignment="Top" Width="AUTO" ShowGridLines="False">
                         <Grid.RowDefinitions>
                             <RowDefinition Height="25" />
                             <RowDefinition Height="25" />
@@ -240,7 +240,7 @@
                     <Button Content="导出" HorizontalAlignment="Right" Margin="0,10,20,0" VerticalAlignment="Top" Width="75"/>
                     <Label x:Name="Label_编制单位3" Content="编制单位：" HorizontalAlignment="Left" Margin="10,36,0,0" VerticalAlignment="Top"/>
                     <Label Content="单位：元" HorizontalAlignment="Right" Margin="0,38,10,0" VerticalAlignment="Top"/>
-                    <Grid HorizontalAlignment="Stretch" Margin="0,60,0,0" VerticalAlignment="Top" Width="AUTO" ShowGridLines="False">
+                    <Grid HorizontalAlignment="Stretch" Margin="10,60,10,0" VerticalAlignment="Top" Width="AUTO" ShowGridLines="False">
                         <Grid.RowDefinitions>
                             <RowDefinition Height="25" />
                             <RowDefinition Height="25" />
