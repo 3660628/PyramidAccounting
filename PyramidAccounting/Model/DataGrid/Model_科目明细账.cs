@@ -5,7 +5,7 @@ using System.Text;
 
 namespace PA.Model.DataGrid
 {
-    class Model_明细账
+    class Model_科目明细账
     {
         private string month;
 
