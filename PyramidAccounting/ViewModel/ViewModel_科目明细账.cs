@@ -31,13 +31,22 @@ namespace PA.ViewModel
                 foreach (DataRow d in dt.Rows)
                 {
                     Model_科目明细账 m = new Model_科目明细账();
-                    m.年 = d[0].ToString().Split('-')[0];
-                    m.月 = d[0].ToString().Split('-')[1];
-                    m.日 = d[0].ToString().Split('-')[2];
+                    string date = d[0].ToString().Split(' ')[0];
+                    m.年 = date.Split('/')[0];
+                    m.月 = date.Split('/')[1];
+                    m.日 = date.Split('/')[2];
                     m.号数 = d[1].ToString();
                     m.摘要 = d[2].ToString();
                     m.借方金额 = d[3].ToString();
                     m.贷方金额 = d[4].ToString();
+                    if (string.IsNullOrEmpty(m.借方金额))
+                    {
+                        m.借或贷 = "贷";
+                    }
+                    else
+                    {
+                        m.借或贷 = "借";
+                    }
                     list.Add(m);
                 }
             }

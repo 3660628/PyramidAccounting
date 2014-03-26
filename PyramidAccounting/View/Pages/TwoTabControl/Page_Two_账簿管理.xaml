@@ -22,9 +22,9 @@
                         <Button Content="打印" HorizontalAlignment="Right" Margin="0,10,100,0" VerticalAlignment="Top" Width="75" Click="Button_Click"/>
                         <Button Content="导出" HorizontalAlignment="Right" Margin="0,10,20,0" VerticalAlignment="Top" Width="75"/>
                         <Label Content="一级科目编号及名称" HorizontalAlignment="Left" Margin="10,8,0,0" VerticalAlignment="Top"/>
-                        <TextBox x:Name="TextBox_一级科目" HorizontalAlignment="Left" Height="23" Margin="133,12,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" BorderThickness="0,0,0,1" MouseDoubleClick="TextBox_一级科目_MouseDoubleClick"/>
+                        <TextBox x:Name="TextBox_一级科目" HorizontalAlignment="Left" Height="23" Margin="133,10,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" BorderThickness="0,0,0,1" MouseDoubleClick="TextBox_一级科目_MouseDoubleClick"/>
                         <Label Content="二级科目编号及名称" HorizontalAlignment="Left" Margin="10,38,0,0" VerticalAlignment="Top"/>
-                        <TextBox x:Name="TextBox_二级科目" HorizontalAlignment="Left" Height="23" Margin="128,42,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" BorderThickness="0,0,0,1" MouseDoubleClick="TextBox_二级科目_MouseDoubleClick"/>
+                        <TextBox x:Name="TextBox_二级科目" HorizontalAlignment="Left" Height="23" Margin="133,40,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" BorderThickness="0,0,0,1" MouseDoubleClick="TextBox_二级科目_MouseDoubleClick"/>
                         <Grid HorizontalAlignment="Stretch" VerticalAlignment="Top" Width="Auto" Margin="10,80,10,0">
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="25" />
@@ -157,19 +157,19 @@
                             <Label Content="分" Grid.Column="43" Grid.Row="1" />
                             <Label Content="金额" HorizontalContentAlignment="Center" Grid.Column="32" Grid.ColumnSpan="12"/>
                             <Label Content="√" VerticalContentAlignment="Center" Grid.Column="45" Grid.RowSpan="2"/>
-                            <DataGrid Grid.Row="2" ItemsSource="{Binding}" Grid.ColumnSpan="45" AutoGenerateColumns="False">
+                            <DataGrid x:Name="DataGrid_科目明细" Grid.Row="2" ItemsSource="{Binding}" Grid.ColumnSpan="45" AutoGenerateColumns="False" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
                                 <DataGrid.Columns>
                                     <DataGridTextColumn Binding="{Binding 月}"/>
                                     <DataGridTextColumn Binding="{Binding 日}" />
                                     <DataGridTextColumn Binding="{Binding 号数}" />
+                                    <DataGridTextColumn Binding="{Binding 摘要}"/>
                                     <DataGridTextColumn Binding="{Binding 日页}"/>
                                     <DataGridTextColumn Binding="{Binding 借方金额}"/>
                                     <DataGridTextColumn />
+                                    <DataGridTextColumn Binding="{Binding 贷方金额}" />
                                     <DataGridTextColumn />
-                                    <DataGridTextColumn />
-                                    <DataGridTextColumn />
-                                    <DataGridTextColumn />
-                                    <DataGridTextColumn />
+                                    <DataGridTextColumn Binding="{Binding 借或贷}"/>
+                                    <DataGridTextColumn  Binding="{Binding 余额}"/>
                                     <DataGridTextColumn />
                                 </DataGrid.Columns>
                             </DataGrid>

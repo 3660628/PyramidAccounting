@@ -15,6 +15,7 @@ using System.Data;
 using PA.Model.DataGrid;
 using PA.Model.CustomEventArgs;
 using PA.View.ResourceDictionarys.MessageBox;
+using PA.ViewModel;
 
 namespace PA.View.Pages.TwoTabControl
 {
@@ -23,6 +24,7 @@ namespace PA.View.Pages.TwoTabControl
     /// </summary>
     public partial class Page_Two_账簿管理 : Page
     {
+        private ViewModel_科目明细账 vmk = new ViewModel_科目明细账();
         public Page_Two_账簿管理()
         {
             InitializeComponent();
@@ -62,7 +64,7 @@ namespace PA.View.Pages.TwoTabControl
                 MessageBoxCommon.Show("请选择一级科目后再操作！");
                 return;
             }
-            PA.View.Pages.Pop.凭证录入.Page_凭证录入_子细目 page = new PA.View.Pages.Pop.凭证录入.Page_凭证录入_子细目(TextBox_一级科目.Text.ToString().Split('\t')[1]);
+            PA.View.Pages.Pop.凭证录入.Page_凭证录入_子细目 page = new PA.View.Pages.Pop.凭证录入.Page_凭证录入_子细目(TextBox_一级科目.Text.ToString().Split('\t')[0]);
             page.FillDate += new Pages.Pop.凭证录入.Page_凭证录入_子细目_FillDateEventHandle(DoFillData);
             this.Frame_科目子细目.Content = page;
             this.Popup_科目子细目.IsOpen = true;
@@ -76,7 +78,9 @@ namespace PA.View.Pages.TwoTabControl
 
         private void Button_查询_Click(object sender, RoutedEventArgs e)
         {
-
+            string a = TextBox_一级科目.Text.ToString().Split('\t')[1];
+            string b = TextBox_二级科目.Text.ToString().Split('\t')[1];
+            this.DataGrid_科目明细.ItemsSource = vmk.GetData(a,b);
         }
     }
 }
