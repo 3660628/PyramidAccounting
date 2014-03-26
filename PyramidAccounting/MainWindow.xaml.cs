@@ -48,7 +48,7 @@ namespace PA
 
         private void Window_MainWindow_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            if (e.LeftButton == MouseButtonState.Pressed)
+            if (e.LeftButton == MouseButtonState.Pressed && Properties.Settings.Default.isMainWindowMax == false)
             {
                 this.DragMove();
             }
