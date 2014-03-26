@@ -157,13 +157,13 @@
                             <Label Content="分" Grid.Column="43" Grid.Row="1" />
                             <Label Content="金额" HorizontalContentAlignment="Center" Grid.Column="32" Grid.ColumnSpan="12"/>
                             <Label Content="√" VerticalContentAlignment="Center" Grid.Column="45" Grid.RowSpan="2"/>
-                            <DataGrid Grid.Row="2" Grid.ColumnSpan="45" AutoGenerateColumns="False">
+                            <DataGrid Grid.Row="2" ItemsSource="{Binding}" Grid.ColumnSpan="45" AutoGenerateColumns="False">
                                 <DataGrid.Columns>
-                                    <DataGridTextColumn />
-                                    <DataGridTextColumn />
-                                    <DataGridTextColumn />
-                                    <DataGridTextColumn />
-                                    <DataGridTextColumn />
+                                    <DataGridTextColumn Binding="{Binding 月}"/>
+                                    <DataGridTextColumn Binding="{Binding 日}" />
+                                    <DataGridTextColumn Binding="{Binding 号数}" />
+                                    <DataGridTextColumn Binding="{Binding 日页}"/>
+                                    <DataGridTextColumn Binding="{Binding 借方金额}"/>
                                     <DataGridTextColumn />
                                     <DataGridTextColumn />
                                     <DataGridTextColumn />

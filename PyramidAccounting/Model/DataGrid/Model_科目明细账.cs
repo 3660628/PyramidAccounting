@@ -7,12 +7,26 @@ namespace PA.Model.DataGrid
 {
     class Model_科目明细账
     {
+        private string year;
+
+        public string 年
+        {
+            get { return year; }
+            set { year = value; }
+        }
         private string month;
 
         public string 月
         {
             get { return month; }
             set { month = value; }
+        }
+        private string voucher_no;
+
+        public string 号数
+        {
+            get { return voucher_no; }
+            set { voucher_no = value; }
         }
         private string day;
 
