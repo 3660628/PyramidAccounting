@@ -73,5 +73,10 @@ namespace PA.View.Pages.TwoTabControl
         {
 
         }
+
+        private void Button_查询_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

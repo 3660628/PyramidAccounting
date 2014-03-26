@@ -4,7 +4,7 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       mc:Ignorable="d" 
-      d:DesignHeight="570" d:DesignWidth="2000" FontFamily="NSimSun" TextOptions.TextFormattingMode="Display"
+      d:DesignHeight="570" d:DesignWidth="800" FontFamily="NSimSun" TextOptions.TextFormattingMode="Display"
 	Title="Page_Two_账簿管理">
 
     <Grid Margin="-3,0,-3,-3">
@@ -25,7 +25,7 @@
                         <TextBox x:Name="TextBox_一级科目" HorizontalAlignment="Left" Height="23" Margin="133,12,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" BorderThickness="0,0,0,1" MouseDoubleClick="TextBox_一级科目_MouseDoubleClick"/>
                         <Label Content="二级科目编号及名称" HorizontalAlignment="Left" Margin="10,38,0,0" VerticalAlignment="Top"/>
                         <TextBox x:Name="TextBox_二级科目" HorizontalAlignment="Left" Height="23" Margin="128,42,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" BorderThickness="0,0,0,1" MouseDoubleClick="TextBox_二级科目_MouseDoubleClick"/>
-                        <Grid HorizontalAlignment="Stretch" VerticalAlignment="Top" Margin="10,80,10,0">
+                        <Grid HorizontalAlignment="Stretch" VerticalAlignment="Top" Width="Auto" Margin="10,80,10,0">
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="25" />
                                 <RowDefinition Height="25" />
@@ -35,7 +35,7 @@
                                 <ColumnDefinition Width="Auto"/>
                                 <ColumnDefinition Width="Auto"/>
                                 <ColumnDefinition Width="Auto"/>
-                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="*"/>
                                 <ColumnDefinition Width="Auto"/>
                                 <ColumnDefinition Width="Auto"/>
                                 <ColumnDefinition Width="Auto"/>
@@ -79,13 +79,35 @@
                                 <ColumnDefinition Width="Auto"/>
                             </Grid.ColumnDefinitions>
                             <Border BorderBrush="Blue" BorderThickness="1,1,1,1" Grid.ColumnSpan="45" Grid.RowSpan="2" />
+                            <Border BorderBrush="Blue" BorderThickness="0,0,1,0" Grid.Row="1" />
+                            <Border BorderBrush="Blue" BorderThickness="0,1,0,0" Grid.Row="1" Grid.ColumnSpan="3" />
+                            <Border BorderBrush="Blue" BorderThickness="0,1,0,0" Grid.Row="1" Grid.Column="5" Grid.ColumnSpan="12" />
+                            <Border BorderBrush="Blue" BorderThickness="0,1,0,0" Grid.Row="1" Grid.Column="18" Grid.ColumnSpan="12" />
+                            <Border BorderBrush="Blue" BorderThickness="0,1,0,0" Grid.Row="1" Grid.Column="32" Grid.ColumnSpan="12" />
+                            <Border BorderBrush="Blue" BorderThickness="1,0,1,0" Grid.Row="1" Grid.Column="6" Grid.ColumnSpan="13" />
+                            <Border BorderBrush="Blue" BorderThickness="1,0,1,0" Grid.Row="1" Grid.Column="7" Grid.ColumnSpan="13" />
+                            <Border BorderBrush="Blue" BorderThickness="1,0,1,0" Grid.Row="1" Grid.Column="8" Grid.ColumnSpan="13" />
+                            <Border BorderBrush="Blue" BorderThickness="1,0,1,0" Grid.Row="1" Grid.Column="9" Grid.ColumnSpan="13" />
+                            <Border BorderBrush="Blue" BorderThickness="1,0,1,0" Grid.Row="1" Grid.Column="10" Grid.ColumnSpan="13" />
+                            <Border BorderBrush="Blue" BorderThickness="1,0,1,0" Grid.Row="1" Grid.Column="11" Grid.ColumnSpan="13" />
+                            <Border BorderBrush="Blue" BorderThickness="1,0,1,0" Grid.Row="1" Grid.Column="12" Grid.ColumnSpan="13" />
+                            <Border BorderBrush="Blue" BorderThickness="1,0,1,0" Grid.Row="1" Grid.Column="13" Grid.ColumnSpan="13" />
+                            <Border BorderBrush="Blue" BorderThickness="1,0,1,0" Grid.Row="1" Grid.Column="14" Grid.ColumnSpan="13" />
+                            <Border BorderBrush="Blue" BorderThickness="1,0,1,0" Grid.Row="1" Grid.Column="15" Grid.ColumnSpan="13" />
+                            <Border BorderBrush="Blue" BorderThickness="1,0,1,0" Grid.Row="1" Grid.Column="16" Grid.ColumnSpan="13" />
+                            <Border BorderBrush="Blue" BorderThickness="1,0,1,0" Grid.Row="1" Grid.Column="33" Grid.ColumnSpan="6" />
+                            <Border BorderBrush="Blue" BorderThickness="1,0,1,0" Grid.Row="1" Grid.Column="34" Grid.ColumnSpan="6" />
+                            <Border BorderBrush="Blue" BorderThickness="1,0,1,0" Grid.Row="1" Grid.Column="35" Grid.ColumnSpan="6" />
+                            <Border BorderBrush="Blue" BorderThickness="1,0,1,0" Grid.Row="1" Grid.Column="36" Grid.ColumnSpan="6" />
+                            <Border BorderBrush="Blue" BorderThickness="1,0,1,0" Grid.Row="1" Grid.Column="37" Grid.ColumnSpan="6" />
+                            <Border BorderBrush="Blue" BorderThickness="1,0,1,0" Grid.Row="1" Grid.Column="38" Grid.ColumnSpan="6" />
                             <Border BorderBrush="Blue" BorderThickness="1,0,1,0" Grid.Column="2" Grid.ColumnSpan="2" Grid.RowSpan="2"/>
                             <Border BorderBrush="Blue" BorderThickness="1,0,0,0" Grid.Column="3" Grid.ColumnSpan="2" Grid.RowSpan="2"/>
                             <Border BorderBrush="Blue" BorderThickness="1,0,1,0" Grid.Column="5" Grid.ColumnSpan="13" Grid.RowSpan="2" />
                             <Border BorderBrush="Blue" BorderThickness="1,0,1,0" Grid.Column="17" Grid.ColumnSpan="13" Grid.RowSpan="2" />
                             <Border BorderBrush="Blue" BorderThickness="0,0,1,0" Grid.Column="31" Grid.RowSpan="2" />
                             <Border BorderBrush="Blue" BorderThickness="1,0,1,0" Grid.Column="31" Grid.ColumnSpan="13" Grid.RowSpan="2" />
-                            <Label Content="年" HorizontalAlignment="Right" Grid.ColumnSpan="2"/>
+                            <Label x:Name="Label_年" Content="年" HorizontalAlignment="Right" Grid.ColumnSpan="2"/>
                             <Label Content="月" Grid.Row="1"/>
                             <Label Content="日" Grid.Row="1" Grid.Column="1"/>
                             <Label Content="凭证" HorizontalContentAlignment="Center" Grid.Column="2"/>
@@ -135,9 +157,25 @@
                             <Label Content="分" Grid.Column="43" Grid.Row="1" />
                             <Label Content="金额" HorizontalContentAlignment="Center" Grid.Column="32" Grid.ColumnSpan="12"/>
                             <Label Content="√" VerticalContentAlignment="Center" Grid.Column="45" Grid.RowSpan="2"/>
-                            <DataGrid Grid.Row="2" Grid.ColumnSpan="45"></DataGrid>
-                        </Grid>    
-                </Grid>
+                            <DataGrid Grid.Row="2" Grid.ColumnSpan="45" AutoGenerateColumns="False">
+                                <DataGrid.Columns>
+                                    <DataGridTextColumn />
+                                    <DataGridTextColumn />
+                                    <DataGridTextColumn />
+                                    <DataGridTextColumn />
+                                    <DataGridTextColumn />
+                                    <DataGridTextColumn />
+                                    <DataGridTextColumn />
+                                    <DataGridTextColumn />
+                                    <DataGridTextColumn />
+                                    <DataGridTextColumn />
+                                    <DataGridTextColumn />
+                                    <DataGridTextColumn />
+                                </DataGrid.Columns>
+                            </DataGrid>
+                        </Grid>
+                        <Button x:Name="Button_查询" Content="查询" HorizontalAlignment="Left" Margin="295,38,0,0" VerticalAlignment="Top" Width="75" Click="Button_查询_Click"/>
+                    </Grid>
                 </ScrollViewer>
             </TabItem>
             <TabItem FocusVisualStyle="{x:Null}" Header="固定资产管理" Margin="32,-1,-32,1" Template="{DynamicResource TabItemControlTemplate_TwoTabHeader}">
