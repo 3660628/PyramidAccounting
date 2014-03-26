@@ -22,6 +22,10 @@
         <Image HorizontalAlignment="left" Margin="34,0,0,0" VerticalAlignment="Top" Source="View/Images/Logo/Pyramid_Logo_white_128x128.png" Grid.Row="2" Height="88" Width="88"/>
         <ComboBox x:Name="ComboBox_账套" HorizontalAlignment="Center" Margin="64,0" VerticalAlignment="Top" Width="172" Height="22" Grid.Column="1" Grid.Row="2"/>
         <TextBox x:Name="TextBox_登陆用户名" HorizontalAlignment="Center" Height="22" Margin="64,29,64,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="172" FontSize="16" Grid.Column="1" Grid.Row="2">
+            <TextBox.ContextMenu>
+                <ContextMenu Visibility="Collapsed">
+                </ContextMenu>
+            </TextBox.ContextMenu>
             <TextBox.Resources>
                 <VisualBrush x:Key="HelpBrush" TileMode="None" Opacity="0.3" Stretch="None" AlignmentX="Left">
                     <VisualBrush.Visual>
@@ -43,6 +47,10 @@
             </TextBox.Style>
         </TextBox>
         <PasswordBox x:Name="PasswordBox_登陆密码" HorizontalAlignment="Center" Margin="64,58,64,0" VerticalAlignment="Top" Width="172" FontSize="16" Height="22" Grid.Column="1" Grid.Row="2">
+            <PasswordBox.ContextMenu>
+                <ContextMenu Visibility="Collapsed">
+                </ContextMenu>
+            </PasswordBox.ContextMenu>
         </PasswordBox>
         <Button FocusVisualStyle="{x:Null}" x:Name="Button_登陆" Content="登录" HorizontalAlignment="Right" Margin="0,89,136,0" VerticalAlignment="Top" Click="Button_登陆_Click" IsDefault="True" Foreground="White" FontSize="13.333" Width="100" Height="25" Template="{DynamicResource ButtonControlTemplate_CommonBlue}" Grid.Column="1" Grid.Row="2"/>
         <TextBlock x:Name="TextBlock_登陆警告信息" HorizontalAlignment="Center" Margin="64,130,64,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="172" Foreground="Red" Grid.Column="1" Grid.Row="2" Height="14"/>
