@@ -42,6 +42,11 @@ namespace PA.Helper.ExcelHelper
 
 
 
+
+
+
+            xlApp.Visible = true;
+
             releaseObject(xlWorkSheet);
             releaseObject(xlWorkBook);
             releaseObject(xlApp);

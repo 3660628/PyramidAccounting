@@ -21,7 +21,7 @@
                     <Button FocusVisualStyle="{x:Null}" x:Name="Button_Add" Content="新增" HorizontalAlignment="Right" Margin="0,10,205,0" VerticalAlignment="Top" Width="50" Template="{DynamicResource ButtonControlTemplate_Common}" Height="20" Click="Button_Add_Click"/>
                     <Button FocusVisualStyle="{x:Null}" x:Name="Button_Del" Content="删除" HorizontalAlignment="Right" Margin="0,10,140,0" VerticalAlignment="Top" Width="50" Template="{DynamicResource ButtonControlTemplate_Common}" Height="20" Click="Button_Del_Click"/>
                     <Button FocusVisualStyle="{x:Null}" x:Name="Button_Review" Content="审核" HorizontalAlignment="Right" Margin="0,10,75,0" VerticalAlignment="Top" Width="50" Template="{DynamicResource ButtonControlTemplate_Common}" Height="20" Click="Button_Review_Click"/>
-                    <Button FocusVisualStyle="{x:Null}" x:Name="Button_More" Content="更多" HorizontalAlignment="Right" Margin="0,10,10,0" VerticalAlignment="Top" Width="50" Template="{DynamicResource ButtonControlTemplate_Common}" Height="20"/>
+                    <Button FocusVisualStyle="{x:Null}" x:Name="Button_More" Content="更多" HorizontalAlignment="Right" Margin="0,10,10,0" VerticalAlignment="Top" Width="50" Template="{DynamicResource ButtonControlTemplate_Common}" Height="20" Click="Button_More_Click"/>
                     <DataGrid x:Name="DataGrid_本期凭证" HorizontalAlignment="Stretch" Margin="10,44,10,10" VerticalAlignment="Stretch" GridLinesVisibility="Horizontal" CanUserReorderColumns="False" CanUserSortColumns="False" CanUserResizeRows="False" CanUserAddRows="False" AutoGenerateColumns="False" IsReadOnly="True" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle_凭证管理}" CellStyle="{DynamicResource DataGridCellStyle_凭证管理}" HeadersVisibility="Column" BorderBrush="#FF99CCFF" Background="White" SelectionUnit="Cell" SelectionMode="Single" HorizontalGridLinesBrush="Gray" VerticalGridLinesBrush="Gray">
                         <DataGrid.Resources>
                             <Style TargetType="DataGridRow">
@@ -41,6 +41,11 @@
                             <DataGridTextColumn Header="审核状态"  Binding="{Binding 审核状态}"/>
                         </DataGrid.Columns>
                     </DataGrid>
+                    <StackPanel x:Name="StackPanel_MoreButton" HorizontalAlignment="Right" Margin="729,35,2,0" VerticalAlignment="Top" Background="#FFA62929">
+                        <Button x:Name="Button_打印" Content="打印" Template="{DynamicResource ButtonControlTemplate_Common}" Height="20" Click="Button_打印_Click"/>
+                        <Button Content="Button" Template="{DynamicResource ButtonControlTemplate_Common}" Height="20"/>
+                        <Button Content="Button" Template="{DynamicResource ButtonControlTemplate_Common}" Height="20" Width="70"/>
+                    </StackPanel>
                 </Grid>
             </TabItem>
         </TabControl>

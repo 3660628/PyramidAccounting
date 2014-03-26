@@ -125,5 +125,22 @@ namespace PA.View.Pages.TwoTabControl
                 win.ShowDialog();
             }
         }
+
+        private void Button_More_Click(object sender, RoutedEventArgs e)
+        {
+            if(this.StackPanel_MoreButton.Visibility == System.Windows.Visibility.Visible)
+            {
+                this.StackPanel_MoreButton.Visibility = System.Windows.Visibility.Collapsed;
+            }
+            else
+            {
+                this.StackPanel_MoreButton.Visibility = System.Windows.Visibility.Visible;
+            }
+        }
+
+        private void Button_打印_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
