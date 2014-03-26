@@ -10,6 +10,7 @@ namespace PA.Model.DataGrid
     {
 
         private string id;
+        private int period;
         private DateTime op_time;
         private int subsidiary_counts;
         private decimal fee_debit;
@@ -20,6 +21,11 @@ namespace PA.Model.DataGrid
         private int review_mark;
         private int delete_mark;
 
+        public int 当前期
+        {
+            get { return period; }
+            set { period = value; }
+        }
         public int 删除标志
         {
             get { return delete_mark; }

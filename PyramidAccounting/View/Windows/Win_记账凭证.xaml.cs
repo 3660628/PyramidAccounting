@@ -37,6 +37,7 @@ namespace PA.View.Windows
         {
             InitializeComponent();
             InitData();
+            Voucher.当前期 = PA.Helper.DataDefind.CommonInfo.当前期;
         }
 
         public Win_记账凭证(Guid guid)
@@ -148,6 +149,7 @@ namespace PA.View.Windows
         {
             SaveVoucherDetails();
             Voucher.ID = Guid.NewGuid().ToString();
+            //Voucher.当前期 = PA.Helper.DataDefind.CommonInfo.当前期;
             Voucher.制表时间 = (DateTime)this.DatePicker_Date.SelectedDate;
             Voucher.附属单证数 = int.Parse(this.TextBox_附属单证.Text.Trim());
             Voucher.合计借方金额 = decimal.Parse(this.Label_借方合计.Content.ToString());

@@ -13,6 +13,7 @@ namespace PA.ViewModel
         private string DateFormat = "yyyy-MM-dd";
         private Guid  LastID = Guid.Empty;
         private Model_凭证管理 LastData = new Model_凭证管理();
+
         /// <summary>
         /// 凭证管理
         /// </summary>
@@ -120,15 +121,16 @@ namespace PA.ViewModel
             foreach (DataRow dr in ds.Tables[0].Rows)
             {
                 Voucher.ID = dr[0].ToString();
-                Voucher.制表时间 = Convert.ToDateTime(dr[1]);
-                Voucher.附属单证数 = int.Parse(dr[2].ToString());
-                Voucher.合计借方金额 = decimal.Parse(dr[3].ToString());
-                Voucher.合计贷方金额 = decimal.Parse(dr[4].ToString());
-                Voucher.会计主管 = dr[5].ToString();
-                Voucher.制单人 = dr[6].ToString();
-                Voucher.复核 = dr[7].ToString();
-                Voucher.审核标志 = int.Parse(dr[8].ToString());
-                Voucher.删除标志 = int.Parse(dr[9].ToString());
+                Voucher.当前期 = int.Parse(dr[1].ToString());
+                Voucher.制表时间 = Convert.ToDateTime(dr[2]);
+                Voucher.附属单证数 = int.Parse(dr[3].ToString());
+                Voucher.合计借方金额 = decimal.Parse(dr[4].ToString());
+                Voucher.合计贷方金额 = decimal.Parse(dr[5].ToString());
+                Voucher.会计主管 = dr[6].ToString();
+                Voucher.制单人 = dr[7].ToString();
+                Voucher.复核 = dr[8].ToString();
+                Voucher.审核标志 = int.Parse(dr[9].ToString());
+                Voucher.删除标志 = int.Parse(dr[10].ToString());
             }
             return Voucher;
         }

@@ -213,6 +213,7 @@ namespace PA.Helper.DataBase
                             SQLiteCommand cmd = new SQLiteCommand();
                             cmd.CommandText = sql;
                             cmd.Parameters.AddWithValue("@ID", list.ID);
+                            cmd.Parameters.AddWithValue("@PERIOD", list.当前期);
                             cmd.Parameters.AddWithValue("@OP_TIME", list.制表时间);
                             cmd.Parameters.AddWithValue("@SUBSIDIARY_COUNTS", list.附属单证数);
                             cmd.Parameters.AddWithValue("@FEE_DEBIT", list.合计借方金额);

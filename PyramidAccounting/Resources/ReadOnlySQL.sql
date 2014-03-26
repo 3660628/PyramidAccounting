@@ -1,5 +1,6 @@
 ﻿CREATE TABLE T_VOUCHER (								--凭证表
     ID                TEXT  PRIMARY KEY,				--凭证ID
+	PERIOD            INTEGER,							--当前期
     OP_TIME           DATETIME,							--制表时间
     SUBSIDIARY_COUNTS INTEGER,							--附属单证数
     FEE_DEBIT         DECIMAL,							--合计借方总额
