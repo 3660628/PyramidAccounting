@@ -42,7 +42,7 @@ namespace PA.View.Pages.TwoTabControl
         private void InitData()
         {
             this.ComboBox_Date.ItemsSource = cbc.GetComboBox_期数();
-            this.ComboBox_Date.SelectedIndex = CommonInfo.当前期 - 1;
+            this.ComboBox_Date.SelectedIndex = CommonInfo.当前期;
             this.ComboBox_Review.ItemsSource = cbc.GetComboBox_审核();
             this.ComboBox_Review.SelectedIndex = 0;
             Label_账套名称.Content += "：" + xr.ReadXML("帐套信息");
@@ -63,11 +63,9 @@ namespace PA.View.Pages.TwoTabControl
                     ReviewParm = " and REVIEW_MARK=0";
                     break;
             }
-            switch (DateSelectIndex)
+            if (DateSelectIndex != 0)
             {
-                case 0:
-
-                    break;
+                DateParm = " and PERIOD=" + DateSelectIndex;
             }
             ReflashData(DateParm + ReviewParm);
         }
@@ -143,6 +141,11 @@ namespace PA.View.Pages.TwoTabControl
         {
             new PA.Helper.ExcelHelper.ExcelWriter().ExportVouchers();
             this.StackPanel_MoreButton.Visibility = System.Windows.Visibility.Collapsed;
+        }
+
+        private void ComboBox_Date_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            ReflashData();
         }
     }
 }

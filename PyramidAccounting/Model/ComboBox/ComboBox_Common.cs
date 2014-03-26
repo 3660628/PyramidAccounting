@@ -60,6 +60,7 @@ namespace PA.Model.ComboBox
         public List<string> GetComboBox_期数()
         {
             List<string> list = new List<string>();
+            list.Add("全部");
             string str = vmb.GetValue();
             string value = str.Split('\t')[0].Split(',')[0].Split('年')[0];
             int count = CommonInfo.当前期;

@@ -31,7 +31,7 @@ namespace PA.ViewModel
                             + "detail.DETAIL,"
                             + "detail.DEBIT,"
                             + "detail.CREDIT,"
-                            + "'当前期数',"
+                            + "voucher.PERIOD,"
                             + "voucher.REVIEW_MARK"
                         + " FROM "
                             + DBTablesName.T_VOUCHER + " voucher,"
