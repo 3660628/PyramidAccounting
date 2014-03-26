@@ -9,7 +9,7 @@
     BOOKEEPER         TEXT,								--记账
     REVIEWER          TEXT,								--审核
 	REVIEW_MARK       INTEGER,							--复核标记  0：未审核，1：已审核
-	DELETE_MARK		  INTEGER DEFAULT ( 0 )             --删除标志   -1表示已删除
+	DELETE_MARK		  INTEGER DEFAULT ( 0 )             --删除标志   -1表示已删除  -2表示修改删除
 );
 CREATE TABLE T_VOUCHERDETAIL (							--凭证明细表
     ID            INTEGER PRIMARY KEY,					--ID

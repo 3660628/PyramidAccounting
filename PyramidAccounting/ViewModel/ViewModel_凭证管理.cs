@@ -111,6 +111,13 @@ namespace PA.ViewModel
             lists.Add(sql);
             new PA.Helper.DataBase.DataBase().BatchOperate(lists);
         }
+        public void DeleteAsModify(Guid id)
+        {
+            string sql = "update " + DBTablesName.T_VOUCHER + " set DELETE_MARK=-2 where id='" + id + "'";
+            List<string> lists = new List<string>();
+            lists.Add(sql);
+            new PA.Helper.DataBase.DataBase().BatchOperate(lists);
+        }
 
 
         public Model_凭证单 GetVoucher(Guid guid)
