@@ -13,6 +13,7 @@ using System.Windows.Shapes;
 using PA.Model.DataGrid;
 using PA.ViewModel;
 using PA.Model.CustomEventArgs;
+using PA.View.ResourceDictionarys.MessageBox;
 
 namespace PA.View.Windows
 {
@@ -93,12 +94,12 @@ namespace PA.View.Windows
                     {
                         if (string.IsNullOrEmpty(now.科目名称))
                         {
-                            MessageBox.Show("存在科目名称为空，请检查！", "提示");
+                            MessageBoxCommon.Show("存在科目名称为空，请检查！");
                             return;
                         }
                         if (m.科目名称.Equals(now.科目名称))
                         {
-                            MessageBox.Show("无法添加数据哦,请检查下是否填写了一样的科目名称！", "提示");
+                            MessageBoxCommon.Show("无法添加数据哦,请检查下是否填写了一样的科目名称！");
                             return;
                         }
                     }
@@ -112,17 +113,12 @@ namespace PA.View.Windows
 
         private void Button_Del_Click(object sender, RoutedEventArgs e)
         {
-            string messageBoxText = "确认删除数据？";
+            string messageBoxText = "是否删除这些数据？";
             string caption = "注意";
-            MessageBoxButton button = MessageBoxButton.YesNo;
-            MessageBoxImage icon = MessageBoxImage.Warning;
-            MessageBoxResult result = MessageBox.Show(messageBoxText, caption, button, icon);
-            switch (result)
+            bool? result = MessageBoxDel.Show(caption, messageBoxText);
+            if (result == false)
             {
-                case MessageBoxResult.Yes:
-                    break;
-                case MessageBoxResult.No:
-                    return;
+                return;
             }
             List<int> list = new List<int>();
             for (int i = 0; i < DataGrid_子细目.SelectedItems.Count; i++)

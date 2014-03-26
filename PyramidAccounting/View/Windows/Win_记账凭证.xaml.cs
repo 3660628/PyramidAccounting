@@ -13,6 +13,7 @@ using System.Windows.Shapes;
 using System.Data;
 using PA.Model.DataGrid;
 using PA.Model.CustomEventArgs;
+using PA.View.ResourceDictionarys.MessageBox;
 
 namespace PA.View.Windows
 {
@@ -61,11 +62,11 @@ namespace PA.View.Windows
             this.Window_记账凭证.IsEnabled = true;
             if (typeof(PA.View.Pages.Pop.凭证录入.Page_凭证录入_科目).IsInstanceOfType(sender))
             {
-                VoucherDetailsNow[CellId].科目编号 = e.Str;
+                VoucherDetailsNow[CellId].科目编号 = e.Str.Split('\t')[1];
             }
             else if (typeof(PA.View.Pages.Pop.凭证录入.Page_凭证录入_子细目).IsInstanceOfType(sender))
             {
-                VoucherDetailsNow[CellId].子细目 = e.Str;
+                VoucherDetailsNow[CellId].子细目 = e.Str.Split('\t')[1];
             }
         }
         #endregion
@@ -255,7 +256,7 @@ namespace PA.View.Windows
                 //获取科目编号
                 if (string.IsNullOrEmpty(SelectedRow.科目编号))
                 {
-                    MessageBox.Show("请选择科目后再选择子细目");
+                    MessageBoxCommon.Show("请选择科目后再选择子细目！");
                     return;
                 }
                 string str = new PA.ViewModel.ViewModel_科目管理().GetSubjectID(SelectedRow.科目编号);

@@ -42,7 +42,7 @@ namespace PA.View.Pages.Pop.凭证录入
         {
             if (this.ListBox_科目.SelectedValue != null)
             {
-                OnFillDate(this.ListBox_科目.SelectedValue.ToString().Split('\t')[1]);
+                OnFillDate(this.ListBox_科目.SelectedValue.ToString());
             }
         }
 

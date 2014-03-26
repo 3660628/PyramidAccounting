@@ -17,11 +17,29 @@
                 <Grid Background="White"/>
             </TabItem>
             <TabItem FocusVisualStyle="{x:Null}" Header="科目明细账" Margin="24,-1,-24,1" Template="{DynamicResource TabItemControlTemplate_TwoTabHeader}">
-                <Grid Background="White"/>
+                <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
+                <Grid Background="White">
+                        <Label Content="一级科目编号及名称" HorizontalAlignment="Left" Margin="10,8,0,0" VerticalAlignment="Top"/>
+                        <TextBox x:Name="TextBox_一级科目" HorizontalAlignment="Left" Height="23" Margin="133,12,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" BorderThickness="0,0,0,1" MouseDoubleClick="TextBox_一级科目_MouseDoubleClick"/>
+                        <Label Content="二级科目编号及名称" HorizontalAlignment="Left" Margin="10,38,0,0" VerticalAlignment="Top"/>
+                        <TextBox x:Name="TextBox_二级科目" HorizontalAlignment="Left" Height="23" Margin="128,42,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" BorderThickness="0,0,0,1" MouseDoubleClick="TextBox_二级科目_MouseDoubleClick"/>
+                    </Grid>
+                </ScrollViewer>
             </TabItem>
             <TabItem FocusVisualStyle="{x:Null}" Header="固定资产管理" Margin="32,-1,-32,1" Template="{DynamicResource TabItemControlTemplate_TwoTabHeader}">
                 <Grid Background="White"/>
             </TabItem>
         </TabControl>
+        <!--弹出面板-->
+        <Popup x:Name="Popup_科目子细目" Placement="MousePoint">
+            <Grid Background="White" Height="250" Width="200" Margin="1">
+                <Grid.Effect>
+                    <DropShadowEffect ShadowDepth="0"/>
+                </Grid.Effect>
+                <Grid Margin="0" VerticalAlignment="Top" Height="25" Background="#FF29A2FF"/>
+                <Button x:Name="Button_PopupClose" Content="Button" HorizontalAlignment="Right" Margin="0" VerticalAlignment="Top" Width="28" Height="20" Template="{DynamicResource ButtonControlTemplate_Close}" Click="Button_PopupClose_Click"/>
+                <Frame x:Name="Frame_科目子细目" Content="" Margin="0,25,0,0" NavigationUIVisibility="Hidden"/>
+            </Grid>
+        </Popup>
     </Grid>
 </Page>
