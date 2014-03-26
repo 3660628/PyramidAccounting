@@ -66,7 +66,14 @@ namespace PA.View.Windows
             }
             else if (typeof(PA.View.Pages.Pop.凭证录入.Page_凭证录入_子细目).IsInstanceOfType(sender))
             {
-                VoucherDetailsNow[CellId].子细目 = e.Str.Split('\t')[1];
+                if (e.Str.IndexOf('\t') > 0)
+                {
+                    VoucherDetailsNow[CellId].子细目 = e.Str.Split('\t')[1];
+                }
+                else
+                {
+                    VoucherDetailsNow[CellId].子细目 = e.Str;
+                }
             }
         }
         #endregion
