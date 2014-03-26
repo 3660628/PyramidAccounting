@@ -68,5 +68,10 @@ namespace PA.View.Pages.TwoTabControl
             this.Popup_科目子细目.IsOpen = true;
             this.IsEnabled = false;
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
