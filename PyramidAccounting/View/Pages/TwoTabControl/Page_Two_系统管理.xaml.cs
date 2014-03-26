@@ -111,17 +111,16 @@ namespace PA.View.Pages.TwoTabControl
 
         private void Button_编辑子细目_Click(object sender, RoutedEventArgs e)
         {
-            
             Model_科目管理 m = new Model_科目管理();
             try
             {
-                 m= DataGrid_科目设置.SelectedCells[0].Item as Model_科目管理;
+                m = DataGrid_科目设置.SelectedCells[0].Item as Model_科目管理;
             }
             catch (Exception ex)
             {
                 Log.Write(ex.Message);
             }
-            if (m != null)
+            if (m.科目编号 != null)
             {
                 Windows.Win_子细目 w = new Windows.Win_子细目(m.科目编号, m.科目名称);
                 w.ShowDialog();
