@@ -38,18 +38,18 @@
                                 <ColumnDefinition Width="{Binding ElementName=column4,Path=ActualWidth}"/>
                                 <ColumnDefinition Width="{Binding ElementName=column5,Path=ActualWidth}"/>
                                 <ColumnDefinition Width="{Binding ElementName=column6,Path=ActualWidth}"/>
-                                <ColumnDefinition Width="Auto"/>
-                                <ColumnDefinition Width="Auto"/>
-                                <ColumnDefinition Width="Auto"/>
-                                <ColumnDefinition Width="Auto"/>
-                                <ColumnDefinition Width="Auto"/>
-                                <ColumnDefinition Width="Auto"/>
-                                <ColumnDefinition Width="Auto"/>
-                                <ColumnDefinition Width="Auto"/>
-                                <ColumnDefinition Width="Auto"/>
-                                <ColumnDefinition Width="Auto"/>
-                                <ColumnDefinition Width="Auto"/>
-                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="{Binding ElementName=column7,Path=ActualWidth}"/>
+                                <ColumnDefinition Width="{Binding ElementName=column8,Path=ActualWidth}"/>
+                                <ColumnDefinition Width="{Binding ElementName=column9,Path=ActualWidth}"/>
+                                <ColumnDefinition Width="{Binding ElementName=column10,Path=ActualWidth}"/>
+                                <ColumnDefinition Width="{Binding ElementName=column11,Path=ActualWidth}"/>
+                                <ColumnDefinition Width="{Binding ElementName=column12,Path=ActualWidth}"/>
+                                <ColumnDefinition Width="{Binding ElementName=column13,Path=ActualWidth}"/>
+                                <ColumnDefinition Width="{Binding ElementName=column14,Path=ActualWidth}"/>
+                                <ColumnDefinition Width="{Binding ElementName=column15,Path=ActualWidth}"/>
+                                <ColumnDefinition Width="{Binding ElementName=column16,Path=ActualWidth}"/>
+                                <ColumnDefinition Width="{Binding ElementName=column17,Path=ActualWidth}"/>
+                                <ColumnDefinition Width="{Binding ElementName=column6,Path=ActualWidth}"/>
                                 <ColumnDefinition Width="Auto"/>
                                 <ColumnDefinition Width="Auto"/>
                                 <ColumnDefinition Width="Auto"/>
@@ -172,9 +172,21 @@
                                     <DataGridTextColumn x:Name="column1" Binding="{Binding 月}"/>
                                     <DataGridTextColumn x:Name="column2" Binding="{Binding 日}"/>
                                     <DataGridTextColumn x:Name="column3" Binding="{Binding 号数}"/>
-                                    <DataGridTextColumn x:Name="column4" Binding="{Binding 摘要}"/>
+                                    <DataGridTextColumn x:Name="column4" MinWidth="100" Binding="{Binding 摘要}"/>
                                     <DataGridTextColumn x:Name="column5"/>
-                                    <DataGridTextColumn x:Name="column6" Binding="{Binding 借方金额}"/>
+                                    <DataGridTextColumn x:Name="column6" Binding="{Binding 借方金额1}"/>
+                                    <DataGridTextColumn x:Name="column7" Binding="{Binding 借方金额2}"/>
+                                    <DataGridTextColumn x:Name="column8" Binding="{Binding 借方金额3}"/>
+                                    <DataGridTextColumn x:Name="column9" Binding="{Binding 借方金额4}"/>
+                                    <DataGridTextColumn x:Name="column10" Binding="{Binding 借方金额5}"/>
+                                    <DataGridTextColumn x:Name="column11" Binding="{Binding 借方金额6}"/>
+                                    <DataGridTextColumn x:Name="column12" Binding="{Binding 借方金额7}"/>
+                                    <DataGridTextColumn x:Name="column13" Binding="{Binding 借方金额8}"/>
+                                    <DataGridTextColumn x:Name="column14" Binding="{Binding 借方金额9}"/>
+                                    <DataGridTextColumn x:Name="column15" Binding="{Binding 借方金额10}"/>
+                                    <DataGridTextColumn x:Name="column16" Binding="{Binding 借方金额11}"/>
+                                    <DataGridTextColumn x:Name="column17" Binding="{Binding 借方金额12}"/>
+
                                 </DataGrid.Columns>
                             </DataGrid>
                         </Grid>

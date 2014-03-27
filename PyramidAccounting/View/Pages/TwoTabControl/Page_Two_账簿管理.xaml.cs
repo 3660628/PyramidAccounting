@@ -78,11 +78,24 @@ namespace PA.View.Pages.TwoTabControl
 
         private void Button_查询_Click(object sender, RoutedEventArgs e)
         {
-            string a = TextBox_一级科目.Text.ToString().Split('\t')[1];
-            string b = TextBox_二级科目.Text.ToString().Split('\t')[1];
-            this.DataGrid_科目明细.ColumnHeaderHeight = 0;
-            this.DataGrid_科目明细.RowHeaderWidth = 0;
-            this.DataGrid_科目明细.ItemsSource = vmk.GetData(a,b);
+            if (string.IsNullOrEmpty(TextBox_一级科目.Text))
+            {
+                MessageBoxCommon.Show("请选择一级科目");
+                TextBox_一级科目.Focus();
+            }
+            else if (string.IsNullOrEmpty(TextBox_二级科目.Text))
+            {
+                MessageBoxCommon.Show("请选择二级科目");
+                TextBox_二级科目.Focus();
+            }
+            else
+            {
+                string a = TextBox_一级科目.Text.ToString().Split('\t')[1];
+                string b = TextBox_二级科目.Text.ToString().Split('\t')[1];
+                this.DataGrid_科目明细.ColumnHeaderHeight = 0;
+                this.DataGrid_科目明细.RowHeaderWidth = 0;
+                this.DataGrid_科目明细.ItemsSource = vmk.GetData(a, b);
+            }
         }
     }
 }
