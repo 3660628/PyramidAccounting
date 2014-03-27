@@ -38,29 +38,43 @@ namespace PA.ViewModel
                     m.号数 = d[1].ToString();
                     m.摘要 = d[2].ToString();
                     m.借方金额 = d[3].ToString();
-                    List<string> _list = new List<string>();
-                    _list = Turn(d[3].ToString());
-                    m.借方金额1 = _list[0];
-                    m.借方金额2 = _list[1];
-                    m.借方金额3 = _list[2];
-                    m.借方金额4 = _list[3];
-                    m.借方金额5 = _list[4];
-                    m.借方金额6 = _list[5];
-                    m.借方金额7 = _list[6];
-                    m.借方金额8 = _list[7];
-                    m.借方金额9 = _list[8];
-                    m.借方金额10 = _list[9];
-                    m.借方金额11 = _list[10];
-                    m.借方金额12 = _list[11];
                     m.贷方金额 = d[4].ToString();
+                    List<string> _list = new List<string>();
                     if (string.IsNullOrEmpty(m.借方金额))
                     {
+                        _list = Turn(d[4].ToString());
+                        m.贷方金额1 = _list[0];
+                        m.贷方金额2 = _list[1];
+                        m.贷方金额3 = _list[2];
+                        m.贷方金额4 = _list[3];
+                        m.贷方金额5 = _list[4];
+                        m.贷方金额6 = _list[5];
+                        m.贷方金额7 = _list[6];
+                        m.贷方金额8 = _list[7];
+                        m.贷方金额9 = _list[8];
+                        m.贷方金额10 = _list[9];
+                        m.贷方金额11 = _list[10];
+                        m.贷方金额12 = _list[11];
                         m.借或贷 = "贷";
                     }
                     else
                     {
+                        _list = Turn(d[3].ToString());
+                        m.借方金额1 = _list[0];
+                        m.借方金额2 = _list[1];
+                        m.借方金额3 = _list[2];
+                        m.借方金额4 = _list[3];
+                        m.借方金额5 = _list[4];
+                        m.借方金额6 = _list[5];
+                        m.借方金额7 = _list[6];
+                        m.借方金额8 = _list[7];
+                        m.借方金额9 = _list[8];
+                        m.借方金额10 = _list[9];
+                        m.借方金额11 = _list[10];
+                        m.借方金额12 = _list[11];
                         m.借或贷 = "借";
                     }
+                    
                     list.Add(m);
                 }
             }

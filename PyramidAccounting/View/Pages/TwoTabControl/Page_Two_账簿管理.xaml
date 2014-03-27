@@ -186,7 +186,7 @@
                                     <DataGridTextColumn x:Name="column15" Binding="{Binding 借方金额10}"/>
                                     <DataGridTextColumn x:Name="column16" Binding="{Binding 借方金额11}"/>
                                     <DataGridTextColumn x:Name="column17" Binding="{Binding 借方金额12}"/>
-
+                                    <DataGridTextColumn x:Name="column18"/>
                                 </DataGrid.Columns>
                             </DataGrid>
                         </Grid>

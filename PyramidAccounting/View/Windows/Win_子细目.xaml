@@ -20,6 +20,7 @@
             <DataGrid.Columns>
                 <DataGridTextColumn Binding="{Binding 科目编号,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Header="子细目编号"/>
                 <DataGridTextColumn Binding="{Binding 科目名称,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Header="子细目名称"/>
+                <DataGridTextColumn Binding="{Binding 年初数,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Header="年初数"/>
             </DataGrid.Columns>
         </DataGrid>
     </Grid>
