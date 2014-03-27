@@ -74,7 +74,9 @@ namespace PA.ViewModel
                         m.借方金额12 = _list[11];
                         m.借或贷 = "借";
                     }
-                    
+
+                    _list.Clear();
+
                     list.Add(m);
                 }
             }

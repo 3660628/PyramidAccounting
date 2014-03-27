@@ -50,33 +50,35 @@
                                 <ColumnDefinition Width="{Binding ElementName=column16,Path=ActualWidth}"/>
                                 <ColumnDefinition Width="{Binding ElementName=column17,Path=ActualWidth}"/>
                                 <ColumnDefinition Width="{Binding ElementName=column6,Path=ActualWidth}"/>
-                                <ColumnDefinition Width="Auto"/>
-                                <ColumnDefinition Width="Auto"/>
-                                <ColumnDefinition Width="Auto"/>
-                                <ColumnDefinition Width="Auto"/>
-                                <ColumnDefinition Width="Auto"/>
-                                <ColumnDefinition Width="Auto"/>
-                                <ColumnDefinition Width="Auto"/>
-                                <ColumnDefinition Width="Auto"/>
-                                <ColumnDefinition Width="Auto"/>
-                                <ColumnDefinition Width="Auto"/>
-                                <ColumnDefinition Width="Auto"/>
-                                <ColumnDefinition Width="Auto"/>
-                                <ColumnDefinition Width="Auto"/>
-                                <ColumnDefinition Width="Auto"/>
-                                <ColumnDefinition Width="Auto"/>
-                                <ColumnDefinition Width="Auto"/>
-                                <ColumnDefinition Width="Auto"/>
-                                <ColumnDefinition Width="Auto"/>
-                                <ColumnDefinition Width="Auto"/>
-                                <ColumnDefinition Width="Auto"/>
-                                <ColumnDefinition Width="Auto"/>
-                                <ColumnDefinition Width="Auto"/>
-                                <ColumnDefinition Width="Auto"/>
-                                <ColumnDefinition Width="Auto"/>
-                                <ColumnDefinition Width="Auto"/>
-                                <ColumnDefinition Width="Auto"/>
-                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="{Binding ElementName=column17,Path=ActualWidth}"/>
+                                <ColumnDefinition Width="{Binding ElementName=column18,Path=ActualWidth}"/>
+                                <ColumnDefinition Width="{Binding ElementName=column19,Path=ActualWidth}"/>
+                                <ColumnDefinition Width="{Binding ElementName=column20,Path=ActualWidth}"/>
+                                <ColumnDefinition Width="{Binding ElementName=column21,Path=ActualWidth}"/>
+                                <ColumnDefinition Width="{Binding ElementName=column22,Path=ActualWidth}"/>
+                                <ColumnDefinition Width="{Binding ElementName=column23,Path=ActualWidth}"/>
+                                <ColumnDefinition Width="{Binding ElementName=column24,Path=ActualWidth}"/>
+                                <ColumnDefinition Width="{Binding ElementName=column25,Path=ActualWidth}"/>
+                                <ColumnDefinition Width="{Binding ElementName=column26,Path=ActualWidth}"/>
+                                <ColumnDefinition Width="{Binding ElementName=column27,Path=ActualWidth}"/>
+                                <ColumnDefinition Width="{Binding ElementName=column28,Path=ActualWidth}"/>
+                                <ColumnDefinition Width="{Binding ElementName=column29,Path=ActualWidth}"/>
+                                <ColumnDefinition Width="{Binding ElementName=column30,Path=ActualWidth}"/>
+                                <ColumnDefinition Width="{Binding ElementName=column31,Path=ActualWidth}"/>
+                                <ColumnDefinition Width="{Binding ElementName=column32,Path=ActualWidth}"/>
+                                <ColumnDefinition Width="{Binding ElementName=column33,Path=ActualWidth}"/>
+                                <ColumnDefinition Width="{Binding ElementName=column34,Path=ActualWidth}"/>
+                                <ColumnDefinition Width="{Binding ElementName=column35,Path=ActualWidth}"/>
+                                <ColumnDefinition Width="{Binding ElementName=column36,Path=ActualWidth}"/>
+                                <ColumnDefinition Width="{Binding ElementName=column37,Path=ActualWidth}"/>
+                                <ColumnDefinition Width="{Binding ElementName=column38,Path=ActualWidth}"/>
+                                <ColumnDefinition Width="{Binding ElementName=column39,Path=ActualWidth}"/>
+                                <ColumnDefinition Width="{Binding ElementName=column40,Path=ActualWidth}"/>
+                                <ColumnDefinition Width="{Binding ElementName=column41,Path=ActualWidth}"/>
+                                <ColumnDefinition Width="{Binding ElementName=column42,Path=ActualWidth}"/>
+                                <ColumnDefinition Width="{Binding ElementName=column43,Path=ActualWidth}"/>
+                                <ColumnDefinition Width="{Binding ElementName=column44,Path=ActualWidth}"/>
+                                <ColumnDefinition Width="{Binding ElementName=column45,Path=ActualWidth}"/>
                             </Grid.ColumnDefinitions>
                             <Border BorderBrush="Blue" BorderThickness="1,1,1,1" Grid.ColumnSpan="45" Grid.RowSpan="2" />
                             <Border BorderBrush="Blue" BorderThickness="0,0,1,0" Grid.Row="1" />
@@ -166,7 +168,7 @@
                             <Label Content="角" Grid.Column="42" Grid.Row="1" />
                             <Label Content="分" Grid.Column="43" Grid.Row="1" />
                             <Label Content="金额" HorizontalContentAlignment="Center" Grid.Column="32" Grid.ColumnSpan="12"/>
-                            <Label Content="√" VerticalContentAlignment="Center" Grid.Column="45" Grid.RowSpan="2"/>
+                            <Label Content="√" VerticalContentAlignment="Center" Grid.Column="44" Grid.RowSpan="2"/>
                             <DataGrid x:Name="DataGrid_科目明细" Grid.Row="2" ItemsSource="{Binding}" Grid.ColumnSpan="45" CanUserAddRows="False" AutoGenerateColumns="False" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
                                 <DataGrid.Columns>
                                     <DataGridTextColumn x:Name="column1" Binding="{Binding 月}"/>
@@ -187,6 +189,33 @@
                                     <DataGridTextColumn x:Name="column16" Binding="{Binding 借方金额11}"/>
                                     <DataGridTextColumn x:Name="column17" Binding="{Binding 借方金额12}"/>
                                     <DataGridTextColumn x:Name="column18"/>
+                                    <DataGridTextColumn x:Name="column19" Binding="{Binding 贷方金额1}"/>
+                                    <DataGridTextColumn x:Name="column20" Binding="{Binding 贷方金额2}"/>
+                                    <DataGridTextColumn x:Name="column21"	Binding="{Binding 贷方金额3}"/>
+                                    <DataGridTextColumn x:Name="column22"	Binding="{Binding 贷方金额4}"/>
+                                    <DataGridTextColumn x:Name="column23"	Binding="{Binding 贷方金额5}"/>
+                                    <DataGridTextColumn x:Name="column24"	Binding="{Binding 贷方金额6}"/>
+                                    <DataGridTextColumn x:Name="column25"	Binding="{Binding 贷方金额7}"/>
+                                    <DataGridTextColumn x:Name="column26"	Binding="{Binding 贷方金额8}"/>
+                                    <DataGridTextColumn x:Name="column27"	Binding="{Binding 贷方金额9}"/>
+                                    <DataGridTextColumn x:Name="column28"	Binding="{Binding 贷方金额10}"/>
+                                    <DataGridTextColumn x:Name="column29"	Binding="{Binding 贷方金额11}"/>
+                                    <DataGridTextColumn x:Name="column30"	Binding="{Binding 贷方金额12}"/>
+                                    <DataGridTextColumn x:Name="column31" />
+                                    <DataGridTextColumn x:Name="column32" Binding="{Binding 借或贷}" />
+                                    <DataGridTextColumn x:Name="column33"	Binding="{Binding 余额1}"/>
+                                    <DataGridTextColumn x:Name="column34"	Binding="{Binding 余额2}"/>
+                                    <DataGridTextColumn x:Name="column35"	Binding="{Binding 余额3}"/>
+                                    <DataGridTextColumn x:Name="column36"	Binding="{Binding 余额4}"/>
+                                    <DataGridTextColumn x:Name="column37"	Binding="{Binding 余额5}"/>
+                                    <DataGridTextColumn x:Name="column38"	Binding="{Binding 余额6}"/>
+                                    <DataGridTextColumn x:Name="column39"	Binding="{Binding 余额7}"/>
+                                    <DataGridTextColumn x:Name="column40"	Binding="{Binding 余额8}"/>
+                                    <DataGridTextColumn x:Name="column41"	Binding="{Binding 余额9}"/>
+                                    <DataGridTextColumn x:Name="column42"	Binding="{Binding 余额10}"/>
+                                    <DataGridTextColumn x:Name="column43"	Binding="{Binding 余额11}"/>
+                                    <DataGridTextColumn x:Name="column44"	Binding="{Binding 余额12}"/>
+                                    <DataGridTextColumn x:Name="column45"/>
                                 </DataGrid.Columns>
                             </DataGrid>
                         </Grid>
