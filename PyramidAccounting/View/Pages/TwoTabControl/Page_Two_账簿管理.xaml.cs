@@ -94,8 +94,15 @@ namespace PA.View.Pages.TwoTabControl
                 string b = TextBox_二级科目.Text.ToString().Split('\t')[1];
                 this.DataGrid_科目明细.ColumnHeaderHeight = 0;
                 this.DataGrid_科目明细.RowHeaderWidth = 0;
-                this.DataGrid_科目明细.ItemsSource = vmk.GetData(a, b);
+                List<Model_科目明细账> lm = vmk.GetData(a, b);
+                this.DataGrid_科目明细.ItemsSource = lm;
+                this.Label_年.Content = lm[0].年 + "年";
             }
+        }
+
+        private void Button_总账查询_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }
