@@ -32,12 +32,12 @@
                                 <RowDefinition Height="Auto" />
                             </Grid.RowDefinitions>
                             <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="*"/>
-                                <ColumnDefinition Width="Auto"/>
-                                <ColumnDefinition Width="Auto"/>
-                                <ColumnDefinition Width="*"/>
-                                <ColumnDefinition Width="Auto"/>
-                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="{Binding ElementName=column1,Path=ActualWidth}"/>
+                                <ColumnDefinition Width="{Binding ElementName=column2,Path=ActualWidth}"/>
+                                <ColumnDefinition Width="{Binding ElementName=column3,Path=ActualWidth}"/>
+                                <ColumnDefinition Width="{Binding ElementName=column4,Path=ActualWidth}"/>
+                                <ColumnDefinition Width="{Binding ElementName=column5,Path=ActualWidth}"/>
+                                <ColumnDefinition Width="{Binding ElementName=column6,Path=ActualWidth}"/>
                                 <ColumnDefinition Width="Auto"/>
                                 <ColumnDefinition Width="Auto"/>
                                 <ColumnDefinition Width="Auto"/>
@@ -108,12 +108,16 @@
                             <Border BorderBrush="Blue" BorderThickness="0,0,1,0" Grid.Column="31" Grid.RowSpan="2" />
                             <Border BorderBrush="Blue" BorderThickness="1,0,1,0" Grid.Column="31" Grid.ColumnSpan="13" Grid.RowSpan="2" />
                             <Label x:Name="Label_年" Content="年" HorizontalAlignment="Right" Grid.ColumnSpan="2"/>
-                            <Label Content="月" Grid.Row="1"/>
+                            <Label Content="月" Grid.Row="1" Grid.Column="0"/>
                             <Label Content="日" Grid.Row="1" Grid.Column="1"/>
                             <Label Content="凭证" HorizontalContentAlignment="Center" Grid.Column="2"/>
                             <Label Content="号数" HorizontalContentAlignment="Center" Grid.Column="2" Grid.Row="1"/>
                             <Label Content="摘要" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Grid.Column="3" Grid.RowSpan="2"/>
-                            <Label Content="日页" VerticalContentAlignment="Center" Grid.Column="4" Grid.RowSpan="2" />
+                            <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="4" Grid.RowSpan="2">
+                                <Run Text="日" />
+                                <LineBreak />
+                                <Run Text="页" />
+                            </TextBlock>
                             <Label Content="借方金额" HorizontalContentAlignment="Center" Grid.Column="5" Grid.ColumnSpan="12"/>
                             <Label Content="十" Grid.Column="5" Grid.Row="1" />
                             <Label Content="亿" Grid.Column="6" Grid.Row="1" />
@@ -142,7 +146,13 @@
                             <Label Content="角" Grid.Column="28" Grid.Row="1" />
                             <Label Content="分" Grid.Column="29" Grid.Row="1" />
                             <Label Content="√" VerticalContentAlignment="Center" Grid.Column="30" Grid.RowSpan="2"/>
-                            <Label Content="借或贷" VerticalContentAlignment="Center" Grid.Column="31" Grid.RowSpan="2"/>
+                            <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="31" Grid.RowSpan="2">
+                                <Run Text="借"/>
+                                <LineBreak />
+                                <Run Text="或" />
+                                <LineBreak />
+                                <Run Text="贷" />
+                            </TextBlock>
                             <Label Content="十" Grid.Column="32" Grid.Row="1" />
                             <Label Content="亿" Grid.Column="33" Grid.Row="1" />
                             <Label Content="千" Grid.Column="34" Grid.Row="1" />
@@ -157,26 +167,21 @@
                             <Label Content="分" Grid.Column="43" Grid.Row="1" />
                             <Label Content="金额" HorizontalContentAlignment="Center" Grid.Column="32" Grid.ColumnSpan="12"/>
                             <Label Content="√" VerticalContentAlignment="Center" Grid.Column="45" Grid.RowSpan="2"/>
-                            <DataGrid x:Name="DataGrid_科目明细" Grid.Row="2" ItemsSource="{Binding}" Grid.ColumnSpan="45" AutoGenerateColumns="False" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                            <DataGrid x:Name="DataGrid_科目明细" Grid.Row="2" ItemsSource="{Binding}" Grid.ColumnSpan="45" CanUserAddRows="False" AutoGenerateColumns="False" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
                                 <DataGrid.Columns>
-                                    <DataGridTextColumn Binding="{Binding 月}"/>
-                                    <DataGridTextColumn Binding="{Binding 日}" />
-                                    <DataGridTextColumn Binding="{Binding 号数}" />
-                                    <DataGridTextColumn Binding="{Binding 摘要}"/>
-                                    <DataGridTextColumn Binding="{Binding 日页}"/>
-                                    <DataGridTextColumn Binding="{Binding 借方金额}"/>
-                                    <DataGridTextColumn />
-                                    <DataGridTextColumn Binding="{Binding 贷方金额}" />
-                                    <DataGridTextColumn />
-                                    <DataGridTextColumn Binding="{Binding 借或贷}"/>
-                                    <DataGridTextColumn  Binding="{Binding 余额}"/>
-                                    <DataGridTextColumn />
+                                    <DataGridTextColumn x:Name="column1" Binding="{Binding 月}"/>
+                                    <DataGridTextColumn x:Name="column2" Binding="{Binding 日}"/>
+                                    <DataGridTextColumn x:Name="column3" Binding="{Binding 号数}"/>
+                                    <DataGridTextColumn x:Name="column4" Binding="{Binding 摘要}"/>
+                                    <DataGridTextColumn x:Name="column5"/>
+                                    <DataGridTextColumn x:Name="column6" Binding="{Binding 借方金额}"/>
                                 </DataGrid.Columns>
                             </DataGrid>
                         </Grid>
                         <Button x:Name="Button_查询" Content="查询" HorizontalAlignment="Left" Margin="295,38,0,0" VerticalAlignment="Top" Width="75" Click="Button_查询_Click"/>
                     </Grid>
                 </ScrollViewer>
+                
             </TabItem>
             <TabItem FocusVisualStyle="{x:Null}" Header="固定资产管理" Margin="32,-1,-32,1" Template="{DynamicResource TabItemControlTemplate_TwoTabHeader}">
                 <Grid Background="White"/>

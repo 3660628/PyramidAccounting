@@ -77,5 +77,88 @@ namespace PA.Model.DataGrid
             get { return excess; }
             set { excess = value; }
         }
+        private string col1;
+        private string col2;
+        private string col3;
+        private string col4;
+        private string col5;
+        private string col6;
+        private string col7;
+        private string col8;
+        private string col9;
+        private string col10;
+        private string col11;
+        private string col12;
+
+        public string 借方金额12
+        {
+            get { return col12; }
+            set { col12 = value; }
+        }
+        public string 借方金额11
+        {
+            get { return col11; }
+            set { col11 = value; }
+        }
+
+        public string 借方金额10
+        {
+            get { return col10; }
+            set { col10 = value; }
+        }
+
+        public string 借方金额9
+        {
+            get { return col9; }
+            set { col9 = value; }
+        }
+
+        public string 借方金额8
+        {
+            get { return col8; }
+            set { col8 = value; }
+        }
+
+        public string 借方金额7
+        {
+            get { return col7; }
+            set { col7 = value; }
+        }
+
+        public string 借方金额6
+        {
+            get { return col6; }
+            set { col6 = value; }
+        }
+
+        public string 借方金额5
+        {
+            get { return col5; }
+            set { col5 = value; }
+        }
+
+        public string 借方金额4
+        {
+            get { return col4; }
+            set { col4 = value; }
+        }
+
+        public string 借方金额3
+        {
+            get { return col3; }
+            set { col3 = value; }
+        }
+
+        public string 借方金额2
+        {
+            get { return col2; }
+            set { col2 = value; }
+        }
+
+        public string 借方金额1
+        {
+            get { return col1; }
+            set { col1 = value; }
+        }
     }
 }

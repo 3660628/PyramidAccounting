@@ -80,6 +80,8 @@ namespace PA.View.Pages.TwoTabControl
         {
             string a = TextBox_一级科目.Text.ToString().Split('\t')[1];
             string b = TextBox_二级科目.Text.ToString().Split('\t')[1];
+            this.DataGrid_科目明细.ColumnHeaderHeight = 0;
+            this.DataGrid_科目明细.RowHeaderWidth = 0;
             this.DataGrid_科目明细.ItemsSource = vmk.GetData(a,b);
         }
     }

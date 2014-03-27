@@ -52,5 +52,24 @@ namespace PA.ViewModel
             }
             return list;
         }
+        private void Turn(string value)
+        {
+            List<string> list = new List<string>();
+            if (value.IndexOf(".") > 0)
+            {
+                value = value.Replace(".", "");
+                int length = value.Length;
+                for(int j = 0 ; j < 12; j ++)
+                {
+                    string s = string.Empty;
+                    if (j > 12 - length)
+                    {
+                    }
+
+                    list.Add(s);
+
+                }
+            }
+        }
     }
 }
