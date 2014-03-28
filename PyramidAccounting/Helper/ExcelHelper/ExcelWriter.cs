@@ -25,7 +25,7 @@ namespace PA.Helper.ExcelHelper
             }
             catch (Exception)
             {
-                Console.WriteLine("想不到EXCEL");
+                Console.WriteLine("找不到EXCEL");
             }
         }
 
@@ -34,7 +34,7 @@ namespace PA.Helper.ExcelHelper
         /// </summary>
         public void ExportVouchers()
         {
-            string SourceXls = Path + @"Data\打印\记账凭证.xls";
+            string SourceXls = Path + @"Data\打印\记账凭证模板.xls";
             string ExportXls = Path + @"Data\打印\记账凭证export.xls";
             File.Copy(SourceXls, ExportXls, true);
             xlWorkBook = xlApp.Workbooks.Open(ExportXls);

@@ -41,10 +41,10 @@
                             <DataGridTextColumn Header="审核状态"  Binding="{Binding 审核状态}"/>
                         </DataGrid.Columns>
                     </DataGrid>
-                    <StackPanel x:Name="StackPanel_MoreButton" HorizontalAlignment="Right" Margin="729,35,2,0" VerticalAlignment="Top" Background="#FFA62929" Width="70">
-                        <Button x:Name="Button_打印" Content="打印" Height="25" Click="Button_打印_Click" BorderThickness="1" Background="White" BorderBrush="#FF99CCFF"/>
-                        <Button Content="Button" Height="25" BorderThickness="1,0,1,1" Background="White" BorderBrush="#FF99CCFF"/>
-                        <Button Content="Button" Height="25" BorderThickness="1,0,1,1" Background="White" BorderBrush="#FF99CCFF"/>
+                    <StackPanel x:Name="StackPanel_MoreButton" HorizontalAlignment="Right" Margin="729,35,2,0" VerticalAlignment="Top" Background="White" Width="70">
+                        <Button x:Name="Button_打印" Content="打印" Height="25" Click="Button_打印_Click" BorderThickness="1,1,1,0" Background="White" BorderBrush="#FF99CCFF"/>
+                        <Button Content="Button" Height="25" BorderThickness="1,0" Background="White" BorderBrush="#FF99CCFF" Margin="0"/>
+                        <Button Content="Button" Height="25" BorderThickness="1,0,1,1" Background="White" BorderBrush="#FF99CCFF" Margin="0"/>
                     </StackPanel>
                 </Grid>
             </TabItem>
