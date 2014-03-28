@@ -139,8 +139,12 @@ namespace PA.View.Pages.TwoTabControl
 
         private void Button_打印_Click(object sender, RoutedEventArgs e)
         {
-            new PA.Helper.ExcelHelper.ExcelWriter().ExportVouchers();
-            this.StackPanel_MoreButton.Visibility = System.Windows.Visibility.Collapsed;
+            if (this.DataGrid_本期凭证.SelectedCells.Count != 0)
+            {
+                Model_凭证管理 asd = this.DataGrid_本期凭证.SelectedCells[0].Item as Model_凭证管理;
+                new PA.Helper.ExcelHelper.ExcelWriter().ExportVouchers(asd.ID);
+                this.StackPanel_MoreButton.Visibility = System.Windows.Visibility.Collapsed;
+            }
         }
 
         private void ComboBox_Date_SelectionChanged(object sender, SelectionChangedEventArgs e)

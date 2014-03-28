@@ -6,6 +6,7 @@ using xls = Microsoft.Office.Interop.Excel;
 using System.Data;
 using System.Data.OleDb;
 using System.IO;
+using PA.Model.DataGrid;
 
 namespace PA.Helper.ExcelHelper
 {
@@ -32,19 +33,44 @@ namespace PA.Helper.ExcelHelper
         /// <summary>
         /// 记账凭证
         /// </summary>
-        public void ExportVouchers()
+        public void ExportVouchers(Guid guid)
         {
+            Model_凭证单 Voucher = new PA.ViewModel.ViewModel_凭证管理().GetVoucher(guid);
+            List<Model_凭证明细> VoucherDetails = new PA.ViewModel.ViewModel_凭证管理().GetVoucherDetails(guid);
+
             string SourceXls = Path + @"Data\打印\记账凭证模板.xls";
             string ExportXls = Path + @"Data\打印\记账凭证export.xls";
             File.Copy(SourceXls, ExportXls, true);
             xlWorkBook = xlApp.Workbooks.Open(ExportXls);
             xlWorkSheet = (xls.Worksheet)xlWorkBook.Worksheets.get_Item(1);
+            int x = 1, y = 1;
+            DataSet ds = new PA.Helper.ExcelHelper.ExcelReader().ExcelDataSource(ExportXls, "Sheet1");
+            foreach (DataRow dr in ds.Tables[0].Rows)
+            {
+                foreach (DataColumn dc in ds.Tables[0].Columns)
+                {
+                    if (dr[dc].ToString().StartsWith("@", false, null))
+                    {
+                        string key = dr[dc].ToString().Replace("@", "");
+                        System.Reflection.PropertyInfo[] propertiesVoucher = Voucher.GetType().GetProperties(System.Reflection.BindingFlags.Instance | System.Reflection.BindingFlags.Public);
+                        foreach (System.Reflection.PropertyInfo item in propertiesVoucher)
+                        {
+                            if (item.Name == key)
+                            {
+                                xlWorkSheet.Cells[y + 1, x] = item.GetValue(Voucher, null);
+                            }
+                        }
+                        //System.Reflection.PropertyInfo[] propertiesVoucherDetail = new PA.Model.DataGrid.Model_凭证明细().GetType().GetProperties(System.Reflection.BindingFlags.Instance | System.Reflection.BindingFlags.Public);
+                        //foreach (System.Reflection.PropertyInfo item in propertiesVoucherDetail)
+                        //{
 
-
-
-
-
-
+                        //}
+                    }
+                    x++;
+                }
+                y++;
+                x = 1;
+            }
             xlApp.Visible = true;
 
             releaseObject(xlWorkSheet);

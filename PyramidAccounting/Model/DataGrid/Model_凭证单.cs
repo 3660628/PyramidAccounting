@@ -6,7 +6,7 @@ using System.ComponentModel;
 
 namespace PA.Model.DataGrid
 {
-    class Model_凭证单 : INotifyPropertyChanged
+    public class Model_凭证单 : INotifyPropertyChanged
     {
 
         private string id;
