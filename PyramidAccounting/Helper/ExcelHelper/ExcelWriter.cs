@@ -96,39 +96,73 @@ namespace PA.Helper.ExcelHelper
                                 }
                             }
                         }
-                        //System.Reflection.PropertyInfo[] propertiesVoucherDetail = new PA.Model.DataGrid.Model_凭证明细().GetType().GetProperties(System.Reflection.BindingFlags.Instance | System.Reflection.BindingFlags.Public);
-                        //foreach (System.Reflection.PropertyInfo item in propertiesVoucherDetail)
-                        //foreach (Model_凭证明细 detail in VoucherDetails)
-                        if (key.StartsWith("摘要", false, null))
+
+                        if (key.StartsWith("摘要", false, null) || key.StartsWith("科目", false, null) || key.StartsWith("子细目", false, null) || key.StartsWith("记账", false, null))
                         {
                             int id = int.Parse(key.Substring(key.Length - 1, 1))-1;
                             if (id < VoucherDetails.Count)
                             {
-                                xlWorkSheet.Cells[y + 1, x] = VoucherDetails[id].摘要;
+                                if (key.StartsWith("摘要", false, null))
+                                {
+                                    xlWorkSheet.Cells[y + 1, x] = VoucherDetails[id].摘要;
+                                }
+                                else if (key.StartsWith("科目", false, null))
+                                {
+                                    xlWorkSheet.Cells[y + 1, x] = VoucherDetails[id].科目编号;
+                                }
+                                else if (key.StartsWith("子细目", false, null))
+                                {
+                                    xlWorkSheet.Cells[y + 1, x] = VoucherDetails[id].子细目;
+                                }
+                                else if (key.StartsWith("记账", false, null))
+                                {
+                                    xlWorkSheet.Cells[y + 1, x] = (VoucherDetails[id].记账 == 1) ? "√" : "";
+                                }
                             }
                         }
-                        else if (key.StartsWith("科目", false, null))
+                        else if (key.StartsWith("借方", false, null) || key.StartsWith("贷方", false, null))
                         {
                             int id = int.Parse(key.Substring(key.Length - 1, 1)) - 1;
                             if (id < VoucherDetails.Count)
                             {
-                                xlWorkSheet.Cells[y + 1, x] = VoucherDetails[id].科目编号;
-                            }
-                        }
-                        else if (key.StartsWith("子细目", false, null))
-                        {
-                            int id = int.Parse(key.Substring(key.Length - 1, 1)) - 1;
-                            if (id < VoucherDetails.Count)
-                            {
-                                xlWorkSheet.Cells[y + 1, x] = VoucherDetails[id].子细目;
-                            }
-                        }
-                        else if (key.StartsWith("记账", false, null))
-                        {
-                            int id = int.Parse(key.Substring(key.Length - 1, 1)) - 1;
-                            if (id < VoucherDetails.Count)
-                            {
-                                xlWorkSheet.Cells[y + 1, x] = (VoucherDetails[id].记账 == 1) ? "√" : "";
+                                string money = string.Empty;
+                                if (key.StartsWith("借方", false, null))
+                                {
+                                    money = VoucherDetails[id].借方.ToString();
+                                }
+                                else
+                                {
+                                    money = VoucherDetails[id].贷方.ToString();
+                                }
+                                string m1, m2;
+                                if (money.IndexOf('.') > 0)
+                                {
+                                    m1 = money.Split('.')[0];
+                                    m2 = money.Split('.')[1];
+                                    if (m2.Length == 1)
+                                    {
+                                        m2 += "0";
+                                    }
+                                }
+                                else
+                                {
+                                    m1 = money;
+                                    m2 = "00";
+                                }
+                                xlWorkSheet.Cells[y + 1, x] = "";
+                                for (int i = 0; i < 9; i++)//大于0部分
+                                {
+                                    if (i < m1.Length)
+                                    {
+                                        xlWorkSheet.Cells[y + 1, x + 8 - i] = m1.Substring(m1.Length - i - 1, 1);
+                                    }
+                                    else
+                                    {
+                                        xlWorkSheet.Cells[y + 1, x + 8 - i] = "";
+                                    }
+                                }
+                                xlWorkSheet.Cells[y + 1, x + 9] = m2.Substring(0, 1);
+                                xlWorkSheet.Cells[y + 1, x + 10] = m2.Substring(1, 1);
                             }
                         }
                     }
@@ -137,18 +171,18 @@ namespace PA.Helper.ExcelHelper
                 y++;
                 x = 1;
             }
-            
-
-
-
-
             xlApp.Visible = true;
 
             releaseObject(xlWorkSheet);
             releaseObject(xlWorkBook);
             releaseObject(xlApp);
         }
+        private List<string> money(string parm)
+        {
+            List<string> result = new List<string>();
 
+            return result;
+        }
         private void releaseObject(object obj)
         {
             try
