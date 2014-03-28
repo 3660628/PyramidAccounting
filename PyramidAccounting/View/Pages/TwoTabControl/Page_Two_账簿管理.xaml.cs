@@ -104,5 +104,10 @@ namespace PA.View.Pages.TwoTabControl
         {
 
         }
+
+        private void Button_费用明细_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
