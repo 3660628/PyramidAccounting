@@ -3,7 +3,6 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-      xmlns:ext="clr-namespace:PA.Helper.GridHelper"
       mc:Ignorable="d" 
       d:DesignHeight="570" d:DesignWidth="2800" FontFamily="NSimSun" TextOptions.TextFormattingMode="Display"
 	Title="Page_Two_账簿管理">
@@ -18,7 +17,7 @@
                     <Label Content="科目及单位名称" HorizontalAlignment="Left" Margin="10,8,0,0" VerticalAlignment="Top"/>
                     <TextBox x:Name="TextBox_科目及单位名称" HorizontalAlignment="Left" Height="23" Margin="109,10,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" BorderThickness="0,0,0,1"/>
                     <Button x:Name="Button_总账查询" Content="查询" HorizontalAlignment="Right" Margin="0,10,180,0" VerticalAlignment="Top" Width="75" Click="Button_总账查询_Click"/>
-                    <Grid VerticalAlignment="Top" Width="Auto" Margin="10,50,10,0" ext:GridBorderHelper.ShowBorder="True">
+                    <Grid VerticalAlignment="Top" Width="Auto" Margin="10,50,10,0">
                         <Grid.RowDefinitions>
                             <RowDefinition Height="25" />
                             <RowDefinition Height="25" />
@@ -68,7 +67,33 @@
                             <ColumnDefinition Width="{Binding ElementName=zzcolumn40,Path=ActualWidth}"/>
                             <ColumnDefinition Width="{Binding ElementName=zzcolumn41,Path=ActualWidth}"/>
                         </Grid.ColumnDefinitions>
-                        
+                        <Border BorderBrush="LightBlue" BorderThickness="1" Grid.ColumnSpan="41" Grid.RowSpan="3"/>
+                        <Border BorderBrush="LightBlue" BorderThickness="0,1,0,1" Grid.Row="1" Grid.ColumnSpan="2"/>
+                        <Border BorderBrush="LightBlue" BorderThickness="1,0,1,1" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="4"/>
+                        <Border BorderBrush="LightBlue" BorderThickness="1,0,1,0" Grid.Column="2" Grid.RowSpan="2"/>
+                        <Border BorderBrush="LightBlue" BorderThickness="0,0,1,0" Grid.Column="15" />
+                        <Border BorderBrush="LightBlue" BorderThickness="1,0,1,1" Grid.Column="4" Grid.ColumnSpan="24" />
+                        <Border BorderBrush="LightBlue" BorderThickness="1,0,0,0" Grid.Column="4" Grid.ColumnSpan="12" Grid.Row="1"/>
+                        <Border BorderBrush="LightBlue" BorderThickness="0,0,1,1" Grid.Column="5" Grid.ColumnSpan="12" Grid.Row="1"/>
+                        <Border BorderBrush="LightBlue" BorderThickness="1,0,1,0" Grid.Column="6" Grid.ColumnSpan="12" Grid.Row="1"/>
+                        <Border BorderBrush="LightBlue" BorderThickness="1,0,1,0" Grid.Column="7" Grid.ColumnSpan="12" Grid.Row="1"/>
+                        <Border BorderBrush="LightBlue" BorderThickness="1,0,1,0" Grid.Column="8" Grid.ColumnSpan="12" Grid.Row="1"/>
+                        <Border BorderBrush="LightBlue" BorderThickness="1,0,1,0" Grid.Column="9" Grid.ColumnSpan="12" Grid.Row="1"/>
+                        <Border BorderBrush="LightBlue" BorderThickness="1,0,1,0" Grid.Column="10" Grid.ColumnSpan="12" Grid.Row="1"/>
+                        <Border BorderBrush="LightBlue" BorderThickness="1,0,1,0" Grid.Column="11" Grid.ColumnSpan="12" Grid.Row="1"/>
+                        <Border BorderBrush="LightBlue" BorderThickness="1,0,1,0" Grid.Column="12" Grid.ColumnSpan="12" Grid.Row="1"/>
+                        <Border BorderBrush="LightBlue" BorderThickness="1,0,1,0" Grid.Column="13" Grid.ColumnSpan="12" Grid.Row="1"/>
+                        <Border BorderBrush="LightBlue" BorderThickness="1,0,1,0" Grid.Column="14" Grid.ColumnSpan="12" Grid.Row="1"/>
+                        <Border BorderBrush="LightBlue" BorderThickness="1,0,1,0" Grid.Column="15" Grid.ColumnSpan="12" Grid.Row="1"/>
+                        <Border BorderBrush="LightBlue" BorderThickness="1,0,1,0" Grid.Column="16" Grid.ColumnSpan="12" Grid.Row="1"/>
+                        <Border BorderBrush="LightBlue" BorderThickness="1,0,0,1" Grid.Column="29" Grid.ColumnSpan="12"/>
+                        <Border BorderBrush="LightBlue" BorderThickness="1,0,1,0" Grid.Column="29" Grid.Row="1" Grid.ColumnSpan="6" />
+                        <Border BorderBrush="LightBlue" BorderThickness="1,0,1,0" Grid.Column="30" Grid.Row="1" Grid.ColumnSpan="6" />
+                        <Border BorderBrush="LightBlue" BorderThickness="1,0,1,0" Grid.Column="31" Grid.Row="1" Grid.ColumnSpan="6" />
+                        <Border BorderBrush="LightBlue" BorderThickness="1,0,1,0" Grid.Column="32" Grid.Row="1" Grid.ColumnSpan="6" />
+                        <Border BorderBrush="LightBlue" BorderThickness="1,0,1,0" Grid.Column="33" Grid.Row="1" Grid.ColumnSpan="6" />
+                        <Border BorderBrush="LightBlue" BorderThickness="1,0,1,0" Grid.Column="34" Grid.Row="1" Grid.ColumnSpan="6" />
+                        <Border BorderBrush="LightBlue" BorderThickness="0,0,0,1" Grid.Row="1" Grid.Column="17" Grid.ColumnSpan="24" />
                         <Label x:Name="Label_总账年" Content="年" HorizontalAlignment="Right" Grid.ColumnSpan="2"/>
                         <Label Content="月" Grid.Row="1" Grid.Column="0"/>
                         <Label Content="日" Grid.Row="1" Grid.Column="1"/>
@@ -182,7 +207,7 @@
                         <Label Content="二级科目编号及名称" HorizontalAlignment="Left" Margin="10,38,0,0" VerticalAlignment="Top"/>
                         <TextBox x:Name="TextBox_二级科目" HorizontalAlignment="Left" Height="23" Margin="133,40,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" BorderThickness="0,0,0,1" MouseDoubleClick="TextBox_二级科目_MouseDoubleClick"/>
                         <Button x:Name="Button_查询" Content="查询" HorizontalAlignment="Right" Margin="0,10,180,0" VerticalAlignment="Top" Width="75" Click="Button_查询_Click"/>
-                        <Grid VerticalAlignment="Top" Width="Auto" Margin="10,80,10,0" ext:GridBorderHelper.ShowBorder="True">
+                        <Grid VerticalAlignment="Top" Width="Auto" Margin="10,80,10,0">
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="25" />
                                 <RowDefinition Height="25" />
@@ -236,6 +261,54 @@
                                 <ColumnDefinition Width="{Binding ElementName=column43,Path=ActualWidth}"/>
                                 <ColumnDefinition Width="{Binding ElementName=column44,Path=ActualWidth}"/>
                             </Grid.ColumnDefinitions>
+                            <Border BorderBrush="LightBlue" BorderThickness="1" Grid.ColumnSpan="45" Grid.RowSpan="3" />
+                            <Border BorderBrush="LightBlue" BorderThickness="0,1,0,1" Grid.Row="1" Grid.ColumnSpan="2"/>
+                            <Border BorderBrush="LightBlue" BorderThickness="1,0,0,0" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2"/>
+                            <Border BorderBrush="LightBlue" BorderThickness="1,0,1,0" Grid.RowSpan="2" Grid.Column="2" Grid.ColumnSpan="2"/>
+                            <Border BorderBrush="LightBlue" BorderThickness="1,0,1,0" Grid.RowSpan="2" Grid.Column="3" Grid.ColumnSpan="2"/>
+                            <Border BorderBrush="LightBlue" BorderThickness="0,0,0,1" Grid.RowSpan="2" Grid.Column="2" Grid.ColumnSpan="3"/>
+                            <Border BorderBrush="LightBlue" BorderThickness="0,1,1,1" Grid.Row="1" Grid.Column="2"/>
+                            <Border BorderBrush="LightBlue" BorderThickness="0,1,1,1" Grid.Row="1" Grid.Column="5" />
+                            <Border BorderBrush="LightBlue" BorderThickness="0,1,1,1" Grid.Row="1" Grid.Column="6" />
+                            <Border BorderBrush="LightBlue" BorderThickness="0,1,1,1" Grid.Row="1" Grid.Column="7" />
+                            <Border BorderBrush="LightBlue" BorderThickness="0,1,1,1" Grid.Row="1" Grid.Column="8" />
+                            <Border BorderBrush="LightBlue" BorderThickness="0,1,1,1" Grid.Row="1" Grid.Column="9" />
+                            <Border BorderBrush="LightBlue" BorderThickness="0,1,1,1" Grid.Row="1" Grid.Column="10" />
+                            <Border BorderBrush="LightBlue" BorderThickness="0,1,1,1" Grid.Row="1" Grid.Column="11" />
+                            <Border BorderBrush="LightBlue" BorderThickness="0,1,1,1" Grid.Row="1" Grid.Column="12" />
+                            <Border BorderBrush="LightBlue" BorderThickness="0,1,1,1" Grid.Row="1" Grid.Column="13" />
+                            <Border BorderBrush="LightBlue" BorderThickness="0,1,1,1" Grid.Row="1" Grid.Column="14" />
+                            <Border BorderBrush="LightBlue" BorderThickness="0,1,1,1" Grid.Row="1" Grid.Column="15" />
+                            <Border BorderBrush="LightBlue" BorderThickness="0,1,0,1" Grid.Row="1" Grid.Column="16" />
+                            <Border BorderBrush="LightBlue" BorderThickness="1,0,1,0" Grid.Column="17" Grid.RowSpan="2" />
+                            <Border BorderBrush="LightBlue" BorderThickness="0,1,1,1" Grid.Row="1" Grid.Column="18" />
+                            <Border BorderBrush="LightBlue" BorderThickness="0,1,1,1" Grid.Row="1" Grid.Column="19" />
+                            <Border BorderBrush="LightBlue" BorderThickness="0,1,1,1" Grid.Row="1" Grid.Column="20" />
+                            <Border BorderBrush="LightBlue" BorderThickness="0,1,1,1" Grid.Row="1" Grid.Column="21" />
+                            <Border BorderBrush="LightBlue" BorderThickness="0,1,1,1" Grid.Row="1" Grid.Column="22" />
+                            <Border BorderBrush="LightBlue" BorderThickness="0,1,1,1" Grid.Row="1" Grid.Column="23" />
+                            <Border BorderBrush="LightBlue" BorderThickness="0,1,1,1" Grid.Row="1" Grid.Column="24" />
+                            <Border BorderBrush="LightBlue" BorderThickness="0,1,1,1" Grid.Row="1" Grid.Column="25" />
+                            <Border BorderBrush="LightBlue" BorderThickness="0,1,1,1" Grid.Row="1" Grid.Column="26" />
+                            <Border BorderBrush="LightBlue" BorderThickness="0,1,1,1" Grid.Row="1" Grid.Column="27" />
+                            <Border BorderBrush="LightBlue" BorderThickness="0,1,1,1" Grid.Row="1" Grid.Column="28" />
+                            <Border BorderBrush="LightBlue" BorderThickness="0,1,0,1" Grid.Row="1" Grid.Column="29" />
+                            <Border BorderBrush="LightBlue" BorderThickness="1,0,1,1" Grid.Column="30" Grid.RowSpan="2" />
+                            <Border BorderBrush="LightBlue" BorderThickness="0,0,1,1" Grid.Column="31" Grid.RowSpan="2" />
+                            <Border BorderBrush="LightBlue" BorderThickness="0,1,1,1" Grid.Row="1" Grid.Column="32" />
+                            <Border BorderBrush="LightBlue" BorderThickness="0,1,1,1" Grid.Row="1" Grid.Column="33" />
+                            <Border BorderBrush="LightBlue" BorderThickness="0,1,1,1" Grid.Row="1" Grid.Column="34" />
+                            <Border BorderBrush="LightBlue" BorderThickness="0,1,1,1" Grid.Row="1" Grid.Column="35" />
+                            <Border BorderBrush="LightBlue" BorderThickness="0,1,1,1" Grid.Row="1" Grid.Column="36" />
+                            <Border BorderBrush="LightBlue" BorderThickness="0,1,1,1" Grid.Row="1" Grid.Column="37" />
+                            <Border BorderBrush="LightBlue" BorderThickness="0,1,1,1" Grid.Row="1" Grid.Column="38" />
+                            <Border BorderBrush="LightBlue" BorderThickness="0,1,1,1" Grid.Row="1" Grid.Column="39" />
+                            <Border BorderBrush="LightBlue" BorderThickness="0,1,1,1" Grid.Row="1" Grid.Column="40" />
+                            <Border BorderBrush="LightBlue" BorderThickness="0,1,1,1" Grid.Row="1" Grid.Column="41" />
+                            <Border BorderBrush="LightBlue" BorderThickness="0,1,1,1" Grid.Row="1" Grid.Column="42" />
+                            <Border BorderBrush="LightBlue" BorderThickness="0,1,0,1" Grid.Row="1" Grid.Column="43" />
+                            <Border BorderBrush="LightBlue" BorderThickness="1,0,0,1" Grid.Column="44" Grid.RowSpan="2" />
+
                             <Label x:Name="Label_年" Content="年" HorizontalAlignment="Right" Grid.ColumnSpan="2"/>
                             <Label Content="月" Grid.Row="1" Grid.Column="0"/>
                             <Label Content="日" Grid.Row="1" Grid.Column="1"/>
