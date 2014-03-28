@@ -144,7 +144,7 @@ namespace PA.Helper.ExcelHelper
             {
                 m1 = parm.Split('.')[0];
                 string m2 = parm.Split('.')[1];
-                result.Add(m2.Substring(1, 1));
+                result.Add((m2.Length == 2) ? m2.Substring(1, 1) : "0");
                 result.Add(m2.Substring(0, 1));
             }
             else
