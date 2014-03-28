@@ -204,7 +204,7 @@
                         <Label Content="科目及单位名称" HorizontalAlignment="Left" Margin="10,8,0,0" VerticalAlignment="Top"/>
                         <TextBox x:Name="TextBox_费用明细" HorizontalAlignment="Left" Height="23" Margin="109,10,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" BorderThickness="0,0,0,1"/>
                         <Button x:Name="Button_费用明细查询" Content="查询" HorizontalAlignment="Right" Margin="0,10,180,0" VerticalAlignment="Top" Width="75" Click="Button_费用明细_Click"/>
-                        <Grid VerticalAlignment="Top" Width="Auto" Margin="10,50,10,0" ShowGridLines="True">
+                        <Grid VerticalAlignment="Top" Width="Auto" Margin="10,50,10,0">
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="25" />
                                 <RowDefinition Height="25" />
@@ -360,6 +360,10 @@
                                 <ColumnDefinition />
                                 <ColumnDefinition />
                             </Grid.ColumnDefinitions>
+                            <Border BorderBrush="LightBlue" BorderThickness="1" Grid.ColumnSpan="147" Grid.RowSpan="4"/>
+                            <Border BorderBrush="LightBlue" BorderThickness="0,1,0,1" Grid.Row="1" Grid.ColumnSpan="2" Grid.RowSpan="2"/>
+                            <Border BorderBrush="LightBlue" BorderThickness="1,0,1,1" Grid.Column="2" Grid.RowSpan="3" />
+                            <Border BorderBrush="LightBlue" BorderThickness="0,0,0,1" Grid.Column="3" Grid.Row="2" Grid.ColumnSpan="143"/>
                             <Label x:Name="Label_费用明细年" Content="年" HorizontalAlignment="Right" Grid.ColumnSpan="2"/>
                             <Label Content="月" VerticalAlignment="Center" Grid.Row="1" Grid.Column="0" Grid.RowSpan="2"/>
                             <Label Content="日" VerticalAlignment="Center" Grid.Row="1" Grid.Column="1" Grid.RowSpan="2"/>
@@ -500,6 +504,9 @@
                             <Label Content="元"	Grid.Column="131"	Grid.Row="2" />
                             <Label Content="角"	Grid.Column="132"	Grid.Row="2" />
                             <Label Content="分"	Grid.Column="133"	Grid.Row="2" />
+                            <DataGrid x:Name="DataGrid_费用明细账" Grid.Row="3" ItemsSource="{Binding}" Grid.ColumnSpan="147" CanUserAddRows="False" AutoGenerateColumns="False" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                                
+                            </DataGrid>
                         </Grid>
                     </Grid>
                 </ScrollViewer>
