@@ -57,7 +57,43 @@ namespace PA.Helper.ExcelHelper
                         {
                             if (item.Name == key)
                             {
-                                xlWorkSheet.Cells[y + 1, x] = item.GetValue(Voucher, null);
+                                if (item.Name == "合计借方金额" || item.Name == "合计贷方金额")
+                                {
+                                    string money = item.GetValue(Voucher, null).ToString();
+                                    string m1,m2;
+                                    if (money.IndexOf('.')>0)
+                                    {
+                                        m1 = money.Split('.')[0];
+                                        m2 = money.Split('.')[1];
+                                        if(m2.Length == 1)
+                                        {
+                                            m2 += "0";
+                                        }
+                                    }
+                                    else
+                                    {
+                                        m1 = money;
+                                        m2 = "00";
+                                    }
+                                    xlWorkSheet.Cells[y + 1, x] = "";
+                                    for (int i = 0; i < 9; i++ )//大于0部分
+                                    {
+                                        if(i < m1.Length)
+                                        {
+                                            xlWorkSheet.Cells[y + 1, x + 8 - i] = m1.Substring(m1.Length-i-1, 1);
+                                        }
+                                        else
+                                        {
+                                            xlWorkSheet.Cells[y + 1, x + 8 - i] = "";
+                                        }
+                                    }
+                                    xlWorkSheet.Cells[y + 1, x + 9] = m2.Substring(0,1);
+                                    xlWorkSheet.Cells[y + 1, x + 10] = m2.Substring(1,1);
+                                }
+                                else
+                                {
+                                    xlWorkSheet.Cells[y + 1, x] = item.GetValue(Voucher, null);
+                                }
                             }
                         }
                         //System.Reflection.PropertyInfo[] propertiesVoucherDetail = new PA.Model.DataGrid.Model_凭证明细().GetType().GetProperties(System.Reflection.BindingFlags.Instance | System.Reflection.BindingFlags.Public);
