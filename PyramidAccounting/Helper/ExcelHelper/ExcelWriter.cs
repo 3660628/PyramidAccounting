@@ -13,10 +13,10 @@ namespace PA.Helper.ExcelHelper
     public class ExcelWriter
     {
         private string Path = AppDomain.CurrentDomain.BaseDirectory;
-        xls.Application xlApp;
-        xls.Workbook xlWorkBook;
-        xls.Worksheet xlWorkSheet;
-        object misValue = System.Reflection.Missing.Value;
+        private xls.Application xlApp;
+        private xls.Workbook xlWorkBook;
+        private xls.Worksheet xlWorkSheet;
+        private object misValue = System.Reflection.Missing.Value;
 
         public ExcelWriter()
         {
