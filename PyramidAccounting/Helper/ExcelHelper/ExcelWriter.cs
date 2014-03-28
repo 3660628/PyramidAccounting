@@ -59,36 +59,13 @@ namespace PA.Helper.ExcelHelper
                             {
                                 if (item.Name == "合计借方金额" || item.Name == "合计贷方金额")
                                 {
-                                    string money = item.GetValue(Voucher, null).ToString();
-                                    string m1,m2;
-                                    if (money.IndexOf('.')>0)
-                                    {
-                                        m1 = money.Split('.')[0];
-                                        m2 = money.Split('.')[1];
-                                        if(m2.Length == 1)
-                                        {
-                                            m2 += "0";
-                                        }
-                                    }
-                                    else
-                                    {
-                                        m1 = money;
-                                        m2 = "00";
-                                    }
                                     xlWorkSheet.Cells[y + 1, x] = "";
-                                    for (int i = 0; i < 9; i++ )//大于0部分
+                                    string money = item.GetValue(Voucher, null).ToString();
+                                    List<string> ListMoney = TransMoney(money);
+                                    for (int i = ListMoney.Count - 1; i >= 0; i--)
                                     {
-                                        if(i < m1.Length)
-                                        {
-                                            xlWorkSheet.Cells[y + 1, x + 8 - i] = m1.Substring(m1.Length-i-1, 1);
-                                        }
-                                        else
-                                        {
-                                            xlWorkSheet.Cells[y + 1, x + 8 - i] = "";
-                                        }
+                                        xlWorkSheet.Cells[y + 1, x + 10 - i] = ListMoney[i];
                                     }
-                                    xlWorkSheet.Cells[y + 1, x + 9] = m2.Substring(0,1);
-                                    xlWorkSheet.Cells[y + 1, x + 10] = m2.Substring(1,1);
                                 }
                                 else
                                 {
@@ -140,34 +117,11 @@ namespace PA.Helper.ExcelHelper
                                     x++;
                                     continue;
                                 }
-                                string m1, m2;
-                                if (money.IndexOf('.') > 0)
+                                List<string> ListMoney = TransMoney(money);
+                                for (int i = ListMoney.Count - 1; i >= 0; i--)
                                 {
-                                    m1 = money.Split('.')[0];
-                                    m2 = money.Split('.')[1];
-                                    if (m2.Length == 1)
-                                    {
-                                        m2 += "0";
-                                    }
+                                    xlWorkSheet.Cells[y + 1, x +10-i] = ListMoney[i];
                                 }
-                                else
-                                {
-                                    m1 = money;
-                                    m2 = "00";
-                                }
-                                for (int i = 0; i < 9; i++)//大于0部分
-                                {
-                                    if (i < m1.Length)
-                                    {
-                                        xlWorkSheet.Cells[y + 1, x + 8 - i] = m1.Substring(m1.Length - i - 1, 1);
-                                    }
-                                    else
-                                    {
-                                        xlWorkSheet.Cells[y + 1, x + 8 - i] = "";
-                                    }
-                                }
-                                xlWorkSheet.Cells[y + 1, x + 9] = m2.Substring(0, 1);
-                                xlWorkSheet.Cells[y + 1, x + 10] = m2.Substring(1, 1);
                             }
                         }
                     }
@@ -182,10 +136,27 @@ namespace PA.Helper.ExcelHelper
             releaseObject(xlWorkBook);
             releaseObject(xlApp);
         }
-        private List<string> money(string parm)
+        private List<string> TransMoney(string parm)
         {
             List<string> result = new List<string>();
-
+            string m1 = string.Empty;
+            if(parm.IndexOf('.') > 0)
+            {
+                m1 = parm.Split('.')[0];
+                string m2 = parm.Split('.')[1];
+                result.Add(m2.Substring(1, 1));
+                result.Add(m2.Substring(0, 1));
+            }
+            else
+            {
+                m1 = parm;
+                result.Add("0");
+                result.Add("0");
+            }
+            for (int i = m1.Length-1; i >= 0; i--)
+            {
+                result.Add(m1.Substring(i, 1));
+            }
             return result;
         }
         private void releaseObject(object obj)
