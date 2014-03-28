@@ -831,7 +831,123 @@
                 
             </TabItem>
             <TabItem FocusVisualStyle="{x:Null}" Header="固定资产管理" Margin="32,-1,-32,1" Template="{DynamicResource TabItemControlTemplate_TwoTabHeader}">
-                <Grid Background="White"/>
+                <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
+                    <Grid Background="White">
+                        <Grid VerticalAlignment="Top" Width="Auto" Margin="10,50,10,0">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="25" />
+                                <RowDefinition Height="25" />
+                                <RowDefinition Height="25" />
+                                <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition />
+                                <ColumnDefinition />
+                                <ColumnDefinition />
+                                <ColumnDefinition />
+                                <ColumnDefinition />
+                                <ColumnDefinition />
+                                <ColumnDefinition />
+                                <ColumnDefinition />
+                                <ColumnDefinition />
+                                <ColumnDefinition />
+                                <ColumnDefinition />
+                                <ColumnDefinition />
+                                <ColumnDefinition />
+                                <ColumnDefinition />
+                                <ColumnDefinition />
+                                <ColumnDefinition />
+                                <ColumnDefinition />
+                                <ColumnDefinition />
+                                <ColumnDefinition />
+                                <ColumnDefinition />
+                                <ColumnDefinition />
+                                <ColumnDefinition />
+                                <ColumnDefinition />
+                                <ColumnDefinition />
+                            </Grid.ColumnDefinitions>
+                            <Border BorderBrush="LightBlue" BorderThickness="1" Grid.ColumnSpan="24" Grid.RowSpan="3" />
+                            <Border BorderBrush="LightBlue" BorderThickness="1,0,1,0" Grid.Column="1" Grid.ColumnSpan="2" Grid.RowSpan="3" />
+                            <Border BorderBrush="LightBlue" BorderThickness="1,0,1,0" Grid.Column="2" Grid.ColumnSpan="2" Grid.RowSpan="3" />
+                            <Border BorderBrush="LightBlue" BorderThickness="0,0,0,1" Grid.Column="0" Grid.ColumnSpan="24" Grid.Row="2" />
+                            <Border BorderBrush="LightBlue" BorderThickness="0,1,0,0" Grid.Column="4" Grid.ColumnSpan="10" Grid.Row="2" />
+                            <Border BorderBrush="LightBlue" BorderThickness="0,0,1,0" Grid.Column="4" Grid.ColumnSpan="5" Grid.Row="2" />
+                            <Border BorderBrush="LightBlue" BorderThickness="0,0,1,0" Grid.Column="5" Grid.ColumnSpan="5" Grid.Row="2" />
+                            <Border BorderBrush="LightBlue" BorderThickness="0,0,1,0" Grid.Column="6" Grid.ColumnSpan="5" Grid.Row="2" />
+                            <Border BorderBrush="LightBlue" BorderThickness="0,0,1,0" Grid.Column="7" Grid.ColumnSpan="5" Grid.Row="2" />
+                            <Border BorderBrush="LightBlue" BorderThickness="0,0,1,0" Grid.Column="8" Grid.ColumnSpan="5" Grid.Row="2" />
+                            <Border BorderBrush="LightBlue" BorderThickness="1,0,1,0" Grid.Column="14" Grid.ColumnSpan="2" Grid.RowSpan="3" />
+                            <Border BorderBrush="LightBlue" BorderThickness="1,0,1,0" Grid.Column="15" Grid.ColumnSpan="2" Grid.RowSpan="3" />
+                            <Label Content="编号" Grid.RowSpan="3" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <Label Content="名称及规格" Grid.Column="1" Grid.RowSpan="3" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <TextBlock Grid.Column="2" Grid.RowSpan="3" VerticalAlignment="Center" HorizontalAlignment="Center">
+                                <Run Text="单" />
+                                <LineBreak />
+                                <LineBreak />
+                                <Run Text="位"/>
+                            </TextBlock>
+                            <TextBlock Grid.Column="3" Grid.RowSpan="3" VerticalAlignment="Center" HorizontalAlignment="Center">
+                                <Run Text="数" />
+                                <LineBreak />
+                                <LineBreak />
+                                <Run Text="量"/>
+                            </TextBlock>
+                            <TextBlock Grid.Column="4" Grid.RowSpan="2" Grid.ColumnSpan="10" VerticalAlignment="Center" HorizontalAlignment="Center">
+                                <Run Text="原 价 或" />
+                                <LineBreak />
+                                <Run Text="重置价格"/>
+                            </TextBlock>
+                            <Label Content="千" HorizontalAlignment="Center" Grid.Column="4" Grid.Row="2" />
+                            <Label Content="百" HorizontalAlignment="Center" Grid.Column="5" Grid.Row="2" />
+                            <Label Content="十" HorizontalAlignment="Center" Grid.Column="6" Grid.Row="2" />
+                            <Label Content="万"  HorizontalAlignment="Center" Grid.Column="7" Grid.Row="2" />
+                            <Label Content="千" HorizontalAlignment="Center" Grid.Column="8" Grid.Row="2" />
+                            <Label Content="百" HorizontalAlignment="Center" Grid.Column="9" Grid.Row="2" />
+                            <Label Content="十" HorizontalAlignment="Center" Grid.Column="10" Grid.Row="2" />
+                            <Label Content="元"  HorizontalAlignment="Center" Grid.Column="11" Grid.Row="2" />
+                            <Label Content="角" HorizontalAlignment="Center" Grid.Column="12" Grid.Row="2" />
+                            <Label Content="分" HorizontalAlignment="Center" Grid.Column="13" Grid.Row="2" />
+                            <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="14" Grid.RowSpan="3">
+                                <Run Text="使" />
+                                <LineBreak/>
+                                <Run Text="用"/>
+                                <LineBreak/>
+                                <Run Text="年" />
+                                <LineBreak/>
+                                <Run Text="限"/>
+                                <LineBreak/>
+                            </TextBlock>
+                            <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="15" Grid.RowSpan="2" Grid.ColumnSpan="3">
+                                <Run Text="购置"/>
+                                <LineBreak/>
+                                <LineBreak/>
+                                <Run Text="日期"/>
+                            </TextBlock>
+                            <Label Content="年" HorizontalAlignment="Center" Grid.Row="2" Grid.Column="15"/>
+                            <Label Content="月" HorizontalAlignment="Center" Grid.Row="2" Grid.Column="16"/>
+                            <Label Content="日" HorizontalAlignment="Center" Grid.Row="2" Grid.Column="17" />
+                            <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="18" Grid.RowSpan="3">
+                                <Run Text="使 用"/>
+                                <LineBreak />
+                                <LineBreak />
+                                <Run Text="部 门" />
+                            </TextBlock>
+                            <Label Content="清理、报废、转移或调出" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="19" Grid.ColumnSpan="5"/>
+                            <Label Content="日期" HorizontalAlignment="Center" Grid.Column="19" Grid.ColumnSpan="3" Grid.Row="1"/>
+                            <Label Content="年" HorizontalAlignment="Center" Grid.Row="2" Grid.Column="19"/>
+                            <Label Content="月" HorizontalAlignment="Center" Grid.Row="2" Grid.Column="20"/>
+                            <Label Content="日" HorizontalAlignment="Center" Grid.Row="2" Grid.Column="21" />
+                            <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="1" Grid.Column="22" Grid.RowSpan="2">
+                                <Run Text="凭证"/>
+                                <LineBreak />
+                                <Run Text="编号" />
+                            </TextBlock>
+                            <Label Content="备 注" HorizontalAlignment="Center" Grid.Column="23" Grid.Row="1" />
+                            <DataGrid x:Name="DataGrid_固定资产" Grid.Row="3" ItemsSource="{Binding}" Grid.ColumnSpan="24" CanUserAddRows="False" AutoGenerateColumns="False" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                            </DataGrid>
+                        </Grid>
+                    </Grid>
+                </ScrollViewer>
             </TabItem>
         </TabControl>
         <!--弹出面板-->
