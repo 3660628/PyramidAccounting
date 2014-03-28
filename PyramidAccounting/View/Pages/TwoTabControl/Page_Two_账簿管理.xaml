@@ -876,8 +876,16 @@
                             <Border BorderBrush="LightBlue" BorderThickness="0,0,1,0" Grid.Column="6" Grid.ColumnSpan="5" Grid.Row="2" />
                             <Border BorderBrush="LightBlue" BorderThickness="0,0,1,0" Grid.Column="7" Grid.ColumnSpan="5" Grid.Row="2" />
                             <Border BorderBrush="LightBlue" BorderThickness="0,0,1,0" Grid.Column="8" Grid.ColumnSpan="5" Grid.Row="2" />
-                            <Border BorderBrush="LightBlue" BorderThickness="1,0,1,0" Grid.Column="14" Grid.ColumnSpan="2" Grid.RowSpan="3" />
-                            <Border BorderBrush="LightBlue" BorderThickness="1,0,1,0" Grid.Column="15" Grid.ColumnSpan="2" Grid.RowSpan="3" />
+                            <Border BorderBrush="LightBlue" BorderThickness="1,0,1,0" Grid.Column="14" Grid.ColumnSpan="4" Grid.RowSpan="3" />
+                            <Border BorderBrush="LightBlue" BorderThickness="1,0,1,0" Grid.Column="15" Grid.ColumnSpan="4" Grid.RowSpan="3" />
+                            <Border BorderBrush="LightBlue" BorderThickness="0,0,0,1" Grid.Column="15" Grid.Row="1" Grid.ColumnSpan="3" />
+                            <Border BorderBrush="LightBlue" BorderThickness="0,0,1,0" Grid.Column="15" Grid.Row="2" />
+                            <Border BorderBrush="LightBlue" BorderThickness="0,0,1,0" Grid.Column="16" Grid.Row="2" />
+                            <Border BorderBrush="LightBlue" BorderThickness="0,0,0,1" Grid.ColumnSpan="5" Grid.Column="19" />
+                            <Border BorderBrush="LightBlue" BorderThickness="0,1,1,0" Grid.Column="19" Grid.Row="2" />
+                            <Border BorderBrush="LightBlue" BorderThickness="0,1,1,0" Grid.Column="20" Grid.Row="2" />
+                            <Border BorderBrush="LightBlue" BorderThickness="0,1,0,0" Grid.Column="21" Grid.Row="2" />
+                            <Border BorderBrush="LightBlue" BorderThickness="1,0,1,0" Grid.Column="22" Grid.Row="1" Grid.RowSpan="2" />
                             <Label Content="编号" Grid.RowSpan="3" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                             <Label Content="名称及规格" Grid.Column="1" Grid.RowSpan="3" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                             <TextBlock Grid.Column="2" Grid.RowSpan="3" VerticalAlignment="Center" HorizontalAlignment="Center">
@@ -942,7 +950,7 @@
                                 <LineBreak />
                                 <Run Text="编号" />
                             </TextBlock>
-                            <Label Content="备 注" HorizontalAlignment="Center" Grid.Column="23" Grid.Row="1" />
+                            <Label Content="备 注" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Column="23" Grid.Row="1"  Grid.RowSpan="2"/>
                             <DataGrid x:Name="DataGrid_固定资产" Grid.Row="3" ItemsSource="{Binding}" Grid.ColumnSpan="24" CanUserAddRows="False" AutoGenerateColumns="False" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
                             </DataGrid>
                         </Grid>
