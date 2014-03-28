@@ -11,6 +11,7 @@ CREATE TABLE T_BOOKS (									--账套表
 CREATE TABLE T_YEARFEE (								--科目年初金额设置表
 	SUBJECT_ID   TEXT,									--科目编号
 	FEE			 DECIMAL,								--年初金额
+	PARENTID     TEXT,									--父节点ID
 	BOOKID		 TEXT									--账套ID	
 );
 CREATE TABLE T_SUBJECTTYPE (							--科目类型维表

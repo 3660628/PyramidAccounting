@@ -10,6 +10,13 @@ namespace PA.Model.DataGrid
         private string subject_id;
         private string fee;
         private string bookid;
+        private string parentid;
+
+        public string 父ID
+        {
+            get { return parentid; }
+            set { parentid = value; }
+        }
 
         public string 账套ID
         {

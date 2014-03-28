@@ -24,7 +24,7 @@ namespace PA.ViewModel
             List<string> sqlList = new List<string>();
             foreach (Model_科目管理 m in list)
             {
-                string sql = "insert into " + DBTablesName.T_YEAR_FEE + "(subject_id,bookid) values('" + m.科目编号 + "','" + bookid + "')";
+                string sql = "insert into " + DBTablesName.T_YEAR_FEE + "(subject_id,bookid,parentid) values('" + m.科目编号 + "','" + bookid + "','0')";
                 sqlList.Add(sql);
             }
             db.BatchOperate(sqlList);
@@ -41,7 +41,7 @@ namespace PA.ViewModel
                 mm.科目编号 = m.科目编号;
                 mm.年初金额 = m.年初金额;
 
-                string sql = "update " + DBTablesName.T_YEAR_FEE + " set fee='" + mm.年初金额 + "' where bookid='" + CommonInfo.账薄号 + "'";
+                string sql = "update " + DBTablesName.T_YEAR_FEE + " set fee='" + mm.年初金额 + "' where parentid=0 and bookid='" + CommonInfo.账薄号 + "'";
                 sqlList.Add(sql);
             }
             db.BatchOperate(sqlList);
