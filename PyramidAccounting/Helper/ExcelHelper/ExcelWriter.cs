@@ -122,17 +122,23 @@ namespace PA.Helper.ExcelHelper
                         }
                         else if (key.StartsWith("借方", false, null) || key.StartsWith("贷方", false, null))
                         {
+                            xlWorkSheet.Cells[y + 1, x] = "";
                             int id = int.Parse(key.Substring(key.Length - 1, 1)) - 1;
                             if (id < VoucherDetails.Count)
                             {
-                                string money = string.Empty;
+                                string money = "0";
                                 if (key.StartsWith("借方", false, null))
                                 {
                                     money = VoucherDetails[id].借方.ToString();
                                 }
-                                else
+                                else if (key.StartsWith("贷方", false, null))
                                 {
                                     money = VoucherDetails[id].贷方.ToString();
+                                }
+                                if(money == "0")
+                                {
+                                    x++;
+                                    continue;
                                 }
                                 string m1, m2;
                                 if (money.IndexOf('.') > 0)
@@ -149,7 +155,6 @@ namespace PA.Helper.ExcelHelper
                                     m1 = money;
                                     m2 = "00";
                                 }
-                                xlWorkSheet.Cells[y + 1, x] = "";
                                 for (int i = 0; i < 9; i++)//大于0部分
                                 {
                                     if (i < m1.Length)
