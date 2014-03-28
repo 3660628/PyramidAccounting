@@ -204,7 +204,303 @@
                         <Label Content="科目及单位名称" HorizontalAlignment="Left" Margin="10,8,0,0" VerticalAlignment="Top"/>
                         <TextBox x:Name="TextBox_费用明细" HorizontalAlignment="Left" Height="23" Margin="109,10,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" BorderThickness="0,0,0,1"/>
                         <Button x:Name="Button_费用明细查询" Content="查询" HorizontalAlignment="Right" Margin="0,10,180,0" VerticalAlignment="Top" Width="75" Click="Button_费用明细_Click"/>
-
+                        <Grid VerticalAlignment="Top" Width="Auto" Margin="10,50,10,0" ShowGridLines="True">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="25" />
+                                <RowDefinition Height="25" />
+                                <RowDefinition Height="25" />
+                                <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition />
+                                <ColumnDefinition />
+                                <ColumnDefinition />
+                                <ColumnDefinition />
+                                <ColumnDefinition />
+                                <ColumnDefinition />
+                                <ColumnDefinition />
+                                <ColumnDefinition />
+                                <ColumnDefinition />
+                                <ColumnDefinition />
+                                <ColumnDefinition />
+                                <ColumnDefinition />
+                                <ColumnDefinition />
+                                <ColumnDefinition />
+                                <ColumnDefinition />
+                                <ColumnDefinition />
+                                <ColumnDefinition />
+                                <ColumnDefinition />
+                                <ColumnDefinition />
+                                <ColumnDefinition />
+                                <ColumnDefinition />
+                                <ColumnDefinition />
+                                <ColumnDefinition />
+                                <ColumnDefinition />
+                                <ColumnDefinition />
+                                <ColumnDefinition />
+                                <ColumnDefinition />
+                                <ColumnDefinition />
+                                <ColumnDefinition />
+                                <ColumnDefinition />
+                                <ColumnDefinition />
+                                <ColumnDefinition />
+                                <ColumnDefinition />
+                                <ColumnDefinition />
+                                <ColumnDefinition />
+                                <ColumnDefinition />
+                                <ColumnDefinition />
+                                <ColumnDefinition />
+                                <ColumnDefinition />
+                                <ColumnDefinition />
+                                <ColumnDefinition />
+                                <ColumnDefinition />
+                                <ColumnDefinition />
+                                <ColumnDefinition />
+                                <ColumnDefinition />
+                                <ColumnDefinition />
+                                <ColumnDefinition />
+                                <ColumnDefinition />
+                                <ColumnDefinition />
+                                <ColumnDefinition />
+                                <ColumnDefinition />
+                                <ColumnDefinition />
+                                <ColumnDefinition />
+                                <ColumnDefinition />
+                                <ColumnDefinition />
+                                <ColumnDefinition />
+                                <ColumnDefinition />
+                                <ColumnDefinition />
+                                <ColumnDefinition />
+                                <ColumnDefinition />
+                                <ColumnDefinition />
+                                <ColumnDefinition />
+                                <ColumnDefinition />
+                                <ColumnDefinition />
+                                <ColumnDefinition />
+                                <ColumnDefinition />
+                                <ColumnDefinition />
+                                <ColumnDefinition />
+                                <ColumnDefinition />
+                                <ColumnDefinition />
+                                <ColumnDefinition />
+                                <ColumnDefinition />
+                                <ColumnDefinition />
+                                <ColumnDefinition />
+                                <ColumnDefinition />
+                                <ColumnDefinition />
+                                <ColumnDefinition />
+                                <ColumnDefinition />
+                                <ColumnDefinition />
+                                <ColumnDefinition />
+                                <ColumnDefinition />
+                                <ColumnDefinition />
+                                <ColumnDefinition />
+                                <ColumnDefinition />
+                                <ColumnDefinition />
+                                <ColumnDefinition />
+                                <ColumnDefinition />
+                                <ColumnDefinition />
+                                <ColumnDefinition />
+                                <ColumnDefinition />
+                                <ColumnDefinition />
+                                <ColumnDefinition />
+                                <ColumnDefinition />
+                                <ColumnDefinition />
+                                <ColumnDefinition />
+                                <ColumnDefinition />
+                                <ColumnDefinition />
+                                <ColumnDefinition />
+                                <ColumnDefinition />
+                                <ColumnDefinition />
+                                <ColumnDefinition />
+                                <ColumnDefinition />
+                                <ColumnDefinition />
+                                <ColumnDefinition />
+                                <ColumnDefinition />
+                                <ColumnDefinition />
+                                <ColumnDefinition />
+                                <ColumnDefinition />
+                                <ColumnDefinition />
+                                <ColumnDefinition />
+                                <ColumnDefinition />
+                                <ColumnDefinition />
+                                <ColumnDefinition />
+                                <ColumnDefinition />
+                                <ColumnDefinition />
+                                <ColumnDefinition />
+                                <ColumnDefinition />
+                                <ColumnDefinition />
+                                <ColumnDefinition />
+                                <ColumnDefinition />
+                                <ColumnDefinition />
+                                <ColumnDefinition />
+                                <ColumnDefinition />
+                                <ColumnDefinition />
+                                <ColumnDefinition />
+                                <ColumnDefinition />
+                                <ColumnDefinition />
+                                <ColumnDefinition />
+                                <ColumnDefinition />
+                                <ColumnDefinition />
+                                <ColumnDefinition />
+                                <ColumnDefinition />
+                                <ColumnDefinition />
+                                <ColumnDefinition />
+                                <ColumnDefinition />
+                                <ColumnDefinition />
+                                <ColumnDefinition />
+                                <ColumnDefinition />
+                                <ColumnDefinition />
+                                <ColumnDefinition />
+                                <ColumnDefinition />
+                                <ColumnDefinition />
+                                <ColumnDefinition />
+                                <ColumnDefinition />
+                                <ColumnDefinition />
+                                <ColumnDefinition />
+                                <ColumnDefinition />
+                            </Grid.ColumnDefinitions>
+                            <Label x:Name="Label_费用明细年" Content="年" HorizontalAlignment="Right" Grid.ColumnSpan="2"/>
+                            <Label Content="月" VerticalAlignment="Center" Grid.Row="1" Grid.Column="0" Grid.RowSpan="2"/>
+                            <Label Content="日" VerticalAlignment="Center" Grid.Row="1" Grid.Column="1" Grid.RowSpan="2"/>
+                            <Label Content="凭单" HorizontalAlignment="Center" Grid.Column="2"/>
+                            <Label Content="编号" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="2" Grid.Row="1" Grid.RowSpan="2"/>
+                            <Label Content="摘要" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Grid.Column="3" Grid.RowSpan="3"/>
+                            <Label Content="借方金额" HorizontalContentAlignment="Center" VerticalAlignment="Center" Grid.Column="4" Grid.ColumnSpan="10" Grid.RowSpan="2"/>
+                            <Label Content="千" Grid.Column="4" Grid.Row="2" />
+                            <Label Content="百" Grid.Column="5" Grid.Row="2" />
+                            <Label Content="十" Grid.Column="6" Grid.Row="2" />
+                            <Label Content="万" Grid.Column="7" Grid.Row="2" />
+                            <Label Content="千" Grid.Column="8" Grid.Row="2" />
+                            <Label Content="百" Grid.Column="9" Grid.Row="2" />
+                            <Label Content="十" Grid.Column="10" Grid.Row="2" />
+                            <Label Content="元" Grid.Column="11" Grid.Row="2" />
+                            <Label Content="角" Grid.Column="12" Grid.Row="2" />
+                            <Label Content="分" Grid.Column="13" Grid.Row="2" />
+                            <Label Content="贷方金额" HorizontalContentAlignment="Center" VerticalAlignment="Center" Grid.Column="14" Grid.ColumnSpan="10" Grid.RowSpan="2"/>
+                            <Label Content="千" Grid.Column="14" Grid.Row="2" />
+                            <Label Content="百" Grid.Column="15" Grid.Row="2" />
+                            <Label Content="十" Grid.Column="16" Grid.Row="2" />
+                            <Label Content="万" Grid.Column="17" Grid.Row="2" />
+                            <Label Content="千" Grid.Column="18" Grid.Row="2" />
+                            <Label Content="百" Grid.Column="19" Grid.Row="2" />
+                            <Label Content="十" Grid.Column="20" Grid.Row="2" />
+                            <Label Content="元" Grid.Column="21" Grid.Row="2" />
+                            <Label Content="角" Grid.Column="22" Grid.Row="2" />
+                            <Label Content="分" Grid.Column="23" Grid.Row="2" />
+                            <Label Content="金额" HorizontalContentAlignment="Center" VerticalAlignment="Center" Grid.Column="24" Grid.ColumnSpan="10" Grid.RowSpan="2"/>
+                            <Label Content="千" Grid.Column="24" Grid.Row="2" />
+                            <Label Content="百" Grid.Column="25" Grid.Row="2" />
+                            <Label Content="十" Grid.Column="26" Grid.Row="2" />
+                            <Label Content="万" Grid.Column="27" Grid.Row="2" />
+                            <Label Content="千" Grid.Column="28" Grid.Row="2" />
+                            <Label Content="百" Grid.Column="29" Grid.Row="2" />
+                            <Label Content="十" Grid.Column="30" Grid.Row="2" />
+                            <Label Content="元" Grid.Column="31" Grid.Row="2" />
+                            <Label Content="角" Grid.Column="32" Grid.Row="2" />
+                            <Label Content="分" Grid.Column="33" Grid.Row="2" />
+                            <Label Content="借贷方金额分析" HorizontalContentAlignment="Center" Grid.Column="34" Grid.ColumnSpan="90"/>
+                            <Label Content="千" Grid.Column="34" Grid.Row="2" />
+                            <Label Content="百" Grid.Column="35" Grid.Row="2" />
+                            <Label Content="十" Grid.Column="36" Grid.Row="2" />
+                            <Label Content="万" Grid.Column="37" Grid.Row="2" />
+                            <Label Content="千" Grid.Column="38" Grid.Row="2" />
+                            <Label Content="百" Grid.Column="39" Grid.Row="2" />
+                            <Label Content="十" Grid.Column="40" Grid.Row="2" />
+                            <Label Content="元" Grid.Column="41" Grid.Row="2" />
+                            <Label Content="角" Grid.Column="42" Grid.Row="2" />
+                            <Label Content="分" Grid.Column="43" Grid.Row="2" />
+                            <Label Content="千"	Grid.Column="44"	Grid.Row="2" />
+                            <Label Content="百"	Grid.Column="45"	Grid.Row="2" />
+                            <Label Content="十"	Grid.Column="46"	Grid.Row="2" />
+                            <Label Content="万"	Grid.Column="47"	Grid.Row="2" />
+                            <Label Content="千"	Grid.Column="48"	Grid.Row="2" />
+                            <Label Content="百"	Grid.Column="49"	Grid.Row="2" />
+                            <Label Content="十"	Grid.Column="50"	Grid.Row="2" />
+                            <Label Content="元"	Grid.Column="51"	Grid.Row="2" />
+                            <Label Content="角"	Grid.Column="52"	Grid.Row="2" />
+                            <Label Content="分"	Grid.Column="53"	Grid.Row="2" />
+                            <Label Content="千"	Grid.Column="54"	Grid.Row="2" />
+                            <Label Content="百"	Grid.Column="55"	Grid.Row="2" />
+                            <Label Content="十"	Grid.Column="56"	Grid.Row="2" />
+                            <Label Content="万"	Grid.Column="57"	Grid.Row="2" />
+                            <Label Content="千"	Grid.Column="58"	Grid.Row="2" />
+                            <Label Content="百"	Grid.Column="59"	Grid.Row="2" />
+                            <Label Content="十"	Grid.Column="60"	Grid.Row="2" />
+                            <Label Content="元"	Grid.Column="61"	Grid.Row="2" />
+                            <Label Content="角"	Grid.Column="62"	Grid.Row="2" />
+                            <Label Content="分"	Grid.Column="63"	Grid.Row="2" />
+                            <Label Content="千"	Grid.Column="64"	Grid.Row="2" />
+                            <Label Content="百"	Grid.Column="65"	Grid.Row="2" />
+                            <Label Content="十"	Grid.Column="66"	Grid.Row="2" />
+                            <Label Content="万"	Grid.Column="67"	Grid.Row="2" />
+                            <Label Content="千"	Grid.Column="68"	Grid.Row="2" />
+                            <Label Content="百"	Grid.Column="69"	Grid.Row="2" />
+                            <Label Content="十"	Grid.Column="70"	Grid.Row="2" />
+                            <Label Content="元"	Grid.Column="71"	Grid.Row="2" />
+                            <Label Content="角"	Grid.Column="72"	Grid.Row="2" />
+                            <Label Content="分"	Grid.Column="73"	Grid.Row="2" />
+                            <Label Content="千"	Grid.Column="74"	Grid.Row="2" />
+                            <Label Content="百"	Grid.Column="75"	Grid.Row="2" />
+                            <Label Content="十"	Grid.Column="76"	Grid.Row="2" />
+                            <Label Content="万"	Grid.Column="77"	Grid.Row="2" />
+                            <Label Content="千"	Grid.Column="78"	Grid.Row="2" />
+                            <Label Content="百"	Grid.Column="79"	Grid.Row="2" />
+                            <Label Content="十"	Grid.Column="80"	Grid.Row="2" />
+                            <Label Content="元"	Grid.Column="81"	Grid.Row="2" />
+                            <Label Content="角"	Grid.Column="82"	Grid.Row="2" />
+                            <Label Content="分"	Grid.Column="83"	Grid.Row="2" />
+                            <Label Content="千"	Grid.Column="84"	Grid.Row="2" />
+                            <Label Content="百"	Grid.Column="85"	Grid.Row="2" />
+                            <Label Content="十"	Grid.Column="86"	Grid.Row="2" />
+                            <Label Content="万"	Grid.Column="87"	Grid.Row="2" />
+                            <Label Content="千"	Grid.Column="88"	Grid.Row="2" />
+                            <Label Content="百"	Grid.Column="89"	Grid.Row="2" />
+                            <Label Content="十"	Grid.Column="90"	Grid.Row="2" />
+                            <Label Content="元"	Grid.Column="91"	Grid.Row="2" />
+                            <Label Content="角"	Grid.Column="92"	Grid.Row="2" />
+                            <Label Content="分"	Grid.Column="93"	Grid.Row="2" />
+                            <Label Content="千"	Grid.Column="94"	Grid.Row="2" />
+                            <Label Content="百"	Grid.Column="95"	Grid.Row="2" />
+                            <Label Content="十"	Grid.Column="96"	Grid.Row="2" />
+                            <Label Content="万"	Grid.Column="97"	Grid.Row="2" />
+                            <Label Content="千"	Grid.Column="98"	Grid.Row="2" />
+                            <Label Content="百"	Grid.Column="99"	Grid.Row="2" />
+                            <Label Content="十"	Grid.Column="100"	Grid.Row="2" />
+                            <Label Content="元"	Grid.Column="101"	Grid.Row="2" />
+                            <Label Content="角"	Grid.Column="102"	Grid.Row="2" />
+                            <Label Content="分"	Grid.Column="103"	Grid.Row="2" />
+                            <Label Content="千"	Grid.Column="104"	Grid.Row="2" />
+                            <Label Content="百"	Grid.Column="105"	Grid.Row="2" />
+                            <Label Content="十"	Grid.Column="106"	Grid.Row="2" />
+                            <Label Content="万"	Grid.Column="107"	Grid.Row="2" />
+                            <Label Content="千"	Grid.Column="108"	Grid.Row="2" />
+                            <Label Content="百"	Grid.Column="109"	Grid.Row="2" />
+                            <Label Content="十"	Grid.Column="110"	Grid.Row="2" />
+                            <Label Content="元"	Grid.Column="111"	Grid.Row="2" />
+                            <Label Content="角"	Grid.Column="112"	Grid.Row="2" />
+                            <Label Content="分"	Grid.Column="113"	Grid.Row="2" />
+                            <Label Content="千"	Grid.Column="114"	Grid.Row="2" />
+                            <Label Content="百"	Grid.Column="115"	Grid.Row="2" />
+                            <Label Content="十"	Grid.Column="116"	Grid.Row="2" />
+                            <Label Content="万"	Grid.Column="117"	Grid.Row="2" />
+                            <Label Content="千"	Grid.Column="118"	Grid.Row="2" />
+                            <Label Content="百"	Grid.Column="119"	Grid.Row="2" />
+                            <Label Content="十"	Grid.Column="120"	Grid.Row="2" />
+                            <Label Content="元"	Grid.Column="121"	Grid.Row="2" />
+                            <Label Content="角"	Grid.Column="122"	Grid.Row="2" />
+                            <Label Content="分"	Grid.Column="123"	Grid.Row="2" />
+                            <Label Content="千"	Grid.Column="124"	Grid.Row="2" />
+                            <Label Content="百"	Grid.Column="125"	Grid.Row="2" />
+                            <Label Content="十"	Grid.Column="126"	Grid.Row="2" />
+                            <Label Content="万"	Grid.Column="127"	Grid.Row="2" />
+                            <Label Content="千"	Grid.Column="128"	Grid.Row="2" />
+                            <Label Content="百"	Grid.Column="129"	Grid.Row="2" />
+                            <Label Content="十"	Grid.Column="130"	Grid.Row="2" />
+                            <Label Content="元"	Grid.Column="131"	Grid.Row="2" />
+                            <Label Content="角"	Grid.Column="132"	Grid.Row="2" />
+                            <Label Content="分"	Grid.Column="133"	Grid.Row="2" />
+                        </Grid>
                     </Grid>
                 </ScrollViewer>
             </TabItem>
