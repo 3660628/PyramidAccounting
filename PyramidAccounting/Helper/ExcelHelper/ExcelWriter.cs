@@ -143,7 +143,7 @@ namespace PA.Helper.ExcelHelper
                                         xDetails++;
                                         continue;
                                     }
-                                    List<string> ListMoney = TransMoney(money);
+                                    List<string> ListMoney = new ExcelHelper().TransMoney(money);
                                     for (int j = ListMoney.Count - 1; j >= 0; j--)
                                     {
                                         xlWorkSheet.Cells[yDetails + 1, xDetails + 10 - j] = ListMoney[j];
@@ -160,7 +160,7 @@ namespace PA.Helper.ExcelHelper
                                 xlWorkSheet.Cells[yDetails + 1, xDetails] = "";
                                 if(i==(SheetNum-1))
                                 {
-                                    List<string> ListMoney = (key.StartsWith("合计借方金额", false, null)) ? TransMoney(Voucher.合计借方金额.ToString()) : TransMoney(Voucher.合计贷方金额.ToString());
+                                    List<string> ListMoney = (key.StartsWith("合计借方金额", false, null)) ? new ExcelHelper().TransMoney(Voucher.合计借方金额.ToString()) : new ExcelHelper().TransMoney(Voucher.合计贷方金额.ToString());
                                     for (int j = ListMoney.Count - 1; j >= 0; j--)
                                     {
                                         xlWorkSheet.Cells[yDetails + 1, xDetails + 10 - j] = ListMoney[j];
@@ -179,35 +179,6 @@ namespace PA.Helper.ExcelHelper
             releaseObject(xlWorkSheet);
             releaseObject(xlWorkBook);
             releaseObject(xlApp);
-        }
-
-        /// <summary>
-        /// 将string类型的金额改成倒序List数组
-        /// </summary>
-        /// <param name="parm"></param>
-        /// <returns></returns>
-        private List<string> TransMoney(string parm)
-        {
-            List<string> result = new List<string>();
-            string m1 = string.Empty;
-            if(parm.IndexOf('.') > 0)
-            {
-                m1 = parm.Split('.')[0];
-                string m2 = parm.Split('.')[1];
-                result.Add((m2.Length == 2) ? m2.Substring(1, 1) : "0");
-                result.Add(m2.Substring(0, 1));
-            }
-            else
-            {
-                m1 = parm;
-                result.Add("0");
-                result.Add("0");
-            }
-            for (int i = m1.Length-1; i >= 0; i--)
-            {
-                result.Add(m1.Substring(i, 1));
-            }
-            return result;
         }
 
         private void releaseObject(object obj)
