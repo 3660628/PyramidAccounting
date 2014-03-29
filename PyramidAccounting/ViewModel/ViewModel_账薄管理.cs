@@ -23,7 +23,7 @@ namespace PA.ViewModel
                 + DBTablesName.T_VOUCHER 
                 + " b on a.parentid=b.id where a.subject_id='"
                 + subject_id.Split('\t')[1]
-                + "'" + " and b.delete_mark=0 order by b.op_time)t group by t.number ";
+                + "'" + " and b.delete_mark=0 order by b.op_time)t group by t.number,t.time ";
 
             //判断第一期查年初数
             //以后差每一期期末数
@@ -114,17 +114,18 @@ namespace PA.ViewModel
             string _tempstr = string.Empty;
             foreach(string i in lst)
             {
-                _tempstr += ",sum(case when detail='" + i + "' then (debit+credit) else '0' end) as " + i;
+                _tempstr += ",sum(case when t.detail='" + i + "' then (debit+credit) else '0' end) as " + i;
             }
 
             List<Model_费用明细> list = new List<Model_费用明细>();
-            string sql = "select b.op_time,a.voucher_no,a.abstract,a.debit,a.credit from "
+            string sql = "select time,number,comments,sum(fee1),sum(fee2)" + _tempstr + " from " 
+                + "(select b.op_time as time ,a.voucher_no as number,a.abstract as comments,a.debit as fee1,a.credit as fee2,a.detail as detail from "
                 + DBTablesName.T_VOUCHER_DETAIL
                 + " a left join "
                 + DBTablesName.T_VOUCHER
                 + " b on a.parentid=b.id where a.subject_id='"
                 + subject_id.Split('\t')[1]
-                + "'" + " and b.delete_mark=0 order by b.op_time) ";
+                + "'" + " and b.delete_mark=0 order by b.op_time)t group by t.number,t.time ";
 
             //判断第一期查年初数
             //以后差每一期期末数
