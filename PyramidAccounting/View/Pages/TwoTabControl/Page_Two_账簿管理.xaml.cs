@@ -29,6 +29,23 @@ namespace PA.View.Pages.TwoTabControl
         {
             InitializeComponent();
         }
+        
+       
+        private void Button_PopupClose_Click(object sender, RoutedEventArgs e)
+        {
+            this.Popup_科目子细目.IsOpen = false;
+            this.IsEnabled = true;
+        }
+        #region Mouse事件
+        private void FillData总账(object sender, StringEventArgs e)
+        {
+            this.Popup_科目子细目.IsOpen = false;
+            this.IsEnabled = true;
+            if (typeof(PA.View.Pages.Pop.凭证录入.Page_凭证录入_科目).IsInstanceOfType(sender))
+            {
+                TextBox_科目及单位名称.Text = e.Str;
+            }
+        }
         private void DoFillData(object sender, StringEventArgs e)
         {
             this.Popup_科目子细目.IsOpen = false;
@@ -42,6 +59,14 @@ namespace PA.View.Pages.TwoTabControl
                 TextBox_二级科目.Text = e.Str;
             }
         }
+        private void TextBox_科目及单位名称_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            PA.View.Pages.Pop.凭证录入.Page_凭证录入_科目 page = new PA.View.Pages.Pop.凭证录入.Page_凭证录入_科目();
+            page.FillDate += new Pages.Pop.凭证录入.Page_凭证录入_科目_FillDateEventHandle(FillData总账);
+            this.Frame_科目子细目.Content = page;
+            this.Popup_科目子细目.IsOpen = true;
+            this.IsEnabled = false;
+        }
         private void TextBox_一级科目_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
             PA.View.Pages.Pop.凭证录入.Page_凭证录入_科目 page = new PA.View.Pages.Pop.凭证录入.Page_凭证录入_科目();
@@ -49,12 +74,6 @@ namespace PA.View.Pages.TwoTabControl
             this.Frame_科目子细目.Content = page;
             this.Popup_科目子细目.IsOpen = true;
             this.IsEnabled = false;
-        }
-
-        private void Button_PopupClose_Click(object sender, RoutedEventArgs e)
-        {
-            this.Popup_科目子细目.IsOpen = false;
-            this.IsEnabled = true;
         }
 
         private void TextBox_二级科目_MouseDoubleClick(object sender, MouseButtonEventArgs e)
@@ -70,7 +89,7 @@ namespace PA.View.Pages.TwoTabControl
             this.Popup_科目子细目.IsOpen = true;
             this.IsEnabled = false;
         }
-
+        #endregion
         private void Button_Click(object sender, RoutedEventArgs e)
         {
 
@@ -93,11 +112,10 @@ namespace PA.View.Pages.TwoTabControl
             else
             {
                 string a = TextBox_一级科目.Text.ToString().Split('\t')[1];
-                string b = TextBox_二级科目.Text.ToString().Split('\t')[1];
-                string c = TextBox_二级科目.Text.ToString().Split('\t')[0];
+                string b = TextBox_二级科目.Text.ToString();
                 this.DataGrid_科目明细.ColumnHeaderHeight = 0;
                 this.DataGrid_科目明细.RowHeaderWidth = 0;
-                List<Model_科目明细账> lm = vmk.GetData(a, b, c);
+                List<Model_科目明细账> lm = vmk.GetData(a, b);
                 this.DataGrid_科目明细.ItemsSource = lm;
                 this.Label_年.Content = lm[0].年 + "年";
             }
@@ -113,7 +131,10 @@ namespace PA.View.Pages.TwoTabControl
             }
             else
             {
-
+                string a = TextBox_科目及单位名称.Text.ToString();
+                List<Model_总账> lm = vmk.GetData(a);
+                this.DataGrid_总账.ItemsSource = lm;
+                this.Label_总账年.Content = lm[0].年 + "年";
             }
         }
 
@@ -121,5 +142,6 @@ namespace PA.View.Pages.TwoTabControl
         {
 
         }
+
     }
 }
