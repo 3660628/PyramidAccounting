@@ -11,148 +11,148 @@
         <StatusBar Height="25" Margin="0" VerticalAlignment="Bottom" Background="DarkGray"/>
         <TabControl Margin="0,0,0,25" BorderBrush="White">
             <TabItem FocusVisualStyle="{x:Null}" Header="总账" Margin="8,-1,-8,1" Template="{DynamicResource TabItemControlTemplate_TwoTabHeader}">
-                <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto">
                 <Grid Background="White">
                     <Button Content="打印" HorizontalAlignment="Right" Margin="0,10,100,0" VerticalAlignment="Top" Width="75"/>
                     <Button Content="导出" HorizontalAlignment="Right" Margin="0,10,20,0" VerticalAlignment="Top" Width="75"/>
                     <Label Content="科目及单位名称" HorizontalAlignment="Left" Margin="10,8,0,0" VerticalAlignment="Top"/>
                     <TextBox x:Name="TextBox_科目及单位名称" HorizontalAlignment="Left" Height="23" Margin="109,10,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" BorderThickness="0,0,0,1" MouseDoubleClick="TextBox_科目及单位名称_MouseDoubleClick"/>
                     <Button x:Name="Button_总账查询" Content="查询" HorizontalAlignment="Right" Margin="0,10,180,0" VerticalAlignment="Top" Width="75" Click="Button_总账查询_Click"/>
-                    <Grid VerticalAlignment="Top" Width="Auto" Margin="10,50,10,0">
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="25" />
-                            <RowDefinition Height="25" />
-                            <RowDefinition Height="Auto" />
-                        </Grid.RowDefinitions>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="{Binding ElementName=zzcolumn1,Path=ActualWidth}"/>
-                            <ColumnDefinition Width="{Binding ElementName=zzcolumn2,Path=ActualWidth}"/>
-                            <ColumnDefinition Width="{Binding ElementName=zzcolumn3,Path=ActualWidth}"/>
-                            <ColumnDefinition Width="{Binding ElementName=zzcolumn4,Path=ActualWidth}"/>
-                            <ColumnDefinition Width="{Binding ElementName=zzcolumn6,Path=ActualWidth}"/>
-                            <ColumnDefinition Width="{Binding ElementName=zzcolumn7,Path=ActualWidth}"/>
-                            <ColumnDefinition Width="{Binding ElementName=zzcolumn8,Path=ActualWidth}"/>
-                            <ColumnDefinition Width="{Binding ElementName=zzcolumn9,Path=ActualWidth}"/>
-                            <ColumnDefinition Width="{Binding ElementName=zzcolumn10,Path=ActualWidth}"/>
-                            <ColumnDefinition Width="{Binding ElementName=zzcolumn11,Path=ActualWidth}"/>
-                            <ColumnDefinition Width="{Binding ElementName=zzcolumn12,Path=ActualWidth}"/>
-                            <ColumnDefinition Width="{Binding ElementName=zzcolumn13,Path=ActualWidth}"/>
-                            <ColumnDefinition Width="{Binding ElementName=zzcolumn14,Path=ActualWidth}"/>
-                            <ColumnDefinition Width="{Binding ElementName=zzcolumn15,Path=ActualWidth}"/>
-                            <ColumnDefinition Width="{Binding ElementName=zzcolumn16,Path=ActualWidth}"/>
-                            <ColumnDefinition Width="{Binding ElementName=zzcolumn17,Path=ActualWidth}"/>
-                            <ColumnDefinition Width="{Binding ElementName=zzcolumn6,Path=ActualWidth}"/>
-                            <ColumnDefinition Width="{Binding ElementName=zzcolumn17,Path=ActualWidth}"/>
-                            <ColumnDefinition Width="{Binding ElementName=zzcolumn18,Path=ActualWidth}"/>
-                            <ColumnDefinition Width="{Binding ElementName=zzcolumn19,Path=ActualWidth}"/>
-                            <ColumnDefinition Width="{Binding ElementName=zzcolumn20,Path=ActualWidth}"/>
-                            <ColumnDefinition Width="{Binding ElementName=zzcolumn21,Path=ActualWidth}"/>
-                            <ColumnDefinition Width="{Binding ElementName=zzcolumn22,Path=ActualWidth}"/>
-                            <ColumnDefinition Width="{Binding ElementName=zzcolumn23,Path=ActualWidth}"/>
-                            <ColumnDefinition Width="{Binding ElementName=zzcolumn24,Path=ActualWidth}"/>
-                            <ColumnDefinition Width="{Binding ElementName=zzcolumn25,Path=ActualWidth}"/>
-                            <ColumnDefinition Width="{Binding ElementName=zzcolumn26,Path=ActualWidth}"/>
-                            <ColumnDefinition Width="{Binding ElementName=zzcolumn27,Path=ActualWidth}"/>
-                            <ColumnDefinition Width="{Binding ElementName=zzcolumn28,Path=ActualWidth}"/>
-                            <ColumnDefinition Width="{Binding ElementName=zzcolumn29,Path=ActualWidth}"/>
-                            <ColumnDefinition Width="{Binding ElementName=zzcolumn30,Path=ActualWidth}"/>
-                            <ColumnDefinition Width="{Binding ElementName=zzcolumn31,Path=ActualWidth}"/>
-                            <ColumnDefinition Width="{Binding ElementName=zzcolumn32,Path=ActualWidth}"/>
-                            <ColumnDefinition Width="{Binding ElementName=zzcolumn33,Path=ActualWidth}"/>
-                            <ColumnDefinition Width="{Binding ElementName=zzcolumn34,Path=ActualWidth}"/>
-                            <ColumnDefinition Width="{Binding ElementName=zzcolumn35,Path=ActualWidth}"/>
-                            <ColumnDefinition Width="{Binding ElementName=zzcolumn36,Path=ActualWidth}"/>
-                            <ColumnDefinition Width="{Binding ElementName=zzcolumn37,Path=ActualWidth}"/>
-                            <ColumnDefinition Width="{Binding ElementName=zzcolumn38,Path=ActualWidth}"/>
-                            <ColumnDefinition Width="{Binding ElementName=zzcolumn39,Path=ActualWidth}"/>
-                            <ColumnDefinition Width="{Binding ElementName=zzcolumn40,Path=ActualWidth}"/>
-                            <ColumnDefinition Width="{Binding ElementName=zzcolumn41,Path=ActualWidth}"/>
-                        </Grid.ColumnDefinitions>
-                        <Border BorderBrush="LightBlue" BorderThickness="1" Grid.ColumnSpan="41" Grid.RowSpan="3"/>
-                        <Border BorderBrush="LightBlue" BorderThickness="0,1,0,1" Grid.Row="1" Grid.ColumnSpan="2"/>
-                        <Border BorderBrush="LightBlue" BorderThickness="1,0,1,1" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="4"/>
-                        <Border BorderBrush="LightBlue" BorderThickness="1,0,1,0" Grid.Column="2" Grid.RowSpan="2"/>
-                        <Border BorderBrush="LightBlue" BorderThickness="0,0,1,0" Grid.Column="15" />
-                        <Border BorderBrush="LightBlue" BorderThickness="1,0,1,1" Grid.Column="4" Grid.ColumnSpan="24" />
-                        <Border BorderBrush="LightBlue" BorderThickness="1,0,0,0" Grid.Column="4" Grid.ColumnSpan="12" Grid.Row="1"/>
-                        <Border BorderBrush="LightBlue" BorderThickness="0,0,1,1" Grid.Column="5" Grid.ColumnSpan="12" Grid.Row="1"/>
-                        <Border BorderBrush="LightBlue" BorderThickness="1,0,1,0" Grid.Column="6" Grid.ColumnSpan="12" Grid.Row="1"/>
-                        <Border BorderBrush="LightBlue" BorderThickness="1,0,1,0" Grid.Column="7" Grid.ColumnSpan="12" Grid.Row="1"/>
-                        <Border BorderBrush="LightBlue" BorderThickness="1,0,1,0" Grid.Column="8" Grid.ColumnSpan="12" Grid.Row="1"/>
-                        <Border BorderBrush="LightBlue" BorderThickness="1,0,1,0" Grid.Column="9" Grid.ColumnSpan="12" Grid.Row="1"/>
-                        <Border BorderBrush="LightBlue" BorderThickness="1,0,1,0" Grid.Column="10" Grid.ColumnSpan="12" Grid.Row="1"/>
-                        <Border BorderBrush="LightBlue" BorderThickness="1,0,1,0" Grid.Column="11" Grid.ColumnSpan="12" Grid.Row="1"/>
-                        <Border BorderBrush="LightBlue" BorderThickness="1,0,1,0" Grid.Column="12" Grid.ColumnSpan="12" Grid.Row="1"/>
-                        <Border BorderBrush="LightBlue" BorderThickness="1,0,1,0" Grid.Column="13" Grid.ColumnSpan="12" Grid.Row="1"/>
-                        <Border BorderBrush="LightBlue" BorderThickness="1,0,1,0" Grid.Column="14" Grid.ColumnSpan="12" Grid.Row="1"/>
-                        <Border BorderBrush="LightBlue" BorderThickness="1,0,1,0" Grid.Column="15" Grid.ColumnSpan="12" Grid.Row="1"/>
-                        <Border BorderBrush="LightBlue" BorderThickness="1,0,1,0" Grid.Column="16" Grid.ColumnSpan="12" Grid.Row="1"/>
-                        <Border BorderBrush="LightBlue" BorderThickness="1,0,0,1" Grid.Column="29" Grid.ColumnSpan="12"/>
-                        <Border BorderBrush="LightBlue" BorderThickness="1,0,1,0" Grid.Column="29" Grid.Row="1" Grid.ColumnSpan="6" />
-                        <Border BorderBrush="LightBlue" BorderThickness="1,0,1,0" Grid.Column="30" Grid.Row="1" Grid.ColumnSpan="6" />
-                        <Border BorderBrush="LightBlue" BorderThickness="1,0,1,0" Grid.Column="31" Grid.Row="1" Grid.ColumnSpan="6" />
-                        <Border BorderBrush="LightBlue" BorderThickness="1,0,1,0" Grid.Column="32" Grid.Row="1" Grid.ColumnSpan="6" />
-                        <Border BorderBrush="LightBlue" BorderThickness="1,0,1,0" Grid.Column="33" Grid.Row="1" Grid.ColumnSpan="6" />
-                        <Border BorderBrush="LightBlue" BorderThickness="1,0,1,0" Grid.Column="34" Grid.Row="1" Grid.ColumnSpan="6" />
-                        <Border BorderBrush="LightBlue" BorderThickness="0,0,0,1" Grid.Row="1" Grid.Column="17" Grid.ColumnSpan="24" />
-                        <Label x:Name="Label_总账年" Content="年" HorizontalAlignment="Right" Grid.ColumnSpan="2"/>
-                        <Label Content="月" Grid.Row="1" Grid.Column="0"/>
-                        <Label Content="日" Grid.Row="1" Grid.Column="1"/>
-                        <Label Content="凭单" HorizontalAlignment="Center" Grid.Column="2"/>
-                        <Label Content="编号" HorizontalAlignment="Center" Grid.Column="2" Grid.Row="1"/>
-                        <Label Content="摘要" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Grid.Column="3" Grid.RowSpan="2"/>
-                        <Label Content="借方金额" HorizontalContentAlignment="Center" Grid.Column="4" Grid.ColumnSpan="12"/>
-                        <Label Content="十" Grid.Column="4" Grid.Row="1" />
-                        <Label Content="亿" Grid.Column="5" Grid.Row="1" />
-                        <Label Content="千" Grid.Column="6" Grid.Row="1" />
-                        <Label Content="百" Grid.Column="7" Grid.Row="1" />
-                        <Label Content="十" Grid.Column="8" Grid.Row="1" />
-                        <Label Content="万" Grid.Column="9" Grid.Row="1" />
-                        <Label Content="千" Grid.Column="10" Grid.Row="1" />
-                        <Label Content="百" Grid.Column="11" Grid.Row="1" />
-                        <Label Content="十" Grid.Column="12" Grid.Row="1" />
-                        <Label Content="元" Grid.Column="13" Grid.Row="1" />
-                        <Label Content="角" Grid.Column="14" Grid.Row="1" />
-                        <Label Content="分" Grid.Column="15" Grid.Row="1" />
-                        <Label Content="贷方金额" HorizontalContentAlignment="Center" Grid.Column="16" Grid.ColumnSpan="12"/>
-                        <Label Content="十" Grid.Column="16" Grid.Row="1" />
-                        <Label Content="亿" Grid.Column="17" Grid.Row="1" />
-                        <Label Content="千" Grid.Column="18" Grid.Row="1" />
-                        <Label Content="百" Grid.Column="19" Grid.Row="1" />
-                        <Label Content="十" Grid.Column="20" Grid.Row="1" />
-                        <Label Content="万" Grid.Column="21" Grid.Row="1" />
-                        <Label Content="千" Grid.Column="22" Grid.Row="1" />
-                        <Label Content="百" Grid.Column="23" Grid.Row="1" />
-                        <Label Content="十" Grid.Column="24" Grid.Row="1" />
-                        <Label Content="元" Grid.Column="25" Grid.Row="1" />
-                        <Label Content="角" Grid.Column="26" Grid.Row="1" />
-                        <Label Content="分" Grid.Column="27" Grid.Row="1" />
-                        <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="28" Grid.RowSpan="2">
+                    <ScrollViewer VerticalScrollBarVisibility="Disabled" HorizontalScrollBarVisibility="Auto" Margin="10,50,10,10" HorizontalAlignment="Center">
+                        <Grid Width="Auto" Margin="0" HorizontalAlignment="Center">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="25" />
+                                <RowDefinition Height="25" />
+                                <RowDefinition Height="*" />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="{Binding ElementName=zzcolumn1,Path=ActualWidth}"/>
+                                <ColumnDefinition Width="{Binding ElementName=zzcolumn2,Path=ActualWidth}"/>
+                                <ColumnDefinition Width="{Binding ElementName=zzcolumn3,Path=ActualWidth}"/>
+                                <ColumnDefinition Width="{Binding ElementName=zzcolumn4,Path=ActualWidth}"/>
+                                <ColumnDefinition Width="{Binding ElementName=zzcolumn6,Path=ActualWidth}"/>
+                                <ColumnDefinition Width="{Binding ElementName=zzcolumn7,Path=ActualWidth}"/>
+                                <ColumnDefinition Width="{Binding ElementName=zzcolumn8,Path=ActualWidth}"/>
+                                <ColumnDefinition Width="{Binding ElementName=zzcolumn9,Path=ActualWidth}"/>
+                                <ColumnDefinition Width="{Binding ElementName=zzcolumn10,Path=ActualWidth}"/>
+                                <ColumnDefinition Width="{Binding ElementName=zzcolumn11,Path=ActualWidth}"/>
+                                <ColumnDefinition Width="{Binding ElementName=zzcolumn12,Path=ActualWidth}"/>
+                                <ColumnDefinition Width="{Binding ElementName=zzcolumn13,Path=ActualWidth}"/>
+                                <ColumnDefinition Width="{Binding ElementName=zzcolumn14,Path=ActualWidth}"/>
+                                <ColumnDefinition Width="{Binding ElementName=zzcolumn15,Path=ActualWidth}"/>
+                                <ColumnDefinition Width="{Binding ElementName=zzcolumn16,Path=ActualWidth}"/>
+                                <ColumnDefinition Width="{Binding ElementName=zzcolumn17,Path=ActualWidth}"/>
+                                <ColumnDefinition Width="{Binding ElementName=zzcolumn6,Path=ActualWidth}"/>
+                                <ColumnDefinition Width="{Binding ElementName=zzcolumn17,Path=ActualWidth}"/>
+                                <ColumnDefinition Width="{Binding ElementName=zzcolumn18,Path=ActualWidth}"/>
+                                <ColumnDefinition Width="{Binding ElementName=zzcolumn19,Path=ActualWidth}"/>
+                                <ColumnDefinition Width="{Binding ElementName=zzcolumn20,Path=ActualWidth}"/>
+                                <ColumnDefinition Width="{Binding ElementName=zzcolumn21,Path=ActualWidth}"/>
+                                <ColumnDefinition Width="{Binding ElementName=zzcolumn22,Path=ActualWidth}"/>
+                                <ColumnDefinition Width="{Binding ElementName=zzcolumn23,Path=ActualWidth}"/>
+                                <ColumnDefinition Width="{Binding ElementName=zzcolumn24,Path=ActualWidth}"/>
+                                <ColumnDefinition Width="{Binding ElementName=zzcolumn25,Path=ActualWidth}"/>
+                                <ColumnDefinition Width="{Binding ElementName=zzcolumn26,Path=ActualWidth}"/>
+                                <ColumnDefinition Width="{Binding ElementName=zzcolumn27,Path=ActualWidth}"/>
+                                <ColumnDefinition Width="{Binding ElementName=zzcolumn28,Path=ActualWidth}"/>
+                                <ColumnDefinition Width="{Binding ElementName=zzcolumn29,Path=ActualWidth}"/>
+                                <ColumnDefinition Width="{Binding ElementName=zzcolumn30,Path=ActualWidth}"/>
+                                <ColumnDefinition Width="{Binding ElementName=zzcolumn31,Path=ActualWidth}"/>
+                                <ColumnDefinition Width="{Binding ElementName=zzcolumn32,Path=ActualWidth}"/>
+                                <ColumnDefinition Width="{Binding ElementName=zzcolumn33,Path=ActualWidth}"/>
+                                <ColumnDefinition Width="{Binding ElementName=zzcolumn34,Path=ActualWidth}"/>
+                                <ColumnDefinition Width="{Binding ElementName=zzcolumn35,Path=ActualWidth}"/>
+                                <ColumnDefinition Width="{Binding ElementName=zzcolumn36,Path=ActualWidth}"/>
+                                <ColumnDefinition Width="{Binding ElementName=zzcolumn37,Path=ActualWidth}"/>
+                                <ColumnDefinition Width="{Binding ElementName=zzcolumn38,Path=ActualWidth}"/>
+                                <ColumnDefinition Width="{Binding ElementName=zzcolumn39,Path=ActualWidth}"/>
+                                <ColumnDefinition Width="{Binding ElementName=zzcolumn40,Path=ActualWidth}"/>
+                                <ColumnDefinition Width="{Binding ElementName=zzcolumn41,Path=ActualWidth}"/>
+                            </Grid.ColumnDefinitions>
+                            <Border BorderBrush="LightBlue" BorderThickness="1" Grid.ColumnSpan="41" Grid.RowSpan="3"/>
+                            <Border BorderBrush="LightBlue" BorderThickness="0,1,0,1" Grid.Row="1" Grid.ColumnSpan="2"/>
+                            <Border BorderBrush="LightBlue" BorderThickness="1,0,1,1" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="4"/>
+                            <Border BorderBrush="LightBlue" BorderThickness="1,0,1,0" Grid.Column="2" Grid.RowSpan="2"/>
+                            <Border BorderBrush="LightBlue" BorderThickness="0,0,1,0" Grid.Column="15" />
+                            <Border BorderBrush="LightBlue" BorderThickness="1,0,1,1" Grid.Column="4" Grid.ColumnSpan="24" />
+                            <Border BorderBrush="LightBlue" BorderThickness="1,0,0,0" Grid.Column="4" Grid.ColumnSpan="12" Grid.Row="1"/>
+                            <Border BorderBrush="LightBlue" BorderThickness="0,0,1,1" Grid.Column="5" Grid.ColumnSpan="12" Grid.Row="1"/>
+                            <Border BorderBrush="LightBlue" BorderThickness="1,0,1,0" Grid.Column="6" Grid.ColumnSpan="12" Grid.Row="1"/>
+                            <Border BorderBrush="LightBlue" BorderThickness="1,0,1,0" Grid.Column="7" Grid.ColumnSpan="12" Grid.Row="1"/>
+                            <Border BorderBrush="LightBlue" BorderThickness="1,0,1,0" Grid.Column="8" Grid.ColumnSpan="12" Grid.Row="1"/>
+                            <Border BorderBrush="LightBlue" BorderThickness="1,0,1,0" Grid.Column="9" Grid.ColumnSpan="12" Grid.Row="1"/>
+                            <Border BorderBrush="LightBlue" BorderThickness="1,0,1,0" Grid.Column="10" Grid.ColumnSpan="12" Grid.Row="1"/>
+                            <Border BorderBrush="LightBlue" BorderThickness="1,0,1,0" Grid.Column="11" Grid.ColumnSpan="12" Grid.Row="1"/>
+                            <Border BorderBrush="LightBlue" BorderThickness="1,0,1,0" Grid.Column="12" Grid.ColumnSpan="12" Grid.Row="1"/>
+                            <Border BorderBrush="LightBlue" BorderThickness="1,0,1,0" Grid.Column="13" Grid.ColumnSpan="12" Grid.Row="1"/>
+                            <Border BorderBrush="LightBlue" BorderThickness="1,0,1,0" Grid.Column="14" Grid.ColumnSpan="12" Grid.Row="1"/>
+                            <Border BorderBrush="LightBlue" BorderThickness="1,0,1,0" Grid.Column="15" Grid.ColumnSpan="12" Grid.Row="1"/>
+                            <Border BorderBrush="LightBlue" BorderThickness="1,0,1,0" Grid.Column="16" Grid.ColumnSpan="12" Grid.Row="1"/>
+                            <Border BorderBrush="LightBlue" BorderThickness="1,0,0,1" Grid.Column="29" Grid.ColumnSpan="12"/>
+                            <Border BorderBrush="LightBlue" BorderThickness="1,0,1,0" Grid.Column="29" Grid.Row="1" Grid.ColumnSpan="6" />
+                            <Border BorderBrush="LightBlue" BorderThickness="1,0,1,0" Grid.Column="30" Grid.Row="1" Grid.ColumnSpan="6" />
+                            <Border BorderBrush="LightBlue" BorderThickness="1,0,1,0" Grid.Column="31" Grid.Row="1" Grid.ColumnSpan="6" />
+                            <Border BorderBrush="LightBlue" BorderThickness="1,0,1,0" Grid.Column="32" Grid.Row="1" Grid.ColumnSpan="6" />
+                            <Border BorderBrush="LightBlue" BorderThickness="1,0,1,0" Grid.Column="33" Grid.Row="1" Grid.ColumnSpan="6" />
+                            <Border BorderBrush="LightBlue" BorderThickness="1,0,1,0" Grid.Column="34" Grid.Row="1" Grid.ColumnSpan="6" />
+                            <Border BorderBrush="LightBlue" BorderThickness="0,0,0,1" Grid.Row="1" Grid.Column="17" Grid.ColumnSpan="24" />
+                            <Label x:Name="Label_总账年" Content="年" HorizontalAlignment="Right" Grid.ColumnSpan="2"/>
+                            <Label Content="月" Grid.Row="1" Grid.Column="0"/>
+                            <Label Content="日" Grid.Row="1" Grid.Column="1"/>
+                            <Label Content="凭单" HorizontalAlignment="Center" Grid.Column="2"/>
+                            <Label Content="编号" HorizontalAlignment="Center" Grid.Column="2" Grid.Row="1"/>
+                            <Label Content="摘要" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Grid.Column="3" Grid.RowSpan="2"/>
+                            <Label Content="借方金额" HorizontalContentAlignment="Center" Grid.Column="4" Grid.ColumnSpan="12"/>
+                            <Label Content="十" Grid.Column="4" Grid.Row="1" />
+                            <Label Content="亿" Grid.Column="5" Grid.Row="1" />
+                            <Label Content="千" Grid.Column="6" Grid.Row="1" />
+                            <Label Content="百" Grid.Column="7" Grid.Row="1" />
+                            <Label Content="十" Grid.Column="8" Grid.Row="1" />
+                            <Label Content="万" Grid.Column="9" Grid.Row="1" />
+                            <Label Content="千" Grid.Column="10" Grid.Row="1" />
+                            <Label Content="百" Grid.Column="11" Grid.Row="1" />
+                            <Label Content="十" Grid.Column="12" Grid.Row="1" />
+                            <Label Content="元" Grid.Column="13" Grid.Row="1" />
+                            <Label Content="角" Grid.Column="14" Grid.Row="1" />
+                            <Label Content="分" Grid.Column="15" Grid.Row="1" />
+                            <Label Content="贷方金额" HorizontalContentAlignment="Center" Grid.Column="16" Grid.ColumnSpan="12"/>
+                            <Label Content="十" Grid.Column="16" Grid.Row="1" />
+                            <Label Content="亿" Grid.Column="17" Grid.Row="1" />
+                            <Label Content="千" Grid.Column="18" Grid.Row="1" />
+                            <Label Content="百" Grid.Column="19" Grid.Row="1" />
+                            <Label Content="十" Grid.Column="20" Grid.Row="1" />
+                            <Label Content="万" Grid.Column="21" Grid.Row="1" />
+                            <Label Content="千" Grid.Column="22" Grid.Row="1" />
+                            <Label Content="百" Grid.Column="23" Grid.Row="1" />
+                            <Label Content="十" Grid.Column="24" Grid.Row="1" />
+                            <Label Content="元" Grid.Column="25" Grid.Row="1" />
+                            <Label Content="角" Grid.Column="26" Grid.Row="1" />
+                            <Label Content="分" Grid.Column="27" Grid.Row="1" />
+                            <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="28" Grid.RowSpan="2">
                                 <Run Text="借"/>
                                 <LineBreak />
                                 <Run Text="或" />
                                 <LineBreak />
                                 <Run Text="贷" />
-                        </TextBlock>
-                        <Label Content="十" Grid.Column="29" Grid.Row="1" />
-                        <Label Content="亿" Grid.Column="30" Grid.Row="1" />
-                        <Label Content="千" Grid.Column="31" Grid.Row="1" />
-                        <Label Content="百" Grid.Column="32" Grid.Row="1" />
-                        <Label Content="十" Grid.Column="33" Grid.Row="1" />
-                        <Label Content="万" Grid.Column="34" Grid.Row="1" />
-                        <Label Content="千" Grid.Column="35" Grid.Row="1" />
-                        <Label Content="百" Grid.Column="36" Grid.Row="1" />
-                        <Label Content="十" Grid.Column="37" Grid.Row="1" />
-                        <Label Content="元" Grid.Column="38" Grid.Row="1" />
-                        <Label Content="角" Grid.Column="39" Grid.Row="1" />
-                        <Label Content="分" Grid.Column="40" Grid.Row="1" />
-                        <Label Content="金额" HorizontalContentAlignment="Center" Grid.Column="29" Grid.ColumnSpan="12"/>
-                        <DataGrid x:Name="DataGrid_总账" Grid.Row="2" ItemsSource="{Binding}" Grid.ColumnSpan="41" CanUserAddRows="False" AutoGenerateColumns="False" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
-                            <DataGrid.Columns>
-                                <DataGridTextColumn x:Name="zzcolumn1" MinWidth="25" Binding="{Binding 月}"/>
-                                <DataGridTextColumn x:Name="zzcolumn2" MinWidth="25" Binding="{Binding 日}"/>
-                                <DataGridTextColumn x:Name="zzcolumn3" MinWidth="40" Binding="{Binding 号数}"/>
-                                <DataGridTextColumn x:Name="zzcolumn4" MinWidth="100" Binding="{Binding 摘要}"/>
+                            </TextBlock>
+                            <Label Content="十" Grid.Column="29" Grid.Row="1" />
+                            <Label Content="亿" Grid.Column="30" Grid.Row="1" />
+                            <Label Content="千" Grid.Column="31" Grid.Row="1" />
+                            <Label Content="百" Grid.Column="32" Grid.Row="1" />
+                            <Label Content="十" Grid.Column="33" Grid.Row="1" />
+                            <Label Content="万" Grid.Column="34" Grid.Row="1" />
+                            <Label Content="千" Grid.Column="35" Grid.Row="1" />
+                            <Label Content="百" Grid.Column="36" Grid.Row="1" />
+                            <Label Content="十" Grid.Column="37" Grid.Row="1" />
+                            <Label Content="元" Grid.Column="38" Grid.Row="1" />
+                            <Label Content="角" Grid.Column="39" Grid.Row="1" />
+                            <Label Content="分" Grid.Column="40" Grid.Row="1" />
+                            <Label Content="金额" HorizontalContentAlignment="Center" Grid.Column="29" Grid.ColumnSpan="12"/>
+                            <DataGrid x:Name="DataGrid_总账" Grid.Row="2" ItemsSource="{Binding}" Grid.ColumnSpan="41" CanUserAddRows="False" AutoGenerateColumns="False" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="0,-1,0,0" HeadersVisibility="None" BorderBrush="LightBlue" HorizontalGridLinesBrush="LightBlue" VerticalGridLinesBrush="LightBlue" Background="White" HorizontalScrollBarVisibility="Disabled">
+                                <DataGrid.Columns>
+                                    <DataGridTextColumn x:Name="zzcolumn1" MinWidth="25" Binding="{Binding 月}"/>
+                                    <DataGridTextColumn x:Name="zzcolumn2" MinWidth="25" Binding="{Binding 日}"/>
+                                    <DataGridTextColumn x:Name="zzcolumn3" MinWidth="40" Binding="{Binding 号数}"/>
+                                    <DataGridTextColumn x:Name="zzcolumn4" MinWidth="100" Binding="{Binding 摘要}"/>
                                     <DataGridTextColumn x:Name="zzcolumn5" MinWidth="25" Binding="{Binding 借方金额1}"/>
                                     <DataGridTextColumn x:Name="zzcolumn6" MinWidth="25" Binding="{Binding 借方金额2}"/>
                                     <DataGridTextColumn x:Name="zzcolumn7" MinWidth="25" Binding="{Binding 借方金额3}"/>
@@ -190,26 +190,27 @@
                                     <DataGridTextColumn x:Name="zzcolumn39"	MinWidth="25" Binding="{Binding 余额10}"/>
                                     <DataGridTextColumn x:Name="zzcolumn40"	MinWidth="25" Binding="{Binding 余额11}"/>
                                     <DataGridTextColumn x:Name="zzcolumn41"	MinWidth="25" Binding="{Binding 余额12}"/>
-                            </DataGrid.Columns>
-                        </DataGrid>
-                    </Grid>
+                                </DataGrid.Columns>
+                            </DataGrid>
+                        </Grid>
+                    </ScrollViewer>
                 </Grid>
-                </ScrollViewer>
             </TabItem>
             <TabItem FocusVisualStyle="{x:Null}" Header="费用明细账" Margin="16,-1,-16,1" Template="{DynamicResource TabItemControlTemplate_TwoTabHeader}">
-                <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto">
+
                 <Grid Background="White">
-                        <Button Content="打印" HorizontalAlignment="Right" Margin="0,10,100,0" VerticalAlignment="Top" Width="75"/>
-                        <Button Content="导出" HorizontalAlignment="Right" Margin="0,10,20,0" VerticalAlignment="Top" Width="75"/>
-                        <Label Content="科目及单位名称" HorizontalAlignment="Left" Margin="10,8,0,0" VerticalAlignment="Top"/>
-                        <TextBox x:Name="TextBox_费用明细" HorizontalAlignment="Left" Height="23" Margin="109,10,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" BorderThickness="0,0,0,1" MouseDoubleClick="TextBox_费用明细_MouseDoubleClick"/>
-                        <Button x:Name="Button_费用明细查询" Content="查询" HorizontalAlignment="Right" Margin="0,10,180,0" VerticalAlignment="Top" Width="75" Click="Button_费用明细_Click"/>
-                        <Grid VerticalAlignment="Top" Width="Auto" Margin="10,50,10,0">
+                    <Button Content="打印" HorizontalAlignment="Right" Margin="0,10,100,0" VerticalAlignment="Top" Width="75"/>
+                    <Button Content="导出" HorizontalAlignment="Right" Margin="0,10,20,0" VerticalAlignment="Top" Width="75"/>
+                    <Label Content="科目及单位名称" HorizontalAlignment="Left" Margin="10,8,0,0" VerticalAlignment="Top"/>
+                    <TextBox x:Name="TextBox_费用明细" HorizontalAlignment="Left" Height="23" Margin="109,10,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" BorderThickness="0,0,0,1" MouseDoubleClick="TextBox_费用明细_MouseDoubleClick"/>
+                    <Button x:Name="Button_费用明细查询" Content="查询" HorizontalAlignment="Right" Margin="0,10,180,0" VerticalAlignment="Top" Width="75" Click="Button_费用明细_Click"/>
+                    <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto" Margin="10,50,10,10">
+                        <Grid Width="Auto" Margin="0">
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="25" />
                                 <RowDefinition Height="25" />
                                 <RowDefinition Height="25" />
-                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="*" />
                             </Grid.RowDefinitions>
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition />
@@ -597,28 +598,30 @@
                             <Label Content="元"	Grid.Column="131"	Grid.Row="2" />
                             <Label Content="角"	Grid.Column="132"	Grid.Row="2" />
                             <Label Content="分"	Grid.Column="133"	Grid.Row="2" />
-                            <DataGrid x:Name="DataGrid_费用明细账" Grid.Row="3" ItemsSource="{Binding}" Grid.ColumnSpan="147" CanUserAddRows="False" AutoGenerateColumns="False" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
-                                
+                            <DataGrid x:Name="DataGrid_费用明细账" Grid.Row="3" ItemsSource="{Binding}" Grid.ColumnSpan="147" CanUserAddRows="False" AutoGenerateColumns="False" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" HeadersVisibility="None" Background="White" BorderBrush="LightBlue" Margin="0,-1,0,0">
+
                             </DataGrid>
                         </Grid>
-                    </Grid>
-                </ScrollViewer>
+                    </ScrollViewer>
+                </Grid>
+
             </TabItem>
             <TabItem FocusVisualStyle="{x:Null}" Header="科目明细账" Margin="24,-1,-24,1" Template="{DynamicResource TabItemControlTemplate_TwoTabHeader}">
-                <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
-                <Grid Background="White">
-                    <Button Content="打印" HorizontalAlignment="Right" Margin="0,10,100,0" VerticalAlignment="Top" Width="75" Click="Button_Click"/>
+                
+                    <Grid Background="White">
+                        <Button Content="打印" HorizontalAlignment="Right" Margin="0,10,100,0" VerticalAlignment="Top" Width="75" Click="Button_Click"/>
                         <Button Content="导出" HorizontalAlignment="Right" Margin="0,10,20,0" VerticalAlignment="Top" Width="75"/>
                         <Label Content="一级科目编号及名称" HorizontalAlignment="Left" Margin="10,8,0,0" VerticalAlignment="Top"/>
                         <TextBox x:Name="TextBox_一级科目" HorizontalAlignment="Left" Height="23" Margin="133,10,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" BorderThickness="0,0,0,1" MouseDoubleClick="TextBox_一级科目_MouseDoubleClick"/>
                         <Label Content="二级科目编号及名称" HorizontalAlignment="Left" Margin="10,38,0,0" VerticalAlignment="Top"/>
                         <TextBox x:Name="TextBox_二级科目" HorizontalAlignment="Left" Height="23" Margin="133,40,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" BorderThickness="0,0,0,1" MouseDoubleClick="TextBox_二级科目_MouseDoubleClick"/>
                         <Button x:Name="Button_查询" Content="查询" HorizontalAlignment="Right" Margin="0,10,180,0" VerticalAlignment="Top" Width="75" Click="Button_查询_Click"/>
-                        <Grid VerticalAlignment="Top" Width="Auto" Margin="10,80,10,0">
+                    <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto" Margin="10,80,10,10">
+                        <Grid Width="Auto" Margin="0">
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="25" />
                                 <RowDefinition Height="25" />
-                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="*" />
                             </Grid.RowDefinitions>
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="{Binding ElementName=column1,Path=ActualWidth}"/>
@@ -776,7 +779,7 @@
                             <Label Content="分" Grid.Column="43" Grid.Row="1" />
                             <Label Content="金额" HorizontalContentAlignment="Center" Grid.Column="32" Grid.ColumnSpan="12"/>
                             <Label Content="√" VerticalContentAlignment="Center" Grid.Column="44" Grid.RowSpan="2"/>
-                            <DataGrid x:Name="DataGrid_科目明细" Grid.Row="2" ItemsSource="{Binding}" Grid.ColumnSpan="45" IsReadOnly="True" CanUserAddRows="False" AutoGenerateColumns="False" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                            <DataGrid x:Name="DataGrid_科目明细" Grid.Row="2" ItemsSource="{Binding}" Grid.ColumnSpan="45" IsReadOnly="True" CanUserAddRows="False" AutoGenerateColumns="False" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" BorderBrush="LightBlue" HorizontalGridLinesBrush="LightBlue" VerticalGridLinesBrush="LightBlue" HeadersVisibility="None" Margin="0,-1,0,0" Background="White" HorizontalScrollBarVisibility="Disabled">
                                 <DataGrid.Columns>
                                     <DataGridTextColumn x:Name="column1" MinWidth="25" Binding="{Binding 月}"/>
                                     <DataGridTextColumn x:Name="column2" MinWidth="25" Binding="{Binding 日}"/>
@@ -826,9 +829,10 @@
                                 </DataGrid.Columns>
                             </DataGrid>
                         </Grid>
-                    </Grid>
-                </ScrollViewer>
+                    </ScrollViewer>
+                </Grid>
                 
+
             </TabItem>
             <TabItem FocusVisualStyle="{x:Null}" Header="固定资产管理" Margin="32,-1,-32,1" Template="{DynamicResource TabItemControlTemplate_TwoTabHeader}">
                 <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
