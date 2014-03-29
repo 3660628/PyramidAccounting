@@ -36,6 +36,7 @@ namespace PA.Helper.ExcelHelper
         /// </summary>
         public void ExportVouchers(Guid guid)
         {
+            int SheetNum = new PA.ViewModel.ViewModel_凭证管理().GetPageNum(guid);
             Model_凭证单 Voucher = new PA.ViewModel.ViewModel_凭证管理().GetVoucher(guid);
             List<Model_凭证明细> VoucherDetails = new PA.ViewModel.ViewModel_凭证管理().GetVoucherDetails(guid);
 
@@ -44,6 +45,7 @@ namespace PA.Helper.ExcelHelper
             File.Copy(SourceXls, ExportXls, true);
             xlWorkBook = xlApp.Workbooks.Open(ExportXls);
             xlWorkSheet = (xls.Worksheet)xlWorkBook.Worksheets.get_Item(1);
+            //fill Voucher
             int x = 1, y = 1;
             DataSet ds = new PA.Helper.ExcelHelper.ExcelReader().ExcelDataSource(ExportXls, "Sheet1");
             foreach (DataRow dr in ds.Tables[0].Rows)
@@ -60,13 +62,16 @@ namespace PA.Helper.ExcelHelper
                             {
                                 if (item.Name == "合计借方金额" || item.Name == "合计贷方金额")
                                 {
-                                    xlWorkSheet.Cells[y + 1, x] = "";
-                                    string money = item.GetValue(Voucher, null).ToString();
-                                    List<string> ListMoney = TransMoney(money);
-                                    for (int i = ListMoney.Count - 1; i >= 0; i--)
-                                    {
-                                        xlWorkSheet.Cells[y + 1, x + 10 - i] = ListMoney[i];
-                                    }
+                                    //xlWorkSheet.Cells[y + 1, x] = "";
+                                    //if (SheetNow == SheetNum)
+                                    //{
+                                    //    string money = item.GetValue(Voucher, null).ToString();
+                                    //    List<string> ListMoney = TransMoney(money);
+                                    //    for (int i = ListMoney.Count - 1; i >= 0; i--)
+                                    //    {
+                                    //        xlWorkSheet.Cells[y + 1, x + 10 - i] = ListMoney[i];
+                                    //    }
+                                    //}
                                 }
                                 else if (item.Name == "制表时间")
                                 {
@@ -79,62 +84,104 @@ namespace PA.Helper.ExcelHelper
                                 }
                             }
                         }
-
-                        if (key.StartsWith("摘要", false, null) || key.StartsWith("科目", false, null) || key.StartsWith("子细目", false, null) || key.StartsWith("记账", false, null))
-                        {
-                            int id = int.Parse(key.Substring(key.Length - 1, 1))-1;
-                            if (id < VoucherDetails.Count)
-                            {
-                                if (key.StartsWith("摘要", false, null))
-                                {
-                                    xlWorkSheet.Cells[y + 1, x] = VoucherDetails[id].摘要;
-                                }
-                                else if (key.StartsWith("科目", false, null))
-                                {
-                                    xlWorkSheet.Cells[y + 1, x] = VoucherDetails[id].科目编号;
-                                }
-                                else if (key.StartsWith("子细目", false, null))
-                                {
-                                    xlWorkSheet.Cells[y + 1, x] = VoucherDetails[id].子细目;
-                                }
-                                else if (key.StartsWith("记账", false, null))
-                                {
-                                    xlWorkSheet.Cells[y + 1, x] = (VoucherDetails[id].记账 == 1) ? "√" : "";
-                                }
-                            }
-                        }
-                        else if (key.StartsWith("借方", false, null) || key.StartsWith("贷方", false, null))
-                        {
-                            xlWorkSheet.Cells[y + 1, x] = "";
-                            int id = int.Parse(key.Substring(key.Length - 1, 1)) - 1;
-                            if (id < VoucherDetails.Count)
-                            {
-                                string money = string.Empty;
-                                if (key.StartsWith("借方", false, null))
-                                {
-                                    money = VoucherDetails[id].借方.ToString();
-                                }
-                                else if (key.StartsWith("贷方", false, null))
-                                {
-                                    money = VoucherDetails[id].贷方.ToString();
-                                }
-                                if(money == "0")
-                                {
-                                    x++;
-                                    continue;
-                                }
-                                List<string> ListMoney = TransMoney(money);
-                                for (int i = ListMoney.Count - 1; i >= 0; i--)
-                                {
-                                    xlWorkSheet.Cells[y + 1, x +10-i] = ListMoney[i];
-                                }
-                            }
-                        }
                     }
                     x++;
                 }
                 y++;
                 x = 1;
+            }
+            //copy sheet while SheetNum>1 after fill Voucher Data
+            for (int i = 1; i < SheetNum; i++)
+            {
+                xlWorkSheet.Copy(Type.Missing, xlWorkBook.Sheets[i]);
+                xlWorkBook.Worksheets.get_Item(i + 1).Name = "Sheet" + (i + 1);
+            }
+            //fill VoucherDetails
+            for (int i = 0; i < SheetNum; i++)
+            {
+                xlWorkSheet = (xls.Worksheet)xlWorkBook.Worksheets.get_Item(i+1);
+                int xDetails = 1, yDetails = 1;
+                DataSet dsDetails = new PA.Helper.ExcelHelper.ExcelReader().ExcelDataSource(ExportXls, "Sheet"+(i+1));
+                foreach (DataRow dr in dsDetails.Tables[0].Rows)
+                {
+                    foreach (DataColumn dc in dsDetails.Tables[0].Columns)
+                    {
+                        if (dr[dc].ToString().StartsWith("@", false, null))
+                        {
+                            string key = dr[dc].ToString().Replace("@", "");
+                            if (key.StartsWith("摘要", false, null) || key.StartsWith("科目", false, null) || key.StartsWith("子细目", false, null) || key.StartsWith("记账", false, null))
+                            {
+                                int id = int.Parse(key.Substring(key.Length - 1, 1)) - 1;
+                                if (id < VoucherDetails.Count)
+                                {
+                                    if (key.StartsWith("摘要", false, null))
+                                    {
+                                        xlWorkSheet.Cells[yDetails + 1, xDetails] = VoucherDetails[id + (i * 6)].摘要;
+                                    }
+                                    else if (key.StartsWith("科目", false, null))
+                                    {
+                                        xlWorkSheet.Cells[yDetails + 1, xDetails] = VoucherDetails[id + (i * 6)].科目编号;
+                                    }
+                                    else if (key.StartsWith("子细目", false, null))
+                                    {
+                                        xlWorkSheet.Cells[yDetails + 1, xDetails] = VoucherDetails[id + (i * 6)].子细目;
+                                    }
+                                    else if (key.StartsWith("记账", false, null))
+                                    {
+                                        xlWorkSheet.Cells[yDetails + 1, xDetails] = (VoucherDetails[id + (i * 6)].记账 == 1) ? "√" : "";
+                                    }
+                                }
+                            }
+                            else if (key.StartsWith("借方", false, null) || key.StartsWith("贷方", false, null))
+                            {
+                                xlWorkSheet.Cells[yDetails + 1, xDetails] = "";
+                                int id = int.Parse(key.Substring(key.Length - 1, 1)) - 1;
+                                if (id < VoucherDetails.Count)
+                                {
+                                    string money = string.Empty;
+                                    if (key.StartsWith("借方", false, null))
+                                    {
+                                        money = VoucherDetails[id + (i * 6)].借方.ToString();
+                                    }
+                                    else if (key.StartsWith("贷方", false, null))
+                                    {
+                                        money = VoucherDetails[id + (i * 6)].贷方.ToString();
+                                    }
+                                    if (money == "0")
+                                    {
+                                        xDetails++;
+                                        continue;
+                                    }
+                                    List<string> ListMoney = TransMoney(money);
+                                    for (int j = ListMoney.Count - 1; j >= 0; j--)
+                                    {
+                                        xlWorkSheet.Cells[yDetails + 1, xDetails + 10 - j] = ListMoney[j];
+                                    }
+                                }
+                            }
+                            else if (key.StartsWith("号", false, null))
+                            {
+                                xlWorkSheet.Cells[yDetails + 1, xDetails] = VoucherDetails[(i * 6)].凭证号;
+                            }
+                            //fill total money while the sheet is the last one
+                            else if (key.StartsWith("合计借方金额", false, null) || key.StartsWith("合计贷方金额", false, null))
+                            {
+                                xlWorkSheet.Cells[yDetails + 1, xDetails] = "";
+                                if(i==(SheetNum-1))
+                                {
+                                    List<string> ListMoney = (key.StartsWith("合计借方金额", false, null)) ? TransMoney(Voucher.合计借方金额.ToString()) : TransMoney(Voucher.合计贷方金额.ToString());
+                                    for (int j = ListMoney.Count - 1; j >= 0; j--)
+                                    {
+                                        xlWorkSheet.Cells[yDetails + 1, xDetails + 10 - j] = ListMoney[j];
+                                    }
+                                }
+                            }
+                        }
+                        xDetails++;
+                    }
+                    yDetails++;
+                    xDetails = 1;
+                }
             }
             xlApp.Visible = true;
 
@@ -143,6 +190,11 @@ namespace PA.Helper.ExcelHelper
             releaseObject(xlApp);
         }
 
+        /// <summary>
+        /// 将string类型的金额改成倒序List数组
+        /// </summary>
+        /// <param name="parm"></param>
+        /// <returns></returns>
         private List<string> TransMoney(string parm)
         {
             List<string> result = new List<string>();
