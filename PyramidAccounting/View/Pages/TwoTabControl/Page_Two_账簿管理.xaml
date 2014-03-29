@@ -8,7 +8,7 @@
 	Title="Page_Two_账簿管理">
 
     <Grid Margin="-3,0,-3,-3">
-        <StatusBar Height="25" Margin="0" VerticalAlignment="Bottom" Background="DarkGray"/>
+        <StatusBar Height="25" Margin="0" VerticalAlignment="Bottom" Background="#FFA6D9FF"/>
         <TabControl Margin="0,0,0,25" BorderBrush="White">
             <TabItem FocusVisualStyle="{x:Null}" Header="总账" Margin="8,-1,-8,1" Template="{DynamicResource TabItemControlTemplate_TwoTabHeader}">
                 <Grid Background="White">
@@ -17,8 +17,8 @@
                     <Label Content="科目及单位名称" HorizontalAlignment="Left" Margin="10,8,0,0" VerticalAlignment="Top"/>
                     <TextBox x:Name="TextBox_科目及单位名称" HorizontalAlignment="Left" Height="23" Margin="109,10,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" BorderThickness="0,0,0,1" MouseDoubleClick="TextBox_科目及单位名称_MouseDoubleClick"/>
                     <Button x:Name="Button_总账查询" Content="查询" HorizontalAlignment="Right" Margin="0,10,180,0" VerticalAlignment="Top" Width="75" Click="Button_总账查询_Click"/>
-                    <ScrollViewer VerticalScrollBarVisibility="Disabled" HorizontalScrollBarVisibility="Auto" Margin="10,50,10,10" HorizontalAlignment="Center">
-                        <Grid Width="Auto" Margin="0" HorizontalAlignment="Center">
+                    <ScrollViewer VerticalScrollBarVisibility="Disabled" HorizontalScrollBarVisibility="Visible" Margin="10,50,10,-3" HorizontalAlignment="Center">
+                        <Grid Width="Auto" Margin="0">
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="25" />
                                 <RowDefinition Height="25" />
@@ -197,14 +197,13 @@
                 </Grid>
             </TabItem>
             <TabItem FocusVisualStyle="{x:Null}" Header="费用明细账" Margin="16,-1,-16,1" Template="{DynamicResource TabItemControlTemplate_TwoTabHeader}">
-
                 <Grid Background="White">
                     <Button Content="打印" HorizontalAlignment="Right" Margin="0,10,100,0" VerticalAlignment="Top" Width="75"/>
                     <Button Content="导出" HorizontalAlignment="Right" Margin="0,10,20,0" VerticalAlignment="Top" Width="75"/>
                     <Label Content="科目及单位名称" HorizontalAlignment="Left" Margin="10,8,0,0" VerticalAlignment="Top"/>
                     <TextBox x:Name="TextBox_费用明细" HorizontalAlignment="Left" Height="23" Margin="109,10,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" BorderThickness="0,0,0,1" MouseDoubleClick="TextBox_费用明细_MouseDoubleClick"/>
                     <Button x:Name="Button_费用明细查询" Content="查询" HorizontalAlignment="Right" Margin="0,10,180,0" VerticalAlignment="Top" Width="75" Click="Button_费用明细_Click"/>
-                    <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto" Margin="10,50,10,10">
+                    <ScrollViewer VerticalScrollBarVisibility="Disabled" HorizontalScrollBarVisibility="Visible" Margin="10,50,10,-3" HorizontalAlignment="Center">
                         <Grid Width="Auto" Margin="0">
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="25" />
@@ -604,19 +603,17 @@
                         </Grid>
                     </ScrollViewer>
                 </Grid>
-
             </TabItem>
             <TabItem FocusVisualStyle="{x:Null}" Header="科目明细账" Margin="24,-1,-24,1" Template="{DynamicResource TabItemControlTemplate_TwoTabHeader}">
-                
-                    <Grid Background="White">
-                        <Button Content="打印" HorizontalAlignment="Right" Margin="0,10,100,0" VerticalAlignment="Top" Width="75" Click="Button_Click"/>
-                        <Button Content="导出" HorizontalAlignment="Right" Margin="0,10,20,0" VerticalAlignment="Top" Width="75"/>
-                        <Label Content="一级科目编号及名称" HorizontalAlignment="Left" Margin="10,8,0,0" VerticalAlignment="Top"/>
-                        <TextBox x:Name="TextBox_一级科目" HorizontalAlignment="Left" Height="23" Margin="133,10,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" BorderThickness="0,0,0,1" MouseDoubleClick="TextBox_一级科目_MouseDoubleClick"/>
-                        <Label Content="二级科目编号及名称" HorizontalAlignment="Left" Margin="10,38,0,0" VerticalAlignment="Top"/>
-                        <TextBox x:Name="TextBox_二级科目" HorizontalAlignment="Left" Height="23" Margin="133,40,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" BorderThickness="0,0,0,1" MouseDoubleClick="TextBox_二级科目_MouseDoubleClick"/>
-                        <Button x:Name="Button_查询" Content="查询" HorizontalAlignment="Right" Margin="0,10,180,0" VerticalAlignment="Top" Width="75" Click="Button_查询_Click"/>
-                    <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto" Margin="10,80,10,10">
+                <Grid Background="White">
+                    <Button Content="打印" HorizontalAlignment="Right" Margin="0,10,100,0" VerticalAlignment="Top" Width="75" Click="Button_Click"/>
+                    <Button Content="导出" HorizontalAlignment="Right" Margin="0,10,20,0" VerticalAlignment="Top" Width="75"/>
+                    <Label Content="一级科目编号及名称" HorizontalAlignment="Left" Margin="10,8,0,0" VerticalAlignment="Top"/>
+                    <TextBox x:Name="TextBox_一级科目" HorizontalAlignment="Left" Height="23" Margin="133,10,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" BorderThickness="0,0,0,1" MouseDoubleClick="TextBox_一级科目_MouseDoubleClick"/>
+                    <Label Content="二级科目编号及名称" HorizontalAlignment="Left" Margin="10,38,0,0" VerticalAlignment="Top"/>
+                    <TextBox x:Name="TextBox_二级科目" HorizontalAlignment="Left" Height="23" Margin="133,40,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" BorderThickness="0,0,0,1" MouseDoubleClick="TextBox_二级科目_MouseDoubleClick"/>
+                    <Button x:Name="Button_查询" Content="查询" HorizontalAlignment="Right" Margin="0,10,180,0" VerticalAlignment="Top" Width="75" Click="Button_查询_Click"/>
+                    <ScrollViewer HorizontalScrollBarVisibility="Visible" VerticalScrollBarVisibility="Disabled" Margin="10,80,10,-3" HorizontalAlignment="Center">
                         <Grid Width="Auto" Margin="0">
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="25" />
@@ -831,18 +828,16 @@
                         </Grid>
                     </ScrollViewer>
                 </Grid>
-                
-
             </TabItem>
             <TabItem FocusVisualStyle="{x:Null}" Header="固定资产管理" Margin="32,-1,-32,1" Template="{DynamicResource TabItemControlTemplate_TwoTabHeader}">
-                <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
-                    <Grid Background="White">
-                        <Grid VerticalAlignment="Top" Width="Auto" Margin="10,50,10,0">
+                <Grid Background="White">
+                    <ScrollViewer HorizontalScrollBarVisibility="Visible" VerticalScrollBarVisibility="Disabled" Margin="10,50,10,-3" HorizontalAlignment="Center">
+                        <Grid Width="Auto" Margin="0">
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="25" />
                                 <RowDefinition Height="25" />
                                 <RowDefinition Height="25" />
-                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="*" />
                             </Grid.RowDefinitions>
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition />
@@ -955,11 +950,11 @@
                                 <Run Text="编号" />
                             </TextBlock>
                             <Label Content="备 注" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Column="23" Grid.Row="1"  Grid.RowSpan="2"/>
-                            <DataGrid x:Name="DataGrid_固定资产" Grid.Row="3" ItemsSource="{Binding}" Grid.ColumnSpan="24" CanUserAddRows="False" AutoGenerateColumns="False" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                            <DataGrid x:Name="DataGrid_固定资产" Grid.Row="3" ItemsSource="{Binding}" Grid.ColumnSpan="24" CanUserAddRows="False" AutoGenerateColumns="False" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" HeadersVisibility="None" Margin="0,-1,0,0" Background="White" BorderBrush="LightBlue" HorizontalGridLinesBrush="LightBlue" VerticalGridLinesBrush="LightBlue">
                             </DataGrid>
                         </Grid>
-                    </Grid>
-                </ScrollViewer>
+                    </ScrollViewer>
+                </Grid>
             </TabItem>
         </TabControl>
         <!--弹出面板-->
