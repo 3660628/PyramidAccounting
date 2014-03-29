@@ -79,11 +79,11 @@ namespace PA.View.Pages.TwoTabControl
         /// </summary>
         private void VisibilityData()
         {
-            if (new ViewModel_年初金额().IsSaved())
+            /*if (new ViewModel_年初金额().IsSaved())
             {
                 this.DataGridTextColumn_fee.IsReadOnly = true;
                 this.Button_科目保存.Visibility = Visibility.Hidden;
-            }
+            }*/
             if (CommonInfo.权限值 < 3)
             {
                 Expander_权限.Visibility = Visibility.Hidden;
@@ -106,7 +106,7 @@ namespace PA.View.Pages.TwoTabControl
             new ViewModel_年初金额().Update(lm);
             //刷新操作
             Button btn = sender as Button;
-            btn.Visibility = Visibility.Hidden;
+            //btn.Visibility = Visibility.Hidden;
         }
 
         private void Button_编辑子细目_Click(object sender, RoutedEventArgs e)
