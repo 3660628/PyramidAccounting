@@ -9,9 +9,16 @@ using System.Data;
 
 namespace PA.ViewModel
 {
-    class ViewModel_科目明细账
+    class ViewModel_账薄管理
     {
         private DataBase db = new DataBase();
+        /// <summary>
+        /// 科目明细账查询方法
+        /// </summary>
+        /// <param name="subject_id"></param>
+        /// <param name="detail"></param>
+        /// <param name="childSubjectId"></param>
+        /// <returns></returns>
         public List<Model_科目明细账> GetData(string subject_id,string detail,string childSubjectId)
         {
             List<Model_科目明细账> list = new List<Model_科目明细账>();
@@ -49,7 +56,7 @@ namespace PA.ViewModel
                     if (string.IsNullOrEmpty(m.借方金额))
                     {
                         temp = d[4].ToString();
-                        _list = Turn(d[4].ToString());
+                        _list = Turn(d[4].ToString(),12);
                         m.贷方金额1 = _list[0];
                         m.贷方金额2 = _list[1];
                         m.贷方金额3 = _list[2];
@@ -68,7 +75,7 @@ namespace PA.ViewModel
                     else
                     {
                         temp = d[3].ToString();
-                        _list = Turn(d[3].ToString());
+                        _list = Turn(d[3].ToString(),12);
                         m.借方金额1 = _list[0];
                         m.借方金额2 = _list[1];
                         m.借方金额3 = _list[2];
@@ -86,7 +93,7 @@ namespace PA.ViewModel
 
                     yearfee = (Convert.ToDecimal(yearfee) - Convert.ToDecimal(temp)).ToString();
                     _list.Clear();
-                    _list = Turn(yearfee);
+                    _list = Turn(yearfee,12);
                     m.余额1 = _list[0];
                     m.余额2 = _list[1];
                     m.余额3 = _list[2];
@@ -110,11 +117,12 @@ namespace PA.ViewModel
         /// <summary>
         /// 金额转换算法
         /// </summary>
-        /// <param name="value"></param>
-        /// <returns></returns>
-        private List<string> Turn(string value)
+        /// <param name="value">转换数</param>
+        /// <param name="size">位数</param>
+        /// <returns>List</returns>
+        private List<string> Turn(string value,int size)
         {
-            List<string> list = new List<string>(12);
+            List<string> list = new List<string>();
             int length = value.Length;
             value = value.Replace(".", "");
             string s = string.Empty;
@@ -122,7 +130,7 @@ namespace PA.ViewModel
 
             if (value.IndexOf(".") > 0)
             {
-                for(int j = 0 ; j < 12-length; j ++)
+                for (int j = 0; j < size - length; j++)
                 {
                     list.Add(s);
                 }
@@ -134,7 +142,7 @@ namespace PA.ViewModel
             }
             else
             {
-                for (int j = 0; j < 10 - length; j++)
+                for (int j = 0; j < size - 2 - length; j++)
                 {
                     list.Add(s);
                 }

@@ -24,7 +24,7 @@ namespace PA.View.Pages.TwoTabControl
     /// </summary>
     public partial class Page_Two_账簿管理 : Page
     {
-        private ViewModel_科目明细账 vmk = new ViewModel_科目明细账();
+        private ViewModel_账薄管理 vmk = new ViewModel_账薄管理();
         public Page_Two_账簿管理()
         {
             InitializeComponent();
@@ -82,11 +82,13 @@ namespace PA.View.Pages.TwoTabControl
             {
                 MessageBoxCommon.Show("请选择一级科目");
                 TextBox_一级科目.Focus();
+                return;
             }
             else if (string.IsNullOrEmpty(TextBox_二级科目.Text))
             {
                 MessageBoxCommon.Show("请选择二级科目");
                 TextBox_二级科目.Focus();
+                return;
             }
             else
             {
@@ -103,7 +105,16 @@ namespace PA.View.Pages.TwoTabControl
 
         private void Button_总账查询_Click(object sender, RoutedEventArgs e)
         {
+            if (string.IsNullOrEmpty(TextBox_科目及单位名称.Text))
+            {
+                MessageBoxCommon.Show("请选择科目");
+                TextBox_科目及单位名称.Focus();
+                return;
+            }
+            else
+            {
 
+            }
         }
 
         private void Button_费用明细_Click(object sender, RoutedEventArgs e)
