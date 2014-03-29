@@ -15,7 +15,6 @@ namespace PA.Helper.DataBase
     {
         public static string dataSource = "Data\\" + new XMLReader().ReadXML("数据库");
         public static string dbPassword = "";
-        private ReadBalanceSheet rs = new ReadBalanceSheet();
 
         public DBInitialize()
         {
@@ -47,12 +46,13 @@ namespace PA.Helper.DataBase
         private List<string> GetSubjectSqlList()
         {
             List<string> list = new List<string>();
+            ExcelReader er = new ExcelReader();
             DirectoryInfo theFolder = new DirectoryInfo("Data\\科目");
             int i = 0;
             foreach (FileInfo newFile in theFolder.GetFiles())
             {
                 List<Model_BalanceSheet> BalanceSheetDatas = new List<Model_BalanceSheet>();
-                BalanceSheetDatas = rs.Read(newFile.FullName);
+                BalanceSheetDatas = er.ReadBalanceSheet(newFile.FullName);
                 string baseTableName = "T_SUBJECT";
                 string tableName = baseTableName + "_" + i;
                 string table_Sql = new Helper.SQLHelper.SQLReader().ReadSQL(2, baseTableName,tableName);

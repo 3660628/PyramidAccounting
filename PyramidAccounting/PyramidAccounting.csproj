@@ -96,7 +96,6 @@
     <Compile Include="Helper\ExcelHelper\ExcelHelper.cs" />
     <Compile Include="Helper\ExcelHelper\ExcelReader.cs" />
     <Compile Include="Helper\ExcelHelper\ExcelWriter.cs" />
-    <Compile Include="Helper\ExcelHelper\ReadBalanceSheet.cs" />
     <Compile Include="Helper\GridHelper\GridBorderHelper.cs" />
     <Compile Include="Helper\SQLHelper\SQLReader.cs" />
     <Compile Include="Helper\XMLHelper\InitXMLConfig.cs" />
