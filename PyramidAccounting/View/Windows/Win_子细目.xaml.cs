@@ -120,7 +120,7 @@ namespace PA.View.Windows
             {
                 return;
             }
-            List<int> list = new List<int>();
+            List<Model_科目管理> list = new List<Model_科目管理>();
             for (int i = 0; i < DataGrid_子细目.SelectedItems.Count; i++)
             {
                 Model_科目管理 m = new Model_科目管理();
@@ -132,7 +132,7 @@ namespace PA.View.Windows
                 {
                     
                 }
-                list.Add(m.ID);
+                list.Add(m);
             }
             vm.Delete(list);
             list.Clear();
@@ -143,9 +143,9 @@ namespace PA.View.Windows
         {
             Model_科目管理 m = new Model_科目管理();
             m = e.Row.Item as Model_科目管理;
+            m.父ID = TextBox_科目编号.Text.ToString();
             if (judge == 1 || initFlag)
             {
-                m.父ID = TextBox_科目编号.Text.ToString();
                 lm.Add(m);
                 initFlag = false;
             }
