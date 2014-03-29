@@ -202,7 +202,7 @@
                         <Button Content="打印" HorizontalAlignment="Right" Margin="0,10,100,0" VerticalAlignment="Top" Width="75"/>
                         <Button Content="导出" HorizontalAlignment="Right" Margin="0,10,20,0" VerticalAlignment="Top" Width="75"/>
                         <Label Content="科目及单位名称" HorizontalAlignment="Left" Margin="10,8,0,0" VerticalAlignment="Top"/>
-                        <TextBox x:Name="TextBox_费用明细" HorizontalAlignment="Left" Height="23" Margin="109,10,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" BorderThickness="0,0,0,1"/>
+                        <TextBox x:Name="TextBox_费用明细" HorizontalAlignment="Left" Height="23" Margin="109,10,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" BorderThickness="0,0,0,1" MouseDoubleClick="TextBox_费用明细_MouseDoubleClick"/>
                         <Button x:Name="Button_费用明细查询" Content="查询" HorizontalAlignment="Right" Margin="0,10,180,0" VerticalAlignment="Top" Width="75" Click="Button_费用明细_Click"/>
                         <Grid VerticalAlignment="Top" Width="Auto" Margin="10,50,10,0">
                             <Grid.RowDefinitions>
@@ -485,7 +485,7 @@
                             <Label Content="元" Grid.Column="21" Grid.Row="2" />
                             <Label Content="角" Grid.Column="22" Grid.Row="2" />
                             <Label Content="分" Grid.Column="23" Grid.Row="2" />
-                            <Label Content="金额" HorizontalContentAlignment="Center" VerticalAlignment="Center" Grid.Column="24" Grid.ColumnSpan="10" Grid.RowSpan="2"/>
+                            <Label Content="余额" HorizontalContentAlignment="Center" VerticalAlignment="Center" Grid.Column="24" Grid.ColumnSpan="10" Grid.RowSpan="2"/>
                             <Label Content="千" Grid.Column="24" Grid.Row="2" />
                             <Label Content="百" Grid.Column="25" Grid.Row="2" />
                             <Label Content="十" Grid.Column="26" Grid.Row="2" />
@@ -496,7 +496,7 @@
                             <Label Content="元" Grid.Column="31" Grid.Row="2" />
                             <Label Content="角" Grid.Column="32" Grid.Row="2" />
                             <Label Content="分" Grid.Column="33" Grid.Row="2" />
-                            <Label Content="借贷方金额分析" HorizontalContentAlignment="Left" Grid.Column="34" Grid.ColumnSpan="90"/>
+                            <Label Content="借       贷       方       金       额       分       析" HorizontalContentAlignment="Center" Grid.Column="34" Grid.ColumnSpan="90"/>
                             <Label Content="千" Grid.Column="34" Grid.Row="2" />
                             <Label Content="百" Grid.Column="35" Grid.Row="2" />
                             <Label Content="十" Grid.Column="36" Grid.Row="2" />

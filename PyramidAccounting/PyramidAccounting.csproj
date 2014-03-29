@@ -117,6 +117,7 @@
     <Compile Include="Model\DataGrid\Model_用户.cs" />
     <Compile Include="Model\DataGrid\Model_科目管理.cs" />
     <Compile Include="Model\CustomEventArgs\StringEventArgs.cs" />
+    <Compile Include="Model\DataGrid\Model_费用明细.cs" />
     <Compile Include="Model\DataGrid\Model_资产负债表.cs" />
     <Compile Include="Model\Others\Model_BalanceSheet.cs" />
     <Compile Include="ViewModel\ViewModel_Books.cs" />

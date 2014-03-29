@@ -25,6 +25,7 @@ namespace PA.View.Pages.TwoTabControl
     public partial class Page_Two_账簿管理 : Page
     {
         private ViewModel_账薄管理 vmk = new ViewModel_账薄管理();
+        PA.View.Pages.Pop.凭证录入.Page_凭证录入_科目 page = new PA.View.Pages.Pop.凭证录入.Page_凭证录入_科目();
         public Page_Two_账簿管理()
         {
             InitializeComponent();
@@ -46,6 +47,15 @@ namespace PA.View.Pages.TwoTabControl
                 TextBox_科目及单位名称.Text = e.Str;
             }
         }
+        private void FillData费用(object sender, StringEventArgs e)
+        {
+            this.Popup_科目子细目.IsOpen = false;
+            this.IsEnabled = true;
+            if (typeof(PA.View.Pages.Pop.凭证录入.Page_凭证录入_科目).IsInstanceOfType(sender))
+            {
+                this.TextBox_费用明细.Text = e.Str;
+            }
+        }
         private void DoFillData(object sender, StringEventArgs e)
         {
             this.Popup_科目子细目.IsOpen = false;
@@ -61,15 +71,21 @@ namespace PA.View.Pages.TwoTabControl
         }
         private void TextBox_科目及单位名称_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
-            PA.View.Pages.Pop.凭证录入.Page_凭证录入_科目 page = new PA.View.Pages.Pop.凭证录入.Page_凭证录入_科目();
             page.FillDate += new Pages.Pop.凭证录入.Page_凭证录入_科目_FillDateEventHandle(FillData总账);
             this.Frame_科目子细目.Content = page;
             this.Popup_科目子细目.IsOpen = true;
             this.IsEnabled = false;
         }
+        private void TextBox_费用明细_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            page.FillDate += new Pages.Pop.凭证录入.Page_凭证录入_科目_FillDateEventHandle(FillData费用);
+            this.Frame_科目子细目.Content = page;
+            this.Popup_科目子细目.IsOpen = true;
+            this.IsEnabled = false;
+        }
+
         private void TextBox_一级科目_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
-            PA.View.Pages.Pop.凭证录入.Page_凭证录入_科目 page = new PA.View.Pages.Pop.凭证录入.Page_凭证录入_科目();
             page.FillDate += new Pages.Pop.凭证录入.Page_凭证录入_科目_FillDateEventHandle(DoFillData);
             this.Frame_科目子细目.Content = page;
             this.Popup_科目子细目.IsOpen = true;
@@ -95,6 +111,8 @@ namespace PA.View.Pages.TwoTabControl
 
         }
 
+
+        #region 查询事件
         private void Button_查询_Click(object sender, RoutedEventArgs e)
         {
             if (string.IsNullOrEmpty(TextBox_一级科目.Text))
@@ -162,8 +180,32 @@ namespace PA.View.Pages.TwoTabControl
 
         private void Button_费用明细_Click(object sender, RoutedEventArgs e)
         {
-
+            if (string.IsNullOrEmpty(TextBox_费用明细.Text))
+            {
+                MessageBoxCommon.Show("请选择科目");
+                this.TextBox_费用明细.Focus();
+                return;
+            }
+            else
+            {
+                string a = TextBox_费用明细.Text.ToString();
+                List<Model_总账> lm = vmk.GetData(a);
+                this.DataGrid_费用明细账.ColumnHeaderHeight = 0;
+                this.DataGrid_费用明细账.RowHeaderWidth = 0;
+                this.DataGrid_费用明细账.ItemsSource = lm;
+                if (lm.Count > 0)
+                {
+                    this.Label_费用明细年.Content = lm[0].年 + "年";
+                }
+                else
+                {
+                    Model_总账 m = new Model_总账();
+                    m.摘要 = "查询不到数据！";
+                    lm.Add(m);
+                }
+                this.DataGrid_总账.ItemsSource = lm;
+            }
         }
-
+        #endregion
     }
 }
