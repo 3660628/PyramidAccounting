@@ -92,9 +92,10 @@ namespace PA.View.Pages.TwoTabControl
             {
                 string a = TextBox_一级科目.Text.ToString().Split('\t')[1];
                 string b = TextBox_二级科目.Text.ToString().Split('\t')[1];
+                string c = TextBox_二级科目.Text.ToString().Split('\t')[0];
                 this.DataGrid_科目明细.ColumnHeaderHeight = 0;
                 this.DataGrid_科目明细.RowHeaderWidth = 0;
-                List<Model_科目明细账> lm = vmk.GetData(a, b);
+                List<Model_科目明细账> lm = vmk.GetData(a, b, c);
                 this.DataGrid_科目明细.ItemsSource = lm;
                 this.Label_年.Content = lm[0].年 + "年";
             }

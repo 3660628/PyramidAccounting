@@ -12,7 +12,7 @@ namespace PA.ViewModel
     class ViewModel_科目明细账
     {
         private DataBase db = new DataBase();
-        public List<Model_科目明细账> GetData(string subject_name,string detail)
+        public List<Model_科目明细账> GetData(string subject_id,string detail,string childSubjectId)
         {
             List<Model_科目明细账> list = new List<Model_科目明细账>();
             string sql = "select b.op_time,a.voucher_no,a.abstract,a.debit,a.credit from " 
@@ -20,9 +20,11 @@ namespace PA.ViewModel
                 + " a left join " 
                 + DBTablesName.T_VOUCHER 
                 + " b on a.parentid=b.id where a.subject_id='"
-                + subject_name 
+                + subject_id 
                 + "'" + " and  a.detail='"
                 + detail + "' order by b.op_time";
+            string sql2 = "select fee from t_yearfee where subject_id='" + childSubjectId + "' and bookid='" + CommonInfo.账薄号 + "'";
+            string yearfee = db.GetAllData(sql2).Split('\t')[0].Split(',')[0];
             DataSet ds = new DataSet();
             ds = db.Query(sql);
             if (ds != null)
@@ -39,9 +41,11 @@ namespace PA.ViewModel
                     m.摘要 = d[2].ToString();
                     m.借方金额 = d[3].ToString();
                     m.贷方金额 = d[4].ToString();
+                    string temp = string.Empty;
                     List<string> _list = new List<string>();
                     if (string.IsNullOrEmpty(m.借方金额))
                     {
+                        temp = d[4].ToString();
                         _list = Turn(d[4].ToString());
                         m.贷方金额1 = _list[0];
                         m.贷方金额2 = _list[1];
@@ -56,9 +60,11 @@ namespace PA.ViewModel
                         m.贷方金额11 = _list[10];
                         m.贷方金额12 = _list[11];
                         m.借或贷 = "贷";
+                       
                     }
                     else
                     {
+                        temp = d[3].ToString();
                         _list = Turn(d[3].ToString());
                         m.借方金额1 = _list[0];
                         m.借方金额2 = _list[1];
@@ -75,6 +81,21 @@ namespace PA.ViewModel
                         m.借或贷 = "借";
                     }
 
+                    yearfee = (Convert.ToDecimal(yearfee) - Convert.ToDecimal(temp)).ToString();
+                    _list.Clear();
+                    _list = Turn(yearfee);
+                    m.余额1 = _list[0];
+                    m.余额2 = _list[1];
+                    m.余额3 = _list[2];
+                    m.余额4 = _list[3];
+                    m.余额5 = _list[4];
+                    m.余额6 = _list[5];
+                    m.余额7 = _list[6];
+                    m.余额8 = _list[7];
+                    m.余额9 = _list[8];
+                    m.余额10 = _list[9];
+                    m.余额11 = _list[10];
+                    m.余额12 = _list[11];
                     _list.Clear();
 
                     list.Add(m);

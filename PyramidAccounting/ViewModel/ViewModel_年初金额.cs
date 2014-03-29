@@ -41,7 +41,8 @@ namespace PA.ViewModel
                 mm.科目编号 = m.科目编号;
                 mm.年初金额 = m.年初金额;
 
-                string sql = "update " + DBTablesName.T_YEAR_FEE + " set fee='" + mm.年初金额 + "' where parentid=0 and bookid='" 
+                string sql = "update " + DBTablesName.T_YEAR_FEE + " set fee='"
+                    + mm.年初金额 + "' where parentid=0 and bookid='" 
                     + CommonInfo.账薄号 + "' and subject_id='" + mm.科目编号 + "'";
                 sqlList.Add(sql);
             }
@@ -51,7 +52,8 @@ namespace PA.ViewModel
         public bool IsSaved()
         {
             bool flag = false;
-            string sql = "select sum(fee) from " + DBTablesName.T_YEAR_FEE + " where bookid='" + CommonInfo.账薄号 + "'";
+            string sql = "select sum(fee) from " + DBTablesName.T_YEAR_FEE 
+                + " where bookid='" + CommonInfo.账薄号 + "'";
             string str = db.GetAllData(sql).Split('\t')[0];
             if (str.Equals(","))
             {
