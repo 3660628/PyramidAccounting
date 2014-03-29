@@ -21,7 +21,7 @@ namespace PA.ViewModel
                 + DBTablesName.T_VOUCHER 
                 + " b on a.parentid=b.id where a.subject_id='"
                 + subject_id 
-                + "'" + " and  a.detail='"
+                + "'" + " and b.delete_mark=0 and  a.detail='"
                 + detail + "' order by b.op_time";
 
             //判断第一期查年初数

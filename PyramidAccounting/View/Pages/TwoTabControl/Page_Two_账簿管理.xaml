@@ -776,7 +776,7 @@
                             <Label Content="分" Grid.Column="43" Grid.Row="1" />
                             <Label Content="金额" HorizontalContentAlignment="Center" Grid.Column="32" Grid.ColumnSpan="12"/>
                             <Label Content="√" VerticalContentAlignment="Center" Grid.Column="44" Grid.RowSpan="2"/>
-                            <DataGrid x:Name="DataGrid_科目明细" Grid.Row="2" ItemsSource="{Binding}" Grid.ColumnSpan="45" CanUserAddRows="False" AutoGenerateColumns="False" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                            <DataGrid x:Name="DataGrid_科目明细" Grid.Row="2" ItemsSource="{Binding}" Grid.ColumnSpan="45" IsReadOnly="True" CanUserAddRows="False" AutoGenerateColumns="False" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
                                 <DataGrid.Columns>
                                     <DataGridTextColumn x:Name="column1" MinWidth="25" Binding="{Binding 月}"/>
                                     <DataGridTextColumn x:Name="column2" MinWidth="25" Binding="{Binding 日}"/>
