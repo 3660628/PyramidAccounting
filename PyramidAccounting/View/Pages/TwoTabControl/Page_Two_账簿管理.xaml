@@ -66,7 +66,6 @@
                                 <ColumnDefinition Width="{Binding ElementName=zzcolumn38,Path=ActualWidth}"/>
                                 <ColumnDefinition Width="{Binding ElementName=zzcolumn39,Path=ActualWidth}"/>
                                 <ColumnDefinition Width="{Binding ElementName=zzcolumn40,Path=ActualWidth}"/>
-                                <ColumnDefinition Width="{Binding ElementName=zzcolumn41,Path=ActualWidth}"/>
                             </Grid.ColumnDefinitions>
                             <Border BorderBrush="LightBlue" BorderThickness="1" Grid.ColumnSpan="41" Grid.RowSpan="3"/>
                             <Border BorderBrush="LightBlue" BorderThickness="0,1,0,1" Grid.Row="1" Grid.ColumnSpan="2"/>
@@ -597,7 +596,7 @@
                             <Label Content="元"	Grid.Column="131"	Grid.Row="2" />
                             <Label Content="角"	Grid.Column="132"	Grid.Row="2" />
                             <Label Content="分"	Grid.Column="133"	Grid.Row="2" />
-                            <DataGrid x:Name="DataGrid_费用明细账" Grid.Row="3" ItemsSource="{Binding}" Grid.ColumnSpan="147" CanUserAddRows="False" AutoGenerateColumns="False" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" HeadersVisibility="None" Background="White" BorderBrush="LightBlue" Margin="0,-1,0,0">
+                            <DataGrid x:Name="DataGrid_费用明细账" Grid.Row="3" ItemsSource="{Binding}" Grid.ColumnSpan="147" CanUserAddRows="False" AutoGenerateColumns="False" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" HeadersVisibility="None" Background="White" BorderBrush="LightBlue" Margin="0,-1,0,0" HorizontalScrollBarVisibility="Disabled">
 
                             </DataGrid>
                         </Grid>
@@ -666,7 +665,6 @@
                                 <ColumnDefinition Width="{Binding ElementName=column41,Path=ActualWidth}"/>
                                 <ColumnDefinition Width="{Binding ElementName=column42,Path=ActualWidth}"/>
                                 <ColumnDefinition Width="{Binding ElementName=column43,Path=ActualWidth}"/>
-                                <ColumnDefinition Width="{Binding ElementName=column44,Path=ActualWidth}"/>
                             </Grid.ColumnDefinitions>
                             <Border BorderBrush="LightBlue" BorderThickness="1" Grid.ColumnSpan="45" Grid.RowSpan="3" />
                             <Border BorderBrush="LightBlue" BorderThickness="0,1,0,1" Grid.Row="1" Grid.ColumnSpan="2"/>
@@ -950,7 +948,7 @@
                                 <Run Text="编号" />
                             </TextBlock>
                             <Label Content="备 注" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Column="23" Grid.Row="1"  Grid.RowSpan="2"/>
-                            <DataGrid x:Name="DataGrid_固定资产" Grid.Row="3" ItemsSource="{Binding}" Grid.ColumnSpan="24" CanUserAddRows="False" AutoGenerateColumns="False" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" HeadersVisibility="None" Margin="0,-1,0,0" Background="White" BorderBrush="LightBlue" HorizontalGridLinesBrush="LightBlue" VerticalGridLinesBrush="LightBlue">
+                            <DataGrid x:Name="DataGrid_固定资产" Grid.Row="3" ItemsSource="{Binding}" Grid.ColumnSpan="24" CanUserAddRows="False" AutoGenerateColumns="False" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" HeadersVisibility="None" Margin="0,-1,0,0" Background="White" BorderBrush="LightBlue" HorizontalGridLinesBrush="LightBlue" VerticalGridLinesBrush="LightBlue" HorizontalScrollBarVisibility="Disabled">
                             </DataGrid>
                         </Grid>
                     </ScrollViewer>
