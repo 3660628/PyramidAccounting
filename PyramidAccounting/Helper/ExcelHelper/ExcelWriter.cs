@@ -62,16 +62,7 @@ namespace PA.Helper.ExcelHelper
                             {
                                 if (item.Name == "合计借方金额" || item.Name == "合计贷方金额")
                                 {
-                                    //xlWorkSheet.Cells[y + 1, x] = "";
-                                    //if (SheetNow == SheetNum)
-                                    //{
-                                    //    string money = item.GetValue(Voucher, null).ToString();
-                                    //    List<string> ListMoney = TransMoney(money);
-                                    //    for (int i = ListMoney.Count - 1; i >= 0; i--)
-                                    //    {
-                                    //        xlWorkSheet.Cells[y + 1, x + 10 - i] = ListMoney[i];
-                                    //    }
-                                    //}
+
                                 }
                                 else if (item.Name == "制表时间")
                                 {
