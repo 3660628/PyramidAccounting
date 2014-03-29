@@ -3,6 +3,7 @@
     <Style x:Key="TextBlockStyle_左对齐" TargetType="{x:Type TextBlock}">
         <Setter Property="TextAlignment" Value="Left"/>
         <Setter Property="VerticalAlignment" Value="Center"/>
+        <Setter Property="TextWrapping" Value="Wrap"/>
     </Style>
     <Style x:Key="TextBlockStyle_右对齐" TargetType="{x:Type TextBlock}">
         <Setter Property="TextAlignment" Value="Right"/>
@@ -11,6 +12,7 @@
     <Style x:Key="TextBlockStyle_居中对齐" TargetType="{x:Type TextBlock}">
         <Setter Property="TextAlignment" Value="Center"/>
         <Setter Property="VerticalAlignment" Value="Center"/>
+        <Setter Property="TextWrapping" Value="Wrap"/>
     </Style>
     <SolidColorBrush x:Key="{x:Static DataGrid.FocusBorderBrushKey}" Color="#FF000000"/>
     <Style x:Key="DataGridCellStyle_凭证录入" TargetType="{x:Type DataGridCell}">
