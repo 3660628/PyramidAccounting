@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Globalization;
 using xls = Microsoft.Office.Interop.Excel;
 using System.Data;
 using System.Data.OleDb;
@@ -67,6 +68,11 @@ namespace PA.Helper.ExcelHelper
                                         xlWorkSheet.Cells[y + 1, x + 10 - i] = ListMoney[i];
                                     }
                                 }
+                                else if (item.Name == "制表时间")
+                                {
+                                    string format = "yyyy年MM月dd日";
+                                    xlWorkSheet.Cells[y + 1, x] = DateTime.Parse(item.GetValue(Voucher, null).ToString()).ToString(format, DateTimeFormatInfo.InvariantInfo);
+                                }
                                 else
                                 {
                                     xlWorkSheet.Cells[y + 1, x] = item.GetValue(Voucher, null);
@@ -103,7 +109,7 @@ namespace PA.Helper.ExcelHelper
                             int id = int.Parse(key.Substring(key.Length - 1, 1)) - 1;
                             if (id < VoucherDetails.Count)
                             {
-                                string money = "0";
+                                string money = string.Empty;
                                 if (key.StartsWith("借方", false, null))
                                 {
                                     money = VoucherDetails[id].借方.ToString();
@@ -136,6 +142,7 @@ namespace PA.Helper.ExcelHelper
             releaseObject(xlWorkBook);
             releaseObject(xlApp);
         }
+
         private List<string> TransMoney(string parm)
         {
             List<string> result = new List<string>();
@@ -159,6 +166,7 @@ namespace PA.Helper.ExcelHelper
             }
             return result;
         }
+
         private void releaseObject(object obj)
         {
             try
