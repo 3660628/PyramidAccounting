@@ -109,6 +109,7 @@
     <Compile Include="Model\DataGrid\Model_凭证单.cs" />
     <Compile Include="Model\DataGrid\Model_凭证明细.cs" />
     <Compile Include="Model\DataGrid\Model_凭证管理.cs" />
+    <Compile Include="Model\DataGrid\Model_总账.cs" />
     <Compile Include="Model\DataGrid\Model_科目明细账.cs" />
     <Compile Include="Model\DataGrid\Model_账套.cs" />
     <Compile Include="Model\DataGrid\Model_年初金额.cs" />
