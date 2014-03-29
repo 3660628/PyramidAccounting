@@ -64,7 +64,6 @@ namespace PA.ViewModel
                         m.贷方金额11 = _list[10];
                         m.贷方金额12 = _list[11];
                         m.借或贷 = "贷";
-
                     }
                     else
                     {
@@ -125,7 +124,7 @@ namespace PA.ViewModel
                 + DBTablesName.T_VOUCHER
                 + " b on a.parentid=b.id where a.subject_id='"
                 + subject_id.Split('\t')[1]
-                + "'" + " and b.delete_mark=0 order by b.op_time)t group by t.number,t.time ";
+                + "'" + " and b.delete_mark=0 and (a.debit+a.credit)>0 order by b.op_time)t group by t.number,t.time ";
 
             //判断第一期查年初数
             //以后差每一期期末数
@@ -167,7 +166,7 @@ namespace PA.ViewModel
                     else
                     {
                         temp = d[3].ToString();
-                        _list = Turn(d[3].ToString(), 12);
+                        _list = Turn(d[3].ToString(), 10);
                         m.借方金额1 = _list[0];
                         m.借方金额2 = _list[1];
                         m.借方金额3 = _list[2];
@@ -182,7 +181,7 @@ namespace PA.ViewModel
 
                     yearfee = (Convert.ToDecimal(yearfee) - Convert.ToDecimal(temp)).ToString();
                     _list.Clear();
-                    _list = Turn(yearfee, 12);
+                    _list = Turn(yearfee, 10);
                     m.余额1 = _list[0];
                     m.余额2 = _list[1];
                     m.余额3 = _list[2];
@@ -194,6 +193,13 @@ namespace PA.ViewModel
                     m.余额9 = _list[8];
                     m.余额10 = _list[9];
                     _list.Clear();
+
+                    if (!string.IsNullOrEmpty(d[5].ToString()))
+                    {
+                        _list = Turn(d[5].ToString(), 10);
+                        m.金额31 = _list[0];
+                    }
+                    
                     list.Add(m);
                 }
             }
