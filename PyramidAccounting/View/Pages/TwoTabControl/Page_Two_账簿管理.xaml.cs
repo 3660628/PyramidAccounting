@@ -116,8 +116,18 @@ namespace PA.View.Pages.TwoTabControl
                 this.DataGrid_科目明细.ColumnHeaderHeight = 0;
                 this.DataGrid_科目明细.RowHeaderWidth = 0;
                 List<Model_科目明细账> lm = vmk.GetData(a, b);
+                if (lm.Count > 0)
+                {
+                    this.Label_年.Content = lm[0].年 + "年";
+                }
+                else
+                {
+                    Model_科目明细账 m = new Model_科目明细账();
+                    m.摘要 = "查询不到数据！";
+                    lm.Add(m);
+                }
                 this.DataGrid_科目明细.ItemsSource = lm;
-                this.Label_年.Content = lm[0].年 + "年";
+                
             }
         }
 
@@ -133,8 +143,20 @@ namespace PA.View.Pages.TwoTabControl
             {
                 string a = TextBox_科目及单位名称.Text.ToString();
                 List<Model_总账> lm = vmk.GetData(a);
+                this.DataGrid_总账.ColumnHeaderHeight = 0;
+                this.DataGrid_总账.RowHeaderWidth = 0;
                 this.DataGrid_总账.ItemsSource = lm;
-                this.Label_总账年.Content = lm[0].年 + "年";
+                if (lm.Count > 0)
+                {
+                    this.Label_总账年.Content = lm[0].年 + "年";
+                }
+                else
+                {
+                    Model_总账 m = new Model_总账();
+                    m.摘要 = "查询不到数据！";
+                    lm.Add(m);
+                }
+                this.DataGrid_总账.ItemsSource = lm;
             }
         }
 
