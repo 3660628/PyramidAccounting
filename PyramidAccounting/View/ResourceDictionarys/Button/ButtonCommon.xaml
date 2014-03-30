@@ -45,12 +45,15 @@
 							<ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Effect).(DropShadowEffect.Color)" Storyboard.TargetName="grid">
 								<EasingColorKeyFrame KeyTime="0" Value="#FF4EA6EA"/>
 							</ColorAnimationUsingKeyFrames>
+							<ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Shape.Fill).(SolidColorBrush.Color)" Storyboard.TargetName="rectangle">
+                                <EasingColorKeyFrame KeyTime="0" Value="#FF6DC0FF"/>
+							</ColorAnimationUsingKeyFrames>
 						</Storyboard>
 					</VisualState>
 					<VisualState x:Name="Pressed">
 						<Storyboard>
 							<ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Shape.Fill).(SolidColorBrush.Color)" Storyboard.TargetName="rectangle">
-								<EasingColorKeyFrame KeyTime="0" Value="#FF6DC0FF"/>
+                                <EasingColorKeyFrame KeyTime="0" Value="#FF3784B2"/>
 							</ColorAnimationUsingKeyFrames>
 						</Storyboard>
 					</VisualState>
