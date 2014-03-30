@@ -43,11 +43,12 @@ CREATE TABLE T_RECORD (									--操作日志表
 CREATE TABLE T_FEE(										--期末数表
     ID			INTEGER PRIMARY KEY NOT NULL,			--ID
 	OP_TIME     DATETIME,								--操作时间
+	PERIOD		INTEGER,								--当前期
     SUBJECT_ID  TEXT,									--科目编号
 	VOUCHER_NUMS TEXT,									--凭单编号
 	COMMENTS    TEXT,									--摘要
-	DEBIT       DECIMAL,								--借方金额
-	CREDIT      DECIMAL,								--贷方金额
-	FEE         DECIMAL,								--期末数
+	DEBIT       DECIMAL DEFAULT(0),						--借方金额
+	CREDIT      DECIMAL DEFAULT(0),						--贷方金额
+	FEE         DECIMAL DEFAULT(0),						--期末数
 	DELETE_MARK INTEGER DEFAULT(0)						--删除标志
 );

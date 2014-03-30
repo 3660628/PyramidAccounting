@@ -45,6 +45,10 @@ namespace PA.ViewModel
                     + mm.年初金额 + "' where parentid=0 and bookid='" 
                     + CommonInfo.账薄号 + "' and subject_id='" + mm.科目编号 + "'";
                 sqlList.Add(sql);
+
+                string sql2 = "insert into " + DBTablesName.T_FEE + "（period,subject_id,comments,fee) values (0,'" 
+                    + mm.科目编号 + "','承上年结余','" + mm.年初金额 + "')";
+                sqlList.Add(sql2);
             }
             db.BatchOperate(sqlList);
         }
