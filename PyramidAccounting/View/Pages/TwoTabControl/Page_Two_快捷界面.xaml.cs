@@ -19,7 +19,8 @@ using PA.Model.CustomEventArgs;
 
 namespace PA.View.Pages.TwoTabControl
 {
-    public delegate void Page_Two_快捷界面_TabChange(object sender, YXEventArgs e);
+    public delegate void Page_Two_快捷界面_TabChange(object sender, MyEventArgs e);
+    public delegate void Page_Two_快捷界面_asd();
 
     public partial class Page_Two_快捷界面 : Page
     {
@@ -36,7 +37,7 @@ namespace PA.View.Pages.TwoTabControl
         {
             if (TabChange != null)
             {
-                YXEventArgs e = new YXEventArgs();
+                MyEventArgs e = new MyEventArgs();
                 e.Y = y;
                 e.X = x;
                 TabChange(this, e);

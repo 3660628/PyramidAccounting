@@ -41,11 +41,16 @@ namespace PA.View.Pages.TwoTabControl
         private void SubscribeToEvent()
         {
             PA.View.Windows.Win_记账凭证.ESubmit += new Windows.Win_记账凭证_Submit(DoReflashData);
+
         }
 
         private void DoReflashData(object sender, EventArgs e)
         {
             ReflashData();
+        }
+        private void DoFilterData()
+        {
+
         }
         private void InitData()
         {

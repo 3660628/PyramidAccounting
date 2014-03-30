@@ -104,8 +104,7 @@
     <Compile Include="Helper\XMLHelper\XMLWriter.cs" />
     <Compile Include="Model\ComboBox\ComboBox_Common.cs" />
     <Compile Include="Model\ComboBox\ComboBox_科目.cs" />
-    <Compile Include="Model\CustomEventArgs\ListEventArgs.cs" />
-    <Compile Include="Model\CustomEventArgs\YXEventArgs.cs" />
+    <Compile Include="Model\CustomEventArgs\MyEventArgs.cs" />
     <Compile Include="Model\Database\UpdateParm.cs" />
     <Compile Include="Model\DataGrid\Model_凭证单.cs" />
     <Compile Include="Model\DataGrid\Model_凭证明细.cs" />

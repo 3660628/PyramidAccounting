@@ -5,7 +5,7 @@ using System.Text;
 
 namespace PA.Model.CustomEventArgs
 {
-    public class YXEventArgs : EventArgs
+    public class MyEventArgs : EventArgs
     {
         private int y;
 

@@ -36,7 +36,7 @@ namespace PA.View.Pages
             PA.View.Pages.TwoTabControl.Page_Two_快捷界面.TabChange += new TwoTabControl.Page_Two_快捷界面_TabChange(DoTabChange);
         }
 
-        private void DoTabChange(object sender, YXEventArgs e)
+        private void DoTabChange(object sender, MyEventArgs e)
         {
             this.TabControl_Main.SelectedIndex = e.Y;
         }
