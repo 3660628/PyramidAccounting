@@ -11,8 +11,9 @@ VALUES
 	(5, '五、支出类');
 INSERT INTO t_user (
 	username,
+	relname,
 	password,
 	authority
 )
 VALUES
-	('admin', '123', 3);
+	('admin','石蚁科技', '123', 3);

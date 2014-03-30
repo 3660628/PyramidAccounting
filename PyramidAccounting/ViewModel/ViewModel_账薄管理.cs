@@ -495,6 +495,12 @@ namespace PA.ViewModel
             }
             return list;
         }
-
+        /// <summary>
+        /// 结账
+        /// </summary>
+        public void CheckOut()
+        {
+            string sql = "select * from ";
+        }
     }
 }
