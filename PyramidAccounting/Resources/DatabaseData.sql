@@ -11,7 +11,7 @@ VALUES
 	(5, '五、支出类');
 INSERT INTO t_user (
 	username,
-	relname,
+	realname,
 	password,
 	authority
 )
