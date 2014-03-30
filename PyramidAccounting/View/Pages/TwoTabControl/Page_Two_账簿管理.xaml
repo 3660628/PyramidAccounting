@@ -494,17 +494,17 @@
                             <Label Content="角" Grid.Column="32" Grid.Row="2" />
                             <Label Content="分" Grid.Column="33" Grid.Row="2" />
                             <Label Content="借       贷       方       金       额       分       析" HorizontalContentAlignment="Center" Grid.Column="34" Grid.ColumnSpan="90"/>
-                            <Label x:Name="Label_1" Content="" Grid.Column="34" Grid.ColumnSpan="10" Grid.Row="1" />
-                            <Label x:Name="Label_2" Content="" Grid.Column="44" Grid.ColumnSpan="10" Grid.Row="1" />
-                            <Label x:Name="Label_3" Content="" Grid.Column="54" Grid.ColumnSpan="10" Grid.Row="1" />
-                            <Label x:Name="Label_4" Content="" Grid.Column="64" Grid.ColumnSpan="10" Grid.Row="1" />
-                            <Label x:Name="Label_5" Content="" Grid.Column="74" Grid.ColumnSpan="10" Grid.Row="1" />
-                            <Label x:Name="Label_6" Content="" Grid.Column="84" Grid.ColumnSpan="10" Grid.Row="1" />
-                            <Label x:Name="Label_7" Content="" Grid.Column="94" Grid.ColumnSpan="10" Grid.Row="1" />
-                            <Label x:Name="Label_8" Content="" Grid.Column="104" Grid.ColumnSpan="10" Grid.Row="1" />
-                            <Label x:Name="Label_9" Content="" Grid.Column="114" Grid.ColumnSpan="10" Grid.Row="1" />
-                            <Label x:Name="Label_10" Content="" Grid.Column="124" Grid.ColumnSpan="10" Grid.Row="1" />
-                            <Label x:Name="Label_11" Content="" Grid.Column="134" Grid.ColumnSpan="10" Grid.Row="1" />
+                            <Label x:Name="Label_1" Content="" HorizontalAlignment="Center" Grid.Column="34" Grid.ColumnSpan="10" Grid.Row="1" />
+                            <Label x:Name="Label_2" Content="" HorizontalAlignment="Center" Grid.Column="44" Grid.ColumnSpan="10" Grid.Row="1" />
+                            <Label x:Name="Label_3" Content="" HorizontalAlignment="Center" Grid.Column="54" Grid.ColumnSpan="10" Grid.Row="1" />
+                            <Label x:Name="Label_4" Content="" HorizontalAlignment="Center" Grid.Column="64" Grid.ColumnSpan="10" Grid.Row="1" />
+                            <Label x:Name="Label_5" Content="" HorizontalAlignment="Center" Grid.Column="74" Grid.ColumnSpan="10" Grid.Row="1" />
+                            <Label x:Name="Label_6" Content="" HorizontalAlignment="Center" Grid.Column="84" Grid.ColumnSpan="10" Grid.Row="1" />
+                            <Label x:Name="Label_7" Content="" HorizontalAlignment="Center" Grid.Column="94" Grid.ColumnSpan="10" Grid.Row="1" />
+                            <Label x:Name="Label_8" Content="" HorizontalAlignment="Center" Grid.Column="104" Grid.ColumnSpan="10" Grid.Row="1" />
+                            <Label x:Name="Label_9" Content="" HorizontalAlignment="Center" Grid.Column="114" Grid.ColumnSpan="10" Grid.Row="1" />
+                            <Label x:Name="Label_10" Content="" HorizontalAlignment="Center" Grid.Column="124" Grid.ColumnSpan="10" Grid.Row="1" />
+                            <Label x:Name="Label_11" Content="" HorizontalAlignment="Center" Grid.Column="134" Grid.ColumnSpan="10" Grid.Row="1" />
                             <Label Content="千" Grid.Column="34" Grid.Row="2" />
                             <Label Content="百" Grid.Column="35" Grid.Row="2" />
                             <Label Content="十" Grid.Column="36" Grid.Row="2" />
