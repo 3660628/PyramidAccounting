@@ -15,6 +15,7 @@ using PA.Model.DataGrid;
 using PA.Helper.DataDefind;
 using PA.Model.ComboBox;
 using PA.View.ResourceDictionarys.MessageBox;
+using PA.Model.CustomEventArgs;
 
 namespace PA.View.Pages.TwoTabControl
 {
@@ -41,17 +42,22 @@ namespace PA.View.Pages.TwoTabControl
         private void SubscribeToEvent()
         {
             PA.View.Windows.Win_记账凭证.ESubmit += new Windows.Win_记账凭证_Submit(DoReflashData);
-
+            PA.View.Pages.TwoTabControl.Page_Two_快捷界面.FilterData += new Page_Two_快捷界面_FilterData(DoFilterData);
         }
 
-        private void DoReflashData(object sender, EventArgs e)
+        private void DoReflashData(object sender, MyEventArgs e)
         {
             ReflashData();
         }
-        private void DoFilterData()
+        private void DoFilterData(object sender, MyEventArgs e)
         {
-
+            if(e.操作类型 == "凭证审核")
+            {
+                this.ComboBox_Review.SelectedIndex = 2;
+                ReflashData();
+            }
         }
+
         private void InitData()
         {
             this.ComboBox_Date.ItemsSource = cbc.GetComboBox_期数();

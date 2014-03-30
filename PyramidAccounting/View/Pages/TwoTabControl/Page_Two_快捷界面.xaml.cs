@@ -20,11 +20,12 @@ using PA.Model.CustomEventArgs;
 namespace PA.View.Pages.TwoTabControl
 {
     public delegate void Page_Two_快捷界面_TabChange(object sender, MyEventArgs e);
-    public delegate void Page_Two_快捷界面_asd();
+    public delegate void Page_Two_快捷界面_FilterData(object sender, MyEventArgs e);
 
     public partial class Page_Two_快捷界面 : Page
     {
         public static event Page_Two_快捷界面_TabChange TabChange;
+        public static event Page_Two_快捷界面_FilterData FilterData;
         //private XMLWriter xw = new XMLWriter();
         //private ViewModel_Books vmb = new ViewModel_Books();
 
@@ -43,6 +44,16 @@ namespace PA.View.Pages.TwoTabControl
                 TabChange(this, e);
             }
         }
+        private void OnFilterData(int y, int x, string type)
+        {
+            if (FilterData != null)
+            {
+                MyEventArgs e = new MyEventArgs();
+                e.操作类型 = type;
+                FilterData(this, e);
+            }
+        }
+
 
         private void Button_凭证输入_Click(object sender, RoutedEventArgs e)
         {
@@ -52,6 +63,7 @@ namespace PA.View.Pages.TwoTabControl
         private void Button_凭证审核_Click(object sender, RoutedEventArgs e)
         {
             OnTabChange(1,0);
+            OnFilterData(1, 0, "凭证审核");
         }
 
         private void Button_凭证过账_Click(object sender, RoutedEventArgs e)

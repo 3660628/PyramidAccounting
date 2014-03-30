@@ -10,8 +10,16 @@ namespace PA.Model.CustomEventArgs
         private int y;
         private int x;
         private string str;
+        private string type;
+
+        
 
         #region GETSET
+        public string 操作类型
+        {
+            get { return type; }
+            set { type = value; }
+        }
         public string Str
         {
             get { return str; }

@@ -17,7 +17,7 @@ using PA.View.ResourceDictionarys.MessageBox;
 
 namespace PA.View.Windows
 {
-    public delegate void Win_记账凭证_Submit(object sender, EventArgs e);
+    public delegate void Win_记账凭证_Submit(object sender, MyEventArgs e);
 
     public partial class Win_记账凭证 : Window
     {
@@ -54,7 +54,7 @@ namespace PA.View.Windows
         {
             if(ESubmit != null)
             {
-                ESubmit(this, new EventArgs());
+                ESubmit(this, new MyEventArgs());
             }
         }
         private void DoFillData(object sender, MyEventArgs e)
