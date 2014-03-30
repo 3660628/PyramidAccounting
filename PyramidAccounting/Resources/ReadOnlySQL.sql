@@ -40,3 +40,15 @@ CREATE TABLE T_RECORD (									--操作日志表
     REALNAME    TEXT,									--姓名
     LOG         TEXT									--日志
 );
+CREATE TABLE T_FEE(										--期末数表
+    ID			INTEGER PRIMARY KEY NOT NULL,			--ID
+	OP_TIME     DATETIME,								--操作时间
+    SUBJECT_ID  TEXT,									--科目编号
+	VOUCHER_NUMS TEXT,									--凭单编号
+	COMMENTS    TEXT,									--摘要
+	DEBIT       DECIMAL,								--借方金额
+	CREDIT      DECIMAL,								--贷方金额
+	MARK        TEXT,									--借或贷
+	FEE         DECIMAL,								--期末数
+	DELETE_MARK INTEGER DEFAULT(0)						--删除标志
+);

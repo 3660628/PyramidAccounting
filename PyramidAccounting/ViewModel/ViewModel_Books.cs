@@ -70,6 +70,8 @@ namespace PA.ViewModel
             sqlList.Add(sql);
             sql = sr.ReadSQL(3, "T_RECORD", DBTablesName.T_RECORD);
             sqlList.Add(sql);
+            sql = sr.ReadSQL(4, "T_FEE", DBTablesName.T_FEE);
+            sqlList.Add(sql);
             db.BatchOperate(sqlList);
             
         }

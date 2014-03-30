@@ -193,7 +193,6 @@ namespace PA.View.Pages.TwoTabControl
                     int count = 1;
                     foreach(string s in lm[0].列名)
                     {
-                        Console.WriteLine(s);
                         Label lb = new Label();
                         lb = FindName("Label_" + count) as Label;
                         lb.Content += s.Split('\t')[1];

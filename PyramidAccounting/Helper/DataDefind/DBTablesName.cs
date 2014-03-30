@@ -15,6 +15,7 @@ namespace PA.Helper.DataDefind
         private static readonly string t_USER = "T_USER";
         private static readonly string t_RECORD = "T_RECORD";
         private static readonly string t_YEAR_FEE = "T_YEARFEE";
+        private static readonly string t_FEE = "T_FEE";
 
 
         
@@ -57,7 +58,13 @@ namespace PA.Helper.DataDefind
         public static string T_RECORD
         {
             get { return DBTablesName.t_RECORD + "_" + CommonInfo.账薄号; }
+        }
+
+        public static string T_FEE
+        {
+            get { return DBTablesName.t_FEE + "_" + CommonInfo.账薄号; }
         } 
+
         #endregion
     }
 }
