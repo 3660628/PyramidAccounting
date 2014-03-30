@@ -58,7 +58,7 @@ namespace PA.ViewModel
             bool flag = false;
             string sql = "select sum(fee) from " + DBTablesName.T_YEAR_FEE 
                 + " where bookid='" + CommonInfo.账薄号 + "'";
-            string str = db.GetAllData(sql).Split('\t')[0];
+            string str = db.GetAllData(sql).Split('\t')[0].Split(',')[0];
             if (str.Equals("0"))
             {
                 return false;
