@@ -85,6 +85,7 @@ namespace PA.View.Windows
         /// </summary>
         private void InitData()
         {
+            VoucherDetailsNow = new List<Model_凭证明细>();
             for (int i = 0; i < 6; i++)
             {
                 Model_凭证明细 a = new Model_凭证明细();
@@ -101,6 +102,7 @@ namespace PA.View.Windows
                     VoucherDetails.Add(VoucherDetailsNow[i]);
                 }
             }
+            Count合计();
         }
         /// <summary>
         /// 填充数据(查看修改)
@@ -299,15 +301,20 @@ namespace PA.View.Windows
             Model_凭证明细 SelectedRow = this.DataGrid_凭证明细.SelectedCells[0].Item as Model_凭证明细;
             string newValue = (e.EditingElement as TextBox).Text.Trim();
             string Header = e.Column.Header.ToString();
+            decimal result = 0m;
+            if(!decimal.TryParse(newValue, out result))
+            {
+                MessageBoxCommon.Show("请输入数字。");
+            }
             if (Header == "借方金额")
             {
-                VoucherDetailsNow[SelectedRow.序号].借方 = decimal.Parse(newValue);
+                VoucherDetailsNow[SelectedRow.序号].借方 = result;
                 VoucherDetailsNow[SelectedRow.序号].贷方 = 0m;
                 Count合计();
             }
             else if (Header == "贷方金额")
             {
-                VoucherDetailsNow[SelectedRow.序号].贷方 = decimal.Parse(newValue);
+                VoucherDetailsNow[SelectedRow.序号].贷方 = result;
                 VoucherDetailsNow[SelectedRow.序号].借方 = 0m;
                 Count合计();
             }
