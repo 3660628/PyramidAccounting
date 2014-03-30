@@ -82,22 +82,23 @@ namespace PA.ViewModel
 
         public void InsertData(Model_凭证单 Voucher, List<Model_凭证明细> VoucherDetails)
         {
-            int Count = 0;
+            bool isEmpty = true;
             List<Model_凭证明细> NewVoucherDetails = new List<Model_凭证明细>();
             foreach (Model_凭证明细 VoucherDetail in VoucherDetails)
             {
                 if (VoucherDetail.摘要 != null && VoucherDetail.科目编号 != null)
                 {
                     NewVoucherDetails.Add(VoucherDetail);
-                    Count++;
+                    isEmpty = false;
                 }
             }
-            if (Count != 0)
+            if (!isEmpty)
             {
-                new PA.Helper.DataBase.DataBase().InsertPackage(DBTablesName.T_VOUCHER_DETAIL, NewVoucherDetails.OfType<object>().ToList());
+                //new PA.Helper.DataBase.DataBase().InsertPackage(DBTablesName.T_VOUCHER_DETAIL, NewVoucherDetails.OfType<object>().ToList());
                 List<Model_凭证单> Vouchers = new List<Model_凭证单>();
                 Vouchers.Add(Voucher);
-                new PA.Helper.DataBase.DataBase().InsertPackage(DBTablesName.T_VOUCHER, Vouchers.OfType<object>().ToList());
+                //new PA.Helper.DataBase.DataBase().InsertPackage(DBTablesName.T_VOUCHER, Vouchers.OfType<object>().ToList());
+                new PA.Helper.DataBase.DataBase().InsertVoucherAll(Vouchers.OfType<object>().ToList(), NewVoucherDetails.OfType<object>().ToList());
             }
         }
 

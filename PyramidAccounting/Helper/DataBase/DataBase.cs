@@ -204,51 +204,51 @@ namespace PA.Helper.DataBase
                         }
                         #endregion
                         break;
-                    case "T_VOUCHER":
+                    case "T_VOUCHER"://弃用，整合成InsertVoucherAll()
                         #region T_VOUCHER
-                        sql = PA.Helper.DataDefind.SqlString.Insert_T_VOUCHER;
-                        List<Model_凭证单> 凭证单List = Values.OfType<Model_凭证单>().ToList();
-                        foreach (Model_凭证单 list in 凭证单List)
-                        {
-                            SQLiteCommand cmd = new SQLiteCommand();
-                            cmd.CommandText = sql;
-                            cmd.Parameters.AddWithValue("@ID", list.ID);
-                            cmd.Parameters.AddWithValue("@PERIOD", list.当前期);
-                            cmd.Parameters.AddWithValue("@OP_TIME", list.制表时间);
-                            cmd.Parameters.AddWithValue("@SUBSIDIARY_COUNTS", list.附属单证数);
-                            cmd.Parameters.AddWithValue("@FEE_DEBIT", list.合计借方金额);
-                            cmd.Parameters.AddWithValue("@FEE_CREDIT", list.合计贷方金额);
-                            cmd.Parameters.AddWithValue("@ACCOUNTANT", list.会计主管);
-                            cmd.Parameters.AddWithValue("@BOOKEEPER", list.制单人);
-                            cmd.Parameters.AddWithValue("@REVIEWER", list.复核);
-                            cmd.Parameters.AddWithValue("@REVIEW_MARK", list.审核标志);
-                            cmd.Parameters.AddWithValue("@DELETE_MARK", list.删除标志);
-                            cmd.Connection = conn;
-                            cmd.ExecuteNonQuery();
-                        }
+                        //sql = PA.Helper.DataDefind.SqlString.Insert_T_VOUCHER;
+                        //List<Model_凭证单> 凭证单List = Values.OfType<Model_凭证单>().ToList();
+                        //foreach (Model_凭证单 list in 凭证单List)
+                        //{
+                        //    SQLiteCommand cmd = new SQLiteCommand();
+                        //    cmd.CommandText = sql;
+                        //    cmd.Parameters.AddWithValue("@ID", list.ID);
+                        //    cmd.Parameters.AddWithValue("@PERIOD", list.当前期);
+                        //    cmd.Parameters.AddWithValue("@OP_TIME", list.制表时间);
+                        //    cmd.Parameters.AddWithValue("@SUBSIDIARY_COUNTS", list.附属单证数);
+                        //    cmd.Parameters.AddWithValue("@FEE_DEBIT", list.合计借方金额);
+                        //    cmd.Parameters.AddWithValue("@FEE_CREDIT", list.合计贷方金额);
+                        //    cmd.Parameters.AddWithValue("@ACCOUNTANT", list.会计主管);
+                        //    cmd.Parameters.AddWithValue("@BOOKEEPER", list.制单人);
+                        //    cmd.Parameters.AddWithValue("@REVIEWER", list.复核);
+                        //    cmd.Parameters.AddWithValue("@REVIEW_MARK", list.审核标志);
+                        //    cmd.Parameters.AddWithValue("@DELETE_MARK", list.删除标志);
+                        //    cmd.Connection = conn;
+                        //    cmd.ExecuteNonQuery();
+                        //}
                         #endregion
                         break;
-                    case "T_VOUCHERDETAIL":
+                    case "T_VOUCHERDETAIL"://弃用，整合成InsertVoucherAll()
                         #region T_VOUCHERDETAIL
-                        sql = PA.Helper.DataDefind.SqlString.Insert_T_VOUCHER_DETAIL;
-                        List<Model_凭证明细> 凭证明细List = Values.OfType<Model_凭证明细>().ToList();
-                        foreach (Model_凭证明细 list in 凭证明细List)
-                        {
-                            SQLiteCommand cmd = new SQLiteCommand();
-                            cmd.CommandText = sql;
-                            cmd.Parameters.AddWithValue("@VID", list.序号);
-                            cmd.Parameters.AddWithValue("@PARENTID", list.父节点ID);
-                            cmd.Parameters.AddWithValue("@WORD", list.凭证字);
-                            cmd.Parameters.AddWithValue("@VOUCHER_NO", list.凭证号);
-                            cmd.Parameters.AddWithValue("@ABSTRACT", list.摘要);
-                            cmd.Parameters.AddWithValue("@SUBJECT_ID", list.科目编号);
-                            cmd.Parameters.AddWithValue("@DETAIL", list.子细目);
-                            cmd.Parameters.AddWithValue("@BOOKKEEP_MARK", list.记账);
-                            cmd.Parameters.AddWithValue("@DEBIT", list.借方);
-                            cmd.Parameters.AddWithValue("@CREDIT", list.贷方);
-                            cmd.Connection = conn;
-                            cmd.ExecuteNonQuery();
-                        }
+                        //sql = PA.Helper.DataDefind.SqlString.Insert_T_VOUCHER_DETAIL;
+                        //List<Model_凭证明细> 凭证明细List = Values.OfType<Model_凭证明细>().ToList();
+                        //foreach (Model_凭证明细 list in 凭证明细List)
+                        //{
+                        //    SQLiteCommand cmd = new SQLiteCommand();
+                        //    cmd.CommandText = sql;
+                        //    cmd.Parameters.AddWithValue("@VID", list.序号);
+                        //    cmd.Parameters.AddWithValue("@PARENTID", list.父节点ID);
+                        //    cmd.Parameters.AddWithValue("@WORD", list.凭证字);
+                        //    cmd.Parameters.AddWithValue("@VOUCHER_NO", list.凭证号);
+                        //    cmd.Parameters.AddWithValue("@ABSTRACT", list.摘要);
+                        //    cmd.Parameters.AddWithValue("@SUBJECT_ID", list.科目编号);
+                        //    cmd.Parameters.AddWithValue("@DETAIL", list.子细目);
+                        //    cmd.Parameters.AddWithValue("@BOOKKEEP_MARK", list.记账);
+                        //    cmd.Parameters.AddWithValue("@DEBIT", list.借方);
+                        //    cmd.Parameters.AddWithValue("@CREDIT", list.贷方);
+                        //    cmd.Connection = conn;
+                        //    cmd.ExecuteNonQuery();
+                        //}
                         #endregion
                         break;
                     case "T_USER":
@@ -330,35 +330,72 @@ namespace PA.Helper.DataBase
             }
             return flag;
         }
-        public bool UpdatePackage(List<UpdateParm> lists)
+        /// <summary>
+        /// 插入凭证两张数据库表
+        /// </summary>
+        /// <param name="Voucher"></param>
+        /// <param name="VoucherDetail"></param>
+        /// <returns></returns>
+        public bool InsertVoucherAll(List<object> Voucher, List<object> VoucherDetail)
         {
             bool flag = false;
-            string sql = string.Empty;
             SQLiteConnection conn = DBInitialize.getDBConnection();
             conn.Open();
             SQLiteTransaction strans = conn.BeginTransaction();
+            string sql = "";
             try
             {
-                foreach (UpdateParm list in lists)
+                #region T_VOUCHER
+                sql = PA.Helper.DataDefind.SqlString.Insert_T_VOUCHER;
+                List<Model_凭证单> 凭证单List = Voucher.OfType<Model_凭证单>().ToList();
+                foreach (Model_凭证单 list in 凭证单List)
                 {
-                    sql = PA.Helper.DataDefind.SqlString.Update_Sql;
                     SQLiteCommand cmd = new SQLiteCommand();
-                    sql = sql.Replace("@tableName", list.TableName);
-                    sql = sql.Replace("@key", list.Key);
-                    sql = sql.Replace("@value", list.Value);
-                    sql = sql.Replace("@whereParm", list.WhereParm);
                     cmd.CommandText = sql;
+                    cmd.Parameters.AddWithValue("@ID", list.ID);
+                    cmd.Parameters.AddWithValue("@PERIOD", list.当前期);
+                    cmd.Parameters.AddWithValue("@OP_TIME", list.制表时间);
+                    cmd.Parameters.AddWithValue("@SUBSIDIARY_COUNTS", list.附属单证数);
+                    cmd.Parameters.AddWithValue("@FEE_DEBIT", list.合计借方金额);
+                    cmd.Parameters.AddWithValue("@FEE_CREDIT", list.合计贷方金额);
+                    cmd.Parameters.AddWithValue("@ACCOUNTANT", list.会计主管);
+                    cmd.Parameters.AddWithValue("@BOOKEEPER", list.制单人);
+                    cmd.Parameters.AddWithValue("@REVIEWER", list.复核);
+                    cmd.Parameters.AddWithValue("@REVIEW_MARK", list.审核标志);
+                    cmd.Parameters.AddWithValue("@DELETE_MARK", list.删除标志);
                     cmd.Connection = conn;
                     cmd.ExecuteNonQuery();
                 }
+                #endregion
+
+                #region T_VOUCHERDETAIL
+                sql = PA.Helper.DataDefind.SqlString.Insert_T_VOUCHER_DETAIL;
+                List<Model_凭证明细> 凭证明细List = VoucherDetail.OfType<Model_凭证明细>().ToList();
+                foreach (Model_凭证明细 list in 凭证明细List)
+                {
+                    SQLiteCommand cmd = new SQLiteCommand();
+                    cmd.CommandText = sql;
+                    cmd.Parameters.AddWithValue("@VID", list.序号);
+                    cmd.Parameters.AddWithValue("@PARENTID", list.父节点ID);
+                    cmd.Parameters.AddWithValue("@WORD", list.凭证字);
+                    cmd.Parameters.AddWithValue("@VOUCHER_NO", list.凭证号);
+                    cmd.Parameters.AddWithValue("@ABSTRACT", list.摘要);
+                    cmd.Parameters.AddWithValue("@SUBJECT_ID", list.科目编号);
+                    cmd.Parameters.AddWithValue("@DETAIL", list.子细目);
+                    cmd.Parameters.AddWithValue("@BOOKKEEP_MARK", list.记账);
+                    cmd.Parameters.AddWithValue("@DEBIT", list.借方);
+                    cmd.Parameters.AddWithValue("@CREDIT", list.贷方);
+                    cmd.Connection = conn;
+                    cmd.ExecuteNonQuery();
+                }
+                #endregion
                 strans.Commit();
                 flag = true;
             }
             catch(Exception ee)
             {
                 strans.Rollback();
-                Log.Write(ee.Message);
-                Log.Write(sql);
+                Console.WriteLine(ee.ToString());
             }
             finally
             {
@@ -367,6 +404,44 @@ namespace PA.Helper.DataBase
             }
             return flag;
         }
+
+        //public bool UpdatePackage(List<UpdateParm> lists)
+        //{
+        //    bool flag = false;
+        //    string sql = string.Empty;
+        //    SQLiteConnection conn = DBInitialize.getDBConnection();
+        //    conn.Open();
+        //    SQLiteTransaction strans = conn.BeginTransaction();
+        //    try
+        //    {
+        //        foreach (UpdateParm list in lists)
+        //        {
+        //            sql = PA.Helper.DataDefind.SqlString.Update_Sql;
+        //            SQLiteCommand cmd = new SQLiteCommand();
+        //            sql = sql.Replace("@tableName", list.TableName);
+        //            sql = sql.Replace("@key", list.Key);
+        //            sql = sql.Replace("@value", list.Value);
+        //            sql = sql.Replace("@whereParm", list.WhereParm);
+        //            cmd.CommandText = sql;
+        //            cmd.Connection = conn;
+        //            cmd.ExecuteNonQuery();
+        //        }
+        //        strans.Commit();
+        //        flag = true;
+        //    }
+        //    catch(Exception ee)
+        //    {
+        //        strans.Rollback();
+        //        Log.Write(ee.Message);
+        //        Log.Write(sql);
+        //    }
+        //    finally
+        //    {
+        //        conn.Close();
+        //        conn.Dispose();
+        //    }
+        //    return flag;
+        //}
 
     }
 }
