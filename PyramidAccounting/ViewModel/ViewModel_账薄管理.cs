@@ -16,19 +16,10 @@ namespace PA.ViewModel
         public List<Model_总账> GetData(string subject_id)
         {
             List<Model_总账> list = new List<Model_总账>();
-            string sql = "select time,number,comments,sum(fee1),sum(fee2) from "
-                + "(select b.op_time as time ,a.voucher_no as number,a.abstract as comments,a.debit as fee1,a.credit as fee2 from " 
-                + DBTablesName.T_VOUCHER_DETAIL
-                + " a left join " 
-                + DBTablesName.T_VOUCHER 
-                + " b on a.parentid=b.id where a.subject_id='"
-                + subject_id.Split('\t')[1]
-                + "'" + " and b.delete_mark=0 order by b.op_time)t group by t.number,t.time ";
+            string id = subject_id.Split('\t')[0];
+            string name = subject_id.Split('\t')[1];
+            string sql = "select * from " + DBTablesName.T_FEE + " where subject_id='" + id + "' order by op_time";
 
-            //判断第一期查年初数
-            //以后差每一期期末数
-            string sql2 = "select fee from t_yearfee where subject_id='" + subject_id.Split('\t')[0] + "' and bookid='" + CommonInfo.账薄号 + "'";
-            string yearfee = db.GetAllData(sql2).Split('\t')[0].Split(',')[0];
             DataSet ds = new DataSet();
             ds = db.Query(sql);
             if (ds != null)
@@ -37,20 +28,21 @@ namespace PA.ViewModel
                 foreach (DataRow d in dt.Rows)
                 {
                     Model_总账 m = new Model_总账();
-                    string date = d[0].ToString().Split(' ')[0];
+                    string date = d[1].ToString().Split(' ')[0];
                     m.年 = date.Split('/')[0];
                     m.月 = date.Split('/')[1];
                     m.日 = date.Split('/')[2];
-                    m.号数 = d[1].ToString();
-                    m.摘要 = d[2].ToString();
-                    m.借方金额 = d[3].ToString();
-                    m.贷方金额 = d[4].ToString();
+                    m.号数 = d[3].ToString();
+                    m.摘要 = d[4].ToString();
+                    m.借方金额 = d[5].ToString();
+                    m.贷方金额 = d[6].ToString();
+                    m.借或贷 = d[7].ToString();
+                    m.余额 = d[8].ToString();
                     string temp = string.Empty;
                     List<string> _list = new List<string>();
                     if (string.IsNullOrEmpty(m.借方金额))
                     {
-                        temp = d[4].ToString();
-                        _list = Turn(d[4].ToString(), 12);
+                        _list = Turn(m.贷方金额, 12);
                         m.贷方金额1 = _list[0];
                         m.贷方金额2 = _list[1];
                         m.贷方金额3 = _list[2];
@@ -67,8 +59,7 @@ namespace PA.ViewModel
                     }
                     else
                     {
-                        temp = d[3].ToString();
-                        _list = Turn(d[3].ToString(), 12);
+                        _list = Turn(m.借方金额, 12);
                         m.借方金额1 = _list[0];
                         m.借方金额2 = _list[1];
                         m.借方金额3 = _list[2];
@@ -84,9 +75,8 @@ namespace PA.ViewModel
                         m.借或贷 = "借";
                     }
 
-                    yearfee = (Convert.ToDecimal(yearfee) - Convert.ToDecimal(temp)).ToString();
                     _list.Clear();
-                    _list = Turn(yearfee, 12);
+                    _list = Turn(m.余额, 12);
                     m.余额1 = _list[0];
                     m.余额2 = _list[1];
                     m.余额3 = _list[2];

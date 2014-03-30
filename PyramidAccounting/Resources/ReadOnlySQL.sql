@@ -48,7 +48,6 @@ CREATE TABLE T_FEE(										--期末数表
 	COMMENTS    TEXT,									--摘要
 	DEBIT       DECIMAL,								--借方金额
 	CREDIT      DECIMAL,								--贷方金额
-	MARK        TEXT,									--借或贷
 	FEE         DECIMAL,								--期末数
 	DELETE_MARK INTEGER DEFAULT(0)						--删除标志
 );
