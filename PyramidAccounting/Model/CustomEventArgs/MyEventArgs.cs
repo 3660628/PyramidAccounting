@@ -11,6 +11,7 @@ namespace PA.Model.CustomEventArgs
         private int x;
         private string str;
 
+        #region GETSET
         public string Str
         {
             get { return str; }
@@ -28,5 +29,6 @@ namespace PA.Model.CustomEventArgs
             get { return x; }
             set { x = value; }
         }
+        #endregion
     }
 }
