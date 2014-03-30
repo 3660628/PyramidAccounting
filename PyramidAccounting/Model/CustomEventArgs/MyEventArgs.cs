@@ -25,13 +25,17 @@ namespace PA.Model.CustomEventArgs
             get { return str; }
             set { str = value; }
         }
-
+        /// <summary>
+        /// 跳转坐标：竖坐标（一级Tab）
+        /// </summary>
         public int Y
         {
             get { return y; }
             set { y = value; }
         }
-
+        /// <summary>
+        /// 跳转坐标：横坐标（二级Tab）
+        /// </summary>
         public int X
         {
             get { return x; }

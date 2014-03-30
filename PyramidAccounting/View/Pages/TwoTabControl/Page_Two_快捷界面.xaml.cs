@@ -49,6 +49,8 @@ namespace PA.View.Pages.TwoTabControl
             if (FilterData != null)
             {
                 MyEventArgs e = new MyEventArgs();
+                e.Y = y;
+                e.X = x;
                 e.操作类型 = type;
                 FilterData(this, e);
             }

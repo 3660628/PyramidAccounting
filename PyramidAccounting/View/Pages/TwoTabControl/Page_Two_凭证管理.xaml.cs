@@ -19,9 +19,6 @@ using PA.Model.CustomEventArgs;
 
 namespace PA.View.Pages.TwoTabControl
 {
-    /// <summary>
-    /// Interaction logic for Page_Two_凭证管理.xaml
-    /// </summary>
     public partial class Page_Two_凭证管理 : Page
     {
         List<Model_凭证管理> Data_本期凭证 = new List<Model_凭证管理>();
@@ -51,7 +48,7 @@ namespace PA.View.Pages.TwoTabControl
         }
         private void DoFilterData(object sender, MyEventArgs e)
         {
-            if(e.操作类型 == "凭证审核")
+            if(e.Y == 1 && e.X == 0 && e.操作类型 == "凭证审核")
             {
                 this.ComboBox_Review.SelectedIndex = 2;
                 ReflashData();
