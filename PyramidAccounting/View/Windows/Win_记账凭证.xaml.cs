@@ -103,6 +103,7 @@ namespace PA.View.Windows
                 }
             }
             Count合计();
+            this.Label_制单人.Content = PA.Helper.DataDefind.CommonInfo.真实姓名;
         }
         /// <summary>
         /// 填充数据(查看修改)
@@ -142,6 +143,7 @@ namespace PA.View.Windows
                 this.Label_审核状态.Content = "未审核";
                 this.Label_审核状态.Foreground = Brushes.Red;
             }
+            this.Label_制单人.Content = Voucher.制单人;
         }
         /// <summary>
         /// 获取全部数据
@@ -224,11 +226,11 @@ namespace PA.View.Windows
             {
                 return;
             }
-            if(!isNew)
+            new PA.ViewModel.ViewModel_凭证管理().InsertData(Voucher, VoucherDetails);
+            if (!isNew)
             {
                 new PA.ViewModel.ViewModel_凭证管理().DeleteAsModify(guid);
             }
-            new PA.ViewModel.ViewModel_凭证管理().InsertData(Voucher, VoucherDetails);
             OnSubmit();
             this.Close();
         }

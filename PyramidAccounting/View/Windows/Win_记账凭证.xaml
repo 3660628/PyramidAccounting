@@ -54,7 +54,7 @@
 
         <!--Label-->
         <Label x:Name="Label_会计主管" Content="" HorizontalAlignment="Left" Margin="73,0,0,10" VerticalAlignment="Bottom"/>
-        <Label x:Name="Label_制单人" Content="" HorizontalAlignment="Left" Margin="255,0,0,10" VerticalAlignment="Bottom"/>
+        <Label x:Name="Label_制单人" Content="" HorizontalAlignment="Left" Margin="255,0,0,10" VerticalAlignment="Bottom" BorderThickness="0,0,0,1" BorderBrush="Black"/>
         <Label x:Name="Label_复核" Content="" HorizontalAlignment="Left" Margin="414,0,0,10" VerticalAlignment="Bottom"/>
         <Label x:Name="Label_审核状态" Content="" HorizontalAlignment="Left" Margin="451,35,0,0" VerticalAlignment="Top" FontSize="14"/>
         <Label x:Name="Label_借方合计" Content="0.0" HorizontalAlignment="Right" Margin="0,373,160,0" VerticalAlignment="Top"/>

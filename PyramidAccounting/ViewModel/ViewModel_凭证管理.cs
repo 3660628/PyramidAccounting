@@ -82,18 +82,23 @@ namespace PA.ViewModel
 
         public void InsertData(Model_凭证单 Voucher, List<Model_凭证明细> VoucherDetails)
         {
-            List<Model_凭证单> Vouchers = new List<Model_凭证单>();
-            Vouchers.Add(Voucher);
-            new PA.Helper.DataBase.DataBase().InsertPackage(DBTablesName.T_VOUCHER, Vouchers.OfType<object>().ToList());
+            int Count = 0;
             List<Model_凭证明细> NewVoucherDetails = new List<Model_凭证明细>();
             foreach (Model_凭证明细 VoucherDetail in VoucherDetails)
             {
-                if (VoucherDetail.摘要 != "" && VoucherDetail.摘要 != null && VoucherDetail.科目编号 != null)
+                if (VoucherDetail.摘要 != null && VoucherDetail.科目编号 != null)
                 {
                     NewVoucherDetails.Add(VoucherDetail);
+                    Count++;
                 }
             }
-            new PA.Helper.DataBase.DataBase().InsertPackage(DBTablesName.T_VOUCHER_DETAIL, NewVoucherDetails.OfType<object>().ToList());
+            if (Count != 0)
+            {
+                new PA.Helper.DataBase.DataBase().InsertPackage(DBTablesName.T_VOUCHER_DETAIL, NewVoucherDetails.OfType<object>().ToList());
+                List<Model_凭证单> Vouchers = new List<Model_凭证单>();
+                Vouchers.Add(Voucher);
+                new PA.Helper.DataBase.DataBase().InsertPackage(DBTablesName.T_VOUCHER, Vouchers.OfType<object>().ToList());
+            }
         }
 
         public void Review(Guid id)
@@ -113,9 +118,11 @@ namespace PA.ViewModel
         }
         public void DeleteAsModify(Guid id)
         {
-            string sql = "update " + DBTablesName.T_VOUCHER + " set DELETE_MARK=-2 where id='" + id + "'";
+            string sql2 = "Delete from " + DBTablesName.T_VOUCHER_DETAIL + " where parentid='" + id + "'";
+            string sql1 = "Delete from " + DBTablesName.T_VOUCHER + " where id='" + id + "'";
             List<string> lists = new List<string>();
-            lists.Add(sql);
+            lists.Add(sql2);
+            lists.Add(sql1);
             new PA.Helper.DataBase.DataBase().BatchOperate(lists);
         }
 
