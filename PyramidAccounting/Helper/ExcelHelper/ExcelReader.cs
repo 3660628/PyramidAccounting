@@ -17,6 +17,12 @@ namespace PA.Helper.ExcelHelper
         //xls.Worksheet xlWorkSheet;
         object misValue = System.Reflection.Missing.Value;
 
+        /// <summary>
+        /// 读取Excel内容到DataSet
+        /// </summary>
+        /// <param name="filepath">文件路径</param>
+        /// <param name="sheetname">Sheet表名</param>
+        /// <returns></returns>
         public DataSet ExcelDataSource(string filepath, string sheetname)
         {
             string strConn;

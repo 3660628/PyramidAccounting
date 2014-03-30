@@ -21,7 +21,7 @@ namespace PA.View.Windows
 
     public partial class Win_记账凭证 : Window
     {
-        public event Win_记账凭证_Submit ESubmit;
+        public static event Win_记账凭证_Submit ESubmit;
         Model_凭证单 Voucher = new Model_凭证单();
         List<Model_凭证明细> VoucherDetails = new List<Model_凭证明细>();//所有DataGrid数据集合
         List<Model_凭证明细> VoucherDetailsNow = new List<Model_凭证明细>();//当前DataGrid的数据
@@ -52,7 +52,7 @@ namespace PA.View.Windows
         #region 自定义事件
         private void OnSubmit()
         {
-            if(this.ESubmit != null)
+            if(ESubmit != null)
             {
                 ESubmit(this, new EventArgs());
             }
@@ -302,18 +302,22 @@ namespace PA.View.Windows
             string newValue = (e.EditingElement as TextBox).Text.Trim();
             string Header = e.Column.Header.ToString();
             decimal result = 0m;
-            if(!decimal.TryParse(newValue, out result))
-            {
-                MessageBoxCommon.Show("请输入数字。");
-            }
             if (Header == "借方金额")
             {
+                if (!decimal.TryParse(newValue, out result))
+                {
+                    MessageBoxCommon.Show("请输入数字。");
+                }
                 VoucherDetailsNow[SelectedRow.序号].借方 = result;
                 VoucherDetailsNow[SelectedRow.序号].贷方 = 0m;
                 Count合计();
             }
             else if (Header == "贷方金额")
             {
+                if (!decimal.TryParse(newValue, out result))
+                {
+                    MessageBoxCommon.Show("请输入数字。");
+                }
                 VoucherDetailsNow[SelectedRow.序号].贷方 = result;
                 VoucherDetailsNow[SelectedRow.序号].借方 = 0m;
                 Count合计();

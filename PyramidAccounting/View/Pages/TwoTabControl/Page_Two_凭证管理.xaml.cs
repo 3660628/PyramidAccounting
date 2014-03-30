@@ -33,6 +33,14 @@ namespace PA.View.Pages.TwoTabControl
             this.StackPanel_MoreButton.Visibility = System.Windows.Visibility.Collapsed;
             InitData();
             ReflashData();
+            SubscribeToEvent();
+        }
+        /// <summary>
+        /// 订阅事件
+        /// </summary>
+        private void SubscribeToEvent()
+        {
+            PA.View.Windows.Win_记账凭证.ESubmit += new Windows.Win_记账凭证_Submit(DoReflashData);
         }
 
         private void DoReflashData(object sender, EventArgs e)
@@ -78,7 +86,6 @@ namespace PA.View.Pages.TwoTabControl
         private void Button_Add_Click(object sender, RoutedEventArgs e)
         {
             PA.View.Windows.Win_记账凭证 win = new PA.View.Windows.Win_记账凭证();
-            win.ESubmit += new Windows.Win_记账凭证_Submit(DoReflashData);
             win.ShowDialog();
         }
 
@@ -121,7 +128,6 @@ namespace PA.View.Pages.TwoTabControl
                 Model_凭证管理 asd = this.DataGrid_本期凭证.SelectedCells[0].Item as Model_凭证管理;
                 Guid guid = asd.ID;
                 PA.View.Windows.Win_记账凭证 win = new PA.View.Windows.Win_记账凭证(guid);
-                win.ESubmit += new Windows.Win_记账凭证_Submit(DoReflashData);
                 win.ShowDialog();
             }
         }
