@@ -376,6 +376,7 @@
                             <Border BorderBrush="LightBlue" BorderThickness="0,0,0,1" Grid.Row="1" Grid.Column="4" Grid.ColumnSpan="140" />
                             <Border BorderBrush="LightBlue" BorderThickness="1,0,1,0" Grid.Column="4" Grid.ColumnSpan="70" Grid.Row="2" />
                             <Border BorderBrush="LightBlue" BorderThickness="1,0,1,0" Grid.Column="5" Grid.ColumnSpan="70" Grid.Row="2" />
+                            <Border BorderBrush="LightBlue" BorderThickness="1,0,1,0" Grid.Column="6" Grid.ColumnSpan="70" Grid.Row="2" />
                             <Border BorderBrush="LightBlue" BorderThickness="1,0,1,0" Grid.Column="7" Grid.ColumnSpan="70" Grid.Row="2" />
                             <Border BorderBrush="LightBlue" BorderThickness="1,0,1,0" Grid.Column="8" Grid.ColumnSpan="70" Grid.Row="2" />
                             <Border BorderBrush="LightBlue" BorderThickness="1,0,1,0" Grid.Column="9" Grid.ColumnSpan="70" Grid.Row="2" />
