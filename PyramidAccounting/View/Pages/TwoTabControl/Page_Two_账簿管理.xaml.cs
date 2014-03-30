@@ -38,7 +38,7 @@ namespace PA.View.Pages.TwoTabControl
             this.IsEnabled = true;
         }
         #region Mouse事件
-        private void FillData总账(object sender, StringEventArgs e)
+        private void FillData总账(object sender, MyEventArgs e)
         {
             this.Popup_科目子细目.IsOpen = false;
             this.IsEnabled = true;
@@ -47,7 +47,7 @@ namespace PA.View.Pages.TwoTabControl
                 TextBox_科目及单位名称.Text = e.Str;
             }
         }
-        private void FillData费用(object sender, StringEventArgs e)
+        private void FillData费用(object sender, MyEventArgs e)
         {
             this.Popup_科目子细目.IsOpen = false;
             this.IsEnabled = true;
@@ -56,7 +56,7 @@ namespace PA.View.Pages.TwoTabControl
                 this.TextBox_费用明细.Text = e.Str;
             }
         }
-        private void DoFillData(object sender, StringEventArgs e)
+        private void DoFillData(object sender, MyEventArgs e)
         {
             this.Popup_科目子细目.IsOpen = false;
             this.IsEnabled = true;

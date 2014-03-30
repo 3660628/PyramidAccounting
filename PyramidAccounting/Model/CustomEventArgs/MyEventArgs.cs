@@ -8,13 +8,20 @@ namespace PA.Model.CustomEventArgs
     public class MyEventArgs : EventArgs
     {
         private int y;
+        private int x;
+        private string str;
+
+        public string Str
+        {
+            get { return str; }
+            set { str = value; }
+        }
 
         public int Y
         {
             get { return y; }
             set { y = value; }
         }
-        private int x;
 
         public int X
         {

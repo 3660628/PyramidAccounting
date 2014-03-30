@@ -57,7 +57,7 @@ namespace PA.View.Windows
                 ESubmit(this, new EventArgs());
             }
         }
-        private void DoFillData(object sender, StringEventArgs e)
+        private void DoFillData(object sender, MyEventArgs e)
         {
             this.Popup_科目子细目.IsOpen = false;
             this.Window_记账凭证.IsEnabled = true;

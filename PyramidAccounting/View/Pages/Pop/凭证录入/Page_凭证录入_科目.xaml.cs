@@ -16,7 +16,7 @@ using PA.Model.ComboBox;
 
 namespace PA.View.Pages.Pop.凭证录入
 {
-    public delegate void Page_凭证录入_科目_FillDateEventHandle(object sender, StringEventArgs e);
+    public delegate void Page_凭证录入_科目_FillDateEventHandle(object sender, MyEventArgs e);
 
     public partial class Page_凭证录入_科目 : Page
     {
@@ -32,7 +32,7 @@ namespace PA.View.Pages.Pop.凭证录入
         {
             if(FillDate != null)
             {
-                StringEventArgs e = new StringEventArgs();
+                MyEventArgs e = new MyEventArgs();
                 e.Str = str;
                 FillDate(this, e);
             }
