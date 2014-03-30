@@ -30,7 +30,7 @@
                        Foreground="White" FontSize="14" 
                        TextWrapping="Wrap" Text="test"
                        HorizontalAlignment="Center" Canvas.Left="20"
-                       Canvas.Top="50" 
+                       Canvas.Top="50" Height="43" Width="241" 
                        />
             <Border BorderBrush="#FF60C1C1" BorderThickness="0.5" Height="22" 
                     Canvas.Bottom="10" Canvas.Right="85" MouseLeftButtonDown="Yes_MouseLeftButtonDown"

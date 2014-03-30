@@ -26,8 +26,7 @@
                            Foreground="#FFCBBEBE" FontSize="14"
                            VerticalAlignment="Center" Margin="5"/>
             </Border>
-            <PasswordBox x:Name="PasswordBox_User" Background="White" Canvas.Left="20"
-                         HorizontalAlignment="Center" Canvas.Top="50" Height="24" Width="200"/>
+            <PasswordBox x:Name="PasswordBox_User" Background="White" Canvas.Left="20" Canvas.Top="50" Height="24" HorizontalAlignment="Center" Width="239"/>
             <Border BorderBrush="#FF60C1C1" BorderThickness="0.5" Height="22" 
                     Canvas.Bottom="10" Canvas.Right="85" MouseLeftButtonDown="Yes_MouseLeftButtonDown"
                  Name="border1" Width="50" Background="#FFC7C7C7" CornerRadius="2">

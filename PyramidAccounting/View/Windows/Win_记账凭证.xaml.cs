@@ -168,6 +168,7 @@ namespace PA.View.Windows
             {
                 return true;
             }
+            MessageBoxCommon.Show("借贷不平衡");
             return false;
         }
         private void Count合计()
