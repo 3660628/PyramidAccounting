@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using PA.ViewModel;
 
 namespace PA.Helper.DataDefind
 {
@@ -15,6 +16,13 @@ namespace PA.Helper.DataDefind
         private static string currentPassword;
         private static string confirmPassword;
         private static int period;
+        private static bool isSaved;
+
+        public static bool 是否初始化年初数
+        {
+            get { return CommonInfo.isSaved; }
+            set { CommonInfo.isSaved = value; }
+        }
 
         public static int 当前期
         {

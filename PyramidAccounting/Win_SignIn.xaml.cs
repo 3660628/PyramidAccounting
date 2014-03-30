@@ -90,6 +90,7 @@ namespace PA
                 CommonInfo.权限值 = m.权限值;
                 CommonInfo.登录密码 = Password;
                 CommonInfo.制度索引 = Convert.ToInt32(xr.ReadXML("会计制度"));
+                CommonInfo.是否初始化年初数 = new ViewModel_年初金额().IsSaved();
                 //先记录一些信息
                 Model_操作日志 mr = new Model_操作日志();
                 mr = vmr.GetTOperateLog();

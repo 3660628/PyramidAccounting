@@ -30,7 +30,7 @@ namespace PA.ViewModel
             db.BatchOperate(sqlList);
         }
 
-        public void Update(List<Model_科目管理> list)
+        public bool Update(List<Model_科目管理> list)
         {
             List<string> sqlList = new List<string>();
             foreach (Model_科目管理 m in list)
@@ -50,7 +50,7 @@ namespace PA.ViewModel
                     + mm.科目编号 + "','承上年结余','" + mm.年初金额 + "')";
                 sqlList.Add(sql2);
             }
-            db.BatchOperate(sqlList);
+            return db.BatchOperate(sqlList);
         }
 
         public bool IsSaved()
@@ -59,7 +59,7 @@ namespace PA.ViewModel
             string sql = "select sum(fee) from " + DBTablesName.T_YEAR_FEE 
                 + " where bookid='" + CommonInfo.账薄号 + "'";
             string str = db.GetAllData(sql).Split('\t')[0];
-            if (str.Equals(","))
+            if (str.Equals("0"))
             {
                 return false;
             }

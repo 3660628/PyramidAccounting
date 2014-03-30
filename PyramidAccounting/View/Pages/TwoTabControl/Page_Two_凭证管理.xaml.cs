@@ -93,8 +93,15 @@ namespace PA.View.Pages.TwoTabControl
         }
         private void Button_Add_Click(object sender, RoutedEventArgs e)
         {
-            PA.View.Windows.Win_记账凭证 win = new PA.View.Windows.Win_记账凭证();
-            win.ShowDialog();
+            if (CommonInfo.是否初始化年初数)
+            {
+                PA.View.Windows.Win_记账凭证 win = new PA.View.Windows.Win_记账凭证();
+                win.ShowDialog();
+            }
+            else
+            {
+                MessageBoxCommon.Show("当前未初始化科目年初数，请设置！");
+            }
         }
 
         private void Button_Review_Click(object sender, RoutedEventArgs e)

@@ -103,10 +103,15 @@ namespace PA.View.Pages.TwoTabControl
             {
                 return;
             }
-            new ViewModel_年初金额().Update(lm);
+            bool flag = new ViewModel_年初金额().Update(lm);
+            if (flag)
+            {
+                MessageBoxCommon.Show("保存成功！");
+            }
             //刷新操作
             Button btn = sender as Button;
             //btn.Visibility = Visibility.Hidden;
+            CommonInfo.是否初始化年初数 = true;
         }
 
         private void Button_编辑子细目_Click(object sender, RoutedEventArgs e)

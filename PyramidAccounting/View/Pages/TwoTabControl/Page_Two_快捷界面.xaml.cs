@@ -30,6 +30,7 @@ namespace PA.View.Pages.TwoTabControl
         private ViewModel_Books vmb = new ViewModel_Books();
         private ViewModel_账薄管理 vm = new ViewModel_账薄管理();
 
+
         public Page_Two_快捷界面()
         {
             InitializeComponent();
@@ -60,7 +61,14 @@ namespace PA.View.Pages.TwoTabControl
 
         private void Button_凭证输入_Click(object sender, RoutedEventArgs e)
         {
-            new PA.View.Windows.Win_记账凭证().ShowDialog();
+            if (CommonInfo.是否初始化年初数)
+            {
+                new PA.View.Windows.Win_记账凭证().ShowDialog();
+            }
+            else
+            {
+                MessageBoxCommon.Show("当前未初始化年初金额，请先初始化年初数！");
+            }
         }
 
         private void Button_凭证审核_Click(object sender, RoutedEventArgs e)
@@ -81,23 +89,30 @@ namespace PA.View.Pages.TwoTabControl
 
         private void Button_本月结账_Click(object sender, RoutedEventArgs e)
         {
-            bool? result2 = MessageBoxDel.Show("注意", "当前将进行结账操作，是否继续？");
-            if (result2 == true)
+            if (CommonInfo.是否初始化年初数)
             {
-                bool? result = MessageBoxInput.Show("安全确认，请输入密码");
-                if (result == true)
+                bool? result2 = MessageBoxDel.Show("注意", "当前将进行结账操作，是否继续？");
+                if (result2 == true)
                 {
-                    if (CommonInfo.验证密码.Equals(CommonInfo.登录密码))
+                    bool? result = MessageBoxInput.Show("安全确认，请输入密码");
+                    if (result == true)
                     {
-                        xw.WriteXML("期", (CommonInfo.当前期 + 1).ToString());
-                        vmb.UpdatePeriod(CommonInfo.当前期 + 1);
-                        vm.CheckOut();
-                    }
-                    else
-                    {
-                        MessageBoxCommon.Show("当前输入密码错误！");
+                        if (CommonInfo.验证密码.Equals(CommonInfo.登录密码))
+                        {
+                            xw.WriteXML("期", (CommonInfo.当前期 + 1).ToString());
+                            vmb.UpdatePeriod(CommonInfo.当前期 + 1);
+                            vm.CheckOut();
+                        }
+                        else
+                        {
+                            MessageBoxCommon.Show("当前输入密码错误！");
+                        }
                     }
                 }
+            }
+            else
+            {
+                MessageBoxCommon.Show("当前未初始化年初金额，请先初始化年初数！");
             }
         }
 
