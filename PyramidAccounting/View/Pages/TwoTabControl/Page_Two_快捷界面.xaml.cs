@@ -15,15 +15,17 @@ using PA.View.ResourceDictionarys.MessageBox;
 using PA.Helper.DataDefind;
 using PA.Helper.XMLHelper;
 using PA.ViewModel;
+using PA.Model.CustomEventArgs;
 
 namespace PA.View.Pages.TwoTabControl
 {
-    public delegate void Page_Two_快捷界面_TabChange(object sender, PA.Model.CustomEventArgs.YXEventArgs e);
+    public delegate void Page_Two_快捷界面_TabChange(object sender, YXEventArgs e);
+
     public partial class Page_Two_快捷界面 : Page
     {
         public static event Page_Two_快捷界面_TabChange TabChange;
-        private XMLWriter xw = new XMLWriter();
-        private ViewModel_Books vmb = new ViewModel_Books();
+        //private XMLWriter xw = new XMLWriter();
+        //private ViewModel_Books vmb = new ViewModel_Books();
 
         public Page_Two_快捷界面()
         {
@@ -34,7 +36,7 @@ namespace PA.View.Pages.TwoTabControl
         {
             if (TabChange != null)
             {
-                PA.Model.CustomEventArgs.YXEventArgs e = new Model.CustomEventArgs.YXEventArgs();
+                YXEventArgs e = new YXEventArgs();
                 e.Y = y;
                 e.X = x;
                 TabChange(this, e);
@@ -43,9 +45,7 @@ namespace PA.View.Pages.TwoTabControl
 
         private void Button_凭证输入_Click(object sender, RoutedEventArgs e)
         {
-            PA.View.Windows.Win_记账凭证 win = new PA.View.Windows.Win_记账凭证();
-
-            win.ShowDialog();
+            new PA.View.Windows.Win_记账凭证().ShowDialog();
         }
 
         private void Button_凭证审核_Click(object sender, RoutedEventArgs e)
@@ -60,7 +60,7 @@ namespace PA.View.Pages.TwoTabControl
 
         private void Button_查询修改_Click(object sender, RoutedEventArgs e)
         {
-            
+            OnTabChange(1, 0);
         }
 
         private void Button_本月结账_Click(object sender, RoutedEventArgs e)
