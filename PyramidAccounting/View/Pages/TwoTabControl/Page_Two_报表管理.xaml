@@ -19,12 +19,11 @@
                     <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto" Margin="-3,40,0,-3">
                         <Grid Margin="10,0,10,10" VerticalAlignment="Top">
                             <Grid.RowDefinitions>
-                                <RowDefinition Height="634*"/>
-                                <RowDefinition Height="263*"/>
+                                <RowDefinition/>
                             </Grid.RowDefinitions>
                             <Label x:Name="Label_编制单位1" Content="编制单位：" HorizontalAlignment="Left" Margin="0" VerticalAlignment="Top" Height="24" Width="70"/>
                             <Label Content="单位：元" HorizontalAlignment="Right" Margin="0,0,10,0" VerticalAlignment="Top" Height="24" Width="58"/>
-                            <Grid HorizontalAlignment="Stretch" Margin="0,25,0,0" VerticalAlignment="Top" Width="Auto" ShowGridLines="False">
+                            <Grid HorizontalAlignment="Stretch" Margin="0,25" VerticalAlignment="Top" Width="Auto" ShowGridLines="False">
                                 <Grid.RowDefinitions>
                                     <RowDefinition Height="25" />
                                     <RowDefinition Height="25" />
@@ -149,9 +148,9 @@
                                 <Label Content="资产部类总计" HorizontalAlignment="Center" Grid.Column="1" Grid.Row="23" />
                                 <Label Content="负债部类总计" HorizontalAlignment="Center" Grid.Column="5" Grid.Row="23" />
                             </Grid>
-                            <Label x:Name="Label_单位负责人" Content="单位负责人：" HorizontalAlignment="Left" Margin="0" VerticalAlignment="Top" Grid.Row="1" Height="24" Width="82"/>
-                            <Label x:Name="Label_填表人" Content="填表人：" HorizontalAlignment="Left" Margin="300,0,0,0" VerticalAlignment="Top" Grid.Row="1" Height="24" Width="58"/>
-                            <Label x:Name="Label_填表日期" Content="填表日期：" HorizontalAlignment="Left" Margin="575,0,0,0" VerticalAlignment="Top" Grid.Row="1" Height="24" Width="70"/>
+                            <Label x:Name="Label_单位负责人" Content="单位负责人：" HorizontalAlignment="Left" Margin="0" VerticalAlignment="Bottom" Height="24" Width="82"/>
+                            <Label x:Name="Label_填表人" Content="填表人：" HorizontalAlignment="Left" Margin="300,0,0,0" VerticalAlignment="Bottom" Height="24" Width="58"/>
+                            <Label x:Name="Label_填表日期" Content="填表日期：" HorizontalAlignment="Left" Margin="575,0,0,0" VerticalAlignment="Bottom" Height="24" Width="70"/>
                         </Grid>
                     </ScrollViewer>
                 </Grid>
@@ -165,7 +164,7 @@
                         <Grid Margin="10,0,10,10" VerticalAlignment="Top">
                             <Label x:Name="Label_编制单位2" Content="编制单位：" HorizontalAlignment="Left" Margin="0" VerticalAlignment="Top"/>
                             <Label Content="单位：元" HorizontalAlignment="Right" Margin="0,0,10,0" VerticalAlignment="Top"/>
-                            <Grid Margin="0,25,0,29" VerticalAlignment="Top" Width="AUTO" ShowGridLines="False">
+                            <Grid Margin="0,25" VerticalAlignment="Top" Width="AUTO" ShowGridLines="False">
                                 <Grid.RowDefinitions>
                                     <RowDefinition Height="25" />
                                     <RowDefinition Height="25" />
@@ -249,7 +248,7 @@
                         <Grid Margin="10,0,10,10" VerticalAlignment="Top">
                             <Label x:Name="Label_编制单位3" Content="编制单位：" HorizontalAlignment="Left" Margin="0" VerticalAlignment="Top"/>
                             <Label Content="单位：元" HorizontalAlignment="Right" Margin="0,0,10,0" VerticalAlignment="Top"/>
-                            <Grid Margin="0,25,0,30" VerticalAlignment="Top" Width="AUTO" ShowGridLines="False">
+                            <Grid Margin="0,25" VerticalAlignment="Top" Width="AUTO" ShowGridLines="False">
                                 <Grid.RowDefinitions>
                                     <RowDefinition Height="25" />
                                     <RowDefinition Height="25" />
