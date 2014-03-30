@@ -5,7 +5,7 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:my="clr-namespace:PA.Helper.GridHelper"
       mc:Ignorable="d" 
-      d:DesignHeight="1000" d:DesignWidth="800" FontFamily="NSimSun" TextOptions.TextFormattingMode="Display"
+      d:DesignHeight="1000" d:DesignWidth="1800" FontFamily="NSimSun" TextOptions.TextFormattingMode="Display"
 	Title="Page_Two_报表管理">
 
     <Grid Margin="-3,0,-3,-3">
@@ -15,8 +15,8 @@
                 <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
                     <Grid Background="White">
                     <ComboBox x:Name="ComboBox_Date" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="100"/>
-                    <Button Content="打印" HorizontalAlignment="Right" Margin="0,10,100,0" VerticalAlignment="Top" Width="75" Click="Button_Click"/>
-                    <Button Content="导出" HorizontalAlignment="Right" Margin="0,10,20,0" VerticalAlignment="Top" Width="75"/>
+                    <Button Content="打印" HorizontalAlignment="Right" Margin="0,10,100,0" VerticalAlignment="Top" Width="75" Click="Button_Click" Template="{DynamicResource ButtonControlTemplate_Common}" Height="20"/>
+                    <Button Content="导出" HorizontalAlignment="Right" Margin="0,10,20,0" VerticalAlignment="Top" Width="75" Template="{DynamicResource ButtonControlTemplate_Common}" Height="20"/>
                     <Label x:Name="Label_编制单位1" Content="编制单位：" HorizontalAlignment="Left" Margin="5,36,0,0" VerticalAlignment="Top"/>
                     <Label Content="单位：元" HorizontalAlignment="Right" Margin="0,38,10,0" VerticalAlignment="Top"/>
                     <Grid HorizontalAlignment="Stretch" Margin="10,60,10,0" VerticalAlignment="Top" Width="Auto" ShowGridLines="False">
@@ -154,8 +154,8 @@
                 <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
                 <Grid Background="White">
                     <ComboBox x:Name="ComboBox_Date1" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="100"/>
-                    <Button Content="打印" HorizontalAlignment="Right" Margin="0,10,100,0" VerticalAlignment="Top" Width="75" Click="Button_Click"/>
-                    <Button Content="导出" HorizontalAlignment="Right" Margin="0,10,20,0" VerticalAlignment="Top" Width="75"/>
+                    <Button Content="打印" HorizontalAlignment="Right" Margin="0,10,100,0" VerticalAlignment="Top" Width="75" Click="Button_Click" Template="{DynamicResource ButtonControlTemplate_Common}" Height="20"/>
+                    <Button Content="导出" HorizontalAlignment="Right" Margin="0,10,20,0" VerticalAlignment="Top" Width="75" Template="{DynamicResource ButtonControlTemplate_Common}" Height="20"/>
                     <Label x:Name="Label_编制单位2" Content="编制单位：" HorizontalAlignment="Left" Margin="10,36,0,0" VerticalAlignment="Top"/>
                     <Label Content="单位：元" HorizontalAlignment="Right" Margin="0,38,10,0" VerticalAlignment="Top"/>
                     <Grid HorizontalAlignment="Stretch" Margin="10,60,10,0" VerticalAlignment="Top" Width="AUTO" ShowGridLines="False">
@@ -236,8 +236,8 @@
                 <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
                 <Grid Background="White" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
                     <ComboBox x:Name="ComboBox_Date2" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="100"/>
-                    <Button Content="打印" HorizontalAlignment="Right" Margin="0,10,100,0" VerticalAlignment="Top" Width="75" Click="Button_Click"/>
-                    <Button Content="导出" HorizontalAlignment="Right" Margin="0,10,20,0" VerticalAlignment="Top" Width="75"/>
+                    <Button Content="打印" HorizontalAlignment="Right" Margin="0,10,100,0" VerticalAlignment="Top" Width="75" Click="Button_Click" Template="{DynamicResource ButtonControlTemplate_Common}" Height="20"/>
+                    <Button Content="导出" HorizontalAlignment="Right" Margin="0,10,20,0" VerticalAlignment="Top" Width="75" Template="{DynamicResource ButtonControlTemplate_Common}" Height="20"/>
                     <Label x:Name="Label_编制单位3" Content="编制单位：" HorizontalAlignment="Left" Margin="10,36,0,0" VerticalAlignment="Top"/>
                     <Label Content="单位：元" HorizontalAlignment="Right" Margin="0,38,10,0" VerticalAlignment="Top"/>
                     <Grid HorizontalAlignment="Stretch" Margin="10,60,10,0" VerticalAlignment="Top" Width="AUTO" ShowGridLines="False">
@@ -438,7 +438,7 @@
                         <Label Content="机动车车辆核编数（实际数" HorizontalAlignment="Left" Margin="624,890,0,0" VerticalAlignment="Top"/>
                         <TextBox HorizontalAlignment="Left" Height="23" Margin="778,894,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="80" BorderThickness="0,0,0,1"/>
                         <Label Content="）" HorizontalAlignment="Left" Margin="855,890,0,0" VerticalAlignment="Top"/>
-                    </Grid>
+                </Grid>
                 </ScrollViewer>
             </TabItem>
         </TabControl>
