@@ -11,6 +11,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using PA.Model.CustomEventArgs;
 
 namespace PA.View.Pages
 {
@@ -27,6 +28,17 @@ namespace PA.View.Pages
             this.Frame_账簿管理.Content = new PA.View.Pages.TwoTabControl.Page_Two_账簿管理();
             this.Frame_报表管理.Content = new PA.View.Pages.TwoTabControl.Page_Two_报表管理();
             this.Frame_系统管理.Content = new PA.View.Pages.TwoTabControl.Page_Two_系统管理();
+            SubscribeToEvent();
+        }
+
+        private void SubscribeToEvent()
+        {
+            PA.View.Pages.TwoTabControl.Page_Two_快捷界面.TabChange += new TwoTabControl.Page_Two_快捷界面_TabChange(DoTabChange);
+        }
+
+        private void DoTabChange(object sender, YXEventArgs e)
+        {
+            this.TabControl_Main.SelectedIndex = e.Y;
         }
     }
 }

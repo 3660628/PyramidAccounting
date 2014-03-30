@@ -18,14 +18,27 @@ using PA.ViewModel;
 
 namespace PA.View.Pages.TwoTabControl
 {
-
+    public delegate void Page_Two_快捷界面_TabChange(object sender, PA.Model.CustomEventArgs.YXEventArgs e);
     public partial class Page_Two_快捷界面 : Page
     {
+        public static event Page_Two_快捷界面_TabChange TabChange;
         private XMLWriter xw = new XMLWriter();
         private ViewModel_Books vmb = new ViewModel_Books();
+
         public Page_Two_快捷界面()
         {
             InitializeComponent();
+        }
+
+        private void OnTabChange(int y, int x)
+        {
+            if (TabChange != null)
+            {
+                PA.Model.CustomEventArgs.YXEventArgs e = new Model.CustomEventArgs.YXEventArgs();
+                e.Y = y;
+                e.X = x;
+                TabChange(this, e);
+            }
         }
 
         private void Button_凭证输入_Click(object sender, RoutedEventArgs e)
@@ -37,7 +50,7 @@ namespace PA.View.Pages.TwoTabControl
 
         private void Button_凭证审核_Click(object sender, RoutedEventArgs e)
         {
-
+            OnTabChange(1,0);
         }
 
         private void Button_凭证过账_Click(object sender, RoutedEventArgs e)
