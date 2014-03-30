@@ -26,8 +26,9 @@ namespace PA.View.Pages.TwoTabControl
     {
         public static event Page_Two_快捷界面_TabChange TabChange;
         public static event Page_Two_快捷界面_FilterData FilterData;
-        //private XMLWriter xw = new XMLWriter();
-        //private ViewModel_Books vmb = new ViewModel_Books();
+        private XMLWriter xw = new XMLWriter();
+        private ViewModel_Books vmb = new ViewModel_Books();
+        private ViewModel_账薄管理 vm = new ViewModel_账薄管理();
 
         public Page_Two_快捷界面()
         {
@@ -88,10 +89,9 @@ namespace PA.View.Pages.TwoTabControl
                 {
                     if (CommonInfo.验证密码.Equals(CommonInfo.登录密码))
                     {
-                        //xw.WriteXML("期", (CommonInfo.当前期 + 1).ToString());
-                        //vmb.UpdatePeriod(CommonInfo.当前期 + 1);
-                        //CommonInfo.当前期 ++ ;
-                        //结账操作
+                        xw.WriteXML("期", (CommonInfo.当前期 + 1).ToString());
+                        vmb.UpdatePeriod(CommonInfo.当前期 + 1);
+                        vm.CheckOut();
                     }
                     else
                     {

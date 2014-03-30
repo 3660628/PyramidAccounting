@@ -28,15 +28,17 @@ namespace PA.ViewModel
                 foreach (DataRow d in dt.Rows)
                 {
                     Model_总账 m = new Model_总账();
-                    string date = d[1].ToString().Split(' ')[0];
-                    m.年 = date.Split('/')[0];
-                    m.月 = date.Split('/')[1];
-                    m.日 = date.Split('/')[2];
-                    m.号数 = d[3].ToString();
-                    m.摘要 = d[4].ToString();
-                    m.借方金额 = d[5].ToString();
-                    m.贷方金额 = d[6].ToString();
-                    m.借或贷 = d[7].ToString();
+                    if (!string.IsNullOrEmpty(d[1].ToString()))
+                    {
+                        string date = d[1].ToString().Split(' ')[0];
+                        m.年 = date.Split('/')[0];
+                        m.月 = date.Split('/')[1];
+                        m.日 = date.Split('/')[2];
+                    }
+                    m.号数 = d[4].ToString();
+                    m.摘要 = d[5].ToString();
+                    m.借方金额 = d[6].ToString();
+                    m.贷方金额 = d[7].ToString();
                     m.余额 = d[8].ToString();
                     string temp = string.Empty;
                     List<string> _list = new List<string>();
@@ -57,7 +59,7 @@ namespace PA.ViewModel
                         m.贷方金额12 = _list[11];
                         m.借或贷 = "贷";
                     }
-                    else
+                    else if(string.IsNullOrEmpty(m.贷方金额))
                     {
                         _list = Turn(m.借方金额, 12);
                         m.借方金额1 = _list[0];
