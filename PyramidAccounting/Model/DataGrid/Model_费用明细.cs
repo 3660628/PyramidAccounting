@@ -922,6 +922,13 @@ namespace PA.Model.DataGrid
             get { return col130; }
             set { col130 = value; }
         }
+        private List<string> title;
 
+        public List<string> 列名
+        {
+            get { return title; }
+            set { title = value; }
+        }
+        
     }
 }

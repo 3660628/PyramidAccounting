@@ -190,6 +190,15 @@ namespace PA.View.Pages.TwoTabControl
                 if (lm.Count > 0)
                 {
                     this.Label_费用明细年.Content = lm[0].年 + "年";
+                    int count = 0;
+                    foreach(string s in lm[0].列名)
+                    {
+                        Console.WriteLine(s);
+                        Label lb = new Label();
+                        lb = FindName("Label_" + count) as Label;
+                        lb.Content += s;
+                        count++;
+                    }
                 }
                 else
                 {

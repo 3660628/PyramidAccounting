@@ -99,6 +99,7 @@ namespace PA.ViewModel
                     m.余额10 = _list[9];
                     m.余额11 = _list[10];
                     m.余额12 = _list[11];
+                    
                     _list.Clear();
                     list.Add(m);
                 }
@@ -109,11 +110,13 @@ namespace PA.ViewModel
         {
             ComboBox_科目 cb = new ComboBox_科目();
             List<string> lst = new List<string>();
-            lst = cb.GetChildSubjectList("",subject_id);
+            lst = cb.GetChildSubjectList("",subject_id.Split('\t')[0]);
             string _tempstr = string.Empty;
             foreach(string i in lst)
             {
-                _tempstr += ",sum(case when t.detail='" + i + "' then (debit+credit) else '0' end) as " + i;
+                _tempstr += ",sum(case when t.detail='" + i.Split('\t')[1] 
+                    + "' then (t.fee1+t.fee2) else '0' end) as " 
+                    + i.Split('\t')[1];
             }
             for (int i = lst.Count; i < 11; i++)
             {
@@ -342,6 +345,7 @@ namespace PA.ViewModel
                     m.金额139 = _list[8];
                     m.金额140 = _list[9];
 
+                    m.列名 = lst;
                     #endregion
                     list.Add(m);
                 }
