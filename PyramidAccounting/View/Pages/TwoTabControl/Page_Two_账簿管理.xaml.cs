@@ -131,8 +131,6 @@ namespace PA.View.Pages.TwoTabControl
             {
                 string a = TextBox_一级科目.Text.ToString().Split('\t')[1];
                 string b = TextBox_二级科目.Text.ToString();
-                this.DataGrid_科目明细.ColumnHeaderHeight = 0;
-                this.DataGrid_科目明细.RowHeaderWidth = 0;
                 List<Model_科目明细账> lm = vmk.GetData(a, b);
                 if (lm.Count > 0)
                 {
@@ -161,8 +159,6 @@ namespace PA.View.Pages.TwoTabControl
             {
                 string a = TextBox_科目及单位名称.Text.ToString();
                 List<Model_总账> lm = vmk.GetData(a);
-                this.DataGrid_总账.ColumnHeaderHeight = 0;
-                this.DataGrid_总账.RowHeaderWidth = 0;
                 this.DataGrid_总账.ItemsSource = lm;
                 if (lm.Count > 0)
                 {
@@ -189,9 +185,7 @@ namespace PA.View.Pages.TwoTabControl
             else
             {
                 string a = TextBox_费用明细.Text.ToString();
-                List<Model_总账> lm = vmk.GetData(a);
-                this.DataGrid_费用明细账.ColumnHeaderHeight = 0;
-                this.DataGrid_费用明细账.RowHeaderWidth = 0;
+                List<Model_费用明细> lm = vmk.GetFeeDetail(a);
                 this.DataGrid_费用明细账.ItemsSource = lm;
                 if (lm.Count > 0)
                 {
@@ -199,7 +193,7 @@ namespace PA.View.Pages.TwoTabControl
                 }
                 else
                 {
-                    Model_总账 m = new Model_总账();
+                    Model_费用明细 m = new Model_费用明细();
                     m.摘要 = "查询不到数据！";
                     lm.Add(m);
                 }

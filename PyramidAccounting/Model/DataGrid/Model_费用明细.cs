@@ -237,6 +237,76 @@ namespace PA.Model.DataGrid
         private string col128;
         private string col129;
         private string col130;
+        private string col131;
+
+        public string 金额131
+        {
+            get { return col131; }
+            set { col131 = value; }
+        }
+        private string col132;
+
+        public string 金额132
+        {
+            get { return col132; }
+            set { col132 = value; }
+        }
+        private string col133;
+
+        public string 金额133
+        {
+            get { return col133; }
+            set { col133 = value; }
+        }
+        private string col134;
+
+        public string 金额134
+        {
+            get { return col134; }
+            set { col134 = value; }
+        }
+        private string col135;
+
+        public string 金额135
+        {
+            get { return col135; }
+            set { col135 = value; }
+        }
+        private string col136;
+
+        public string 金额136
+        {
+            get { return col136; }
+            set { col136 = value; }
+        }
+        private string col137;
+
+        public string 金额137
+        {
+            get { return col137; }
+            set { col137 = value; }
+        }
+        private string col138;
+
+        public string 金额138
+        {
+            get { return col138; }
+            set { col138 = value; }
+        }
+        private string col139;
+
+        public string 金额139
+        {
+            get { return col139; }
+            set { col139 = value; }
+        }
+        private string col140;
+
+        public string 金额140
+        {
+            get { return col140; }
+            set { col140 = value; }
+        }
         public string 借方金额8
         {
             get { return col8; }

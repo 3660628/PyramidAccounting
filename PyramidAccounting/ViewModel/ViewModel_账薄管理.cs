@@ -115,6 +115,10 @@ namespace PA.ViewModel
             {
                 _tempstr += ",sum(case when t.detail='" + i + "' then (debit+credit) else '0' end) as " + i;
             }
+            for (int i = lst.Count; i < 11; i++)
+            {
+                _tempstr += ",0";
+            }
 
             List<Model_费用明细> list = new List<Model_费用明细>();
             string sql = "select time,number,comments,sum(fee1),sum(fee2)" + _tempstr + " from " 
@@ -124,7 +128,7 @@ namespace PA.ViewModel
                 + DBTablesName.T_VOUCHER
                 + " b on a.parentid=b.id where a.subject_id='"
                 + subject_id.Split('\t')[1]
-                + "'" + " and b.delete_mark=0 and (a.debit+a.credit)>0 order by b.op_time)t group by t.number,t.time ";
+                + "'" + " and b.delete_mark=0 order by b.op_time)t group by t.number,t.time ";
 
             //判断第一期查年初数
             //以后差每一期期末数
@@ -139,6 +143,7 @@ namespace PA.ViewModel
                 {
                     Model_费用明细 m = new Model_费用明细();
                     string date = d[0].ToString().Split(' ')[0];
+                    #region 赋值
                     m.年 = date.Split('/')[0];
                     m.月 = date.Split('/')[1];
                     m.日 = date.Split('/')[2];
@@ -194,12 +199,150 @@ namespace PA.ViewModel
                     m.余额10 = _list[9];
                     _list.Clear();
 
-                    if (!string.IsNullOrEmpty(d[5].ToString()))
-                    {
-                        _list = Turn(d[5].ToString(), 10);
-                        m.金额31 = _list[0];
-                    }
                     
+                    _list = Turn(d[5].ToString(), 10);
+                    m.金额31 = _list[0];
+                    m.金额32 = _list[1];
+                    m.金额33 = _list[2];
+                    m.金额34 = _list[3];
+                    m.金额35 = _list[4];
+                    m.金额36 = _list[5];
+                    m.金额37 = _list[6];
+                    m.金额38 = _list[7];
+                    m.金额39 = _list[8];
+                    m.金额40 = _list[9];
+
+                    _list.Clear();
+                    _list = Turn(d[6].ToString(), 10);
+                    m.金额41 = _list[0];
+                    m.金额42 = _list[1];
+                    m.金额43 = _list[2];
+                    m.金额44 = _list[3];
+                    m.金额45 = _list[4];
+                    m.金额46 = _list[5];
+                    m.金额47 = _list[6];
+                    m.金额48 = _list[7];
+                    m.金额49 = _list[8];
+                    m.金额50 = _list[9];
+
+                    _list.Clear();
+                    _list = Turn(d[7].ToString(), 10);
+                    m.金额51 = _list[0];
+                    m.金额52 = _list[1];
+                    m.金额53 = _list[2];
+                    m.金额54 = _list[3];
+                    m.金额55 = _list[4];
+                    m.金额56 = _list[5];
+                    m.金额57 = _list[6];
+                    m.金额58 = _list[7];
+                    m.金额59 = _list[8];
+                    m.金额60 = _list[9];
+
+                    _list.Clear();
+                    _list = Turn(d[8].ToString(), 10);
+                    m.金额61 = _list[0];
+                    m.金额62 = _list[1];
+                    m.金额63 = _list[2];
+                    m.金额64 = _list[3];
+                    m.金额65 = _list[4];
+                    m.金额66 = _list[5];
+                    m.金额67 = _list[6];
+                    m.金额68 = _list[7];
+                    m.金额69 = _list[8];
+                    m.金额70 = _list[9];
+
+                    _list.Clear();
+                    _list = Turn(d[9].ToString(), 10);
+                    m.金额71 = _list[0];
+                    m.金额72 = _list[1];
+                    m.金额73 = _list[2];
+                    m.金额74 = _list[3];
+                    m.金额75 = _list[4];
+                    m.金额76 = _list[5];
+                    m.金额77 = _list[6];
+                    m.金额78 = _list[7];
+                    m.金额79 = _list[8];
+                    m.金额80 = _list[9];
+
+                    _list.Clear();
+                    _list = Turn(d[10].ToString(), 10);
+                    m.金额81 = _list[0];
+                    m.金额82 = _list[1];
+                    m.金额83 = _list[2];
+                    m.金额84 = _list[3];
+                    m.金额85 = _list[4];
+                    m.金额86 = _list[5];
+                    m.金额87 = _list[6];
+                    m.金额88 = _list[7];
+                    m.金额89 = _list[8];
+                    m.金额90 = _list[9];
+
+                    _list.Clear();
+                    _list = Turn(d[11].ToString(), 10);
+                    m.金额91 = _list[0];
+                    m.金额92 = _list[1];
+                    m.金额93 = _list[2];
+                    m.金额94 = _list[3];
+                    m.金额95 = _list[4];
+                    m.金额96 = _list[5];
+                    m.金额97 = _list[6];
+                    m.金额98 = _list[7];
+                    m.金额99 = _list[8];
+                    m.金额100 = _list[9];
+
+                    _list.Clear();
+                    _list = Turn(d[12].ToString(), 10);
+                    m.金额101 = _list[0];
+                    m.金额102 = _list[1];
+                    m.金额103 = _list[2];
+                    m.金额104 = _list[3];
+                    m.金额105 = _list[4];
+                    m.金额106 = _list[5];
+                    m.金额107 = _list[6];
+                    m.金额108 = _list[7];
+                    m.金额109 = _list[8];
+                    m.金额110 = _list[9];
+
+                    _list.Clear();
+                    _list = Turn(d[13].ToString(), 10);
+                    m.金额111 = _list[0];
+                    m.金额112 = _list[1];
+                    m.金额113 = _list[2];
+                    m.金额114 = _list[3];
+                    m.金额115 = _list[4];
+                    m.金额116 = _list[5];
+                    m.金额117 = _list[6];
+                    m.金额118 = _list[7];
+                    m.金额119 = _list[8];
+                    m.金额120 = _list[9];
+
+                    _list.Clear();
+                    _list = Turn(d[14].ToString(), 10);
+                    m.金额121 = _list[0];
+                    m.金额122 = _list[1];
+                    m.金额123 = _list[2];
+                    m.金额124 = _list[3];
+                    m.金额125 = _list[4];
+                    m.金额126 = _list[5];
+                    m.金额127 = _list[6];
+                    m.金额128 = _list[7];
+                    m.金额129 = _list[8];
+                    m.金额130 = _list[9];
+
+                    _list.Clear();
+                    _list = Turn(d[15].ToString(), 10);
+                    m.金额131 = _list[0];
+                    m.金额132 = _list[1];
+                    m.金额133 = _list[2];
+                    m.金额134 = _list[3];
+                    m.金额135 = _list[4];
+                    m.金额136 = _list[5];
+                    m.金额137 = _list[6];
+                    m.金额138 = _list[7];
+                    m.金额139 = _list[8];
+                    m.金额140 = _list[9];
+
+                    #endregion
                     list.Add(m);
                 }
             }
@@ -317,6 +460,14 @@ namespace PA.ViewModel
         {
             List<string> list = new List<string>();
             int length = value.Length;
+            if (value.Equals("0"))
+            {
+                for (int i = 0; i < size;i++ )
+                {
+                    list.Add(string.Empty);
+                }
+                return list;
+            }
             value = value.Replace(".", "");
             string s = string.Empty;
             char[] cc = value.ToCharArray();
