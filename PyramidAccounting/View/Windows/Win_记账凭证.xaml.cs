@@ -322,30 +322,34 @@ namespace PA.View.Windows
 
         private void TextBox_附属单证_MouseWheel(object sender, MouseWheelEventArgs e)
         {
+            int result = 0;
+            int.TryParse(this.TextBox_附属单证.Text.Trim(), out result);
             if (e.Delta > 0)
             {
-                this.TextBox_附属单证.Text = (int.Parse(this.TextBox_附属单证.Text.Trim()) + 1).ToString();
+                this.TextBox_附属单证.Text = (result + 1).ToString();
             }
             else if (e.Delta < 0)
             {
-                if (this.TextBox_附属单证.Text != "0")
+                if (result > 0)
                 {
-                    this.TextBox_附属单证.Text = (int.Parse(this.TextBox_附属单证.Text.Trim()) - 1).ToString();
+                    this.TextBox_附属单证.Text = (result - 1).ToString();
                 }
             }
         }
 
         private void TextBox_号_MouseWheel(object sender, MouseWheelEventArgs e)
         {
+            int result = 0;
+            int.TryParse(this.TextBox_号.Text.Trim(), out result);
             if (e.Delta > 0)
             {
-                this.TextBox_号.Text = (int.Parse(this.TextBox_号.Text.Trim()) + 1).ToString();
+                this.TextBox_号.Text = (result + 1).ToString();
             }
             else if (e.Delta < 0)
             {
-                if (this.TextBox_号.Text != "0")
+                if (result > 0)
                 {
-                    this.TextBox_号.Text = (int.Parse(this.TextBox_号.Text.Trim()) - 1).ToString();
+                    this.TextBox_号.Text = (result - 1).ToString();
                 }
             }
         }
