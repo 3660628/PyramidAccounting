@@ -36,6 +36,7 @@ namespace PA.View.Windows
         public Win_记账凭证()
         {
             InitializeComponent();
+            this.Button_打印.Visibility = System.Windows.Visibility.Collapsed;
             InitData();
             Voucher.当前期 = PA.Helper.DataDefind.CommonInfo.当前期;
         }
@@ -248,7 +249,7 @@ namespace PA.View.Windows
 
         private void Button_打印_Click(object sender, RoutedEventArgs e)
         {
-            
+            new PA.Helper.ExcelHelper.ExcelWriter().ExportVouchers(guid);
         }
         
         private void DataGrid_凭证明细_Cell_MouseDoubleClick(object sender, RoutedEventArgs e)
