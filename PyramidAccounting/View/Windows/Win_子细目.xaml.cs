@@ -11,17 +11,20 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using PA.Model.DataGrid;
+using PA.Model.CustomEventArgs;
 using PA.ViewModel;
 using PA.Model.CustomEventArgs;
 using PA.View.ResourceDictionarys.MessageBox;
 
 namespace PA.View.Windows
 {
+    public delegate void Win_子细目_RerflashData(object sender, MyEventArgs e);
     /// <summary>
     /// Interaction logic for Win_子细目.xaml
     /// </summary>
     public partial class Win_子细目 : Window
     {
+        public static event Win_子细目_RerflashData RerflashData;
         private string SubjectNum = string.Empty;
         private string SubjectName = string.Empty;
         private bool initFlag = false;
@@ -38,6 +41,17 @@ namespace PA.View.Windows
             this.TextBox_科目名称.Text = this.SubjectName;
             check();
         }
+
+        #region 自定义事件
+        private void OnRerflashData()
+        {
+            if(RerflashData != null)
+            {
+                MyEventArgs e = new Model.CustomEventArgs.MyEventArgs();
+                RerflashData(this, e);
+            }
+        }
+        #endregion
         private void check()
         {
             List<Model_科目管理> dataList = new List<Model_科目管理>();
@@ -61,6 +75,7 @@ namespace PA.View.Windows
         private void Button_Close_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
+            OnRerflashData();
         }
 
         private void Window_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)

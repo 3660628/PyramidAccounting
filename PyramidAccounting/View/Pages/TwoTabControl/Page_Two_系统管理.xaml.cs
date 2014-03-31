@@ -36,8 +36,23 @@ namespace PA.View.Pages.TwoTabControl
         public Page_Two_系统管理()
         {
             InitializeComponent();
+            SubscribeToEvent();
             VisibilityData();
         }
+
+        #region 事件订阅
+        private void SubscribeToEvent()
+        {
+            PA.View.Windows.Win_子细目.RerflashData += new Windows.Win_子细目_RerflashData(DoRerflashData);
+        }
+        #endregion
+        #region 自定义事件
+        private void DoRerflashData(object sender, MyEventArgs e)
+        {
+            TabControl_五大科目_SelectionChanged(null, null);
+        }
+        #endregion
+
         #region 修改密码
 
         private void Button_ChangePassword_Click(object sender, RoutedEventArgs e)
