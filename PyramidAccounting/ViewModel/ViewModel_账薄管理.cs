@@ -496,7 +496,6 @@ namespace PA.ViewModel
                 for (int i = 0; i < length; i++)
                 {
                     s = cc[i].ToString();
-                    Console.WriteLine(s);
                     list.Add(s);
                 }
                 list.Add("0");
@@ -524,10 +523,10 @@ namespace PA.ViewModel
                           + "SUBJECT_ID || '汇总' AS comments,"
                           + "sum(DEBIT) AS DEBIT,"
                           + "sum(CREDIT) AS CREDIT,    "
-                          + "(select fee from " + DBTablesName.T_FEE
+                          + "(select mark*fee from " + DBTablesName.T_FEE
                           + " where period = "
                           + (CommonInfo.当前期 - 1)
-                          + " ORDER BY SUBJECT_ID)-total(debit-credit) as fee"
+                          + " ORDER BY SUBJECT_ID) + total(debit-credit) as fee"
                           + " FROM "
                           + DBTablesName.T_VOUCHER_DETAIL
                           + " WHERE "

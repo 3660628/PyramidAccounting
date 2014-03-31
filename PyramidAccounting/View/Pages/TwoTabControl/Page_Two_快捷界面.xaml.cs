@@ -135,7 +135,8 @@ namespace PA.View.Pages.TwoTabControl
 
         private void Button_账目查询_Click(object sender, RoutedEventArgs e)
         {
-
+            //不知道为什么 跳转不了
+            OnTabChange(2,2);
         }
     }
 }
