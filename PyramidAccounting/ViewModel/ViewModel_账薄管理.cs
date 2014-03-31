@@ -49,40 +49,40 @@ namespace PA.ViewModel
                     }
                     else
                     {
-                        if (!m.贷方金额.Equals("0"))
+                        decimal a = Convert.ToDecimal(m.贷方金额)-Convert.ToDecimal(m.借方金额);
+                        if (a>0)
                         {
-                            _list = Turn(m.贷方金额, 12);
-                            m.贷方金额1 = _list[0];
-                            m.贷方金额2 = _list[1];
-                            m.贷方金额3 = _list[2];
-                            m.贷方金额4 = _list[3];
-                            m.贷方金额5 = _list[4];
-                            m.贷方金额6 = _list[5];
-                            m.贷方金额7 = _list[6];
-                            m.贷方金额8 = _list[7];
-                            m.贷方金额9 = _list[8];
-                            m.贷方金额10 = _list[9];
-                            m.贷方金额11 = _list[10];
-                            m.贷方金额12 = _list[11];
                             m.借或贷 = "贷";
-                        }
-                        else if (!m.借方金额.Equals("0"))
+                        }else
                         {
-                            _list = Turn(m.借方金额, 12);
-                            m.借方金额1 = _list[0];
-                            m.借方金额2 = _list[1];
-                            m.借方金额3 = _list[2];
-                            m.借方金额4 = _list[3];
-                            m.借方金额5 = _list[4];
-                            m.借方金额6 = _list[5];
-                            m.借方金额7 = _list[6];
-                            m.借方金额8 = _list[7];
-                            m.借方金额9 = _list[8];
-                            m.借方金额10 = _list[9];
-                            m.借方金额11 = _list[10];
-                            m.借方金额12 = _list[11];
                             m.借或贷 = "借";
                         }
+                        _list = Turn(m.贷方金额, 12);
+                        m.贷方金额1 = _list[0];
+                        m.贷方金额2 = _list[1];
+                        m.贷方金额3 = _list[2];
+                        m.贷方金额4 = _list[3];
+                        m.贷方金额5 = _list[4];
+                        m.贷方金额6 = _list[5];
+                        m.贷方金额7 = _list[6];
+                        m.贷方金额8 = _list[7];
+                        m.贷方金额9 = _list[8];
+                        m.贷方金额10 = _list[9];
+                        m.贷方金额11 = _list[10];
+                        m.贷方金额12 = _list[11];
+                        _list = Turn(m.借方金额, 12);
+                        m.借方金额1 = _list[0];
+                        m.借方金额2 = _list[1];
+                        m.借方金额3 = _list[2];
+                        m.借方金额4 = _list[3];
+                        m.借方金额5 = _list[4];
+                        m.借方金额6 = _list[5];
+                        m.借方金额7 = _list[6];
+                        m.借方金额8 = _list[7];
+                        m.借方金额9 = _list[8];
+                        m.借方金额10 = _list[9];
+                        m.借方金额11 = _list[10];
+                        m.借方金额12 = _list[11];    
                     }
                     _list.Clear();
                     _list = Turn(m.余额, 12);
@@ -527,7 +527,7 @@ namespace PA.ViewModel
                           + "(select fee from " + DBTablesName.T_FEE
                           + " where period = "
                           + (CommonInfo.当前期 - 1)
-                          + " ORDER BY SUBJECT_ID)-total(debit+credit) as fee"
+                          + " ORDER BY SUBJECT_ID)-total(credit-debit) as fee"
                           + " FROM "
                           + DBTablesName.T_VOUCHER_DETAIL
                           + " WHERE "
