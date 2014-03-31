@@ -534,7 +534,6 @@ namespace PA.ViewModel
                           + ") GROUP BY "
                           + "SUBJECT_ID  ORDER BY SUBJECT_ID) a "
                           + "LEFT JOIN T_SUBJECT_0 b ON a.SUBJECT_ID = b.SUBJECT_NAME";
-            Console.WriteLine(sql);
             bool flag = db.Excute(sql);
             if (flag)
             {
