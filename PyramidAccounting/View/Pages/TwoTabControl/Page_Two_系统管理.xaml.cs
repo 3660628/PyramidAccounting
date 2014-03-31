@@ -46,7 +46,7 @@ namespace PA.View.Pages.TwoTabControl
             PA.View.Windows.Win_子细目.RerflashData += new Windows.Win_子细目_RerflashData(DoRerflashData);
         }
         #endregion
-        #region 自定义事件
+        #region 接受事件后处理
         private void DoRerflashData(object sender, MyEventArgs e)
         {
             TabControl_五大科目_SelectionChanged(null, null);
