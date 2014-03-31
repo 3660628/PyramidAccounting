@@ -40,7 +40,6 @@ namespace PA.View.Pages.TwoTabControl
         {
             PA.View.Windows.Win_记账凭证.ESubmit += new Windows.Win_记账凭证_Submit(DoReflashData);
             PA.View.Pages.TwoTabControl.Page_Two_快捷界面.FilterData += new Page_Two_快捷界面_FilterData(DoFilterData);
-
         }
 
         private void DoReflashData(object sender, MyEventArgs e)
