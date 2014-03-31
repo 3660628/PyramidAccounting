@@ -101,6 +101,7 @@ namespace PA.View.Pages.TwoTabControl
             }
             if(!vmp.IsReview(CommonInfo.当前期))
             {
+                Button_凭证审核_Click(this,null);
                 mark = false;
                 MessageBoxCommon.Show("检测到还有当前期未审核的凭证单，请先做审核！");
             }
@@ -118,8 +119,8 @@ namespace PA.View.Pages.TwoTabControl
                             if (flag)
                             {
                                 MessageBoxCommon.Show("结账完毕！");
-                                xw.WriteXML("期", (CommonInfo.当前期 + 1).ToString());
-                                vmb.UpdatePeriod(CommonInfo.当前期 + 1);
+                                xw.WriteXML("期", (CommonInfo.当前期).ToString());
+                                vmb.UpdatePeriod(CommonInfo.当前期);
                             }
                         }
                         else

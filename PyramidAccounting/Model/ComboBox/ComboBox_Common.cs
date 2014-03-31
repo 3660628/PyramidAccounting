@@ -66,7 +66,7 @@ namespace PA.Model.ComboBox
             int count = CommonInfo.当前期;
             for (int i = 1; i <= count; i++)
             {
-                string s = value + "年" + count + "期";
+                string s = value + "年" + i + "期";
                 list.Add(s);
             }
             return list;
