@@ -153,18 +153,18 @@ namespace PA.View.Pages.TwoTabControl
         }
         private void CheckBox_借贷方向_Click(object sender, RoutedEventArgs e)
         {
-            //CheckBox b = sender as CheckBox;
-            //Model_科目管理 m = new Model_科目管理();
-            //try
-            //{
-            //    m = DataGrid_科目设置.SelectedCells[0].Item as Model_科目管理;
-            //    m.Used_mark = b.IsChecked == true ? 0 : 1;
-            //    new ViewModel_科目管理().UpdateUsedMark(m);
-            //}
-            //catch (Exception ex)
-            //{
-            //    Log.Write(ex.Message);
-            //}
+            CheckBox cb = sender as CheckBox;
+            Model_科目管理 m = new Model_科目管理();
+            try
+            {
+                m = DataGrid_科目设置.SelectedCells[0].Item as Model_科目管理;
+                m.借贷标记 = (bool)cb.IsChecked;
+                new ViewModel_科目管理().UpdateBorrowMark(m);
+            }
+            catch (Exception ex)
+            {
+                Log.Write(ex.Message);
+            }
         }
 
         private void DataGrid_科目设置_Row_MouseDoubleClick(object sender, RoutedEventArgs e)

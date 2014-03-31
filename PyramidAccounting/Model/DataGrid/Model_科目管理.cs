@@ -17,6 +17,16 @@ namespace PA.Model.DataGrid
         private int used_mark;
         private string parent_id;
         private bool mark;
+        private bool Borrow_Mark;
+
+        /// <summary>
+        /// 数据库是Int类型，true=1.false=-1
+        /// </summary>
+        public bool 借贷标记
+        {
+            get { return Borrow_Mark; }
+            set { Borrow_Mark = value; }
+        }
 
         public string 父ID
         {

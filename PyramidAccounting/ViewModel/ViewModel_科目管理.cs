@@ -42,6 +42,9 @@ namespace PA.ViewModel
                 m.年初金额 = d[0].ToString();
                 m.Used_mark = Convert.ToInt32(d[7].ToString());
                 m.是否启用 = m.Used_mark == 0 ? true : false;
+                int 借贷标记result = 1;
+                int.TryParse(d[8].ToString(), out 借贷标记result);
+                m.借贷标记 = (借贷标记result == 1) ? true : false;
                 list.Add(m);
             }
             return list;
@@ -68,6 +71,12 @@ namespace PA.ViewModel
         public void UpdateUsedMark(Model_科目管理 m)
         {
             string sql = "update " + DBTablesName.T_SUBJECT + " set used_mark=" + m.Used_mark + " where id=" + m.ID;
+            db.Excute(sql);
+        }
+
+        public void UpdateBorrowMark(Model_科目管理 m)
+        {
+            string sql = "update " + DBTablesName.T_SUBJECT + " set Borrow_Mark=" + ((m.借贷标记)?1:-1) + " where id=" + m.ID;
             db.Excute(sql);
         }
 

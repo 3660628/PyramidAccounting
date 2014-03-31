@@ -84,7 +84,7 @@
                             <DataGridTemplateColumn  x:Name="DataGridTemplateColumn_BorrowMark" Header="借贷方向">
                                 <DataGridTemplateColumn.CellTemplate>
                                     <DataTemplate>
-                                        <CheckBox x:Name="CheckBox_借贷方向" Style="{DynamicResource SliderCheckBox}" IsChecked="{Binding 是否启用}" Click="CheckBox_借贷方向_Click" />
+                                        <CheckBox x:Name="CheckBox_借贷方向" Style="{DynamicResource SliderCheckBox}" IsChecked="{Binding 借贷标记}" Click="CheckBox_借贷方向_Click" />
                                     </DataTemplate>
                                 </DataGridTemplateColumn.CellTemplate>
                             </DataGridTemplateColumn>
