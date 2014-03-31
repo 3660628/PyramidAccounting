@@ -40,6 +40,7 @@ namespace PA.View.Pages.TwoTabControl
         {
             PA.View.Windows.Win_记账凭证.ESubmit += new Windows.Win_记账凭证_Submit(DoReflashData);
             PA.View.Pages.TwoTabControl.Page_Two_快捷界面.FilterData += new Page_Two_快捷界面_FilterData(DoFilterData);
+
         }
 
         private void DoReflashData(object sender, MyEventArgs e)
@@ -48,10 +49,18 @@ namespace PA.View.Pages.TwoTabControl
         }
         private void DoFilterData(object sender, MyEventArgs e)
         {
-            if(e.Y == 1 && e.X == 0 && e.操作类型 == "凭证审核")
+            if(e.Y == 1 && e.X == 0)
             {
-                this.ComboBox_Review.SelectedIndex = 2;
-                ReflashData();
+                if(e.操作类型 == "凭证审核")
+                {
+                    this.ComboBox_Review.SelectedIndex = 2;
+                    ReflashData();
+                }
+                else if (e.操作类型 == "本月结账")
+                {
+                    InitData();
+                    ReflashData();
+                }
             }
         }
 

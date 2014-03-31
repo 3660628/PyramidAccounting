@@ -121,6 +121,7 @@ namespace PA.View.Pages.TwoTabControl
                                 MessageBoxCommon.Show("结账完毕！");
                                 xw.WriteXML("期", (CommonInfo.当前期).ToString());
                                 vmb.UpdatePeriod(CommonInfo.当前期);
+                                OnFilterData(1, 0, "本月结账");
                             }
                         }
                         else
