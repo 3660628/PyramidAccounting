@@ -26,7 +26,7 @@ namespace PA.Model.CustomEventArgs
             set { str = value; }
         }
         /// <summary>
-        /// 跳转坐标：竖坐标（一级Tab）
+        /// 跳转坐标：竖坐标（一级Tab）,0开始
         /// </summary>
         public int Y
         {
@@ -34,7 +34,7 @@ namespace PA.Model.CustomEventArgs
             set { y = value; }
         }
         /// <summary>
-        /// 跳转坐标：横坐标（二级Tab）
+        /// 跳转坐标：横坐标（二级Tab），0开始
         /// </summary>
         public int X
         {

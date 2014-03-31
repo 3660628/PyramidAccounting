@@ -62,7 +62,7 @@
             </TabItem>
             <TabItem FocusVisualStyle="{x:Null}" Header="科目设置" Margin="16,-1,-16,1" Template="{DynamicResource TabItemControlTemplate_TwoTabHeader}">
                 <Grid Background="White">
-                    <DataGrid x:Name="DataGrid_科目设置" ItemsSource="{Binding}" CanUserAddRows="False" AutoGenerateColumns="False" HorizontalAlignment="Stretch" Margin="10,54,10,10" VerticalAlignment="Stretch" Background="White" RowEditEnding="DataGrid_科目设置_RowEditEnding" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle_凭证管理}" BorderBrush="#FF99CCFF" HeadersVisibility="Column" SelectionUnit="Cell" SelectionMode="Single">
+                    <DataGrid x:Name="DataGrid_科目设置" ItemsSource="{Binding}" CanUserAddRows="False" AutoGenerateColumns="False" HorizontalAlignment="Stretch" Margin="10,54,10,10" VerticalAlignment="Stretch" Background="White" RowEditEnding="DataGrid_科目设置_RowEditEnding" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle_凭证管理}" BorderBrush="#FF99CCFF" HeadersVisibility="Column" SelectionUnit="Cell" SelectionMode="Single" IsReadOnly="True">
                         <DataGrid.Resources>
                             <!--DataGridRow的双击事件-->
                             <Style TargetType="DataGridRow">
@@ -78,6 +78,13 @@
                                 <DataGridTemplateColumn.CellTemplate>
                                     <DataTemplate>
                                         <CheckBox x:Name="CheckBox_启用" Style="{DynamicResource SliderCheckBox}" IsChecked="{Binding 是否启用}" Click="CheckBox_启用_Click" />
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+                            <DataGridTemplateColumn  x:Name="DataGridTemplateColumn_BorrowMark" Header="借贷方向">
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <CheckBox x:Name="CheckBox_借贷方向" Style="{DynamicResource SliderCheckBox}" IsChecked="{Binding 是否启用}" Click="CheckBox_借贷方向_Click" />
                                     </DataTemplate>
                                 </DataGridTemplateColumn.CellTemplate>
                             </DataGridTemplateColumn>
