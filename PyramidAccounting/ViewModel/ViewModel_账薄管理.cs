@@ -32,9 +32,9 @@ namespace PA.ViewModel
                     if (!string.IsNullOrEmpty(d[0].ToString()))
                     {
                         string date = d[0].ToString().Split(' ')[0];
-                        m.年 = date.Split('-')[0];
-                        m.月 = date.Split('-')[1];
-                        m.日 = date.Split('-')[2];
+                        m.年 = date.Split('/')[0];
+                        m.月 = date.Split('/')[1];
+                        m.日 = date.Split('/')[2];
                     }
                     m.号数 = d[1].ToString();
                     m.摘要 = d[2].ToString();
@@ -43,41 +43,47 @@ namespace PA.ViewModel
                     m.余额 = d[5].ToString();
                     string temp = string.Empty;
                     List<string> _list = new List<string>();
-                    if (string.IsNullOrEmpty(m.借方金额))
+                    if (m.贷方金额.Equals("0") && m.借方金额.Equals("0"))
                     {
-                        _list = Turn(m.贷方金额, 12);
-                        m.贷方金额1 = _list[0];
-                        m.贷方金额2 = _list[1];
-                        m.贷方金额3 = _list[2];
-                        m.贷方金额4 = _list[3];
-                        m.贷方金额5 = _list[4];
-                        m.贷方金额6 = _list[5];
-                        m.贷方金额7 = _list[6];
-                        m.贷方金额8 = _list[7];
-                        m.贷方金额9 = _list[8];
-                        m.贷方金额10 = _list[9];
-                        m.贷方金额11 = _list[10];
-                        m.贷方金额12 = _list[11];
-                        m.借或贷 = "贷";
+                        m.借或贷 = "";
                     }
-                    else if(string.IsNullOrEmpty(m.贷方金额))
+                    else
                     {
-                        _list = Turn(m.借方金额, 12);
-                        m.借方金额1 = _list[0];
-                        m.借方金额2 = _list[1];
-                        m.借方金额3 = _list[2];
-                        m.借方金额4 = _list[3];
-                        m.借方金额5 = _list[4];
-                        m.借方金额6 = _list[5];
-                        m.借方金额7 = _list[6];
-                        m.借方金额8 = _list[7];
-                        m.借方金额9 = _list[8];
-                        m.借方金额10 = _list[9];
-                        m.借方金额11 = _list[10];
-                        m.借方金额12 = _list[11];
-                        m.借或贷 = "借";
+                        if (!m.贷方金额.Equals("0"))
+                        {
+                            _list = Turn(m.贷方金额, 12);
+                            m.贷方金额1 = _list[0];
+                            m.贷方金额2 = _list[1];
+                            m.贷方金额3 = _list[2];
+                            m.贷方金额4 = _list[3];
+                            m.贷方金额5 = _list[4];
+                            m.贷方金额6 = _list[5];
+                            m.贷方金额7 = _list[6];
+                            m.贷方金额8 = _list[7];
+                            m.贷方金额9 = _list[8];
+                            m.贷方金额10 = _list[9];
+                            m.贷方金额11 = _list[10];
+                            m.贷方金额12 = _list[11];
+                            m.借或贷 = "贷";
+                        }
+                        else if (!m.借方金额.Equals("0"))
+                        {
+                            _list = Turn(m.借方金额, 12);
+                            m.借方金额1 = _list[0];
+                            m.借方金额2 = _list[1];
+                            m.借方金额3 = _list[2];
+                            m.借方金额4 = _list[3];
+                            m.借方金额5 = _list[4];
+                            m.借方金额6 = _list[5];
+                            m.借方金额7 = _list[6];
+                            m.借方金额8 = _list[7];
+                            m.借方金额9 = _list[8];
+                            m.借方金额10 = _list[9];
+                            m.借方金额11 = _list[10];
+                            m.借方金额12 = _list[11];
+                            m.借或贷 = "借";
+                        }
                     }
-
                     _list.Clear();
                     _list = Turn(m.余额, 12);
                     m.余额1 = _list[0];

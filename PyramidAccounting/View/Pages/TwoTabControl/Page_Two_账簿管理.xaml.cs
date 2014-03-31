@@ -162,7 +162,7 @@ namespace PA.View.Pages.TwoTabControl
                 this.DataGrid_总账.ItemsSource = lm;
                 if (lm.Count > 0)
                 {
-                    this.Label_总账年.Content = lm[0].年 + "年";
+                    this.Label_总账年.Content = lm[1].年 + "年";
                 }
                 else
                 {
