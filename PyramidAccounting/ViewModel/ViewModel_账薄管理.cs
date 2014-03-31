@@ -527,7 +527,7 @@ namespace PA.ViewModel
                           + "(select fee from " + DBTablesName.T_FEE
                           + " where period = "
                           + (CommonInfo.当前期 - 1)
-                          + " ORDER BY SUBJECT_ID)-total(credit-debit) as fee"
+                          + " ORDER BY SUBJECT_ID)-total(debit-credit) as fee"
                           + " FROM "
                           + DBTablesName.T_VOUCHER_DETAIL
                           + " WHERE "
