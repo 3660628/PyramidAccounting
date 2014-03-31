@@ -5,6 +5,7 @@ using System.Text;
 using System.Data;
 using PA.Model.DataGrid;
 using PA.Helper.DataDefind;
+using PA.Helper.DataBase;
 
 namespace PA.ViewModel
 {
@@ -13,7 +14,7 @@ namespace PA.ViewModel
         private string DateFormat = "yyyy-MM-dd";
         private Guid  LastID = Guid.Empty;
         private Model_凭证管理 LastData = new Model_凭证管理();
-
+        private DataBase db = new DataBase();
         /// <summary>
         /// 凭证管理
         /// </summary>
@@ -40,7 +41,7 @@ namespace PA.ViewModel
                             + "voucher.ID = detail.PARENTID and DELETE_MARK=0 " + whereParm
                         + " ORDER BY "
                             + "voucher.OP_TIME";
-            DataSet ds = new PA.Helper.DataBase.DataBase().Query(sql);
+            DataSet ds = db.Query(sql);
             foreach (DataRow dr in ds.Tables[0].Rows)
             {
                 if (LastID != Guid.Parse(dr[0].ToString())) //新凭证
@@ -107,7 +108,7 @@ namespace PA.ViewModel
             string sql = "update "+DBTablesName.T_VOUCHER+" set review_mark=1 where id='" + id + "'";
             List<string> lists = new List<string>();
             lists.Add(sql);
-            new PA.Helper.DataBase.DataBase().BatchOperate(lists);
+            db.BatchOperate(lists);
         }
 
         public void Delete(Guid id)
@@ -115,7 +116,7 @@ namespace PA.ViewModel
             string sql = "update " + DBTablesName.T_VOUCHER + " set DELETE_MARK=-1 where id='" + id + "'";
             List<string> lists = new List<string>();
             lists.Add(sql);
-            new PA.Helper.DataBase.DataBase().BatchOperate(lists);
+            db.BatchOperate(lists);
         }
         public void DeleteAsModify(Guid id)
         {
@@ -124,10 +125,27 @@ namespace PA.ViewModel
             List<string> lists = new List<string>();
             lists.Add(sql2);
             lists.Add(sql1);
-            new PA.Helper.DataBase.DataBase().BatchOperate(lists);
+            db.BatchOperate(lists);
         }
-
-
+        /// <summary>
+        /// 用于结账前判断是否存在未审核的凭证单
+        /// </summary>
+        /// <param name="period"></param>
+        /// <returns></returns>
+        public bool IsReview(int period)
+        {
+            string sql = "select 1 from " + DBTablesName.T_VOUCHER 
+                + " where REVIEW_MARK=0 and delete_mark=0 and period=" + period + "";
+            DataTable dt = db.Query(sql).Tables[0];
+            if (dt.Rows.Count > 0)
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+        }
         public Model_凭证单 GetVoucher(Guid guid)
         {
             Model_凭证单 Voucher = new Model_凭证单();

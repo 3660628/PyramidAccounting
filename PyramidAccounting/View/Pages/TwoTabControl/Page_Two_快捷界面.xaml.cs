@@ -29,7 +29,7 @@ namespace PA.View.Pages.TwoTabControl
         private XMLWriter xw = new XMLWriter();
         private ViewModel_Books vmb = new ViewModel_Books();
         private ViewModel_账薄管理 vm = new ViewModel_账薄管理();
-
+        private ViewModel_凭证管理 vmp = new ViewModel_凭证管理();
 
         public Page_Two_快捷界面()
         {
@@ -89,7 +89,22 @@ namespace PA.View.Pages.TwoTabControl
 
         private void Button_本月结账_Click(object sender, RoutedEventArgs e)
         {
+            bool mark = false;
             if (CommonInfo.是否初始化年初数)
+            {
+                mark = true;
+            }
+            else
+            {
+                MessageBoxCommon.Show("当前未初始化年初金额，请先初始化年初数！");
+                return;
+            }
+            if(!vmp.IsReview(CommonInfo.当前期))
+            {
+                mark = false;
+                MessageBoxCommon.Show("检测到还有当前期未审核的凭证单，请先做审核！");
+            }
+            if (mark)
             {
                 bool? result2 = MessageBoxDel.Show("注意", "当前将进行结账操作，是否继续？");
                 if (result2 == true)
@@ -113,10 +128,6 @@ namespace PA.View.Pages.TwoTabControl
                         }
                     }
                 }
-            }
-            else
-            {
-                MessageBoxCommon.Show("当前未初始化年初金额，请先初始化年初数！");
             }
         }
 

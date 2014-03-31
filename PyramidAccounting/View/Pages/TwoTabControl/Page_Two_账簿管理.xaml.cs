@@ -160,7 +160,7 @@ namespace PA.View.Pages.TwoTabControl
                 string a = TextBox_科目及单位名称.Text.ToString();
                 List<Model_总账> lm = vmk.GetData(a);
                 this.DataGrid_总账.ItemsSource = lm;
-                if (lm.Count > 0)
+                if (lm.Count > 1)
                 {
                     this.Label_总账年.Content = lm[1].年 + "年";
                 }
