@@ -63,7 +63,7 @@ namespace PA.ViewModel
                 m.ID = Convert.ToInt32(d[0].ToString());
                 m.科目编号 = d[2].ToString();
                 m.科目名称 = d[4].ToString();
-                m.年初金额 = d[8].ToString();
+                m.年初金额 = d["FEE"].ToString();
                 list.Add(m);
             }
             return list;
