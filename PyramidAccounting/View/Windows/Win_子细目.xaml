@@ -15,11 +15,11 @@
         <Button x:Name="Button_Add" Content="新增" HorizontalAlignment="right" Margin="0,32,142,0" VerticalAlignment="Top" Width="50" Click="Button_Add_Click" Template="{DynamicResource ButtonControlTemplate_CommonBlue}" Foreground="White" Height="22"/>
         <Button x:Name="Button_Save" Content="保存" HorizontalAlignment="right" Margin="0,32,76,0" VerticalAlignment="Top" Width="50" Click="Button_Save_Click" Template="{DynamicResource ButtonControlTemplate_Common}" Height="22"/>
         <Button x:Name="Button_Del" Content="删除" HorizontalAlignment="right" Margin="0,32,10,0" VerticalAlignment="Top" Width="50" Click="Button_Del_Click" Template="{DynamicResource ButtonControlTemplate_Common}" Height="22"/>
-        <DataGrid x:Name="DataGrid_子细目" ItemsSource="{Binding}" HorizontalAlignment="Stretch" Margin="10,100,10,10" CanUserAddRows="False" AutoGenerateColumns="False" RowEditEnding="DataGrid_子细目_RowEditEnding" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle_凭证管理}" BorderBrush="#FF99CCFF" HeadersVisibility="Column">
+        <DataGrid x:Name="DataGrid_子细目" ItemsSource="{Binding}" HorizontalAlignment="Stretch" Margin="10,100,10,10" CanUserAddRows="False" AutoGenerateColumns="False" RowEditEnding="DataGrid_子细目_RowEditEnding" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle_凭证管理}" BorderBrush="#FF99CCFF" HeadersVisibility="Column" SelectionMode="Single">
             <DataGrid.Columns>
                 <DataGridTextColumn Binding="{Binding 科目编号,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Header="子细目编号"/>
-                <DataGridTextColumn Binding="{Binding 科目名称,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Header="子细目名称"/>
-                <DataGridTextColumn Binding="{Binding 年初金额,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Header="年初数"/>
+                <DataGridTextColumn Binding="{Binding 科目名称,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Header="子细目名称" MinWidth="100"/>
+                <DataGridTextColumn Binding="{Binding 年初金额,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Header="年初数" MinWidth="100" ElementStyle="{DynamicResource TextBlockStyle_右对齐}"/>
             </DataGrid.Columns>
         </DataGrid>
     </Grid>

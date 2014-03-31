@@ -22,30 +22,30 @@ namespace PA.View.Windows
     /// </summary>
     public partial class Win_子细目 : Window
     {
-        private string value1 = string.Empty;
-        private string value2 = string.Empty;
+        private string SubjectNum = string.Empty;
+        private string SubjectName = string.Empty;
         private bool initFlag = false;
         private int judge = 0;
         private List<Model_科目管理> lm= new List<Model_科目管理>();
         private ViewModel_科目管理 vm = new ViewModel_科目管理();
 
-        public Win_子细目(string value1,string value2)
+        public Win_子细目(string SubjectNum, string SubjectName)
         {
             InitializeComponent();
-            this.value1 = value1;
-            this.value2 = value2;
-            this.TextBox_科目编号.Text = this.value1;
-            this.TextBox_科目名称.Text = this.value2;
+            this.SubjectNum = SubjectNum;
+            this.SubjectName = SubjectName;
+            this.TextBox_科目编号.Text = this.SubjectNum;
+            this.TextBox_科目名称.Text = this.SubjectName;
             check();
         }
         private void check()
         {
             List<Model_科目管理> dataList = new List<Model_科目管理>();
-            dataList = vm.GetChildSubjectData(value1);
+            dataList = vm.GetChildSubjectData(SubjectNum);
             if (dataList.Count == 0)
             {
                 Model_科目管理 m = new Model_科目管理();
-                m.科目编号 = value1 + "01";
+                m.科目编号 = SubjectNum + "01";
                 dataList.Add(m);
                 initFlag = true;
             }
@@ -56,7 +56,7 @@ namespace PA.View.Windows
         /// </summary>
         private void FreshData()
         {
-            DataGrid_子细目.ItemsSource = vm.GetChildSubjectData(value1);
+            DataGrid_子细目.ItemsSource = vm.GetChildSubjectData(SubjectNum);
         }
         private void Button_Close_Click(object sender, RoutedEventArgs e)
         {
@@ -84,7 +84,7 @@ namespace PA.View.Windows
             if (lm.Count > 0)
             {
                 List<Model_科目管理> temp = new List<Model_科目管理>();
-                temp = vm.GetChildSubjectData(value1);
+                temp = vm.GetChildSubjectData(SubjectNum);
                 foreach (Model_科目管理 m in temp)
                 {
                     foreach (Model_科目管理 now in lm)
@@ -124,6 +124,7 @@ namespace PA.View.Windows
                 try
                 {
                     m = DataGrid_子细目.SelectedItems[i] as Model_科目管理;
+                    m.父ID = SubjectNum;
                 }
                 catch (Exception)
                 {

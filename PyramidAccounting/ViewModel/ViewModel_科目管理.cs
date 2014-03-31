@@ -53,7 +53,6 @@ namespace PA.ViewModel
         {
             string sql = "select a.*,b.fee from " + DBTablesName.T_SUBJECT + " a left join t_yearfee b on a.subject_id=b.subject_id  where b.bookid='"
                 + CommonInfo.账薄号 + "' and a.parent_id='" + parent_id + "' order by a.id";
-            Console.WriteLine(sql);
             DataTable dt = db.Query(sql).Tables[0];
             List<Model_科目管理> list = new List<Model_科目管理>();
             for (int i = 0; i < dt.Rows.Count; i++)
@@ -88,25 +87,30 @@ namespace PA.ViewModel
             sqlList.Add(sql1);
             string sql2 = "update " + DBTablesName.T_YEAR_FEE + " set fee='" + m.年初金额 + "',subject_id='" + m.科目编号 +"' where parentid='" + m.父ID + "' and subject_id='" + m.科目编号 + "' and bookid='" + CommonInfo.账薄号 + "'";
             sqlList.Add(sql2);
-            string sql3 = " update T_YEARFEE set fee = (select total(fee) from T_YEARFEE where parentid=" + m.父ID + ") where subject_id=" + m.父ID;
+            string sql3 = "update T_YEARFEE set fee = (select total(fee) from T_YEARFEE where parentid=" + m.父ID + ") where subject_id=" + m.父ID;
             sqlList.Add(sql3);
             db.BatchOperate(sqlList);
         }
 
         public void Insert(List<Model_科目管理> list)
         {
+            string parentid = "";
             db.InsertPackage(DBTablesName.T_SUBJECT, list.OfType<object>().ToList());
             List<string> sqlList = new List<string>();
             foreach(Model_科目管理 m in list)
             {
                 string sql = "insert into t_yearfee values ('" + m.科目编号 + "','" + m.年初金额 + "','" + m.父ID + "','" + CommonInfo.账薄号 + "')";
                 sqlList.Add(sql);
+                parentid = m.父ID;
             }
+            string sql3 = "update T_YEARFEE set fee = (select total(fee) from T_YEARFEE where parentid=" + parentid + ") where subject_id=" + parentid;
+            sqlList.Add(sql3);
             db.BatchOperate(sqlList);
         }
 
         public void Delete(List<Model_科目管理> list)
         {
+            string parentid = "";
             List<string> sqlList = new List<string>();
             foreach (Model_科目管理 m in list)
             {
@@ -114,7 +118,10 @@ namespace PA.ViewModel
                 sqlList.Add(sql);
                 sql = "delete from " + DBTablesName.T_YEAR_FEE + " where subject_id='" + m.科目编号 + "' and parentid='" + m.父ID + "' and bookid='" + CommonInfo.账薄号 + "'";
                 sqlList.Add(sql);
+                parentid = m.父ID;
             }
+            string sql3 = "update T_YEARFEE set fee = (select total(fee) from T_YEARFEE where parentid=" + parentid + ") where subject_id=" + parentid;
+            sqlList.Add(sql3);
             db.BatchOperate(sqlList);
         }
 
