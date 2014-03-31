@@ -833,8 +833,9 @@
                             <Border BorderBrush="LightBlue" BorderThickness="1" Grid.ColumnSpan="45" Grid.RowSpan="3" />
                             <Border BorderBrush="LightBlue" BorderThickness="0,1,0,1" Grid.Row="1" Grid.ColumnSpan="2"/>
                             <Border BorderBrush="LightBlue" BorderThickness="1,0,0,0" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2"/>
+                            <Border BorderBrush="LightBlue" BorderThickness="0,0,1,0" Grid.Column="2" />
                             <Border BorderBrush="LightBlue" BorderThickness="1,0,1,0" Grid.RowSpan="2" Grid.Column="2" Grid.ColumnSpan="2"/>
-                            <Border BorderBrush="LightBlue" BorderThickness="1,0,1,0" Grid.RowSpan="2" Grid.Column="3" Grid.ColumnSpan="2"/>
+                            <Border BorderBrush="LightBlue" BorderThickness="0,0,1,0" Grid.RowSpan="2" Grid.Column="3" Grid.ColumnSpan="2"/>
                             <Border BorderBrush="LightBlue" BorderThickness="0,0,0,1" Grid.RowSpan="2" Grid.Column="2" Grid.ColumnSpan="3"/>
                             <Border BorderBrush="LightBlue" BorderThickness="0,1,1,1" Grid.Row="1" Grid.Column="2"/>
                             <Border BorderBrush="LightBlue" BorderThickness="0,1,1,1" Grid.Row="1" Grid.Column="5" />
@@ -957,7 +958,7 @@
                                     <DataGridTextColumn x:Name="column15" MinWidth="25" Binding="{Binding 借方金额10}"/>
                                     <DataGridTextColumn x:Name="column16" MinWidth="25" Binding="{Binding 借方金额11}"/>
                                     <DataGridTextColumn x:Name="column17" MinWidth="25" Binding="{Binding 借方金额12}"/>
-                                    <DataGridTextColumn x:Name="column18"/>
+                                    <DataGridTextColumn x:Name="column18" MinWidth="25"/>
                                     <DataGridTextColumn x:Name="column19" MinWidth="25" Binding="{Binding 贷方金额1}"/>
                                     <DataGridTextColumn x:Name="column20" MinWidth="25" Binding="{Binding 贷方金额2}"/>
                                     <DataGridTextColumn x:Name="column21" MinWidth="25" Binding="{Binding 贷方金额3}"/>
@@ -970,8 +971,8 @@
                                     <DataGridTextColumn x:Name="column28"	MinWidth="25" Binding="{Binding 贷方金额10}"/>
                                     <DataGridTextColumn x:Name="column29"	MinWidth="25" Binding="{Binding 贷方金额11}"/>
                                     <DataGridTextColumn x:Name="column30"	MinWidth="25" Binding="{Binding 贷方金额12}"/>
-                                    <DataGridTextColumn x:Name="column31" />
-                                    <DataGridTextColumn x:Name="column32" Binding="{Binding 借或贷}" />
+                                    <DataGridTextColumn x:Name="column31" MinWidth="25"/>
+                                    <DataGridTextColumn x:Name="column32" MinWidth="25" Binding="{Binding 借或贷}" />
                                     <DataGridTextColumn x:Name="column33"	MinWidth="25" Binding="{Binding 余额1}"/>
                                     <DataGridTextColumn x:Name="column34"	MinWidth="25" Binding="{Binding 余额2}"/>
                                     <DataGridTextColumn x:Name="column35"	MinWidth="25" Binding="{Binding 余额3}"/>
@@ -984,7 +985,7 @@
                                     <DataGridTextColumn x:Name="column42"	MinWidth="25" Binding="{Binding 余额10}"/>
                                     <DataGridTextColumn x:Name="column43"	MinWidth="25" Binding="{Binding 余额11}"/>
                                     <DataGridTextColumn x:Name="column44"	MinWidth="25" Binding="{Binding 余额12}"/>
-                                    <DataGridTextColumn x:Name="column45"/>
+                                    <DataGridTextColumn x:Name="column45" MinWidth="25" />
                                 </DataGrid.Columns>
                             </DataGrid>
                         </Grid>
