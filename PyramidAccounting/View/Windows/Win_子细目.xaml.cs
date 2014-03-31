@@ -28,6 +28,7 @@ namespace PA.View.Windows
         private int judge = 0;
         private List<Model_科目管理> lm= new List<Model_科目管理>();
         private ViewModel_科目管理 vm = new ViewModel_科目管理();
+
         public Win_子细目(string value1,string value2)
         {
             InitializeComponent();
@@ -69,11 +70,7 @@ namespace PA.View.Windows
                 this.DragMove();
             }
         }
-       
-        private void Button_Min_Click(object sender, RoutedEventArgs e)
-        {
-            this.WindowState = System.Windows.WindowState.Minimized;
-        }
+
         #region Button事件
         private void Button_Add_Click(object sender, RoutedEventArgs e)
         {

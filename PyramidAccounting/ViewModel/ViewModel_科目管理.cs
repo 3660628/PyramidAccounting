@@ -53,6 +53,7 @@ namespace PA.ViewModel
         {
             string sql = "select a.*,b.fee from " + DBTablesName.T_SUBJECT + " a left join t_yearfee b on a.subject_id=b.subject_id  where b.bookid='"
                 + CommonInfo.账薄号 + "' and a.parent_id='" + parent_id + "' order by a.id";
+            Console.WriteLine(sql);
             DataTable dt = db.Query(sql).Tables[0];
             List<Model_科目管理> list = new List<Model_科目管理>();
             for (int i = 0; i < dt.Rows.Count; i++)
@@ -62,7 +63,7 @@ namespace PA.ViewModel
                 m.ID = Convert.ToInt32(d[0].ToString());
                 m.科目编号 = d[2].ToString();
                 m.科目名称 = d[4].ToString();
-                m.年初金额 = d[7].ToString();
+                m.年初金额 = d[8].ToString();
                 list.Add(m);
             }
             return list;
@@ -82,10 +83,14 @@ namespace PA.ViewModel
 
         public void UpdateChildSubject(Model_科目管理 m)
         {
-            string sql = "update " + DBTablesName.T_SUBJECT + " set subject_id='" + m.科目编号 + "',subject_name='" + m.科目名称 + "' where id=" + m.ID;
-            db.Excute(sql);
-            sql = "update " + DBTablesName.T_YEAR_FEE + " set fee='" + m.年初金额 + "',subject_id='" + m.科目编号 +"' where parentid='" + m.父ID + "' and subject_id='" + m.科目编号 + "' and bookid='" + CommonInfo.账薄号 + "'";
-            db.Excute(sql);
+            List<string> sqlList = new List<string>();
+            string sql1 = "update " + DBTablesName.T_SUBJECT + " set subject_id='" + m.科目编号 + "',subject_name='" + m.科目名称 + "' where id=" + m.ID;
+            sqlList.Add(sql1);
+            string sql2 = "update " + DBTablesName.T_YEAR_FEE + " set fee='" + m.年初金额 + "',subject_id='" + m.科目编号 +"' where parentid='" + m.父ID + "' and subject_id='" + m.科目编号 + "' and bookid='" + CommonInfo.账薄号 + "'";
+            sqlList.Add(sql2);
+            string sql3 = " update T_YEARFEE set fee = (select total(fee) from T_YEARFEE where parentid=" + m.父ID + ") where subject_id=" + m.父ID;
+            sqlList.Add(sql3);
+            db.BatchOperate(sqlList);
         }
 
         public void Insert(List<Model_科目管理> list)

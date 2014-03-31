@@ -7,7 +7,6 @@
             <DropShadowEffect ShadowDepth="0" BlurRadius="3"/>
         </Grid.Effect>
         <Grid Height="25" Margin="0" VerticalAlignment="Top" Background="#FF29A2FF"/>
-        <Button x:Name="Button_Min" Content="Button" HorizontalAlignment="Right" Margin="0,0,38,0" VerticalAlignment="Top" Width="28" Height="20" Template="{DynamicResource ButtonControlTemplate_Min}" Click="Button_Min_Click"/>
         <Button x:Name="Button_Close" Content="Button" HorizontalAlignment="Right" VerticalAlignment="Top" Width="28" Template="{DynamicResource ButtonControlTemplate_Close}" Height="20" Margin="0" Click="Button_Close_Click"/>
         <Label x:Name="Label_科目编号" Content="所属科目编号：" HorizontalAlignment="Left" Margin="10,30,0,0" VerticalAlignment="Top" Width="94"/>
         <TextBox x:Name="TextBox_科目编号" HorizontalAlignment="Left" Margin="110,35,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" RenderTransformOrigin="0.197,0.332" IsReadOnly="True" BorderThickness="0,0,0,1"/>
