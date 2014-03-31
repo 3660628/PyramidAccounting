@@ -195,7 +195,7 @@ namespace PA.View.Pages.TwoTabControl
                     {
                         Label lb = new Label();
                         lb = FindName("Label_" + count) as Label;
-                        lb.Content += s.Split('\t')[1];
+                        lb.Content = s.Split('\t')[1];
                         count++;
                     }
                 }

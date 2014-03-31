@@ -99,9 +99,13 @@ namespace PA.View.Pages.TwoTabControl
                     {
                         if (CommonInfo.验证密码.Equals(CommonInfo.登录密码))
                         {
-                            xw.WriteXML("期", (CommonInfo.当前期 + 1).ToString());
-                            vmb.UpdatePeriod(CommonInfo.当前期 + 1);
-                            vm.CheckOut();
+                            bool flag = vm.CheckOut();
+                            if (flag)
+                            {
+                                MessageBoxCommon.Show("结账完毕！");
+                                xw.WriteXML("期", (CommonInfo.当前期 + 1).ToString());
+                                vmb.UpdatePeriod(CommonInfo.当前期 + 1);
+                            }
                         }
                         else
                         {

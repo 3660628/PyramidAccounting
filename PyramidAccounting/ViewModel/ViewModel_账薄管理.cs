@@ -18,7 +18,8 @@ namespace PA.ViewModel
             List<Model_总账> list = new List<Model_总账>();
             string id = subject_id.Split('\t')[0];
             string name = subject_id.Split('\t')[1];
-            string sql = "select * from " + DBTablesName.T_FEE + " where subject_id='" + id + "' order by op_time";
+            string sql = "select op_time,VOUCHER_NUMS,COMMENTS,DEBIT,CREDIT,FEE from " 
+                + DBTablesName.T_FEE + " where delete_mark=0 and subject_id='" + id + "' order by op_time";
 
             DataSet ds = new DataSet();
             ds = db.Query(sql);
@@ -28,18 +29,18 @@ namespace PA.ViewModel
                 foreach (DataRow d in dt.Rows)
                 {
                     Model_总账 m = new Model_总账();
-                    if (!string.IsNullOrEmpty(d[1].ToString()))
+                    if (!string.IsNullOrEmpty(d[0].ToString()))
                     {
-                        string date = d[1].ToString().Split(' ')[0];
-                        m.年 = date.Split('/')[0];
-                        m.月 = date.Split('/')[1];
-                        m.日 = date.Split('/')[2];
+                        string date = d[0].ToString().Split(' ')[0];
+                        m.年 = date.Split('-')[0];
+                        m.月 = date.Split('-')[1];
+                        m.日 = date.Split('-')[2];
                     }
-                    m.号数 = d[4].ToString();
-                    m.摘要 = d[5].ToString();
-                    m.借方金额 = d[6].ToString();
-                    m.贷方金额 = d[7].ToString();
-                    m.余额 = d[8].ToString();
+                    m.号数 = d[1].ToString();
+                    m.摘要 = d[2].ToString();
+                    m.借方金额 = d[3].ToString();
+                    m.贷方金额 = d[4].ToString();
+                    m.余额 = d[5].ToString();
                     string temp = string.Empty;
                     List<string> _list = new List<string>();
                     if (string.IsNullOrEmpty(m.借方金额))
@@ -500,50 +501,46 @@ namespace PA.ViewModel
         /// <summary>
         /// 结账
         /// </summary>
-        public void CheckOut()
+        public bool CheckOut()
         {
-            string date = DateTime.Now.ToString("yyyy-MM-dd");
-            string sql =  "INSERT INTO " + DBTablesName.T_FEE 
-                                + "(OP_TIME,PERIOD,SUBJECT_ID,VOUCHER_NUMS,COMMENTS,DEBIT,CREDIT,FEE,DELETE_MARK)"
-                                + "SELECT '                                                             "
-                                + date + "'," + CommonInfo.当前期
-                                + "	,b.subject_id,                                                   "
-                                + "	a.voucher_nums,                                                 "
-                                + "	a.comments,                                                     "
-                                + "	a.debit,                                                        "
-                                + "	a.CREDIT,a.fee,0                                                        "
-                                + "FROM                                                             "
-                                + "	(                                                               "
-                                + "		SELECT                                                        "
-                                + "			min(VOUCHER_NO) || '-' || max(VOUCHER_NO) AS voucher_nums,  "
-                                + "			SUBJECT_ID,                                                 "
-                                + "			SUBJECT_ID || '汇总' AS comments,                           "
-                                + "			sum(DEBIT) AS DEBIT,                                        "
-                                + "			sum(CREDIT) AS CREDIT,                                       "
-                                + "(select fee from "+ DBTablesName.T_FEE 
-                                + " where period = "
-                                + (CommonInfo.当前期-1)
-                                + " ORDER BY SUBJECT_ID)-sum(debit+credit) as fee"
-                                + "		FROM                                                          "
-                                + DBTablesName.T_VOUCHER_DETAIL
-                                + "		WHERE                                                         "
-                                + "			PARENTID IN (                                               "
-                                + "				SELECT                                                    "
-                                + "					ID                                                      "
-                                + "				FROM                                                      "
-                                + DBTablesName.T_VOUCHER
-                                + "				WHERE                                                     "
-                                + "					period = " + CommonInfo.当前期
-                                + "			)                                                           "
-                                + "		GROUP BY                                                      "
-                                + "			SUBJECT_ID  ORDER BY SUBJECT_ID                         "
-                                + "	) a                                                             "
-                                + "LEFT JOIN T_SUBJECT_0 b ON a.SUBJECT_ID = b.SUBJECT_NAME         ";
+            //string date = DateTime.Now.ToString("yyyy-MM-dd");
+            string sql = "INSERT INTO " + DBTablesName.T_FEE
+                          + "(OP_TIME,PERIOD,SUBJECT_ID,VOUCHER_NUMS,COMMENTS,DEBIT,CREDIT,FEE,DELETE_MARK)"
+                          + "SELECT datetime('now', 'localtime')," + CommonInfo.当前期
+                          + ",b.subject_id,"
+                          + "a.voucher_nums,"
+                          + "a.comments,"
+                          + "a.debit,"
+                          + "a.CREDIT,a.fee,0 "
+                          + "FROM "
+                          + "(SELECT min(VOUCHER_NO) || '-' || max(VOUCHER_NO) AS voucher_nums,"
+                          + "SUBJECT_ID,    "
+                          + "SUBJECT_ID || '汇总' AS comments,"
+                          + "sum(DEBIT) AS DEBIT,"
+                          + "sum(CREDIT) AS CREDIT,    "
+                          + "(select fee from " + DBTablesName.T_FEE
+                          + " where period = "
+                          + (CommonInfo.当前期 - 1)
+                          + " ORDER BY SUBJECT_ID)-total(debit+credit) as fee"
+                          + " FROM "
+                          + DBTablesName.T_VOUCHER_DETAIL
+                          + " WHERE "
+                          + "PARENTID IN (  "
+                          + "SELECT "
+                          + "ID   "
+                          + "FROM   "
+                          + DBTablesName.T_VOUCHER
+                          + " WHERE period = " + CommonInfo.当前期
+                          + ") GROUP BY "
+                          + "SUBJECT_ID  ORDER BY SUBJECT_ID) a "
+                          + "LEFT JOIN T_SUBJECT_0 b ON a.SUBJECT_ID = b.SUBJECT_NAME";
+            Console.WriteLine(sql);
             bool flag = db.Excute(sql);
             if (flag)
             {
                 CommonInfo.当前期++;
             }
+            return flag;
         }
     }
 }

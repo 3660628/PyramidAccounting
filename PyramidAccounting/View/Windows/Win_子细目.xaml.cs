@@ -44,7 +44,7 @@ namespace PA.View.Windows
             if (dataList.Count == 0)
             {
                 Model_科目管理 m = new Model_科目管理();
-                m.科目编号 = "01";
+                m.科目编号 = value1 + "01";
                 dataList.Add(m);
                 initFlag = true;
             }
