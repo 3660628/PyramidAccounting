@@ -31,7 +31,8 @@ CREATE TABLE T_SUBJECT (								--科目表
 	SUBJECT_TYPE INTEGER DEFAULT ( 999 ),				--科目类别   999表示未知
     SUBJECT_NAME TEXT,									--科目名称
     PARENT_ID    INTEGER DEFAULT ( 0 ),					--父节点ID，用于区分科目和子细目  0表示科目  不为0是为科目的编号
-	USED_MARK	 INTEGER DEFAULT ( 0 )					--使用标志，0表示正使用，1表示停用
+	USED_MARK	 INTEGER DEFAULT ( 0 ),					--使用标志，0表示正使用，1表示停用
+	Borrow_Mark	 INTEGER								--借贷标记 1借 -1贷
 );
 CREATE TABLE T_RECORD (									--操作日志表
     ID          INTEGER  PRIMARY KEY,					--ID
