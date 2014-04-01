@@ -29,9 +29,24 @@ namespace PA.View.Pages.TwoTabControl
         public Page_Two_账簿管理()
         {
             InitializeComponent();
+            SubscribeToEvent();
         }
-        
-       
+        #region 事件订阅
+        private void SubscribeToEvent()
+        {
+            PA.View.Pages.TwoTabControl.Page_Two_快捷界面.TabChange += new Page_Two_快捷界面_TabChange(DoTabChange);
+        }
+        #endregion
+        #region 接受事件后处理
+        private void DoTabChange(object sender, MyEventArgs e)
+        {
+            if(e.Y == 2 && e.X != 0)
+            {
+                this.TabControl_账簿管理.SelectedIndex = e.X;
+            }
+        }
+        #endregion
+
         private void Button_PopupClose_Click(object sender, RoutedEventArgs e)
         {
             this.Popup_科目子细目.IsOpen = false;
