@@ -30,27 +30,14 @@ namespace PA.ViewModel
             db.BatchOperate(sqlList);
         }
 
-        public bool Update(List<Model_科目管理> list)
+        public bool Update()
         {
-            List<string> sqlList = new List<string>();
-            foreach (Model_科目管理 m in list)
-            {
-                Model_年初金额 mm = new Model_年初金额();
-
-                //映射相等
-                mm.科目编号 = m.科目编号;
-                mm.年初金额 = m.年初金额;
-
-                string sql = "update " + DBTablesName.T_YEAR_FEE + " set fee='"
-                    + mm.年初金额 + "' where parentid=0 and bookid='" 
-                    + CommonInfo.账薄号 + "' and subject_id='" + mm.科目编号 + "'";
-                sqlList.Add(sql);
-
-                string sql2 = "insert into " + DBTablesName.T_FEE + "(period,subject_id,comments,fee) values (0,'" 
-                    + mm.科目编号 + "','承上年结余','" + mm.年初金额 + "')";
-                sqlList.Add(sql2);
-            }
-            return db.BatchOperate(sqlList);
+            string sql = "insert into " + DBTablesName.T_FEE
+                + "(period,subject_id,comments,fee,mark) select 0,a.subject_id,'承上年结余',a.fee,b.Borrow_Mark from " 
+                + DBTablesName.T_YEAR_FEE + " a left join "
+                +  DBTablesName.T_SUBJECT +  " b on a.subject_id=b.subject_id where a.parentid = '0' and a.bookid='" 
+                + CommonInfo.账薄号 + "' order by a.subject_id";
+            return db.Excute(sql);
         }
 
         public bool IsSaved()

@@ -18,7 +18,7 @@ namespace PA.ViewModel
             List<Model_总账> list = new List<Model_总账>();
             string id = subject_id.Split('\t')[0];
             string name = subject_id.Split('\t')[1];
-            string sql = "select op_time,VOUCHER_NUMS,COMMENTS,DEBIT,CREDIT,FEE from " 
+            string sql = "select op_time,VOUCHER_NUMS,COMMENTS,DEBIT,CREDIT,FEE,mark from " 
                 + DBTablesName.T_FEE + " where delete_mark=0 and subject_id='" + id + "' order by op_time";
 
             DataSet ds = new DataSet();
@@ -41,49 +41,37 @@ namespace PA.ViewModel
                     m.借方金额 = d[3].ToString();
                     m.贷方金额 = d[4].ToString();
                     m.余额 = d[5].ToString();
+                    m.借或贷 = d[6].ToString().Equals("1")?"借":"贷";
                     string temp = string.Empty;
                     List<string> _list = new List<string>();
-                    if (m.贷方金额.Equals("0") && m.借方金额.Equals("0"))
-                    {
-                        m.借或贷 = "";
-                    }
-                    else
-                    {
-                        decimal a = Convert.ToDecimal(m.贷方金额)-Convert.ToDecimal(m.借方金额);
-                        if (a>0)
-                        {
-                            m.借或贷 = "贷";
-                        }else
-                        {
-                            m.借或贷 = "借";
-                        }
-                        _list = Turn(m.贷方金额, 12);
-                        m.贷方金额1 = _list[0];
-                        m.贷方金额2 = _list[1];
-                        m.贷方金额3 = _list[2];
-                        m.贷方金额4 = _list[3];
-                        m.贷方金额5 = _list[4];
-                        m.贷方金额6 = _list[5];
-                        m.贷方金额7 = _list[6];
-                        m.贷方金额8 = _list[7];
-                        m.贷方金额9 = _list[8];
-                        m.贷方金额10 = _list[9];
-                        m.贷方金额11 = _list[10];
-                        m.贷方金额12 = _list[11];
-                        _list = Turn(m.借方金额, 12);
-                        m.借方金额1 = _list[0];
-                        m.借方金额2 = _list[1];
-                        m.借方金额3 = _list[2];
-                        m.借方金额4 = _list[3];
-                        m.借方金额5 = _list[4];
-                        m.借方金额6 = _list[5];
-                        m.借方金额7 = _list[6];
-                        m.借方金额8 = _list[7];
-                        m.借方金额9 = _list[8];
-                        m.借方金额10 = _list[9];
-                        m.借方金额11 = _list[10];
-                        m.借方金额12 = _list[11];    
-                    }
+
+                    _list = Turn(m.贷方金额, 12);
+                    m.贷方金额1 = _list[0];
+                    m.贷方金额2 = _list[1];
+                    m.贷方金额3 = _list[2];
+                    m.贷方金额4 = _list[3];
+                    m.贷方金额5 = _list[4];
+                    m.贷方金额6 = _list[5];
+                    m.贷方金额7 = _list[6];
+                    m.贷方金额8 = _list[7];
+                    m.贷方金额9 = _list[8];
+                    m.贷方金额10 = _list[9];
+                    m.贷方金额11 = _list[10];
+                    m.贷方金额12 = _list[11];
+
+                    _list = Turn(m.借方金额, 12);
+                    m.借方金额1 = _list[0];
+                    m.借方金额2 = _list[1];
+                    m.借方金额3 = _list[2];
+                    m.借方金额4 = _list[3];
+                    m.借方金额5 = _list[4];
+                    m.借方金额6 = _list[5];
+                    m.借方金额7 = _list[6];
+                    m.借方金额8 = _list[7];
+                    m.借方金额9 = _list[8];
+                    m.借方金额10 = _list[9];
+                    m.借方金额11 = _list[10];
+                    m.借方金额12 = _list[11];  
                     _list.Clear();
                     _list = Turn(m.余额, 12);
                     m.余额1 = _list[0];
