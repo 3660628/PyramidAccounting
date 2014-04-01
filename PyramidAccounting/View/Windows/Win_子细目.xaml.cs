@@ -13,7 +13,6 @@ using System.Windows.Shapes;
 using PA.Model.DataGrid;
 using PA.Model.CustomEventArgs;
 using PA.ViewModel;
-using PA.Model.CustomEventArgs;
 using PA.View.ResourceDictionarys.MessageBox;
 
 namespace PA.View.Windows

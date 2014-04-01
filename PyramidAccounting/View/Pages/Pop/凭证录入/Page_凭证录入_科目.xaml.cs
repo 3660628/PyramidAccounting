@@ -54,10 +54,7 @@ namespace PA.View.Pages.Pop.凭证录入
 
         private void Button_确定_Click(object sender, RoutedEventArgs e)
         {
-            if (this.ListBox_科目.SelectedValue != null)
-            {
-                OnFillDate(this.ListBox_科目.SelectedValue.ToString().Split('\t')[1]);
-            }
+            ListBox_科目_MouseDoubleClick(this, null);
         }
     }
 }

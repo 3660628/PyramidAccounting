@@ -55,23 +55,7 @@ namespace PA.View.Pages.Pop.凭证录入
 
         private void Button_确定_Click(object sender, RoutedEventArgs e)
         {
-            if (this.ListBox_子细目.SelectedValue != null)
-            {
-                OnFillDate(this.ListBox_子细目.SelectedValue.ToString());
-            }
-            else
-            {
-                string subject_name = TextBox_子细目.Text.ToString();
-                OnFillDate(subject_name);
-                Model.DataGrid.Model_科目管理 m = new Model.DataGrid.Model_科目管理();
-                m.父ID = _name;
-                m.科目名称 = subject_name;
-                m.年初金额 = "0";
-                ViewModel.ViewModel_科目管理 vm = new ViewModel.ViewModel_科目管理();
-                List<Model.DataGrid.Model_科目管理> list = new List<Model.DataGrid.Model_科目管理>();
-                list.Add(m);
-                vm.Insert(list);
-            }
+            ListBox_子细目_MouseDoubleClick(this, null);
         }
     }
 }
