@@ -52,13 +52,13 @@
                                 </Grid.RowDefinitions>
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="*" MaxWidth="300"/>
+                                    <ColumnDefinition Width="Auto" MaxWidth="200"/>
+                                    <ColumnDefinition Width="Auto" MaxWidth="200"/>
                                     <ColumnDefinition Width="Auto"/>
-                                    <ColumnDefinition Width="*" MaxWidth="200"/>
-                                    <ColumnDefinition Width="*" MaxWidth="200"/>
-                                    <ColumnDefinition Width="Auto"/>
-                                    <ColumnDefinition Width="Auto"/>
-                                    <ColumnDefinition Width="*" MaxWidth="200"/>
-                                    <ColumnDefinition Width="*" MaxWidth="200"/>
+                                    <ColumnDefinition Width="*" MaxWidth="300"/>
+                                    <ColumnDefinition Width="Auto" MaxWidth="200"/>
+                                    <ColumnDefinition Width="Auto" MaxWidth="200"/>
                                 </Grid.ColumnDefinitions>
                                 <Border BorderThickness="1,1,1,1" BorderBrush="#FF99CCFF" Grid.ColumnSpan="8" Grid.RowSpan="24"/>
                                 <Border Grid.Row="0" BorderBrush="#FF99CCFF" BorderThickness="0,1,0,1" Grid.ColumnSpan="8" Background="#FF99CCFF"/>
@@ -75,20 +75,14 @@
                                 <Border Grid.Row="21" BorderBrush="#FF99CCFF" BorderThickness="0,1,0,1" Grid.ColumnSpan="8"/>
                                 <Border Grid.Row="23" BorderBrush="#FF99CCFF" BorderThickness="0,1,0,1" Grid.ColumnSpan="8"/>
                                 <!--第一行所有列的样式-->
-                                <Border Grid.Row="0" Grid.Column="1" BorderBrush="White" BorderThickness="1,0,0,0" Grid.RowSpan="1" Background="#FF99CCFF"/>
-                                <Border Grid.Row="0" Grid.Column="2" BorderBrush="White" BorderThickness="1,0,0,0" Grid.RowSpan="1" Background="#FF99CCFF"/>
-                                <Border Grid.Row="0" Grid.Column="3" BorderBrush="White" BorderThickness="1,0,0,0" Grid.RowSpan="1" Background="#FF99CCFF"/>
-                                <Border Grid.Row="0" Grid.Column="4" BorderBrush="White" BorderThickness="1,0,0,0" Grid.RowSpan="1" Background="#FF99CCFF"/>
-                                <Border Grid.Row="0" Grid.Column="5" BorderBrush="White" BorderThickness="1,0,0,0" Grid.RowSpan="1" Background="#FF99CCFF"/>
-                                <Border Grid.Row="0" Grid.Column="6" BorderBrush="White" BorderThickness="1,0,0,0" Grid.RowSpan="1" Background="#FF99CCFF"/>
+                                <Border Grid.Row="0" Grid.Column="1" BorderBrush="White" BorderThickness="1,0" Grid.RowSpan="1" Background="#FF99CCFF"/>
+                                <Border Grid.Row="0" Grid.Column="3" BorderBrush="White" BorderThickness="1,0" Grid.RowSpan="1" Background="#FF99CCFF"/>
+                                <Border Grid.Row="0" Grid.Column="5" BorderBrush="White" BorderThickness="1,0" Grid.RowSpan="1" Background="#FF99CCFF"/>
                                 <Border Grid.Row="0" Grid.Column="7" BorderBrush="White" BorderThickness="1,0,0,0" Grid.RowSpan="1" Background="#FF99CCFF"/>
                                 <!--除第一行所有列的样式-->
-                                <Border Grid.Row="1" Grid.Column="1" BorderBrush="#FF99CCFF" BorderThickness="1,0,0,0" Grid.RowSpan="23"/>
-                                <Border Grid.Row="1" Grid.Column="2" BorderBrush="#FF99CCFF" BorderThickness="1,0,0,0" Grid.RowSpan="23"/>
-                                <Border Grid.Row="1" Grid.Column="3" BorderBrush="#FF99CCFF" BorderThickness="1,0,0,0" Grid.RowSpan="23"/>
-                                <Border Grid.Row="1" Grid.Column="4" BorderBrush="#FF99CCFF" BorderThickness="1,0,0,0" Grid.RowSpan="23"/>
-                                <Border Grid.Row="1" Grid.Column="5" BorderBrush="#FF99CCFF" BorderThickness="1,0,0,0" Grid.RowSpan="23"/>
-                                <Border Grid.Row="1" Grid.Column="6" BorderBrush="#FF99CCFF" BorderThickness="1,0,0,0" Grid.RowSpan="23"/>
+                                <Border Grid.Row="1" Grid.Column="1" BorderBrush="#FF99CCFF" BorderThickness="1,0" Grid.RowSpan="23"/>
+                                <Border Grid.Row="1" Grid.Column="3" BorderBrush="#FF99CCFF" BorderThickness="1,0" Grid.RowSpan="23"/>
+                                <Border Grid.Row="1" Grid.Column="5" BorderBrush="#FF99CCFF" BorderThickness="1,0" Grid.RowSpan="23"/>
                                 <Border Grid.Row="1" Grid.Column="7" BorderBrush="#FF99CCFF" BorderThickness="1,0,0,0" Grid.RowSpan="23"/>
                                 <Label Content="科目编号" HorizontalAlignment="Center" VerticalAlignment="Center" />
                                 <Label Content="资产部类" HorizontalAlignment="Center" Grid.Column="1" VerticalAlignment="Center" />
