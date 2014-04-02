@@ -309,6 +309,7 @@ namespace PA.Helper.DataBase
                             cmd.Parameters.AddWithValue("@SUBJECT_NAME", list.科目名称);
                             cmd.Parameters.AddWithValue("@PARENT_ID", list.父ID);
                             cmd.Parameters.AddWithValue("@USED_MARK", list.是否启用);
+                            cmd.Parameters.AddWithValue("@Borrow_Mark", list.借贷标记?1:-1);
                             cmd.Connection = conn;
                             cmd.ExecuteNonQuery();
                         }
