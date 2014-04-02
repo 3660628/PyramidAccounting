@@ -40,7 +40,7 @@ namespace PA.ViewModel
                     m.摘要 = d[2].ToString();
                     m.借方金额 = d[3].ToString();
                     m.贷方金额 = d[4].ToString();
-                    m.余额 = d[5].ToString();
+                    m.余额 = d[5].ToString().Replace("-","");
                     m.借或贷 = d[6].ToString().Equals("1")?"借":"贷";
                     string temp = string.Empty;
                     List<string> _list = new List<string>();
@@ -498,35 +498,31 @@ namespace PA.ViewModel
         {
             //string date = DateTime.Now.ToString("yyyy-MM-dd");
             string sql = "INSERT INTO " + DBTablesName.T_FEE
-                          + "(OP_TIME,PERIOD,SUBJECT_ID,VOUCHER_NUMS,COMMENTS,DEBIT,CREDIT,FEE,DELETE_MARK)"
-                          + "SELECT datetime('now', 'localtime')," + CommonInfo.当前期
-                          + ",b.subject_id,"
+                          + "(OP_TIME,PERIOD,SUBJECT_ID,VOUCHER_NUMS,COMMENTS,DEBIT,CREDIT,MARK,DELETE_MARK,FEE)"
+                          + " select t.*,b.mark*b.fee-(t.credit-t.debit) as fee from ("
+                          + "SELECT datetime('now', 'localtime') as op_time," + CommonInfo.当前期
+                          + ",b.subject_id as subject_id,"
                           + "a.voucher_nums,"
                           + "a.comments,"
-                          + "a.debit,"
-                          + "a.CREDIT,a.fee,0 "
-                          + "FROM "
-                          + "(SELECT min(VOUCHER_NO) || '-' || max(VOUCHER_NO) AS voucher_nums,"
+                          + "a.debit as debit,"
+                          + "a.CREDIT as credit,"
+                          + "CASE WHEN (A.DEBIT>A.CREDIT) THEN 1 else -1 end as mark,0 as delete_mark "
+                          + "FROM (SELECT min(VOUCHER_NO) || '-' || max(VOUCHER_NO) AS voucher_nums,"
                           + "SUBJECT_ID,    "
                           + "SUBJECT_ID || '汇总' AS comments,"
                           + "sum(DEBIT) AS DEBIT,"
-                          + "sum(CREDIT) AS CREDIT,    "
-                          + "(select mark*fee from " + DBTablesName.T_FEE
-                          + " where period = "
-                          + (CommonInfo.当前期 - 1)
-                          + " ORDER BY SUBJECT_ID) + total(debit-credit) as fee"
+                          + "sum(CREDIT) AS CREDIT"
                           + " FROM "
                           + DBTablesName.T_VOUCHER_DETAIL
-                          + " WHERE "
-                          + "PARENTID IN (  "
-                          + "SELECT "
-                          + "ID   "
-                          + "FROM   "
+                          + " WHERE PARENTID IN (  "
+                          + "SELECT ID  FROM   "
                           + DBTablesName.T_VOUCHER
                           + " WHERE period = " + CommonInfo.当前期
                           + ") GROUP BY "
                           + "SUBJECT_ID  ORDER BY SUBJECT_ID) a "
-                          + "LEFT JOIN T_SUBJECT_0 b ON a.SUBJECT_ID = b.SUBJECT_NAME";
+                          + "LEFT JOIN " + DBTablesName.T_SUBJECT 
+                          +" b ON a.SUBJECT_ID = b.SUBJECT_NAME where b.parent_id='0') t," + DBTablesName.T_FEE 
+                          + " b where t.subject_id=b.subject_id and b.period=" + (CommonInfo.当前期-1);
             bool flag = db.Excute(sql);
             if (flag)
             {
