@@ -329,7 +329,6 @@
                                     <ColumnDefinition Width="Auto"/>
                                     <ColumnDefinition Width="Auto"/>
                                 </Grid.ColumnDefinitions>
-                                <!--外边框-->
                                 <!--第一行表头-->
                                 <Border BorderBrush="White" BorderThickness="0,0,1,0" Margin="0" Grid.RowSpan="3" Background="#FF99CCFF"/>
                                 <Border BorderBrush="White" BorderThickness="0,0,1,0" Grid.ColumnSpan="6" Grid.Column="1" Margin="0" Background="#FF99CCFF"/>
