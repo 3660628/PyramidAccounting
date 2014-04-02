@@ -616,7 +616,7 @@
                             <Label Content="元"	Grid.Column="141"	Grid.Row="2" />
                             <Label Content="角"	Grid.Column="142"	Grid.Row="2" />
                             <Label Content="分"	Grid.Column="143"	Grid.Row="2" />
-                            <DataGrid x:Name="DataGrid_费用明细账" Grid.Row="3" ItemsSource="{Binding}" Grid.ColumnSpan="144" CanUserAddRows="False" AutoGenerateColumns="False" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" HeadersVisibility="None" Background="White" BorderBrush="#FF99CCFF" Margin="0,-1,0,0" HorizontalScrollBarVisibility="Disabled">
+                            <DataGrid x:Name="DataGrid_费用明细账" Grid.Row="3" ItemsSource="{Binding}" Grid.ColumnSpan="144" CanUserAddRows="False" AutoGenerateColumns="False" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" HeadersVisibility="None" Background="White" BorderBrush="#FF99CCFF" Margin="0,-1,0,0" HorizontalScrollBarVisibility="Disabled" HorizontalGridLinesBrush="#FF99CCFF" VerticalGridLinesBrush="#FF99CCFF">
                                 <DataGrid.Columns>
                                     <DataGridTextColumn x:Name="fycolumn1" MinWidth="25" Binding="{Binding 月}"/>
                                     <DataGridTextColumn x:Name="fycolumn2" MinWidth="25" Binding="{Binding 日}"/>
