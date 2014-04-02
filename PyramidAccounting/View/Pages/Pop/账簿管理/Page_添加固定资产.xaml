@@ -12,14 +12,12 @@
         <Label Content="名称及规格：" HorizontalAlignment="Left" Margin="20,101,0,0" VerticalAlignment="Top"/>
         <Label Content="单位：" HorizontalAlignment="Left" Margin="20,139,0,0" VerticalAlignment="Top"/>
         <Label Content="数量：" HorizontalAlignment="Left" Margin="20,177,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="TextBox_用户名" HorizontalAlignment="Left" Height="22" Margin="138,70,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" LostKeyboardFocus="TextBox_用户名_LostKeyboardFocus"/>
-        <PasswordBox x:Name="TextBox_用户密码" HorizontalAlignment="Left" Height="22" Margin="138,105,0,0" VerticalAlignment="Top" Width="120" LostKeyboardFocus="TextBox_用户密码_LostKeyboardFocus"/>
+        <TextBox x:Name="TextBox_用户名" HorizontalAlignment="Left" Height="22" Margin="138,70,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <PasswordBox x:Name="TextBox_用户密码" HorizontalAlignment="Left" Height="22" Margin="138,105,0,0" VerticalAlignment="Top" Width="120" />
         <TextBox x:Name="TextBox_真实姓名" HorizontalAlignment="Left" Height="22" Margin="138,140,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
         <TextBlock x:Name="TextBlock_用户名" HorizontalAlignment="Left" Margin="236,30,0,0"  Foreground="Red"  TextWrapping="Wrap" VerticalAlignment="Top"/>
         <TextBlock x:Name="TextBlock_密码" HorizontalAlignment="Left" Margin="236,80,0,0" TextWrapping="Wrap" Foreground="Red" VerticalAlignment="Top"/>
         <TextBlock x:Name="_Title" HorizontalAlignment="Left" Margin="20,16,0,0" TextWrapping="Wrap" Text="新增固定资产" VerticalAlignment="Top" FontSize="28" FontWeight="Bold" Width="177"/>
-        <Button x:Name="Button_新增" Content="确定" HorizontalAlignment="Right" Margin="0,506,104,0" VerticalAlignment="Top" Width="74" Click="Button_新增_Click" />
-        <Button x:Name="Button_修改" Content="取消" HorizontalAlignment="Right" Margin="0,506,24,0" VerticalAlignment="Top" Width="74" Click="Button_修改_Click" />
         <TextBox x:Name="TextBox_真实姓名_Copy" HorizontalAlignment="Left" Height="22" Margin="138,177,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
         <Label Content="原价或重置价格：" HorizontalAlignment="Left" Margin="20,219,0,0" VerticalAlignment="Top"/>
         <TextBox x:Name="TextBox_真实姓名_Copy1" HorizontalAlignment="Left" Height="22" Margin="138,219,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
