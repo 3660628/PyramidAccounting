@@ -213,6 +213,11 @@ namespace PA.View.Pages.TwoTabControl
         #endregion
 
         #region 2.科目设置
+        private void TabControl_五大科目_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            int SelectedIndex = this.TabControl_五大科目.SelectedIndex;
+            this.DataGrid_科目设置.ItemsSource = new ViewModel_科目管理().GetSujectData(SelectedIndex + 1);
+        }
         private void DataGrid_科目设置_RowEditEnding(object sender, DataGridRowEditEndingEventArgs e)
         {
             Model_科目管理 m = new Model_科目管理();
@@ -494,14 +499,6 @@ namespace PA.View.Pages.TwoTabControl
             this.DataGrid_操作记录.ItemsSource = v.GetData(dateStart, dateEnd);
         }
         #endregion
-
-        private void TabControl_五大科目_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            int SelectedIndex = this.TabControl_五大科目.SelectedIndex;
-            this.DataGrid_科目设置.ItemsSource = new ViewModel_科目管理().GetSujectData(SelectedIndex+1);
-        }
-
-        
 
     }
 }
