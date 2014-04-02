@@ -382,7 +382,7 @@
                                 <Border BorderBrush="#FF99CCFF" BorderThickness="0,1" Margin="0" Grid.Row="29" Grid.ColumnSpan="99"/>
                                 <Border BorderBrush="#FF99CCFF" BorderThickness="0,1" Margin="0" Grid.Row="31" Grid.ColumnSpan="99"/>
                                 <Border BorderBrush="#FF99CCFF" BorderThickness="0,0,0,1" Margin="0" Grid.Row="32" Grid.ColumnSpan="99"/>
-                                <!--asd-->
+                                <!--Label-->
                                 <Label Content="科目" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.RowSpan="3"/>
                                 <Label Content="经费支出" HorizontalAlignment="Center" Grid.Column="1"  Grid.ColumnSpan="6" VerticalAlignment="Center"/>
                                 <Label Content="科目" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="7" Grid.RowSpan="3" />
@@ -458,11 +458,6 @@
                                 <Label Content="18.委托业务费" HorizontalAlignment="Left" Grid.Row="30"/>
                                 <Label Content="19.工会经费" HorizontalAlignment="Left" Grid.Row="31"/>
                                 <Label Content="20.福利费" HorizontalAlignment="Left" Grid.Row="32"/>
-                                
-
-
-
-
                             </Grid>
                             <Label Content="补充资料：编制人数" HorizontalAlignment="Left" VerticalAlignment="Bottom" RenderTransformOrigin="-0.85,0.625"/>
                             <TextBox HorizontalAlignment="Left" Height="23" Margin="118,0,0,0" TextWrapping="Wrap"  VerticalAlignment="Bottom" Width="80" BorderThickness="0,0,0,1"/>
