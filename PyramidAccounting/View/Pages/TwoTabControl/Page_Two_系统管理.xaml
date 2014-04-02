@@ -13,7 +13,7 @@
             <TabItem FocusVisualStyle="{x:Null}" Header="用户安全" Margin="8,-1,-8,1" Template="{DynamicResource TabItemControlTemplate_TwoTabHeader}">
                 <Grid Background="White">
                     <StackPanel Margin="10" >
-                        <Expander x:Name="Expander_修改密码" Header="修改密码" Margin="0" IsExpanded="True">
+                        <Expander x:Name="Expander_修改密码" Header="修改密码" Margin="0" IsExpanded="True" Expanded="Expander_修改密码_Expanded">
                             <Grid Height="171" Background="White">
                                 <Label Content="旧密码" HorizontalAlignment="Left" Margin="50,10,0,0" VerticalAlignment="Top"/>
                                 <Label Content="新密码" HorizontalAlignment="Left" Margin="50,43,0,0" VerticalAlignment="Top"/>

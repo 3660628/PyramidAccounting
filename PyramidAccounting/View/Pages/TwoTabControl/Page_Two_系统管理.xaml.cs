@@ -202,6 +202,14 @@ namespace PA.View.Pages.TwoTabControl
             TextBox_启用期间.Text = m.启用期间;
             TextBox_创建时间.Text = m.创建日期字符串;
         }
+        private void Expander_修改密码_Expanded(object sender, RoutedEventArgs e)
+        {
+            if(this.IsLoaded)
+            {
+                this.Expander_权限.IsExpanded = false;
+                this.Expander_账套管理.IsExpanded = false;
+            }
+        }
         #endregion
 
         #region 2.科目设置
@@ -492,6 +500,8 @@ namespace PA.View.Pages.TwoTabControl
             int SelectedIndex = this.TabControl_五大科目.SelectedIndex;
             this.DataGrid_科目设置.ItemsSource = new ViewModel_科目管理().GetSujectData(SelectedIndex+1);
         }
+
+        
 
     }
 }
