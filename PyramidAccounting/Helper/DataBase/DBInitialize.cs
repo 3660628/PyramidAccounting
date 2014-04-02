@@ -23,6 +23,10 @@ namespace PA.Helper.DataBase
         public void Initialize()
         {
             //新建数据库
+            if (dataSource.Equals("Data\\"))
+            {
+                dataSource += "PyramidAccounting.db";
+            }
             SQLiteConnection.CreateFile(dataSource);
             SQLiteConnectionStringBuilder connstr = new SQLiteConnectionStringBuilder();
             SQLiteConnection conn = new SQLiteConnection();
