@@ -53,13 +53,12 @@ namespace PA.View.Pages.TwoTabControl
                 if(e.操作类型 == "凭证审核")
                 {
                     this.ComboBox_Review.SelectedIndex = 2;
-                    ReflashData();
                 }
                 else if (e.操作类型 == "本月结账")
                 {
                     InitData();
-                    ReflashData();
                 }
+                ReflashData();
             }
         }
 
