@@ -112,7 +112,7 @@
                             <Grid Background="Snow" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" >
                                 <TextBlock x:Name="is_auto_mark" HorizontalAlignment="Left" Margin="30,14,0,0" Text="关" />
                                 <CheckBox x:Name="is_auto_backup" Content="自动备份数据间隔时间(A)" HorizontalAlignment="Left" Margin="59,14,0,0" VerticalAlignment="Top" Width="231" Style="{StaticResource SliderCheckBox}" Checked="is_auto_backup_Checked" Unchecked="is_auto_backup_Unchecked"/>
-                                <TextBox x:Name="backup_days" Text="7" HorizontalAlignment="Left" Height="23" Margin="375,14,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="50" PreviewKeyDown="backup_days_PreviewKeyDown" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="backup_days_PreviewTextInput"/>
+                                <TextBox x:Name="backup_days" HorizontalContentAlignment="Center" Text="7" HorizontalAlignment="Left" Height="23" Margin="375,14,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="50" PreviewKeyDown="backup_days_PreviewKeyDown" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="backup_days_PreviewTextInput"/>
                                 <Label Content="天(D)" HorizontalAlignment="Left" Margin="430,10,0,0" VerticalAlignment="Top"/>
                                 <Label Content="数据备份路径(R):" HorizontalAlignment="Left" Margin="30,68,0,0" VerticalAlignment="Top"/>
                                 <TextBox x:Name="backup_filePath" HorizontalAlignment="Left" Height="23" Margin="151,70,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="450"/>
