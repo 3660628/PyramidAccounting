@@ -330,64 +330,81 @@
                                     <ColumnDefinition Width="Auto"/>
                                 </Grid.ColumnDefinitions>
                                 <!--外边框-->
-                                <Border BorderBrush="#FF99CCFF" BorderThickness="1,1,1,1" Grid.ColumnSpan="21" Grid.RowSpan="33" />
                                 <!--第一行表头-->
-                                
+                                <Border BorderBrush="White" BorderThickness="0,0,1,0" Margin="0" Grid.RowSpan="3" Background="#FF99CCFF"/>
+                                <Border BorderBrush="White" BorderThickness="0,0,1,0" Grid.ColumnSpan="6" Grid.Column="1" Margin="0" Background="#FF99CCFF"/>
+                                <Border BorderBrush="White" BorderThickness="0" Grid.Column="7" Margin="0" Grid.RowSpan="3" Background="#FF99CCFF"/>
+                                <Border BorderBrush="White" BorderThickness="1,0,0,0" Grid.ColumnSpan="6" Grid.Column="8" Margin="0" Background="#FF99CCFF"/>
                                 <!--第二行表头-->
-                                
+                                <Border BorderBrush="White" BorderThickness="0,1,1,0" Grid.Column="1" Margin="0" Grid.Row="1" Background="#FF99CCFF" Grid.ColumnSpan="2"/>
+                                <Border BorderBrush="White" BorderThickness="0,1,1,0" Grid.Column="3" Margin="0" Grid.Row="1" Background="#FF99CCFF" Grid.ColumnSpan="2"/>
+                                <Border BorderBrush="White" BorderThickness="0,1,1,0" Grid.Column="5" Margin="0" Grid.Row="1" Background="#FF99CCFF" Grid.ColumnSpan="2"/>
+                                <Border BorderBrush="White" BorderThickness="1,1,0,0" Grid.Column="8" Margin="0" Grid.Row="1" Background="#FF99CCFF" Grid.ColumnSpan="2"/>
+                                <Border BorderBrush="White" BorderThickness="1,1,0,0" Grid.Column="10" Margin="0" Grid.Row="1" Background="#FF99CCFF" Grid.ColumnSpan="2"/>
+                                <Border BorderBrush="White" BorderThickness="1,1,0,0" Grid.Column="12" Margin="0" Grid.Row="1" Background="#FF99CCFF" Grid.ColumnSpan="2"/>
                                 <!--第三行表头-->
-                                
+                                <Border BorderBrush="White" BorderThickness="0,1,0,0" Grid.Column="1" Margin="0" Grid.Row="2" Background="#FF99CCFF"/>
+                                <Border BorderBrush="White" BorderThickness="1,1,1,0" Grid.Column="2" Margin="0" Grid.Row="2" Background="#FF99CCFF"/>
+                                <Border BorderBrush="White" BorderThickness="0,1,0,0" Grid.Column="3" Margin="0" Grid.Row="2" Background="#FF99CCFF"/>
+                                <Border BorderBrush="White" BorderThickness="1,1,1,0" Grid.Column="4" Margin="0" Grid.Row="2" Background="#FF99CCFF"/>
+                                <Border BorderBrush="White" BorderThickness="0,1,0,0" Grid.Column="5" Margin="0" Grid.Row="2" Background="#FF99CCFF"/>
+                                <Border BorderBrush="White" BorderThickness="1,1,1,0" Grid.Column="6" Margin="0" Grid.Row="2" Background="#FF99CCFF"/>
+                                <Border BorderBrush="White" BorderThickness="1,1,1,0" Grid.Column="8" Margin="0" Grid.Row="2" Background="#FF99CCFF"/>
+                                <Border BorderBrush="White" BorderThickness="0,1,0,0" Grid.Column="9" Margin="0" Grid.Row="2" Background="#FF99CCFF"/>
+                                <Border BorderBrush="White" BorderThickness="1,1,1,0" Grid.Column="10" Margin="0" Grid.Row="2" Background="#FF99CCFF"/>
+                                <Border BorderBrush="White" BorderThickness="0,1,0,0" Grid.Column="11" Margin="0" Grid.Row="2" Background="#FF99CCFF"/>
+                                <Border BorderBrush="White" BorderThickness="1,1,1,0" Grid.Column="12" Margin="0" Grid.Row="2" Background="#FF99CCFF"/>
+                                <Border BorderBrush="White" BorderThickness="0,1,0,0" Grid.Column="13" Margin="0" Grid.Row="2" Background="#FF99CCFF"/>
                                 <!--其他-->
-                                <Border BorderBrush="#FF99CCFF" BorderThickness="0,1,0,1" Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="6" />
-                                <Border BorderBrush="#FF99CCFF" BorderThickness="0,1,0,1" Grid.Column="8" Grid.Row="1" Grid.ColumnSpan="6" />
-                                <Border BorderBrush="#FF99CCFF" BorderThickness="0,1,0,1" Grid.Column="15" Grid.Row="1" Grid.ColumnSpan="6" />
-                                <Border BorderBrush="#FF99CCFF" BorderThickness="1,0,1,0" Grid.Column="1" Grid.ColumnSpan="6" Grid.RowSpan="33" />
-                                <Border BorderBrush="#FF99CCFF" BorderThickness="1,0,1,0" Grid.Column="8" Grid.ColumnSpan="6" Grid.RowSpan="33" />
-                                <Border BorderBrush="#FF99CCFF" BorderThickness="1,0,1,0" Grid.Row="1" Grid.Column="3" Grid.ColumnSpan="2" Grid.RowSpan="32"/>
-                                <Border BorderBrush="#FF99CCFF" BorderThickness="1,0,1,0" Grid.Row="1" Grid.Column="10" Grid.ColumnSpan="2" Grid.RowSpan="32"/>
-                                <Border BorderBrush="#FF99CCFF" BorderThickness="1,0,1,0" Grid.Row="2" Grid.Column="17" Grid.ColumnSpan="2" Grid.RowSpan="32"/>
-                                <Border BorderBrush="#FF99CCFF" BorderThickness="1,0,1,0" Grid.Row="2" Grid.Column="2" Grid.ColumnSpan="7" Grid.RowSpan="31"/>
-                                <Border BorderBrush="#FF99CCFF" BorderThickness="1,0,1,0" Grid.Row="2" Grid.Column="4" Grid.ColumnSpan="7" Grid.RowSpan="31"/>
-                                <Border BorderBrush="#FF99CCFF" BorderThickness="1,0,0,0" Grid.Row="2" Grid.Column="6" Grid.ColumnSpan="7" Grid.RowSpan="31"/>
-                                <Border BorderBrush="#FF99CCFF" BorderThickness="1,0,1,0" Grid.Row="2" Grid.Column="16" Grid.ColumnSpan="2" Grid.RowSpan="31"/>
-                                <Border BorderBrush="#FF99CCFF" BorderThickness="0,0,1,0" Grid.Row="2" Grid.Column="19" Grid.RowSpan="31"/>
-                                <Border BorderBrush="#FF99CCFF" BorderThickness="0,1,0,1" Grid.Row="3" Grid.ColumnSpan="21" Grid.RowSpan="15" />
-                                <Border BorderBrush="#FF99CCFF" BorderThickness="0,1,0,1" Grid.Row="4" Grid.ColumnSpan="21" Grid.RowSpan="15" />
-                                <Border BorderBrush="#FF99CCFF" BorderThickness="0,1,0,1" Grid.Row="5" Grid.ColumnSpan="21" Grid.RowSpan="15" />
-                                <Border BorderBrush="#FF99CCFF" BorderThickness="0,1,0,1" Grid.Row="6" Grid.ColumnSpan="21" Grid.RowSpan="15" />
-                                <Border BorderBrush="#FF99CCFF" BorderThickness="0,1,0,1" Grid.Row="7" Grid.ColumnSpan="21" Grid.RowSpan="15" />
-                                <Border BorderBrush="#FF99CCFF" BorderThickness="0,1,0,1" Grid.Row="8" Grid.ColumnSpan="21" Grid.RowSpan="15" />
-                                <Border BorderBrush="#FF99CCFF" BorderThickness="0,1,0,1" Grid.Row="9" Grid.ColumnSpan="21" Grid.RowSpan="15" />
-                                <Border BorderBrush="#FF99CCFF" BorderThickness="0,1,0,1" Grid.Row="10" Grid.ColumnSpan="21" Grid.RowSpan="15" />
-                                <Border BorderBrush="#FF99CCFF" BorderThickness="0,1,0,1" Grid.Row="11" Grid.ColumnSpan="21" Grid.RowSpan="15" />
-                                <Border BorderBrush="#FF99CCFF" BorderThickness="0,1,0,1" Grid.Row="12" Grid.ColumnSpan="21" Grid.RowSpan="15" />
-                                <Border BorderBrush="#FF99CCFF" BorderThickness="0,1,0,1" Grid.Row="13" Grid.ColumnSpan="21" Grid.RowSpan="15" />
-                                <Border BorderBrush="#FF99CCFF" BorderThickness="0,1,0,1" Grid.Row="14" Grid.ColumnSpan="21" Grid.RowSpan="15" />
-                                <Border BorderBrush="#FF99CCFF" BorderThickness="0,1,0,1" Grid.Row="15" Grid.ColumnSpan="21" Grid.RowSpan="15" />
-                                <Border BorderBrush="#FF99CCFF" BorderThickness="0,1,0,1" Grid.Row="16" Grid.ColumnSpan="21" Grid.RowSpan="15" />
-                                <Border BorderBrush="#FF99CCFF" BorderThickness="0,1,0,1" Grid.Row="17" Grid.ColumnSpan="21" Grid.RowSpan="15" />
+                                <!--其他。竖-->
+                                <Border BorderBrush="#FF99CCFF" BorderThickness="1,0" Margin="0" Grid.Column="0" Grid.Row="3" Grid.RowSpan="99"/>
+                                <Border BorderBrush="#FF99CCFF" BorderThickness="1,0" Margin="0" Grid.Column="2" Grid.Row="3" Grid.RowSpan="99"/>
+                                <Border BorderBrush="#FF99CCFF" BorderThickness="1,0" Margin="0" Grid.Column="4" Grid.Row="3" Grid.RowSpan="99"/>
+                                <Border BorderBrush="#FF99CCFF" BorderThickness="1,0" Margin="0" Grid.Column="6" Grid.Row="3" Grid.RowSpan="99"/>
+                                <Border BorderBrush="#FF99CCFF" BorderThickness="1,0" Margin="0" Grid.Column="8" Grid.Row="3" Grid.RowSpan="99"/>
+                                <Border BorderBrush="#FF99CCFF" BorderThickness="1,0" Margin="0" Grid.Column="10" Grid.Row="3" Grid.RowSpan="99"/>
+                                <Border BorderBrush="#FF99CCFF" BorderThickness="1,0" Margin="0" Grid.Column="12" Grid.Row="3" Grid.RowSpan="99"/>
+                                <Border BorderBrush="#FF99CCFF" BorderThickness="0,0,1,0" Margin="0" Grid.Column="13" Grid.Row="3" Grid.RowSpan="99"/>
+                                <!--其他。横-->   
+                                <Border BorderBrush="#FF99CCFF" BorderThickness="0,1" Margin="0" Grid.Row="3" Grid.ColumnSpan="99"/>
+                                <Border BorderBrush="#FF99CCFF" BorderThickness="0,1" Margin="0" Grid.Row="5" Grid.ColumnSpan="99"/>
+                                <Border BorderBrush="#FF99CCFF" BorderThickness="0,1" Margin="0" Grid.Row="7" Grid.ColumnSpan="99"/>
+                                <Border BorderBrush="#FF99CCFF" BorderThickness="0,1" Margin="0" Grid.Row="9" Grid.ColumnSpan="99"/>
+                                <Border BorderBrush="#FF99CCFF" BorderThickness="0,1" Margin="0" Grid.Row="11" Grid.ColumnSpan="99"/>
+                                <Border BorderBrush="#FF99CCFF" BorderThickness="0,1" Margin="0" Grid.Row="13" Grid.ColumnSpan="99"/>
+                                <Border BorderBrush="#FF99CCFF" BorderThickness="0,1" Margin="0" Grid.Row="15" Grid.ColumnSpan="99"/>
+                                <Border BorderBrush="#FF99CCFF" BorderThickness="0,1" Margin="0" Grid.Row="17" Grid.ColumnSpan="99"/>
+                                <Border BorderBrush="#FF99CCFF" BorderThickness="0,1" Margin="0" Grid.Row="19" Grid.ColumnSpan="99"/>
+                                <Border BorderBrush="#FF99CCFF" BorderThickness="0,1" Margin="0" Grid.Row="21" Grid.ColumnSpan="99"/>
+                                <Border BorderBrush="#FF99CCFF" BorderThickness="0,1" Margin="0" Grid.Row="23" Grid.ColumnSpan="99"/>
+                                <Border BorderBrush="#FF99CCFF" BorderThickness="0,1" Margin="0" Grid.Row="25" Grid.ColumnSpan="99"/>
+                                <Border BorderBrush="#FF99CCFF" BorderThickness="0,1" Margin="0" Grid.Row="27" Grid.ColumnSpan="99"/>
+                                <Border BorderBrush="#FF99CCFF" BorderThickness="0,1" Margin="0" Grid.Row="29" Grid.ColumnSpan="99"/>
+                                <Border BorderBrush="#FF99CCFF" BorderThickness="0,1" Margin="0" Grid.Row="31" Grid.ColumnSpan="99"/>
+                                <Border BorderBrush="#FF99CCFF" BorderThickness="0,0,0,1" Margin="0" Grid.Row="32" Grid.ColumnSpan="99"/>
+                                <!--asd-->
                                 <Label Content="科目" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.RowSpan="3"/>
-                                <Label Content="经费支出" HorizontalAlignment="Center" Grid.Column="1"  Grid.ColumnSpan="6"/>
+                                <Label Content="经费支出" HorizontalAlignment="Center" Grid.Column="1"  Grid.ColumnSpan="6" VerticalAlignment="Center"/>
                                 <Label Content="科目" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="7" Grid.RowSpan="3" />
-                                <Label Content="经费支出" HorizontalAlignment="Center" Grid.Column="8"  Grid.ColumnSpan="6"/>
-                                <Label Content="合计" HorizontalAlignment="Center" Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="2" />
-                                <Label Content="其中：基本支出" HorizontalAlignment="Center" Grid.Column="3" Grid.Row="1" Grid.ColumnSpan="2" />
-                                <Label Content="其中：项目支出" HorizontalAlignment="Center" Grid.Column="5" Grid.Row="1" Grid.ColumnSpan="2" />
-                                <Label Content="合计" HorizontalAlignment="Center" Grid.Column="8" Grid.Row="1" Grid.ColumnSpan="2" />
-                                <Label Content="其中：基本支出" HorizontalAlignment="Center" Grid.Column="10" Grid.Row="1" Grid.ColumnSpan="2" />
-                                <Label Content="其中：项目支出" HorizontalAlignment="Center" Grid.Column="12" Grid.ColumnSpan="2" Margin="14,23,26,2" Grid.RowSpan="2" />
-                                <Label Content="本期数" HorizontalAlignment="Center" Grid.Column="1" Grid.Row="2" />
-                                <Label Content="累计数" HorizontalAlignment="Center" Grid.Column="2" Grid.Row="2" />
-                                <Label Content="本期数" HorizontalAlignment="Center" Grid.Column="3" Grid.Row="2" />
-                                <Label Content="累计数" HorizontalAlignment="Center" Grid.Column="4" Grid.Row="2" />
-                                <Label Content="本期数" HorizontalAlignment="Center" Grid.Column="5" Grid.Row="2" />
-                                <Label Content="累计数" HorizontalAlignment="Center" Grid.Column="6" Grid.Row="2" />
-                                <Label Content="本期数" HorizontalAlignment="Center" Grid.Column="8" Grid.Row="2" />
-                                <Label Content="累计数" HorizontalAlignment="Center" Grid.Column="9" Grid.Row="2" />
-                                <Label Content="本期数" HorizontalAlignment="Center" Grid.Column="10" Grid.Row="2" />
-                                <Label Content="累计数" HorizontalAlignment="Center" Grid.Column="11" Grid.Row="2" />
-                                <Label Content="本期数" HorizontalAlignment="Center" Grid.Column="12" Grid.Row="2" />
-                                <Label Content="累计数" HorizontalAlignment="Center" Grid.Column="13" Grid.Row="2" />
+                                <Label Content="经费支出" HorizontalAlignment="Center" Grid.Column="8"  Grid.ColumnSpan="6" VerticalAlignment="Center"/>
+                                <Label Content="合计" HorizontalAlignment="Center" Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="2" VerticalAlignment="Center" />
+                                <Label Content="其中：基本支出" HorizontalAlignment="Center" Grid.Column="3" Grid.Row="1" Grid.ColumnSpan="2" VerticalAlignment="Center" />
+                                <Label Content="其中：项目支出" HorizontalAlignment="Center" Grid.Column="5" Grid.Row="1" Grid.ColumnSpan="2" VerticalAlignment="Center" />
+                                <Label Content="合计" HorizontalAlignment="Center" Grid.Column="8" Grid.Row="1" Grid.ColumnSpan="2" VerticalAlignment="Center" />
+                                <Label Content="其中：基本支出" HorizontalAlignment="Center" Grid.Column="10" Grid.Row="1" Grid.ColumnSpan="2" VerticalAlignment="Center" />
+                                <Label Content="其中：项目支出" Grid.Column="12" Grid.ColumnSpan="2" Margin="0" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                                <Label Content="本期数" HorizontalAlignment="Center" Grid.Column="1" Grid.Row="2" VerticalAlignment="Center" />
+                                <Label Content="累计数" HorizontalAlignment="Center" Grid.Column="2" Grid.Row="2" VerticalAlignment="Center" />
+                                <Label Content="本期数" HorizontalAlignment="Center" Grid.Column="3" Grid.Row="2" VerticalAlignment="Center" />
+                                <Label Content="累计数" HorizontalAlignment="Center" Grid.Column="4" Grid.Row="2" VerticalAlignment="Center" />
+                                <Label Content="本期数" HorizontalAlignment="Center" Grid.Column="5" Grid.Row="2" VerticalAlignment="Center" />
+                                <Label Content="累计数" HorizontalAlignment="Center" Grid.Column="6" Grid.Row="2" VerticalAlignment="Center" />
+                                <Label Content="本期数" HorizontalAlignment="Center" Grid.Column="8" Grid.Row="2" VerticalAlignment="Center" />
+                                <Label Content="累计数" HorizontalAlignment="Center" Grid.Column="9" Grid.Row="2" VerticalAlignment="Center" />
+                                <Label Content="本期数" HorizontalAlignment="Center" Grid.Column="10" Grid.Row="2" VerticalAlignment="Center" />
+                                <Label Content="累计数" HorizontalAlignment="Center" Grid.Column="11" Grid.Row="2" VerticalAlignment="Center" />
+                                <Label Content="本期数" HorizontalAlignment="Center" Grid.Column="12" Grid.Row="2" VerticalAlignment="Center" />
+                                <Label Content="累计数" HorizontalAlignment="Center" Grid.Column="13" Grid.Row="2" VerticalAlignment="Center" />
                                 <Label Content="支 出 合 计" HorizontalAlignment="Center" Grid.Row="3"/>
                                 <Label Content="21.其他商品和服务支出" HorizontalAlignment="Left" Grid.Column="7" Grid.Row="3"/>
                                 <Label Content="其他资本性支出" HorizontalAlignment="Center" Grid.Column="7" Grid.Row="19"/>
@@ -441,6 +458,11 @@
                                 <Label Content="18.委托业务费" HorizontalAlignment="Left" Grid.Row="30"/>
                                 <Label Content="19.工会经费" HorizontalAlignment="Left" Grid.Row="31"/>
                                 <Label Content="20.福利费" HorizontalAlignment="Left" Grid.Row="32"/>
+                                
+
+
+
+
                             </Grid>
                             <Label Content="补充资料：编制人数" HorizontalAlignment="Left" VerticalAlignment="Bottom" RenderTransformOrigin="-0.85,0.625"/>
                             <TextBox HorizontalAlignment="Left" Height="23" Margin="118,0,0,0" TextWrapping="Wrap"  VerticalAlignment="Bottom" Width="80" BorderThickness="0,0,0,1"/>
