@@ -104,7 +104,7 @@ namespace PA.ViewModel
             db.BatchOperate(sqlList);
         }
 
-        public void Insert(List<Model_科目管理> list)
+        public bool Insert(List<Model_科目管理> list)
         {
             string parentid = "";
             db.InsertPackage(DBTablesName.T_SUBJECT, list.OfType<object>().ToList());
@@ -119,7 +119,7 @@ namespace PA.ViewModel
             string sql3 = "update T_YEARFEE set fee = (select total(fee) from T_YEARFEE where parentid=" 
                 + parentid + ") where subject_id=" + parentid;
             sqlList.Add(sql3);
-            db.BatchOperate(sqlList);
+            return db.BatchOperate(sqlList);
         }
 
         public void Delete(List<Model_科目管理> list)

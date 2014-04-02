@@ -120,10 +120,15 @@ namespace PA.View.Windows
                         }
                     }
                 }
-                vm.Insert(lm);
-                lm.Clear();
-                //刷新数据
-                this.FreshData();
+                bool flag = vm.Insert(lm);
+                if (flag)
+                {
+                    MessageBoxCommon.Show("保存成功！");
+                    lm.Clear();
+                    //刷新数据
+                    this.FreshData();
+                }
+                
             }
         }
 
