@@ -39,16 +39,16 @@ namespace PA.View.Pages.TwoTabControl
         private void SubscribeToEvent()
         {
             PA.View.Windows.Win_记账凭证.ESubmit += new Windows.Win_记账凭证_Submit(DoReflashData);
-            PA.View.Pages.TwoTabControl.Page_Two_快捷界面.FilterData += new Page_Two_快捷界面_FilterData(DoFilterData);
+            PA.View.Pages.TwoTabControl.Page_Two_快捷界面.TabChange += new Page_Two_快捷界面_TabChange(DoTabChange);
         }
 
         private void DoReflashData(object sender, MyEventArgs e)
         {
             ReflashData();
         }
-        private void DoFilterData(object sender, MyEventArgs e)
+        private void DoTabChange(object sender, MyEventArgs e)
         {
-            if(e.Y == 1 && e.X == 0)
+            if(e.Y == 1)//x always = 0
             {
                 if(e.操作类型 == "凭证审核")
                 {
