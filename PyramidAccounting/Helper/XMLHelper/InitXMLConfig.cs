@@ -47,7 +47,6 @@ namespace PA.Helper.XMLHelper
             #endregion
 
             #region 2.备份信息
-            XmlElement b备份信息 = xmldoc.CreateElement("备份信息");
             XmlElement 自动备份标志 = xmldoc.CreateElement("自动备份标志");
             自动备份标志.InnerText = "true";
             XmlElement 备份时间 = xmldoc.CreateElement("备份时间");
@@ -56,10 +55,10 @@ namespace PA.Helper.XMLHelper
             备份路径.InnerText = "D:\\";
             XmlElement 还原路径 = xmldoc.CreateElement("还原路径");
             还原路径.InnerText = "D:\\";
-            b备份信息.AppendChild(自动备份标志);
-            b备份信息.AppendChild(备份时间);
-            b备份信息.AppendChild(备份路径);
-            b备份信息.AppendChild(还原路径);
+            s系统信息.AppendChild(自动备份标志);
+            s系统信息.AppendChild(备份时间);
+            s系统信息.AppendChild(备份路径);
+            s系统信息.AppendChild(还原路径);
 
             #endregion
 
