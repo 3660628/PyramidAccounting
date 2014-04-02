@@ -345,10 +345,10 @@
                                 <Border BorderBrush="#FF99CCFF" BorderThickness="1,0,1,0" Grid.Column="8" Grid.ColumnSpan="6" Grid.RowSpan="33" />
                                 <Border BorderBrush="#FF99CCFF" BorderThickness="1,0,1,0" Grid.Row="1" Grid.Column="3" Grid.ColumnSpan="2" Grid.RowSpan="32"/>
                                 <Border BorderBrush="#FF99CCFF" BorderThickness="1,0,1,0" Grid.Row="1" Grid.Column="10" Grid.ColumnSpan="2" Grid.RowSpan="32"/>
-                                <Border BorderBrush="#FF99CCFF" BorderThickness="1,0,1,0" Grid.Row="1" Grid.Column="17" Grid.ColumnSpan="2" Grid.RowSpan="32"/>
+                                <Border BorderBrush="#FF99CCFF" BorderThickness="1,0,1,0" Grid.Row="2" Grid.Column="17" Grid.ColumnSpan="2" Grid.RowSpan="32"/>
                                 <Border BorderBrush="#FF99CCFF" BorderThickness="1,0,1,0" Grid.Row="2" Grid.Column="2" Grid.ColumnSpan="7" Grid.RowSpan="31"/>
                                 <Border BorderBrush="#FF99CCFF" BorderThickness="1,0,1,0" Grid.Row="2" Grid.Column="4" Grid.ColumnSpan="7" Grid.RowSpan="31"/>
-                                <Border BorderBrush="#FF99CCFF" BorderThickness="1,0,1,0" Grid.Row="2" Grid.Column="6" Grid.ColumnSpan="7" Grid.RowSpan="31"/>
+                                <Border BorderBrush="#FF99CCFF" BorderThickness="1,0,0,0" Grid.Row="2" Grid.Column="6" Grid.ColumnSpan="7" Grid.RowSpan="31"/>
                                 <Border BorderBrush="#FF99CCFF" BorderThickness="1,0,1,0" Grid.Row="2" Grid.Column="16" Grid.ColumnSpan="2" Grid.RowSpan="31"/>
                                 <Border BorderBrush="#FF99CCFF" BorderThickness="0,0,1,0" Grid.Row="2" Grid.Column="19" Grid.RowSpan="31"/>
                                 <Border BorderBrush="#FF99CCFF" BorderThickness="0,1,0,1" Grid.Row="3" Grid.ColumnSpan="21" Grid.RowSpan="15" />
