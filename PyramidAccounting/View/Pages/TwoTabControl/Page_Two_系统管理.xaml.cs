@@ -301,12 +301,12 @@ namespace PA.View.Pages.TwoTabControl
         private string defaultfilePath = "";
         private void is_auto_backup_Checked(object sender, RoutedEventArgs e)
         {
-
+            this.is_auto_mark.Text = "开"
         }
 
         private void is_auto_backup_Unchecked(object sender, RoutedEventArgs e)
         {
-
+            this.is_auto_mark.Text = "关";
         }
 
         /// <summary>
@@ -353,17 +353,43 @@ namespace PA.View.Pages.TwoTabControl
         }
         private void backup_days_PreviewKeyDown(object sender, KeyEventArgs e)
         {
-
+            if (e.Key == Key.Space)
+                e.Handled = true;
         }
 
         private void backup_days_PreviewTextInput(object sender, TextCompositionEventArgs e)
         {
-
+            if (!new Util().IsNumber(e.Text))
+            {
+                e.Handled = true;
+            }
+            else
+                e.Handled = false;
         }
 
         private void Button_Recover_Click(object sender, RoutedEventArgs e)
         {
-
+            string recover_path = Recover_filepath.Text.ToString();
+            if (!System.IO.File.Exists(recover_path))
+            {
+                MessageBoxCommon.Show("当前路径找不到数据文件，请检查路径！", "不好意思");
+            }
+            else if (!string.IsNullOrEmpty(recover_path))
+            {
+                string lastname = recover_path.Substring(recover_path.LastIndexOf(".") + 1, (recover_path.Length - recover_path.LastIndexOf(".") - 1));
+                if (lastname.Equals("db") || lastname.Equals("bak"))
+                {
+                    string newDBname = System.IO.Path.GetFileNameWithoutExtension(recover_path) + ".db";
+                    string newpath = Properties.Settings.Default.Path + "Data\\" + newDBname;
+                    System.IO.File.Copy(recover_path, newpath, true);  //复制回原来的目录
+                    new CheckDB().TruncateGuideFile(System.IO.Path.GetFileName(newDBname));//修改读取数据库名字
+                    MessageBoxCommon.Show("成功", "恢复数据成功，重启软件生效哦！");
+                }
+                else
+                {
+                    MessageBoxCommon.Show("选择的数据库文件格式不正确！");
+                }
+            }
         }
        
 

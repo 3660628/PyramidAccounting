@@ -100,6 +100,7 @@
     <Compile Include="Helper\GridHelper\GridBorderHelper.cs" />
     <Compile Include="Helper\SQLHelper\SQLReader.cs" />
     <Compile Include="Helper\Tools\TryParse.cs" />
+    <Compile Include="Helper\Tools\Util.cs" />
     <Compile Include="Helper\XMLHelper\InitXMLConfig.cs" />
     <Compile Include="Helper\XMLHelper\XMLReader.cs" />
     <Compile Include="Helper\XMLHelper\XMLWriter.cs" />
