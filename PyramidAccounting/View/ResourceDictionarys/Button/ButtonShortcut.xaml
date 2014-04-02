@@ -1,6 +1,6 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
-	<ControlTemplate x:Key="ButtonControlTemplate_凭证输入" TargetType="{x:Type Button}">
+    <ControlTemplate x:Key="ButtonControlTemplate_凭证录入" TargetType="{x:Type Button}">
 		<Grid x:Name="grid" Background="White">
 			<VisualStateManager.VisualStateGroups>
 				<VisualStateGroup x:Name="CommonStates">
@@ -18,27 +18,17 @@
 			</Rectangle>
 		</Grid>
 	</ControlTemplate>
-	<ControlTemplate x:Key="ButtonControlTemplate_凭证审核" TargetType="{x:Type Button}">
-		<Grid Background="White">
-			<ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="51,0,51,5" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="Bottom"/>
-			<Rectangle Height="144.313" Stroke="{x:Null}" VerticalAlignment="Top" Width="Auto">
-				<Rectangle.Fill>
-					<ImageBrush ImageSource="/PyramidAccounting;component/View/Images/icon/256.256/凭证审核.png"/>
-				</Rectangle.Fill>
-			</Rectangle>
-		</Grid>
-	</ControlTemplate>
-	<ControlTemplate x:Key="ButtonControlTemplate_凭证过账" TargetType="{x:Type Button}">
-		<Grid Background="White">
-			<ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="51,0,51,5" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="Bottom"/>
-			<Rectangle Height="144.313" Stroke="{x:Null}" VerticalAlignment="Top" Width="Auto">
-				<Rectangle.Fill>
-					<ImageBrush ImageSource="/PyramidAccounting;component/View/Images/icon/256.256/凭证录入.png"/>
-				</Rectangle.Fill>
-			</Rectangle>
-		</Grid>
-	</ControlTemplate>
-	<ControlTemplate x:Key="ButtonControlTemplate_本期结账" TargetType="{x:Type Button}">
+    <ControlTemplate x:Key="ButtonControlTemplate_凭证审核" TargetType="{x:Type Button}">
+        <Grid Background="White">
+            <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="51,0,51,5" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="Bottom"/>
+            <Rectangle Height="144.313" Stroke="{x:Null}" VerticalAlignment="Top" Width="Auto">
+                <Rectangle.Fill>
+                    <ImageBrush ImageSource="/PyramidAccounting;component/View/Images/icon/256.256/凭证审核.png"/>
+                </Rectangle.Fill>
+            </Rectangle>
+        </Grid>
+    </ControlTemplate>
+    <ControlTemplate x:Key="ButtonControlTemplate_本期结账" TargetType="{x:Type Button}">
 		<Grid Background="White">
 			<ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="51,0,51,5" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="Bottom"/>
 			<Rectangle Height="144.313" Stroke="{x:Null}" VerticalAlignment="Top" Width="Auto">

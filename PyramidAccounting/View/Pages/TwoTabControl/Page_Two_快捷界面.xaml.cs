@@ -79,13 +79,7 @@ namespace PA.View.Pages.TwoTabControl
 
         }
 
-        private void Button_查询修改_Click(object sender, RoutedEventArgs e)
-        {
-            mr = vmr.GetTOperateLog();
-            mr.日志 = "进入查询修改模块！";
-            vmr.Insert(mr);
-            OnTabChange(1, 0);
-        }
+
 
         private void Button_本月结账_Click(object sender, RoutedEventArgs e)
         {
@@ -143,6 +137,21 @@ namespace PA.View.Pages.TwoTabControl
             mr = vmr.GetTOperateLog();
             mr.日志 = "进入账目查询模块！";
             vmr.Insert(mr);
+        }
+
+        private void Button_账簿查询_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Button_科目查询_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Button_报表查询_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }
