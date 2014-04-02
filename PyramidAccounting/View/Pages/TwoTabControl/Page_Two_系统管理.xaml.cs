@@ -27,6 +27,7 @@ namespace PA.View.Pages.TwoTabControl
     /// </summary>
     public partial class Page_Two_系统管理 : Page
     {
+        private string dbfilepath = DBInitialize.dataSource;
         private ViewModel_用户 vm = new ViewModel_用户();
         private ViewModel_Books vmb = new ViewModel_Books();
         private XMLWriter xw = new XMLWriter();
@@ -297,6 +298,7 @@ namespace PA.View.Pages.TwoTabControl
         #endregion
 
         #region 3.数据管理
+        private string defaultfilePath = "";
         private void is_auto_backup_Checked(object sender, RoutedEventArgs e)
         {
 
@@ -307,11 +309,48 @@ namespace PA.View.Pages.TwoTabControl
 
         }
 
+        /// <summary>
+        /// 选择备份目录按钮
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-
+            System.Windows.Forms.FolderBrowserDialog folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
+            if (defaultfilePath != "")
+            {
+                folderBrowserDialog1.SelectedPath = defaultfilePath;
+            }
+            folderBrowserDialog1.Description = "请选择数据库备份存放的文件夹";
+            folderBrowserDialog1.ShowNewFolderButton = true;
+            folderBrowserDialog1.RootFolder = Environment.SpecialFolder.MyComputer;
+            System.Windows.Forms.DialogResult result = folderBrowserDialog1.ShowDialog();
+            if (result == System.Windows.Forms.DialogResult.OK)
+            {
+                defaultfilePath = folderBrowserDialog1.SelectedPath;
+                string folderName = folderBrowserDialog1.SelectedPath;
+                if (folderName != "")
+                {
+                    this.backup_filePath.Text = folderName;
+                }
+            }
         }
-
+        /// <summary>
+        /// 备份功能
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void ButtonBackUp_Click(object sender, RoutedEventArgs e)
+        {
+            string folderpath = this.backup_filePath.Text;
+            string newfilepath = folderpath + "\\PyramidAccounting" + DateTime.Now.ToString("yyyyMMdd") + ".bak";
+            if (!System.IO.Directory.Exists(folderpath))
+            {
+                System.IO.Directory.CreateDirectory(folderpath);
+            }
+            System.IO.File.Copy(dbfilepath, newfilepath, true);     //做数据库文件复制
+            MessageBoxCommon.Show("数据备份操作成功！");
+        }
         private void backup_days_PreviewKeyDown(object sender, KeyEventArgs e)
         {
 
@@ -326,11 +365,7 @@ namespace PA.View.Pages.TwoTabControl
         {
 
         }
-
-        private void ButtonBackUp_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
+       
 
         private void Button_save_Click(object sender, RoutedEventArgs e)
         {
