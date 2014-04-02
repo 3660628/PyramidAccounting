@@ -153,8 +153,8 @@
                         <DataGrid.Columns>
                             <DataGridTextColumn Header="序号" Binding="{Binding 序号}" />
                             <DataGridTextColumn Header="操作时间" MinWidth="100" Binding="{Binding 日期}" />
-                            <DataGridTextColumn Header="用户名" MinWidth="100" Binding="{Binding 用户名}"/>
-                            <DataGridTextColumn Header="姓名" MinWidth="100" Binding="{Binding 姓名}" />
+                            <DataGridTextColumn Header="用户名" MinWidth="100" Binding="{Binding 用户名}" ElementStyle="{DynamicResource TextBlockStyle_居中对齐}"/>
+                            <DataGridTextColumn Header="姓名" MinWidth="100" Binding="{Binding 姓名}" ElementStyle="{DynamicResource TextBlockStyle_居中对齐}"/>
                             <DataGridTextColumn Header="日志" Width="*" Binding="{Binding 日志}" />
                         </DataGrid.Columns>
                     </DataGrid>
