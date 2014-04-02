@@ -301,7 +301,7 @@ namespace PA.View.Pages.TwoTabControl
         private string defaultfilePath = "";
         private void is_auto_backup_Checked(object sender, RoutedEventArgs e)
         {
-            this.is_auto_mark.Text = "开"
+            this.is_auto_mark.Text = "开";
         }
 
         private void is_auto_backup_Unchecked(object sender, RoutedEventArgs e)
@@ -359,17 +359,17 @@ namespace PA.View.Pages.TwoTabControl
 
         private void backup_days_PreviewTextInput(object sender, TextCompositionEventArgs e)
         {
-            if (!new Util().IsNumber(e.Text))
+            /*if (!new Util().IsNumber(e.Text))
             {
                 e.Handled = true;
             }
             else
-                e.Handled = false;
+                e.Handled = false;*/
         }
 
         private void Button_Recover_Click(object sender, RoutedEventArgs e)
         {
-            string recover_path = Recover_filepath.Text.ToString();
+            /*string recover_path = Recover_filepath.Text.ToString();
             if (!System.IO.File.Exists(recover_path))
             {
                 MessageBoxCommon.Show("当前路径找不到数据文件，请检查路径！", "不好意思");
@@ -389,7 +389,7 @@ namespace PA.View.Pages.TwoTabControl
                 {
                     MessageBoxCommon.Show("选择的数据库文件格式不正确！");
                 }
-            }
+            }*/
         }
        
 
