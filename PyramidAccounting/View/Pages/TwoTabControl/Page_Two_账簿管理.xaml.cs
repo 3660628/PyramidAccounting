@@ -16,6 +16,8 @@ using PA.Model.DataGrid;
 using PA.Model.CustomEventArgs;
 using PA.View.ResourceDictionarys.MessageBox;
 using PA.ViewModel;
+using PA.Helper.DataDefind;
+using PA.Model.ComboBox;
 
 namespace PA.View.Pages.TwoTabControl
 {
@@ -26,10 +28,14 @@ namespace PA.View.Pages.TwoTabControl
     {
         private ViewModel_账薄管理 vmk = new ViewModel_账薄管理();
         PA.View.Pages.Pop.凭证录入.Page_凭证录入_科目 page = new PA.View.Pages.Pop.凭证录入.Page_凭证录入_科目();
+        ComboBox_Common cbc = new ComboBox_Common();
+
         public Page_Two_账簿管理()
         {
             InitializeComponent();
             SubscribeToEvent();
+            this.ComboBox_Date.ItemsSource = cbc.GetComboBox_期数();
+            this.ComboBox_Date.SelectedIndex = CommonInfo.当前期;
         }
         #region 事件订阅
         private void SubscribeToEvent()
@@ -146,7 +152,7 @@ namespace PA.View.Pages.TwoTabControl
             {
                 string a = TextBox_一级科目.Text.ToString().Split('\t')[1];
                 string b = TextBox_二级科目.Text.ToString();
-                List<Model_科目明细账> lm = vmk.GetData(a, b);
+                List<Model_科目明细账> lm = vmk.GetData(a, b ,ComboBox_Date.SelectedIndex);
                 if (lm.Count > 0)
                 {
                     this.Label_年.Content = lm[0].年 + "年";
@@ -224,5 +230,10 @@ namespace PA.View.Pages.TwoTabControl
             }
         }
         #endregion
+
+        private void ComboBox_Date_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
     }
 }

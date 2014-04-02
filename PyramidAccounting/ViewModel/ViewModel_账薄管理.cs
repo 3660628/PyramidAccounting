@@ -342,11 +342,11 @@ namespace PA.ViewModel
         /// <summary>
         /// 科目明细账查询方法
         /// </summary>
-        /// <param name="subject_id"></param>
-        /// <param name="detail"></param>
-        /// <param name="childSubjectId"></param>
+        /// <param name="subject_id">一级科目</param>
+        /// <param name="detail">二级科目</param>
+        /// <param name="peroid">查询期</param>
         /// <returns></returns>
-        public List<Model_科目明细账> GetData(string subject_id,string detail)
+        public List<Model_科目明细账> GetData(string subject_id,string detail,int peroid)
         {
             List<Model_科目明细账> list = new List<Model_科目明细账>();
             string sql = "select b.op_time,a.voucher_no,a.abstract,a.debit,a.credit,a.credit-a.debit,case when a.debit>a.credit then '借' when a.debit<a.credit then '贷' else '平' end  from " 
