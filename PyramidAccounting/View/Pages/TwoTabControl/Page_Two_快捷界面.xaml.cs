@@ -57,6 +57,7 @@ namespace PA.View.Pages.TwoTabControl
             if (CommonInfo.是否初始化年初数)
             {
                 new PA.View.Windows.Win_记账凭证().ShowDialog();
+                OnTabChange(1, 0);
             }
             else
             {
