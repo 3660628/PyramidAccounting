@@ -21,12 +21,10 @@ using PA.Model.DataGrid;
 namespace PA.View.Pages.TwoTabControl
 {
     public delegate void Page_Two_快捷界面_TabChange(object sender, MyEventArgs e);
-    public delegate void Page_Two_快捷界面_FilterData(object sender, MyEventArgs e);
 
     public partial class Page_Two_快捷界面 : Page
     {
         public static event Page_Two_快捷界面_TabChange TabChange;
-        public static event Page_Two_快捷界面_FilterData FilterData;
         private XMLWriter xw = new XMLWriter();
         private ViewModel_Books vmb = new ViewModel_Books();
         private ViewModel_账薄管理 vm = new ViewModel_账薄管理();
@@ -38,29 +36,21 @@ namespace PA.View.Pages.TwoTabControl
         {
             InitializeComponent();
         }
-
         private void OnTabChange(int y, int x)
+        {
+            OnTabChange(y, x, "null");
+        }
+        private void OnTabChange(int y, int x, string type)
         {
             if (TabChange != null)
             {
                 MyEventArgs e = new MyEventArgs();
                 e.Y = y;
                 e.X = x;
+                e.操作类型 = type;
                 TabChange(this, e);
             }
         }
-        private void OnFilterData(int y, int x, string type)
-        {
-            if (FilterData != null)
-            {
-                MyEventArgs e = new MyEventArgs();
-                e.Y = y;
-                e.X = x;
-                e.操作类型 = type;
-                FilterData(this, e);
-            }
-        }
-
 
         private void Button_凭证输入_Click(object sender, RoutedEventArgs e)
         {
@@ -79,8 +69,7 @@ namespace PA.View.Pages.TwoTabControl
             mr = vmr.GetTOperateLog();
             mr.日志 = "进入凭证审核模块！";
             vmr.Insert(mr);
-            OnTabChange(1,0);
-            OnFilterData(1, 0, "凭证审核");
+            OnTabChange(1, 0, "凭证审核");
 
         }
 
@@ -135,7 +124,7 @@ namespace PA.View.Pages.TwoTabControl
                                 vmr.Insert(mr);
                                 xw.WriteXML("期", (CommonInfo.当前期).ToString());
                                 vmb.UpdatePeriod(CommonInfo.当前期);
-                                OnFilterData(1, 0, "本月结账");
+                                OnTabChange(1, 0, "本月结账");
                             }
                         }
                         else
@@ -149,7 +138,7 @@ namespace PA.View.Pages.TwoTabControl
 
         private void Button_账目查询_Click(object sender, RoutedEventArgs e)
         {
-            OnTabChange(2,2);
+            OnTabChange(2, 2);
             mr = vmr.GetTOperateLog();
             mr.日志 = "进入账目查询模块！";
             vmr.Insert(mr);

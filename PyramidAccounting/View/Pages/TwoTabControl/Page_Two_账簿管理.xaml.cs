@@ -46,7 +46,7 @@ namespace PA.View.Pages.TwoTabControl
         #region 接受事件后处理
         private void DoTabChange(object sender, MyEventArgs e)
         {
-            if(e.Y == 2 && e.X != 0)
+            if(e.Y == 2)
             {
                 this.TabControl_账簿管理.SelectedIndex = e.X;
             }
