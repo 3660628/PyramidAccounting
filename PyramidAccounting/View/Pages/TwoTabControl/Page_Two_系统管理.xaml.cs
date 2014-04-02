@@ -38,6 +38,7 @@ namespace PA.View.Pages.TwoTabControl
             InitializeComponent();
             SubscribeToEvent();
             VisibilityData();
+            this.DatePicker_操作记录End.Text = DateTime.Now.ToShortDateString();
         }
 
         #region 事件订阅
@@ -299,11 +300,29 @@ namespace PA.View.Pages.TwoTabControl
 
         #endregion
 
+        #region 4.操作记录
+
+        private void Button_操作记录查询_Click(object sender, RoutedEventArgs e)
+        {
+            if (string.IsNullOrEmpty(DatePicker_操作记录.Text) || string.IsNullOrEmpty(DatePicker_操作记录End.Text))
+            {
+                MessageBoxCommon.Show("请选择查询时间的范围！");
+                return;
+            }
+            string dateStart = Convert.ToDateTime(DatePicker_操作记录.Text).ToString("yyyy-MM-dd HH:mm:ss");
+            string dateEnd = Convert.ToDateTime(DatePicker_操作记录End.Text).AddDays(1).ToString("yyyy-MM-dd HH:mm:ss");
+
+            ViewModel_操作日志 v = new ViewModel_操作日志();
+            this.DataGrid_操作记录.ItemsSource = v.GetData(dateStart, dateEnd);
+        }
+        #endregion
+
         private void TabControl_五大科目_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             int SelectedIndex = this.TabControl_五大科目.SelectedIndex;
             this.DataGrid_科目设置.ItemsSource = new ViewModel_科目管理().GetSujectData(SelectedIndex+1);
         }
+
 
 
     }
