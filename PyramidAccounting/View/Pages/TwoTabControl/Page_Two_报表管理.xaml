@@ -74,6 +74,7 @@
                                 <Border Grid.Row="19" BorderBrush="#FF99CCFF" BorderThickness="0,1,0,1" Grid.ColumnSpan="8"/>
                                 <Border Grid.Row="21" BorderBrush="#FF99CCFF" BorderThickness="0,1,0,1" Grid.ColumnSpan="8"/>
                                 <Border Grid.Row="23" BorderBrush="#FF99CCFF" BorderThickness="0,1,0,1" Grid.ColumnSpan="8"/>
+                                <!--第一行所有列的样式-->
                                 <Border Grid.Row="0" Grid.Column="1" BorderBrush="White" BorderThickness="1,0,0,0" Grid.RowSpan="1" Background="#FF99CCFF"/>
                                 <Border Grid.Row="0" Grid.Column="2" BorderBrush="White" BorderThickness="1,0,0,0" Grid.RowSpan="1" Background="#FF99CCFF"/>
                                 <Border Grid.Row="0" Grid.Column="3" BorderBrush="White" BorderThickness="1,0,0,0" Grid.RowSpan="1" Background="#FF99CCFF"/>
@@ -81,6 +82,7 @@
                                 <Border Grid.Row="0" Grid.Column="5" BorderBrush="White" BorderThickness="1,0,0,0" Grid.RowSpan="1" Background="#FF99CCFF"/>
                                 <Border Grid.Row="0" Grid.Column="6" BorderBrush="White" BorderThickness="1,0,0,0" Grid.RowSpan="1" Background="#FF99CCFF"/>
                                 <Border Grid.Row="0" Grid.Column="7" BorderBrush="White" BorderThickness="1,0,0,0" Grid.RowSpan="1" Background="#FF99CCFF"/>
+                                <!--除第一行所有列的样式-->
                                 <Border Grid.Row="1" Grid.Column="1" BorderBrush="#FF99CCFF" BorderThickness="1,0,0,0" Grid.RowSpan="23"/>
                                 <Border Grid.Row="1" Grid.Column="2" BorderBrush="#FF99CCFF" BorderThickness="1,0,0,0" Grid.RowSpan="23"/>
                                 <Border Grid.Row="1" Grid.Column="3" BorderBrush="#FF99CCFF" BorderThickness="1,0,0,0" Grid.RowSpan="23"/>
