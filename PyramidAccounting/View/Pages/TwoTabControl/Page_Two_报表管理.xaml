@@ -299,13 +299,6 @@
                                     <ColumnDefinition Width="Auto"/>
                                     <ColumnDefinition Width="Auto"/>
                                     <ColumnDefinition Width="Auto"/>
-                                    <ColumnDefinition Width="1*" MinWidth="150" MaxWidth="200"/>
-                                    <ColumnDefinition Width="Auto"/>
-                                    <ColumnDefinition Width="Auto"/>
-                                    <ColumnDefinition Width="Auto"/>
-                                    <ColumnDefinition Width="Auto"/>
-                                    <ColumnDefinition Width="Auto"/>
-                                    <ColumnDefinition Width="Auto"/>
                                 </Grid.ColumnDefinitions>
                                 <Border BorderBrush="LightGreen" BorderThickness="1,1,1,1" Grid.ColumnSpan="21" Grid.RowSpan="33" />
                                 <Border BorderBrush="LightGreen" BorderThickness="0,1,0,1" Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="6" />
@@ -313,7 +306,6 @@
                                 <Border BorderBrush="LightGreen" BorderThickness="0,1,0,1" Grid.Column="15" Grid.Row="1" Grid.ColumnSpan="6" />
                                 <Border BorderBrush="LightGreen" BorderThickness="1,0,1,0" Grid.Column="1" Grid.ColumnSpan="6" Grid.RowSpan="33" />
                                 <Border BorderBrush="LightGreen" BorderThickness="1,0,1,0" Grid.Column="8" Grid.ColumnSpan="6" Grid.RowSpan="33" />
-                                <Border BorderBrush="LightGreen" BorderThickness="1,0,1,0"  Grid.Column="15" Grid.ColumnSpan="6" Grid.RowSpan="33" />
                                 <Border BorderBrush="LightGreen" BorderThickness="1,0,1,0" Grid.Row="1" Grid.Column="3" Grid.ColumnSpan="2" Grid.RowSpan="32"/>
                                 <Border BorderBrush="LightGreen" BorderThickness="1,0,1,0" Grid.Row="1" Grid.Column="10" Grid.ColumnSpan="2" Grid.RowSpan="32"/>
                                 <Border BorderBrush="LightGreen" BorderThickness="1,0,1,0" Grid.Row="1" Grid.Column="17" Grid.ColumnSpan="2" Grid.RowSpan="32"/>
@@ -341,17 +333,12 @@
                                 <Label Content="经费支出" HorizontalAlignment="Center" Grid.Column="1"  Grid.ColumnSpan="6"/>
                                 <Label Content="科目" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="7" Grid.RowSpan="3" />
                                 <Label Content="经费支出" HorizontalAlignment="Center" Grid.Column="8"  Grid.ColumnSpan="6"/>
-                                <Label Content="科目" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="14" Grid.RowSpan="3" />
-                                <Label Content="经费支出" HorizontalAlignment="Center" Grid.Column="15"  Grid.ColumnSpan="6"/>
                                 <Label Content="合计" HorizontalAlignment="Center" Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="2" />
                                 <Label Content="其中：基本支出" HorizontalAlignment="Center" Grid.Column="3" Grid.Row="1" Grid.ColumnSpan="2" />
                                 <Label Content="其中：项目支出" HorizontalAlignment="Center" Grid.Column="5" Grid.Row="1" Grid.ColumnSpan="2" />
                                 <Label Content="合计" HorizontalAlignment="Center" Grid.Column="8" Grid.Row="1" Grid.ColumnSpan="2" />
                                 <Label Content="其中：基本支出" HorizontalAlignment="Center" Grid.Column="10" Grid.Row="1" Grid.ColumnSpan="2" />
-                                <Label Content="其中：项目支出" HorizontalAlignment="Center" Grid.Column="12" Grid.Row="1" Grid.ColumnSpan="2" />
-                                <Label Content="合计" HorizontalAlignment="Center" Grid.Column="15" Grid.Row="1" Grid.ColumnSpan="2" />
-                                <Label Content="其中：基本支出" HorizontalAlignment="Center" Grid.Column="17" Grid.Row="1" Grid.ColumnSpan="2" />
-                                <Label Content="其中：项目支出" HorizontalAlignment="Center" Grid.Column="19" Grid.Row="1" Grid.ColumnSpan="2" />
+                                <Label Content="其中：项目支出" HorizontalAlignment="Center" Grid.Column="12" Grid.ColumnSpan="2" Margin="14,23,26,2" Grid.RowSpan="2" />
                                 <Label Content="本期数" HorizontalAlignment="Center" Grid.Column="1" Grid.Row="2" />
                                 <Label Content="累计数" HorizontalAlignment="Center" Grid.Column="2" Grid.Row="2" />
                                 <Label Content="本期数" HorizontalAlignment="Center" Grid.Column="3" Grid.Row="2" />
@@ -364,76 +351,59 @@
                                 <Label Content="累计数" HorizontalAlignment="Center" Grid.Column="11" Grid.Row="2" />
                                 <Label Content="本期数" HorizontalAlignment="Center" Grid.Column="12" Grid.Row="2" />
                                 <Label Content="累计数" HorizontalAlignment="Center" Grid.Column="13" Grid.Row="2" />
-                                <Label Content="本期数" HorizontalAlignment="Center" Grid.Column="15" Grid.Row="2" />
-                                <Label Content="累计数" HorizontalAlignment="Center" Grid.Column="16" Grid.Row="2" />
-                                <Label Content="本期数" HorizontalAlignment="Center" Grid.Column="17" Grid.Row="2" />
-                                <Label Content="累计数" HorizontalAlignment="Center" Grid.Column="18" Grid.Row="2" />
-                                <Label Content="本期数" HorizontalAlignment="Center" Grid.Column="19" Grid.Row="2" />
-                                <Label Content="累计数" HorizontalAlignment="Center" Grid.Column="20" Grid.Row="2" />
                                 <Label Content="支 出 合 计" HorizontalAlignment="Center" Grid.Row="3"/>
-                                <Label Content="21.军用油料费" HorizontalAlignment="Left" Grid.Column="7" Grid.Row="3"/>
-                                <Label Content="其他资本性支出" HorizontalAlignment="Center" Grid.Column="14" Grid.Row="3"/>
+                                <Label Content="21.其他商品和服务支出" HorizontalAlignment="Left" Grid.Column="7" Grid.Row="3"/>
+                                <Label Content="其他资本性支出" HorizontalAlignment="Center" Grid.Column="7" Grid.Row="19"/>
                                 <Label Content="工资福利支出" HorizontalAlignment="Center" Grid.Row="4"/>
-                                <Label Content="22.军队其他运行维护费" HorizontalAlignment="Left" Grid.Column="7" Grid.Row="4"/>
-                                <Label Content="1.房屋建筑物购建" HorizontalAlignment="Left" Grid.Column="14" Grid.Row="4"/>
+                                <Label Content="1.房屋建筑物购建" HorizontalAlignment="Left" Grid.Column="7" Grid.Row="20"/>
                                 <Label Content="1.基本工资" HorizontalAlignment="Left" Grid.Row="5"/>
-                                <Label Content="23.被装购置费" HorizontalAlignment="Left" Grid.Column="7" Grid.Row="5"/>
-                                <Label Content="2.办公设备购置费" HorizontalAlignment="Left" Grid.Column="14" Grid.Row="5"/>
+                                <Label Content="2.办公设备购置费" HorizontalAlignment="Left" Grid.Column="7" Grid.Row="21"/>
                                 <Label Content="2.津贴" HorizontalAlignment="Left" Grid.Row="6"/>
-                                <Label Content="24.专用燃料费" HorizontalAlignment="Left" Grid.Column="7" Grid.Row="6"/>
-                                <Label Content="3.专用设备购置费" HorizontalAlignment="Left" Grid.Column="14" Grid.Row="6"/>
                                 <Label Content="3.奖金" HorizontalAlignment="Left" Grid.Row="7"/>
-                                <Label Content="25.劳务费" HorizontalAlignment="Left" Grid.Column="7" Grid.Row="7"/>
-                                <Label Content="4.交通工具购置费" HorizontalAlignment="Left" Grid.Column="14" Grid.Row="7"/>
+                                <Label Content="3.交通工具购置费" HorizontalAlignment="Left" Grid.Column="7" Grid.Row="22"/>
                                 <Label Content="4.社会保障缴费" HorizontalAlignment="Left" Grid.Row="8"/>
-                                <Label Content="26.委托业务费" HorizontalAlignment="Left" Grid.Column="7" Grid.Row="8"/>
-                                <Label Content="5.基础设施建设" HorizontalAlignment="Left" Grid.Column="14" Grid.Row="8"/>
                                 <Label Content="5.伙食费" HorizontalAlignment="Left" Grid.Row="9"/>
-                                <Label Content="27.工会经费" HorizontalAlignment="Left" Grid.Column="7" Grid.Row="9"/>
-                                <Label Content="6.大型修缮" HorizontalAlignment="Left" Grid.Column="14" Grid.Row="9"/>
+                                <Label Content="4.大型修缮" HorizontalAlignment="Left" Grid.Column="7" Grid.Row="23"/>
                                 <Label Content="6.伙食补助费" HorizontalAlignment="Left" Grid.Row="10"/>
-                                <Label Content="28.福利费" HorizontalAlignment="Left" Grid.Column="7" Grid.Row="10"/>
-                                <Label Content="7.信息网络购建" HorizontalAlignment="Left" Grid.Column="14" Grid.Row="10"/>
+                                <Label Content="5.信息网络购建" HorizontalAlignment="Left" Grid.Column="7" Grid.Row="24"/>
                                 <Label Content="7.其他" HorizontalAlignment="Left" Grid.Row="11"/>
-                                <Label Content="29.其他商品和服务支出" HorizontalAlignment="Left" Grid.Column="7" Grid.Row="11"/>
-                                <Label Content="8.物资储备" HorizontalAlignment="Left" Grid.Column="14" Grid.Row="11"/>
                                 <Label Content="商品和服务支出" HorizontalAlignment="Center" Grid.Row="12"/>
-                                <Label Content="对个人和家庭的补助" HorizontalAlignment="Center" Grid.Column="7" Grid.Row="12"/>
-                                <Label Content="9.其他资本性支出" HorizontalAlignment="Left" Grid.Column="14" Grid.Row="13"/>
+                                <Label Content="对个人和家庭的补助" HorizontalAlignment="Center" Grid.Column="7" Grid.Row="4"/>
+                                <Label Content="6.其他资本性支出" HorizontalAlignment="Left" Grid.Column="7" Grid.Row="25"/>
                                 <Label Content="1.办公费" HorizontalAlignment="Left" Grid.Row="13"/>
-                                <Label Content="1.离休费" HorizontalAlignment="Left" Grid.Column="7" Grid.Row="13"/>
+                                <Label Content="1.离休费" HorizontalAlignment="Left" Grid.Column="7" Grid.Row="5"/>
                                 <Label Content="2.印刷费" HorizontalAlignment="Left" Grid.Row="14"/>
-                                <Label Content="2.退休费" HorizontalAlignment="Left" Grid.Column="7" Grid.Row="14"/>
+                                <Label Content="2.退休费" HorizontalAlignment="Left" Grid.Column="7" Grid.Row="6"/>
                                 <Label Content="3.咨询费" HorizontalAlignment="Left" Grid.Row="15"/>
-                                <Label Content="3.退职（役）费" HorizontalAlignment="Left" Grid.Column="7" Grid.Row="15"/>
+                                <Label Content="3.退职（役）费" HorizontalAlignment="Left" Grid.Column="7" Grid.Row="7"/>
                                 <Label Content="4.手续费" HorizontalAlignment="Left" Grid.Row="16"/>
-                                <Label Content="4.抚恤金" HorizontalAlignment="Left" Grid.Column="7" Grid.Row="16"/>
+                                <Label Content="4.抚恤金" HorizontalAlignment="Left" Grid.Column="7" Grid.Row="8"/>
                                 <Label Content="5.水费" HorizontalAlignment="Left" Grid.Row="17"/>
-                                <Label Content="5.生活补助" HorizontalAlignment="Left" Grid.Column="7" Grid.Row="17"/>
+                                <Label Content="5.生活补助" HorizontalAlignment="Left" Grid.Column="7" Grid.Row="9"/>
                                 <Label Content="6.电费" HorizontalAlignment="Left" Grid.Row="18"/>
-                                <Label Content="6.救济费" HorizontalAlignment="Left" Grid.Column="7" Grid.Row="18"/>
+                                <Label Content="6.救济费" HorizontalAlignment="Left" Grid.Column="7" Grid.Row="10"/>
                                 <Label Content="7.邮电费" HorizontalAlignment="Left" Grid.Row="19"/>
-                                <Label Content="7.医疗费" HorizontalAlignment="Left" Grid.Column="7" Grid.Row="19"/>
+                                <Label Content="7.医疗费" HorizontalAlignment="Left" Grid.Column="7" Grid.Row="11"/>
                                 <Label Content="8.物业管理费" HorizontalAlignment="Left" Grid.Row="20"/>
-                                <Label Content="8.助学金" HorizontalAlignment="Left" Grid.Column="7" Grid.Row="20"/>
+                                <Label Content="8.助学金" HorizontalAlignment="Left" Grid.Column="7" Grid.Row="12"/>
                                 <Label Content="9.交通费" HorizontalAlignment="Left" Grid.Row="21"/>
-                                <Label Content="9.奖励金" HorizontalAlignment="Left" Grid.Column="7" Grid.Row="21"/>
+                                <Label Content="9.奖励金" HorizontalAlignment="Left" Grid.Column="7" Grid.Row="13"/>
                                 <Label Content="10.差旅费" HorizontalAlignment="Left" Grid.Row="22"/>
-                                <Label Content="10.生活补助" HorizontalAlignment="Left" Grid.Column="7" Grid.Row="22"/>
+                                <Label Content="10.生活补助" HorizontalAlignment="Left" Grid.Column="7" Grid.Row="14"/>
                                 <Label Content="11.出国费" HorizontalAlignment="Left" Grid.Row="23"/>
-                                <Label Content="11.住房公积金" HorizontalAlignment="Left" Grid.Column="7" Grid.Row="23"/>
+                                <Label Content="11.住房公积金" HorizontalAlignment="Left" Grid.Column="7" Grid.Row="15"/>
                                 <Label Content="12.维修（护)费" HorizontalAlignment="Left" Grid.Row="24"/>
-                                <Label Content="12.提租补贴" HorizontalAlignment="Left" Grid.Column="7" Grid.Row="24"/>
+                                <Label Content="12.提租补贴" HorizontalAlignment="Left" Grid.Column="7" Grid.Row="16"/>
                                 <Label Content="13.租赁费" HorizontalAlignment="Left" Grid.Row="25"/>
-                                <Label Content="13.购房补贴" HorizontalAlignment="Left" Grid.Column="7" Grid.Row="25"/>
+                                <Label Content="13.购房补贴" HorizontalAlignment="Left" Grid.Column="7" Grid.Row="17"/>
                                 <Label Content="14.会议费" HorizontalAlignment="Left" Grid.Row="26"/>
-                                <Label Content="14.其他对个人和家庭的补助支出" HorizontalAlignment="Left" Grid.Column="7" Grid.Row="26"/>
+                                <Label Content="14.其他对个人和家庭的补助支出" HorizontalAlignment="Left" Grid.Column="7" Grid.Row="18"/>
                                 <Label Content="15.培训费" HorizontalAlignment="Left" Grid.Row="27"/>
                                 <Label Content="16.招待费" HorizontalAlignment="Left" Grid.Row="28"/>
-                                <Label Content="17.专用材料费" HorizontalAlignment="Left" Grid.Row="29"/>
-                                <Label Content="18.装备购置费" HorizontalAlignment="Left" Grid.Row="30"/>
-                                <Label Content="19.工厂建设费" HorizontalAlignment="Left" Grid.Row="31"/>
-                                <Label Content="20.作战费" HorizontalAlignment="Left" Grid.Row="32"/>
+                                <Label Content="17.劳务费" HorizontalAlignment="Left" Grid.Row="29"/>
+                                <Label Content="18.委托业务费" HorizontalAlignment="Left" Grid.Row="30"/>
+                                <Label Content="19.工会经费" HorizontalAlignment="Left" Grid.Row="31"/>
+                                <Label Content="20.福利费" HorizontalAlignment="Left" Grid.Row="32"/>
                             </Grid>
                             <Label Content="补充资料：编制人数" HorizontalAlignment="Left" VerticalAlignment="Bottom" RenderTransformOrigin="-0.85,0.625"/>
                             <TextBox HorizontalAlignment="Left" Height="23" Margin="118,0,0,0" TextWrapping="Wrap"  VerticalAlignment="Bottom" Width="80" BorderThickness="0,0,0,1"/>
