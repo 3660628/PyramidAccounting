@@ -165,7 +165,7 @@ namespace PA.View.Windows
         {
             Model_科目管理 m = new Model_科目管理();
             m = e.Row.Item as Model_科目管理;
-            m.父ID = TextBox_科目编号.Text.ToString();
+            m.父ID = SubjectNum;
             if (judge == 1 || initFlag)
             {
                 lm.Add(m);
