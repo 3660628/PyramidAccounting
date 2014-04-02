@@ -6,6 +6,7 @@
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="View\ResourceDictionarys\Button\ButtonCommon.xaml" />
+                <ResourceDictionary Source="View\ResourceDictionarys\Button\ButtonShortcut.xaml" />
                 <ResourceDictionary Source="View\ResourceDictionarys\Button\GlassButton.xaml" />
                 <ResourceDictionary Source="View\ResourceDictionarys\Button\MinMaxClose.xaml" />
                 <ResourceDictionary Source="View\ResourceDictionarys\CheckBox\SliderCheckBox.xaml" />

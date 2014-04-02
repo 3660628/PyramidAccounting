@@ -251,6 +251,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="View\ResourceDictionarys\Button\ButtonShortcut.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\ResourceDictionarys\Button\GlassButton.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
