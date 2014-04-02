@@ -349,7 +349,7 @@ namespace PA.ViewModel
         public List<Model_科目明细账> GetData(string subject_id,string detail)
         {
             List<Model_科目明细账> list = new List<Model_科目明细账>();
-            string sql = "select b.op_time,a.voucher_no,a.abstract,a.debit,a.credit from " 
+            string sql = "select b.op_time,a.voucher_no,a.abstract,a.debit,a.credit,a.credit-a.debit,case when a.debit>a.credit then '借' when a.debit<a.credit then '贷' else '平' end  from " 
                 + DBTablesName.T_VOUCHER_DETAIL
                 + " a left join " 
                 + DBTablesName.T_VOUCHER 
@@ -360,7 +360,9 @@ namespace PA.ViewModel
 
             //判断第一期查年初数
             //以后差每一期期末数
-            string sql2 = "select fee from t_yearfee where subject_id='" + detail.Split('\t')[0] + "' and bookid='" + CommonInfo.账薄号 + "'";
+            string sql2 = "select a.fee*b.borrow_mark from "+ DBTablesName.T_YEAR_FEE + " a left join " + DBTablesName.T_SUBJECT 
+                +" b on a.subject_id=b.subject_id where a.subject_id='" + detail.Split('\t')[0] 
+                + "' and a.bookid='" + CommonInfo.账薄号 + "'";
             string yearfee = db.GetAllData(sql2).Split('\t')[0].Split(',')[0];
             DataSet ds = new DataSet();
             ds = db.Query(sql);
@@ -369,6 +371,7 @@ namespace PA.ViewModel
                 DataTable dt = ds.Tables[0];
                 foreach (DataRow d in dt.Rows)
                 {
+                    List<string> _list = new List<string>();
                     Model_科目明细账 m = new Model_科目明细账();
                     string date = d[0].ToString().Split(' ')[0];
                     m.年 = date.Split('/')[0];
@@ -379,44 +382,38 @@ namespace PA.ViewModel
                     m.借方金额 = d[3].ToString();
                     m.贷方金额 = d[4].ToString();
                     string temp = string.Empty;
-                    List<string> _list = new List<string>();
-                    if (string.IsNullOrEmpty(m.借方金额))
-                    {
-                        temp = d[4].ToString();
-                        _list = Turn(d[4].ToString(),12);
-                        m.贷方金额1 = _list[0];
-                        m.贷方金额2 = _list[1];
-                        m.贷方金额3 = _list[2];
-                        m.贷方金额4 = _list[3];
-                        m.贷方金额5 = _list[4];
-                        m.贷方金额6 = _list[5];
-                        m.贷方金额7 = _list[6];
-                        m.贷方金额8 = _list[7];
-                        m.贷方金额9 = _list[8];
-                        m.贷方金额10 = _list[9];
-                        m.贷方金额11 = _list[10];
-                        m.贷方金额12 = _list[11];
-                        m.借或贷 = "贷";
-                       
-                    }
-                    else
-                    {
-                        temp = d[3].ToString();
-                        _list = Turn(d[3].ToString(),12);
-                        m.借方金额1 = _list[0];
-                        m.借方金额2 = _list[1];
-                        m.借方金额3 = _list[2];
-                        m.借方金额4 = _list[3];
-                        m.借方金额5 = _list[4];
-                        m.借方金额6 = _list[5];
-                        m.借方金额7 = _list[6];
-                        m.借方金额8 = _list[7];
-                        m.借方金额9 = _list[8];
-                        m.借方金额10 = _list[9];
-                        m.借方金额11 = _list[10];
-                        m.借方金额12 = _list[11];
-                        m.借或贷 = "借";
-                    }
+                    temp = d[5].ToString();  //差额
+                    m.借或贷 = d[6].ToString();
+
+                    _list = Turn(m.贷方金额, 12);
+                    m.贷方金额1 = _list[0];
+                    m.贷方金额2 = _list[1];
+                    m.贷方金额3 = _list[2];
+                    m.贷方金额4 = _list[3];
+                    m.贷方金额5 = _list[4];
+                    m.贷方金额6 = _list[5];
+                    m.贷方金额7 = _list[6];
+                    m.贷方金额8 = _list[7];
+                    m.贷方金额9 = _list[8];
+                    m.贷方金额10 = _list[9];
+                    m.贷方金额11 = _list[10];
+                    m.贷方金额12 = _list[11];
+
+                    _list = Turn(m.借方金额, 12);
+                    m.借方金额1 = _list[0];
+                    m.借方金额2 = _list[1];
+                    m.借方金额3 = _list[2];
+                    m.借方金额4 = _list[3];
+                    m.借方金额5 = _list[4];
+                    m.借方金额6 = _list[5];
+                    m.借方金额7 = _list[6];
+                    m.借方金额8 = _list[7];
+                    m.借方金额9 = _list[8];
+                    m.借方金额10 = _list[9];
+                    m.借方金额11 = _list[10];
+                    m.借方金额12 = _list[11];
+
+                   
 
                     yearfee = (Convert.ToDecimal(yearfee) - Convert.ToDecimal(temp)).ToString();
                     _list.Clear();
