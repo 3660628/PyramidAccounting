@@ -495,8 +495,8 @@ namespace PA.ViewModel
         {
             //string date = DateTime.Now.ToString("yyyy-MM-dd");
             string sql = "INSERT INTO " + DBTablesName.T_FEE
-                          + "(OP_TIME,PERIOD,SUBJECT_ID,VOUCHER_NUMS,COMMENTS,DEBIT,CREDIT,MARK,DELETE_MARK,abs(FEE))"
-                          + " select t.*,b.mark*b.fee-(t.credit-t.debit) as fee from ("
+                          + "(OP_TIME,PERIOD,SUBJECT_ID,VOUCHER_NUMS,COMMENTS,DEBIT,CREDIT,MARK,DELETE_MARK,FEE)"
+                          + " select t.*,abs(b.mark*b.fee-(t.credit-t.debit)) as fee from ("
                           + "SELECT datetime('now', 'localtime') as op_time," + CommonInfo.当前期
                           + ",b.subject_id as subject_id,"
                           + "a.voucher_nums,"
