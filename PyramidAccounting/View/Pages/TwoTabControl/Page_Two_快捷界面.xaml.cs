@@ -16,6 +16,7 @@ using PA.Helper.DataDefind;
 using PA.Helper.XMLHelper;
 using PA.ViewModel;
 using PA.Model.CustomEventArgs;
+using PA.Model.DataGrid;
 
 namespace PA.View.Pages.TwoTabControl
 {
@@ -30,7 +31,9 @@ namespace PA.View.Pages.TwoTabControl
         private ViewModel_Books vmb = new ViewModel_Books();
         private ViewModel_账薄管理 vm = new ViewModel_账薄管理();
         private ViewModel_凭证管理 vmp = new ViewModel_凭证管理();
-
+        Model_操作日志 mr = new Model_操作日志();
+        ViewModel_操作日志 vmr = new ViewModel_操作日志();
+           
         public Page_Two_快捷界面()
         {
             InitializeComponent();
@@ -73,8 +76,12 @@ namespace PA.View.Pages.TwoTabControl
 
         private void Button_凭证审核_Click(object sender, RoutedEventArgs e)
         {
+            mr = vmr.GetTOperateLog();
+            mr.日志 = "进入凭证审核模块！";
+            vmr.Insert(mr);
             OnTabChange(1,0);
             OnFilterData(1, 0, "凭证审核");
+
         }
 
         private void Button_凭证过账_Click(object sender, RoutedEventArgs e)
@@ -84,6 +91,9 @@ namespace PA.View.Pages.TwoTabControl
 
         private void Button_查询修改_Click(object sender, RoutedEventArgs e)
         {
+            mr = vmr.GetTOperateLog();
+            mr.日志 = "进入查询修改模块！";
+            vmr.Insert(mr);
             OnTabChange(1, 0);
         }
 
@@ -118,7 +128,11 @@ namespace PA.View.Pages.TwoTabControl
                             bool flag = vm.CheckOut();
                             if (flag)
                             {
+
                                 MessageBoxCommon.Show("结账完毕！");
+                                mr = vmr.GetTOperateLog();
+                                mr.日志 = "进行了结账操作，结算第：" + (CommonInfo.当前期-1) + "期账";
+                                vmr.Insert(mr);
                                 xw.WriteXML("期", (CommonInfo.当前期).ToString());
                                 vmb.UpdatePeriod(CommonInfo.当前期);
                                 OnFilterData(1, 0, "本月结账");
@@ -136,6 +150,9 @@ namespace PA.View.Pages.TwoTabControl
         private void Button_账目查询_Click(object sender, RoutedEventArgs e)
         {
             OnTabChange(2,2);
+            mr = vmr.GetTOperateLog();
+            mr.日志 = "进入账目查询模块！";
+            vmr.Insert(mr);
         }
     }
 }
