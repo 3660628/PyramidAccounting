@@ -297,7 +297,45 @@ namespace PA.View.Pages.TwoTabControl
         #endregion
 
         #region 3.数据管理
+        private void is_auto_backup_Checked(object sender, RoutedEventArgs e)
+        {
 
+        }
+
+        private void is_auto_backup_Unchecked(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void backup_days_PreviewKeyDown(object sender, KeyEventArgs e)
+        {
+
+        }
+
+        private void backup_days_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+
+        }
+
+        private void Button_Recover_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void ButtonBackUp_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Button_save_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
         #endregion
 
         #region 4.操作记录
@@ -322,6 +360,8 @@ namespace PA.View.Pages.TwoTabControl
             int SelectedIndex = this.TabControl_五大科目.SelectedIndex;
             this.DataGrid_科目设置.ItemsSource = new ViewModel_科目管理().GetSujectData(SelectedIndex+1);
         }
+
+       
 
 
 

@@ -3,6 +3,7 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:input="clr-namespace:System.Windows.Input;assembly=PresentationCore"
       mc:Ignorable="d" 
       d:DesignHeight="570" d:DesignWidth="800" FontFamily="NSimSun" TextOptions.TextFormattingMode="Display"
 	Title="Page_Two_系统管理">
@@ -105,7 +106,33 @@
                 </Grid>
             </TabItem>
             <TabItem FocusVisualStyle="{x:Null}" Header="数据管理" Margin="24,-1,-24,1" Template="{DynamicResource TabItemControlTemplate_TwoTabHeader}">
-                <Grid Background="White"/>
+                <Grid Background="White">
+                    <StackPanel Margin="10">
+                        <Expander x:Name="Expander_backup" Header="数据备份" IsExpanded="True">
+                            <Grid Background="Snow" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" >
+                                <TextBlock x:Name="is_auto_mark" HorizontalAlignment="Left" Margin="30,14,0,0" Text="关" />
+                                <CheckBox x:Name="is_auto_backup" Content="自动备份数据间隔时间(A)" HorizontalAlignment="Left" Margin="59,14,0,0" VerticalAlignment="Top" Width="231" Style="{StaticResource SliderCheckBox}" Checked="is_auto_backup_Checked" Unchecked="is_auto_backup_Unchecked"/>
+                                <TextBox x:Name="backup_days" Text="7" HorizontalAlignment="Left" Height="23" Margin="375,14,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="50" PreviewKeyDown="backup_days_PreviewKeyDown" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="backup_days_PreviewTextInput"/>
+                                <Label Content="天(D)" HorizontalAlignment="Left" Margin="430,10,0,0" VerticalAlignment="Top"/>
+                                <Label Content="数据备份路径(R):" HorizontalAlignment="Left" Margin="30,68,0,0" VerticalAlignment="Top"/>
+                                <TextBox x:Name="backup_filePath" HorizontalAlignment="Left" Height="23" Margin="151,70,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="450"/>
+                                <Button Content="浏览(B)..." HorizontalAlignment="Left" Margin="630,68,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click"  Foreground="White" Height="25" Template="{DynamicResource ButtonControlTemplate_CommonBlue}"/>
+                                <TextBlock HorizontalAlignment="Left" Height="23" Margin="30,43,0,0" FontSize="12" TextWrapping="Wrap" Text="提示：建议备份数据存放在与软件不同硬盘位置" VerticalAlignment="Top" Width="317"/>
+                            </Grid>
+                        </Expander>
+                        <Expander x:Name="Expander_recover" Header="数据恢复" IsExpanded="True">
+                            <Grid Background="Snow">
+                                <Label Content="请选择需要恢复的数据文件:" HorizontalAlignment="Left" Margin="20,0,0,0"/>
+                                <Label Content="文件位置(V):" HorizontalAlignment="Left" Margin="40,30,0,0" VerticalAlignment="Top"/>
+                                <TextBox x:Name="Recover_filepath" HorizontalAlignment="Left" Height="23" Margin="151,30,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="450"/>
+                                <Button x:Name="Button_Brower" Content="浏览(B)..." HorizontalAlignment="Left" Margin="630,30,0,0" VerticalAlignment="Top" Width="75" Foreground="White" Height="25" Template="{DynamicResource ButtonControlTemplate_CommonBlue}"/>
+                            </Grid>
+                        </Expander>
+                    </StackPanel>
+                    <Button x:Name="ButtonBackUp" Content="备份" HorizontalAlignment="Left" Margin="150,350,0,0" VerticalAlignment="Top" Width="100" Click="ButtonBackUp_Click" Background="#7FFF00"  Foreground="White" Height="100" FontSize="22" FontWeight="Black" Style="{StaticResource GlassButton}"/>
+                    <Button x:Name="Button_Recover" Content="恢复" HorizontalAlignment="Left" Margin="300,350,0,0" VerticalAlignment="Top" Width="100" Click="Button_Recover_Click" Background="Red" Foreground="White" Height="100" FontSize="22" FontWeight="Black" Style="{StaticResource GlassButton}"/>
+                    <Button x:Name="Button_save" Content="保存" HorizontalAlignment="Left" Margin="450,350,0,0" VerticalAlignment="Top" Width="100" Click="Button_save_Click" Background="#00BFFF" Foreground="White" Height="100"  FontSize="22" FontWeight="Black" Style="{StaticResource GlassButton}"/>
+                </Grid>
             </TabItem>
             <TabItem FocusVisualStyle="{x:Null}" Header="操作记录" Margin="32,-1,-32,1" Template="{DynamicResource TabItemControlTemplate_TwoTabHeader}">
                 <Grid Background="White">
