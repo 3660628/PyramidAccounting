@@ -29,3 +29,17 @@ CREATE TABLE T_USER (									--用户表
 	COMMENTS TEXT,										--用户说明	
 	DELETE_MARK INTEGER DEFAULT (0)						--停用标志  0：正是用 1：已停用	
 );
+CREATE TABLE T_FIXEDASSETS(								--固定资产表
+	ID INTEGER PRIMARY KEY,								--编号
+	NAME TEXT,											--名称及规格
+	UNIT TEXT,											--单位
+	AMOUNT	DECIMAL,									--数量
+	PRICE   DEICMAL,									--原价或重置价格
+	USED_YEAR	INTEGER,								--使用年限
+	BUY_DATE	DATE,									--购置日期
+	DEPARMENT	TEXT,									--使用部门
+	CLEAR_DATE	DATE,									--清理日期
+	VOUCHER_NO	TEXT,									--凭证编号
+	COMMENTS    TEXT,									--备注
+	DELETE_MARK INTEGER DEFAULT(0)						--删除标志 0  1表示已经删除
+);

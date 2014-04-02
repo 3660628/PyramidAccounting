@@ -995,7 +995,7 @@
             <TabItem FocusVisualStyle="{x:Null}" Header="固定资产管理" Margin="32,-1,-32,1" Template="{DynamicResource TabItemControlTemplate_TwoTabHeader}">
                 <Grid Background="White">
                     <ScrollViewer HorizontalScrollBarVisibility="Visible" VerticalScrollBarVisibility="Disabled" Margin="-3,50,0,-3">
-                        <Grid Width="Auto" Margin="10,0,10,10" HorizontalAlignment="Center">
+                        <Grid Width="Auto" Margin="10,50,10,10" HorizontalAlignment="Center">
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="25" />
                                 <RowDefinition Height="25" />
