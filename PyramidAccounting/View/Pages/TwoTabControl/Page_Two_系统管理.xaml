@@ -63,7 +63,7 @@
             </TabItem>
             <TabItem FocusVisualStyle="{x:Null}" Header="科目设置" Margin="16,-1,-16,1" Template="{DynamicResource TabItemControlTemplate_TwoTabHeader}">
                 <Grid Background="White">
-                    <DataGrid x:Name="DataGrid_科目设置" ItemsSource="{Binding}" AutoGenerateColumns="False" HorizontalAlignment="Stretch" Margin="10,54,10,10" VerticalAlignment="Stretch" Background="White" RowEditEnding="DataGrid_科目设置_RowEditEnding" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle_凭证管理}" BorderBrush="#FF99CCFF" HeadersVisibility="Column" SelectionUnit="Cell" SelectionMode="Single" IsReadOnly="True" CanUserReorderColumns="False" CanUserSortColumns="False" CanUserAddRows="False" CanUserResizeRows="False" CanUserResizeColumns="False">
+                    <DataGrid x:Name="DataGrid_科目设置" ItemsSource="{Binding}" AutoGenerateColumns="False" HorizontalAlignment="Stretch" Margin="10,54,10,10" VerticalAlignment="Stretch" Background="White" RowEditEnding="DataGrid_科目设置_RowEditEnding" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle_凭证管理}" BorderBrush="#FF99CCFF" HeadersVisibility="Column" SelectionUnit="Cell" SelectionMode="Single" IsReadOnly="True" CanUserReorderColumns="False" CanUserSortColumns="False" CanUserAddRows="False" CanUserResizeRows="False" CanUserResizeColumns="False" CellStyle="{DynamicResource DataGridCellStyle_无上下边距}" HorizontalGridLinesBrush="#FF99CCFF" VerticalGridLinesBrush="#FF99CCFF">
                         <DataGrid.Resources>
                             <!--DataGridRow的双击事件-->
                             <Style TargetType="DataGridRow">
@@ -71,9 +71,9 @@
                             </Style>
                         </DataGrid.Resources>
                         <DataGrid.Columns>
-                            <DataGridTextColumn Binding="{Binding 序号}" Header="序号" IsReadOnly="True" />
-                            <DataGridTextColumn Binding="{Binding 科目编号}" Header="科目编号" IsReadOnly="True"/>
-                            <DataGridTextColumn Binding="{Binding 科目名称}" Header="科目名称" IsReadOnly="True"/>
+                            <DataGridTextColumn Binding="{Binding 序号}" Header="序号" IsReadOnly="True" ElementStyle="{DynamicResource TextBlockStyle_左对齐}"/>
+                            <DataGridTextColumn Binding="{Binding 科目编号}" Header="科目编号" IsReadOnly="True" ElementStyle="{DynamicResource TextBlockStyle_左对齐}"/>
+                            <DataGridTextColumn Binding="{Binding 科目名称}" Header="科目名称" IsReadOnly="True" ElementStyle="{DynamicResource TextBlockStyle_左对齐}"/>
                             <DataGridTextColumn x:Name="DataGridTextColumn_fee" Binding="{Binding 年初金额}" Header="年初数" MinWidth="100" ElementStyle="{DynamicResource TextBlockStyle_右对齐}"/>
                             <DataGridTemplateColumn  x:Name="DataGridTemplateColumn_mark" Header="是否启用">
                                 <DataGridTemplateColumn.CellTemplate>
@@ -149,7 +149,7 @@
                     <Label Content="到" HorizontalAlignment="Left" Margin="155,30,0,0" VerticalAlignment="Top"/>
                     <DatePicker x:Name="DatePicker_操作记录End" HorizontalAlignment="Left" Width="120" Margin="178,30,0,0" VerticalAlignment="Top"/>
                     <Button x:Name="Button_操作记录查询" Content="查询" Grid.Column="1" HorizontalAlignment="Center" Margin="0,30,0,0" VerticalAlignment="Top" Width="75" Click="Button_操作记录查询_Click"/>
-                    <DataGrid x:Name="DataGrid_操作记录" CanUserAddRows="False" IsReadOnly="True" AutoGenerateColumns="False" ItemsSource="{Binding}" Grid.Row="1" Grid.ColumnSpan="2" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" >
+                    <DataGrid x:Name="DataGrid_操作记录" CanUserAddRows="False" IsReadOnly="True" AutoGenerateColumns="False" ItemsSource="{Binding}" Grid.Row="1" Grid.ColumnSpan="2" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle_凭证管理}" CellStyle="{DynamicResource DataGridCellStyle_无上下边距}" HeadersVisibility="Column" HorizontalGridLinesBrush="#FF99CCFF" VerticalGridLinesBrush="#FF99CCFF" BorderBrush="#FF99CCFF" Margin="7,0,10,7" Background="White" >
                         <DataGrid.Columns>
                             <DataGridTextColumn Header="序号" Binding="{Binding 序号}" />
                             <DataGridTextColumn Header="操作时间" MinWidth="100" Binding="{Binding 日期}" />
