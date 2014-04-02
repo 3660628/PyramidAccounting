@@ -197,7 +197,6 @@ namespace PA.View.Pages.TwoTabControl
             m.Used_mark = m.是否启用 == true ? 1 : 0;
             lm.Add(m);
         }
-        #region 科目管理
         /// <summary>
         /// 判断是否已经初始化过年初数据，否则不许修改年初数
         /// </summary>
@@ -217,7 +216,6 @@ namespace PA.View.Pages.TwoTabControl
                 Expander_账套管理.Visibility = Visibility.Hidden;
             }
         }
-
         private void Button_科目保存_Click(object sender, RoutedEventArgs e)
         {
             string messageBoxText = "年初金额初始化不能修改哦，请确认是否填写完整？";
@@ -237,7 +235,6 @@ namespace PA.View.Pages.TwoTabControl
             //btn.Visibility = Visibility.Hidden;
             CommonInfo.是否初始化年初数 = true;
         }
-
         private void Button_编辑子细目_Click(object sender, RoutedEventArgs e)
         {
             Model_科目管理 m = new Model_科目管理();
@@ -259,38 +256,28 @@ namespace PA.View.Pages.TwoTabControl
                 MessageBoxCommon.Show("请选择科目！");
             }
         }
-
         private void CheckBox_启用_Click(object sender, RoutedEventArgs e)
         {
-            CheckBox b = sender as CheckBox;
-            Model_科目管理 m = new Model_科目管理();
-            try
+            if (DataGrid_科目设置.SelectedCells.Count > 0)
             {
+                CheckBox b = sender as CheckBox;
+                Model_科目管理 m = new Model_科目管理();
                 m = DataGrid_科目设置.SelectedCells[0].Item as Model_科目管理;
                 m.Used_mark = b.IsChecked == true ? 0 : 1;
                 new ViewModel_科目管理().UpdateUsedMark(m);
             }
-            catch (Exception ex)
-            {
-                Log.Write(ex.Message);
-            }
         }
         private void CheckBox_借贷方向_Click(object sender, RoutedEventArgs e)
         {
-            CheckBox cb = sender as CheckBox;
-            Model_科目管理 m = new Model_科目管理();
-            try
+            if (DataGrid_科目设置.SelectedCells.Count > 0)
             {
+                CheckBox cb = sender as CheckBox;
+                Model_科目管理 m = new Model_科目管理();
                 m = DataGrid_科目设置.SelectedCells[0].Item as Model_科目管理;
                 m.借贷标记 = (bool)cb.IsChecked;
                 new ViewModel_科目管理().UpdateBorrowMark(m);
             }
-            catch (Exception ex)
-            {
-                Log.Write(ex.Message);
-            }
         }
-
         private void DataGrid_科目设置_Row_MouseDoubleClick(object sender, RoutedEventArgs e)
         {
             string header = DataGrid_科目设置.CurrentCell.Column.Header.ToString();
@@ -298,20 +285,14 @@ namespace PA.View.Pages.TwoTabControl
             {
                 return;
             }
-            Model_科目管理 m = new Model_科目管理();
-            try
+            if (DataGrid_科目设置.SelectedCells.Count > 0)
             {
+                Model_科目管理 m = new Model_科目管理();
                 m = DataGrid_科目设置.SelectedCells[0].Item as Model_科目管理;
+                Windows.Win_子细目 w = new Windows.Win_子细目(m.科目编号, m.科目名称);
+                w.ShowDialog();
             }
-            catch (Exception ex)
-            {
-                Log.Write(ex.Message);
-            }
-            Windows.Win_子细目 w = new Windows.Win_子细目(m.科目编号, m.科目名称);
-            w.ShowDialog();
         }
-
-        #endregion
         #endregion
 
         #region 3.数据管理
