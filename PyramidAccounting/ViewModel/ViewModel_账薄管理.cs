@@ -40,7 +40,7 @@ namespace PA.ViewModel
                     m.摘要 = d[2].ToString();
                     m.借方金额 = d[3].ToString();
                     m.贷方金额 = d[4].ToString();
-                    m.余额 = d[5].ToString().Replace("-","");
+                    m.余额 = d[5].ToString();
                     m.借或贷 = d[6].ToString().Equals("1")?"借":"贷";
                     string temp = string.Empty;
                     List<string> _list = new List<string>();
@@ -495,7 +495,7 @@ namespace PA.ViewModel
         {
             //string date = DateTime.Now.ToString("yyyy-MM-dd");
             string sql = "INSERT INTO " + DBTablesName.T_FEE
-                          + "(OP_TIME,PERIOD,SUBJECT_ID,VOUCHER_NUMS,COMMENTS,DEBIT,CREDIT,MARK,DELETE_MARK,FEE)"
+                          + "(OP_TIME,PERIOD,SUBJECT_ID,VOUCHER_NUMS,COMMENTS,DEBIT,CREDIT,MARK,DELETE_MARK,abs(FEE))"
                           + " select t.*,b.mark*b.fee-(t.credit-t.debit) as fee from ("
                           + "SELECT datetime('now', 'localtime') as op_time," + CommonInfo.当前期
                           + ",b.subject_id as subject_id,"
