@@ -26,8 +26,8 @@ namespace PA.Helper.XMLHelper
 
             XmlNode root = xmldoc.SelectSingleNode("root");
 
-            #region 
-            XmlElement 系统信息 = xmldoc.CreateElement("系统信息");
+            #region 1.s系统信息
+            XmlElement s系统信息 = xmldoc.CreateElement("系统信息");
             XmlElement 单位 = xmldoc.CreateElement("单位");
             单位.InnerText = "单位";
             XmlElement 帐套信息 = xmldoc.CreateElement("账套信息");
@@ -38,12 +38,29 @@ namespace PA.Helper.XMLHelper
             会计制度.InnerText = "0";
             XmlElement period = xmldoc.CreateElement("期");
             period.InnerText = "0";
-            系统信息.AppendChild(单位);
-            系统信息.AppendChild(帐套信息);
-            系统信息.AppendChild(数据库);
-            系统信息.AppendChild(会计制度);
-            系统信息.AppendChild(period);
-            root.AppendChild(系统信息);
+            s系统信息.AppendChild(单位);
+            s系统信息.AppendChild(帐套信息);
+            s系统信息.AppendChild(数据库);
+            s系统信息.AppendChild(会计制度);
+            s系统信息.AppendChild(period);
+            root.AppendChild(s系统信息);
+            #endregion
+
+            #region 2.备份信息
+            XmlElement b备份信息 = xmldoc.CreateElement("备份信息");
+            XmlElement 自动备份标志 = xmldoc.CreateElement("自动备份标志");
+            自动备份标志.InnerText = "true";
+            XmlElement 备份时间 = xmldoc.CreateElement("备份时间");
+            备份时间.InnerText = "7";
+            XmlElement 备份路径 = xmldoc.CreateElement("备份路径");
+            备份路径.InnerText = "D:\\";
+            XmlElement 还原路径 = xmldoc.CreateElement("还原路径");
+            还原路径.InnerText = "D:\\";
+            b备份信息.AppendChild(自动备份标志);
+            b备份信息.AppendChild(备份时间);
+            b备份信息.AppendChild(备份路径);
+            b备份信息.AppendChild(还原路径);
+
             #endregion
 
             xmldoc.Save(AppDomain.CurrentDomain.BaseDirectory + "Data\\config.xml");
