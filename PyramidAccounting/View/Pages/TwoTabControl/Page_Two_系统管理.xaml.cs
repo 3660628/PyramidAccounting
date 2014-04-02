@@ -19,6 +19,7 @@ using PA.Helper.DataBase;
 using PA.Helper.DataDefind;
 using PA.View.ResourceDictionarys.MessageBox;
 using PA.Helper.XMLHelper;
+using System.Threading;
 
 namespace PA.View.Pages.TwoTabControl
 {
@@ -40,7 +41,19 @@ namespace PA.View.Pages.TwoTabControl
             SubscribeToEvent();
             VisibilityData();
             this.DatePicker_操作记录End.Text = DateTime.Now.ToShortDateString();
+            this.Button_Brower.Click += new System.Windows.RoutedEventHandler(Button_Brower_Click);
+            LoadXml();
         }
+
+        private void LoadXml()
+        {
+            string text = xr.ReadXML("自动备份标志");
+            is_auto_backup.IsChecked = bool.Parse(xr.ReadXML("自动备份标志"));
+            backup_days.Text = xr.ReadXML("备份时间");
+            backup_filePath.Text = xr.ReadXML("备份路径");
+            Recover_filepath.Text = xr.ReadXML("还原路径");
+        }
+       
 
         #region 事件订阅
         private void SubscribeToEvent()
@@ -299,16 +312,54 @@ namespace PA.View.Pages.TwoTabControl
 
         #region 3.数据管理
         private string defaultfilePath = "";
+        private string fname = string.Empty;
+        /// <summary>
+        /// 显示自动备份开启状态
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void is_auto_backup_Checked(object sender, RoutedEventArgs e)
         {
             this.is_auto_mark.Text = "开";
         }
-
+        /// <summary>
+        /// 显示自动备份关闭状态
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void is_auto_backup_Unchecked(object sender, RoutedEventArgs e)
         {
             this.is_auto_mark.Text = "关";
         }
-
+        /// <summary>
+        /// 浏览备份文件位置
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Button_Brower_Click(object sender, RoutedEventArgs e)
+        {
+            Thread app = new Thread(new ThreadStart(openFile));
+            app.SetApartmentState(ApartmentState.STA);
+            app.Start();
+            app.Join();
+            this.Recover_filepath.Text = fname;
+        }
+        /// <summary>
+        /// 打开文件
+        /// </summary>
+        private void openFile()
+        {
+            System.Windows.Forms.OpenFileDialog openFileDialog = new System.Windows.Forms.OpenFileDialog();
+            openFileDialog.Title = "请选择需要恢复的数据文件";
+            openFileDialog.RestoreDirectory = true;
+            openFileDialog.FilterIndex = 1;
+            openFileDialog.Filter = "备份文件(*.bak)|*.bak|所有文件(*.*)|*.*";
+            openFileDialog.DefaultExt = "bak";
+            if (openFileDialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            {
+                fname = openFileDialog.FileName;
+            }
+        }
         /// <summary>
         /// 选择备份目录按钮
         /// </summary>
@@ -351,25 +402,34 @@ namespace PA.View.Pages.TwoTabControl
             System.IO.File.Copy(dbfilepath, newfilepath, true);     //做数据库文件复制
             MessageBoxCommon.Show("数据备份操作成功！");
         }
+        /// <summary>
+        /// 输入空格无效
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void backup_days_PreviewKeyDown(object sender, KeyEventArgs e)
         {
             if (e.Key == Key.Space)
                 e.Handled = true;
         }
-
+        /// <summary>
+        /// 只允许输入数字
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void backup_days_PreviewTextInput(object sender, TextCompositionEventArgs e)
         {
-            /*if (!new Util().IsNumber(e.Text))
+            if (!new PA.Helper.Tools.Util().IsNumber(e.Text))
             {
                 e.Handled = true;
             }
             else
-                e.Handled = false;*/
+                e.Handled = false;
         }
 
         private void Button_Recover_Click(object sender, RoutedEventArgs e)
         {
-            /*string recover_path = Recover_filepath.Text.ToString();
+            string recover_path = Recover_filepath.Text.ToString();
             if (!System.IO.File.Exists(recover_path))
             {
                 MessageBoxCommon.Show("当前路径找不到数据文件，请检查路径！", "不好意思");
@@ -380,22 +440,33 @@ namespace PA.View.Pages.TwoTabControl
                 if (lastname.Equals("db") || lastname.Equals("bak"))
                 {
                     string newDBname = System.IO.Path.GetFileNameWithoutExtension(recover_path) + ".db";
-                    string newpath = Properties.Settings.Default.Path + "Data\\" + newDBname;
+                    string newpath = "Data\\" + newDBname;
                     System.IO.File.Copy(recover_path, newpath, true);  //复制回原来的目录
-                    new CheckDB().TruncateGuideFile(System.IO.Path.GetFileName(newDBname));//修改读取数据库名字
+                    xw.WriteXML("数据库", newDBname);
                     MessageBoxCommon.Show("成功", "恢复数据成功，重启软件生效哦！");
                 }
                 else
                 {
                     MessageBoxCommon.Show("选择的数据库文件格式不正确！");
                 }
-            }*/
+            }
         }
        
 
         private void Button_save_Click(object sender, RoutedEventArgs e)
         {
-
+            try
+            {
+                xw.WriteXML("自动备份标志",is_auto_backup.IsChecked.ToString());
+                xw.WriteXML("备份时间",backup_days.Text);
+                xw.WriteXML("备份路径", backup_filePath.Text);
+                xw.WriteXML("还原路径", Recover_filepath.Text);
+            }
+            catch (Exception ex)
+            {
+                Log.Write(ex.Message);
+            }
+            MessageBoxCommon.Show("设置成功！");
         }
         #endregion
 
@@ -421,10 +492,6 @@ namespace PA.View.Pages.TwoTabControl
             int SelectedIndex = this.TabControl_五大科目.SelectedIndex;
             this.DataGrid_科目设置.ItemsSource = new ViewModel_科目管理().GetSujectData(SelectedIndex+1);
         }
-
-       
-
-
 
     }
 }
