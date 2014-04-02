@@ -235,5 +235,10 @@ namespace PA.View.Pages.TwoTabControl
         {
 
         }
+
+        private void Button_添加(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
