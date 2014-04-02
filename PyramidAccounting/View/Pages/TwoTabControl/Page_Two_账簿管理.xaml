@@ -1118,6 +1118,7 @@
                             </DataGrid>
                         </Grid>
                     </ScrollViewer>
+                    <Button x:Name="Button_添加" Content="添加" HorizontalAlignment="Right" Margin="0,0,49,490" VerticalAlignment="Bottom" Width="50" Click="Button_添加" Height="20" Template="{DynamicResource ButtonControlTemplate_Common}" RenderTransformOrigin="-0.021,0.537"/>
                 </Grid>
             </TabItem>
         </TabControl>
