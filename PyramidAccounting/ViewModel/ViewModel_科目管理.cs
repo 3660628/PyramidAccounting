@@ -89,15 +89,16 @@ namespace PA.ViewModel
         public void UpdateChildSubject(Model_科目管理 m)
         {
             List<string> sqlList = new List<string>();
+            string sql2 = "update " + DBTablesName.T_YEAR_FEE + " set fee='"
+                   + m.年初金额 + "',subject_id='" + m.科目编号 + "' where parentid='"
+                   + m.父ID + "' and subject_id='" + m.科目编号 + "' and bookid='" + CommonInfo.账薄号 + "'";
+            sqlList.Add(sql2);
+            string sql3 = "update T_YEARFEE set fee = (select total(fee) from T_YEARFEE where parentid="
+                + m.父ID + ") where subject_id=" + m.父ID;
             string sql1 = "update " + DBTablesName.T_SUBJECT + " set subject_id='" 
                 + m.科目编号 + "',subject_name='" + m.科目名称 + "' where id=" + m.ID;
             sqlList.Add(sql1);
-            string sql2 = "update " + DBTablesName.T_YEAR_FEE + " set fee='" 
-                + m.年初金额 + "',subject_id='" + m.科目编号 +"' where parentid='" 
-                + m.父ID + "' and subject_id='" + m.科目编号 + "' and bookid='" + CommonInfo.账薄号 + "'";
-            sqlList.Add(sql2);
-            string sql3 = "update T_YEARFEE set fee = (select total(fee) from T_YEARFEE where parentid=" 
-                + m.父ID + ") where subject_id=" + m.父ID;
+            
             sqlList.Add(sql3);
             db.BatchOperate(sqlList);
         }

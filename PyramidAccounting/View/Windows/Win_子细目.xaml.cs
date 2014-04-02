@@ -113,6 +113,11 @@ namespace PA.View.Windows
                             MessageBoxCommon.Show("无法添加数据哦,请检查下是否填写了一样的科目名称！");
                             return;
                         }
+                        if (m.科目编号.Equals(now.科目编号))
+                        {
+                            MessageBoxCommon.Show("无法添加数据哦,请检查下是否填写了一样的科目编号！");
+                            return;
+                        }
                     }
                 }
                 vm.Insert(lm);
