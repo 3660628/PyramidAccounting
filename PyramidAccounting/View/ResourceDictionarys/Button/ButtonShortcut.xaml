@@ -11,7 +11,7 @@
 				</VisualStateGroup>
 			</VisualStateManager.VisualStateGroups>
 			<ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="51,0,51,5" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="Bottom"/>
-			<Rectangle Height="144.313" Stroke="{x:Null}" VerticalAlignment="Top" Width="Auto">
+			<Rectangle Height="100" Stroke="{x:Null}" VerticalAlignment="Center" Width="100" HorizontalAlignment="Center" Margin="32,34,18,34">
 				<Rectangle.Fill>
 					<ImageBrush ImageSource="/PyramidAccounting;component/View/Images/icon/256.256/凭证录入.png"/>
 				</Rectangle.Fill>
@@ -21,7 +21,7 @@
     <ControlTemplate x:Key="ButtonControlTemplate_凭证审核" TargetType="{x:Type Button}">
         <Grid Background="White">
             <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="51,0,51,5" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="Bottom"/>
-            <Rectangle Height="144.313" Stroke="{x:Null}" VerticalAlignment="Top" Width="Auto">
+            <Rectangle Height="100" Stroke="{x:Null}" VerticalAlignment="Center" Width="100" HorizontalAlignment="Center" Margin="32,34,18,34">
                 <Rectangle.Fill>
                     <ImageBrush ImageSource="/PyramidAccounting;component/View/Images/icon/256.256/凭证审核.png"/>
                 </Rectangle.Fill>
@@ -31,7 +31,7 @@
     <ControlTemplate x:Key="ButtonControlTemplate_本期结账" TargetType="{x:Type Button}">
 		<Grid Background="White">
 			<ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="51,0,51,5" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="Bottom"/>
-			<Rectangle Height="144.313" Stroke="{x:Null}" VerticalAlignment="Top" Width="Auto">
+			<Rectangle Height="100" Stroke="{x:Null}" VerticalAlignment="Center" Width="100" HorizontalAlignment="Center">
 				<Rectangle.Fill>
 					<ImageBrush ImageSource="/PyramidAccounting;component/View/Images/icon/256.256/本期结账.png"/>
 				</Rectangle.Fill>
@@ -41,7 +41,7 @@
 	<ControlTemplate x:Key="ButtonControlTemplate_报表查询" TargetType="{x:Type Button}">
 		<Grid Background="White">
 			<ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="51,0,51,5" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="Bottom"/>
-			<Rectangle Height="144.313" Stroke="{x:Null}" VerticalAlignment="Top" Width="Auto">
+			<Rectangle Height="100" Stroke="{x:Null}" VerticalAlignment="Center" Width="100" HorizontalAlignment="Center" Margin="30,34,20,34">
 				<Rectangle.Fill>
 					<ImageBrush ImageSource="/PyramidAccounting;component/View/Images/icon/256.256/报表查询.png"/>
 				</Rectangle.Fill>
@@ -51,7 +51,7 @@
 	<ControlTemplate x:Key="ButtonControlTemplate_账簿查询" TargetType="{x:Type Button}">
 		<Grid Background="White">
 			<ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="51,0,51,5" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="Bottom"/>
-			<Rectangle Height="144.313" Stroke="{x:Null}" VerticalAlignment="Top" Width="Auto">
+			<Rectangle Height="100" Stroke="{x:Null}" VerticalAlignment="Center" Width="100" HorizontalAlignment="Center" Margin="30,34,20,34">
 				<Rectangle.Fill>
 					<ImageBrush ImageSource="/PyramidAccounting;component/View/Images/icon/256.256/账簿查询.png"/>
 				</Rectangle.Fill>
@@ -61,7 +61,7 @@
 	<ControlTemplate x:Key="ButtonControlTemplate_科目查询" TargetType="{x:Type Button}">
 		<Grid Background="White">
 			<ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="51,0,51,5" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="Bottom"/>
-			<Rectangle Height="144.313" Stroke="{x:Null}" VerticalAlignment="Top" Width="Auto">
+			<Rectangle Height="100" Stroke="{x:Null}" VerticalAlignment="Center" Width="100" HorizontalAlignment="Center">
 				<Rectangle.Fill>
 					<ImageBrush ImageSource="/PyramidAccounting;component/View/Images/icon/256.256/科目查询.png"/>
 				</Rectangle.Fill>
