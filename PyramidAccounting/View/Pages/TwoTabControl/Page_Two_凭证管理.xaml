@@ -38,7 +38,7 @@
                             <DataGridTextColumn Header="借方金额"  Binding="{Binding 借方金额}" MinWidth="100"/>
                             <DataGridTextColumn Header="贷方金额"  Binding="{Binding 贷方金额}" MinWidth="100"/>
                             <DataGridTextColumn Header="当前期数"  Binding="{Binding 当前期数}"/>
-                            <DataGridTextColumn Header="审核状态"  Binding="{Binding 审核状态}">
+                            <DataGridTextColumn Header="审核状态"  Binding="{Binding 审核状态}" ElementStyle="{DynamicResource TextBlockStyle_居中对齐}">
                                 <DataGridTextColumn.CellStyle>
                                     <Style TargetType="DataGridCell">
                                         <Style.Triggers>
@@ -56,7 +56,7 @@
                     </DataGrid>
                     <StackPanel x:Name="StackPanel_MoreButton" HorizontalAlignment="Right" Margin="729,35,2,0" VerticalAlignment="Top" Background="White" Width="70">
                         <Button FocusVisualStyle="{x:Null}" x:Name="Button_打印" Content="打印" Height="25" Click="Button_打印_Click" BorderThickness="1,1,1,0" Background="White" BorderBrush="#FF99CCFF"/>
-                        <Button FocusVisualStyle="{x:Null}" Content="Button" Height="25" BorderThickness="1,0" Background="White" BorderBrush="#FF99CCFF" Margin="0"/>
+                        <Button FocusVisualStyle="{x:Null}" Content="反审核" Height="25" BorderThickness="1,0" Background="White" BorderBrush="#FF99CCFF" Margin="0"/>
                         <Button FocusVisualStyle="{x:Null}" Content="Button" Height="25" BorderThickness="1,0,1,1" Background="White" BorderBrush="#FF99CCFF" Margin="0"/>
                     </StackPanel>
                 </Grid>
