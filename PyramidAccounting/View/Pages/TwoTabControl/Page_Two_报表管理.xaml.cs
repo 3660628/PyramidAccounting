@@ -144,6 +144,11 @@ namespace PA.View.Pages.TwoTabControl
                 totalY2.Content = "";
             }
         }
+
+        private void Button_生成2_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
         
     }
 }
