@@ -63,10 +63,14 @@ namespace PA.View.Pages.TwoTabControl
                 list = vmr.GetData(ComboBox_Date.SelectedIndex+1);
                 if (list.Count > 0)
                 {
-                    Label lb = FindName("y01") as Label;
-                    lb.Content = list[0].年初数;
-                    Label lb2 = FindName("n01") as Label;
-                    lb2.Content = list[0].期末数;
+                    for (int i = 0; i < list.Count; i++)
+                    {
+                        Label lb = FindName("y" + (i+1)) as Label;
+                        lb.Content = list[i].年初数;
+                        Label lb2 = FindName("n" + +(i + 1)) as Label;
+                        lb2.Content = list[i].期末数;
+                    }
+                    
                 }
                 
             }

@@ -156,8 +156,48 @@
                                 <Label Content="负债部类总计" HorizontalAlignment="Center" Grid.Column="5" Grid.Row="23" />
                                 
                                 <!-- 这里开始写插入的值-->
-                                <Label x:Name="y01" Content="" Grid.Row="2" Grid.Column="2" />
-                                <Label x:Name="n01" Content="" Grid.Row="2" Grid.Column="3" />
+                                <Label x:Name="y1" Content="" Grid.Row="2" Grid.Column="2" />
+                                <Label x:Name="n1" Content="" Grid.Row="2" Grid.Column="3" />
+                                <Label x:Name="y2" Content="" Grid.Row="3" Grid.Column="2" />
+                                <Label x:Name="n2" Content="" Grid.Row="3" Grid.Column="3" />
+                                <Label x:Name="y3" Content="" Grid.Row="4" Grid.Column="2" />
+                                <Label x:Name="n3" Content="" Grid.Row="4" Grid.Column="3" />
+                                <Label x:Name="y4" Content="" Grid.Row="5" Grid.Column="2" />
+                                <Label x:Name="n4" Content="" Grid.Row="5" Grid.Column="3" />
+                                <Label x:Name="y5" Content="" Grid.Row="6" Grid.Column="2" />
+                                <Label x:Name="n5" Content="" Grid.Row="6" Grid.Column="3" />
+                                <Label x:Name="y6" Content="" Grid.Row="7" Grid.Column="2" />
+                                <Label x:Name="n6" Content="" Grid.Row="7" Grid.Column="3" />
+                                <Label x:Name="y7" Content="" Grid.Row="8" Grid.Column="2" />
+                                <Label x:Name="n7" Content="" Grid.Row="8" Grid.Column="3" />
+                                <Label x:Name="y8" Content="" Grid.Row="9" Grid.Column="2" />
+                                <Label x:Name="n8" Content="" Grid.Row="9" Grid.Column="3" />
+                                <Label x:Name="y9" Content="" Grid.Row="10" Grid.Column="2" />
+                                <Label x:Name="n9" Content="" Grid.Row="10" Grid.Column="3" />
+                                <Label x:Name="y10" Content="" Grid.Row="11" Grid.Column="2" />
+                                <Label x:Name="n10" Content="" Grid.Row="11" Grid.Column="3" />
+                                <Label x:Name="y11" Content="" Grid.Row="2" Grid.Column="6" />
+                                <Label x:Name="n11" Content="" Grid.Row="2" Grid.Column="7" />
+                                <Label x:Name="y12" Content="" Grid.Row="3" Grid.Column="6" />
+                                <Label x:Name="n12" Content="" Grid.Row="3" Grid.Column="7" />
+                                <Label x:Name="y13" Content="" Grid.Row="4" Grid.Column="6" />
+                                <Label x:Name="n13" Content="" Grid.Row="4" Grid.Column="7" />
+                                <Label x:Name="y14" Content="" Grid.Row="5" Grid.Column="6" />
+                                <Label x:Name="n14" Content="" Grid.Row="5" Grid.Column="7" />
+                                <Label x:Name="y15" Content="" Grid.Row="6" Grid.Column="6" />
+                                <Label x:Name="n15" Content="" Grid.Row="6" Grid.Column="7" />
+                                <Label x:Name="y16" Content="" Grid.Row="7" Grid.Column="6" />
+                                <Label x:Name="n16" Content="" Grid.Row="7" Grid.Column="7" />
+                                <Label x:Name="y17" Content="" Grid.Row="11" Grid.Column="6" />
+                                <Label x:Name="n17" Content="" Grid.Row="11" Grid.Column="7" />
+                                <Label x:Name="y18" Content="" Grid.Row="12" Grid.Column="6" />
+                                <Label x:Name="n18" Content="" Grid.Row="12" Grid.Column="7" />
+                                <Label x:Name="y19" Content="" Grid.Row="18" Grid.Column="6" />
+                                <Label x:Name="n19" Content="" Grid.Row="18" Grid.Column="7" />
+                                <Label x:Name="y20" Content="" Grid.Row="19" Grid.Column="6" />
+                                <Label x:Name="n20" Content="" Grid.Row="19" Grid.Column="7" />
+                                <Label x:Name="y21" Content="" Grid.Row="20" Grid.Column="6" />
+                                <Label x:Name="n21" Content="" Grid.Row="20" Grid.Column="7" />
                             </Grid>
                             <Label x:Name="Label_单位负责人" Content="单位负责人：" HorizontalAlignment="Left" Margin="0" VerticalAlignment="Bottom" Height="24" Width="82"/>
                             <Label x:Name="Label_填表人" Content="填表人：" HorizontalAlignment="Left" Margin="300,0,0,0" VerticalAlignment="Bottom" Height="24" Width="58"/>
