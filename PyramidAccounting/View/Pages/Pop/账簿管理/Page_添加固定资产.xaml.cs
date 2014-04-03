@@ -23,5 +23,25 @@ namespace PA.View.Pages.Pop.账簿管理
         {
             InitializeComponent();
         }
+
+        /// <summary>
+        /// 添加固定资产
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Button_PopCommit_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        /// <summary>
+        /// 取消
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Button_PopClose_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
