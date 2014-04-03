@@ -22,10 +22,13 @@ namespace PA.ViewModel
                 + DBTablesName.T_FEE + " where delete_mark=0 and subject_id='" + id + "' order by op_time";
 
             DataSet ds = new DataSet();
+            decimal debit = 0;
+            decimal credit = 0;
             ds = db.Query(sql);
             if (ds != null)
             {
                 DataTable dt = ds.Tables[0];
+                int count = 0;
                 foreach (DataRow d in dt.Rows)
                 {
                     Model_总账 m = new Model_总账();
@@ -41,7 +44,10 @@ namespace PA.ViewModel
                     m.借方金额 = d[3].ToString();
                     m.贷方金额 = d[4].ToString();
                     m.余额 = d[5].ToString();
-                    m.借或贷 = d[6].ToString().Equals("1")?"借":"贷";
+                    if (count == 0)
+                    {
+                        m.借或贷 = d[6].ToString().Equals("1") ? "借" : "贷";
+                    }
                     string temp = string.Empty;
                     List<string> _list = new List<string>();
 
@@ -71,7 +77,22 @@ namespace PA.ViewModel
                     m.借方金额9 = _list[8];
                     m.借方金额10 = _list[9];
                     m.借方金额11 = _list[10];
-                    m.借方金额12 = _list[11];  
+                    m.借方金额12 = _list[11];
+
+                    decimal.TryParse(m.贷方金额, out credit);
+                    decimal.TryParse(m.借方金额, out debit);
+                    if (credit == debit)
+                    {
+                        m.借或贷 = "平";
+                    }
+                    else if (credit > debit)
+                    {
+                        m.借或贷 = "贷";
+                    }
+                    else
+                    {
+                        m.借或贷 = "借";
+                    }
                     _list.Clear();
                     _list = Turn(m.余额, 12);
                     m.余额1 = _list[0];
@@ -89,6 +110,7 @@ namespace PA.ViewModel
                     
                     _list.Clear();
                     list.Add(m);
+                    count++;
                 }
             }
             return list;
@@ -496,14 +518,13 @@ namespace PA.ViewModel
             //string date = DateTime.Now.ToString("yyyy-MM-dd");
             string sql = "INSERT INTO " + DBTablesName.T_FEE
                           + "(OP_TIME,PERIOD,SUBJECT_ID,VOUCHER_NUMS,COMMENTS,DEBIT,CREDIT,MARK,DELETE_MARK,FEE)"
-                          + " select t.*,abs(b.mark*b.fee-(t.credit-t.debit)) as fee from ("
+                          + " select t.*,b.mark,0,abs(b.mark*b.fee-(t.credit-t.debit)) as fee from ("
                           + "SELECT datetime('now', 'localtime') as op_time," + CommonInfo.当前期
                           + ",b.subject_id as subject_id,"
                           + "a.voucher_nums,"
                           + "a.comments,"
                           + "a.debit as debit,"
-                          + "a.CREDIT as credit,"
-                          + "CASE WHEN (A.DEBIT>A.CREDIT) THEN 1 else -1 end as mark,0 as delete_mark "
+                          + "a.CREDIT as credit "
                           + "FROM (SELECT min(VOUCHER_NO) || '-' || max(VOUCHER_NO) AS voucher_nums,"
                           + "SUBJECT_ID,    "
                           + "SUBJECT_ID || '汇总' AS comments,"

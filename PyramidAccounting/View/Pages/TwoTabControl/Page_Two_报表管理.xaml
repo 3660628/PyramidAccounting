@@ -13,7 +13,8 @@
         <TabControl Margin="0,0,0,25" BorderBrush="White">
             <TabItem FocusVisualStyle="{x:Null}" Header="资产负债表" Margin="8,-1,-8,1" Template="{DynamicResource TabItemControlTemplate_TwoTabHeader}">
                 <Grid Background="White">
-                    <ComboBox x:Name="ComboBox_Date" HorizontalAlignment="Left" Margin="7,10,0,0" VerticalAlignment="Top" Width="140" SelectionChanged="ComboBox_Date_SelectionChanged"/>
+                    <ComboBox x:Name="ComboBox_Date" HorizontalAlignment="Left" Margin="7,10,0,0" VerticalAlignment="Top" Width="140" />
+                    <Button x:Name="Button_生成1" Content="生成" HorizontalAlignment="Right" Margin="0,10,142,0" VerticalAlignment="Top" Width="50" Height="20" Template="{DynamicResource ButtonControlTemplate_Common}" Click="Button_生成1_Click"/>
                     <Button Content="打印" HorizontalAlignment="Right" Margin="0,10,76,0" VerticalAlignment="Top" Width="50" Click="Button_Click" Template="{DynamicResource ButtonControlTemplate_Common}" Height="20"/>
                     <Button Content="导出" HorizontalAlignment="Right" Margin="0,10,11,0" VerticalAlignment="Top" Width="50" Template="{DynamicResource ButtonControlTemplate_Common}" Height="20"/>
                     <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto" Margin="-3,40,0,-3">
@@ -53,12 +54,12 @@
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="Auto"/>
                                     <ColumnDefinition Width="*" MaxWidth="300"/>
-                                    <ColumnDefinition Width="Auto" MaxWidth="200"/>
-                                    <ColumnDefinition Width="Auto" MaxWidth="200"/>
+                                    <ColumnDefinition MinWidth="80" Width="Auto" MaxWidth="200"/>
+                                    <ColumnDefinition MinWidth="80" Width="Auto" MaxWidth="200"/>
                                     <ColumnDefinition Width="Auto"/>
                                     <ColumnDefinition Width="*" MaxWidth="300"/>
-                                    <ColumnDefinition Width="Auto" MaxWidth="200"/>
-                                    <ColumnDefinition Width="Auto" MaxWidth="200"/>
+                                    <ColumnDefinition MinWidth="80" Width="Auto" MaxWidth="200"/>
+                                    <ColumnDefinition MinWidth="80" Width="Auto" MaxWidth="200"/>
                                 </Grid.ColumnDefinitions>
                                 <Border BorderThickness="1,1,1,1" BorderBrush="#FF99CCFF" Grid.ColumnSpan="8" Grid.RowSpan="24"/>
                                 <Border Grid.Row="0" BorderBrush="#FF99CCFF" BorderThickness="0,1,0,1" Grid.ColumnSpan="8" Background="#FF99CCFF"/>
@@ -136,12 +137,12 @@
                                 <Label Content="其中：经常性结余" HorizontalAlignment="Center" Grid.Column="5" Grid.Row="13" />
                                 <Label Content="专项结余" HorizontalAlignment="Center" Grid.Column="5" Grid.Row="14" />
                                 <Label Content="净资产合计" HorizontalAlignment="Center" Grid.Column="5" Grid.Row="15" />
-                                <Label Content="501" HorizontalAlignment="Center" Grid.Row="16" />
+                                <Label Content="501" HorizontalAlignment="Center" Grid.Row="17" />
                                 <Label Content="五、支出类" HorizontalAlignment="Center" Grid.Column="1" Grid.Row="16" />
-                                <Label Content="502" HorizontalAlignment="Center" Grid.Row="17" />
+                                <Label Content="502" HorizontalAlignment="Center" Grid.Row="18" />
                                 <Label Content="经费支出" HorizontalAlignment="Center" Grid.Column="1" Grid.Row="17" />
                                 <Label Content="四、收入类" HorizontalAlignment="Center" Grid.Column="5" Grid.Row="17" />
-                                <Label Content="505" HorizontalAlignment="Center" Grid.Row="18" />
+                                <Label Content="505" HorizontalAlignment="Center" Grid.Row="19" />
                                 <Label Content="拨出经费" HorizontalAlignment="Center" Grid.Column="1" Grid.Row="18" />
                                 <Label Content="401" HorizontalAlignment="Center" Grid.Column="4" Grid.Row="18" />
                                 <Label Content="拨入经费" HorizontalAlignment="Center" Grid.Column="5" Grid.Row="18" />
@@ -156,6 +157,7 @@
                                 <Label Content="负债部类总计" HorizontalAlignment="Center" Grid.Column="5" Grid.Row="23" />
                                 
                                 <!-- 这里开始写插入的值-->
+                                <!-- 101~110-->
                                 <Label x:Name="y1" Content="" Grid.Row="2" Grid.Column="2" />
                                 <Label x:Name="n1" Content="" Grid.Row="2" Grid.Column="3" />
                                 <Label x:Name="y2" Content="" Grid.Row="3" Grid.Column="2" />
@@ -176,6 +178,7 @@
                                 <Label x:Name="n9" Content="" Grid.Row="10" Grid.Column="3" />
                                 <Label x:Name="y10" Content="" Grid.Row="11" Grid.Column="2" />
                                 <Label x:Name="n10" Content="" Grid.Row="11" Grid.Column="3" />
+                                <!-- 201~213-->
                                 <Label x:Name="y11" Content="" Grid.Row="2" Grid.Column="6" />
                                 <Label x:Name="n11" Content="" Grid.Row="2" Grid.Column="7" />
                                 <Label x:Name="y12" Content="" Grid.Row="3" Grid.Column="6" />
@@ -188,16 +191,46 @@
                                 <Label x:Name="n15" Content="" Grid.Row="6" Grid.Column="7" />
                                 <Label x:Name="y16" Content="" Grid.Row="7" Grid.Column="6" />
                                 <Label x:Name="n16" Content="" Grid.Row="7" Grid.Column="7" />
+                                <!-- 301~303-->
                                 <Label x:Name="y17" Content="" Grid.Row="11" Grid.Column="6" />
                                 <Label x:Name="n17" Content="" Grid.Row="11" Grid.Column="7" />
                                 <Label x:Name="y18" Content="" Grid.Row="12" Grid.Column="6" />
                                 <Label x:Name="n18" Content="" Grid.Row="12" Grid.Column="7" />
+                                <!-- 401~407-->
                                 <Label x:Name="y19" Content="" Grid.Row="18" Grid.Column="6" />
                                 <Label x:Name="n19" Content="" Grid.Row="18" Grid.Column="7" />
                                 <Label x:Name="y20" Content="" Grid.Row="19" Grid.Column="6" />
                                 <Label x:Name="n20" Content="" Grid.Row="19" Grid.Column="7" />
                                 <Label x:Name="y21" Content="" Grid.Row="20" Grid.Column="6" />
                                 <Label x:Name="n21" Content="" Grid.Row="20" Grid.Column="7" />
+                                <!-- 501~505-->
+                                <Label x:Name="y22" Content="" Grid.Row="17" Grid.Column="2" />
+                                <Label x:Name="n22" Content="" Grid.Row="17" Grid.Column="3" />
+                                <Label x:Name="y23" Content="" Grid.Row="18" Grid.Column="2" />
+                                <Label x:Name="n23" Content="" Grid.Row="18" Grid.Column="3" />
+                                <Label x:Name="y24" Content="" Grid.Row="19" Grid.Column="2" />
+                                <Label x:Name="n24" Content="" Grid.Row="19" Grid.Column="3" />
+                                <!--资产合计-->
+                                <Label x:Name="sumY1" Content="" Grid.Column="2" Grid.Row="12" />
+                                <Label x:Name="sumN1" Content="" Grid.Column="3" Grid.Row="12" />
+                                <!--负债合计-->
+                                <Label x:Name="sumY2" Content="" Grid.Column="6" Grid.Row="8" />
+                                <Label x:Name="sumN2" Content="" Grid.Column="7" Grid.Row="8" />
+                                <!--净资产合计-->
+                                <Label x:Name="sumY3" Content="" Grid.Column="6" Grid.Row="15" />
+                                <Label x:Name="sumN3" Content="" Grid.Column="7" Grid.Row="15" />
+                                <!--收入合计-->
+                                <Label x:Name="sumY4" Content="" Grid.Column="6" Grid.Row="21" />
+                                <Label x:Name="sumN4" Content="" Grid.Column="7" Grid.Row="21" />
+                                <!--支出合计-->
+                                <Label x:Name="sumY5" Content="" Grid.Column="2" Grid.Row="20" />
+                                <Label x:Name="sumN5" Content="" Grid.Column="3" Grid.Row="20" />
+                                <!--资产部类总计-->
+                                <Label x:Name="totalY1" Content="" Grid.Column="2" Grid.Row="24" />
+                                <Label x:Name="totalN1" Content="" Grid.Column="3" Grid.Row="24" />
+                                <!--负债部类总计-->
+                                <Label x:Name="totalY2" Content="" Grid.Column="6" Grid.Row="24" />
+                                <Label x:Name="totalN2" Content="" Grid.Column="7" Grid.Row="24" />
                             </Grid>
                             <Label x:Name="Label_单位负责人" Content="单位负责人：" HorizontalAlignment="Left" Margin="0" VerticalAlignment="Bottom" Height="24" Width="82"/>
                             <Label x:Name="Label_填表人" Content="填表人：" HorizontalAlignment="Left" Margin="300,0,0,0" VerticalAlignment="Bottom" Height="24" Width="58"/>
