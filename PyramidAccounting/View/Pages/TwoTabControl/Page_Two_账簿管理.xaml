@@ -4,7 +4,7 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       mc:Ignorable="d" 
-      d:DesignHeight="570" d:DesignWidth="2800" FontFamily="NSimSun" TextOptions.TextFormattingMode="Display"
+      d:DesignHeight="570" d:DesignWidth="4000" FontFamily="NSimSun" TextOptions.TextFormattingMode="Display"
 	Title="Page_Two_账簿管理">
 
     <Grid Margin="-3,0,-3,-3">
@@ -379,104 +379,31 @@
                                 <ColumnDefinition />
                             </Grid.ColumnDefinitions>
                             <Border BorderBrush="#FF99CCFF" BorderThickness="1" Grid.ColumnSpan="144" Grid.RowSpan="4" Background="#FF99CCFF"/>
-                            <Border BorderBrush="White" BorderThickness="0,1,0,1" Grid.Row="1" Grid.ColumnSpan="2" Grid.RowSpan="2"/>
-                            <Border BorderBrush="White" BorderThickness="1,0,1,1" Grid.Column="2" Grid.RowSpan="3" />
-                            <Border BorderBrush="White" BorderThickness="0,0,1,0" Grid.Row="1" Grid.RowSpan="2" />
-                            <Border BorderBrush="White" BorderThickness="0,0,0,1" Grid.Column="3" Grid.Row="2" Grid.ColumnSpan="143"/>
-                            <Border BorderBrush="White" BorderThickness="1,0,1,0" Grid.Column="4" Grid.RowSpan="2" Grid.ColumnSpan="10"/>
-                            <Border BorderBrush="White" BorderThickness="0,0,1,0" Grid.Column="14" Grid.RowSpan="2" Grid.ColumnSpan="10"/>
-                            <Border BorderBrush="White" BorderThickness="0,0,1,0" Grid.Column="24" Grid.RowSpan="2" Grid.ColumnSpan="10"/>
-                            <Border BorderBrush="White" BorderThickness="0,0,1,0" Grid.Column="34" Grid.Row="1" Grid.ColumnSpan="10"/>
-                            <Border BorderBrush="White" BorderThickness="0,0,1,0" Grid.Column="44" Grid.Row="1" Grid.ColumnSpan="10"/>
-                            <Border BorderBrush="White" BorderThickness="0,0,1,0" Grid.Column="54" Grid.Row="1" Grid.ColumnSpan="10"/>
-                            <Border BorderBrush="White" BorderThickness="0,0,1,0" Grid.Column="64" Grid.Row="1" Grid.ColumnSpan="10"/>
-                            <Border BorderBrush="White" BorderThickness="0,0,1,0" Grid.Column="74" Grid.Row="1" Grid.ColumnSpan="10"/>
-                            <Border BorderBrush="White" BorderThickness="0,0,1,0" Grid.Column="84" Grid.Row="1" Grid.ColumnSpan="10"/>
-                            <Border BorderBrush="White" BorderThickness="0,0,1,0" Grid.Column="94" Grid.Row="1" Grid.ColumnSpan="10"/>
-                            <Border BorderBrush="White" BorderThickness="0,0,1,0" Grid.Column="104" Grid.Row="1" Grid.ColumnSpan="10"/>
-                            <Border BorderBrush="White" BorderThickness="0,0,1,0" Grid.Column="114" Grid.Row="1" Grid.ColumnSpan="10"/>
-                            <Border BorderBrush="White" BorderThickness="0,0,1,0" Grid.Column="124" Grid.Row="1" Grid.ColumnSpan="10"/>
-                            <Border BorderBrush="White" BorderThickness="0,0,0,1" Grid.Row="1" Grid.Column="4" Grid.ColumnSpan="140" />
-                            <Border BorderBrush="White" BorderThickness="1,0,1,0" Grid.Column="4" Grid.ColumnSpan="70" Grid.Row="2" />
-                            <Border BorderBrush="White" BorderThickness="1,0,1,0" Grid.Column="5" Grid.ColumnSpan="70" Grid.Row="2" />
-                            <Border BorderBrush="White" BorderThickness="1,0,1,0" Grid.Column="6" Grid.ColumnSpan="70" Grid.Row="2" />
-                            <Border BorderBrush="White" BorderThickness="1,0,1,0" Grid.Column="7" Grid.ColumnSpan="70" Grid.Row="2" />
-                            <Border BorderBrush="White" BorderThickness="1,0,1,0" Grid.Column="8" Grid.ColumnSpan="70" Grid.Row="2" />
-                            <Border BorderBrush="White" BorderThickness="1,0,1,0" Grid.Column="9" Grid.ColumnSpan="70" Grid.Row="2" />
-                            <Border BorderBrush="White" BorderThickness="1,0,1,0" Grid.Column="10" Grid.ColumnSpan="70" Grid.Row="2" />
-                            <Border BorderBrush="White" BorderThickness="1,0,1,0" Grid.Column="11" Grid.ColumnSpan="70" Grid.Row="2" />
-                            <Border BorderBrush="White" BorderThickness="1,0,1,0" Grid.Column="12" Grid.ColumnSpan="70" Grid.Row="2" />
-                            <Border BorderBrush="White" BorderThickness="1,0,1,0" Grid.Column="13" Grid.ColumnSpan="70" Grid.Row="2" />
-                            <Border BorderBrush="White" BorderThickness="1,0,1,0" Grid.Column="4" Grid.ColumnSpan="70" Grid.Row="2" />
-                            <Border BorderBrush="White" BorderThickness="1,0,1,0" Grid.Column="5" Grid.ColumnSpan="70" Grid.Row="2" />
-                            <Border BorderBrush="White" BorderThickness="1,0,1,0" Grid.Column="7" Grid.ColumnSpan="70" Grid.Row="2" />
-                            <Border BorderBrush="White" BorderThickness="1,0,1,0" Grid.Column="8" Grid.ColumnSpan="70" Grid.Row="2" />
-                            <Border BorderBrush="White" BorderThickness="1,0,1,0" Grid.Column="9" Grid.ColumnSpan="70" Grid.Row="2" />
-                            <Border BorderBrush="White" BorderThickness="1,0,1,0" Grid.Column="10" Grid.ColumnSpan="70" Grid.Row="2" />
-                            <Border BorderBrush="White" BorderThickness="1,0,1,0" Grid.Column="11" Grid.ColumnSpan="70" Grid.Row="2" />
-                            <Border BorderBrush="White" BorderThickness="1,0,1,0" Grid.Column="12" Grid.ColumnSpan="70" Grid.Row="2" />
-                            <Border BorderBrush="White" BorderThickness="1,0,1,0" Grid.Column="13" Grid.ColumnSpan="70" Grid.Row="2" />
-                            <Border BorderBrush="White" BorderThickness="1,0,1,0" Grid.Column="14" 	Grid.ColumnSpan="70" Grid.Row="2" />
-                            <Border BorderBrush="White" BorderThickness="1,0,1,0" Grid.Column="15" 	Grid.ColumnSpan="70" Grid.Row="2" />
-                            <Border BorderBrush="White" BorderThickness="1,0,1,0" Grid.Column="16" 	Grid.ColumnSpan="70" Grid.Row="2" />
-                            <Border BorderBrush="White" BorderThickness="1,0,1,0" Grid.Column="17" 	Grid.ColumnSpan="70" Grid.Row="2" />
-                            <Border BorderBrush="White" BorderThickness="1,0,1,0" Grid.Column="18" 	Grid.ColumnSpan="70" Grid.Row="2" />
-                            <Border BorderBrush="White" BorderThickness="1,0,1,0" Grid.Column="19" 	Grid.ColumnSpan="70" Grid.Row="2" />
-                            <Border BorderBrush="White" BorderThickness="1,0,1,0" Grid.Column="20" 	Grid.ColumnSpan="70" Grid.Row="2" />
-                            <Border BorderBrush="White" BorderThickness="1,0,1,0" Grid.Column="21" 	Grid.ColumnSpan="70" Grid.Row="2" />
-                            <Border BorderBrush="White" BorderThickness="1,0,1,0" Grid.Column="22" 	Grid.ColumnSpan="70" Grid.Row="2" />
-                            <Border BorderBrush="White" BorderThickness="1,0,1,0" Grid.Column="23" 	Grid.ColumnSpan="70" Grid.Row="2" />
-                            <Border BorderBrush="White" BorderThickness="1,0,1,0" Grid.Column="24" 	Grid.ColumnSpan="70" Grid.Row="2" />
-                            <Border BorderBrush="White" BorderThickness="1,0,1,0" Grid.Column="25" 	Grid.ColumnSpan="70" Grid.Row="2" />
-                            <Border BorderBrush="White" BorderThickness="1,0,1,0" Grid.Column="26" 	Grid.ColumnSpan="70" Grid.Row="2" />
-                            <Border BorderBrush="White" BorderThickness="1,0,1,0" Grid.Column="27" 	Grid.ColumnSpan="70" Grid.Row="2" />
-                            <Border BorderBrush="White" BorderThickness="1,0,1,0" Grid.Column="28" 	Grid.ColumnSpan="70" Grid.Row="2" />
-                            <Border BorderBrush="White" BorderThickness="1,0,1,0" Grid.Column="29" 	Grid.ColumnSpan="70" Grid.Row="2" />
-                            <Border BorderBrush="White" BorderThickness="1,0,1,0" Grid.Column="30" 	Grid.ColumnSpan="70" Grid.Row="2" />
-                            <Border BorderBrush="White" BorderThickness="1,0,1,0" Grid.Column="31" 	Grid.ColumnSpan="70" Grid.Row="2" />
-                            <Border BorderBrush="White" BorderThickness="1,0,1,0" Grid.Column="32" 	Grid.ColumnSpan="70" Grid.Row="2" />
-                            <Border BorderBrush="White" BorderThickness="1,0,1,0" Grid.Column="33" 	Grid.ColumnSpan="70" Grid.Row="2" />
-                            <Border BorderBrush="White" BorderThickness="1,0,1,0" Grid.Column="34" 	Grid.ColumnSpan="70" Grid.Row="2" />
-                            <Border BorderBrush="White" BorderThickness="1,0,1,0" Grid.Column="35" 	Grid.ColumnSpan="70" Grid.Row="2" />
-                            <Border BorderBrush="White" BorderThickness="1,0,1,0" Grid.Column="36" 	Grid.ColumnSpan="70" Grid.Row="2" />
-                            <Border BorderBrush="White" BorderThickness="1,0,1,0" Grid.Column="37" 	Grid.ColumnSpan="70" Grid.Row="2" />
-                            <Border BorderBrush="White" BorderThickness="1,0,1,0" Grid.Column="38" 	Grid.ColumnSpan="70" Grid.Row="2" />
-                            <Border BorderBrush="White" BorderThickness="1,0,1,0" Grid.Column="39" 	Grid.ColumnSpan="70" Grid.Row="2" />
-                            <Border BorderBrush="White" BorderThickness="1,0,1,0" Grid.Column="40" 	Grid.ColumnSpan="70" Grid.Row="2" />
-                            <Border BorderBrush="White" BorderThickness="1,0,1,0" Grid.Column="41" 	Grid.ColumnSpan="70" Grid.Row="2" />
-                            <Border BorderBrush="White" BorderThickness="1,0,1,0" Grid.Column="42" 	Grid.ColumnSpan="70" Grid.Row="2" />
-                            <Border BorderBrush="White" BorderThickness="1,0,1,0" Grid.Column="43" 	Grid.ColumnSpan="70" Grid.Row="2" />
-                            <Border BorderBrush="White" BorderThickness="1,0,1,0" Grid.Column="44" 	Grid.ColumnSpan="70" Grid.Row="2" />
-                            <Border BorderBrush="White" BorderThickness="1,0,1,0" Grid.Column="45" 	Grid.ColumnSpan="70" Grid.Row="2" />
-                            <Border BorderBrush="White" BorderThickness="1,0,1,0" Grid.Column="46" 	Grid.ColumnSpan="70" Grid.Row="2" />
-                            <Border BorderBrush="White" BorderThickness="1,0,1,0" Grid.Column="47" 	Grid.ColumnSpan="70" Grid.Row="2" />
-                            <Border BorderBrush="White" BorderThickness="1,0,1,0" Grid.Column="48" 	Grid.ColumnSpan="70" Grid.Row="2" />
-                            <Border BorderBrush="White" BorderThickness="1,0,1,0" Grid.Column="49" 	Grid.ColumnSpan="70" Grid.Row="2" />
-                            <Border BorderBrush="White" BorderThickness="1,0,1,0" Grid.Column="50" 	Grid.ColumnSpan="70" Grid.Row="2" />
-                            <Border BorderBrush="White" BorderThickness="1,0,1,0" Grid.Column="51" 	Grid.ColumnSpan="70" Grid.Row="2" />
-                            <Border BorderBrush="White" BorderThickness="1,0,1,0" Grid.Column="52" 	Grid.ColumnSpan="70" Grid.Row="2" />
-                            <Border BorderBrush="White" BorderThickness="1,0,1,0" Grid.Column="53" 	Grid.ColumnSpan="70" Grid.Row="2" />
-                            <Border BorderBrush="White" BorderThickness="1,0,1,0" Grid.Column="54" 	Grid.ColumnSpan="70" Grid.Row="2" />
-                            <Border BorderBrush="White" BorderThickness="1,0,1,0" Grid.Column="55" 	Grid.ColumnSpan="70" Grid.Row="2" />
-                            <Border BorderBrush="White" BorderThickness="1,0,1,0" Grid.Column="56" 	Grid.ColumnSpan="70" Grid.Row="2" />
-                            <Border BorderBrush="White" BorderThickness="1,0,1,0" Grid.Column="57" 	Grid.ColumnSpan="70" Grid.Row="2" />
-                            <Border BorderBrush="White" BorderThickness="1,0,1,0" Grid.Column="58" 	Grid.ColumnSpan="70" Grid.Row="2" />
-                            <Border BorderBrush="White" BorderThickness="1,0,1,0" Grid.Column="59" 	Grid.ColumnSpan="70" Grid.Row="2" />
-                            <Border BorderBrush="White" BorderThickness="1,0,1,0" Grid.Column="60" 	Grid.ColumnSpan="70" Grid.Row="2" />
-                            <Border BorderBrush="White" BorderThickness="1,0,1,0" Grid.Column="61" 	Grid.ColumnSpan="70" Grid.Row="2" />
-                            <Border BorderBrush="White" BorderThickness="1,0,1,0" Grid.Column="62" 	Grid.ColumnSpan="70" Grid.Row="2" />
-                            <Border BorderBrush="White" BorderThickness="1,0,1,0" Grid.Column="63" 	Grid.ColumnSpan="70" Grid.Row="2" />
-                            <Border BorderBrush="White" BorderThickness="1,0,1,0" Grid.Column="64" 	Grid.ColumnSpan="70" Grid.Row="2" />
-                            <Border BorderBrush="White" BorderThickness="1,0,1,0" Grid.Column="65" 	Grid.ColumnSpan="70" Grid.Row="2" />
-                            <Border BorderBrush="White" BorderThickness="1,0,1,0" Grid.Column="66" 	Grid.ColumnSpan="70" Grid.Row="2" />
-                            <Border BorderBrush="White" BorderThickness="1,0,1,0" Grid.Column="67" 	Grid.ColumnSpan="70" Grid.Row="2" />
-                            <Border BorderBrush="White" BorderThickness="1,0,1,0" Grid.Column="68" 	Grid.ColumnSpan="70" Grid.Row="2" />
-                            <Border BorderBrush="White" BorderThickness="1,0,1,0" Grid.Column="69" 	Grid.ColumnSpan="70" Grid.Row="2" />
-                            <Border BorderBrush="White" BorderThickness="1,0,1,0" Grid.Column="70" 	Grid.ColumnSpan="70" Grid.Row="2" />
-                            <Border BorderBrush="White" BorderThickness="1,0,1,0" Grid.Column="71" 	Grid.ColumnSpan="70" Grid.Row="2" />
-                            <Border BorderBrush="White" BorderThickness="1,0,1,0" Grid.Column="72" 	Grid.ColumnSpan="70" Grid.Row="2" />
-                            <Border BorderBrush="White" BorderThickness="1,0,1,0" Grid.Column="73" 	Grid.ColumnSpan="70" Grid.Row="2" />
-                            <Border BorderBrush="White" BorderThickness="0,0,0,1" Grid.Column="34" Grid.ColumnSpan="110" />
+                            <!--First Line-->
+                            <Border BorderBrush="White" BorderThickness="0,0,0,1" Grid.ColumnSpan="2" />
+                            <Border BorderBrush="White" BorderThickness="1,0,0,1" Grid.Column="2" Grid.RowSpan="3" />
+                            <Border BorderBrush="White" BorderThickness="1,0,0,0" Grid.Column="3" Grid.RowSpan="3" />
+                            <Border BorderBrush="White" BorderThickness="1,0,0,1" Grid.Column="4" Grid.ColumnSpan="10" Grid.RowSpan="2" />
+                            <Border BorderBrush="White" BorderThickness="1,0,0,1" Grid.Column="14" Grid.RowSpan="2" Grid.ColumnSpan="10" />
+                            <Border BorderBrush="White" BorderThickness="1,0,0,1" Grid.Column="24" Grid.ColumnSpan="10" Grid.RowSpan="2" />
+                            <Border BorderBrush="White" BorderThickness="1,0,0,1" Grid.ColumnSpan="199" Grid.Column="34" />
+                            <!--Second Line-->
+                            <Border BorderBrush="White" BorderThickness="0" Grid.Row="1" Grid.RowSpan="2" />
+                            <Border BorderBrush="White" BorderThickness="1,0,0,0" Grid.Row="1" Grid.RowSpan="2" Grid.Column="1" />
+                            <Border BorderBrush="White" BorderThickness="1,0,0,1" Grid.Row="1" Grid.Column="34" Grid.ColumnSpan="10" />
+                            <Border BorderBrush="White" BorderThickness="1,0,0,1" Grid.Row="1" Grid.Column="44" Grid.ColumnSpan="10" />
+                            <Border BorderBrush="White" BorderThickness="1,0,0,1" Grid.Row="1" Grid.Column="54" Grid.ColumnSpan="10" />
+                            <Border BorderBrush="White" BorderThickness="1,0,0,1" Grid.Row="1" Grid.Column="64" Grid.ColumnSpan="10" />
+                            <Border BorderBrush="White" BorderThickness="1,0,0,1" Grid.Row="1" Grid.Column="74" Grid.ColumnSpan="10" />
+                            <Border BorderBrush="White" BorderThickness="1,0,0,1" Grid.Row="1" Grid.Column="84" Grid.ColumnSpan="10" />
+                            <Border BorderBrush="White" BorderThickness="1,0,0,1" Grid.Row="1" Grid.Column="94" Grid.ColumnSpan="10" />
+                            <Border BorderBrush="White" BorderThickness="1,0,0,1" Grid.Row="1" Grid.Column="104" Grid.ColumnSpan="10" />
+                            <Border BorderBrush="White" BorderThickness="1,0,0,1" Grid.Row="1" Grid.Column="114" Grid.ColumnSpan="10" />
+                            <Border BorderBrush="White" BorderThickness="1,0,0,1" Grid.Row="1" Grid.Column="124" Grid.ColumnSpan="10" />
+                            <Border BorderBrush="White" BorderThickness="1,0,0,1" Grid.Row="1" Grid.Column="134" Grid.ColumnSpan="10" />
+                            <!--Third Line-->
+                            <Border BorderBrush="White" BorderThickness="1,0,0,0" Grid.Row="2" Grid.Column="4" />
+                            
                             <Label x:Name="Label_费用明细年" Content="年" HorizontalAlignment="Right" Grid.ColumnSpan="2"/>
                             <Label Content="月" VerticalAlignment="Center" Grid.Row="1" Grid.Column="0" Grid.RowSpan="2"/>
                             <Label Content="日" VerticalAlignment="Center" Grid.Row="1" Grid.Column="1" Grid.RowSpan="2"/>
