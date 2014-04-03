@@ -124,31 +124,31 @@
                             <Label Content="编号" HorizontalAlignment="Center" Grid.Column="2" Grid.Row="1"/>
                             <Label Content="摘要" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Grid.Column="3" Grid.RowSpan="2"/>
                             <Label Content="借方金额" HorizontalContentAlignment="Center" Grid.Column="4" Grid.ColumnSpan="12"/>
-                            <Label Content="十" Grid.Column="4" Grid.Row="1" />
-                            <Label Content="亿" Grid.Column="5" Grid.Row="1" />
-                            <Label Content="千" Grid.Column="6" Grid.Row="1" />
-                            <Label Content="百" Grid.Column="7" Grid.Row="1" />
-                            <Label Content="十" Grid.Column="8" Grid.Row="1" />
-                            <Label Content="万" Grid.Column="9" Grid.Row="1" />
-                            <Label Content="千" Grid.Column="10" Grid.Row="1" />
-                            <Label Content="百" Grid.Column="11" Grid.Row="1" />
-                            <Label Content="十" Grid.Column="12" Grid.Row="1" />
-                            <Label Content="元" Grid.Column="13" Grid.Row="1" />
-                            <Label Content="角" Grid.Column="14" Grid.Row="1" />
-                            <Label Content="分" Grid.Column="15" Grid.Row="1" />
+                            <TextBlock Text="十" Grid.Column="4" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                            <TextBlock Text="亿" Grid.Column="5" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <TextBlock Text="千" Grid.Column="6" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <TextBlock Text="百" Grid.Column="7" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <TextBlock Text="十" Grid.Column="8" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <TextBlock Text="万" Grid.Column="9" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <TextBlock Text="千" Grid.Column="10" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <TextBlock Text="百" Grid.Column="11" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <TextBlock Text="十" Grid.Column="12" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <TextBlock Text="元" Grid.Column="13" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <TextBlock Text="角" Grid.Column="14" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <TextBlock Text="分" Grid.Column="15" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                             <Label Content="贷方金额" HorizontalContentAlignment="Center" Grid.Column="16" Grid.ColumnSpan="12"/>
-                            <Label Content="十" Grid.Column="16" Grid.Row="1" />
-                            <Label Content="亿" Grid.Column="17" Grid.Row="1" />
-                            <Label Content="千" Grid.Column="18" Grid.Row="1" />
-                            <Label Content="百" Grid.Column="19" Grid.Row="1" />
-                            <Label Content="十" Grid.Column="20" Grid.Row="1" />
-                            <Label Content="万" Grid.Column="21" Grid.Row="1" />
-                            <Label Content="千" Grid.Column="22" Grid.Row="1" />
-                            <Label Content="百" Grid.Column="23" Grid.Row="1" />
-                            <Label Content="十" Grid.Column="24" Grid.Row="1" />
-                            <Label Content="元" Grid.Column="25" Grid.Row="1" />
-                            <Label Content="角" Grid.Column="26" Grid.Row="1" />
-                            <Label Content="分" Grid.Column="27" Grid.Row="1" />
+                            <TextBlock Text="十" Grid.Column="16" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <TextBlock Text="亿" Grid.Column="17" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <TextBlock Text="千" Grid.Column="18" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <TextBlock Text="百" Grid.Column="19" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <TextBlock Text="十" Grid.Column="20" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <TextBlock Text="万" Grid.Column="21" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <TextBlock Text="千" Grid.Column="22" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <TextBlock Text="百" Grid.Column="23" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <TextBlock Text="十" Grid.Column="24" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <TextBlock Text="元" Grid.Column="25" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <TextBlock Text="角" Grid.Column="26" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <TextBlock Text="分" Grid.Column="27" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                             <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="28" Grid.RowSpan="2">
                                 <Run Text="借"/>
                                 <LineBreak />
@@ -156,18 +156,18 @@
                                 <LineBreak />
                                 <Run Text="贷" />
                             </TextBlock>
-                            <Label Content="十" Grid.Column="29" Grid.Row="1" />
-                            <Label Content="亿" Grid.Column="30" Grid.Row="1" />
-                            <Label Content="千" Grid.Column="31" Grid.Row="1" />
-                            <Label Content="百" Grid.Column="32" Grid.Row="1" />
-                            <Label Content="十" Grid.Column="33" Grid.Row="1" />
-                            <Label Content="万" Grid.Column="34" Grid.Row="1" />
-                            <Label Content="千" Grid.Column="35" Grid.Row="1" />
-                            <Label Content="百" Grid.Column="36" Grid.Row="1" />
-                            <Label Content="十" Grid.Column="37" Grid.Row="1" />
-                            <Label Content="元" Grid.Column="38" Grid.Row="1" />
-                            <Label Content="角" Grid.Column="39" Grid.Row="1" />
-                            <Label Content="分" Grid.Column="40" Grid.Row="1" />
+                            <TextBlock Text="十" Grid.Column="29" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <TextBlock Text="亿" Grid.Column="30" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <TextBlock Text="千" Grid.Column="31" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <TextBlock Text="百" Grid.Column="32" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <TextBlock Text="十" Grid.Column="33" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <TextBlock Text="万" Grid.Column="34" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <TextBlock Text="千" Grid.Column="35" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <TextBlock Text="百" Grid.Column="36" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <TextBlock Text="十" Grid.Column="37" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <TextBlock Text="元" Grid.Column="38" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <TextBlock Text="角" Grid.Column="39" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <TextBlock Text="分" Grid.Column="40" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                             <Label Content="金额" HorizontalContentAlignment="Center" Grid.Column="29" Grid.ColumnSpan="12"/>
                             <DataGrid x:Name="DataGrid_总账" Grid.Row="2" ItemsSource="{Binding}" Grid.ColumnSpan="41" CanUserAddRows="False" AutoGenerateColumns="False" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="0,-1,0,0" HeadersVisibility="None" BorderBrush="#FF99CCFF" HorizontalGridLinesBrush="#FF99CCFF" VerticalGridLinesBrush="#FF99CCFF" Background="White" HorizontalScrollBarVisibility="Disabled">
                                 <DataGrid.Columns>
@@ -175,43 +175,43 @@
                                     <DataGridTextColumn x:Name="zzcolumn2" MinWidth="25" Binding="{Binding 日}"/>
                                     <DataGridTextColumn x:Name="zzcolumn3" MinWidth="40" Binding="{Binding 号数}"/>
                                     <DataGridTextColumn x:Name="zzcolumn4" MinWidth="100" Binding="{Binding 摘要}"/>
-                                    <DataGridTextColumn x:Name="zzcolumn5" Binding="{Binding 借方金额1}"/>
-                                    <DataGridTextColumn x:Name="zzcolumn6" Binding="{Binding 借方金额2}"/>
-                                    <DataGridTextColumn x:Name="zzcolumn7" Binding="{Binding 借方金额3}"/>
-                                    <DataGridTextColumn x:Name="zzcolumn8" Binding="{Binding 借方金额4}"/>
-                                    <DataGridTextColumn x:Name="zzcolumn9" Binding="{Binding 借方金额5}"/>
-                                    <DataGridTextColumn x:Name="zzcolumn10" Binding="{Binding 借方金额6}"/>
-                                    <DataGridTextColumn x:Name="zzcolumn11" Binding="{Binding 借方金额7}"/>
-                                    <DataGridTextColumn x:Name="zzcolumn12" Binding="{Binding 借方金额8}"/>
-                                    <DataGridTextColumn x:Name="zzcolumn13" Binding="{Binding 借方金额9}"/>
-                                    <DataGridTextColumn x:Name="zzcolumn14" Binding="{Binding 借方金额10}"/>
-                                    <DataGridTextColumn x:Name="zzcolumn15" Binding="{Binding 借方金额11}"/>
-                                    <DataGridTextColumn x:Name="zzcolumn16" Binding="{Binding 借方金额12}"/>
-                                    <DataGridTextColumn x:Name="zzcolumn17" Binding="{Binding 贷方金额1}"/>
-                                    <DataGridTextColumn x:Name="zzcolumn18" Binding="{Binding 贷方金额2}"/>
-                                    <DataGridTextColumn x:Name="zzcolumn19" Binding="{Binding 贷方金额3}"/>
-                                    <DataGridTextColumn x:Name="zzcolumn20" Binding="{Binding 贷方金额4}"/>
-                                    <DataGridTextColumn x:Name="zzcolumn21" Binding="{Binding 贷方金额5}"/>
-                                    <DataGridTextColumn x:Name="zzcolumn22" Binding="{Binding 贷方金额6}"/>
-                                    <DataGridTextColumn x:Name="zzcolumn23" Binding="{Binding 贷方金额7}"/>
-                                    <DataGridTextColumn x:Name="zzcolumn24" Binding="{Binding 贷方金额8}"/>
-                                    <DataGridTextColumn x:Name="zzcolumn25" Binding="{Binding 贷方金额9}"/>
-                                    <DataGridTextColumn x:Name="zzcolumn26" Binding="{Binding 贷方金额10}"/>
-                                    <DataGridTextColumn x:Name="zzcolumn27" Binding="{Binding 贷方金额11}"/>
-                                    <DataGridTextColumn x:Name="zzcolumn28" Binding="{Binding 贷方金额12}"/>
+                                    <DataGridTextColumn x:Name="zzcolumn5" Binding="{Binding 借方金额1}" MaxWidth="15" MinWidth="15"/>
+                                    <DataGridTextColumn x:Name="zzcolumn6" Binding="{Binding 借方金额2}" MaxWidth="15" MinWidth="15"/>
+                                    <DataGridTextColumn x:Name="zzcolumn7" Binding="{Binding 借方金额3}" MaxWidth="15" MinWidth="15"/>
+                                    <DataGridTextColumn x:Name="zzcolumn8" Binding="{Binding 借方金额4}" MaxWidth="15" MinWidth="15"/>
+                                    <DataGridTextColumn x:Name="zzcolumn9" Binding="{Binding 借方金额5}" MaxWidth="15" MinWidth="15"/>
+                                    <DataGridTextColumn x:Name="zzcolumn10" Binding="{Binding 借方金额6}" MaxWidth="15" MinWidth="15"/>
+                                    <DataGridTextColumn x:Name="zzcolumn11" Binding="{Binding 借方金额7}" MaxWidth="15" MinWidth="15"/>
+                                    <DataGridTextColumn x:Name="zzcolumn12" Binding="{Binding 借方金额8}" MaxWidth="15" MinWidth="15"/>
+                                    <DataGridTextColumn x:Name="zzcolumn13" Binding="{Binding 借方金额9}" MaxWidth="15" MinWidth="15"/>
+                                    <DataGridTextColumn x:Name="zzcolumn14" Binding="{Binding 借方金额10}" MaxWidth="15" MinWidth="15"/>
+                                    <DataGridTextColumn x:Name="zzcolumn15" Binding="{Binding 借方金额11}" MaxWidth="15" MinWidth="15"/>
+                                    <DataGridTextColumn x:Name="zzcolumn16" Binding="{Binding 借方金额12}" MaxWidth="15" MinWidth="15"/>
+                                    <DataGridTextColumn x:Name="zzcolumn17" Binding="{Binding 贷方金额1}" MaxWidth="15" MinWidth="15"/>
+                                    <DataGridTextColumn x:Name="zzcolumn18" Binding="{Binding 贷方金额2}" MaxWidth="15" MinWidth="15"/>
+                                    <DataGridTextColumn x:Name="zzcolumn19" Binding="{Binding 贷方金额3}" MaxWidth="15" MinWidth="15"/>
+                                    <DataGridTextColumn x:Name="zzcolumn20" Binding="{Binding 贷方金额4}" MaxWidth="15" MinWidth="15"/>
+                                    <DataGridTextColumn x:Name="zzcolumn21" Binding="{Binding 贷方金额5}" MaxWidth="15" MinWidth="15"/>
+                                    <DataGridTextColumn x:Name="zzcolumn22" Binding="{Binding 贷方金额6}" MaxWidth="15" MinWidth="15"/>
+                                    <DataGridTextColumn x:Name="zzcolumn23" Binding="{Binding 贷方金额7}" MaxWidth="15" MinWidth="15"/>
+                                    <DataGridTextColumn x:Name="zzcolumn24" Binding="{Binding 贷方金额8}" MaxWidth="15" MinWidth="15"/>
+                                    <DataGridTextColumn x:Name="zzcolumn25" Binding="{Binding 贷方金额9}" MaxWidth="15" MinWidth="15"/>
+                                    <DataGridTextColumn x:Name="zzcolumn26" Binding="{Binding 贷方金额10}" MaxWidth="15" MinWidth="15"/>
+                                    <DataGridTextColumn x:Name="zzcolumn27" Binding="{Binding 贷方金额11}" MaxWidth="15" MinWidth="15"/>
+                                    <DataGridTextColumn x:Name="zzcolumn28" Binding="{Binding 贷方金额12}" MaxWidth="15" MinWidth="15"/>
                                     <DataGridTextColumn x:Name="zzcolumn29" Binding="{Binding 借或贷}" />
-                                    <DataGridTextColumn x:Name="zzcolumn30" Binding="{Binding 余额1}"/>
-                                    <DataGridTextColumn x:Name="zzcolumn31" Binding="{Binding 余额2}"/>
-                                    <DataGridTextColumn x:Name="zzcolumn32" Binding="{Binding 余额3}"/>
-                                    <DataGridTextColumn x:Name="zzcolumn33" Binding="{Binding 余额4}"/>
-                                    <DataGridTextColumn x:Name="zzcolumn34"	Binding="{Binding 余额5}"/>
-                                    <DataGridTextColumn x:Name="zzcolumn35"	Binding="{Binding 余额6}"/>
-                                    <DataGridTextColumn x:Name="zzcolumn36"	Binding="{Binding 余额7}"/>
-                                    <DataGridTextColumn x:Name="zzcolumn37"	Binding="{Binding 余额8}"/>
-                                    <DataGridTextColumn x:Name="zzcolumn38"	Binding="{Binding 余额9}"/>
-                                    <DataGridTextColumn x:Name="zzcolumn39"	Binding="{Binding 余额10}"/>
-                                    <DataGridTextColumn x:Name="zzcolumn40"	Binding="{Binding 余额11}"/>
-                                    <DataGridTextColumn x:Name="zzcolumn41"	Binding="{Binding 余额12}"/>
+                                    <DataGridTextColumn x:Name="zzcolumn30" Binding="{Binding 余额1}" MaxWidth="15" MinWidth="15"/>
+                                    <DataGridTextColumn x:Name="zzcolumn31" Binding="{Binding 余额2}" MaxWidth="15" MinWidth="15"/>
+                                    <DataGridTextColumn x:Name="zzcolumn32" Binding="{Binding 余额3}" MaxWidth="15" MinWidth="15"/>
+                                    <DataGridTextColumn x:Name="zzcolumn33" Binding="{Binding 余额4}" MaxWidth="15" MinWidth="15"/>
+                                    <DataGridTextColumn x:Name="zzcolumn34"	Binding="{Binding 余额5}" MaxWidth="15" MinWidth="15"/>
+                                    <DataGridTextColumn x:Name="zzcolumn35"	Binding="{Binding 余额6}" MaxWidth="15" MinWidth="15"/>
+                                    <DataGridTextColumn x:Name="zzcolumn36"	Binding="{Binding 余额7}" MaxWidth="15" MinWidth="15"/>
+                                    <DataGridTextColumn x:Name="zzcolumn37"	Binding="{Binding 余额8}" MaxWidth="15" MinWidth="15"/>
+                                    <DataGridTextColumn x:Name="zzcolumn38"	Binding="{Binding 余额9}" MaxWidth="15" MinWidth="15"/>
+                                    <DataGridTextColumn x:Name="zzcolumn39"	Binding="{Binding 余额10}" MaxWidth="15" MinWidth="15"/>
+                                    <DataGridTextColumn x:Name="zzcolumn40"	Binding="{Binding 余额11}" MaxWidth="15" MinWidth="15"/>
+                                    <DataGridTextColumn x:Name="zzcolumn41"	Binding="{Binding 余额12}" MaxWidth="15" MinWidth="15"/>
                                 </DataGrid.Columns>
                             </DataGrid>
                         </Grid>
