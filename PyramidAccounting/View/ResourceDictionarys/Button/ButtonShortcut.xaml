@@ -2,79 +2,176 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
     <ControlTemplate x:Key="ButtonControlTemplate_凭证录入" TargetType="{x:Type Button}">
 		<Grid x:Name="grid" Background="White">
-			<Grid.Effect>
-				<DropShadowEffect ShadowDepth="0" BlurRadius="0"/>
-			</Grid.Effect>
 			<VisualStateManager.VisualStateGroups>
 				<VisualStateGroup x:Name="CommonStates">
 					<VisualState x:Name="Normal"/>
 					<VisualState x:Name="MouseOver">
 						<Storyboard>
-							<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Effect).(DropShadowEffect.BlurRadius)" Storyboard.TargetName="grid">
-								<EasingDoubleKeyFrame KeyTime="0" Value="2"/>
-							</DoubleAnimationUsingKeyFrames>
+							<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(Border.BorderBrush)" Storyboard.TargetName="border">
+								<DiscreteObjectKeyFrame KeyTime="0">
+									<DiscreteObjectKeyFrame.Value>
+										<SolidColorBrush Color="Black"/>
+									</DiscreteObjectKeyFrame.Value>
+								</DiscreteObjectKeyFrame>
+							</ObjectAnimationUsingKeyFrames>
 						</Storyboard>
 					</VisualState>
 					<VisualState x:Name="Pressed"/>
 					<VisualState x:Name="Disabled"/>
 				</VisualStateGroup>
 			</VisualStateManager.VisualStateGroups>
-			<ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="51,0,51,5" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="Bottom"/>
-			<Rectangle Height="100" Stroke="{x:Null}" VerticalAlignment="Center" Width="100" HorizontalAlignment="Center" Margin="32,34,18,34">
+			<ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="51,0,51,20" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="Bottom"/>
+			<Rectangle Height="100" Stroke="{x:Null}" VerticalAlignment="Center" Width="100" HorizontalAlignment="Center" Margin="32,20,18,34">
 				<Rectangle.Fill>
 					<ImageBrush ImageSource="/PyramidAccounting;component/View/Images/icon/256.256/凭证录入.png"/>
 				</Rectangle.Fill>
 			</Rectangle>
+			<Border x:Name="border" BorderBrush="{x:Null}" BorderThickness="1" Height="Auto" VerticalAlignment="Stretch" Width="Auto" Margin="5" CornerRadius="5"/>
 		</Grid>
 	</ControlTemplate>
     <ControlTemplate x:Key="ButtonControlTemplate_凭证审核" TargetType="{x:Type Button}">
         <Grid Background="White">
-            <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="51,0,51,5" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="Bottom"/>
-            <Rectangle Height="100" Stroke="{x:Null}" VerticalAlignment="Center" Width="100" HorizontalAlignment="Center" Margin="32,34,18,34">
-                <Rectangle.Fill>
-                    <ImageBrush ImageSource="/PyramidAccounting;component/View/Images/icon/256.256/凭证审核.png"/>
-                </Rectangle.Fill>
-            </Rectangle>
-        </Grid>
+    		<VisualStateManager.VisualStateGroups>
+    			<VisualStateGroup x:Name="CommonStates">
+    				<VisualState x:Name="Normal"/>
+    				<VisualState x:Name="MouseOver">
+    					<Storyboard>
+    						<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(Border.BorderBrush)" Storyboard.TargetName="border">
+    							<DiscreteObjectKeyFrame KeyTime="0">
+    								<DiscreteObjectKeyFrame.Value>
+    									<SolidColorBrush Color="Black"/>
+    								</DiscreteObjectKeyFrame.Value>
+    							</DiscreteObjectKeyFrame>
+    						</ObjectAnimationUsingKeyFrames>
+    					</Storyboard>
+    				</VisualState>
+    				<VisualState x:Name="Pressed"/>
+    				<VisualState x:Name="Disabled"/>
+    			</VisualStateGroup>
+    		</VisualStateManager.VisualStateGroups>
+    		<ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="51,0,51,20" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="Bottom"/>
+    		<Rectangle Height="100" Stroke="{x:Null}" VerticalAlignment="Center" Width="100" HorizontalAlignment="Center" Margin="32,20,18,34">
+    			<Rectangle.Fill>
+    				<ImageBrush ImageSource="/PyramidAccounting;component/View/Images/icon/256.256/凭证审核.png"/>
+    			</Rectangle.Fill>
+    		</Rectangle>
+    		<Border x:Name="border" BorderBrush="{x:Null}" BorderThickness="1" Height="Auto" VerticalAlignment="Stretch" Width="Auto" Margin="5" CornerRadius="5"/>
+    	</Grid>
     </ControlTemplate>
     <ControlTemplate x:Key="ButtonControlTemplate_本期结账" TargetType="{x:Type Button}">
 		<Grid Background="White">
-			<ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="51,0,51,5" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="Bottom"/>
-			<Rectangle Height="100" Stroke="{x:Null}" VerticalAlignment="Center" Width="100" HorizontalAlignment="Center">
-				<Rectangle.Fill>
-					<ImageBrush ImageSource="/PyramidAccounting;component/View/Images/icon/256.256/本期结账.png"/>
-				</Rectangle.Fill>
-			</Rectangle>
-		</Grid>
+    		<VisualStateManager.VisualStateGroups>
+    			<VisualStateGroup x:Name="CommonStates">
+    				<VisualState x:Name="Normal"/>
+    				<VisualState x:Name="MouseOver">
+    					<Storyboard>
+    						<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(Border.BorderBrush)" Storyboard.TargetName="border">
+    							<DiscreteObjectKeyFrame KeyTime="0">
+    								<DiscreteObjectKeyFrame.Value>
+    									<SolidColorBrush Color="Black"/>
+    								</DiscreteObjectKeyFrame.Value>
+    							</DiscreteObjectKeyFrame>
+    						</ObjectAnimationUsingKeyFrames>
+    					</Storyboard>
+    				</VisualState>
+    				<VisualState x:Name="Pressed"/>
+    				<VisualState x:Name="Disabled"/>
+    			</VisualStateGroup>
+    		</VisualStateManager.VisualStateGroups>
+    		<ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="51,0,51,20" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="Bottom"/>
+    		<Rectangle Height="100" Stroke="{x:Null}" VerticalAlignment="Center" Width="100" HorizontalAlignment="Center" Margin="0,20,0,34">
+    			<Rectangle.Fill>
+    				<ImageBrush ImageSource="/PyramidAccounting;component/View/Images/icon/256.256/本期结账.png"/>
+    			</Rectangle.Fill>
+    		</Rectangle>
+    		<Border x:Name="border" BorderBrush="{x:Null}" BorderThickness="1" HorizontalAlignment="Stretch" Height="Auto" VerticalAlignment="Stretch" Margin="5" CornerRadius="5"/>
+    	</Grid>
 	</ControlTemplate>
 	<ControlTemplate x:Key="ButtonControlTemplate_报表查询" TargetType="{x:Type Button}">
 		<Grid Background="White">
-			<ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="51,0,51,5" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="Bottom"/>
-			<Rectangle Height="100" Stroke="{x:Null}" VerticalAlignment="Center" Width="100" HorizontalAlignment="Center" Margin="30,34,20,34">
+			<VisualStateManager.VisualStateGroups>
+				<VisualStateGroup x:Name="CommonStates">
+					<VisualState x:Name="Normal"/>
+					<VisualState x:Name="MouseOver">
+						<Storyboard>
+							<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(Border.BorderBrush)" Storyboard.TargetName="border">
+								<DiscreteObjectKeyFrame KeyTime="0">
+									<DiscreteObjectKeyFrame.Value>
+										<SolidColorBrush Color="Black"/>
+									</DiscreteObjectKeyFrame.Value>
+								</DiscreteObjectKeyFrame>
+							</ObjectAnimationUsingKeyFrames>
+						</Storyboard>
+					</VisualState>
+					<VisualState x:Name="Pressed"/>
+					<VisualState x:Name="Disabled"/>
+				</VisualStateGroup>
+			</VisualStateManager.VisualStateGroups>
+			<ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="51,0,51,20" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="Bottom"/>
+			<Rectangle Height="100" Stroke="{x:Null}" VerticalAlignment="Center" Width="100" HorizontalAlignment="Center" Margin="30,20,20,34">
 				<Rectangle.Fill>
 					<ImageBrush ImageSource="/PyramidAccounting;component/View/Images/icon/256.256/报表查询.png"/>
 				</Rectangle.Fill>
 			</Rectangle>
+			<Border x:Name="border" BorderBrush="{x:Null}" BorderThickness="1" HorizontalAlignment="Stretch" Height="Auto" VerticalAlignment="Stretch" Margin="5" CornerRadius="5"/>
 		</Grid>
 	</ControlTemplate>
 	<ControlTemplate x:Key="ButtonControlTemplate_账簿查询" TargetType="{x:Type Button}">
 		<Grid Background="White">
-			<ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="51,0,51,5" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="Bottom"/>
-			<Rectangle Height="100" Stroke="{x:Null}" VerticalAlignment="Center" Width="100" HorizontalAlignment="Center" Margin="30,34,20,34">
+			<VisualStateManager.VisualStateGroups>
+				<VisualStateGroup x:Name="CommonStates">
+					<VisualState x:Name="Normal"/>
+					<VisualState x:Name="MouseOver">
+						<Storyboard>
+							<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(Border.BorderBrush)" Storyboard.TargetName="border">
+								<DiscreteObjectKeyFrame KeyTime="0">
+									<DiscreteObjectKeyFrame.Value>
+										<SolidColorBrush Color="Black"/>
+									</DiscreteObjectKeyFrame.Value>
+								</DiscreteObjectKeyFrame>
+							</ObjectAnimationUsingKeyFrames>
+						</Storyboard>
+					</VisualState>
+					<VisualState x:Name="Pressed"/>
+					<VisualState x:Name="Disabled"/>
+				</VisualStateGroup>
+			</VisualStateManager.VisualStateGroups>
+			<ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="51,0,51,20" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="Bottom"/>
+			<Rectangle Height="100" Stroke="{x:Null}" VerticalAlignment="Center" Width="100" HorizontalAlignment="Center" Margin="30,20,20,34">
 				<Rectangle.Fill>
 					<ImageBrush ImageSource="/PyramidAccounting;component/View/Images/icon/256.256/账簿查询.png"/>
 				</Rectangle.Fill>
 			</Rectangle>
+			<Border x:Name="border" BorderBrush="{x:Null}" BorderThickness="1" HorizontalAlignment="Stretch" Height="Auto" VerticalAlignment="Stretch" Margin="5" CornerRadius="5"/>
 		</Grid>
 	</ControlTemplate>
 	<ControlTemplate x:Key="ButtonControlTemplate_科目查询" TargetType="{x:Type Button}">
 		<Grid Background="White">
-			<ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="51,0,51,5" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="Bottom"/>
-			<Rectangle Height="100" Stroke="{x:Null}" VerticalAlignment="Center" Width="100" HorizontalAlignment="Center">
+			<VisualStateManager.VisualStateGroups>
+				<VisualStateGroup x:Name="CommonStates">
+					<VisualState x:Name="Normal"/>
+					<VisualState x:Name="MouseOver">
+						<Storyboard>
+							<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(Border.BorderBrush)" Storyboard.TargetName="border">
+								<DiscreteObjectKeyFrame KeyTime="0">
+									<DiscreteObjectKeyFrame.Value>
+										<SolidColorBrush Color="Black"/>
+									</DiscreteObjectKeyFrame.Value>
+								</DiscreteObjectKeyFrame>
+							</ObjectAnimationUsingKeyFrames>
+						</Storyboard>
+					</VisualState>
+					<VisualState x:Name="Pressed"/>
+					<VisualState x:Name="Disabled"/>
+				</VisualStateGroup>
+			</VisualStateManager.VisualStateGroups>
+			<ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="51,0,51,20" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="Bottom"/>
+			<Rectangle Height="100" Stroke="{x:Null}" VerticalAlignment="Center" Width="100" HorizontalAlignment="Center" Margin="0,20,0,34">
 				<Rectangle.Fill>
 					<ImageBrush ImageSource="/PyramidAccounting;component/View/Images/icon/256.256/科目查询.png"/>
 				</Rectangle.Fill>
 			</Rectangle>
+			<Border x:Name="border" BorderBrush="{x:Null}" BorderThickness="1" HorizontalAlignment="Stretch" Height="Auto" VerticalAlignment="Stretch" Margin="5" CornerRadius="5"/>
 		</Grid>
 	</ControlTemplate>
     
