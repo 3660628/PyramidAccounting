@@ -18,7 +18,7 @@ namespace PA.ViewModel
             List<Model_总账> list = new List<Model_总账>();
             string id = subject_id.Split('\t')[0];
             string name = subject_id.Split('\t')[1];
-            string sql = "select op_time,VOUCHER_NUMS,COMMENTS,DEBIT,CREDIT,FEE,mark from " 
+            string sql = "select strftime(op_time),VOUCHER_NUMS,COMMENTS,DEBIT,CREDIT,FEE,mark from " 
                 + DBTablesName.T_FEE + " where delete_mark=0 and subject_id='" + id + "' order by op_time";
 
             DataSet ds = new DataSet();
@@ -35,9 +35,9 @@ namespace PA.ViewModel
                     if (!string.IsNullOrEmpty(d[0].ToString()))
                     {
                         string date = d[0].ToString().Split(' ')[0];
-                        m.年 = date.Split('/')[0];
-                        m.月 = date.Split('/')[1];
-                        m.日 = date.Split('/')[2];
+                        m.年 = date.Split('-')[0];
+                        m.月 = date.Split('-')[1];
+                        m.日 = date.Split('-')[2];
                     }
                     m.号数 = d[1].ToString();
                     m.摘要 = d[2].ToString();
@@ -47,6 +47,21 @@ namespace PA.ViewModel
                     if (count == 0)
                     {
                         m.借或贷 = d[6].ToString().Equals("1") ? "借" : "贷";
+                    }
+                    else
+                    {
+                        if (credit == debit)
+                        {
+                            m.借或贷 = "平";
+                        }
+                        else if (credit > debit)
+                        {
+                            m.借或贷 = "贷";
+                        }
+                        else
+                        {
+                            m.借或贷 = "借";
+                        }
                     }
                     string temp = string.Empty;
                     List<string> _list = new List<string>();
@@ -81,18 +96,8 @@ namespace PA.ViewModel
 
                     decimal.TryParse(m.贷方金额, out credit);
                     decimal.TryParse(m.借方金额, out debit);
-                    if (credit == debit)
-                    {
-                        m.借或贷 = "平";
-                    }
-                    else if (credit > debit)
-                    {
-                        m.借或贷 = "贷";
-                    }
-                    else
-                    {
-                        m.借或贷 = "借";
-                    }
+                    
+                    
                     _list.Clear();
                     _list = Turn(m.余额, 12);
                     m.余额1 = _list[0];
@@ -133,7 +138,7 @@ namespace PA.ViewModel
             }
 
             List<Model_费用明细> list = new List<Model_费用明细>();
-            string sql = "select time,number,comments,sum(fee1),sum(fee2)" + _tempstr + " from " 
+            string sql = "select strftime(time),number,comments,sum(fee1),sum(fee2)" + _tempstr + " from " 
                 + "(select b.op_time as time ,a.voucher_no as number,a.abstract as comments,a.debit as fee1,a.credit as fee2,a.detail as detail from "
                 + DBTablesName.T_VOUCHER_DETAIL
                 + " a left join "
@@ -156,9 +161,9 @@ namespace PA.ViewModel
                     Model_费用明细 m = new Model_费用明细();
                     string date = d[0].ToString().Split(' ')[0];
                     #region 赋值
-                    m.年 = date.Split('/')[0];
-                    m.月 = date.Split('/')[1];
-                    m.日 = date.Split('/')[2];
+                    m.年 = date.Split('-')[0];
+                    m.月 = date.Split('-')[1];
+                    m.日 = date.Split('-')[2];
                     m.号数 = d[1].ToString();
                     m.摘要 = d[2].ToString();
                     m.借方金额 = d[3].ToString();
@@ -371,7 +376,7 @@ namespace PA.ViewModel
         public List<Model_科目明细账> GetData(string subject_id,string detail,int peroid)
         {
             List<Model_科目明细账> list = new List<Model_科目明细账>();
-            string sql = "select b.op_time,a.voucher_no,a.abstract,a.debit,a.credit,a.credit-a.debit,case when a.debit>a.credit then '借' when a.debit<a.credit then '贷' else '平' end  from " 
+            string sql = "select strftime(b.op_time),a.voucher_no,a.abstract,a.debit,a.credit,a.credit-a.debit,case when a.debit>a.credit then '借' when a.debit<a.credit then '贷' else '平' end  from " 
                 + DBTablesName.T_VOUCHER_DETAIL
                 + " a left join " 
                 + DBTablesName.T_VOUCHER 
@@ -396,9 +401,9 @@ namespace PA.ViewModel
                     List<string> _list = new List<string>();
                     Model_科目明细账 m = new Model_科目明细账();
                     string date = d[0].ToString().Split(' ')[0];
-                    m.年 = date.Split('/')[0];
-                    m.月 = date.Split('/')[1];
-                    m.日 = date.Split('/')[2];
+                    m.年 = date.Split('-')[0];
+                    m.月 = date.Split('-')[1];
+                    m.日 = date.Split('-')[2];
                     m.号数 = d[1].ToString();
                     m.摘要 = d[2].ToString();
                     m.借方金额 = d[3].ToString();
