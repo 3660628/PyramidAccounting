@@ -16,6 +16,7 @@ using System.Data;
 using PA.Helper.DataBase;
 using PA.Helper.DataDefind;
 using PA.Model.ComboBox;
+using PA.ViewModel;
 
 namespace PA.View.Pages.TwoTabControl
 {
@@ -27,6 +28,7 @@ namespace PA.View.Pages.TwoTabControl
     {
         PA.Helper.XMLHelper.XMLReader xr = new Helper.XMLHelper.XMLReader();
         private ComboBox_Common cbc = new ComboBox_Common();
+        private ViewModel_ReportManager vmr = new ViewModel_ReportManager();
 
         public Page_Two_报表管理()
         {
@@ -34,13 +36,13 @@ namespace PA.View.Pages.TwoTabControl
             this.Label_编制单位1.Content += "\t" +xr.ReadXML("公司");   //程序启动后加载当前公司名称
 
             this.ComboBox_Date.ItemsSource = cbc.GetComboBox_期数(1);
-            this.ComboBox_Date.SelectedIndex = CommonInfo.当前期;
+            this.ComboBox_Date.SelectedIndex = CommonInfo.当前期-1;
 
             this.ComboBox_Date1.ItemsSource = cbc.GetComboBox_期数(1);
-            this.ComboBox_Date1.SelectedIndex = CommonInfo.当前期;
+            this.ComboBox_Date1.SelectedIndex = CommonInfo.当前期-1;
 
             this.ComboBox_Date2.ItemsSource = cbc.GetComboBox_期数(1);
-            this.ComboBox_Date2.SelectedIndex = CommonInfo.当前期;
+            this.ComboBox_Date2.SelectedIndex = CommonInfo.当前期-1;
 
         }
 
@@ -57,8 +59,15 @@ namespace PA.View.Pages.TwoTabControl
             }
             else
             {
-                Label lb = FindName("y01") as Label;
-                Console.WriteLine(lb.Content);
+                List<Model_资产负债表> list = new List<Model_资产负债表>();
+                list = vmr.GetData(ComboBox_Date.SelectedIndex+1);
+                if (list.Count > 0)
+                {
+                    Label lb = FindName("y01") as Label;
+                    lb.Content = list[0].年初数;
+                    lb.Content = list[0].期末数;
+                }
+                
             }
         }
         

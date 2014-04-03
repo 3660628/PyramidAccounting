@@ -43,3 +43,6 @@ CREATE TABLE T_FIXEDASSETS(								--固定资产表
 	COMMENTS    TEXT,									--备注
 	DELETE_MARK INTEGER DEFAULT(0)						--删除标志 0  1表示已经删除
 );
+CREATE INDEX idx_T_YEARFEE ON T_YEARFEE ( 
+    BOOKID 
+);

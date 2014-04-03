@@ -35,7 +35,7 @@ namespace PA.View.Pages.TwoTabControl
             InitializeComponent();
             SubscribeToEvent();
             this.ComboBox_Date.ItemsSource = cbc.GetComboBox_期数(1);
-            this.ComboBox_Date.SelectedIndex = CommonInfo.当前期;
+            this.ComboBox_Date.SelectedIndex = CommonInfo.当前期-1;
         }
         #region 事件订阅
         private void SubscribeToEvent()
