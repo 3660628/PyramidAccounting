@@ -38,7 +38,20 @@
                             <DataGridTextColumn Header="借方金额"  Binding="{Binding 借方金额}" MinWidth="100"/>
                             <DataGridTextColumn Header="贷方金额"  Binding="{Binding 贷方金额}" MinWidth="100"/>
                             <DataGridTextColumn Header="当前期数"  Binding="{Binding 当前期数}"/>
-                            <DataGridTextColumn Header="审核状态"  Binding="{Binding 审核状态}"/>
+                            <DataGridTextColumn Header="审核状态"  Binding="{Binding 审核状态}">
+                                <DataGridTextColumn.CellStyle>
+                                    <Style TargetType="DataGridCell">
+                                        <Style.Triggers>
+                                            <DataTrigger Binding="{Binding 审核状态}" Value="已审核">
+                                                <Setter Property="Foreground" Value="Green"/>
+                                            </DataTrigger>
+                                            <DataTrigger Binding="{Binding 审核状态}" Value="未审核">
+                                                <Setter Property="Foreground" Value="Red"/>
+                                            </DataTrigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </DataGridTextColumn.CellStyle>
+                            </DataGridTextColumn>
                         </DataGrid.Columns>
                     </DataGrid>
                     <StackPanel x:Name="StackPanel_MoreButton" HorizontalAlignment="Right" Margin="729,35,2,0" VerticalAlignment="Top" Background="White" Width="70">
