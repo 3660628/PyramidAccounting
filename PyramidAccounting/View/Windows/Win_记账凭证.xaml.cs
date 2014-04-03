@@ -233,13 +233,13 @@ namespace PA.View.Windows
                     new PA.ViewModel.ViewModel_凭证管理().DeleteAsModify(guid);
                 }
                 OnSubmit();
+                this.Close();
             }
             else
             {
                 MessageBoxCommon.Show("数据有误");
                 return;
             }
-            this.Close();
         }
 
         private void Button_保存并新增_Click(object sender, RoutedEventArgs e)
@@ -249,8 +249,14 @@ namespace PA.View.Windows
             {
                 return;
             }
-            new PA.ViewModel.ViewModel_凭证管理().InsertData(Voucher, VoucherDetails);
-            InitData();
+            if(new PA.ViewModel.ViewModel_凭证管理().InsertData(Voucher, VoucherDetails))
+            {
+                InitData();
+            }
+            else
+            {
+                MessageBoxCommon.Show("数据有误");
+            }
         }
 
         private void Button_打印_Click(object sender, RoutedEventArgs e)
