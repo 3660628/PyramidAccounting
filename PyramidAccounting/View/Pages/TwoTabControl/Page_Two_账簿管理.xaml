@@ -29,6 +29,7 @@
                                 <ColumnDefinition Width="{Binding ElementName=zzcolumn2,Path=ActualWidth}"/>
                                 <ColumnDefinition Width="{Binding ElementName=zzcolumn3,Path=ActualWidth}"/>
                                 <ColumnDefinition Width="{Binding ElementName=zzcolumn4,Path=ActualWidth}"/>
+                                <ColumnDefinition Width="{Binding ElementName=zzcolumn5,Path=ActualWidth}"/>
                                 <ColumnDefinition Width="{Binding ElementName=zzcolumn6,Path=ActualWidth}"/>
                                 <ColumnDefinition Width="{Binding ElementName=zzcolumn7,Path=ActualWidth}"/>
                                 <ColumnDefinition Width="{Binding ElementName=zzcolumn8,Path=ActualWidth}"/>
@@ -40,8 +41,6 @@
                                 <ColumnDefinition Width="{Binding ElementName=zzcolumn14,Path=ActualWidth}"/>
                                 <ColumnDefinition Width="{Binding ElementName=zzcolumn15,Path=ActualWidth}"/>
                                 <ColumnDefinition Width="{Binding ElementName=zzcolumn16,Path=ActualWidth}"/>
-                                <ColumnDefinition Width="{Binding ElementName=zzcolumn17,Path=ActualWidth}"/>
-                                <ColumnDefinition Width="{Binding ElementName=zzcolumn6,Path=ActualWidth}"/>
                                 <ColumnDefinition Width="{Binding ElementName=zzcolumn17,Path=ActualWidth}"/>
                                 <ColumnDefinition Width="{Binding ElementName=zzcolumn18,Path=ActualWidth}"/>
                                 <ColumnDefinition Width="{Binding ElementName=zzcolumn19,Path=ActualWidth}"/>
@@ -66,6 +65,7 @@
                                 <ColumnDefinition Width="{Binding ElementName=zzcolumn38,Path=ActualWidth}"/>
                                 <ColumnDefinition Width="{Binding ElementName=zzcolumn39,Path=ActualWidth}"/>
                                 <ColumnDefinition Width="{Binding ElementName=zzcolumn40,Path=ActualWidth}"/>
+                                <ColumnDefinition Width="{Binding ElementName=zzcolumn41,Path=ActualWidth}"/>
                             </Grid.ColumnDefinitions>
                             <Border BorderBrush="#FF99CCFF" BorderThickness="1" Grid.ColumnSpan="41" Grid.RowSpan="3" Background="#FF99CCFF"/>
                             <!--First Line-->
@@ -175,43 +175,43 @@
                                     <DataGridTextColumn x:Name="zzcolumn2" MinWidth="25" Binding="{Binding 日}"/>
                                     <DataGridTextColumn x:Name="zzcolumn3" MinWidth="40" Binding="{Binding 号数}"/>
                                     <DataGridTextColumn x:Name="zzcolumn4" MinWidth="100" Binding="{Binding 摘要}"/>
-                                    <DataGridTextColumn x:Name="zzcolumn5" MinWidth="25" Binding="{Binding 借方金额1}"/>
-                                    <DataGridTextColumn x:Name="zzcolumn6" MinWidth="25" Binding="{Binding 借方金额2}"/>
-                                    <DataGridTextColumn x:Name="zzcolumn7" MinWidth="25" Binding="{Binding 借方金额3}"/>
-                                    <DataGridTextColumn x:Name="zzcolumn8" MinWidth="25" Binding="{Binding 借方金额4}"/>
-                                    <DataGridTextColumn x:Name="zzcolumn9" MinWidth="25" Binding="{Binding 借方金额5}"/>
-                                    <DataGridTextColumn x:Name="zzcolumn10" MinWidth="25" Binding="{Binding 借方金额6}"/>
-                                    <DataGridTextColumn x:Name="zzcolumn11" MinWidth="25" Binding="{Binding 借方金额7}"/>
-                                    <DataGridTextColumn x:Name="zzcolumn12" MinWidth="25" Binding="{Binding 借方金额8}"/>
-                                    <DataGridTextColumn x:Name="zzcolumn13" MinWidth="25" Binding="{Binding 借方金额9}"/>
-                                    <DataGridTextColumn x:Name="zzcolumn14" MinWidth="25" Binding="{Binding 借方金额10}"/>
-                                    <DataGridTextColumn x:Name="zzcolumn15" MinWidth="25" Binding="{Binding 借方金额11}"/>
-                                    <DataGridTextColumn x:Name="zzcolumn16" MinWidth="25" Binding="{Binding 借方金额12}"/>
-                                    <DataGridTextColumn x:Name="zzcolumn17" MinWidth="25" Binding="{Binding 贷方金额1}"/>
-                                    <DataGridTextColumn x:Name="zzcolumn18" MinWidth="25" Binding="{Binding 贷方金额2}"/>
-                                    <DataGridTextColumn x:Name="zzcolumn19"	MinWidth="25" Binding="{Binding 贷方金额3}"/>
-                                    <DataGridTextColumn x:Name="zzcolumn20"	MinWidth="25" Binding="{Binding 贷方金额4}"/>
-                                    <DataGridTextColumn x:Name="zzcolumn21"	MinWidth="25" Binding="{Binding 贷方金额5}"/>
-                                    <DataGridTextColumn x:Name="zzcolumn22"	MinWidth="25" Binding="{Binding 贷方金额6}"/>
-                                    <DataGridTextColumn x:Name="zzcolumn23"	MinWidth="25" Binding="{Binding 贷方金额7}"/>
-                                    <DataGridTextColumn x:Name="zzcolumn24"	MinWidth="25" Binding="{Binding 贷方金额8}"/>
-                                    <DataGridTextColumn x:Name="zzcolumn25"	MinWidth="25" Binding="{Binding 贷方金额9}"/>
-                                    <DataGridTextColumn x:Name="zzcolumn26"	MinWidth="25" Binding="{Binding 贷方金额10}"/>
-                                    <DataGridTextColumn x:Name="zzcolumn27"	MinWidth="25" Binding="{Binding 贷方金额11}"/>
-                                    <DataGridTextColumn x:Name="zzcolumn28"	MinWidth="25" Binding="{Binding 贷方金额12}"/>
-                                    <DataGridTextColumn x:Name="zzcolumn29" MinWidth="25" Binding="{Binding 借或贷}" />
-                                    <DataGridTextColumn x:Name="zzcolumn30"	MinWidth="25" Binding="{Binding 余额1}"/>
-                                    <DataGridTextColumn x:Name="zzcolumn31"	MinWidth="25" Binding="{Binding 余额2}"/>
-                                    <DataGridTextColumn x:Name="zzcolumn32"	MinWidth="25" Binding="{Binding 余额3}"/>
-                                    <DataGridTextColumn x:Name="zzcolumn33"	MinWidth="25" Binding="{Binding 余额4}"/>
-                                    <DataGridTextColumn x:Name="zzcolumn34"	MinWidth="25" Binding="{Binding 余额5}"/>
-                                    <DataGridTextColumn x:Name="zzcolumn35"	MinWidth="25" Binding="{Binding 余额6}"/>
-                                    <DataGridTextColumn x:Name="zzcolumn36"	MinWidth="25" Binding="{Binding 余额7}"/>
-                                    <DataGridTextColumn x:Name="zzcolumn37"	MinWidth="25" Binding="{Binding 余额8}"/>
-                                    <DataGridTextColumn x:Name="zzcolumn38"	MinWidth="25" Binding="{Binding 余额9}"/>
-                                    <DataGridTextColumn x:Name="zzcolumn39"	MinWidth="25" Binding="{Binding 余额10}"/>
-                                    <DataGridTextColumn x:Name="zzcolumn40"	MinWidth="25" Binding="{Binding 余额11}"/>
-                                    <DataGridTextColumn x:Name="zzcolumn41"	MinWidth="25" Binding="{Binding 余额12}"/>
+                                    <DataGridTextColumn x:Name="zzcolumn5" Binding="{Binding 借方金额1}"/>
+                                    <DataGridTextColumn x:Name="zzcolumn6" Binding="{Binding 借方金额2}"/>
+                                    <DataGridTextColumn x:Name="zzcolumn7" Binding="{Binding 借方金额3}"/>
+                                    <DataGridTextColumn x:Name="zzcolumn8" Binding="{Binding 借方金额4}"/>
+                                    <DataGridTextColumn x:Name="zzcolumn9" Binding="{Binding 借方金额5}"/>
+                                    <DataGridTextColumn x:Name="zzcolumn10" Binding="{Binding 借方金额6}"/>
+                                    <DataGridTextColumn x:Name="zzcolumn11" Binding="{Binding 借方金额7}"/>
+                                    <DataGridTextColumn x:Name="zzcolumn12" Binding="{Binding 借方金额8}"/>
+                                    <DataGridTextColumn x:Name="zzcolumn13" Binding="{Binding 借方金额9}"/>
+                                    <DataGridTextColumn x:Name="zzcolumn14" Binding="{Binding 借方金额10}"/>
+                                    <DataGridTextColumn x:Name="zzcolumn15" Binding="{Binding 借方金额11}"/>
+                                    <DataGridTextColumn x:Name="zzcolumn16" Binding="{Binding 借方金额12}"/>
+                                    <DataGridTextColumn x:Name="zzcolumn17" Binding="{Binding 贷方金额1}"/>
+                                    <DataGridTextColumn x:Name="zzcolumn18" Binding="{Binding 贷方金额2}"/>
+                                    <DataGridTextColumn x:Name="zzcolumn19" Binding="{Binding 贷方金额3}"/>
+                                    <DataGridTextColumn x:Name="zzcolumn20" Binding="{Binding 贷方金额4}"/>
+                                    <DataGridTextColumn x:Name="zzcolumn21" Binding="{Binding 贷方金额5}"/>
+                                    <DataGridTextColumn x:Name="zzcolumn22" Binding="{Binding 贷方金额6}"/>
+                                    <DataGridTextColumn x:Name="zzcolumn23" Binding="{Binding 贷方金额7}"/>
+                                    <DataGridTextColumn x:Name="zzcolumn24" Binding="{Binding 贷方金额8}"/>
+                                    <DataGridTextColumn x:Name="zzcolumn25" Binding="{Binding 贷方金额9}"/>
+                                    <DataGridTextColumn x:Name="zzcolumn26" Binding="{Binding 贷方金额10}"/>
+                                    <DataGridTextColumn x:Name="zzcolumn27" Binding="{Binding 贷方金额11}"/>
+                                    <DataGridTextColumn x:Name="zzcolumn28" Binding="{Binding 贷方金额12}"/>
+                                    <DataGridTextColumn x:Name="zzcolumn29" Binding="{Binding 借或贷}" />
+                                    <DataGridTextColumn x:Name="zzcolumn30" Binding="{Binding 余额1}"/>
+                                    <DataGridTextColumn x:Name="zzcolumn31" Binding="{Binding 余额2}"/>
+                                    <DataGridTextColumn x:Name="zzcolumn32" Binding="{Binding 余额3}"/>
+                                    <DataGridTextColumn x:Name="zzcolumn33" Binding="{Binding 余额4}"/>
+                                    <DataGridTextColumn x:Name="zzcolumn34"	Binding="{Binding 余额5}"/>
+                                    <DataGridTextColumn x:Name="zzcolumn35"	Binding="{Binding 余额6}"/>
+                                    <DataGridTextColumn x:Name="zzcolumn36"	Binding="{Binding 余额7}"/>
+                                    <DataGridTextColumn x:Name="zzcolumn37"	Binding="{Binding 余额8}"/>
+                                    <DataGridTextColumn x:Name="zzcolumn38"	Binding="{Binding 余额9}"/>
+                                    <DataGridTextColumn x:Name="zzcolumn39"	Binding="{Binding 余额10}"/>
+                                    <DataGridTextColumn x:Name="zzcolumn40"	Binding="{Binding 余额11}"/>
+                                    <DataGridTextColumn x:Name="zzcolumn41"	Binding="{Binding 余额12}"/>
                                 </DataGrid.Columns>
                             </DataGrid>
                         </Grid>
@@ -711,146 +711,146 @@
                                     <DataGridTextColumn x:Name="fycolumn2" MinWidth="25" Binding="{Binding 日}"/>
                                     <DataGridTextColumn x:Name="fycolumn3" MinWidth="40" Binding="{Binding 号数}"/>
                                     <DataGridTextColumn x:Name="fycolumn4" MinWidth="100" Binding="{Binding 摘要}"/>
-                                    <DataGridTextColumn x:Name="fycolumn5"	MinWidth="25"	Binding="{Binding 借方金额1}" />
-                                    <DataGridTextColumn x:Name="fycolumn6"	MinWidth="25"	Binding="{Binding 借方金额2}" />
-                                    <DataGridTextColumn x:Name="fycolumn7"	MinWidth="25"	Binding="{Binding 借方金额3}" />
-                                    <DataGridTextColumn x:Name="fycolumn8"	MinWidth="25"	Binding="{Binding 借方金额4}" />
-                                    <DataGridTextColumn x:Name="fycolumn9"	MinWidth="25"	Binding="{Binding 借方金额5}" />
-                                    <DataGridTextColumn x:Name="fycolumn10"	MinWidth="25"	Binding="{Binding 借方金额6}" />
-                                    <DataGridTextColumn x:Name="fycolumn11"	MinWidth="25"	Binding="{Binding 借方金额7}" />
-                                    <DataGridTextColumn x:Name="fycolumn12"	MinWidth="25"	Binding="{Binding 借方金额8}" />
-                                    <DataGridTextColumn x:Name="fycolumn13"	MinWidth="25"	Binding="{Binding 借方金额9}" />
-                                    <DataGridTextColumn x:Name="fycolumn14"	MinWidth="25"	Binding="{Binding 借方金额10}" />
-                                    <DataGridTextColumn x:Name="fycolumn15"	MinWidth="25"	Binding="{Binding 贷方金额1}" />
-                                    <DataGridTextColumn x:Name="fycolumn16"	MinWidth="25"	Binding="{Binding 贷方金额2}" />
-                                    <DataGridTextColumn x:Name="fycolumn17"	MinWidth="25"	Binding="{Binding 贷方金额3}" />
-                                    <DataGridTextColumn x:Name="fycolumn18"	MinWidth="25"	Binding="{Binding 贷方金额4}" />
-                                    <DataGridTextColumn x:Name="fycolumn19"	MinWidth="25"	Binding="{Binding 贷方金额5}" />
-                                    <DataGridTextColumn x:Name="fycolumn20"	MinWidth="25"	Binding="{Binding 贷方金额6}" />
-                                    <DataGridTextColumn x:Name="fycolumn21"	MinWidth="25"	Binding="{Binding 贷方金额7}" />
-                                    <DataGridTextColumn x:Name="fycolumn22"	MinWidth="25"	Binding="{Binding 贷方金额8}" />
-                                    <DataGridTextColumn x:Name="fycolumn23"	MinWidth="25"	Binding="{Binding 贷方金额9}" />
-                                    <DataGridTextColumn x:Name="fycolumn24"	MinWidth="25"	Binding="{Binding 贷方金额10}" />
-                                    <DataGridTextColumn x:Name="fycolumn25"	MinWidth="25"	Binding="{Binding 余额1}" />
-                                    <DataGridTextColumn x:Name="fycolumn26"	MinWidth="25"	Binding="{Binding 余额2}" />
-                                    <DataGridTextColumn x:Name="fycolumn27"	MinWidth="25"	Binding="{Binding 余额3}" />
-                                    <DataGridTextColumn x:Name="fycolumn28"	MinWidth="25"	Binding="{Binding 余额4}" />
-                                    <DataGridTextColumn x:Name="fycolumn29"	MinWidth="25"	Binding="{Binding 余额5}" />
-                                    <DataGridTextColumn x:Name="fycolumn30"	MinWidth="25"	Binding="{Binding 余额6}" />
-                                    <DataGridTextColumn x:Name="fycolumn31"	MinWidth="25"	Binding="{Binding 余额7}" />
-                                    <DataGridTextColumn x:Name="fycolumn32"	MinWidth="25"	Binding="{Binding 余额8}" />
-                                    <DataGridTextColumn x:Name="fycolumn33"	MinWidth="25"	Binding="{Binding 余额9}" />
-                                    <DataGridTextColumn x:Name="fycolumn34"	MinWidth="25"	Binding="{Binding 余额10}" />
-                                    <DataGridTextColumn x:Name="fycolumn35"	MinWidth="25"	Binding="{Binding 金额31}" />
-                                    <DataGridTextColumn x:Name="fycolumn36"	MinWidth="25"	Binding="{Binding 金额32}" />
-                                    <DataGridTextColumn x:Name="fycolumn37"	MinWidth="25"	Binding="{Binding 金额33}" />
-                                    <DataGridTextColumn x:Name="fycolumn38"	MinWidth="25"	Binding="{Binding 金额34}" />
-                                    <DataGridTextColumn x:Name="fycolumn39"	MinWidth="25"	Binding="{Binding 金额35}" />
-                                    <DataGridTextColumn x:Name="fycolumn40"	MinWidth="25"	Binding="{Binding 金额36}" />
-                                    <DataGridTextColumn x:Name="fycolumn41"	MinWidth="25"	Binding="{Binding 金额37}" />
-                                    <DataGridTextColumn x:Name="fycolumn42"	MinWidth="25"	Binding="{Binding 金额38}" />
-                                    <DataGridTextColumn x:Name="fycolumn43"	MinWidth="25"	Binding="{Binding 金额39}" />
-                                    <DataGridTextColumn x:Name="fycolumn44"	MinWidth="25"	Binding="{Binding 金额40}" />
-                                    <DataGridTextColumn x:Name="fycolumn45"	MinWidth="25"	Binding="{Binding 金额41}" />
-                                    <DataGridTextColumn x:Name="fycolumn46"	MinWidth="25"	Binding="{Binding 金额42}" />
-                                    <DataGridTextColumn x:Name="fycolumn47"	MinWidth="25"	Binding="{Binding 金额43}" />
-                                    <DataGridTextColumn x:Name="fycolumn48"	MinWidth="25"	Binding="{Binding 金额44}" />
-                                    <DataGridTextColumn x:Name="fycolumn49"	MinWidth="25"	Binding="{Binding 金额45}" />
-                                    <DataGridTextColumn x:Name="fycolumn50"	MinWidth="25"	Binding="{Binding 金额46}" />
-                                    <DataGridTextColumn x:Name="fycolumn51"	MinWidth="25"	Binding="{Binding 金额47}" />
-                                    <DataGridTextColumn x:Name="fycolumn52"	MinWidth="25"	Binding="{Binding 金额48}" />
-                                    <DataGridTextColumn x:Name="fycolumn53"	MinWidth="25"	Binding="{Binding 金额49}" />
-                                    <DataGridTextColumn x:Name="fycolumn54"	MinWidth="25"	Binding="{Binding 金额50}" />
-                                    <DataGridTextColumn x:Name="fycolumn55"	MinWidth="25"	Binding="{Binding 金额51}" />
-                                    <DataGridTextColumn x:Name="fycolumn56"	MinWidth="25"	Binding="{Binding 金额52}" />
-                                    <DataGridTextColumn x:Name="fycolumn57"	MinWidth="25"	Binding="{Binding 金额53}" />
-                                    <DataGridTextColumn x:Name="fycolumn58"	MinWidth="25"	Binding="{Binding 金额54}" />
-                                    <DataGridTextColumn x:Name="fycolumn59"	MinWidth="25"	Binding="{Binding 金额55}" />
-                                    <DataGridTextColumn x:Name="fycolumn60"	MinWidth="25"	Binding="{Binding 金额56}" />
-                                    <DataGridTextColumn x:Name="fycolumn61"	MinWidth="25"	Binding="{Binding 金额57}" />
-                                    <DataGridTextColumn x:Name="fycolumn62"	MinWidth="25"	Binding="{Binding 金额58}" />
-                                    <DataGridTextColumn x:Name="fycolumn63"	MinWidth="25"	Binding="{Binding 金额59}" />
-                                    <DataGridTextColumn x:Name="fycolumn64"	MinWidth="25"	Binding="{Binding 金额60}" />
-                                    <DataGridTextColumn x:Name="fycolumn65"	MinWidth="25"	Binding="{Binding 金额61}" />
-                                    <DataGridTextColumn x:Name="fycolumn66"	MinWidth="25"	Binding="{Binding 金额62}" />
-                                    <DataGridTextColumn x:Name="fycolumn67"	MinWidth="25"	Binding="{Binding 金额63}" />
-                                    <DataGridTextColumn x:Name="fycolumn68"	MinWidth="25"	Binding="{Binding 金额64}" />
-                                    <DataGridTextColumn x:Name="fycolumn69"	MinWidth="25"	Binding="{Binding 金额65}" />
-                                    <DataGridTextColumn x:Name="fycolumn70"	MinWidth="25"	Binding="{Binding 金额66}" />
-                                    <DataGridTextColumn x:Name="fycolumn71"	MinWidth="25"	Binding="{Binding 金额67}" />
-                                    <DataGridTextColumn x:Name="fycolumn72"	MinWidth="25"	Binding="{Binding 金额68}" />
-                                    <DataGridTextColumn x:Name="fycolumn73"	MinWidth="25"	Binding="{Binding 金额69}" />
-                                    <DataGridTextColumn x:Name="fycolumn74"	MinWidth="25"	Binding="{Binding 金额70}" />
-                                    <DataGridTextColumn x:Name="fycolumn75"	MinWidth="25"	Binding="{Binding 金额71}" />
-                                    <DataGridTextColumn x:Name="fycolumn76"	MinWidth="25"	Binding="{Binding 金额72}" />
-                                    <DataGridTextColumn x:Name="fycolumn77"	MinWidth="25"	Binding="{Binding 金额73}" />
-                                    <DataGridTextColumn x:Name="fycolumn78"	MinWidth="25"	Binding="{Binding 金额74}" />
-                                    <DataGridTextColumn x:Name="fycolumn79"	MinWidth="25"	Binding="{Binding 金额75}" />
-                                    <DataGridTextColumn x:Name="fycolumn80"	MinWidth="25"	Binding="{Binding 金额76}" />
-                                    <DataGridTextColumn x:Name="fycolumn81"	MinWidth="25"	Binding="{Binding 金额77}" />
-                                    <DataGridTextColumn x:Name="fycolumn82"	MinWidth="25"	Binding="{Binding 金额78}" />
-                                    <DataGridTextColumn x:Name="fycolumn83"	MinWidth="25"	Binding="{Binding 金额79}" />
-                                    <DataGridTextColumn x:Name="fycolumn84"	MinWidth="25"	Binding="{Binding 金额80}" />
-                                    <DataGridTextColumn x:Name="fycolumn85"	MinWidth="25"	Binding="{Binding 金额81}" />
-                                    <DataGridTextColumn x:Name="fycolumn86"	MinWidth="25"	Binding="{Binding 金额82}" />
-                                    <DataGridTextColumn x:Name="fycolumn87"	MinWidth="25"	Binding="{Binding 金额83}" />
-                                    <DataGridTextColumn x:Name="fycolumn88"	MinWidth="25"	Binding="{Binding 金额84}" />
-                                    <DataGridTextColumn x:Name="fycolumn89"	MinWidth="25"	Binding="{Binding 金额85}" />
-                                    <DataGridTextColumn x:Name="fycolumn90"	MinWidth="25"	Binding="{Binding 金额86}" />
-                                    <DataGridTextColumn x:Name="fycolumn91"	MinWidth="25"	Binding="{Binding 金额87}" />
-                                    <DataGridTextColumn x:Name="fycolumn92"	MinWidth="25"	Binding="{Binding 金额88}" />
-                                    <DataGridTextColumn x:Name="fycolumn93"	MinWidth="25"	Binding="{Binding 金额89}" />
-                                    <DataGridTextColumn x:Name="fycolumn94"	MinWidth="25"	Binding="{Binding 金额90}" />
-                                    <DataGridTextColumn x:Name="fycolumn95"	MinWidth="25"	Binding="{Binding 金额91}" />
-                                    <DataGridTextColumn x:Name="fycolumn96"	MinWidth="25"	Binding="{Binding 金额92}" />
-                                    <DataGridTextColumn x:Name="fycolumn97"	MinWidth="25"	Binding="{Binding 金额93}" />
-                                    <DataGridTextColumn x:Name="fycolumn98"	MinWidth="25"	Binding="{Binding 金额94}" />
-                                    <DataGridTextColumn x:Name="fycolumn99"	MinWidth="25"	Binding="{Binding 金额95}" />
-                                    <DataGridTextColumn x:Name="fycolumn100" MinWidth="25"	Binding="{Binding 金额96}" />
-                                    <DataGridTextColumn x:Name="fycolumn101"	MinWidth="25"	Binding="{Binding 金额97}" />
-                                    <DataGridTextColumn x:Name="fycolumn102"	MinWidth="25"	Binding="{Binding 金额98}" />
-                                    <DataGridTextColumn x:Name="fycolumn103"	MinWidth="25"	Binding="{Binding 金额99}" />
-                                    <DataGridTextColumn x:Name="fycolumn104"	MinWidth="25"	Binding="{Binding 金额100}" />
-                                    <DataGridTextColumn x:Name="fycolumn105"	MinWidth="25"	Binding="{Binding 金额101}" />
-                                    <DataGridTextColumn x:Name="fycolumn106"	MinWidth="25"	Binding="{Binding 金额102}" />
-                                    <DataGridTextColumn x:Name="fycolumn107"	MinWidth="25"	Binding="{Binding 金额103}" />
-                                    <DataGridTextColumn x:Name="fycolumn108"	MinWidth="25"	Binding="{Binding 金额104}" />
-                                    <DataGridTextColumn x:Name="fycolumn109"	MinWidth="25"	Binding="{Binding 金额105}" />
-                                    <DataGridTextColumn x:Name="fycolumn110"	MinWidth="25"	Binding="{Binding 金额106}" />
-                                    <DataGridTextColumn x:Name="fycolumn111"	MinWidth="25"	Binding="{Binding 金额107}" />
-                                    <DataGridTextColumn x:Name="fycolumn112"	MinWidth="25"	Binding="{Binding 金额108}" />
-                                    <DataGridTextColumn x:Name="fycolumn113"	MinWidth="25"	Binding="{Binding 金额109}" />
-                                    <DataGridTextColumn x:Name="fycolumn114"	MinWidth="25"	Binding="{Binding 金额110}" />
-                                    <DataGridTextColumn x:Name="fycolumn115"	MinWidth="25"	Binding="{Binding 金额111}" />
-                                    <DataGridTextColumn x:Name="fycolumn116"	MinWidth="25"	Binding="{Binding 金额112}" />
-                                    <DataGridTextColumn x:Name="fycolumn117"	MinWidth="25"	Binding="{Binding 金额113}" />
-                                    <DataGridTextColumn x:Name="fycolumn118"	MinWidth="25"	Binding="{Binding 金额114}" />
-                                    <DataGridTextColumn x:Name="fycolumn119"	MinWidth="25"	Binding="{Binding 金额115}" />
-                                    <DataGridTextColumn x:Name="fycolumn120"	MinWidth="25"	Binding="{Binding 金额116}" />
-                                    <DataGridTextColumn x:Name="fycolumn121"	MinWidth="25"	Binding="{Binding 金额117}" />
-                                    <DataGridTextColumn x:Name="fycolumn122"	MinWidth="25"	Binding="{Binding 金额118}" />
-                                    <DataGridTextColumn x:Name="fycolumn123"	MinWidth="25"	Binding="{Binding 金额119}" />
-                                    <DataGridTextColumn x:Name="fycolumn124"	MinWidth="25"	Binding="{Binding 金额120}" />
-                                    <DataGridTextColumn x:Name="fycolumn125"	MinWidth="25"	Binding="{Binding 金额121}" />
-                                    <DataGridTextColumn x:Name="fycolumn126"	MinWidth="25"	Binding="{Binding 金额122}" />
-                                    <DataGridTextColumn x:Name="fycolumn127"	MinWidth="25"	Binding="{Binding 金额123}" />
-                                    <DataGridTextColumn x:Name="fycolumn128"	MinWidth="25"	Binding="{Binding 金额124}" />
-                                    <DataGridTextColumn x:Name="fycolumn129"	MinWidth="25"	Binding="{Binding 金额125}" />
-                                    <DataGridTextColumn x:Name="fycolumn130"	MinWidth="25"	Binding="{Binding 金额126}" />
-                                    <DataGridTextColumn x:Name="fycolumn131"	MinWidth="25"	Binding="{Binding 金额127}" />
-                                    <DataGridTextColumn x:Name="fycolumn132"	MinWidth="25"	Binding="{Binding 金额128}" />
-                                    <DataGridTextColumn x:Name="fycolumn133"	MinWidth="25"	Binding="{Binding 金额129}" />
-                                    <DataGridTextColumn x:Name="fycolumn134"	MinWidth="25"	Binding="{Binding 金额130}" />
-                                    <DataGridTextColumn x:Name="fycolumn135"	MinWidth="25"	Binding="{Binding 金额131}" />
-                                    <DataGridTextColumn x:Name="fycolumn136"	MinWidth="25"	Binding="{Binding 金额132}" />
-                                    <DataGridTextColumn x:Name="fycolumn137"	MinWidth="25"	Binding="{Binding 金额133}" />
-                                    <DataGridTextColumn x:Name="fycolumn138"	MinWidth="25"	Binding="{Binding 金额134}" />
-                                    <DataGridTextColumn x:Name="fycolumn139"	MinWidth="25"	Binding="{Binding 金额135}" />
-                                    <DataGridTextColumn x:Name="fycolumn140"	MinWidth="25"	Binding="{Binding 金额136}" />
-                                    <DataGridTextColumn x:Name="fycolumn141"	MinWidth="25"	Binding="{Binding 金额137}" />
-                                    <DataGridTextColumn x:Name="fycolumn142"	MinWidth="25"	Binding="{Binding 金额138}" />
-                                    <DataGridTextColumn x:Name="fycolumn143"	MinWidth="25"	Binding="{Binding 金额139}" />
-                                    <DataGridTextColumn x:Name="fycolumn144"	MinWidth="25"	Binding="{Binding 金额140}" />
+                                    <DataGridTextColumn x:Name="fycolumn5"	Binding="{Binding 借方金额1}" />
+                                    <DataGridTextColumn x:Name="fycolumn6"	Binding="{Binding 借方金额2}" />
+                                    <DataGridTextColumn x:Name="fycolumn7"	Binding="{Binding 借方金额3}" />
+                                    <DataGridTextColumn x:Name="fycolumn8"	Binding="{Binding 借方金额4}" />
+                                    <DataGridTextColumn x:Name="fycolumn9"	Binding="{Binding 借方金额5}" />
+                                    <DataGridTextColumn x:Name="fycolumn10"	Binding="{Binding 借方金额6}" />
+                                    <DataGridTextColumn x:Name="fycolumn11"	Binding="{Binding 借方金额7}" />
+                                    <DataGridTextColumn x:Name="fycolumn12"	Binding="{Binding 借方金额8}" />
+                                    <DataGridTextColumn x:Name="fycolumn13"	Binding="{Binding 借方金额9}" />
+                                    <DataGridTextColumn x:Name="fycolumn14"	Binding="{Binding 借方金额10}" />
+                                    <DataGridTextColumn x:Name="fycolumn15"	Binding="{Binding 贷方金额1}" />
+                                    <DataGridTextColumn x:Name="fycolumn16"	Binding="{Binding 贷方金额2}" />
+                                    <DataGridTextColumn x:Name="fycolumn17"	Binding="{Binding 贷方金额3}" />
+                                    <DataGridTextColumn x:Name="fycolumn18"	Binding="{Binding 贷方金额4}" />
+                                    <DataGridTextColumn x:Name="fycolumn19"	Binding="{Binding 贷方金额5}" />
+                                    <DataGridTextColumn x:Name="fycolumn20"	Binding="{Binding 贷方金额6}" />
+                                    <DataGridTextColumn x:Name="fycolumn21"	Binding="{Binding 贷方金额7}" />
+                                    <DataGridTextColumn x:Name="fycolumn22"	Binding="{Binding 贷方金额8}" />
+                                    <DataGridTextColumn x:Name="fycolumn23"	Binding="{Binding 贷方金额9}" />
+                                    <DataGridTextColumn x:Name="fycolumn24"	Binding="{Binding 贷方金额10}" />
+                                    <DataGridTextColumn x:Name="fycolumn25"	Binding="{Binding 余额1}" />
+                                    <DataGridTextColumn x:Name="fycolumn26"	Binding="{Binding 余额2}" />
+                                    <DataGridTextColumn x:Name="fycolumn27"	Binding="{Binding 余额3}" />
+                                    <DataGridTextColumn x:Name="fycolumn28"	Binding="{Binding 余额4}" />
+                                    <DataGridTextColumn x:Name="fycolumn29"	Binding="{Binding 余额5}" />
+                                    <DataGridTextColumn x:Name="fycolumn30"	Binding="{Binding 余额6}" />
+                                    <DataGridTextColumn x:Name="fycolumn31"	Binding="{Binding 余额7}" />
+                                    <DataGridTextColumn x:Name="fycolumn32"	Binding="{Binding 余额8}" />
+                                    <DataGridTextColumn x:Name="fycolumn33"	Binding="{Binding 余额9}" />
+                                    <DataGridTextColumn x:Name="fycolumn34"	Binding="{Binding 余额10}" />
+                                    <DataGridTextColumn x:Name="fycolumn35"	Binding="{Binding 金额31}" />
+                                    <DataGridTextColumn x:Name="fycolumn36"	Binding="{Binding 金额32}" />
+                                    <DataGridTextColumn x:Name="fycolumn37"	Binding="{Binding 金额33}" />
+                                    <DataGridTextColumn x:Name="fycolumn38"	Binding="{Binding 金额34}" />
+                                    <DataGridTextColumn x:Name="fycolumn39"	Binding="{Binding 金额35}" />
+                                    <DataGridTextColumn x:Name="fycolumn40"	Binding="{Binding 金额36}" />
+                                    <DataGridTextColumn x:Name="fycolumn41"	Binding="{Binding 金额37}" />
+                                    <DataGridTextColumn x:Name="fycolumn42"	Binding="{Binding 金额38}" />
+                                    <DataGridTextColumn x:Name="fycolumn43"	Binding="{Binding 金额39}" />
+                                    <DataGridTextColumn x:Name="fycolumn44"	Binding="{Binding 金额40}" />
+                                    <DataGridTextColumn x:Name="fycolumn45"	Binding="{Binding 金额41}" />
+                                    <DataGridTextColumn x:Name="fycolumn46"	Binding="{Binding 金额42}" />
+                                    <DataGridTextColumn x:Name="fycolumn47"	Binding="{Binding 金额43}" />
+                                    <DataGridTextColumn x:Name="fycolumn48"	Binding="{Binding 金额44}" />
+                                    <DataGridTextColumn x:Name="fycolumn49"	Binding="{Binding 金额45}" />
+                                    <DataGridTextColumn x:Name="fycolumn50"	Binding="{Binding 金额46}" />
+                                    <DataGridTextColumn x:Name="fycolumn51"	Binding="{Binding 金额47}" />
+                                    <DataGridTextColumn x:Name="fycolumn52"	Binding="{Binding 金额48}" />
+                                    <DataGridTextColumn x:Name="fycolumn53"	Binding="{Binding 金额49}" />
+                                    <DataGridTextColumn x:Name="fycolumn54"	Binding="{Binding 金额50}" />
+                                    <DataGridTextColumn x:Name="fycolumn55"	Binding="{Binding 金额51}" />
+                                    <DataGridTextColumn x:Name="fycolumn56"	Binding="{Binding 金额52}" />
+                                    <DataGridTextColumn x:Name="fycolumn57"	Binding="{Binding 金额53}" />
+                                    <DataGridTextColumn x:Name="fycolumn58"	Binding="{Binding 金额54}" />
+                                    <DataGridTextColumn x:Name="fycolumn59"	Binding="{Binding 金额55}" />
+                                    <DataGridTextColumn x:Name="fycolumn60"	Binding="{Binding 金额56}" />
+                                    <DataGridTextColumn x:Name="fycolumn61"	Binding="{Binding 金额57}" />
+                                    <DataGridTextColumn x:Name="fycolumn62"	Binding="{Binding 金额58}" />
+                                    <DataGridTextColumn x:Name="fycolumn63"	Binding="{Binding 金额59}" />
+                                    <DataGridTextColumn x:Name="fycolumn64"	Binding="{Binding 金额60}" />
+                                    <DataGridTextColumn x:Name="fycolumn65"	Binding="{Binding 金额61}" />
+                                    <DataGridTextColumn x:Name="fycolumn66"	Binding="{Binding 金额62}" />
+                                    <DataGridTextColumn x:Name="fycolumn67"	Binding="{Binding 金额63}" />
+                                    <DataGridTextColumn x:Name="fycolumn68"	Binding="{Binding 金额64}" />
+                                    <DataGridTextColumn x:Name="fycolumn69"	Binding="{Binding 金额65}" />
+                                    <DataGridTextColumn x:Name="fycolumn70"	Binding="{Binding 金额66}" />
+                                    <DataGridTextColumn x:Name="fycolumn71"	Binding="{Binding 金额67}" />
+                                    <DataGridTextColumn x:Name="fycolumn72"	Binding="{Binding 金额68}" />
+                                    <DataGridTextColumn x:Name="fycolumn73"	Binding="{Binding 金额69}" />
+                                    <DataGridTextColumn x:Name="fycolumn74"	Binding="{Binding 金额70}" />
+                                    <DataGridTextColumn x:Name="fycolumn75"	Binding="{Binding 金额71}" />
+                                    <DataGridTextColumn x:Name="fycolumn76"	Binding="{Binding 金额72}" />
+                                    <DataGridTextColumn x:Name="fycolumn77"	Binding="{Binding 金额73}" />
+                                    <DataGridTextColumn x:Name="fycolumn78"	Binding="{Binding 金额74}" />
+                                    <DataGridTextColumn x:Name="fycolumn79"	Binding="{Binding 金额75}" />
+                                    <DataGridTextColumn x:Name="fycolumn80"	Binding="{Binding 金额76}" />
+                                    <DataGridTextColumn x:Name="fycolumn81"	Binding="{Binding 金额77}" />
+                                    <DataGridTextColumn x:Name="fycolumn82"	Binding="{Binding 金额78}" />
+                                    <DataGridTextColumn x:Name="fycolumn83"	Binding="{Binding 金额79}" />
+                                    <DataGridTextColumn x:Name="fycolumn84"	Binding="{Binding 金额80}" />
+                                    <DataGridTextColumn x:Name="fycolumn85"	Binding="{Binding 金额81}" />
+                                    <DataGridTextColumn x:Name="fycolumn86"	Binding="{Binding 金额82}" />
+                                    <DataGridTextColumn x:Name="fycolumn87"	Binding="{Binding 金额83}" />
+                                    <DataGridTextColumn x:Name="fycolumn88"	Binding="{Binding 金额84}" />
+                                    <DataGridTextColumn x:Name="fycolumn89"	Binding="{Binding 金额85}" />
+                                    <DataGridTextColumn x:Name="fycolumn90"	Binding="{Binding 金额86}" />
+                                    <DataGridTextColumn x:Name="fycolumn91"	Binding="{Binding 金额87}" />
+                                    <DataGridTextColumn x:Name="fycolumn92"	Binding="{Binding 金额88}" />
+                                    <DataGridTextColumn x:Name="fycolumn93"	Binding="{Binding 金额89}" />
+                                    <DataGridTextColumn x:Name="fycolumn94"	Binding="{Binding 金额90}" />
+                                    <DataGridTextColumn x:Name="fycolumn95"	Binding="{Binding 金额91}" />
+                                    <DataGridTextColumn x:Name="fycolumn96"	Binding="{Binding 金额92}" />
+                                    <DataGridTextColumn x:Name="fycolumn97"	Binding="{Binding 金额93}" />
+                                    <DataGridTextColumn x:Name="fycolumn98"	Binding="{Binding 金额94}" />
+                                    <DataGridTextColumn x:Name="fycolumn99"	Binding="{Binding 金额95}" />
+                                    <DataGridTextColumn x:Name="fycolumn100" Binding="{Binding 金额96}" />
+                                    <DataGridTextColumn x:Name="fycolumn101" Binding="{Binding 金额97}" />
+                                    <DataGridTextColumn x:Name="fycolumn102" Binding="{Binding 金额98}" />
+                                    <DataGridTextColumn x:Name="fycolumn103" Binding="{Binding 金额99}" />
+                                    <DataGridTextColumn x:Name="fycolumn104" Binding="{Binding 金额100}" />
+                                    <DataGridTextColumn x:Name="fycolumn105" Binding="{Binding 金额101}" />
+                                    <DataGridTextColumn x:Name="fycolumn106" Binding="{Binding 金额102}" />
+                                    <DataGridTextColumn x:Name="fycolumn107" Binding="{Binding 金额103}" />
+                                    <DataGridTextColumn x:Name="fycolumn108" Binding="{Binding 金额104}" />
+                                    <DataGridTextColumn x:Name="fycolumn109" Binding="{Binding 金额105}" />
+                                    <DataGridTextColumn x:Name="fycolumn110" Binding="{Binding 金额106}" />
+                                    <DataGridTextColumn x:Name="fycolumn111" Binding="{Binding 金额107}" />
+                                    <DataGridTextColumn x:Name="fycolumn112" Binding="{Binding 金额108}" />
+                                    <DataGridTextColumn x:Name="fycolumn113" Binding="{Binding 金额109}" />
+                                    <DataGridTextColumn x:Name="fycolumn114" Binding="{Binding 金额110}" />
+                                    <DataGridTextColumn x:Name="fycolumn115" Binding="{Binding 金额111}" />
+                                    <DataGridTextColumn x:Name="fycolumn116" Binding="{Binding 金额112}" />
+                                    <DataGridTextColumn x:Name="fycolumn117" Binding="{Binding 金额113}" />
+                                    <DataGridTextColumn x:Name="fycolumn118" Binding="{Binding 金额114}" />
+                                    <DataGridTextColumn x:Name="fycolumn119" Binding="{Binding 金额115}" />
+                                    <DataGridTextColumn x:Name="fycolumn120" Binding="{Binding 金额116}" />
+                                    <DataGridTextColumn x:Name="fycolumn121" Binding="{Binding 金额117}" />
+                                    <DataGridTextColumn x:Name="fycolumn122" Binding="{Binding 金额118}" />
+                                    <DataGridTextColumn x:Name="fycolumn123" Binding="{Binding 金额119}" />
+                                    <DataGridTextColumn x:Name="fycolumn124" Binding="{Binding 金额120}" />
+                                    <DataGridTextColumn x:Name="fycolumn125" Binding="{Binding 金额121}" />
+                                    <DataGridTextColumn x:Name="fycolumn126" Binding="{Binding 金额122}" />
+                                    <DataGridTextColumn x:Name="fycolumn127" Binding="{Binding 金额123}" />
+                                    <DataGridTextColumn x:Name="fycolumn128" Binding="{Binding 金额124}" />
+                                    <DataGridTextColumn x:Name="fycolumn129" Binding="{Binding 金额125}" />
+                                    <DataGridTextColumn x:Name="fycolumn130" Binding="{Binding 金额126}" />
+                                    <DataGridTextColumn x:Name="fycolumn131" Binding="{Binding 金额127}" />
+                                    <DataGridTextColumn x:Name="fycolumn132" Binding="{Binding 金额128}" />
+                                    <DataGridTextColumn x:Name="fycolumn133" Binding="{Binding 金额129}" />
+                                    <DataGridTextColumn x:Name="fycolumn134" Binding="{Binding 金额130}" />
+                                    <DataGridTextColumn x:Name="fycolumn135" Binding="{Binding 金额131}" />
+                                    <DataGridTextColumn x:Name="fycolumn136" Binding="{Binding 金额132}" />
+                                    <DataGridTextColumn x:Name="fycolumn137" Binding="{Binding 金额133}" />
+                                    <DataGridTextColumn x:Name="fycolumn138" Binding="{Binding 金额134}" />
+                                    <DataGridTextColumn x:Name="fycolumn139" Binding="{Binding 金额135}" />
+                                    <DataGridTextColumn x:Name="fycolumn140" Binding="{Binding 金额136}" />
+                                    <DataGridTextColumn x:Name="fycolumn141" Binding="{Binding 金额137}" />
+                                    <DataGridTextColumn x:Name="fycolumn142" Binding="{Binding 金额138}" />
+                                    <DataGridTextColumn x:Name="fycolumn143" Binding="{Binding 金额139}" />
+                                    <DataGridTextColumn x:Name="fycolumn144" Binding="{Binding 金额140}" />
                                 </DataGrid.Columns>
                             </DataGrid>
                         </Grid>
@@ -891,8 +891,6 @@
                                 <ColumnDefinition Width="{Binding ElementName=column15,Path=ActualWidth}"/>
                                 <ColumnDefinition Width="{Binding ElementName=column16,Path=ActualWidth}"/>
                                 <ColumnDefinition Width="{Binding ElementName=column17,Path=ActualWidth}"/>
-                                <ColumnDefinition Width="{Binding ElementName=column6,Path=ActualWidth}"/>
-                                <ColumnDefinition Width="{Binding ElementName=column17,Path=ActualWidth}"/>
                                 <ColumnDefinition Width="{Binding ElementName=column18,Path=ActualWidth}"/>
                                 <ColumnDefinition Width="{Binding ElementName=column19,Path=ActualWidth}"/>
                                 <ColumnDefinition Width="{Binding ElementName=column20,Path=ActualWidth}"/>
@@ -919,6 +917,8 @@
                                 <ColumnDefinition Width="{Binding ElementName=column41,Path=ActualWidth}"/>
                                 <ColumnDefinition Width="{Binding ElementName=column42,Path=ActualWidth}"/>
                                 <ColumnDefinition Width="{Binding ElementName=column43,Path=ActualWidth}"/>
+                                <ColumnDefinition Width="{Binding ElementName=column44,Path=ActualWidth}"/>
+                                <ColumnDefinition Width="{Binding ElementName=column45,Path=ActualWidth}"/>
                             </Grid.ColumnDefinitions>
                             <Border BorderBrush="#FF99CCFF" BorderThickness="1" Grid.ColumnSpan="45" Grid.RowSpan="3" Background="#FF99CCFF" />
                             <!--First Line-->
@@ -1041,49 +1041,48 @@
                                     <DataGridTextColumn x:Name="column3" MinWidth="40" Binding="{Binding 号数}"/>
                                     <DataGridTextColumn x:Name="column4" MinWidth="100" Binding="{Binding 摘要}"/>
                                     <DataGridTextColumn x:Name="column5"/>
-                                    <DataGridTextColumn x:Name="column6" MinWidth="25" Binding="{Binding 借方金额1}"/>
-                                    <DataGridTextColumn x:Name="column7" MinWidth="25" Binding="{Binding 借方金额2}"/>
-                                    <DataGridTextColumn x:Name="column8" MinWidth="25" Binding="{Binding 借方金额3}"/>
-                                    <DataGridTextColumn x:Name="column9" MinWidth="25" Binding="{Binding 借方金额4}"/>
-                                    <DataGridTextColumn x:Name="column10" MinWidth="25" Binding="{Binding 借方金额5}"/>
-                                    <DataGridTextColumn x:Name="column11" MinWidth="25" Binding="{Binding 借方金额6}"/>
-                                    <DataGridTextColumn x:Name="column12" MinWidth="25" Binding="{Binding 借方金额7}"/>
-                                    <DataGridTextColumn x:Name="column13" MinWidth="25" Binding="{Binding 借方金额8}"/>
-                                    <DataGridTextColumn x:Name="column14" MinWidth="25" Binding="{Binding 借方金额9}"/>
-                                    <DataGridTextColumn x:Name="column15" MinWidth="25" Binding="{Binding 借方金额10}"/>
-                                    <DataGridTextColumn x:Name="column16" MinWidth="25" Binding="{Binding 借方金额11}"/>
-                                    <DataGridTextColumn x:Name="column17" MinWidth="25" Binding="{Binding 借方金额12}"/>
-                                    <DataGridTextColumn x:Name="column18" MinWidth="25"/>
-                                    <DataGridTextColumn x:Name="column19" MinWidth="25" Binding="{Binding 贷方金额1}"/>
-                                    <DataGridTextColumn x:Name="column20" MinWidth="25" Binding="{Binding 贷方金额2}"/>
-                                    <DataGridTextColumn x:Name="column21" MinWidth="25" Binding="{Binding 贷方金额3}"/>
-                                    <DataGridTextColumn x:Name="column22"	MinWidth="25" Binding="{Binding 贷方金额4}"/>
-                                    <DataGridTextColumn x:Name="column23"	MinWidth="25" Binding="{Binding 贷方金额5}"/>
-                                    <DataGridTextColumn x:Name="column24"	MinWidth="25" Binding="{Binding 贷方金额6}"/>
-                                    <DataGridTextColumn x:Name="column25"	MinWidth="25" Binding="{Binding 贷方金额7}"/>
-                                    <DataGridTextColumn x:Name="column26"	MinWidth="25" Binding="{Binding 贷方金额8}"/>
-                                    <DataGridTextColumn x:Name="column27"	MinWidth="25" Binding="{Binding 贷方金额9}"/>
-                                    <DataGridTextColumn x:Name="column28"	MinWidth="25" Binding="{Binding 贷方金额10}"/>
-                                    <DataGridTextColumn x:Name="column29"	MinWidth="25" Binding="{Binding 贷方金额11}"/>
-                                    <DataGridTextColumn x:Name="column30"	MinWidth="25" Binding="{Binding 贷方金额12}"/>
-                                    <DataGridTextColumn x:Name="column31" MinWidth="25"/>
-                                    <DataGridTextColumn x:Name="column32" MinWidth="25" Binding="{Binding 借或贷}" />
-                                    <DataGridTextColumn x:Name="column33"	MinWidth="25" Binding="{Binding 余额1}"/>
-                                    <DataGridTextColumn x:Name="column34"	MinWidth="25" Binding="{Binding 余额2}"/>
-                                    <DataGridTextColumn x:Name="column35"	MinWidth="25" Binding="{Binding 余额3}"/>
-                                    <DataGridTextColumn x:Name="column36"	MinWidth="25" Binding="{Binding 余额4}"/>
-                                    <DataGridTextColumn x:Name="column37"	MinWidth="25" Binding="{Binding 余额5}"/>
-                                    <DataGridTextColumn x:Name="column38"	MinWidth="25" Binding="{Binding 余额6}"/>
-                                    <DataGridTextColumn x:Name="column39"	MinWidth="25" Binding="{Binding 余额7}"/>
-                                    <DataGridTextColumn x:Name="column40"	MinWidth="25" Binding="{Binding 余额8}"/>
-                                    <DataGridTextColumn x:Name="column41"	MinWidth="25" Binding="{Binding 余额9}"/>
-                                    <DataGridTextColumn x:Name="column42"	MinWidth="25" Binding="{Binding 余额10}"/>
-                                    <DataGridTextColumn x:Name="column43"	MinWidth="25" Binding="{Binding 余额11}"/>
-                                    <DataGridTextColumn x:Name="column44"	MinWidth="25" Binding="{Binding 余额12}"/>
-                                    <DataGridTextColumn x:Name="column45" MinWidth="25" />
+                                    <DataGridTextColumn x:Name="column6" Binding="{Binding 借方金额1}"/>
+                                    <DataGridTextColumn x:Name="column7" Binding="{Binding 借方金额2}"/>
+                                    <DataGridTextColumn x:Name="column8" Binding="{Binding 借方金额3}"/>
+                                    <DataGridTextColumn x:Name="column9" Binding="{Binding 借方金额4}"/>
+                                    <DataGridTextColumn x:Name="column10" Binding="{Binding 借方金额5}"/>
+                                    <DataGridTextColumn x:Name="column11" Binding="{Binding 借方金额6}"/>
+                                    <DataGridTextColumn x:Name="column12" Binding="{Binding 借方金额7}"/>
+                                    <DataGridTextColumn x:Name="column13" Binding="{Binding 借方金额8}"/>
+                                    <DataGridTextColumn x:Name="column14" Binding="{Binding 借方金额9}"/>
+                                    <DataGridTextColumn x:Name="column15" Binding="{Binding 借方金额10}"/>
+                                    <DataGridTextColumn x:Name="column16" Binding="{Binding 借方金额11}"/>
+                                    <DataGridTextColumn x:Name="column17" Binding="{Binding 借方金额12}"/>
+                                    <DataGridTextColumn x:Name="column18"/>
+                                    <DataGridTextColumn x:Name="column19" Binding="{Binding 贷方金额1}"/>
+                                    <DataGridTextColumn x:Name="column20" Binding="{Binding 贷方金额2}"/>
+                                    <DataGridTextColumn x:Name="column21" Binding="{Binding 贷方金额3}"/>
+                                    <DataGridTextColumn x:Name="column22" Binding="{Binding 贷方金额4}"/>
+                                    <DataGridTextColumn x:Name="column23" Binding="{Binding 贷方金额5}"/>
+                                    <DataGridTextColumn x:Name="column24" Binding="{Binding 贷方金额6}"/>
+                                    <DataGridTextColumn x:Name="column25" Binding="{Binding 贷方金额7}"/>
+                                    <DataGridTextColumn x:Name="column26" Binding="{Binding 贷方金额8}"/>
+                                    <DataGridTextColumn x:Name="column27" Binding="{Binding 贷方金额9}"/>
+                                    <DataGridTextColumn x:Name="column28" Binding="{Binding 贷方金额10}"/>
+                                    <DataGridTextColumn x:Name="column29" Binding="{Binding 贷方金额11}"/>
+                                    <DataGridTextColumn x:Name="column30" Binding="{Binding 贷方金额12}"/>
+                                    <DataGridTextColumn x:Name="column31"/>
+                                    <DataGridTextColumn x:Name="column32" Binding="{Binding 借或贷}" />
+                                    <DataGridTextColumn x:Name="column33" Binding="{Binding 余额1}"/>
+                                    <DataGridTextColumn x:Name="column34" Binding="{Binding 余额2}"/>
+                                    <DataGridTextColumn x:Name="column35" Binding="{Binding 余额3}"/>
+                                    <DataGridTextColumn x:Name="column36" Binding="{Binding 余额4}"/>
+                                    <DataGridTextColumn x:Name="column37" Binding="{Binding 余额5}"/>
+                                    <DataGridTextColumn x:Name="column38" Binding="{Binding 余额6}"/>
+                                    <DataGridTextColumn x:Name="column39" Binding="{Binding 余额7}"/>
+                                    <DataGridTextColumn x:Name="column40" Binding="{Binding 余额8}"/>
+                                    <DataGridTextColumn x:Name="column41" Binding="{Binding 余额9}"/>
+                                    <DataGridTextColumn x:Name="column42" Binding="{Binding 余额10}"/>
+                                    <DataGridTextColumn x:Name="column43" Binding="{Binding 余额11}"/>
+                                    <DataGridTextColumn x:Name="column44" Binding="{Binding 余额12}"/>
+                                    <DataGridTextColumn x:Name="column45"/>
                                 </DataGrid.Columns>
                             </DataGrid>
-                            
                         </Grid>
                     </ScrollViewer>
                     <ComboBox x:Name="ComboBox_Date" HorizontalAlignment="Left" Margin="318,25,0,0" VerticalAlignment="Top" Width="100" SelectionChanged="ComboBox_Date_SelectionChanged"/>
