@@ -232,9 +232,9 @@
                                 <Label x:Name="totalY2" Content="" Grid.Column="6" Grid.Row="24" />
                                 <Label x:Name="totalN2" Content="" Grid.Column="7" Grid.Row="24" />
                             </Grid>
-                            <Label x:Name="Label_单位负责人" Content="单位负责人：" HorizontalAlignment="Left" Margin="0" VerticalAlignment="Bottom" Height="24" Width="82"/>
-                            <Label x:Name="Label_填表人" Content="填表人：" HorizontalAlignment="Left" Margin="300,0,0,0" VerticalAlignment="Bottom" Height="24" Width="58"/>
-                            <Label x:Name="Label_填表日期" Content="填表日期：" HorizontalAlignment="Left" Margin="575,0,0,0" VerticalAlignment="Bottom" Height="24" Width="70"/>
+                            <Label x:Name="Label_单位负责人" Content="单位负责人：" HorizontalAlignment="Left" Margin="0" VerticalAlignment="Bottom" Height="24" Width="Auto"/>
+                            <Label x:Name="Label_填表人" Content="填表人：" HorizontalAlignment="Left" Margin="300,0,0,0" VerticalAlignment="Bottom" Height="24" Width="Auto"/>
+                            <Label x:Name="Label_填表日期" Content="填表日期：" HorizontalAlignment="Left" Margin="575,0,0,0" VerticalAlignment="Bottom" Height="24" Width="Auto"/>
                         </Grid>
                     </ScrollViewer>
                 </Grid>

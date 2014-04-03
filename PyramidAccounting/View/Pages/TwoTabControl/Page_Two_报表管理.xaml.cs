@@ -119,7 +119,8 @@ namespace PA.View.Pages.TwoTabControl
                 totalN1.Content = sumn1 + sumn5;
                 totalY2.Content = sumy2 + sumy3 + sumy4;
                 totalN2.Content = sumn2 + sumn3 + sumn4;
-                Label_填表人.Content="";
+                Label_填表人.Content = "填表人：" + CommonInfo.真实姓名 ;
+                Label_填表日期.Content = "填表日期：" + DateTime.Now.ToLongDateString();
             }
             else
             {
