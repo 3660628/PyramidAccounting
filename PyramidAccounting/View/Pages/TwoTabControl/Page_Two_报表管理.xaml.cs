@@ -65,7 +65,8 @@ namespace PA.View.Pages.TwoTabControl
                 {
                     Label lb = FindName("y01") as Label;
                     lb.Content = list[0].年初数;
-                    lb.Content = list[0].期末数;
+                    Label lb2 = FindName("n01") as Label;
+                    lb2.Content = list[0].期末数;
                 }
                 
             }
