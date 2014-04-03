@@ -377,6 +377,7 @@
                                 <ColumnDefinition Width="{Binding ElementName=fycolumn141,Path=ActualWidth}"/>
                                 <ColumnDefinition Width="{Binding ElementName=fycolumn142,Path=ActualWidth}"/>
                                 <ColumnDefinition Width="{Binding ElementName=fycolumn143,Path=ActualWidth}"/>
+                                <ColumnDefinition Width="{Binding ElementName=fycolumn144,Path=ActualWidth}"/>
                                 <ColumnDefinition />
                             </Grid.ColumnDefinitions>
                             <Border BorderBrush="#FF99CCFF" BorderThickness="1" Grid.ColumnSpan="144" Grid.RowSpan="4" Background="#FF99CCFF"/>
@@ -551,38 +552,38 @@
                             <Label Content="编号" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="2" Grid.Row="1" Grid.RowSpan="2"/>
                             <Label Content="摘要" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Grid.Column="3" Grid.RowSpan="3"/>
                             <Label Content="借方金额" HorizontalContentAlignment="Center" VerticalAlignment="Center" Grid.Column="4" Grid.ColumnSpan="10" Grid.RowSpan="2"/>
-                            <Label Content="千" Grid.Column="4" Grid.Row="2" />
-                            <Label Content="百" Grid.Column="5" Grid.Row="2" />
-                            <Label Content="十" Grid.Column="6" Grid.Row="2" />
-                            <Label Content="万" Grid.Column="7" Grid.Row="2" />
-                            <Label Content="千" Grid.Column="8" Grid.Row="2" />
-                            <Label Content="百" Grid.Column="9" Grid.Row="2" />
-                            <Label Content="十" Grid.Column="10" Grid.Row="2" />
-                            <Label Content="元" Grid.Column="11" Grid.Row="2" />
-                            <Label Content="角" Grid.Column="12" Grid.Row="2" />
-                            <Label Content="分" Grid.Column="13" Grid.Row="2" />
+                            <TextBlock Text="千" Grid.Column="4" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <TextBlock Text="百" Grid.Column="5" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <TextBlock Text="十" Grid.Column="6" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <TextBlock Text="万" Grid.Column="7" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <TextBlock Text="千" Grid.Column="8" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <TextBlock Text="百" Grid.Column="9" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <TextBlock Text="十" Grid.Column="10" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <TextBlock Text="元" Grid.Column="11" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <TextBlock Text="角" Grid.Column="12" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <TextBlock Text="分" Grid.Column="13" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                             <Label Content="贷方金额" HorizontalContentAlignment="Center" VerticalAlignment="Center" Grid.Column="14" Grid.ColumnSpan="10" Grid.RowSpan="2"/>
-                            <Label Content="千" Grid.Column="14" Grid.Row="2" />
-                            <Label Content="百" Grid.Column="15" Grid.Row="2" />
-                            <Label Content="十" Grid.Column="16" Grid.Row="2" />
-                            <Label Content="万" Grid.Column="17" Grid.Row="2" />
-                            <Label Content="千" Grid.Column="18" Grid.Row="2" />
-                            <Label Content="百" Grid.Column="19" Grid.Row="2" />
-                            <Label Content="十" Grid.Column="20" Grid.Row="2" />
-                            <Label Content="元" Grid.Column="21" Grid.Row="2" />
-                            <Label Content="角" Grid.Column="22" Grid.Row="2" />
-                            <Label Content="分" Grid.Column="23" Grid.Row="2" />
+                            <TextBlock Text="千" Grid.Column="14" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <TextBlock Text="百" Grid.Column="15" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <TextBlock Text="十" Grid.Column="16" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <TextBlock Text="万" Grid.Column="17" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <TextBlock Text="千" Grid.Column="18" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <TextBlock Text="百" Grid.Column="19" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <TextBlock Text="十" Grid.Column="20" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <TextBlock Text="元" Grid.Column="21" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <TextBlock Text="角" Grid.Column="22" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <TextBlock Text="分" Grid.Column="23" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                             <Label Content="余额" HorizontalContentAlignment="Center" VerticalAlignment="Center" Grid.Column="24" Grid.ColumnSpan="10" Grid.RowSpan="2"/>
-                            <Label Content="千" Grid.Column="24" Grid.Row="2" />
-                            <Label Content="百" Grid.Column="25" Grid.Row="2" />
-                            <Label Content="十" Grid.Column="26" Grid.Row="2" />
-                            <Label Content="万" Grid.Column="27" Grid.Row="2" />
-                            <Label Content="千" Grid.Column="28" Grid.Row="2" />
-                            <Label Content="百" Grid.Column="29" Grid.Row="2" />
-                            <Label Content="十" Grid.Column="30" Grid.Row="2" />
-                            <Label Content="元" Grid.Column="31" Grid.Row="2" />
-                            <Label Content="角" Grid.Column="32" Grid.Row="2" />
-                            <Label Content="分" Grid.Column="33" Grid.Row="2" />
+                            <TextBlock Text="千" Grid.Column="24" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <TextBlock Text="百" Grid.Column="25" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <TextBlock Text="十" Grid.Column="26" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <TextBlock Text="万" Grid.Column="27" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <TextBlock Text="千" Grid.Column="28" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <TextBlock Text="百" Grid.Column="29" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <TextBlock Text="十" Grid.Column="30" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <TextBlock Text="元" Grid.Column="31" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <TextBlock Text="角" Grid.Column="32" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <TextBlock Text="分" Grid.Column="33" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                             <Label Content="借       贷       方       金       额       分       析" HorizontalContentAlignment="Center" Grid.Column="34" Grid.ColumnSpan="90"/>
                             <Label x:Name="Label_1" Content="" HorizontalAlignment="Center" Grid.Column="34" Grid.ColumnSpan="10" Grid.Row="1" />
                             <Label x:Name="Label_2" Content="" HorizontalAlignment="Center" Grid.Column="44" Grid.ColumnSpan="10" Grid.Row="1" />
@@ -595,262 +596,262 @@
                             <Label x:Name="Label_9" Content="" HorizontalAlignment="Center" Grid.Column="114" Grid.ColumnSpan="10" Grid.Row="1" />
                             <Label x:Name="Label_10" Content="" HorizontalAlignment="Center" Grid.Column="124" Grid.ColumnSpan="10" Grid.Row="1" />
                             <Label x:Name="Label_11" Content="" HorizontalAlignment="Center" Grid.Column="134" Grid.ColumnSpan="10" Grid.Row="1" />
-                            <Label Content="千" Grid.Column="34" Grid.Row="2" />
-                            <Label Content="百" Grid.Column="35" Grid.Row="2" />
-                            <Label Content="十" Grid.Column="36" Grid.Row="2" />
-                            <Label Content="万" Grid.Column="37" Grid.Row="2" />
-                            <Label Content="千" Grid.Column="38" Grid.Row="2" />
-                            <Label Content="百" Grid.Column="39" Grid.Row="2" />
-                            <Label Content="十" Grid.Column="40" Grid.Row="2" />
-                            <Label Content="元" Grid.Column="41" Grid.Row="2" />
-                            <Label Content="角" Grid.Column="42" Grid.Row="2" />
-                            <Label Content="分" Grid.Column="43" Grid.Row="2" />
-                            <Label Content="千"	Grid.Column="44"	Grid.Row="2" />
-                            <Label Content="百"	Grid.Column="45"	Grid.Row="2" />
-                            <Label Content="十"	Grid.Column="46"	Grid.Row="2" />
-                            <Label Content="万"	Grid.Column="47"	Grid.Row="2" />
-                            <Label Content="千"	Grid.Column="48"	Grid.Row="2" />
-                            <Label Content="百"	Grid.Column="49"	Grid.Row="2" />
-                            <Label Content="十"	Grid.Column="50"	Grid.Row="2" />
-                            <Label Content="元"	Grid.Column="51"	Grid.Row="2" />
-                            <Label Content="角"	Grid.Column="52"	Grid.Row="2" />
-                            <Label Content="分"	Grid.Column="53"	Grid.Row="2" />
-                            <Label Content="千"	Grid.Column="54"	Grid.Row="2" />
-                            <Label Content="百"	Grid.Column="55"	Grid.Row="2" />
-                            <Label Content="十"	Grid.Column="56"	Grid.Row="2" />
-                            <Label Content="万"	Grid.Column="57"	Grid.Row="2" />
-                            <Label Content="千"	Grid.Column="58"	Grid.Row="2" />
-                            <Label Content="百"	Grid.Column="59"	Grid.Row="2" />
-                            <Label Content="十"	Grid.Column="60"	Grid.Row="2" />
-                            <Label Content="元"	Grid.Column="61"	Grid.Row="2" />
-                            <Label Content="角"	Grid.Column="62"	Grid.Row="2" />
-                            <Label Content="分"	Grid.Column="63"	Grid.Row="2" />
-                            <Label Content="千"	Grid.Column="64"	Grid.Row="2" />
-                            <Label Content="百"	Grid.Column="65"	Grid.Row="2" />
-                            <Label Content="十"	Grid.Column="66"	Grid.Row="2" />
-                            <Label Content="万"	Grid.Column="67"	Grid.Row="2" />
-                            <Label Content="千"	Grid.Column="68"	Grid.Row="2" />
-                            <Label Content="百"	Grid.Column="69"	Grid.Row="2" />
-                            <Label Content="十"	Grid.Column="70"	Grid.Row="2" />
-                            <Label Content="元"	Grid.Column="71"	Grid.Row="2" />
-                            <Label Content="角"	Grid.Column="72"	Grid.Row="2" />
-                            <Label Content="分"	Grid.Column="73"	Grid.Row="2" />
-                            <Label Content="千"	Grid.Column="74"	Grid.Row="2" />
-                            <Label Content="百"	Grid.Column="75"	Grid.Row="2" />
-                            <Label Content="十"	Grid.Column="76"	Grid.Row="2" />
-                            <Label Content="万"	Grid.Column="77"	Grid.Row="2" />
-                            <Label Content="千"	Grid.Column="78"	Grid.Row="2" />
-                            <Label Content="百"	Grid.Column="79"	Grid.Row="2" />
-                            <Label Content="十"	Grid.Column="80"	Grid.Row="2" />
-                            <Label Content="元"	Grid.Column="81"	Grid.Row="2" />
-                            <Label Content="角"	Grid.Column="82"	Grid.Row="2" />
-                            <Label Content="分"	Grid.Column="83"	Grid.Row="2" />
-                            <Label Content="千"	Grid.Column="84"	Grid.Row="2" />
-                            <Label Content="百"	Grid.Column="85"	Grid.Row="2" />
-                            <Label Content="十"	Grid.Column="86"	Grid.Row="2" />
-                            <Label Content="万"	Grid.Column="87"	Grid.Row="2" />
-                            <Label Content="千"	Grid.Column="88"	Grid.Row="2" />
-                            <Label Content="百"	Grid.Column="89"	Grid.Row="2" />
-                            <Label Content="十"	Grid.Column="90"	Grid.Row="2" />
-                            <Label Content="元"	Grid.Column="91"	Grid.Row="2" />
-                            <Label Content="角"	Grid.Column="92"	Grid.Row="2" />
-                            <Label Content="分"	Grid.Column="93"	Grid.Row="2" />
-                            <Label Content="千"	Grid.Column="94"	Grid.Row="2" />
-                            <Label Content="百"	Grid.Column="95"	Grid.Row="2" />
-                            <Label Content="十"	Grid.Column="96"	Grid.Row="2" />
-                            <Label Content="万"	Grid.Column="97"	Grid.Row="2" />
-                            <Label Content="千"	Grid.Column="98"	Grid.Row="2" />
-                            <Label Content="百"	Grid.Column="99"	Grid.Row="2" />
-                            <Label Content="十"	Grid.Column="100"	Grid.Row="2" />
-                            <Label Content="元"	Grid.Column="101"	Grid.Row="2" />
-                            <Label Content="角"	Grid.Column="102"	Grid.Row="2" />
-                            <Label Content="分"	Grid.Column="103"	Grid.Row="2" />
-                            <Label Content="千"	Grid.Column="104"	Grid.Row="2" />
-                            <Label Content="百"	Grid.Column="105"	Grid.Row="2" />
-                            <Label Content="十"	Grid.Column="106"	Grid.Row="2" />
-                            <Label Content="万"	Grid.Column="107"	Grid.Row="2" />
-                            <Label Content="千"	Grid.Column="108"	Grid.Row="2" />
-                            <Label Content="百"	Grid.Column="109"	Grid.Row="2" />
-                            <Label Content="十"	Grid.Column="110"	Grid.Row="2" />
-                            <Label Content="元"	Grid.Column="111"	Grid.Row="2" />
-                            <Label Content="角"	Grid.Column="112"	Grid.Row="2" />
-                            <Label Content="分"	Grid.Column="113"	Grid.Row="2" />
-                            <Label Content="千"	Grid.Column="114"	Grid.Row="2" />
-                            <Label Content="百"	Grid.Column="115"	Grid.Row="2" />
-                            <Label Content="十"	Grid.Column="116"	Grid.Row="2" />
-                            <Label Content="万"	Grid.Column="117"	Grid.Row="2" />
-                            <Label Content="千"	Grid.Column="118"	Grid.Row="2" />
-                            <Label Content="百"	Grid.Column="119"	Grid.Row="2" />
-                            <Label Content="十"	Grid.Column="120"	Grid.Row="2" />
-                            <Label Content="元"	Grid.Column="121"	Grid.Row="2" />
-                            <Label Content="角"	Grid.Column="122"	Grid.Row="2" />
-                            <Label Content="分"	Grid.Column="123"	Grid.Row="2" />
-                            <Label Content="千"	Grid.Column="124"	Grid.Row="2" />
-                            <Label Content="百"	Grid.Column="125"	Grid.Row="2" />
-                            <Label Content="十"	Grid.Column="126"	Grid.Row="2" />
-                            <Label Content="万"	Grid.Column="127"	Grid.Row="2" />
-                            <Label Content="千"	Grid.Column="128"	Grid.Row="2" />
-                            <Label Content="百"	Grid.Column="129"	Grid.Row="2" />
-                            <Label Content="十"	Grid.Column="130"	Grid.Row="2" />
-                            <Label Content="元"	Grid.Column="131"	Grid.Row="2" />
-                            <Label Content="角"	Grid.Column="132"	Grid.Row="2" />
-                            <Label Content="分"	Grid.Column="133"	Grid.Row="2" />
-                            <Label Content="千"	Grid.Column="134"	Grid.Row="2" />
-                            <Label Content="百"	Grid.Column="135"	Grid.Row="2" />
-                            <Label Content="十"	Grid.Column="136"	Grid.Row="2" />
-                            <Label Content="万"	Grid.Column="137"	Grid.Row="2" />
-                            <Label Content="千"	Grid.Column="138"	Grid.Row="2" />
-                            <Label Content="百"	Grid.Column="139"	Grid.Row="2" />
-                            <Label Content="十"	Grid.Column="140"	Grid.Row="2" />
-                            <Label Content="元"	Grid.Column="141"	Grid.Row="2" />
-                            <Label Content="角"	Grid.Column="142"	Grid.Row="2" />
-                            <Label Content="分"	Grid.Column="143"	Grid.Row="2" />
+                            <TextBlock Text="千" Grid.Column="34" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <TextBlock Text="百" Grid.Column="35" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <TextBlock Text="十" Grid.Column="36" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <TextBlock Text="万" Grid.Column="37" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <TextBlock Text="千" Grid.Column="38" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <TextBlock Text="百" Grid.Column="39" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <TextBlock Text="十" Grid.Column="40" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <TextBlock Text="元" Grid.Column="41" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <TextBlock Text="角" Grid.Column="42" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <TextBlock Text="分" Grid.Column="43" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <TextBlock Text="千"	Grid.Column="44"	Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <TextBlock Text="百"	Grid.Column="45"	Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <TextBlock Text="十"	Grid.Column="46"	Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <TextBlock Text="万"	Grid.Column="47"	Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <TextBlock Text="千"	Grid.Column="48"	Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <TextBlock Text="百"	Grid.Column="49"	Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <TextBlock Text="十"	Grid.Column="50"	Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <TextBlock Text="元"	Grid.Column="51"	Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <TextBlock Text="角"	Grid.Column="52"	Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <TextBlock Text="分"	Grid.Column="53"	Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <TextBlock Text="千"	Grid.Column="54"	Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <TextBlock Text="百"	Grid.Column="55"	Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <TextBlock Text="十"	Grid.Column="56"	Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <TextBlock Text="万"	Grid.Column="57"	Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <TextBlock Text="千"	Grid.Column="58"	Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <TextBlock Text="百"	Grid.Column="59"	Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <TextBlock Text="十"	Grid.Column="60"	Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <TextBlock Text="元"	Grid.Column="61"	Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <TextBlock Text="角"	Grid.Column="62"	Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <TextBlock Text="分"	Grid.Column="63"	Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <TextBlock Text="千"	Grid.Column="64"	Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <TextBlock Text="百"	Grid.Column="65"	Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <TextBlock Text="十"	Grid.Column="66"	Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <TextBlock Text="万"	Grid.Column="67"	Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <TextBlock Text="千"	Grid.Column="68"	Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <TextBlock Text="百"	Grid.Column="69"	Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <TextBlock Text="十"	Grid.Column="70"	Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <TextBlock Text="元"	Grid.Column="71"	Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <TextBlock Text="角"	Grid.Column="72"	Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <TextBlock Text="分"	Grid.Column="73"	Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <TextBlock Text="千"	Grid.Column="74"	Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <TextBlock Text="百"	Grid.Column="75"	Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <TextBlock Text="十"	Grid.Column="76"	Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <TextBlock Text="万"	Grid.Column="77"	Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <TextBlock Text="千"	Grid.Column="78"	Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <TextBlock Text="百"	Grid.Column="79"	Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <TextBlock Text="十"	Grid.Column="80"	Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <TextBlock Text="元"	Grid.Column="81"	Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <TextBlock Text="角"	Grid.Column="82"	Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <TextBlock Text="分"	Grid.Column="83"	Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <TextBlock Text="千"	Grid.Column="84"	Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <TextBlock Text="百"	Grid.Column="85"	Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <TextBlock Text="十"	Grid.Column="86"	Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <TextBlock Text="万"	Grid.Column="87"	Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <TextBlock Text="千"	Grid.Column="88"	Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <TextBlock Text="百"	Grid.Column="89"	Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <TextBlock Text="十"	Grid.Column="90"	Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <TextBlock Text="元"	Grid.Column="91"	Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <TextBlock Text="角"	Grid.Column="92"	Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <TextBlock Text="分"	Grid.Column="93"	Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <TextBlock Text="千"	Grid.Column="94"	Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <TextBlock Text="百"	Grid.Column="95"	Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <TextBlock Text="十"	Grid.Column="96"	Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <TextBlock Text="万"	Grid.Column="97"	Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <TextBlock Text="千"	Grid.Column="98"	Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <TextBlock Text="百"	Grid.Column="99"	Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <TextBlock Text="十"	Grid.Column="100"	Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <TextBlock Text="元"	Grid.Column="101"	Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <TextBlock Text="角"	Grid.Column="102"	Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <TextBlock Text="分"	Grid.Column="103"	Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <TextBlock Text="千"	Grid.Column="104"	Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <TextBlock Text="百"	Grid.Column="105"	Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <TextBlock Text="十"	Grid.Column="106"	Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <TextBlock Text="万"	Grid.Column="107"	Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <TextBlock Text="千"	Grid.Column="108"	Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <TextBlock Text="百"	Grid.Column="109"	Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <TextBlock Text="十"	Grid.Column="110"	Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <TextBlock Text="元"	Grid.Column="111"	Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <TextBlock Text="角"	Grid.Column="112"	Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <TextBlock Text="分"	Grid.Column="113"	Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <TextBlock Text="千"	Grid.Column="114"	Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <TextBlock Text="百"	Grid.Column="115"	Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <TextBlock Text="十"	Grid.Column="116"	Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <TextBlock Text="万"	Grid.Column="117"	Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <TextBlock Text="千"	Grid.Column="118"	Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <TextBlock Text="百"	Grid.Column="119"	Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <TextBlock Text="十"	Grid.Column="120"	Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <TextBlock Text="元"	Grid.Column="121"	Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <TextBlock Text="角"	Grid.Column="122"	Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <TextBlock Text="分"	Grid.Column="123"	Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <TextBlock Text="千"	Grid.Column="124"	Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <TextBlock Text="百"	Grid.Column="125"	Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <TextBlock Text="十"	Grid.Column="126"	Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <TextBlock Text="万"	Grid.Column="127"	Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <TextBlock Text="千"	Grid.Column="128"	Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <TextBlock Text="百"	Grid.Column="129"	Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <TextBlock Text="十"	Grid.Column="130"	Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <TextBlock Text="元"	Grid.Column="131"	Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <TextBlock Text="角"	Grid.Column="132"	Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <TextBlock Text="分"	Grid.Column="133"	Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <TextBlock Text="千"	Grid.Column="134"	Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <TextBlock Text="百"	Grid.Column="135"	Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <TextBlock Text="十"	Grid.Column="136"	Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <TextBlock Text="万"	Grid.Column="137"	Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <TextBlock Text="千"	Grid.Column="138"	Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <TextBlock Text="百"	Grid.Column="139"	Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <TextBlock Text="十"	Grid.Column="140"	Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <TextBlock Text="元"	Grid.Column="141"	Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <TextBlock Text="角"	Grid.Column="142"	Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <TextBlock Text="分"	Grid.Column="143"	Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                             <DataGrid x:Name="DataGrid_费用明细账" Grid.Row="3" ItemsSource="{Binding}" Grid.ColumnSpan="144" CanUserAddRows="False" AutoGenerateColumns="False" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" HeadersVisibility="None" Background="White" BorderBrush="#FF99CCFF" Margin="0,-1,0,0" HorizontalScrollBarVisibility="Disabled" HorizontalGridLinesBrush="#FF99CCFF" VerticalGridLinesBrush="#FF99CCFF">
                                 <DataGrid.Columns>
                                     <DataGridTextColumn x:Name="fycolumn1" MinWidth="25" Binding="{Binding 月}"/>
                                     <DataGridTextColumn x:Name="fycolumn2" MinWidth="25" Binding="{Binding 日}"/>
                                     <DataGridTextColumn x:Name="fycolumn3" MinWidth="40" Binding="{Binding 号数}"/>
                                     <DataGridTextColumn x:Name="fycolumn4" MinWidth="100" Binding="{Binding 摘要}"/>
-                                    <DataGridTextColumn x:Name="fycolumn5"	Binding="{Binding 借方金额1}" />
-                                    <DataGridTextColumn x:Name="fycolumn6"	Binding="{Binding 借方金额2}" />
-                                    <DataGridTextColumn x:Name="fycolumn7"	Binding="{Binding 借方金额3}" />
-                                    <DataGridTextColumn x:Name="fycolumn8"	Binding="{Binding 借方金额4}" />
-                                    <DataGridTextColumn x:Name="fycolumn9"	Binding="{Binding 借方金额5}" />
-                                    <DataGridTextColumn x:Name="fycolumn10"	Binding="{Binding 借方金额6}" />
-                                    <DataGridTextColumn x:Name="fycolumn11"	Binding="{Binding 借方金额7}" />
-                                    <DataGridTextColumn x:Name="fycolumn12"	Binding="{Binding 借方金额8}" />
-                                    <DataGridTextColumn x:Name="fycolumn13"	Binding="{Binding 借方金额9}" />
-                                    <DataGridTextColumn x:Name="fycolumn14"	Binding="{Binding 借方金额10}" />
-                                    <DataGridTextColumn x:Name="fycolumn15"	Binding="{Binding 贷方金额1}" />
-                                    <DataGridTextColumn x:Name="fycolumn16"	Binding="{Binding 贷方金额2}" />
-                                    <DataGridTextColumn x:Name="fycolumn17"	Binding="{Binding 贷方金额3}" />
-                                    <DataGridTextColumn x:Name="fycolumn18"	Binding="{Binding 贷方金额4}" />
-                                    <DataGridTextColumn x:Name="fycolumn19"	Binding="{Binding 贷方金额5}" />
-                                    <DataGridTextColumn x:Name="fycolumn20"	Binding="{Binding 贷方金额6}" />
-                                    <DataGridTextColumn x:Name="fycolumn21"	Binding="{Binding 贷方金额7}" />
-                                    <DataGridTextColumn x:Name="fycolumn22"	Binding="{Binding 贷方金额8}" />
-                                    <DataGridTextColumn x:Name="fycolumn23"	Binding="{Binding 贷方金额9}" />
-                                    <DataGridTextColumn x:Name="fycolumn24"	Binding="{Binding 贷方金额10}" />
-                                    <DataGridTextColumn x:Name="fycolumn25"	Binding="{Binding 余额1}" />
-                                    <DataGridTextColumn x:Name="fycolumn26"	Binding="{Binding 余额2}" />
-                                    <DataGridTextColumn x:Name="fycolumn27"	Binding="{Binding 余额3}" />
-                                    <DataGridTextColumn x:Name="fycolumn28"	Binding="{Binding 余额4}" />
-                                    <DataGridTextColumn x:Name="fycolumn29"	Binding="{Binding 余额5}" />
-                                    <DataGridTextColumn x:Name="fycolumn30"	Binding="{Binding 余额6}" />
-                                    <DataGridTextColumn x:Name="fycolumn31"	Binding="{Binding 余额7}" />
-                                    <DataGridTextColumn x:Name="fycolumn32"	Binding="{Binding 余额8}" />
-                                    <DataGridTextColumn x:Name="fycolumn33"	Binding="{Binding 余额9}" />
-                                    <DataGridTextColumn x:Name="fycolumn34"	Binding="{Binding 余额10}" />
-                                    <DataGridTextColumn x:Name="fycolumn35"	Binding="{Binding 金额31}" />
-                                    <DataGridTextColumn x:Name="fycolumn36"	Binding="{Binding 金额32}" />
-                                    <DataGridTextColumn x:Name="fycolumn37"	Binding="{Binding 金额33}" />
-                                    <DataGridTextColumn x:Name="fycolumn38"	Binding="{Binding 金额34}" />
-                                    <DataGridTextColumn x:Name="fycolumn39"	Binding="{Binding 金额35}" />
-                                    <DataGridTextColumn x:Name="fycolumn40"	Binding="{Binding 金额36}" />
-                                    <DataGridTextColumn x:Name="fycolumn41"	Binding="{Binding 金额37}" />
-                                    <DataGridTextColumn x:Name="fycolumn42"	Binding="{Binding 金额38}" />
-                                    <DataGridTextColumn x:Name="fycolumn43"	Binding="{Binding 金额39}" />
-                                    <DataGridTextColumn x:Name="fycolumn44"	Binding="{Binding 金额40}" />
-                                    <DataGridTextColumn x:Name="fycolumn45"	Binding="{Binding 金额41}" />
-                                    <DataGridTextColumn x:Name="fycolumn46"	Binding="{Binding 金额42}" />
-                                    <DataGridTextColumn x:Name="fycolumn47"	Binding="{Binding 金额43}" />
-                                    <DataGridTextColumn x:Name="fycolumn48"	Binding="{Binding 金额44}" />
-                                    <DataGridTextColumn x:Name="fycolumn49"	Binding="{Binding 金额45}" />
-                                    <DataGridTextColumn x:Name="fycolumn50"	Binding="{Binding 金额46}" />
-                                    <DataGridTextColumn x:Name="fycolumn51"	Binding="{Binding 金额47}" />
-                                    <DataGridTextColumn x:Name="fycolumn52"	Binding="{Binding 金额48}" />
-                                    <DataGridTextColumn x:Name="fycolumn53"	Binding="{Binding 金额49}" />
-                                    <DataGridTextColumn x:Name="fycolumn54"	Binding="{Binding 金额50}" />
-                                    <DataGridTextColumn x:Name="fycolumn55"	Binding="{Binding 金额51}" />
-                                    <DataGridTextColumn x:Name="fycolumn56"	Binding="{Binding 金额52}" />
-                                    <DataGridTextColumn x:Name="fycolumn57"	Binding="{Binding 金额53}" />
-                                    <DataGridTextColumn x:Name="fycolumn58"	Binding="{Binding 金额54}" />
-                                    <DataGridTextColumn x:Name="fycolumn59"	Binding="{Binding 金额55}" />
-                                    <DataGridTextColumn x:Name="fycolumn60"	Binding="{Binding 金额56}" />
-                                    <DataGridTextColumn x:Name="fycolumn61"	Binding="{Binding 金额57}" />
-                                    <DataGridTextColumn x:Name="fycolumn62"	Binding="{Binding 金额58}" />
-                                    <DataGridTextColumn x:Name="fycolumn63"	Binding="{Binding 金额59}" />
-                                    <DataGridTextColumn x:Name="fycolumn64"	Binding="{Binding 金额60}" />
-                                    <DataGridTextColumn x:Name="fycolumn65"	Binding="{Binding 金额61}" />
-                                    <DataGridTextColumn x:Name="fycolumn66"	Binding="{Binding 金额62}" />
-                                    <DataGridTextColumn x:Name="fycolumn67"	Binding="{Binding 金额63}" />
-                                    <DataGridTextColumn x:Name="fycolumn68"	Binding="{Binding 金额64}" />
-                                    <DataGridTextColumn x:Name="fycolumn69"	Binding="{Binding 金额65}" />
-                                    <DataGridTextColumn x:Name="fycolumn70"	Binding="{Binding 金额66}" />
-                                    <DataGridTextColumn x:Name="fycolumn71"	Binding="{Binding 金额67}" />
-                                    <DataGridTextColumn x:Name="fycolumn72"	Binding="{Binding 金额68}" />
-                                    <DataGridTextColumn x:Name="fycolumn73"	Binding="{Binding 金额69}" />
-                                    <DataGridTextColumn x:Name="fycolumn74"	Binding="{Binding 金额70}" />
-                                    <DataGridTextColumn x:Name="fycolumn75"	Binding="{Binding 金额71}" />
-                                    <DataGridTextColumn x:Name="fycolumn76"	Binding="{Binding 金额72}" />
-                                    <DataGridTextColumn x:Name="fycolumn77"	Binding="{Binding 金额73}" />
-                                    <DataGridTextColumn x:Name="fycolumn78"	Binding="{Binding 金额74}" />
-                                    <DataGridTextColumn x:Name="fycolumn79"	Binding="{Binding 金额75}" />
-                                    <DataGridTextColumn x:Name="fycolumn80"	Binding="{Binding 金额76}" />
-                                    <DataGridTextColumn x:Name="fycolumn81"	Binding="{Binding 金额77}" />
-                                    <DataGridTextColumn x:Name="fycolumn82"	Binding="{Binding 金额78}" />
-                                    <DataGridTextColumn x:Name="fycolumn83"	Binding="{Binding 金额79}" />
-                                    <DataGridTextColumn x:Name="fycolumn84"	Binding="{Binding 金额80}" />
-                                    <DataGridTextColumn x:Name="fycolumn85"	Binding="{Binding 金额81}" />
-                                    <DataGridTextColumn x:Name="fycolumn86"	Binding="{Binding 金额82}" />
-                                    <DataGridTextColumn x:Name="fycolumn87"	Binding="{Binding 金额83}" />
-                                    <DataGridTextColumn x:Name="fycolumn88"	Binding="{Binding 金额84}" />
-                                    <DataGridTextColumn x:Name="fycolumn89"	Binding="{Binding 金额85}" />
-                                    <DataGridTextColumn x:Name="fycolumn90"	Binding="{Binding 金额86}" />
-                                    <DataGridTextColumn x:Name="fycolumn91"	Binding="{Binding 金额87}" />
-                                    <DataGridTextColumn x:Name="fycolumn92"	Binding="{Binding 金额88}" />
-                                    <DataGridTextColumn x:Name="fycolumn93"	Binding="{Binding 金额89}" />
-                                    <DataGridTextColumn x:Name="fycolumn94"	Binding="{Binding 金额90}" />
-                                    <DataGridTextColumn x:Name="fycolumn95"	Binding="{Binding 金额91}" />
-                                    <DataGridTextColumn x:Name="fycolumn96"	Binding="{Binding 金额92}" />
-                                    <DataGridTextColumn x:Name="fycolumn97"	Binding="{Binding 金额93}" />
-                                    <DataGridTextColumn x:Name="fycolumn98"	Binding="{Binding 金额94}" />
-                                    <DataGridTextColumn x:Name="fycolumn99"	Binding="{Binding 金额95}" />
-                                    <DataGridTextColumn x:Name="fycolumn100" Binding="{Binding 金额96}" />
-                                    <DataGridTextColumn x:Name="fycolumn101" Binding="{Binding 金额97}" />
-                                    <DataGridTextColumn x:Name="fycolumn102" Binding="{Binding 金额98}" />
-                                    <DataGridTextColumn x:Name="fycolumn103" Binding="{Binding 金额99}" />
-                                    <DataGridTextColumn x:Name="fycolumn104" Binding="{Binding 金额100}" />
-                                    <DataGridTextColumn x:Name="fycolumn105" Binding="{Binding 金额101}" />
-                                    <DataGridTextColumn x:Name="fycolumn106" Binding="{Binding 金额102}" />
-                                    <DataGridTextColumn x:Name="fycolumn107" Binding="{Binding 金额103}" />
-                                    <DataGridTextColumn x:Name="fycolumn108" Binding="{Binding 金额104}" />
-                                    <DataGridTextColumn x:Name="fycolumn109" Binding="{Binding 金额105}" />
-                                    <DataGridTextColumn x:Name="fycolumn110" Binding="{Binding 金额106}" />
-                                    <DataGridTextColumn x:Name="fycolumn111" Binding="{Binding 金额107}" />
-                                    <DataGridTextColumn x:Name="fycolumn112" Binding="{Binding 金额108}" />
-                                    <DataGridTextColumn x:Name="fycolumn113" Binding="{Binding 金额109}" />
-                                    <DataGridTextColumn x:Name="fycolumn114" Binding="{Binding 金额110}" />
-                                    <DataGridTextColumn x:Name="fycolumn115" Binding="{Binding 金额111}" />
-                                    <DataGridTextColumn x:Name="fycolumn116" Binding="{Binding 金额112}" />
-                                    <DataGridTextColumn x:Name="fycolumn117" Binding="{Binding 金额113}" />
-                                    <DataGridTextColumn x:Name="fycolumn118" Binding="{Binding 金额114}" />
-                                    <DataGridTextColumn x:Name="fycolumn119" Binding="{Binding 金额115}" />
-                                    <DataGridTextColumn x:Name="fycolumn120" Binding="{Binding 金额116}" />
-                                    <DataGridTextColumn x:Name="fycolumn121" Binding="{Binding 金额117}" />
-                                    <DataGridTextColumn x:Name="fycolumn122" Binding="{Binding 金额118}" />
-                                    <DataGridTextColumn x:Name="fycolumn123" Binding="{Binding 金额119}" />
-                                    <DataGridTextColumn x:Name="fycolumn124" Binding="{Binding 金额120}" />
-                                    <DataGridTextColumn x:Name="fycolumn125" Binding="{Binding 金额121}" />
-                                    <DataGridTextColumn x:Name="fycolumn126" Binding="{Binding 金额122}" />
-                                    <DataGridTextColumn x:Name="fycolumn127" Binding="{Binding 金额123}" />
-                                    <DataGridTextColumn x:Name="fycolumn128" Binding="{Binding 金额124}" />
-                                    <DataGridTextColumn x:Name="fycolumn129" Binding="{Binding 金额125}" />
-                                    <DataGridTextColumn x:Name="fycolumn130" Binding="{Binding 金额126}" />
-                                    <DataGridTextColumn x:Name="fycolumn131" Binding="{Binding 金额127}" />
-                                    <DataGridTextColumn x:Name="fycolumn132" Binding="{Binding 金额128}" />
-                                    <DataGridTextColumn x:Name="fycolumn133" Binding="{Binding 金额129}" />
-                                    <DataGridTextColumn x:Name="fycolumn134" Binding="{Binding 金额130}" />
-                                    <DataGridTextColumn x:Name="fycolumn135" Binding="{Binding 金额131}" />
-                                    <DataGridTextColumn x:Name="fycolumn136" Binding="{Binding 金额132}" />
-                                    <DataGridTextColumn x:Name="fycolumn137" Binding="{Binding 金额133}" />
-                                    <DataGridTextColumn x:Name="fycolumn138" Binding="{Binding 金额134}" />
-                                    <DataGridTextColumn x:Name="fycolumn139" Binding="{Binding 金额135}" />
-                                    <DataGridTextColumn x:Name="fycolumn140" Binding="{Binding 金额136}" />
-                                    <DataGridTextColumn x:Name="fycolumn141" Binding="{Binding 金额137}" />
-                                    <DataGridTextColumn x:Name="fycolumn142" Binding="{Binding 金额138}" />
-                                    <DataGridTextColumn x:Name="fycolumn143" Binding="{Binding 金额139}" />
-                                    <DataGridTextColumn x:Name="fycolumn144" Binding="{Binding 金额140}" />
+                                    <DataGridTextColumn x:Name="fycolumn5"	Binding="{Binding 借方金额1}" MinWidth="15" MaxWidth="15"/>
+                                    <DataGridTextColumn x:Name="fycolumn6"	Binding="{Binding 借方金额2}" MinWidth="15" MaxWidth="15"/>
+                                    <DataGridTextColumn x:Name="fycolumn7"	Binding="{Binding 借方金额3}" MinWidth="15" MaxWidth="15"/>
+                                    <DataGridTextColumn x:Name="fycolumn8"	Binding="{Binding 借方金额4}" MinWidth="15" MaxWidth="15"/>
+                                    <DataGridTextColumn x:Name="fycolumn9"	Binding="{Binding 借方金额5}" MinWidth="15" MaxWidth="15"/>
+                                    <DataGridTextColumn x:Name="fycolumn10"	Binding="{Binding 借方金额6}" MinWidth="15" MaxWidth="15"/>
+                                    <DataGridTextColumn x:Name="fycolumn11"	Binding="{Binding 借方金额7}" MinWidth="15" MaxWidth="15"/>
+                                    <DataGridTextColumn x:Name="fycolumn12"	Binding="{Binding 借方金额8}" MinWidth="15" MaxWidth="15"/>
+                                    <DataGridTextColumn x:Name="fycolumn13"	Binding="{Binding 借方金额9}" MinWidth="15" MaxWidth="15"/>
+                                    <DataGridTextColumn x:Name="fycolumn14"	Binding="{Binding 借方金额10}" MinWidth="15" MaxWidth="15"/>
+                                    <DataGridTextColumn x:Name="fycolumn15"	Binding="{Binding 贷方金额1}" MinWidth="15" MaxWidth="15"/>
+                                    <DataGridTextColumn x:Name="fycolumn16"	Binding="{Binding 贷方金额2}" MinWidth="15" MaxWidth="15"/>
+                                    <DataGridTextColumn x:Name="fycolumn17"	Binding="{Binding 贷方金额3}" MinWidth="15" MaxWidth="15"/>
+                                    <DataGridTextColumn x:Name="fycolumn18"	Binding="{Binding 贷方金额4}" MinWidth="15" MaxWidth="15"/>
+                                    <DataGridTextColumn x:Name="fycolumn19"	Binding="{Binding 贷方金额5}" MinWidth="15" MaxWidth="15"/>
+                                    <DataGridTextColumn x:Name="fycolumn20"	Binding="{Binding 贷方金额6}" MinWidth="15" MaxWidth="15"/>
+                                    <DataGridTextColumn x:Name="fycolumn21"	Binding="{Binding 贷方金额7}" MinWidth="15" MaxWidth="15"/>
+                                    <DataGridTextColumn x:Name="fycolumn22"	Binding="{Binding 贷方金额8}" MinWidth="15" MaxWidth="15"/>
+                                    <DataGridTextColumn x:Name="fycolumn23"	Binding="{Binding 贷方金额9}" MinWidth="15" MaxWidth="15"/>
+                                    <DataGridTextColumn x:Name="fycolumn24"	Binding="{Binding 贷方金额10}" MinWidth="15" MaxWidth="15"/>
+                                    <DataGridTextColumn x:Name="fycolumn25"	Binding="{Binding 余额1}" MinWidth="15" MaxWidth="15"/>
+                                    <DataGridTextColumn x:Name="fycolumn26"	Binding="{Binding 余额2}" MinWidth="15" MaxWidth="15"/>
+                                    <DataGridTextColumn x:Name="fycolumn27"	Binding="{Binding 余额3}" MinWidth="15" MaxWidth="15"/>
+                                    <DataGridTextColumn x:Name="fycolumn28"	Binding="{Binding 余额4}" MinWidth="15" MaxWidth="15"/>
+                                    <DataGridTextColumn x:Name="fycolumn29"	Binding="{Binding 余额5}" MinWidth="15" MaxWidth="15"/>
+                                    <DataGridTextColumn x:Name="fycolumn30"	Binding="{Binding 余额6}" MinWidth="15" MaxWidth="15"/>
+                                    <DataGridTextColumn x:Name="fycolumn31"	Binding="{Binding 余额7}" MinWidth="15" MaxWidth="15"/>
+                                    <DataGridTextColumn x:Name="fycolumn32"	Binding="{Binding 余额8}" MinWidth="15" MaxWidth="15"/>
+                                    <DataGridTextColumn x:Name="fycolumn33"	Binding="{Binding 余额9}" MinWidth="15" MaxWidth="15"/>
+                                    <DataGridTextColumn x:Name="fycolumn34"	Binding="{Binding 余额10}" MinWidth="15" MaxWidth="15"/>
+                                    <DataGridTextColumn x:Name="fycolumn35"	Binding="{Binding 金额31}" MinWidth="15" MaxWidth="15"/>
+                                    <DataGridTextColumn x:Name="fycolumn36"	Binding="{Binding 金额32}" MinWidth="15" MaxWidth="15"/>
+                                    <DataGridTextColumn x:Name="fycolumn37"	Binding="{Binding 金额33}" MinWidth="15" MaxWidth="15"/>
+                                    <DataGridTextColumn x:Name="fycolumn38"	Binding="{Binding 金额34}" MinWidth="15" MaxWidth="15"/>
+                                    <DataGridTextColumn x:Name="fycolumn39"	Binding="{Binding 金额35}" MinWidth="15" MaxWidth="15"/>
+                                    <DataGridTextColumn x:Name="fycolumn40"	Binding="{Binding 金额36}" MinWidth="15" MaxWidth="15"/>
+                                    <DataGridTextColumn x:Name="fycolumn41"	Binding="{Binding 金额37}" MinWidth="15" MaxWidth="15"/>
+                                    <DataGridTextColumn x:Name="fycolumn42"	Binding="{Binding 金额38}" MinWidth="15" MaxWidth="15"/>
+                                    <DataGridTextColumn x:Name="fycolumn43"	Binding="{Binding 金额39}" MinWidth="15" MaxWidth="15"/>
+                                    <DataGridTextColumn x:Name="fycolumn44"	Binding="{Binding 金额40}" MinWidth="15" MaxWidth="15"/>
+                                    <DataGridTextColumn x:Name="fycolumn45"	Binding="{Binding 金额41}" MinWidth="15" MaxWidth="15"/>
+                                    <DataGridTextColumn x:Name="fycolumn46"	Binding="{Binding 金额42}" MinWidth="15" MaxWidth="15"/>
+                                    <DataGridTextColumn x:Name="fycolumn47"	Binding="{Binding 金额43}" MinWidth="15" MaxWidth="15"/>
+                                    <DataGridTextColumn x:Name="fycolumn48"	Binding="{Binding 金额44}" MinWidth="15" MaxWidth="15"/>
+                                    <DataGridTextColumn x:Name="fycolumn49"	Binding="{Binding 金额45}" MinWidth="15" MaxWidth="15"/>
+                                    <DataGridTextColumn x:Name="fycolumn50"	Binding="{Binding 金额46}" MinWidth="15" MaxWidth="15"/>
+                                    <DataGridTextColumn x:Name="fycolumn51"	Binding="{Binding 金额47}" MinWidth="15" MaxWidth="15"/>
+                                    <DataGridTextColumn x:Name="fycolumn52"	Binding="{Binding 金额48}" MinWidth="15" MaxWidth="15"/>
+                                    <DataGridTextColumn x:Name="fycolumn53"	Binding="{Binding 金额49}" MinWidth="15" MaxWidth="15"/>
+                                    <DataGridTextColumn x:Name="fycolumn54"	Binding="{Binding 金额50}" MinWidth="15" MaxWidth="15"/>
+                                    <DataGridTextColumn x:Name="fycolumn55"	Binding="{Binding 金额51}" MinWidth="15" MaxWidth="15"/>
+                                    <DataGridTextColumn x:Name="fycolumn56"	Binding="{Binding 金额52}" MinWidth="15" MaxWidth="15"/>
+                                    <DataGridTextColumn x:Name="fycolumn57"	Binding="{Binding 金额53}" MinWidth="15" MaxWidth="15"/>
+                                    <DataGridTextColumn x:Name="fycolumn58"	Binding="{Binding 金额54}" MinWidth="15" MaxWidth="15"/>
+                                    <DataGridTextColumn x:Name="fycolumn59"	Binding="{Binding 金额55}" MinWidth="15" MaxWidth="15"/>
+                                    <DataGridTextColumn x:Name="fycolumn60"	Binding="{Binding 金额56}" MinWidth="15" MaxWidth="15"/>
+                                    <DataGridTextColumn x:Name="fycolumn61"	Binding="{Binding 金额57}" MinWidth="15" MaxWidth="15"/>
+                                    <DataGridTextColumn x:Name="fycolumn62"	Binding="{Binding 金额58}" MinWidth="15" MaxWidth="15"/>
+                                    <DataGridTextColumn x:Name="fycolumn63"	Binding="{Binding 金额59}" MinWidth="15" MaxWidth="15"/>
+                                    <DataGridTextColumn x:Name="fycolumn64"	Binding="{Binding 金额60}" MinWidth="15" MaxWidth="15"/>
+                                    <DataGridTextColumn x:Name="fycolumn65"	Binding="{Binding 金额61}" MinWidth="15" MaxWidth="15"/>
+                                    <DataGridTextColumn x:Name="fycolumn66"	Binding="{Binding 金额62}" MinWidth="15" MaxWidth="15"/>
+                                    <DataGridTextColumn x:Name="fycolumn67"	Binding="{Binding 金额63}" MinWidth="15" MaxWidth="15"/>
+                                    <DataGridTextColumn x:Name="fycolumn68"	Binding="{Binding 金额64}" MinWidth="15" MaxWidth="15"/>
+                                    <DataGridTextColumn x:Name="fycolumn69"	Binding="{Binding 金额65}" MinWidth="15" MaxWidth="15"/>
+                                    <DataGridTextColumn x:Name="fycolumn70"	Binding="{Binding 金额66}" MinWidth="15" MaxWidth="15"/>
+                                    <DataGridTextColumn x:Name="fycolumn71"	Binding="{Binding 金额67}" MinWidth="15" MaxWidth="15"/>
+                                    <DataGridTextColumn x:Name="fycolumn72"	Binding="{Binding 金额68}" MinWidth="15" MaxWidth="15"/>
+                                    <DataGridTextColumn x:Name="fycolumn73"	Binding="{Binding 金额69}" MinWidth="15" MaxWidth="15"/>
+                                    <DataGridTextColumn x:Name="fycolumn74"	Binding="{Binding 金额70}" MinWidth="15" MaxWidth="15"/>
+                                    <DataGridTextColumn x:Name="fycolumn75"	Binding="{Binding 金额71}" MinWidth="15" MaxWidth="15"/>
+                                    <DataGridTextColumn x:Name="fycolumn76"	Binding="{Binding 金额72}" MinWidth="15" MaxWidth="15"/>
+                                    <DataGridTextColumn x:Name="fycolumn77"	Binding="{Binding 金额73}" MinWidth="15" MaxWidth="15"/>
+                                    <DataGridTextColumn x:Name="fycolumn78"	Binding="{Binding 金额74}" MinWidth="15" MaxWidth="15"/>
+                                    <DataGridTextColumn x:Name="fycolumn79"	Binding="{Binding 金额75}" MinWidth="15" MaxWidth="15"/>
+                                    <DataGridTextColumn x:Name="fycolumn80"	Binding="{Binding 金额76}" MinWidth="15" MaxWidth="15"/>
+                                    <DataGridTextColumn x:Name="fycolumn81"	Binding="{Binding 金额77}" MinWidth="15" MaxWidth="15"/>
+                                    <DataGridTextColumn x:Name="fycolumn82"	Binding="{Binding 金额78}" MinWidth="15" MaxWidth="15"/>
+                                    <DataGridTextColumn x:Name="fycolumn83"	Binding="{Binding 金额79}" MinWidth="15" MaxWidth="15"/>
+                                    <DataGridTextColumn x:Name="fycolumn84"	Binding="{Binding 金额80}" MinWidth="15" MaxWidth="15"/>
+                                    <DataGridTextColumn x:Name="fycolumn85"	Binding="{Binding 金额81}" MinWidth="15" MaxWidth="15"/>
+                                    <DataGridTextColumn x:Name="fycolumn86"	Binding="{Binding 金额82}" MinWidth="15" MaxWidth="15"/>
+                                    <DataGridTextColumn x:Name="fycolumn87"	Binding="{Binding 金额83}" MinWidth="15" MaxWidth="15"/>
+                                    <DataGridTextColumn x:Name="fycolumn88"	Binding="{Binding 金额84}" MinWidth="15" MaxWidth="15"/>
+                                    <DataGridTextColumn x:Name="fycolumn89"	Binding="{Binding 金额85}" MinWidth="15" MaxWidth="15"/>
+                                    <DataGridTextColumn x:Name="fycolumn90"	Binding="{Binding 金额86}" MinWidth="15" MaxWidth="15"/>
+                                    <DataGridTextColumn x:Name="fycolumn91"	Binding="{Binding 金额87}" MinWidth="15" MaxWidth="15"/>
+                                    <DataGridTextColumn x:Name="fycolumn92"	Binding="{Binding 金额88}" MinWidth="15" MaxWidth="15"/>
+                                    <DataGridTextColumn x:Name="fycolumn93"	Binding="{Binding 金额89}" MinWidth="15" MaxWidth="15"/>
+                                    <DataGridTextColumn x:Name="fycolumn94"	Binding="{Binding 金额90}" MinWidth="15" MaxWidth="15"/>
+                                    <DataGridTextColumn x:Name="fycolumn95"	Binding="{Binding 金额91}" MinWidth="15" MaxWidth="15"/>
+                                    <DataGridTextColumn x:Name="fycolumn96"	Binding="{Binding 金额92}" MinWidth="15" MaxWidth="15"/>
+                                    <DataGridTextColumn x:Name="fycolumn97"	Binding="{Binding 金额93}" MinWidth="15" MaxWidth="15"/>
+                                    <DataGridTextColumn x:Name="fycolumn98"	Binding="{Binding 金额94}" MinWidth="15" MaxWidth="15"/>
+                                    <DataGridTextColumn x:Name="fycolumn99"	Binding="{Binding 金额95}" MinWidth="15" MaxWidth="15"/>
+                                    <DataGridTextColumn x:Name="fycolumn100" Binding="{Binding 金额96}" MinWidth="15" MaxWidth="15"/>
+                                    <DataGridTextColumn x:Name="fycolumn101" Binding="{Binding 金额97}" MinWidth="15" MaxWidth="15"/>
+                                    <DataGridTextColumn x:Name="fycolumn102" Binding="{Binding 金额98}" MinWidth="15" MaxWidth="15"/>
+                                    <DataGridTextColumn x:Name="fycolumn103" Binding="{Binding 金额99}" MinWidth="15" MaxWidth="15"/>
+                                    <DataGridTextColumn x:Name="fycolumn104" Binding="{Binding 金额100}" MinWidth="15" MaxWidth="15"/>
+                                    <DataGridTextColumn x:Name="fycolumn105" Binding="{Binding 金额101}" MinWidth="15" MaxWidth="15"/>
+                                    <DataGridTextColumn x:Name="fycolumn106" Binding="{Binding 金额102}" MinWidth="15" MaxWidth="15"/>
+                                    <DataGridTextColumn x:Name="fycolumn107" Binding="{Binding 金额103}" MinWidth="15" MaxWidth="15"/>
+                                    <DataGridTextColumn x:Name="fycolumn108" Binding="{Binding 金额104}" MinWidth="15" MaxWidth="15"/>
+                                    <DataGridTextColumn x:Name="fycolumn109" Binding="{Binding 金额105}" MinWidth="15" MaxWidth="15"/>
+                                    <DataGridTextColumn x:Name="fycolumn110" Binding="{Binding 金额106}" MinWidth="15" MaxWidth="15"/>
+                                    <DataGridTextColumn x:Name="fycolumn111" Binding="{Binding 金额107}" MinWidth="15" MaxWidth="15"/>
+                                    <DataGridTextColumn x:Name="fycolumn112" Binding="{Binding 金额108}" MinWidth="15" MaxWidth="15"/>
+                                    <DataGridTextColumn x:Name="fycolumn113" Binding="{Binding 金额109}" MinWidth="15" MaxWidth="15"/>
+                                    <DataGridTextColumn x:Name="fycolumn114" Binding="{Binding 金额110}" MinWidth="15" MaxWidth="15"/>
+                                    <DataGridTextColumn x:Name="fycolumn115" Binding="{Binding 金额111}" MinWidth="15" MaxWidth="15"/>
+                                    <DataGridTextColumn x:Name="fycolumn116" Binding="{Binding 金额112}" MinWidth="15" MaxWidth="15"/>
+                                    <DataGridTextColumn x:Name="fycolumn117" Binding="{Binding 金额113}" MinWidth="15" MaxWidth="15"/>
+                                    <DataGridTextColumn x:Name="fycolumn118" Binding="{Binding 金额114}" MinWidth="15" MaxWidth="15"/>
+                                    <DataGridTextColumn x:Name="fycolumn119" Binding="{Binding 金额115}" MinWidth="15" MaxWidth="15"/>
+                                    <DataGridTextColumn x:Name="fycolumn120" Binding="{Binding 金额116}" MinWidth="15" MaxWidth="15"/>
+                                    <DataGridTextColumn x:Name="fycolumn121" Binding="{Binding 金额117}" MinWidth="15" MaxWidth="15"/>
+                                    <DataGridTextColumn x:Name="fycolumn122" Binding="{Binding 金额118}" MinWidth="15" MaxWidth="15"/>
+                                    <DataGridTextColumn x:Name="fycolumn123" Binding="{Binding 金额119}" MinWidth="15" MaxWidth="15"/>
+                                    <DataGridTextColumn x:Name="fycolumn124" Binding="{Binding 金额120}" MinWidth="15" MaxWidth="15"/>
+                                    <DataGridTextColumn x:Name="fycolumn125" Binding="{Binding 金额121}" MinWidth="15" MaxWidth="15"/>
+                                    <DataGridTextColumn x:Name="fycolumn126" Binding="{Binding 金额122}" MinWidth="15" MaxWidth="15"/>
+                                    <DataGridTextColumn x:Name="fycolumn127" Binding="{Binding 金额123}" MinWidth="15" MaxWidth="15"/>
+                                    <DataGridTextColumn x:Name="fycolumn128" Binding="{Binding 金额124}" MinWidth="15" MaxWidth="15"/>
+                                    <DataGridTextColumn x:Name="fycolumn129" Binding="{Binding 金额125}" MinWidth="15" MaxWidth="15"/>
+                                    <DataGridTextColumn x:Name="fycolumn130" Binding="{Binding 金额126}" MinWidth="15" MaxWidth="15"/>
+                                    <DataGridTextColumn x:Name="fycolumn131" Binding="{Binding 金额127}" MinWidth="15" MaxWidth="15"/>
+                                    <DataGridTextColumn x:Name="fycolumn132" Binding="{Binding 金额128}" MinWidth="15" MaxWidth="15"/>
+                                    <DataGridTextColumn x:Name="fycolumn133" Binding="{Binding 金额129}" MinWidth="15" MaxWidth="15"/>
+                                    <DataGridTextColumn x:Name="fycolumn134" Binding="{Binding 金额130}" MinWidth="15" MaxWidth="15"/>
+                                    <DataGridTextColumn x:Name="fycolumn135" Binding="{Binding 金额131}" MinWidth="15" MaxWidth="15"/>
+                                    <DataGridTextColumn x:Name="fycolumn136" Binding="{Binding 金额132}" MinWidth="15" MaxWidth="15"/>
+                                    <DataGridTextColumn x:Name="fycolumn137" Binding="{Binding 金额133}" MinWidth="15" MaxWidth="15"/>
+                                    <DataGridTextColumn x:Name="fycolumn138" Binding="{Binding 金额134}" MinWidth="15" MaxWidth="15"/>
+                                    <DataGridTextColumn x:Name="fycolumn139" Binding="{Binding 金额135}" MinWidth="15" MaxWidth="15"/>
+                                    <DataGridTextColumn x:Name="fycolumn140" Binding="{Binding 金额136}" MinWidth="15" MaxWidth="15"/>
+                                    <DataGridTextColumn x:Name="fycolumn141" Binding="{Binding 金额137}" MinWidth="15" MaxWidth="15"/>
+                                    <DataGridTextColumn x:Name="fycolumn142" Binding="{Binding 金额138}" MinWidth="15" MaxWidth="15"/>
+                                    <DataGridTextColumn x:Name="fycolumn143" Binding="{Binding 金额139}" MinWidth="15" MaxWidth="15"/>
+                                    <DataGridTextColumn x:Name="fycolumn144" Binding="{Binding 金额140}" MinWidth="15" MaxWidth="15"/>
                                 </DataGrid.Columns>
                             </DataGrid>
                         </Grid>
