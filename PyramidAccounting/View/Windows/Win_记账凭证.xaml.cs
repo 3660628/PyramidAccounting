@@ -208,7 +208,6 @@ namespace PA.View.Windows
         #region 控件事件
         private void Button_Close_Click(object sender, RoutedEventArgs e)
         {
-            OnSubmit();
             this.Close();
         }
 
@@ -227,12 +226,14 @@ namespace PA.View.Windows
             {
                 return;
             }
-            new PA.ViewModel.ViewModel_凭证管理().InsertData(Voucher, VoucherDetails);
-            if (!isNew)
+            if(new PA.ViewModel.ViewModel_凭证管理().InsertData(Voucher, VoucherDetails))
             {
-                new PA.ViewModel.ViewModel_凭证管理().DeleteAsModify(guid);
+                if (!isNew)
+                {
+                    new PA.ViewModel.ViewModel_凭证管理().DeleteAsModify(guid);
+                }
+                OnSubmit();
             }
-            OnSubmit();
             this.Close();
         }
 

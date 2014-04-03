@@ -81,7 +81,7 @@ namespace PA.ViewModel
             return datas;
         }
 
-        public void InsertData(Model_凭证单 Voucher, List<Model_凭证明细> VoucherDetails)
+        public bool InsertData(Model_凭证单 Voucher, List<Model_凭证明细> VoucherDetails)
         {
             bool isEmpty = true;
             List<Model_凭证明细> NewVoucherDetails = new List<Model_凭证明细>();
@@ -95,12 +95,15 @@ namespace PA.ViewModel
             }
             if (!isEmpty)
             {
-                //new PA.Helper.DataBase.DataBase().InsertPackage(DBTablesName.T_VOUCHER_DETAIL, NewVoucherDetails.OfType<object>().ToList());
                 List<Model_凭证单> Vouchers = new List<Model_凭证单>();
                 Vouchers.Add(Voucher);
-                //new PA.Helper.DataBase.DataBase().InsertPackage(DBTablesName.T_VOUCHER, Vouchers.OfType<object>().ToList());
-                new PA.Helper.DataBase.DataBase().InsertVoucherAll(Vouchers.OfType<object>().ToList(), NewVoucherDetails.OfType<object>().ToList());
+                bool result = new PA.Helper.DataBase.DataBase().InsertVoucherAll(Vouchers.OfType<object>().ToList(), NewVoucherDetails.OfType<object>().ToList());
+                if(!result)
+                {
+                    return false;
+                }
             }
+            return !isEmpty;
         }
 
         public void Review(Guid id)
