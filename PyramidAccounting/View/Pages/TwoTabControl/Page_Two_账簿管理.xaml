@@ -195,7 +195,7 @@
                     </ScrollViewer>
                 </Grid>
             </TabItem>
-            <TabItem FocusVisualStyle="{x:Null}" Header="费用明细账" Margin="16,-1,-16,1" Template="{DynamicResource TabItemControlTemplate_TwoTabHeader}">
+            <TabItem FocusVisualStyle="{x:Null}" Header="经费支出明细账" Margin="16,-1,-16,1" Template="{DynamicResource TabItemControlTemplate_TwoTabHeader}">
                 <Grid Background="White">
                     <Button Content="打印" HorizontalAlignment="Right" Margin="0,10,76,0" VerticalAlignment="Top" Width="50" Height="20" Template="{DynamicResource ButtonControlTemplate_Common}"/>
                     <Button Content="导出" HorizontalAlignment="Right" Margin="0,10,11,0" VerticalAlignment="Top" Width="50" Height="20" Template="{DynamicResource ButtonControlTemplate_Common}"/>

@@ -156,8 +156,8 @@
                                 <Label Content="负债部类总计" HorizontalAlignment="Center" Grid.Column="5" Grid.Row="23" />
                                 
                                 <!-- 这里开始写插入的值-->
-                                <Label x:Name="y01" Content="$1" Grid.Row="2" Grid.Column="2" />
-                                <Label x:Name="n01" Content="$1" Grid.Row="2" Grid.Column="3" />
+                                <Label x:Name="y01" Content="" Grid.Row="2" Grid.Column="2" />
+                                <Label x:Name="n01" Content="" Grid.Row="2" Grid.Column="3" />
                             </Grid>
                             <Label x:Name="Label_单位负责人" Content="单位负责人：" HorizontalAlignment="Left" Margin="0" VerticalAlignment="Bottom" Height="24" Width="82"/>
                             <Label x:Name="Label_填表人" Content="填表人：" HorizontalAlignment="Left" Margin="300,0,0,0" VerticalAlignment="Bottom" Height="24" Width="58"/>
