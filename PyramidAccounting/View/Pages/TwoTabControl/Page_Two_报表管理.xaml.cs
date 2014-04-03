@@ -47,6 +47,19 @@ namespace PA.View.Pages.TwoTabControl
         {
             
         }
+
+        private void ComboBox_Date_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (ComboBox_Date.SelectedValue == null)
+            {
+                return;
+            }
+            else
+            {
+                Label lb = FindName("y01") as Label;
+                Console.WriteLine(lb.Content);
+            }
+        }
         
     }
 }
