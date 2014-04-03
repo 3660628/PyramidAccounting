@@ -64,7 +64,7 @@ namespace PA.View.Pages.TwoTabControl
 
         private void InitData()
         {
-            this.ComboBox_Date.ItemsSource = cbc.GetComboBox_期数();
+            this.ComboBox_Date.ItemsSource = cbc.GetComboBox_期数(0);
             this.ComboBox_Date.SelectedIndex = CommonInfo.当前期;
             this.ComboBox_Review.ItemsSource = cbc.GetComboBox_审核();
             this.ComboBox_Review.SelectedIndex = 0;

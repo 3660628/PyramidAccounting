@@ -32,14 +32,15 @@ namespace PA.View.Pages.TwoTabControl
         {
             InitializeComponent();
             this.Label_编制单位1.Content += "\t" +xr.ReadXML("公司");   //程序启动后加载当前公司名称
-            this.ComboBox_Date.ItemsSource = cbc.GetComboBox_期数();
-            this.ComboBox_Date.SelectedIndex = CommonInfo.当前期 - 1;
 
-            this.ComboBox_Date1.ItemsSource = cbc.GetComboBox_期数();
-            this.ComboBox_Date1.SelectedIndex = CommonInfo.当前期 - 1;
+            this.ComboBox_Date.ItemsSource = cbc.GetComboBox_期数(1);
+            this.ComboBox_Date.SelectedIndex = CommonInfo.当前期;
 
-            this.ComboBox_Date2.ItemsSource = cbc.GetComboBox_期数();
-            this.ComboBox_Date2.SelectedIndex = CommonInfo.当前期 - 1;
+            this.ComboBox_Date1.ItemsSource = cbc.GetComboBox_期数(1);
+            this.ComboBox_Date1.SelectedIndex = CommonInfo.当前期;
+
+            this.ComboBox_Date2.ItemsSource = cbc.GetComboBox_期数(1);
+            this.ComboBox_Date2.SelectedIndex = CommonInfo.当前期;
 
         }
 
