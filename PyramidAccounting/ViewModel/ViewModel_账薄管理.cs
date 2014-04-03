@@ -360,7 +360,7 @@ namespace PA.ViewModel
 
             //判断第一期查年初数
             //以后差每一期期末数
-            string sql2 = "select a.fee*b.borrow_mark from "+ DBTablesName.T_YEAR_FEE + " a left join " + DBTablesName.T_SUBJECT 
+            string sql2 = "select abs(a.fee*b.borrow_mark) from "+ DBTablesName.T_YEAR_FEE + " a left join " + DBTablesName.T_SUBJECT 
                 +" b on a.subject_id=b.subject_id where a.subject_id='" + detail.Split('\t')[0] 
                 + "' and a.bookid='" + CommonInfo.账薄号 + "'";
             string yearfee = db.GetAllData(sql2).Split('\t')[0].Split(',')[0];
