@@ -62,7 +62,7 @@ namespace PA.ViewModel
                     LastData.借方金额 = (dr[6].ToString() == "0") ? "" : dr[6].ToString();
                     LastData.贷方金额 = (dr[7].ToString() == "0") ? "" : dr[7].ToString();
                     LastData.当前期数 = dr[8].ToString();
-                    LastData.审核状态 = dr[9].ToString();
+                    LastData.审核状态 = (dr[9].ToString()=="0")?"未审核":"已审核";
                 }
                 else //旧凭证
                 {
@@ -84,17 +84,25 @@ namespace PA.ViewModel
         public bool InsertData(Model_凭证单 Voucher, List<Model_凭证明细> VoucherDetails)
         {
             bool isEmpty = true;
+            decimal CountBorrow = 0m;
+            decimal CountLoan = 0m;
             List<Model_凭证明细> NewVoucherDetails = new List<Model_凭证明细>();
             foreach (Model_凭证明细 VoucherDetail in VoucherDetails)
             {
-                if (VoucherDetail.摘要 != null && VoucherDetail.科目编号 != null)
+                if (VoucherDetail.科目编号 != null)
                 {
                     NewVoucherDetails.Add(VoucherDetail);
+                    CountBorrow += VoucherDetail.借方;
+                    CountLoan += VoucherDetail.贷方;
                     isEmpty = false;
                 }
             }
             if (!isEmpty)
             {
+                if (CountBorrow != CountLoan)
+                {
+                    return false;
+                }
                 List<Model_凭证单> Vouchers = new List<Model_凭证单>();
                 Vouchers.Add(Voucher);
                 bool result = new PA.Helper.DataBase.DataBase().InsertVoucherAll(Vouchers.OfType<object>().ToList(), NewVoucherDetails.OfType<object>().ToList());

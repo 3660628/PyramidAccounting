@@ -234,6 +234,11 @@ namespace PA.View.Windows
                 }
                 OnSubmit();
             }
+            else
+            {
+                MessageBoxCommon.Show("数据有误");
+                return;
+            }
             this.Close();
         }
 
