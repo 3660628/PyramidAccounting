@@ -29,10 +29,10 @@
                         </Expander>
                         <Expander x:Name="Expander_权限" Header="权限设置" Expanded="Expander_权限_Expanded">
                             <Grid Height="280" Background="White">
-                                <Button x:Name="Button_新增" Content="新增" HorizontalAlignment="Right" Margin="0,15,180,0" VerticalAlignment="Top" Width="75" Click="Button_新增_Click" />
-                                <Button x:Name="Button_修改" Content="修改" HorizontalAlignment="Right" Margin="0,15,100,0" VerticalAlignment="Top" Width="75" Click="Button_修改_Click" />
-                                <Button x:Name="Button_停用" Content="停用" HorizontalAlignment="Right" Margin="0,15,20,0" VerticalAlignment="Top" Width="75" Click="Button_停用_Click"/>
-                                <DataGrid x:Name="DataGrid_权限设置" HorizontalAlignment="Stretch" ItemsSource="{Binding}" AutoGenerateColumns="False" IsReadOnly="True" Margin="10,40,0,0" VerticalAlignment="Top">
+                                <Button x:Name="Button_新增" Content="新增" HorizontalAlignment="Right" Margin="0,15,180,0" VerticalAlignment="Top" Width="75" Click="Button_新增_Click" Template="{DynamicResource ButtonControlTemplate_Common}" Height="20" />
+                                <Button x:Name="Button_修改" Content="修改" HorizontalAlignment="Right" Margin="0,15,100,0" VerticalAlignment="Top" Width="75" Click="Button_修改_Click" Template="{DynamicResource ButtonControlTemplate_Common}" Height="20" />
+                                <Button x:Name="Button_停用" Content="停用" HorizontalAlignment="Right" Margin="0,15,20,0" VerticalAlignment="Top" Width="75" Click="Button_停用_Click" Template="{DynamicResource ButtonControlTemplate_Common}" Height="20"/>
+                                <DataGrid x:Name="DataGrid_权限设置" HorizontalAlignment="Stretch" ItemsSource="{Binding}" AutoGenerateColumns="False" IsReadOnly="True" Margin="10,40,0,0" VerticalAlignment="Top" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle_凭证管理}" CellStyle="{DynamicResource DataGridCellStyle_无上下边距}" BorderBrush="#FF99CCFF" HorizontalGridLinesBrush="#FF99CCFF" VerticalGridLinesBrush="#FF99CCFF" HeadersVisibility="Column" SelectionMode="Single">
                                     <DataGrid.Columns>
                                         <DataGridTextColumn Binding="{Binding 序号}" Header="序号" />
                                         <DataGridTextColumn Binding="{Binding 用户名}" Header="用户名"/>
@@ -55,7 +55,7 @@
                                 <TextBox x:Name="TextBox_制度" HorizontalAlignment="Left" Height="23" Margin="170,123,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="279" IsReadOnly="True"/>
                                 <Label Content="创建时间：" HorizontalAlignment="Left" Margin="100,170,0,0" VerticalAlignment="Top"/>
                                 <TextBox x:Name="TextBox_创建时间" HorizontalAlignment="Left" Height="23" Margin="170,173,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="279" IsReadOnly="True"/>
-                                <Button x:Name="Button_账套修改" Content="修改" HorizontalAlignment="Left" Margin="463,23,0,0" VerticalAlignment="Top" Width="75" Click="Button_账套修改_Click"/>
+                                <Button x:Name="Button_账套修改" Content="修改" HorizontalAlignment="Left" Margin="463,23,0,0" VerticalAlignment="Top" Width="75" Click="Button_账套修改_Click" Template="{DynamicResource ButtonControlTemplate_Common}" Height="20"/>
                             </Grid>
                         </Expander>
                     </StackPanel>

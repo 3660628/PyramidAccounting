@@ -4,7 +4,7 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       mc:Ignorable="d" 
-      d:DesignHeight="550" d:DesignWidth="400"
+      d:DesignHeight="550" d:DesignWidth="600" FontFamily="NSimSun" TextOptions.TextFormattingMode="Display"
 	Title="Page_添加用户">
 
     <Grid Background="White">
@@ -25,7 +25,7 @@
                 <TextBlock x:Name="TextBlock_密码" HorizontalAlignment="Left" Margin="236,80,0,0" TextWrapping="Wrap" Foreground="Red" VerticalAlignment="Top"/>
             </Grid>
         </GroupBox>
-        <Button x:Name="Button_PopCommit" Content="提交" HorizontalAlignment="Right" Margin="0,0,125,80" Width="80" Click="Button_PopCommit_Click" Grid.Column="1" Height="25" Foreground="White" VerticalAlignment="Bottom" />
-        <Button x:Name="Button_PopClose" Content="取消" HorizontalAlignment="Right" Margin="0,0,40,80" VerticalAlignment="Bottom" Width="80" Click="Button_PopClose_Click" Grid.Column="1" Height="25" Foreground="White"/>
+        <Button x:Name="Button_PopCommit" Content="提交" HorizontalAlignment="Right" Margin="0,0,125,80" Width="70" Click="Button_PopCommit_Click" Grid.Column="1" Height="20" Foreground="White" VerticalAlignment="Bottom" Template="{DynamicResource ButtonControlTemplate_CommonBlue}" />
+        <Button x:Name="Button_PopClose" Content="取消" HorizontalAlignment="Right" Margin="0,0,40,80" VerticalAlignment="Bottom" Width="70" Click="Button_PopClose_Click" Grid.Column="1" Height="20" Foreground="Black" Template="{DynamicResource ButtonControlTemplate_Common}"/>
     </Grid>
 </Page>
