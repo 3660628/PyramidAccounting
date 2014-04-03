@@ -83,6 +83,7 @@ namespace PA.View.Pages.TwoTabControl
 
         private void Button_本月结账_Click(object sender, RoutedEventArgs e)
         {
+            this.Button_隐藏.Focus();
             bool mark = false;
             if (CommonInfo.是否初始化年初数)
             {
