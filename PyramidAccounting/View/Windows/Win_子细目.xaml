@@ -14,12 +14,10 @@
         <TextBox x:Name="TextBox_科目编号" HorizontalAlignment="Left" Margin="110,35,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" RenderTransformOrigin="0.197,0.332" IsReadOnly="True" BorderThickness="0,0,0,1"/>
         <Label x:Name="Label_科目名称" Content="所属科目名称：" HorizontalAlignment="Left" Margin="10,60,0,0" VerticalAlignment="Top"/>
         <TextBox x:Name="TextBox_科目名称" HorizontalAlignment="Left" Margin="110,65,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" IsReadOnly="True" MinWidth="120" BorderThickness="0,0,0,1"/>
-        <Button x:Name="Button_Add" Content="新增" HorizontalAlignment="right" Margin="0,194,10,0" VerticalAlignment="Top" Width="50" Click="Button_Add_Click" Template="{DynamicResource ButtonControlTemplate_CommonBlue}" Foreground="White" Height="22"/>
-        <Button x:Name="Button_Save" Content="保存" HorizontalAlignment="right" Margin="0,140,10,0" VerticalAlignment="Top" Width="50" Click="Button_Save_Click" Template="{DynamicResource ButtonControlTemplate_Common}" Height="22"/>
         <Button x:Name="Button_Del" Content="删除" HorizontalAlignment="right" Margin="0,167,10,0" VerticalAlignment="Top" Width="50" Click="Button_Del_Click" Template="{DynamicResource ButtonControlTemplate_Common}" Height="22"/>
-        <DataGrid x:Name="DataGrid_子细目" ItemsSource="{Binding}" HorizontalAlignment="Stretch" Margin="10,140,70,10" CanUserAddRows="False" AutoGenerateColumns="False" RowEditEnding="DataGrid_子细目_RowEditEnding" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle_凭证管理}" BorderBrush="#FF99CCFF" HeadersVisibility="Column" SelectionMode="Single">
+        <DataGrid x:Name="DataGrid_子细目" ItemsSource="{Binding}" HorizontalAlignment="Stretch" Margin="10,140,70,10" CanUserAddRows="False" AutoGenerateColumns="False" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle_凭证管理}" BorderBrush="#FF99CCFF" HeadersVisibility="Column" SelectionMode="Single" CellEditEnding="DataGrid_子细目_CellEditEnding">
             <DataGrid.Columns>
-                <DataGridTextColumn Binding="{Binding 科目编号,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Header="子细目编号"/>
+                <DataGridTextColumn Binding="{Binding 科目编号,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Header="子细目编号" IsReadOnly="True"/>
                 <DataGridTextColumn Binding="{Binding 科目名称,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Header="子细目名称" MinWidth="100"/>
                 <DataGridTextColumn Binding="{Binding 年初金额,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Header="年初数" MinWidth="100" ElementStyle="{DynamicResource TextBlockStyle_右对齐}"/>
             </DataGrid.Columns>
@@ -66,7 +64,7 @@
                 </Style>
             </TextBox.Style>
         </TextBox>
-        <TextBox x:Name="TextBox_New_年初数" HorizontalAlignment="Left" Height="22" Margin="190,100,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="100" VerticalContentAlignment="Center" HorizontalContentAlignment="Right" Padding="0,0,5,0">
+        <TextBox x:Name="TextBox_New_年初数" HorizontalAlignment="Left" Height="22" Margin="190,100,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="95" VerticalContentAlignment="Center" HorizontalContentAlignment="Right" Padding="0,0,5,0">
             <TextBox.Resources>
                 <VisualBrush x:Key="HelpBrush" TileMode="None" Opacity="0.3" Stretch="None" AlignmentX="Right">
                     <VisualBrush.Visual>
@@ -88,6 +86,6 @@
             </TextBox.Style>
         </TextBox>
         <Button x:Name="Button_New_Add子细目" Content="添加" HorizontalAlignment="Left" Margin="380,100,0,0" VerticalAlignment="Top" Width="50" Height="22" Template="{DynamicResource ButtonControlTemplate_CommonBlue}" Foreground="White" Click="Button_New_Add子细目_Click"/>
-        <ComboBox x:Name="ComboBox_New_父ID" HorizontalAlignment="Left" Margin="295,100,0,0" VerticalAlignment="Top" Width="80" Height="22" ToolTip="选择所属科目编号；若选择的是二级科目，则该新增科目为三级科目"/>
+        <ComboBox x:Name="ComboBox_New_父ID" HorizontalAlignment="Left" Margin="290,100,0,0" VerticalAlignment="Top" Width="80" Height="22" ToolTip="选择所属科目编号；若选择的是二级科目，则该新增科目为三级科目"/>
     </Grid>
 </Window>

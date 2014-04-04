@@ -103,51 +103,46 @@ namespace PA.View.Windows
         }
 
         #region Button事件
-        private void Button_Add_Click(object sender, RoutedEventArgs e)
-        {
-            judge = 1;
-            DataGrid_子细目.CanUserAddRows = true;
-        }
 
-        private void Button_Save_Click(object sender, RoutedEventArgs e)
-        {
-            DataGrid_子细目.CanUserAddRows = false;
-            if (lm.Count > 0)
-            {
-                List<Model_科目管理> temp = new List<Model_科目管理>();
-                temp = vm.GetChildSubjectData(SubjectNum);
-                foreach (Model_科目管理 m in temp)
-                {
-                    foreach (Model_科目管理 now in lm)
-                    {
-                        if (string.IsNullOrEmpty(now.科目名称))
-                        {
-                            MessageBoxCommon.Show("存在科目名称为空，请检查！");
-                            return;
-                        }
-                        if (m.科目名称.Equals(now.科目名称))
-                        {
-                            MessageBoxCommon.Show("无法添加数据哦,请检查下是否填写了一样的科目名称！");
-                            return;
-                        }
-                        if (m.科目编号.Equals(now.科目编号))
-                        {
-                            MessageBoxCommon.Show("无法添加数据哦,请检查下是否填写了一样的科目编号！");
-                            return;
-                        }
-                    }
-                }
-                bool flag = vm.Insert(lm);
-                if (flag)
-                {
-                    MessageBoxCommon.Show("保存成功！");
-                    lm.Clear();
-                    //刷新数据
-                    this.FreshData();
-                }
+        //private void Button_Save_Click(object sender, RoutedEventArgs e)
+        //{
+        //    DataGrid_子细目.CanUserAddRows = false;
+        //    if (lm.Count > 0)
+        //    {
+        //        List<Model_科目管理> temp = new List<Model_科目管理>();
+        //        temp = vm.GetChildSubjectData(SubjectNum);
+        //        foreach (Model_科目管理 m in temp)
+        //        {
+        //            foreach (Model_科目管理 now in lm)
+        //            {
+        //                if (string.IsNullOrEmpty(now.科目名称))
+        //                {
+        //                    MessageBoxCommon.Show("存在科目名称为空，请检查！");
+        //                    return;
+        //                }
+        //                if (m.科目名称.Equals(now.科目名称))
+        //                {
+        //                    MessageBoxCommon.Show("无法添加数据哦,请检查下是否填写了一样的科目名称！");
+        //                    return;
+        //                }
+        //                if (m.科目编号.Equals(now.科目编号))
+        //                {
+        //                    MessageBoxCommon.Show("无法添加数据哦,请检查下是否填写了一样的科目编号！");
+        //                    return;
+        //                }
+        //            }
+        //        }
+        //        bool flag = vm.Insert(lm);
+        //        if (flag)
+        //        {
+        //            MessageBoxCommon.Show("保存成功！");
+        //            lm.Clear();
+        //            //刷新数据
+        //            this.FreshData();
+        //        }
                 
-            }
-        }
+        //    }
+        //}
 
         private void Button_Del_Click(object sender, RoutedEventArgs e)
         {
@@ -178,24 +173,28 @@ namespace PA.View.Windows
             this.FreshData();
         }
 
-        private void DataGrid_子细目_RowEditEnding(object sender, DataGridRowEditEndingEventArgs e)
-        {
-            Model_科目管理 m = new Model_科目管理();
-            m = e.Row.Item as Model_科目管理;
-            m.父ID = SubjectNum;
-            if (judge == 1 || initFlag)
-            {
-                m.类别 = "100";
-                lm.Add(m);
-                initFlag = false;
-            }
-            else
-            {
-                vm.UpdateChildSubject(m);
-            }
-        }
+        //private void DataGrid_子细目_RowEditEnding(object sender, DataGridRowEditEndingEventArgs e)
+        //{
+        //    Model_科目管理 m = new Model_科目管理();
+        //    m = e.Row.Item as Model_科目管理;
+        //    m.父ID = SubjectNum;
+        //    if (judge == 1 || initFlag)
+        //    {
+        //        m.类别 = "100";
+        //        lm.Add(m);
+        //        initFlag = false;
+        //    }
+        //    else
+        //    {
+        //        vm.UpdateChildSubject(m);
+        //    }
+        //}
         #endregion
-
+        /// <summary>
+        /// Lugia
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Button_New_Add子细目_Click(object sender, RoutedEventArgs e)
         {
             string Number = this.TextBox_New_子细目编号.Text;
@@ -213,6 +212,25 @@ namespace PA.View.Windows
             details.Add(detail);
             vm.Insert(details);
             DataGrid_子细目.ItemsSource = vm.GetChildSubjectData(SubjectNum);
+        }
+        /// <summary>
+        /// Lugia
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void DataGrid_子细目_CellEditEnding(object sender, DataGridCellEditEndingEventArgs e)
+        {
+            Model_科目管理 detail = this.DataGrid_子细目.SelectedCells[0].Item as Model_科目管理;
+            string header = e.Column.Header.ToString();
+            string newValue = (e.EditingElement as TextBox).Text.Trim();
+            if (header == "年初数")
+            {
+                vm.UpdateChildSubject(detail.科目编号.ToString(), header, newValue);
+            }
+            else
+            {
+                vm.UpdateChildSubject(detail.ID.ToString(), header, newValue);
+            }
         }
     }
 }

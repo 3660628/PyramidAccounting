@@ -240,5 +240,10 @@ namespace PA.View.Pages.TwoTabControl
         {
 
         }
+
+        private void Popup_科目子细目_Closed(object sender, EventArgs e)
+        {
+            this.IsEnabled = true;
+        }
     }
 }

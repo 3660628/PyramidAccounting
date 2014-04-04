@@ -56,7 +56,10 @@ namespace PA.ViewModel
         {
             string sql = "select a.*,b.fee from " + DBTablesName.T_SUBJECT 
                 + " a left join t_yearfee b on a.subject_id=b.subject_id  where b.bookid='"
-                + CommonInfo.账薄号 + "' and a.parent_id='" + parent_id + "' order by a.id";
+                + CommonInfo.账薄号 + "' "
+                +"and (a.parent_id='" + parent_id + "' "
+                + " OR (a.SUBJECT_TYPE = '1000' AND a.parent_id LIKE '" + parent_id + "%'))"
+                +"order by a.id";
             DataTable dt = db.Query(sql).Tables[0];
             List<Model_科目管理> list = new List<Model_科目管理>();
             for (int i = 0; i < dt.Rows.Count; i++)
@@ -106,7 +109,8 @@ namespace PA.ViewModel
             db.BatchOperate(sqlList);
         }
         /// <summary>
-        /// 插入新二级细目
+        /// 插入新二三级细目
+        /// Lugia
         /// </summary>
         /// <param name="list"></param>
         /// <returns></returns>
@@ -131,6 +135,7 @@ namespace PA.ViewModel
         public void Delete(List<Model_科目管理> list)
         {
             string parentid = "";
+            string SubjectType = "";
             List<string> sqlList = new List<string>();
             foreach (Model_科目管理 m in list)
             {
@@ -140,10 +145,17 @@ namespace PA.ViewModel
                     + m.科目编号 + "' and parentid='" + m.父ID + "' and bookid='" + CommonInfo.账薄号 + "'";
                 sqlList.Add(sql);
                 parentid = m.父ID;
+                SubjectType = m.类别;
             }
             string sql3 = "update T_YEARFEE set fee = (select total(fee) from T_YEARFEE where parentid=" 
                 + parentid + ") where subject_id=" + parentid;
             sqlList.Add(sql3);
+            if (SubjectType == "1000")
+            {
+                string sql4 = "update T_YEARFEE set fee = (select total(fee) from T_YEARFEE where parentid="
+                + parentid + ") where subject_id=" + parentid;
+                sqlList.Add(sql4);
+            }
             db.BatchOperate(sqlList);
         }
 
@@ -152,6 +164,32 @@ namespace PA.ViewModel
             string sql = "select subject_id from " + DBTablesName.T_SUBJECT + " where subject_name='" 
                 + name + "' and parent_id = 0";
             return db.GetAllData(sql).Split('\t')[0].Split(',')[0];
+        }
+
+        /// <summary>
+        /// 更新子细目内容，DataGridCell编辑后更新
+        /// Lugia
+        /// </summary>
+        /// <param name="key"></param>
+        /// <param name="value"></param>
+        /// <returns></returns>
+        public bool UpdateChildSubject(string id, string key, string value)
+        {
+            Console.WriteLine(key);
+            List<string> sqlList = new List<string>();
+            string sql = "";
+            if(key == "年初数")
+            {
+                sql = "update " + DBTablesName.T_YEAR_FEE + " set FEE=" + value + " where bookid='" + CommonInfo.账薄号 + "' AND subject_id=" + id;
+            }
+            else if(key == "子细目名称")
+            {
+                sql = "update " + DBTablesName.T_SUBJECT + " set subject_name='" + value + "' where id=" + id;
+            }
+            Console.WriteLine(sql);
+            sqlList.Add(sql);
+            db.BatchOperate(sqlList);
+            return true;
         }
     }
 }
