@@ -131,8 +131,8 @@ namespace PA.ViewModel
             foreach(string i in lst)
             {
                 _tempstr += ",sum(case when t.detail='" + i.Split('\t')[1] 
-                    + "' then (t.fee1+t.fee2) else '0' end) as " 
-                    + i.Split('\t')[1];
+                    + "' then (t.fee1+t.fee2) else '0' end) as '" 
+                    + i.Split('\t')[1] + "'";
             }
             for (int i = lst.Count; i < 11; i++)
             {

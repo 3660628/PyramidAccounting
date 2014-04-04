@@ -226,7 +226,7 @@ namespace PA.View.Pages.TwoTabControl
                     m.摘要 = "查询不到数据！";
                     lm.Add(m);
                 }
-                this.DataGrid_总账.ItemsSource = lm;
+                this.DataGrid_费用明细账.ItemsSource = lm;
             }
         }
         #endregion

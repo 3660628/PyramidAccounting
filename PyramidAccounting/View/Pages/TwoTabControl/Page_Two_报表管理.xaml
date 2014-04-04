@@ -14,6 +14,7 @@
             <TabItem FocusVisualStyle="{x:Null}" Header="资产负债表" Margin="8,-1,-8,1" Template="{DynamicResource TabItemControlTemplate_TwoTabHeader}">
                 <Grid Background="White">
                     <ComboBox x:Name="ComboBox_Date" HorizontalAlignment="Left" Margin="7,10,0,0" VerticalAlignment="Top" Width="140" />
+                    <Button x:Name="Button_生成1" Content="生成" HorizontalAlignment="Right" Margin="0,10,142,0" VerticalAlignment="Top" Width="50" Height="20" Template="{DynamicResource ButtonControlTemplate_Common}" Click="Button_生成1_Click"/>
                     <Button Content="打印" HorizontalAlignment="Right" Margin="0,10,76,0" VerticalAlignment="Top" Width="50" Click="Button_Click" Template="{DynamicResource ButtonControlTemplate_Common}" Height="20" Grid.Column="1"/>
                     <Button Content="导出" HorizontalAlignment="Right" Margin="0,10,11,0" VerticalAlignment="Top" Width="50" Template="{DynamicResource ButtonControlTemplate_Common}" Height="20" Grid.Column="1"/>
                     <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto" Margin="-3,40,0,-3" Grid.ColumnSpan="2">
@@ -238,7 +239,7 @@
                     </ScrollViewer>
                 </Grid>
             </TabItem>
-            <TabItem FocusVisualStyle="{x:Null}" Header="收入支出总表" Margin="16,-1,-16,1" Template="{DynamicResource TabItemControlTemplate_TwoTabHeader}">
+            <TabItem FocusVisualStyle="{x:Null}" Header="收入支出总表" Margin="16,-1,-16,1" Template="{DynamicResource TabItemControlTemplate_TwoTabHeader}" Height="26" VerticalAlignment="Bottom">
                 <Grid Background="White">
                     <ComboBox x:Name="ComboBox_Date1" HorizontalAlignment="Left" Margin="7,10,0,0" VerticalAlignment="Top" Width="140"/>
                     <Button x:Name="Button_生成2" Content="生成" HorizontalAlignment="Right" Margin="0,10,142,0" VerticalAlignment="Top" Width="50" Height="20" Template="{DynamicResource ButtonControlTemplate_Common}" Click="Button_生成2_Click"/>
