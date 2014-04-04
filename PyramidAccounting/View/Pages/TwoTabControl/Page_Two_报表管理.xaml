@@ -14,10 +14,9 @@
             <TabItem FocusVisualStyle="{x:Null}" Header="资产负债表" Margin="8,-1,-8,1" Template="{DynamicResource TabItemControlTemplate_TwoTabHeader}">
                 <Grid Background="White">
                     <ComboBox x:Name="ComboBox_Date" HorizontalAlignment="Left" Margin="7,10,0,0" VerticalAlignment="Top" Width="140" />
-                    <Button x:Name="Button_生成1" Content="生成" HorizontalAlignment="Right" Margin="0,10,142,0" VerticalAlignment="Top" Width="50" Height="20" Template="{DynamicResource ButtonControlTemplate_Common}" Click="Button_生成1_Click"/>
-                    <Button Content="打印" HorizontalAlignment="Right" Margin="0,10,76,0" VerticalAlignment="Top" Width="50" Click="Button_Click" Template="{DynamicResource ButtonControlTemplate_Common}" Height="20"/>
-                    <Button Content="导出" HorizontalAlignment="Right" Margin="0,10,11,0" VerticalAlignment="Top" Width="50" Template="{DynamicResource ButtonControlTemplate_Common}" Height="20"/>
-                    <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto" Margin="-3,40,0,-3">
+                    <Button Content="打印" HorizontalAlignment="Right" Margin="0,10,76,0" VerticalAlignment="Top" Width="50" Click="Button_Click" Template="{DynamicResource ButtonControlTemplate_Common}" Height="20" Grid.Column="1"/>
+                    <Button Content="导出" HorizontalAlignment="Right" Margin="0,10,11,0" VerticalAlignment="Top" Width="50" Template="{DynamicResource ButtonControlTemplate_Common}" Height="20" Grid.Column="1"/>
+                    <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto" Margin="-3,40,0,-3" Grid.ColumnSpan="2">
                         <Grid Margin="10,0,10,10" VerticalAlignment="Top">
                             <Grid.RowDefinitions>
                                 <RowDefinition/>
@@ -155,7 +154,7 @@
                                 <Label Content="收入合计" HorizontalAlignment="Center" Grid.Column="5" Grid.Row="21" />
                                 <Label Content="资产部类总计" HorizontalAlignment="Center" Grid.Column="1" Grid.Row="23" />
                                 <Label Content="负债部类总计" HorizontalAlignment="Center" Grid.Column="5" Grid.Row="23" />
-                                
+
                                 <!-- 这里开始写插入的值-->
                                 <!-- 101~110-->
                                 <Label x:Name="y1" Content="" HorizontalAlignment="Center" Grid.Row="2" Grid.Column="2" />
@@ -291,21 +290,21 @@
                                 <Border BorderBrush="White" BorderThickness="0,0,1,0" Grid.Row="1" Grid.Column="4" Grid.RowSpan="1"/>
                                 <Border BorderBrush="White" BorderThickness="0,0,1,0" Grid.Row="1" Grid.Column="5" Grid.RowSpan="1"/>
                                 <Border BorderBrush="White" BorderThickness="0,0,1,0" Grid.Row="1" Grid.Column="6" Grid.RowSpan="1"/>
-                                 <!--其他-->
+                                <!--其他-->
                                 <Border BorderBrush="#FF99CCFF" BorderThickness="1,0,1,0" Grid.Row="2" Grid.Column="1" Grid.RowSpan="12"/>
                                 <Border BorderBrush="#FF99CCFF" BorderThickness="0,0,1,0" Grid.Row="2" Grid.Column="2" Grid.RowSpan="12"/>
                                 <Border BorderBrush="#FF99CCFF" BorderThickness="0,0,1,0" Grid.Row="2" Grid.Column="3" Grid.RowSpan="12"/>
                                 <Border BorderBrush="#FF99CCFF" BorderThickness="0,0,1,0" Grid.Row="2" Grid.Column="4" Grid.RowSpan="12"/>
                                 <Border BorderBrush="#FF99CCFF" BorderThickness="0,0,1,0" Grid.Row="2" Grid.Column="5" Grid.RowSpan="12"/>
                                 <Border BorderBrush="#FF99CCFF" BorderThickness="0,0,1,0" Grid.Row="2" Grid.Column="6" Grid.RowSpan="12"/>
-                                
+
                                 <Border BorderBrush="#FF99CCFF" BorderThickness="0,1,0,1" Grid.Row="3" Grid.ColumnSpan="8"/>
                                 <Border BorderBrush="#FF99CCFF" BorderThickness="0,1,0,1" Grid.Row="5" Grid.ColumnSpan="8"/>
                                 <Border BorderBrush="#FF99CCFF" BorderThickness="0,1,0,1" Grid.Row="7" Grid.ColumnSpan="8"/>
                                 <Border BorderBrush="#FF99CCFF" BorderThickness="0,1,0,1" Grid.Row="9" Grid.ColumnSpan="8"/>
                                 <Border BorderBrush="#FF99CCFF" BorderThickness="0,1,0,1" Grid.Row="11" Grid.ColumnSpan="8"/>
                                 <Border BorderBrush="#FF99CCFF" BorderThickness="0,1,0,0" Grid.Row="13" Grid.ColumnSpan="8"/>
-                                
+
                                 <Label Content="收入" HorizontalAlignment="Center"  Grid.ColumnSpan="3" VerticalAlignment="Center"/>
                                 <Label Content="支出" HorizontalAlignment="Center" Grid.Column="3"  Grid.ColumnSpan="3" VerticalAlignment="Center"/>
                                 <Label Content="结余" HorizontalAlignment="Center" Grid.Column="6"  Grid.ColumnSpan="2" VerticalAlignment="Center"/>
@@ -335,7 +334,7 @@
                                 <Label Content="收入统计" HorizontalAlignment="Center" Grid.Row="13"/>
                                 <Label Content="支出统计" HorizontalAlignment="Center" Grid.Column="3" Grid.Row="13"/>
                                 <Label Content="累计结余" HorizontalAlignment="Center" Grid.Column="6" Grid.Row="13"/>
-                                
+
                                 <!--收入-->
                                 <Label x:Name="inM1" Content="" HorizontalAlignment="Center" Grid.Column="1" Grid.Row="2" />
                                 <Label x:Name="inY1" Content="" HorizontalAlignment="Center" Grid.Column="2" Grid.Row="2" />
@@ -354,12 +353,14 @@
                                 <Label x:Name="inY6" Content="" HorizontalAlignment="Center" Grid.Column="5" Grid.Row="8" />
                                 <!--结余-->
                                 <Label x:Name="B1" Content="" HorizontalAlignment="Center" Grid.Column="7" Grid.Row="2" />
-                                
+                                <Label x:Name="B2" Content="" HorizontalAlignment="Center" Grid.Column="7" Grid.Row="3" />
+                                <Label x:Name="B3" Content="" HorizontalAlignment="Center" Grid.Column="7" Grid.Row="4" />
                                 <!--统计-->
                                 <Label x:Name="inSumM1" Content="" HorizontalAlignment="Center" Grid.Column="1" Grid.Row="13" />
                                 <Label x:Name="inSumY1" Content="" HorizontalAlignment="Center" Grid.Column="2" Grid.Row="13" />
                                 <Label x:Name="inSumM2" Content="" HorizontalAlignment="Center" Grid.Column="4" Grid.Row="13" />
                                 <Label x:Name="inSumY2" Content="" HorizontalAlignment="Center" Grid.Column="5" Grid.Row="13" />
+                                <Label x:Name="inSumY3" Content="" HorizontalAlignment="Center" Grid.Column="7" Grid.Row="13" />
                             </Grid>
                             <Label Content="编表说明：拨入经费中包括纳入预算管理的非税收入。" HorizontalAlignment="Left" Margin="0" VerticalAlignment="Bottom" RenderTransformOrigin="-0.146,0.317"/>
                         </Grid>
@@ -462,7 +463,7 @@
                                 <Border BorderBrush="#FF99CCFF" BorderThickness="1,0" Margin="0" Grid.Column="10" Grid.Row="3" Grid.RowSpan="99"/>
                                 <Border BorderBrush="#FF99CCFF" BorderThickness="1,0" Margin="0" Grid.Column="12" Grid.Row="3" Grid.RowSpan="99"/>
                                 <Border BorderBrush="#FF99CCFF" BorderThickness="0,0,1,0" Margin="0" Grid.Column="13" Grid.Row="3" Grid.RowSpan="99"/>
-                                <!--其他。横-->   
+                                <!--其他。横-->
                                 <Border BorderBrush="#FF99CCFF" BorderThickness="0,1" Margin="0" Grid.Row="3" Grid.ColumnSpan="99"/>
                                 <Border BorderBrush="#FF99CCFF" BorderThickness="0,1" Margin="0" Grid.Row="5" Grid.ColumnSpan="99"/>
                                 <Border BorderBrush="#FF99CCFF" BorderThickness="0,1" Margin="0" Grid.Row="7" Grid.ColumnSpan="99"/>

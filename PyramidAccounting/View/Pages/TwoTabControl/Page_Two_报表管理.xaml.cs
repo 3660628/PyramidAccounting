@@ -166,9 +166,10 @@ namespace PA.View.Pages.TwoTabControl
             decimal insumy1 = 0;
             decimal insumm2 = 0;
             decimal insumy2 = 0;
+            decimal b3 = 0;
             if (list.Count > 0)
             {
-                for (int i = 0; i < list.Count; i++)
+                for (int i = 0; i < list.Count-1; i++)
                 {
                     Label lb = FindName("inM" + (i + 1)) as Label;
                     lb.Content = list[i].期末数;
@@ -181,17 +182,27 @@ namespace PA.View.Pages.TwoTabControl
                         insumm1 += dn;
                         insumy1 += dy;
                     }
-                    else
+                    else if (i >= 3 && i < 6) 
                     {
                         insumy2 += dy;
                         insumm2 += dn;
                     }
-                    inSumM1.Content = insumm1;
-                    inSumY1.Content = insumy1;
-
-                    inSumM2.Content = insumm2;
-                    inSumY2.Content = insumy2;
                 }
+                decimal.TryParse(list[list.Count - 1].年初数, out b3);
+
+                inSumM1.Content = insumm1;
+                inSumY1.Content = insumy1;
+
+                inSumM2.Content = insumm2;
+                inSumY2.Content = insumy2;
+
+                B2.Content = (insumy1 - insumy2);
+                B3.Content = b3;
+
+                B1.Content = ((insumy1 - insumy2) + b3);
+
+                inSumY3.Content = B1.Content;
+
             }
             else
             {
@@ -207,6 +218,11 @@ namespace PA.View.Pages.TwoTabControl
 
                 inSumM2.Content ="";
                 inSumY2.Content = "";
+                inSumY3.Content = "";
+
+                B1.Content = "";
+                B2.Content = "";
+                B3.Content = "";
             }
         }
         

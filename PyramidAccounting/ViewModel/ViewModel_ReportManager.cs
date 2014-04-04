@@ -45,7 +45,7 @@ namespace PA.ViewModel
             string sql = "SELECT a.SUBJECT_ID,a.fee,b.fee FROM (SELECT SUBJECT_ID,fee FROM " +
                 DBTablesName.T_FEE + " WHERE PERIOD = " + index + ") a LEFT JOIN (SELECT SUBJECT_ID,total(fee) AS fee FROM "
                 + DBTablesName.T_FEE + " WHERE PERIOD = 0 GROUP BY	SUBJECT_ID	) b ON a.SUBJECT_ID = b.SUBJECT_ID "
-                + "WHERE a.SUBJECT_ID IN ('401','404','407','501','502','505') ";
+                + "WHERE a.SUBJECT_ID IN ('401','404','407','501','502','505','303') ";
             DataTable dt = db.Query(sql).Tables[0];
             foreach (DataRow d in dt.Rows)
             {
