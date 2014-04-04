@@ -178,5 +178,13 @@ namespace PA.View.Windows
             }
         }
         #endregion
+
+        private void Button_New_Add子细目_Click(object sender, RoutedEventArgs e)
+        {
+            string Number = this.TextBox_New_子细目编号.Text;
+            string Name   = this.TextBox_New_子细目名称.Text;
+            string Money  = this.TextBox_New_年初数.Text;
+            string ParentsID = this.ComboBox_New_父ID.Text;
+        }
     }
 }
