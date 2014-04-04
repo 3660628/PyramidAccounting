@@ -146,6 +146,10 @@ namespace PA.View.Windows
 
         private void Button_Del_Click(object sender, RoutedEventArgs e)
         {
+            if (DataGrid_子细目.SelectedItems.Count == 0)
+            {
+                return;
+            }
             string messageBoxText = "是否删除这些数据？";
             string caption = "注意";
             bool? result = MessageBoxDel.Show(caption, messageBoxText);
