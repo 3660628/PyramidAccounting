@@ -60,7 +60,7 @@ namespace PA.View.Pages.Pop.系统管理
             if (string.IsNullOrEmpty(username))
             {
                 MessageBox.Show("请填写用户名");
-                TextBox_用户名.Focus();
+                //TextBox_用户名.Focus();
                 return false;
             }
             else
@@ -68,20 +68,20 @@ namespace PA.View.Pages.Pop.系统管理
                 if (vm.ValidateUserName(username))
                 {
                     MessageBox.Show("当前用户名已存在，请勿重复添加！");
-                    TextBox_用户名.Focus();
+                    //TextBox_用户名.Focus();
                     return false;
                 }
             }
             if (TextBox_用户密码.SecurePassword.Length == 0)
             {
                 MessageBox.Show("请设置初始密码！");
-                TextBox_用户密码.Focus();
+                //TextBox_用户密码.Focus();
                 return false;
             }
             if (ComboBox_用户权限.SelectedIndex == 0)
             {
                 MessageBox.Show("请选择用户权限");
-                ComboBox_用户权限.Focus();
+                //ComboBox_用户权限.Focus();
                 return false;
             }
             return true;
@@ -132,7 +132,7 @@ namespace PA.View.Pages.Pop.系统管理
             }
             else
             {
-                TextBox_用户名.Focus();
+                //TextBox_用户名.Focus();
             }
         }
 
@@ -141,7 +141,7 @@ namespace PA.View.Pages.Pop.系统管理
             if (TextBox_用户密码.SecurePassword.Length == 0)
             {
                 TextBlock_密码.Text = "密码不能为空";
-                TextBox_用户密码.Focus();
+                //TextBox_用户密码.Focus();
             }
             else
             {

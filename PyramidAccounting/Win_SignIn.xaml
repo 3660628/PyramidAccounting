@@ -21,7 +21,7 @@
         </Grid>
         <Image HorizontalAlignment="left" Margin="34,0,0,0" VerticalAlignment="Top" Source="View/Images/Logo/Pyramid_Logo_white_128x128.png" Grid.Row="2" Height="88" Width="88"/>
         <ComboBox x:Name="ComboBox_账套" HorizontalAlignment="Center" Margin="64,0" VerticalAlignment="Top" Width="172" Height="22" Grid.Column="1" Grid.Row="2"/>
-        <TextBox x:Name="TextBox_登陆用户名" HorizontalAlignment="Center" Height="22" Margin="64,29,64,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="172" FontSize="16" Grid.Column="1" Grid.Row="2">
+        <TextBox x:Name="TextBox_登陆用户名" HorizontalAlignment="Center" Height="22" Margin="64,29,64,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="172" FontSize="16" Grid.Column="1" Grid.Row="2" VerticalContentAlignment="Center">
             <TextBox.ContextMenu>
                 <ContextMenu Visibility="Collapsed">
                 </ContextMenu>
@@ -46,7 +46,7 @@
                 </Style>
             </TextBox.Style>
         </TextBox>
-        <PasswordBox x:Name="PasswordBox_登陆密码" HorizontalAlignment="Center" Margin="64,58,64,0" VerticalAlignment="Top" Width="172" FontSize="16" Height="22" Grid.Column="1" Grid.Row="2">
+        <PasswordBox x:Name="PasswordBox_登陆密码" HorizontalAlignment="Center" Margin="64,58,64,0" VerticalAlignment="Top" Width="172" FontSize="16" Height="22" Grid.Column="1" Grid.Row="2" VerticalContentAlignment="Center">
             <PasswordBox.ContextMenu>
                 <ContextMenu Visibility="Collapsed">
                 </ContextMenu>

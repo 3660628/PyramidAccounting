@@ -16,11 +16,11 @@
                 <Label Content="真实姓名：" HorizontalAlignment="Left" Margin="20,125,0,0" VerticalAlignment="Top"/>
                 <Label Content="用户权限：" HorizontalAlignment="Left" Margin="20,175,0,0" VerticalAlignment="Top"/>
                 <Label Content="用户说明：" HorizontalAlignment="Left" Margin="20,225,0,0" VerticalAlignment="Top"/>
-                <TextBox x:Name="TextBox_用户名" HorizontalAlignment="Left" Height="23" Margin="90,25,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" LostKeyboardFocus="TextBox_用户名_LostKeyboardFocus"/>
-                <PasswordBox x:Name="TextBox_用户密码" HorizontalAlignment="Left" Height="23" Margin="90,75,0,0" VerticalAlignment="Top" Width="120" LostKeyboardFocus="TextBox_用户密码_LostKeyboardFocus"/>
-                <TextBox x:Name="TextBox_真实姓名" HorizontalAlignment="Left" Height="23" Margin="90,125,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+                <TextBox x:Name="TextBox_用户名" HorizontalAlignment="Left" Height="23" Margin="90,25,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" LostKeyboardFocus="TextBox_用户名_LostKeyboardFocus" VerticalContentAlignment="Center"/>
+                <PasswordBox x:Name="TextBox_用户密码" HorizontalAlignment="Left" Height="23" Margin="90,75,0,0" VerticalAlignment="Top" Width="120" LostKeyboardFocus="TextBox_用户密码_LostKeyboardFocus" VerticalContentAlignment="Center"/>
+                <TextBox x:Name="TextBox_真实姓名" HorizontalAlignment="Left" Height="23" Margin="90,125,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" VerticalContentAlignment="Center"/>
                 <ComboBox x:Name="ComboBox_用户权限" HorizontalAlignment="Left" Margin="90,175,0,0" VerticalAlignment="Top" Width="120"/>
-                <TextBox x:Name="TextBox_用户说明" HorizontalAlignment="Left" Height="23" Margin="90,225,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="188"/>
+                <TextBox x:Name="TextBox_用户说明" HorizontalAlignment="Left" Height="23" Margin="90,225,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="188" VerticalContentAlignment="Center"/>
                 <TextBlock x:Name="TextBlock_用户名" HorizontalAlignment="Left" Margin="236,30,0,0"  Foreground="Red"  TextWrapping="Wrap" VerticalAlignment="Top"/>
                 <TextBlock x:Name="TextBlock_密码" HorizontalAlignment="Left" Margin="236,80,0,0" TextWrapping="Wrap" Foreground="Red" VerticalAlignment="Top"/>
             </Grid>
