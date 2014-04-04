@@ -80,6 +80,7 @@ namespace PA.View.Windows
             DataGrid_子细目.ItemsSource = dataList;
             this.ComboBox_New_父ID.ItemsSource = ComboBox_New_ParentsID;
             this.ComboBox_New_父ID.SelectedIndex = 0;
+            this.TextBox_New_子细目编号.Text = this.ComboBox_New_父ID.Text;
         }
         /// <summary>
         /// 刷新数据的方法
@@ -204,6 +205,11 @@ namespace PA.View.Windows
             string Number = this.TextBox_New_子细目编号.Text;
             string Name   = this.TextBox_New_子细目名称.Text;
             string Money  = this.TextBox_New_年初数.Text;
+            if (string.IsNullOrEmpty(Number) || string.IsNullOrEmpty(Name) || string.IsNullOrEmpty(Money))
+            {
+                MessageBoxCommon.Show("数据不能为空");
+                return;
+            }
             string ParentsID = this.ComboBox_New_父ID.Text;
             List<Model_科目管理> details = new List<Model_科目管理>();
             Model_科目管理 detail = new Model_科目管理();
@@ -235,6 +241,11 @@ namespace PA.View.Windows
             {
                 vm.UpdateChildSubject(detail.ID.ToString(), header, newValue);
             }
+        }
+
+        private void ComboBox_New_父ID_DropDownClosed(object sender, EventArgs e)
+        {
+            this.TextBox_New_子细目编号.Text = this.ComboBox_New_父ID.Text;
         }
     }
 }

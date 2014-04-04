@@ -86,6 +86,6 @@
             </TextBox.Style>
         </TextBox>
         <Button x:Name="Button_New_Add子细目" Content="添加" HorizontalAlignment="Left" Margin="380,100,0,0" VerticalAlignment="Top" Width="50" Height="22" Template="{DynamicResource ButtonControlTemplate_CommonBlue}" Foreground="White" Click="Button_New_Add子细目_Click"/>
-        <ComboBox x:Name="ComboBox_New_父ID" HorizontalAlignment="Left" Margin="290,100,0,0" VerticalAlignment="Top" Width="80" Height="22" ToolTip="选择所属科目编号；若选择的是二级科目，则该新增科目为三级科目"/>
+        <ComboBox x:Name="ComboBox_New_父ID" HorizontalAlignment="Left" Margin="290,100,0,0" VerticalAlignment="Top" Width="80" Height="22" ToolTip="选择所属科目编号；若选择的是二级科目，则该新增科目为三级科目" DropDownClosed="ComboBox_New_父ID_DropDownClosed"/>
     </Grid>
 </Window>
