@@ -147,7 +147,56 @@ namespace PA.View.Pages.TwoTabControl
 
         private void Button_生成2_Click(object sender, RoutedEventArgs e)
         {
+            List<Model_报表类> list = new List<Model_报表类>();
+            list = vmr.GetIncomeAndExpenses(ComboBox_Date.SelectedIndex + 1);
+            decimal dy = 0;
+            decimal dn = 0;
+            decimal insumm1 = 0;
+            decimal insumy1 = 0;
+            decimal insumm2 = 0;
+            decimal insumy2 = 0;
+            if (list.Count > 0)
+            {
+                for (int i = 0; i < list.Count; i++)
+                {
+                    Label lb = FindName("inM" + (i + 1)) as Label;
+                    lb.Content = list[i].期末数;
+                    Label lb2 = FindName("inY" + +(i + 1)) as Label;
+                    lb2.Content = list[i].年初数;
+                    decimal.TryParse(list[i].年初数, out dy);
+                    decimal.TryParse(list[i].期末数, out dn);
+                    if (i < 3)
+                    {
+                        insumm1 += dn;
+                        insumy1 += dy;
+                    }
+                    else
+                    {
+                        insumy2 += dy;
+                        insumm2 += dn;
+                    }
+                    inSumM1.Content = insumm1;
+                    inSumY1.Content = insumy1;
 
+                    inSumM2.Content = insumm2;
+                    inSumY2.Content = insumy2;
+                }
+            }
+            else
+            {
+                for (int i = 0; i < 6; i++)
+                {
+                    Label lb = FindName("inM" + (i + 1)) as Label;
+                    lb.Content = "";
+                    Label lb2 = FindName("inY" + +(i + 1)) as Label;
+                    lb2.Content = "";
+                }
+                inSumM1.Content ="";
+                inSumY1.Content ="";
+
+                inSumM2.Content ="";
+                inSumY2.Content = "";
+            }
         }
         
     }
