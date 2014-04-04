@@ -541,7 +541,7 @@ namespace PA.ViewModel
                           + "SELECT ID  FROM   "
                           + DBTablesName.T_VOUCHER
                           + " WHERE period = " + CommonInfo.当前期
-                          + ") GROUP BY "
+                          + " and review_mark=1) GROUP BY "
                           + "SUBJECT_ID  ORDER BY SUBJECT_ID) a "
                           + "LEFT JOIN " + DBTablesName.T_SUBJECT 
                           +" b ON a.SUBJECT_ID = b.SUBJECT_NAME where b.parent_id='0') t," + DBTablesName.T_FEE 
