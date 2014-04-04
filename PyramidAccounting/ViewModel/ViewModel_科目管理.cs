@@ -135,7 +135,6 @@ namespace PA.ViewModel
         public void Delete(List<Model_科目管理> list)
         {
             string parentid = "";
-            string SubjectType = "";
             List<string> sqlList = new List<string>();
             foreach (Model_科目管理 m in list)
             {
@@ -145,17 +144,10 @@ namespace PA.ViewModel
                     + m.科目编号 + "' and parentid='" + m.父ID + "' and bookid='" + CommonInfo.账薄号 + "'";
                 sqlList.Add(sql);
                 parentid = m.父ID;
-                SubjectType = m.类别;
             }
             string sql3 = "update T_YEARFEE set fee = (select total(fee) from T_YEARFEE where parentid=" 
                 + parentid + ") where subject_id=" + parentid;
             sqlList.Add(sql3);
-            if (SubjectType == "1000")
-            {
-                string sql4 = "update T_YEARFEE set fee = (select total(fee) from T_YEARFEE where parentid="
-                + parentid + ") where subject_id=" + parentid;
-                sqlList.Add(sql4);
-            }
             db.BatchOperate(sqlList);
         }
 
