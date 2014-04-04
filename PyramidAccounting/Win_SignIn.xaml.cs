@@ -93,7 +93,7 @@ namespace PA
                 CommonInfo.是否初始化年初数 = new ViewModel_年初金额().IsSaved();
                 //先记录一些信息
                 Model_操作日志 mr = new Model_操作日志();
-                mr = vmr.GetTOperateLog();
+                mr = vmr.GetOperateLog();
 
                 if (ComboBox_账套.SelectedValue.ToString().Equals("0"))
                 {

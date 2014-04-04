@@ -35,6 +35,7 @@ namespace PA.View.Pages.TwoTabControl
         public Page_Two_快捷界面()
         {
             InitializeComponent();
+            mr = vmr.GetOperateLog();
         }
         private void OnTabChange(int y, int x)
         {
@@ -67,7 +68,6 @@ namespace PA.View.Pages.TwoTabControl
 
         private void Button_凭证审核_Click(object sender, RoutedEventArgs e)
         {
-            mr = vmr.GetTOperateLog();
             mr.日志 = "进入凭证审核模块！";
             vmr.Insert(mr);
             OnTabChange(1, 0, "凭证审核");
@@ -116,7 +116,6 @@ namespace PA.View.Pages.TwoTabControl
                             {
 
                                 MessageBoxCommon.Show("结账完毕！");
-                                mr = vmr.GetTOperateLog();
                                 if (CommonInfo.当前期 < 12)
                                 {
                                     temp = CommonInfo.当前期 - 1;
@@ -144,7 +143,6 @@ namespace PA.View.Pages.TwoTabControl
         private void Button_账目查询_Click(object sender, RoutedEventArgs e)
         {
             OnTabChange(2, 1);
-            mr = vmr.GetTOperateLog();
             mr.日志 = "进入账目查询模块！";
             vmr.Insert(mr);
         }
@@ -152,7 +150,6 @@ namespace PA.View.Pages.TwoTabControl
         private void Button_账簿查询_Click(object sender, RoutedEventArgs e)
         {
             OnTabChange(2, 0);
-            mr = vmr.GetTOperateLog();
             mr.日志 = "进入账簿查询模块！";
             vmr.Insert(mr);
         }
@@ -160,7 +157,6 @@ namespace PA.View.Pages.TwoTabControl
         private void Button_科目查询_Click(object sender, RoutedEventArgs e)
         {
             OnTabChange(2, 2);
-            mr = vmr.GetTOperateLog();
             mr.日志 = "进入科目查询模块！";
             vmr.Insert(mr);
         }
@@ -168,7 +164,6 @@ namespace PA.View.Pages.TwoTabControl
         private void Button_报表查询_Click(object sender, RoutedEventArgs e)
         {
             OnTabChange(3, 0);
-            mr = vmr.GetTOperateLog();
             mr.日志 = "进入报表查询模块！";
             vmr.Insert(mr);
         }

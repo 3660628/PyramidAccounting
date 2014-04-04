@@ -231,11 +231,6 @@ namespace PA.View.Pages.TwoTabControl
         }
         #endregion
 
-        private void ComboBox_Date_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-
-        }
-
         private void Button_添加(object sender, RoutedEventArgs e)
         {
 

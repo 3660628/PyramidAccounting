@@ -30,7 +30,7 @@ namespace PA.View.Pages.TwoTabControl
         private ComboBox_Common cbc = new ComboBox_Common();
         private ViewModel_ReportManager vmr = new ViewModel_ReportManager();
         private ViewModel_操作日志 vm = new ViewModel_操作日志();
-
+        private Model_操作日志 mr = new Model_操作日志();
         public Page_Two_报表管理()
         {
             InitializeComponent();
@@ -45,6 +45,8 @@ namespace PA.View.Pages.TwoTabControl
             this.ComboBox_Date2.ItemsSource = cbc.GetComboBox_期数(1);
             this.ComboBox_Date2.SelectedIndex = CommonInfo.当前期-1;
 
+            mr = vm.GetOperateLog();
+
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -55,7 +57,6 @@ namespace PA.View.Pages.TwoTabControl
         private void Button_生成1_Click(object sender, RoutedEventArgs e)
         {
             Model_操作日志 mr = new Model_操作日志();
-            mr = vm.GetTOperateLog();
             mr.日志 = "生成" + ComboBox_Date.Text + "资产负债表" ;
             vm.Insert(mr);
 
@@ -154,7 +155,6 @@ namespace PA.View.Pages.TwoTabControl
         private void Button_生成2_Click(object sender, RoutedEventArgs e)
         {
             Model_操作日志 mr = new Model_操作日志();
-            mr = vm.GetTOperateLog();
             mr.日志 = "生成" + ComboBox_Date.Text + "收入支出总表";
             vm.Insert(mr);
 

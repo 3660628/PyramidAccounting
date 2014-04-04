@@ -34,6 +34,8 @@ namespace PA.View.Pages.TwoTabControl
         private XMLWriter xw = new XMLWriter();
         private XMLReader xr = new XMLReader();
         private List<Model_科目管理> lm = new List<Model_科目管理>();
+        private ViewModel_操作日志 vmr = new ViewModel_操作日志();
+        private Model_操作日志 _mr = new Model_操作日志();
 
         private string asd = "";
 
@@ -42,9 +44,11 @@ namespace PA.View.Pages.TwoTabControl
             InitializeComponent();
             SubscribeToEvent();
             VisibilityData();
+            this.DatePicker_操作记录.Text = DateTime.Now.AddDays(-1).ToShortDateString();
             this.DatePicker_操作记录End.Text = DateTime.Now.ToShortDateString();
             this.Button_Brower.Click += new System.Windows.RoutedEventHandler(Button_Brower_Click);
             LoadXml();
+            _mr = vmr.GetOperateLog();
         }
 
         private void LoadXml()
@@ -99,6 +103,8 @@ namespace PA.View.Pages.TwoTabControl
                     this.PasswordBox_Old.Clear();
                     this.PasswordBox_New.Clear();
                     this.PasswordBox_NewRepeat.Clear();
+                    _mr.日志 = "修改密码";
+                    vmr.Insert(_mr);
                 }
                 else
                 {
@@ -152,8 +158,17 @@ namespace PA.View.Pages.TwoTabControl
                 {
                     return;
                 }
-                vm.StopUse(m.ID);
-                FreshData();
+                bool flag = vm.StopUse(m.ID);
+                if (flag)
+                {
+                    _mr.日志 = "进行停用了用户名：" + m.用户名;
+                    vmr.Insert(_mr);
+                    FreshData();
+                }
+                else
+                {
+                    MessageBoxCommon.Show("操作失败！请联系管理员");
+                }
             }
             else
             {
@@ -168,6 +183,8 @@ namespace PA.View.Pages.TwoTabControl
             bool flag = vmb.Update(m, 0);
             if (flag)
             {
+                _mr.日志 = "账套名称由" + xr.ReadXML("账套信息") + "修改为" + m.账套名称;
+                vmr.Insert(_mr);
                 MessageBoxCommon.Show("修改账套名称成功,重启程序生效！");
                 xw.WriteXML("账套信息", m.账套名称);
             }
@@ -259,6 +276,8 @@ namespace PA.View.Pages.TwoTabControl
             bool flag = new ViewModel_年初金额().Update();
             if (flag)
             {
+                _mr.日志 = "保存了年初金额初始化！";
+                vmr.Insert(_mr);
                 MessageBoxCommon.Show("保存成功！");
             }
             //刷新操作
@@ -410,14 +429,24 @@ namespace PA.View.Pages.TwoTabControl
         /// <param name="e"></param>
         private void ButtonBackUp_Click(object sender, RoutedEventArgs e)
         {
-            string folderpath = this.backup_filePath.Text;
-            string newfilepath = folderpath + "\\PyramidAccounting" + DateTime.Now.ToString("yyyyMMdd") + ".bak";
-            if (!System.IO.Directory.Exists(folderpath))
+            try
             {
-                System.IO.Directory.CreateDirectory(folderpath);
+                string folderpath = this.backup_filePath.Text;
+                string newfilepath = folderpath + "\\PyramidAccounting" + DateTime.Now.ToString("yyyyMMdd") + ".bak";
+                if (!System.IO.Directory.Exists(folderpath))
+                {
+                    System.IO.Directory.CreateDirectory(folderpath);
+                }
+                System.IO.File.Copy(dbfilepath, newfilepath, true);     //做数据库文件复制
+                MessageBoxCommon.Show("数据备份操作成功！");
+                _mr.日志 = "进行备份操作，备份路径为：" + newfilepath;
+                vmr.Insert(_mr);
             }
-            System.IO.File.Copy(dbfilepath, newfilepath, true);     //做数据库文件复制
-            MessageBoxCommon.Show("数据备份操作成功！");
+            catch (Exception ee)
+            {
+                Log.Write(ee.Message);
+            }
+            
         }
         /// <summary>
         /// 输入空格无效
@@ -461,6 +490,8 @@ namespace PA.View.Pages.TwoTabControl
                     System.IO.File.Copy(recover_path, newpath, true);  //复制回原来的目录
                     xw.WriteXML("数据库", newDBname);
                     MessageBoxCommon.Show("成功", "恢复数据成功，重启软件生效哦！");
+                    _mr.日志 = "进行了恢复数据";
+                    vmr.Insert(_mr);
                 }
                 else
                 {
@@ -478,6 +509,8 @@ namespace PA.View.Pages.TwoTabControl
                 xw.WriteXML("备份时间",backup_days.Text);
                 xw.WriteXML("备份路径", backup_filePath.Text);
                 xw.WriteXML("还原路径", Recover_filepath.Text);
+                _mr.日志 = "保存当前配置信息！";
+                vmr.Insert(_mr);
             }
             catch (Exception ex)
             {

@@ -27,7 +27,7 @@ namespace PA.ViewModel
         /// 获取当前用户状态，用于操作日志
         /// </summary>
         /// <returns>操作日志模型</returns>
-        public Model_操作日志 GetTOperateLog()
+        public Model_操作日志 GetOperateLog()
         {
             Model_操作日志 mr = new Model_操作日志();
             mr.用户名 = CommonInfo.用户名;

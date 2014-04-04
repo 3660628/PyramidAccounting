@@ -43,10 +43,10 @@ namespace PA.ViewModel
             }
             return list;
         }
-        public void StopUse(int userid)
+        public bool StopUse(int userid)
         {
             sql = "update " + DBTablesName.T_USER + " set delete_mark= 1 where userid=" + userid;
-            db.Excute(sql);
+            return db.Excute(sql);
         }
         /// <summary>
         /// 根据ID获取一个用户
@@ -117,7 +117,7 @@ namespace PA.ViewModel
         }
         public bool UpdatePassword(string username, string password)
         {
-            sql = "UPDATE " + DBTablesName.T_USER + " SET PASSWORD='" + password + "' where USER_NAME='" + username + "'";
+            sql = "UPDATE " + DBTablesName.T_USER + " SET PASSWORD='" + password + "' where USERNAME='" + username + "'";
             return db.Excute(sql);
         }
         public bool ValidateAccount(string username,string password)

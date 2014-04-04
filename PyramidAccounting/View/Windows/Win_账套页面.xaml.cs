@@ -101,7 +101,7 @@ namespace PA.View.Windows
 
             Model_操作日志 mr = new Model_操作日志();
             ViewModel_操作日志 vmr = new ViewModel_操作日志();
-            mr = vmr.GetTOperateLog();
+            mr = vmr.GetOperateLog();
             mr.日志 = "创建了账套：" + m.账套名称;
             vmr.Insert(mr);
 
