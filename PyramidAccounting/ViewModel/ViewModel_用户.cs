@@ -82,10 +82,10 @@ namespace PA.ViewModel
             m.用户说明 = d[7].ToString();
             return m;
         }
-        public void Update(Model_用户 m)
+        public bool Update(Model_用户 m)
         {
             sql = "update " + DBTablesName.T_USER + " set realname='" + m.真实姓名 + "',authority=" + m.权限值 + ",comments='" + m.用户说明 + "' where userid=" + m.ID;
-            db.Excute(sql);
+            return db.Excute(sql);
         }
         private string RollbackAuthority(string i)
         {
@@ -111,9 +111,9 @@ namespace PA.ViewModel
             return value;
         }
 
-        public void Insert(List<Model_用户> list)
+        public bool Insert(List<Model_用户> list)
         {
-            db.InsertPackage(DBTablesName.T_USER, list.OfType<object>().ToList());
+            return db.InsertPackage(DBTablesName.T_USER, list.OfType<object>().ToList());
         }
         public bool UpdatePassword(string username, string password)
         {

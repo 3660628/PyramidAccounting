@@ -13,6 +13,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using PA.ViewModel;
 using PA.Model.DataGrid;
+using PA.View.ResourceDictionarys.MessageBox;
 
 namespace PA.View.Pages.Pop.系统管理
 {
@@ -65,13 +66,20 @@ namespace PA.View.Pages.Pop.系统管理
         {
             if (ComboBox_用户权限.SelectedIndex == 0)
             {
-                MessageBox.Show("请选择用户权限");
+                MessageBoxCommon.Show("请选择用户权限");
                 ComboBox_用户权限.Focus();
                 return;
             }
             Model_用户 m = SetData();
-            vm.Update(m);
-            NowClose(this, e);
+            bool flag =vm.Update(m);
+            if (flag)
+            {
+                NowClose(this, e);
+            }
+            else
+            {
+                MessageBoxCommon.Show("修改用户失败，请联系管理员！");
+            }
         }
 
         private void Button_PopClose_Click(object sender, RoutedEventArgs e)

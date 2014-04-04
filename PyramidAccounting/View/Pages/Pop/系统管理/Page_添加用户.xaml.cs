@@ -14,6 +14,7 @@ using System.Windows.Shapes;
 using PA.ViewModel;
 using PA.Model.DataGrid;
 using PA.Helper.DataBase;
+using PA.View.ResourceDictionarys.MessageBox;
 
 namespace PA.View.Pages.Pop.系统管理
 {
@@ -59,7 +60,7 @@ namespace PA.View.Pages.Pop.系统管理
             string username = TextBox_用户名.Text.Trim();
             if (string.IsNullOrEmpty(username))
             {
-                MessageBox.Show("请填写用户名");
+                MessageBoxCommon.Show("请填写用户名");
                 //TextBox_用户名.Focus();
                 return false;
             }
@@ -67,20 +68,20 @@ namespace PA.View.Pages.Pop.系统管理
             {
                 if (vm.ValidateUserName(username))
                 {
-                    MessageBox.Show("当前用户名已存在，请勿重复添加！");
+                    MessageBoxCommon.Show("当前用户名已存在，请勿重复添加！");
                     //TextBox_用户名.Focus();
                     return false;
                 }
             }
             if (TextBox_用户密码.SecurePassword.Length == 0)
             {
-                MessageBox.Show("请设置初始密码！");
+                MessageBoxCommon.Show("请设置初始密码！");
                 //TextBox_用户密码.Focus();
                 return false;
             }
             if (ComboBox_用户权限.SelectedIndex == 0)
             {
-                MessageBox.Show("请选择用户权限");
+                MessageBoxCommon.Show("请选择用户权限");
                 //ComboBox_用户权限.Focus();
                 return false;
             }
@@ -95,8 +96,15 @@ namespace PA.View.Pages.Pop.系统管理
             Model_用户 m = SetData();
             List<Model_用户> lm = new List<Model_用户>();
             lm.Add(m);
-            vm.Insert(lm);
-            NowClose(this, e);
+            bool flag = vm.Insert(lm);
+            if (flag)
+            {
+                NowClose(this, e);
+            }
+            else
+            {
+                MessageBoxCommon.Show("添加用户失败！");
+            }
         }
 
         private void Button_PopClose_Click(object sender, RoutedEventArgs e)
