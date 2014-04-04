@@ -60,7 +60,6 @@ namespace PA.ViewModel
                 +"and (a.parent_id='" + parent_id + "' "
                 + " OR (a.SUBJECT_TYPE = '1000' AND a.parent_id LIKE '" + parent_id + "%'))"
                 +" order by a.subject_id";
-            Console.WriteLine(sql);
             DataTable dt = db.Query(sql).Tables[0];
             List<Model_科目管理> list = new List<Model_科目管理>();
             for (int i = 0; i < dt.Rows.Count; i++)

@@ -175,7 +175,7 @@ namespace PA.View.Windows
             }
             vm.Delete(list);
             list.Clear();
-            this.FreshData();
+            check();
         }
 
         //private void DataGrid_子细目_RowEditEnding(object sender, DataGridRowEditEndingEventArgs e)
@@ -221,7 +221,7 @@ namespace PA.View.Windows
             detail.借贷标记 = BorrowMark;
             details.Add(detail);
             vm.Insert(details);
-            DataGrid_子细目.ItemsSource = vm.GetChildSubjectData(SubjectNum);
+            check();
         }
         /// <summary>
         /// Lugia
