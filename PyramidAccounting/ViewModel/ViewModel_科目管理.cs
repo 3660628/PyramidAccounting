@@ -167,18 +167,16 @@ namespace PA.ViewModel
         /// <returns></returns>
         public bool UpdateChildSubject(string id, string key, string value)
         {
-            Console.WriteLine(key);
             List<string> sqlList = new List<string>();
             string sql = "";
             if(key == "年初数")
             {
-                sql = "update " + DBTablesName.T_YEAR_FEE + " set FEE=" + value + " where bookid='" + CommonInfo.账薄号 + "' AND subject_id=" + id;
+                sql = "update " + DBTablesName.T_YEAR_FEE + " set FEE=" + value + " where bookid='" + CommonInfo.账薄号 + "' AND subject_id='" + id + "'";
             }
             else if(key == "子细目名称")
             {
                 sql = "update " + DBTablesName.T_SUBJECT + " set subject_name='" + value + "' where id=" + id;
             }
-            Console.WriteLine(sql);
             sqlList.Add(sql);
             db.BatchOperate(sqlList);
             return true;
