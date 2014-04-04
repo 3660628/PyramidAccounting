@@ -35,6 +35,8 @@ namespace PA.View.Pages.TwoTabControl
         private XMLReader xr = new XMLReader();
         private List<Model_科目管理> lm = new List<Model_科目管理>();
 
+        private string asd = "";
+
         public Page_Two_系统管理()
         {
             InitializeComponent();
@@ -64,6 +66,7 @@ namespace PA.View.Pages.TwoTabControl
         #region 接受事件后处理
         private void DoRerflashData(object sender, MyEventArgs e)
         {
+            new PA.ViewModel.ViewModel_科目管理().UpdateMainSubjectsFee(asd);
             TabControl_五大科目_SelectionChanged(null, null);
         }
         #endregion
@@ -317,6 +320,7 @@ namespace PA.View.Pages.TwoTabControl
             {
                 Model_科目管理 m = new Model_科目管理();
                 m = DataGrid_科目设置.SelectedCells[0].Item as Model_科目管理;
+                asd = m.科目编号;
                 Windows.Win_子细目 w = new Windows.Win_子细目(m.科目编号, m.科目名称, m.借贷标记);
                 w.ShowDialog();
             }

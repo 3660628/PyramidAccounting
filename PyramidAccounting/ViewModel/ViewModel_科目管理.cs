@@ -59,7 +59,8 @@ namespace PA.ViewModel
                 + CommonInfo.账薄号 + "' "
                 +"and (a.parent_id='" + parent_id + "' "
                 + " OR (a.SUBJECT_TYPE = '1000' AND a.parent_id LIKE '" + parent_id + "%'))"
-                +"order by a.id";
+                +" order by a.subject_id";
+            Console.WriteLine(sql);
             DataTable dt = db.Query(sql).Tables[0];
             List<Model_科目管理> list = new List<Model_科目管理>();
             for (int i = 0; i < dt.Rows.Count; i++)
@@ -91,23 +92,23 @@ namespace PA.ViewModel
             db.Excute(sql);
         }
 
-        public void UpdateChildSubject(Model_科目管理 m)
-        {
-            List<string> sqlList = new List<string>();
-            string sql2 = "update " + DBTablesName.T_YEAR_FEE + " set fee='"
-                   + m.年初金额 + "',subject_id='" + m.科目编号 + "' where parentid='"
-                   + m.父ID + "' and subject_id='" + m.科目编号 + "' and bookid='" + CommonInfo.账薄号 + "'";
-            sqlList.Add(sql2);
-            //统计主科目的年初额
-            string sql3 = "update T_YEARFEE set fee = (select total(fee) from T_YEARFEE where parentid="
-                + m.父ID + ") where subject_id=" + m.父ID;
-            string sql1 = "update " + DBTablesName.T_SUBJECT + " set subject_id='" 
-                + m.科目编号 + "',subject_name='" + m.科目名称 + "' where id=" + m.ID;
-            sqlList.Add(sql1);
+        //public void UpdateChildSubject(Model_科目管理 m)
+        //{
+        //    List<string> sqlList = new List<string>();
+        //    string sql2 = "update " + DBTablesName.T_YEAR_FEE + " set fee='"
+        //           + m.年初金额 + "',subject_id='" + m.科目编号 + "' where parentid='"
+        //           + m.父ID + "' and subject_id='" + m.科目编号 + "' and bookid='" + CommonInfo.账薄号 + "'";
+        //    sqlList.Add(sql2);
+        //    //统计主科目的年初额
+        //    string sql3 = "update T_YEARFEE set fee = (select total(fee) from T_YEARFEE where parentid="
+        //        + m.父ID + ") where subject_id=" + m.父ID;
+        //    string sql1 = "update " + DBTablesName.T_SUBJECT + " set subject_id='" 
+        //        + m.科目编号 + "',subject_name='" + m.科目名称 + "' where id=" + m.ID;
+        //    sqlList.Add(sql1);
             
-            sqlList.Add(sql3);
-            db.BatchOperate(sqlList);
-        }
+        //    sqlList.Add(sql3);
+        //    db.BatchOperate(sqlList);
+        //}
         /// <summary>
         /// 插入新二三级细目
         /// Lugia
@@ -126,8 +127,9 @@ namespace PA.ViewModel
                 sqlList.Add(sql);
                 parentid = m.父ID;
             }
-            string sql3 = "update T_YEARFEE set fee = (select total(fee) from T_YEARFEE where parentid=" 
-                + parentid + ") where subject_id=" + parentid;
+            //刷新上级科目金额
+            string sql3 = "update T_YEARFEE set fee = (select total(fee) from T_YEARFEE where parentid='" + parentid + "' and bookid='" + CommonInfo.账薄号 + "') "
+                +" where subject_id='" + parentid + "' and bookid='" + CommonInfo.账薄号 + "'";
             sqlList.Add(sql3);
             return db.BatchOperate(sqlList);
         }
@@ -145,8 +147,8 @@ namespace PA.ViewModel
                 sqlList.Add(sql);
                 parentid = m.父ID;
             }
-            string sql3 = "update T_YEARFEE set fee = (select total(fee) from T_YEARFEE where parentid=" 
-                + parentid + ") where subject_id=" + parentid;
+            string sql3 = "update T_YEARFEE set fee = (select total(fee) from T_YEARFEE where parentid='" + parentid + "' and bookid='" + CommonInfo.账薄号 + "') "
+                + " where subject_id='" + parentid + "' and bookid='" + CommonInfo.账薄号 + "'";
             sqlList.Add(sql3);
             db.BatchOperate(sqlList);
         }
@@ -168,18 +170,38 @@ namespace PA.ViewModel
         public bool UpdateChildSubject(string id, string key, string value)
         {
             List<string> sqlList = new List<string>();
+            string sqlparentid = "(select parentid from " + DBTablesName.T_YEAR_FEE + " where subject_id='" + id + "')";
             string sql = "";
             if(key == "年初数")
             {
                 sql = "update " + DBTablesName.T_YEAR_FEE + " set FEE=" + value + " where bookid='" + CommonInfo.账薄号 + "' AND subject_id='" + id + "'";
+                sqlList.Add(sql);
+                string sql3 = "update T_YEARFEE set fee = (select total(fee) from T_YEARFEE where parentid=" + sqlparentid + " and bookid='" + CommonInfo.账薄号 + "') "
+                + " where subject_id=" + sqlparentid + " and bookid='" + CommonInfo.账薄号 + "'";
+                sqlList.Add(sql3);
             }
             else if(key == "子细目名称")
             {
                 sql = "update " + DBTablesName.T_SUBJECT + " set subject_name='" + value + "' where id=" + id;
+                sqlList.Add(sql);
             }
-            sqlList.Add(sql);
             db.BatchOperate(sqlList);
             return true;
+        }
+        /// <summary>
+        /// 关闭子科目管理时，刷新主科目年初额
+        /// Lugia
+        /// </summary>
+        /// <param name="SubjectId"></param>
+        /// <returns></returns>
+        public bool UpdateMainSubjectsFee(string SubjectId)
+        {
+            List<string> sqlList = new List<string>();
+            string sql = "update T_YEARFEE set fee = (select total(fee) from T_YEARFEE where parentid=" + SubjectId + " and bookid='" + CommonInfo.账薄号 + "') "
+                + " where subject_id=" + SubjectId + " and bookid='" + CommonInfo.账薄号 + "'";
+            sqlList.Add(sql);
+            db.BatchOperate(sqlList);
+            return false;
         }
     }
 }
