@@ -168,6 +168,7 @@ namespace PA.View.Windows
             m.父ID = SubjectNum;
             if (judge == 1 || initFlag)
             {
+                m.类别 = "100";
                 lm.Add(m);
                 initFlag = false;
             }

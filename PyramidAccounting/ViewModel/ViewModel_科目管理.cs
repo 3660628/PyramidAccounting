@@ -94,6 +94,7 @@ namespace PA.ViewModel
                    + m.年初金额 + "',subject_id='" + m.科目编号 + "' where parentid='"
                    + m.父ID + "' and subject_id='" + m.科目编号 + "' and bookid='" + CommonInfo.账薄号 + "'";
             sqlList.Add(sql2);
+            //统计主科目的年初额
             string sql3 = "update T_YEARFEE set fee = (select total(fee) from T_YEARFEE where parentid="
                 + m.父ID + ") where subject_id=" + m.父ID;
             string sql1 = "update " + DBTablesName.T_SUBJECT + " set subject_id='" 
@@ -103,7 +104,11 @@ namespace PA.ViewModel
             sqlList.Add(sql3);
             db.BatchOperate(sqlList);
         }
-
+        /// <summary>
+        /// 插入新二级细目
+        /// </summary>
+        /// <param name="list"></param>
+        /// <returns></returns>
         public bool Insert(List<Model_科目管理> list)
         {
             string parentid = "";
