@@ -5,7 +5,7 @@ using System.Text;
 
 namespace PA.Model.DataGrid
 {
-    class Model_资产负债表
+    class Model_报表类
     {
         private string yearfee;
 
