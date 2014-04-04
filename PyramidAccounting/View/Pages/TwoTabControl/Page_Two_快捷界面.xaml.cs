@@ -100,6 +100,7 @@ namespace PA.View.Pages.TwoTabControl
                 mark = false;
                 MessageBoxCommon.Show("检测到还有当前期未审核的凭证单，请先做审核！");
             }
+            int temp = 0;
             if (mark)
             {
                 bool? result2 = MessageBoxDel.Show("注意", "当前将进行结账操作，是否继续？");
@@ -116,10 +117,18 @@ namespace PA.View.Pages.TwoTabControl
 
                                 MessageBoxCommon.Show("结账完毕！");
                                 mr = vmr.GetTOperateLog();
-                                mr.日志 = "进行了结账操作，结算第：" + (CommonInfo.当前期-1) + "期账";
+                                if (CommonInfo.当前期 < 12)
+                                {
+                                    temp = CommonInfo.当前期 - 1;
+                                    vmb.UpdatePeriod(CommonInfo.当前期);
+                                }
+                                else
+                                {
+                                    temp = CommonInfo.当前期;
+                                }
+                                mr.日志 = "进行了结账操作，结算第：" + temp + "期账";
                                 vmr.Insert(mr);
                                 xw.WriteXML("期", (CommonInfo.当前期).ToString());
-                                vmb.UpdatePeriod(CommonInfo.当前期);
                                 OnTabChange(1, 0, "本月结账");
                             }
                         }

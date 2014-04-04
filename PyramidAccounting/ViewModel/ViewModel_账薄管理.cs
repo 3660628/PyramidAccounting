@@ -547,7 +547,7 @@ namespace PA.ViewModel
                           +" b ON a.SUBJECT_ID = b.SUBJECT_NAME where b.parent_id='0') t," + DBTablesName.T_FEE 
                           + " b where t.subject_id=b.subject_id and b.period=" + (CommonInfo.当前期-1);
             bool flag = db.Excute(sql);
-            if (flag)
+            if (flag && CommonInfo.当前期 != 12)
             {
                 CommonInfo.当前期++;
             }
