@@ -26,16 +26,18 @@ namespace PA.View.Windows
         public static event Win_子细目_RerflashData RerflashData;
         private string SubjectNum = string.Empty;
         private string SubjectName = string.Empty;
+        private bool BorrowMark = true;
         private bool initFlag = false;
         private int judge = 0;
         private List<Model_科目管理> lm= new List<Model_科目管理>();
         private ViewModel_科目管理 vm = new ViewModel_科目管理();
 
-        public Win_子细目(string SubjectNum, string SubjectName)
+        public Win_子细目(string SubjectNum, string SubjectName, bool BorrowMark)
         {
             InitializeComponent();
             this.SubjectNum = SubjectNum;
             this.SubjectName = SubjectName;
+            this.BorrowMark = BorrowMark;
             this.TextBox_科目编号.Text = this.SubjectNum;
             this.TextBox_科目名称.Text = this.SubjectName;
             check();
@@ -53,16 +55,31 @@ namespace PA.View.Windows
         #endregion
         private void check()
         {
+            List<string> ComboBox_New_ParentsID = new List<string>();
+            ComboBox_New_ParentsID.Add(SubjectNum);
+            
             List<Model_科目管理> dataList = new List<Model_科目管理>();
             dataList = vm.GetChildSubjectData(SubjectNum);
-            if (dataList.Count == 0)
+            //if (dataList.Count == 0)
+            //{
+            //    Model_科目管理 m = new Model_科目管理();
+            //    m.科目编号 = SubjectNum + "01";
+            //    dataList.Add(m);
+            //    initFlag = true;
+            //}
+            //else
             {
-                Model_科目管理 m = new Model_科目管理();
-                m.科目编号 = SubjectNum + "01";
-                dataList.Add(m);
-                initFlag = true;
+                foreach (Model_科目管理 detail in dataList)
+                {
+                    if (detail.类别 != "1000")
+                    {
+                        ComboBox_New_ParentsID.Add(detail.科目编号);
+                    }
+                }
             }
             DataGrid_子细目.ItemsSource = dataList;
+            this.ComboBox_New_父ID.ItemsSource = ComboBox_New_ParentsID;
+            this.ComboBox_New_父ID.SelectedIndex = 0;
         }
         /// <summary>
         /// 刷新数据的方法
@@ -185,6 +202,17 @@ namespace PA.View.Windows
             string Name   = this.TextBox_New_子细目名称.Text;
             string Money  = this.TextBox_New_年初数.Text;
             string ParentsID = this.ComboBox_New_父ID.Text;
+            List<Model_科目管理> details = new List<Model_科目管理>();
+            Model_科目管理 detail = new Model_科目管理();
+            detail.科目编号 = Number;
+            detail.科目名称 = Name;
+            detail.年初金额 = Money;
+            detail.类别 = (this.ComboBox_New_父ID.SelectedIndex==0)?"100":"1000";
+            detail.父ID = ParentsID;
+            detail.借贷标记 = BorrowMark;
+            details.Add(detail);
+            vm.Insert(details);
+            DataGrid_子细目.ItemsSource = vm.GetChildSubjectData(SubjectNum);
         }
     }
 }

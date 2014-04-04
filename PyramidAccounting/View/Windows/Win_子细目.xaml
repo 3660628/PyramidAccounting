@@ -88,9 +88,6 @@
             </TextBox.Style>
         </TextBox>
         <Button x:Name="Button_New_Add子细目" Content="添加" HorizontalAlignment="Left" Margin="380,100,0,0" VerticalAlignment="Top" Width="50" Height="22" Template="{DynamicResource ButtonControlTemplate_CommonBlue}" Foreground="White" Click="Button_New_Add子细目_Click"/>
-        <ComboBox x:Name="ComboBox_New_父ID" HorizontalAlignment="Left" Margin="295,100,0,0" VerticalAlignment="Top" Width="80" Height="22" ToolTip="选择所属科目编号；若选择的是二级科目，则该新增科目为三级科目">
-            <ComboBoxItem Content="123"/>
-            <ComboBoxItem Content="234"/>
-        </ComboBox>
+        <ComboBox x:Name="ComboBox_New_父ID" HorizontalAlignment="Left" Margin="295,100,0,0" VerticalAlignment="Top" Width="80" Height="22" ToolTip="选择所属科目编号；若选择的是二级科目，则该新增科目为三级科目"/>
     </Grid>
 </Window>

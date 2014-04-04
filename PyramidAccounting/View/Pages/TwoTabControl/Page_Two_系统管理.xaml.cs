@@ -276,7 +276,7 @@ namespace PA.View.Pages.TwoTabControl
             }
             if (m.科目编号 != null)
             {
-                Windows.Win_子细目 w = new Windows.Win_子细目(m.科目编号, m.科目名称);
+                Windows.Win_子细目 w = new Windows.Win_子细目(m.科目编号, m.科目名称, m.借贷标记);
                 w.ShowDialog();
             }
             else
@@ -317,7 +317,7 @@ namespace PA.View.Pages.TwoTabControl
             {
                 Model_科目管理 m = new Model_科目管理();
                 m = DataGrid_科目设置.SelectedCells[0].Item as Model_科目管理;
-                Windows.Win_子细目 w = new Windows.Win_子细目(m.科目编号, m.科目名称);
+                Windows.Win_子细目 w = new Windows.Win_子细目(m.科目编号, m.科目名称, m.借贷标记);
                 w.ShowDialog();
             }
         }
