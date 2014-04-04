@@ -44,6 +44,10 @@ namespace PA.ViewModel
                     m.借方金额 = d[3].ToString();
                     m.贷方金额 = d[4].ToString();
                     m.余额 = d[5].ToString();
+
+                    decimal.TryParse(m.贷方金额, out credit);
+                    decimal.TryParse(m.借方金额, out debit);
+
                     if (count == 0)
                     {
                         m.借或贷 = d[6].ToString().Equals("1") ? "借" : "贷";
@@ -94,8 +98,6 @@ namespace PA.ViewModel
                     m.借方金额11 = _list[10];
                     m.借方金额12 = _list[11];
 
-                    decimal.TryParse(m.贷方金额, out credit);
-                    decimal.TryParse(m.借方金额, out debit);
                     
                     
                     _list.Clear();
