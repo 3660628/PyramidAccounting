@@ -13,7 +13,7 @@ namespace PA.ViewModel
     class ViewModel_账薄管理
     {
         private DataBase db = new DataBase();
-        public List<Model_总账> GetData(string subject_id)
+        public List<Model_总账> GetTotalFee(string subject_id)
         {
             List<Model_总账> list = new List<Model_总账>();
             string id = subject_id.Split('\t')[0];
@@ -375,7 +375,7 @@ namespace PA.ViewModel
         /// <param name="detail">二级科目</param>
         /// <param name="peroid">查询期</param>
         /// <returns></returns>
-        public List<Model_科目明细账> GetData(string subject_id,string detail,int peroid)
+        public List<Model_科目明细账> GetSubjectDetail(string subject_id,string detail,int peroid)
         {
             List<Model_科目明细账> list = new List<Model_科目明细账>();
             string sql = "select strftime(b.op_time),a.voucher_no,a.abstract,a.debit,a.credit,a.credit-a.debit,case when a.debit>a.credit then '借' when a.debit<a.credit then '贷' else '平' end  from " 
@@ -385,7 +385,8 @@ namespace PA.ViewModel
                 + " b on a.parentid=b.id where a.subject_id='"
                 + subject_id
                 + "'" + " and b.delete_mark=0 and  a.detail='"
-                + detail.Split('\t')[1] + "' order by b.op_time";
+                + detail.Split('\t')[1] + "' and b.period=" 
+                + peroid +" order by b.op_time";
 
             //判断第一期查年初数
             //以后差每一期期末数

@@ -152,7 +152,7 @@ namespace PA.View.Pages.TwoTabControl
             {
                 string a = TextBox_一级科目.Text.ToString().Split('\t')[1];
                 string b = TextBox_二级科目.Text.ToString();
-                List<Model_科目明细账> lm = vmk.GetData(a, b ,ComboBox_Date.SelectedIndex);
+                List<Model_科目明细账> lm = vmk.GetSubjectDetail(a, b ,ComboBox_Date.SelectedIndex+1);
                 if (lm.Count > 0)
                 {
                     this.Label_年.Content = lm[0].年 + "年";
@@ -179,7 +179,7 @@ namespace PA.View.Pages.TwoTabControl
             else
             {
                 string a = TextBox_科目及单位名称.Text.ToString();
-                List<Model_总账> lm = vmk.GetData(a);
+                List<Model_总账> lm = vmk.GetTotalFee(a);
                 this.DataGrid_总账.ItemsSource = lm;
                 if (lm.Count > 1)
                 {
