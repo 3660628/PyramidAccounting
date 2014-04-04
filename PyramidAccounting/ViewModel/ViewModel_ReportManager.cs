@@ -12,7 +12,7 @@ namespace PA.ViewModel
     class ViewModel_ReportManager
     {
         private DataBase db = new DataBase();
-        public List<Model_报表类> GetData(int index)
+        public List<Model_报表类> GetBalanceSheet(int index)
         {
             List<Model_报表类> list = new List<Model_报表类>();
             string sql = "SELECT a.SUBJECT_ID,a.fee,b.fee FROM (SELECT SUBJECT_ID,fee FROM " +

@@ -54,7 +54,7 @@ namespace PA.View.Pages.TwoTabControl
         private void Button_生成1_Click(object sender, RoutedEventArgs e)
         {
             List<Model_报表类> list = new List<Model_报表类>();
-            list = vmr.GetData(ComboBox_Date.SelectedIndex + 1);
+            list = vmr.GetBalanceSheet(ComboBox_Date.SelectedIndex + 1);
             decimal dy = 0;
             decimal dn = 0;
             decimal sumy1 = 0;
