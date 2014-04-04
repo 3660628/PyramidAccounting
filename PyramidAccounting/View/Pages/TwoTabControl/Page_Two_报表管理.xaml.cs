@@ -29,6 +29,7 @@ namespace PA.View.Pages.TwoTabControl
         PA.Helper.XMLHelper.XMLReader xr = new Helper.XMLHelper.XMLReader();
         private ComboBox_Common cbc = new ComboBox_Common();
         private ViewModel_ReportManager vmr = new ViewModel_ReportManager();
+        private ViewModel_操作日志 vm = new ViewModel_操作日志();
 
         public Page_Two_报表管理()
         {
@@ -53,6 +54,11 @@ namespace PA.View.Pages.TwoTabControl
 
         private void Button_生成1_Click(object sender, RoutedEventArgs e)
         {
+            Model_操作日志 mr = new Model_操作日志();
+            mr = vm.GetTOperateLog();
+            mr.日志 = "生成" + ComboBox_Date.Text + "资产负债表" ;
+            vm.Insert(mr);
+
             List<Model_报表类> list = new List<Model_报表类>();
             list = vmr.GetBalanceSheet(ComboBox_Date.SelectedIndex + 1);
             decimal dy = 0;
@@ -147,6 +153,11 @@ namespace PA.View.Pages.TwoTabControl
 
         private void Button_生成2_Click(object sender, RoutedEventArgs e)
         {
+            Model_操作日志 mr = new Model_操作日志();
+            mr = vm.GetTOperateLog();
+            mr.日志 = "生成" + ComboBox_Date.Text + "收入支出总表";
+            vm.Insert(mr);
+
             List<Model_报表类> list = new List<Model_报表类>();
             list = vmr.GetIncomeAndExpenses(ComboBox_Date.SelectedIndex + 1);
             decimal dy = 0;
