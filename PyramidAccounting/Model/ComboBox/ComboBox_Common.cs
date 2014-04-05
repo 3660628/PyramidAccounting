@@ -40,11 +40,15 @@ namespace PA.Model.ComboBox
             }
             return list;
         }
+
+        /// <summary>
+        /// 创建账套显示的会计制度列表
+        /// </summary>
+        /// <returns></returns>
         public List<string> GetComboBox_会计制度()
         {
             List<string> list = new List<string>();
             list.Add("《行政单位会计制度》财预字[1998]49号");
-            //list.Add("事业单位会计制度(2013年)");
             return list;
         }
 
@@ -57,6 +61,12 @@ namespace PA.Model.ComboBox
             return list;
         }
 
+
+        /// <summary>
+        /// 获取期数
+        /// </summary>
+        /// <param name="type"></param>
+        /// <returns></returns>
         public List<string> GetComboBox_期数(int type)
         {
             List<string> list = new List<string>();

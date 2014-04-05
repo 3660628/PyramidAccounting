@@ -180,7 +180,7 @@ namespace PA.View.Pages.TwoTabControl
             Model_账套 m = new Model_账套();
             m.账套名称 = TextBox_账套名称.Text.Trim();
 
-            bool flag = vmb.Update(m, 0);
+            bool flag = vmb.UpdateBookName(m, 0);
             if (flag)
             {
                 _mr.日志 = "账套名称由" + xr.ReadXML("账套信息") + "修改为" + m.账套名称;

@@ -36,12 +36,12 @@ namespace PA.ViewModel
             return m;
         }
         /// <summary>
-        /// 更新方法
+        /// 更新账套名称方法
         /// </summary>
         /// <param name="m">传入的账套</param>
         /// <param name="type">0:更新账套名称，1：进行删除</param>
         /// <returns></returns>
-        public bool Update(Model_账套 m,int type)
+        public bool UpdateBookName(Model_账套 m,int type)
         {
             string _sql = string.Empty;
             switch (type)
@@ -86,19 +86,32 @@ namespace PA.ViewModel
             sql = "select 1 from " + DBTablesName.T_BOOKS + " where book_name='" + bookName +"' and delete_mark=0";
             return db.IsExist(sql);
         }
-
+        /// <summary>
+        /// 获取当前期数
+        /// </summary>
+        /// <returns></returns>
         public int GetPeriod()
         {
+            int i = 0;
             string str = GetValue().Split('\t')[0].Split(',')[1];
-            return Convert.ToInt32(str);
+            int.TryParse(str, out i);
+            return i;
         }
 
+        /// <summary>
+        /// 更新期数
+        /// </summary>
+        /// <param name="value"></param>
+        /// <returns></returns>
         public bool UpdatePeriod(int value)
         {
             sql = "update " + DBTablesName.T_BOOKS + " set period=" + value + " where id='" + CommonInfo.账薄号 + "'";
             return db.Excute(sql);
         }
-
+        /// <summary>
+        /// 获取账套创建日期和期数
+        /// </summary>
+        /// <returns></returns>
         public string GetValue()
         {
             sql = "select book_time,period from " + DBTablesName.T_BOOKS + " where id='" + CommonInfo.账薄号 + "'";
