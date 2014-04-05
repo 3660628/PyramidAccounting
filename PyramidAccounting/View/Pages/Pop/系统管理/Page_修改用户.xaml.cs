@@ -25,12 +25,15 @@ namespace PA.View.Pages.Pop.系统管理
         public event Page_系统管理_CloseEventHandle CloseEvent;
         private int id = 0;
         private ViewModel_用户 vm = new ViewModel_用户();
+        private ViewModel_操作日志 vmr = new ViewModel_操作日志();
+        Model_操作日志 _mr = new Model_操作日志();
         public Page_修改用户(int id)
         {
             InitializeComponent();
             this.id = id;
             InitComboBox();
             InitData(id);
+            _mr = vmr.GetOperateLog();
         }
         
         private void InitComboBox()
@@ -52,7 +55,11 @@ namespace PA.View.Pages.Pop.系统管理
             ComboBox_用户权限.Text = m.用户权限;
             TextBox_用户说明.Text = m.用户说明;
         }
-        private Model_用户 SetData()
+        /// <summary>
+        /// 设置用户数据
+        /// </summary>
+        /// <returns></returns>
+        private Model_用户 SetUserInfo()
         {
             Model_用户 m = new Model_用户();
             m.ID = id;
@@ -70,10 +77,12 @@ namespace PA.View.Pages.Pop.系统管理
                 ComboBox_用户权限.Focus();
                 return;
             }
-            Model_用户 m = SetData();
+            Model_用户 m = SetUserInfo();
             bool flag =vm.Update(m);
             if (flag)
             {
+                _mr.日志 = "修改用户：" + m.用户名 + "相关信息";
+                vmr.Insert(_mr);
                 NowClose(this, e);
             }
             else

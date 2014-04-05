@@ -26,6 +26,8 @@ namespace PA.View.Pages.Pop.系统管理
     {
         public event Page_系统管理_CloseEventHandle CloseEvent;
         private ViewModel_用户 vm = new ViewModel_用户();
+        private ViewModel_操作日志 vmr = new ViewModel_操作日志();
+        Model_操作日志 _mr = new Model_操作日志();
         public Page_添加用户()
         {
             InitializeComponent();
@@ -99,6 +101,8 @@ namespace PA.View.Pages.Pop.系统管理
             bool flag = vm.Insert(lm);
             if (flag)
             {
+                _mr.日志 = "新增用户：" + m.用户名;
+                vmr.Insert(_mr);
                 NowClose(this, e);
             }
             else

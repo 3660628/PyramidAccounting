@@ -115,7 +115,7 @@ namespace PA.Helper.DataBase
             }
             catch (SQLiteException e)
             {
-                Console.WriteLine("异常:" + e.Message);
+                Log.Write(e.Message);
             }
             finally
             {
@@ -141,8 +141,7 @@ namespace PA.Helper.DataBase
             }
             catch (SQLiteException e)
             {
-                Console.WriteLine(e.Message);
-                Console.WriteLine("SQL{0}:" + sql);
+                Log.Write(e.Message);
             }
             finally
             {
@@ -322,7 +321,7 @@ namespace PA.Helper.DataBase
             catch(Exception ee)
             {
                 strans.Rollback();
-                Console.WriteLine(ee.ToString());
+                Log.Write(ee.Message);
             }
             finally
             {
