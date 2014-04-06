@@ -21,12 +21,13 @@ namespace PA.View.Pages.Pop.凭证录入
     public partial class Page_凭证录入_子细目 : Page
     {
         public event Page_凭证录入_子细目_FillDateEventHandle FillDate;
-        private string _name;
-        public Page_凭证录入_子细目(string _name)
+        ComboBox_科目 cb = new ComboBox_科目();
+        private string id;
+        public Page_凭证录入_子细目(string id)
         {
             InitializeComponent();
-            this._name = _name;
-            this.ListBox_子细目.ItemsSource = new ComboBox_科目().GetChildSubjectList("", _name);
+            this.id = id;
+            this.ListBox_子细目.ItemsSource = cb.GetChildSubjectList("", id);
         }
 
         private void OnFillDate(string str)
@@ -50,7 +51,7 @@ namespace PA.View.Pages.Pop.凭证录入
         private void TextBox_子细目_TextChanged(object sender, TextChangedEventArgs e)
         {
             TextBox tb = sender as TextBox;
-            this.ListBox_子细目.ItemsSource = new ComboBox_科目().GetChildSubjectList(tb.Text.Trim(), _name);
+            this.ListBox_子细目.ItemsSource = cb.GetChildSubjectList(tb.Text.Trim(), id);
         }
 
         private void Button_确定_Click(object sender, RoutedEventArgs e)
