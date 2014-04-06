@@ -189,13 +189,11 @@ namespace PA.ViewModel
             List<Model_凭证明细> VoucherDetails = new List<Model_凭证明细>();
             Model_凭证明细 detail;
             string sql = "select detail.*, subjectA.subject_name as MainSubjectName, subjectB.subject_name as TimesSubjectName"
-                + " from " 
-                    + DBTablesName.T_VOUCHER_DETAIL +" detail,"
-                    + DBTablesName.T_SUBJECT + " subjectA,"
-                    + DBTablesName.T_SUBJECT + " subjectB"
-                + " where PARENTID='" + guid + "'"
-                    + " AND detail.subject_id=subjectA.subject_id"
-                    + " AND detail.detail=subjectB.subject_id";
+                + " from "
+                    + DBTablesName.T_VOUCHER_DETAIL + " detail"
+                    + " LEFT JOIN " + DBTablesName.T_SUBJECT + " subjectA ON detail.subject_id=subjectA.subject_id"
+                    + " LEFT JOIN " + DBTablesName.T_SUBJECT + " subjectB ON detail.detail=subjectB.subject_id"
+                + " where PARENTID='" + guid + "'";
             DataSet ds = new PA.Helper.DataBase.DataBase().Query(sql);
             foreach (DataRow dr in ds.Tables[0].Rows)
             {
