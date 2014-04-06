@@ -54,12 +54,12 @@ namespace PA.View.Pages.TwoTabControl
         }
         private void Do固定资产Commit(object sender, MyEventArgs e)
         {
+            this.Grid_账簿管理弹出.Visibility = System.Windows.Visibility.Collapsed;
+            this.TabControl_账簿管理.IsEnabled = true;
             if(e.IsCommit)
             {
                 //reflash data
             }
-            this.Grid_账簿管理弹出.Visibility = System.Windows.Visibility.Collapsed;
-            this.TabControl_账簿管理.IsEnabled = true;
         }
         #endregion
 
