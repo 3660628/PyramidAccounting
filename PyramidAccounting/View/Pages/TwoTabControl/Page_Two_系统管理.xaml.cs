@@ -46,7 +46,6 @@ namespace PA.View.Pages.TwoTabControl
             VisibilityData();
             this.DatePicker_操作记录.Text = DateTime.Now.ToShortDateString();
             this.DatePicker_操作记录End.Text = DateTime.Now.ToShortDateString();
-            this.Button_Brower.Click += new System.Windows.RoutedEventHandler(Button_Brower_Click);
             LoadXml();
             _mr = vmr.GetOperateLog();
         }
@@ -64,6 +63,7 @@ namespace PA.View.Pages.TwoTabControl
         #region 事件订阅
         private void SubscribeToEvent()
         {
+            this.Button_Brower.Click += new System.Windows.RoutedEventHandler(Button_Brower_Click);
             PA.View.Windows.Win_子细目.RerflashData += new Windows.Win_子细目_RerflashData(DoRerflashData);
         }
         #endregion
@@ -73,13 +73,14 @@ namespace PA.View.Pages.TwoTabControl
             new PA.ViewModel.ViewModel_科目管理().UpdateMainSubjectsFee(asd);
             TabControl_五大科目_SelectionChanged(null, null);
         }
-        #endregion
-        #region 自定义事件
         private void CloseGrid(object sender, RoutedEventArgs e)
         {
             this.Grid_Pop弹出.Visibility = Visibility.Collapsed;
             FreshData();
         }
+        #endregion
+        #region 自定义事件
+        
         #endregion
 
         #region 1.用户安全
