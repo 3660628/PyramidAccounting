@@ -69,6 +69,7 @@ namespace PA.ViewModel
                 m.科目编号 = d[2].ToString();
                 m.类别 = d[3].ToString();
                 m.科目名称 = d[4].ToString();
+                m.父ID = d[5].ToString();
                 m.借贷标记 = (d["Borrow_Mark"].ToString()=="1");
                 m.年初金额 = d["FEE"].ToString();
                 list.Add(m);
@@ -140,9 +141,9 @@ namespace PA.ViewModel
             {
                 string sql = "delete from " + DBTablesName.T_SUBJECT + " where id=" + m.ID;
                 sqlList.Add(sql);
-                sql = "delete from " + DBTablesName.T_YEAR_FEE + " where subject_id='" 
+                string sql2 = "delete from " + DBTablesName.T_YEAR_FEE + " where subject_id='" 
                     + m.科目编号 + "' and parentid='" + m.父ID + "' and bookid='" + CommonInfo.账薄号 + "'";
-                sqlList.Add(sql);
+                sqlList.Add(sql2);
                 parentid = m.父ID;
             }
             string sql3 = "update T_YEARFEE set fee = (select total(fee) from T_YEARFEE where parentid='" + parentid + "' and bookid='" + CommonInfo.账薄号 + "') "
