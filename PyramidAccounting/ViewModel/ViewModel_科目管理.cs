@@ -80,14 +80,14 @@ namespace PA.ViewModel
         public void UpdateUsedMark(Model_科目管理 m)
         {
             string sql = "update " + DBTablesName.T_SUBJECT + " set used_mark="
-                + m.Used_mark + " where SUBJECT_ID=" + m.科目编号 + " or PARENT_ID=" + m.科目编号;
+                + m.Used_mark + " where SUBJECT_ID=" + m.科目编号 + " or PARENT_ID=" + m.科目编号 + " OR PARENT_ID LIKE '" + m.科目编号 + "%'";
             db.Excute(sql);
         }
 
         public void UpdateBorrowMark(Model_科目管理 m)
         {
             string sql = "update " + DBTablesName.T_SUBJECT + " set Borrow_Mark="
-                + ((m.借贷标记) ? 1 : -1) + " where SUBJECT_ID=" + m.科目编号 + " or PARENT_ID=" + m.科目编号;
+                + ((m.借贷标记) ? 1 : -1) + " where SUBJECT_ID=" + m.科目编号 + " or PARENT_ID=" + m.科目编号 + " OR PARENT_ID LIKE '" + m.科目编号 + "%'";
             db.Excute(sql);
         }
 
