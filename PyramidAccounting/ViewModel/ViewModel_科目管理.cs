@@ -65,18 +65,18 @@ namespace PA.ViewModel
             return list;
         }
        
-        public void UpdateUsedMark(Model_科目管理 m)
+        public bool UpdateUsedMark(Model_科目管理 m)
         {
             string sql = "update " + DBTablesName.T_SUBJECT + " set used_mark="
                 + m.Used_mark + " where SUBJECT_ID=" + m.科目编号 + " or PARENT_ID=" + m.科目编号 + " OR PARENT_ID LIKE '" + m.科目编号 + "%'";
-            db.Excute(sql);
+            return db.Excute(sql);
         }
 
-        public void UpdateBorrowMark(Model_科目管理 m)
+        public bool UpdateBorrowMark(Model_科目管理 m)
         {
             string sql = "update " + DBTablesName.T_SUBJECT + " set Borrow_Mark="
                 + ((m.借贷标记) ? 1 : -1) + " where SUBJECT_ID=" + m.科目编号 + " or PARENT_ID=" + m.科目编号 + " OR PARENT_ID LIKE '" + m.科目编号 + "%'";
-            db.Excute(sql);
+            return db.Excute(sql);
         }
 
         //public void UpdateChildSubject(Model_科目管理 m)
@@ -104,8 +104,13 @@ namespace PA.ViewModel
         /// <returns></returns>
         public bool Insert(List<Model_科目管理> list)
         {
+            bool flag = false;
             string parentid = "";
-            db.InsertPackage(DBTablesName.T_SUBJECT, list.OfType<object>().ToList());
+            flag = db.InsertPackage(DBTablesName.T_SUBJECT, list.OfType<object>().ToList());
+            if(!flag)
+            {
+                return false;
+            }
             List<string> sqlList = new List<string>();
             foreach(Model_科目管理 m in list)
             {
@@ -121,7 +126,7 @@ namespace PA.ViewModel
             return db.BatchOperate(sqlList);
         }
 
-        public void Delete(List<Model_科目管理> list)
+        public bool Delete(List<Model_科目管理> list)
         {
             string parentid = "";
             List<string> sqlList = new List<string>();
@@ -137,7 +142,7 @@ namespace PA.ViewModel
             string sql3 = "update T_YEARFEE set fee = (select total(fee) from T_YEARFEE where parentid='" + parentid + "' and bookid='" + CommonInfo.账薄号 + "') "
                 + " where subject_id='" + parentid + "' and bookid='" + CommonInfo.账薄号 + "'";
             sqlList.Add(sql3);
-            db.BatchOperate(sqlList);
+            return db.BatchOperate(sqlList);
         }
 
         public string GetSubjectID(string name)
@@ -172,8 +177,7 @@ namespace PA.ViewModel
                 sql = "update " + DBTablesName.T_SUBJECT + " set subject_name='" + value + "' where id=" + id;
                 sqlList.Add(sql);
             }
-            db.BatchOperate(sqlList);
-            return true;
+            return db.BatchOperate(sqlList);
         }
         /// <summary>
         /// 关闭子科目管理时，刷新主科目年初额
@@ -187,8 +191,7 @@ namespace PA.ViewModel
             string sql = "update T_YEARFEE set fee = (select total(fee) from T_YEARFEE where parentid=" + SubjectId + " and bookid='" + CommonInfo.账薄号 + "') "
                 + " where subject_id=" + SubjectId + " and bookid='" + CommonInfo.账薄号 + "'";
             sqlList.Add(sql);
-            db.BatchOperate(sqlList);
-            return false;
+            return db.BatchOperate(sqlList);
         }
     }
 }

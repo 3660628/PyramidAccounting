@@ -230,7 +230,7 @@ namespace PA.View.Windows
             }
             else
             {
-                MessageBoxCommon.Show("添加不成功！");
+                MessageBoxCommon.Show("添加不成功,请检查编号是否唯一！");
             }
         }
         /// <summary>
