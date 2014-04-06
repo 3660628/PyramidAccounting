@@ -72,7 +72,7 @@ namespace PA.View.Pages.TwoTabControl
         {
             this.Popup_科目子细目.IsOpen = false;
             this.IsEnabled = true;
-            if (typeof(PA.View.Pages.Pop.凭证录入.Page_凭证录入_科目).IsInstanceOfType(sender))
+            if (typeof(PA.View.Pages.Pop.凭证录入.Page_凭证录入_子细目).IsInstanceOfType(sender))
             {
                 this.TextBox_费用明细.Text = e.Str;
             }
@@ -99,7 +99,8 @@ namespace PA.View.Pages.TwoTabControl
         }
         private void TextBox_费用明细_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
-            page.FillDate += new Pages.Pop.凭证录入.Page_凭证录入_科目_FillDateEventHandle(FillData费用);
+            PA.View.Pages.Pop.凭证录入.Page_凭证录入_子细目 page = new PA.View.Pages.Pop.凭证录入.Page_凭证录入_子细目("501");
+            page.FillDate += new Pages.Pop.凭证录入.Page_凭证录入_子细目_FillDateEventHandle(FillData费用);
             this.Frame_科目子细目.Content = page;
             this.Popup_科目子细目.IsOpen = true;
             this.IsEnabled = false;
