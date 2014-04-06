@@ -166,7 +166,7 @@ namespace PA.View.Windows
                 try
                 {
                     m = DataGrid_子细目.SelectedItems[i] as Model_科目管理;
-                    m.父ID = SubjectNum;
+                    //m.父ID = SubjectNum;
                 }
                 catch (Exception)
                 {
@@ -224,7 +224,8 @@ namespace PA.View.Windows
             bool flag = vm.Insert(details);
             if (flag)
             {
-                details.Clear();
+                this.TextBox_New_子细目名称.Text = "";
+                this.TextBox_New_年初数.Text = "";
                 check();
             }
             else
