@@ -15,7 +15,7 @@
         <Label x:Name="Label_科目名称" Content="所属科目名称：" HorizontalAlignment="Left" Margin="10,60,0,0" VerticalAlignment="Top"/>
         <TextBox x:Name="TextBox_科目名称" HorizontalAlignment="Left" Margin="110,65,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" IsReadOnly="True" MinWidth="120" BorderThickness="0,0,0,1"/>
         <Button x:Name="Button_Del" Content="删除" HorizontalAlignment="right" Margin="0,141,10,0" VerticalAlignment="Top" Width="50" Click="Button_Del_Click" Template="{DynamicResource ButtonControlTemplate_Common}" Height="22"/>
-        <DataGrid x:Name="DataGrid_子细目" ItemsSource="{Binding}" HorizontalAlignment="Stretch" Margin="10,140,70,10" CanUserAddRows="False" AutoGenerateColumns="False" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle_凭证管理}" BorderBrush="#FF99CCFF" HeadersVisibility="Column" SelectionMode="Single" CellEditEnding="DataGrid_子细目_CellEditEnding" CanUserReorderColumns="False" CanUserSortColumns="False" CanUserResizeRows="False" CanUserResizeColumns="False" BeginningEdit="DataGrid_子细目_BeginningEdit">
+        <DataGrid x:Name="DataGrid_子细目" ItemsSource="{Binding}" HorizontalAlignment="Stretch" Margin="10,140,70,10" CanUserAddRows="False" AutoGenerateColumns="False" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle_凭证管理}" BorderBrush="#FF99CCFF" HeadersVisibility="Column" SelectionMode="Single" CellEditEnding="DataGrid_子细目_CellEditEnding" CanUserReorderColumns="False" CanUserSortColumns="False" CanUserResizeRows="False" CanUserResizeColumns="False" BeginningEdit="DataGrid_子细目_BeginningEdit" HorizontalGridLinesBrush="#FF99CCFF" VerticalGridLinesBrush="#FF99CCFF">
             <DataGrid.Resources>
                 <Style TargetType="DataGridCell">
                     <Style.Triggers>
@@ -39,8 +39,8 @@
             </DataGrid.Resources>
             <DataGrid.Columns>
                 <DataGridTextColumn Binding="{Binding 科目编号,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Header="子细目编号" IsReadOnly="True"/>
-                <DataGridTextColumn Binding="{Binding 科目名称,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Header="子细目名称" MinWidth="100"/>
-                <DataGridTextColumn Binding="{Binding 年初金额,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Header="年初数" MinWidth="100" ElementStyle="{DynamicResource TextBlockStyle_右对齐}"/>
+                <DataGridTextColumn Binding="{Binding 科目名称,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Header="子细目名称" Width="*" MinWidth="100"/>
+                <DataGridTextColumn Binding="{Binding 年初金额,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Header="年初数" MinWidth="80" ElementStyle="{DynamicResource TextBlockStyle_右对齐}"/>
                 <DataGridTextColumn Binding="{Binding 类别}" Header="是否三级科目" Visibility="Hidden"/>
             </DataGrid.Columns>
         </DataGrid>
