@@ -111,7 +111,7 @@ namespace PA.Helper.ExcelHelper
                                     }
                                     else if (key.StartsWith("科目", false, null))
                                     {
-                                        xlWorkSheet.Cells[yDetails + 1, xDetails] = VoucherDetails[id + (i * 6)].科目编号;
+                                        xlWorkSheet.Cells[yDetails + 1, xDetails] = VoucherDetails[id + (i * 6)].主科目名;
                                     }
                                     else if (key.StartsWith("子细目", false, null))
                                     {
