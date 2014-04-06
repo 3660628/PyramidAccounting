@@ -1229,5 +1229,9 @@
                 <Frame x:Name="Frame_科目子细目" Content="" Margin="0,25,0,0" NavigationUIVisibility="Hidden"/>
             </Grid>
         </Popup>
+        <Grid x:Name="Grid_账簿管理弹出" Margin="0,28,0,25" Background="#7F000000" Visibility="Collapsed">
+            <Frame x:Name="Frame_账簿管理弹出" Content="" Margin="202,0,0,0" Width="500" HorizontalAlignment="Right" Background="White" NavigationUIVisibility="Hidden"/>
+        </Grid>
+
     </Grid>
 </Page>

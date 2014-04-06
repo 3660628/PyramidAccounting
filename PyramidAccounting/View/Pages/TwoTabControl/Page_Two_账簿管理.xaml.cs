@@ -234,7 +234,8 @@ namespace PA.View.Pages.TwoTabControl
 
         private void Button_添加(object sender, RoutedEventArgs e)
         {
-
+            this.Grid_账簿管理弹出.Visibility = System.Windows.Visibility.Visible;
+            this.Frame_账簿管理弹出.Content = new PA.View.Pages.Pop.账簿管理.Page_添加固定资产();
         }
 
         private void Popup_科目子细目_Closed(object sender, EventArgs e)
