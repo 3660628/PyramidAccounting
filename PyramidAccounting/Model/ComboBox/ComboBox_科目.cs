@@ -38,12 +38,12 @@ namespace PA.Model.ComboBox
             list = new List<string>();
             if (string.IsNullOrEmpty(condition))
             {
-                sql = "select subject_id,subject_name from " + DBTablesName.T_SUBJECT + " where parent_id='" + id + "' order by id";
+                sql = "select subject_id,subject_name from " + DBTablesName.T_SUBJECT + " where parent_id LIKE '" + id + "%' order by subject_id";
             }
             else
             {
-                sql = "select subject_id,subject_name from " + DBTablesName.T_SUBJECT + " where parent_id='" + id + "' and subject_id like '" + condition +
-                        "%' order by id";
+                sql = "select subject_id,subject_name from " + DBTablesName.T_SUBJECT + " where parent_id LIKE '" + id + "%' and subject_id like '" + condition +
+                        "%' order by subject_id";
             }
             DataBase db = new DataBase();
             DataTable dt = db.Query(sql).Tables[0];
