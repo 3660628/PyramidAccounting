@@ -220,8 +220,16 @@ namespace PA.View.Windows
             detail.父ID = ParentsID;
             detail.借贷标记 = BorrowMark;
             details.Add(detail);
-            vm.Insert(details);
-            check();
+            bool flag = vm.Insert(details);
+            if (flag)
+            {
+                details.Clear();
+                check();
+            }
+            else
+            {
+                MessageBoxCommon.Show("添加不成功！");
+            }
         }
         /// <summary>
         /// Lugia
