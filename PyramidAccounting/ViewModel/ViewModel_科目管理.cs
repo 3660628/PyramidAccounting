@@ -57,8 +57,7 @@ namespace PA.ViewModel
             string sql = "select a.*,b.fee from " + DBTablesName.T_SUBJECT 
                 + " a left join t_yearfee b on a.subject_id=b.subject_id  where b.bookid='"
                 + CommonInfo.账薄号 + "' "
-                +"and (a.parent_id='" + parent_id + "' "
-                + " OR (a.SUBJECT_TYPE = '1000' AND a.parent_id LIKE '" + parent_id + "%'))"
+                +"and a.SUBJECT_TYPE in ('100','1000') AND a.parent_id LIKE '" + parent_id + "%'"
                 +" order by a.subject_id";
             DataTable dt = db.Query(sql).Tables[0];
             List<Model_科目管理> list = new List<Model_科目管理>();

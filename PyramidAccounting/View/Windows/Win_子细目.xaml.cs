@@ -27,8 +27,8 @@ namespace PA.View.Windows
         private string SubjectNum = string.Empty;
         private string SubjectName = string.Empty;
         private bool BorrowMark = true;
-        private bool initFlag = false;
-        private int judge = 0;
+        //private bool initFlag = false;
+        //private int judge = 0;
         private List<Model_科目管理> lm= new List<Model_科目管理>();
         private ViewModel_科目管理 vm = new ViewModel_科目管理();
 
