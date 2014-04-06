@@ -17,17 +17,11 @@ namespace PA.ViewModel
         /// 执行插入语句
         /// </summary>
         /// <param name="bookid"></param>
-        public void Insert(string bookid)
+        public bool Insert(string bookid)
         {
-            List<Model_科目管理> list = new List<Model_科目管理>();
-            list = vm.GetAllSubject();
-            List<string> sqlList = new List<string>();
-            foreach (Model_科目管理 m in list)
-            {
-                string sql = "insert into " + DBTablesName.T_YEAR_FEE + "(subject_id,fee,bookid,parentid) values('" + m.科目编号 + "','0','" + bookid + "','0')";
-                sqlList.Add(sql);
-            }
-            db.BatchOperate(sqlList);
+            string sql = "insert into " + DBTablesName.T_YEAR_FEE + "(subject_id,fee,bookid,parentid) select subject_id,0,'" + bookid + "',parent_id from " 
+                + DBTablesName.T_SUBJECT;
+            return db.Excute(sql);
         }
 
         public bool Update()

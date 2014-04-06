@@ -97,18 +97,24 @@ namespace PA.View.Windows
             //1.创建账套
             new ViewModel_Books().Insert(lm);
             //2.为账套新建初始年初数
-            new ViewModel_年初金额().Insert(m.ID);
-
-            Model_操作日志 mr = new Model_操作日志();
-            ViewModel_操作日志 vmr = new ViewModel_操作日志();
-            mr = vmr.GetOperateLog();
-            mr.日志 = "创建了账套：" + m.账套名称;
-            vmr.Insert(mr);
-
-            //调整至主页面
-            MainWindow mw = new MainWindow();
-            mw.Show();
-            this.Close();
+            bool flag = new ViewModel_年初金额().Insert(m.ID);
+            if (flag)
+            {
+                Model_操作日志 mr = new Model_操作日志();
+                ViewModel_操作日志 vmr = new ViewModel_操作日志();
+                mr = vmr.GetOperateLog();
+                mr.日志 = "创建了账套：" + m.账套名称;
+                vmr.Insert(mr);
+                //调整至主页面
+                MainWindow mw = new MainWindow();
+                mw.Show();
+                this.Close();
+            }
+            else
+            {
+                MessageBoxCommon.Show("创建账套时发生异常，请联系软件开发商！");
+            }
+            
         }
 
         private void Button_取消_Click(object sender, RoutedEventArgs e)

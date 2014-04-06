@@ -13,19 +13,7 @@ namespace PA.ViewModel
     class ViewModel_科目管理
     {
         DataBase db = new DataBase();
-        public List<Model_科目管理> GetAllSubject()
-        {
-            List<Model_科目管理> list = new List<Model_科目管理>();
-            string sql = "select subject_id from " + DBTablesName.T_SUBJECT;
-            DataTable dt = db.Query(sql).Tables[0];
-            foreach (DataRow dr in dt.Rows)
-            {
-                Model_科目管理 m = new Model_科目管理();
-                m.科目编号 = dr[0].ToString();
-                list.Add(m);
-            }
-            return list;
-        }
+       
         public List<Model_科目管理> GetSujectData(int type)
         {
             string sql = "select a.fee,b.* from " + DBTablesName.T_SUBJECT 
