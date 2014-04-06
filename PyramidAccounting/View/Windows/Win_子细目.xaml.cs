@@ -31,6 +31,7 @@ namespace PA.View.Windows
         //private int judge = 0;
         private List<Model_科目管理> lm= new List<Model_科目管理>();
         private ViewModel_科目管理 vm = new ViewModel_科目管理();
+        private string preDataGridValue;
 
         public Win_子细目(string SubjectNum, string SubjectName, bool BorrowMark)
         {
@@ -238,9 +239,14 @@ namespace PA.View.Windows
         /// <param name="e"></param>
         private void DataGrid_子细目_CellEditEnding(object sender, DataGridCellEditEndingEventArgs e)
         {
+            string newValue = (e.EditingElement as TextBox).Text.Trim();
+            if(newValue == preDataGridValue)
+            {
+                return;
+            }
             Model_科目管理 detail = this.DataGrid_子细目.SelectedCells[0].Item as Model_科目管理;
             string header = e.Column.Header.ToString();
-            string newValue = (e.EditingElement as TextBox).Text.Trim();
+            
             if (header == "年初数")
             {
                 vm.UpdateChildSubject(detail.科目编号.ToString(), header, newValue);
@@ -249,11 +255,17 @@ namespace PA.View.Windows
             {
                 vm.UpdateChildSubject(detail.ID.ToString(), header, newValue);
             }
+            check();
         }
 
         private void ComboBox_New_父ID_DropDownClosed(object sender, EventArgs e)
         {
             this.TextBox_New_子细目编号.Text = this.ComboBox_New_父ID.Text;
+        }
+
+        private void DataGrid_子细目_BeginningEdit(object sender, DataGridBeginningEditEventArgs e)
+        {
+            preDataGridValue = (e.Column.GetCellContent(e.Row) as TextBlock).Text;
         }
     }
 }
