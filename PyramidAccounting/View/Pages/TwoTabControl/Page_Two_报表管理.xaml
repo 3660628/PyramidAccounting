@@ -371,6 +371,7 @@
             <TabItem FocusVisualStyle="{x:Null}" Header="行政费用支出明细表" Margin="24,-1,-24,1" Template="{DynamicResource TabItemControlTemplate_TwoTabHeader}">
                 <Grid Background="White" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
                     <ComboBox x:Name="ComboBox_Date2" HorizontalAlignment="Left" Margin="7,10,0,0" VerticalAlignment="Top" Width="140"/>
+                    <Button x:Name="Button_生成3" Content="生成" HorizontalAlignment="Right" Margin="0,10,142,0" VerticalAlignment="Top" Width="50" Height="20" Template="{DynamicResource ButtonControlTemplate_Common}" Click="Button_生成3_Click"/>
                     <Button Content="打印" HorizontalAlignment="Right" Margin="0,10,76,0" VerticalAlignment="Top" Width="50" Click="Button_Click" Template="{DynamicResource ButtonControlTemplate_Common}" Height="20"/>
                     <Button Content="导出" HorizontalAlignment="Right" Margin="0,10,11,0" VerticalAlignment="Top" Width="50" Template="{DynamicResource ButtonControlTemplate_Common}" Height="20"/>
                     <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto" Margin="-3,40,0,-3">
@@ -557,6 +558,114 @@
                                 <Label Content="18.委托业务费" HorizontalAlignment="Left" Grid.Row="30"/>
                                 <Label Content="19.工会经费" HorizontalAlignment="Left" Grid.Row="31"/>
                                 <Label Content="20.福利费" HorizontalAlignment="Left" Grid.Row="32"/>
+                                <!--支出合计-->
+                                <Label x:Name="Label_A01" Content="" HorizontalAlignment="Center"   Grid.Column="1" Grid.Row="3" />
+                                <Label x:Name="Label_A02" Content="" HorizontalAlignment="Center"   Grid.Column="2" Grid.Row="3" />
+                                <!--二级科目合计支出-->
+                                <Label x:Name="Label_B101" Content="" HorizontalAlignment="Center"   Grid.Column="1" Grid.Row="4" />
+                                <Label x:Name="Label_B102" Content="" HorizontalAlignment="Center"   Grid.Column="2" Grid.Row="4" />
+                                <Label x:Name="Label_B201" Content="" HorizontalAlignment="Center"   Grid.Column="1" Grid.Row="12" />
+                                <Label x:Name="Label_B202" Content="" HorizontalAlignment="Center"   Grid.Column="2" Grid.Row="12" />
+                                <Label x:Name="Label_B301" Content="" HorizontalAlignment="Center"   Grid.Column="8" Grid.Row="4" />
+                                <Label x:Name="Label_B302" Content="" HorizontalAlignment="Center"   Grid.Column="9" Grid.Row="4" />
+                                <Label x:Name="Label_B401" Content="" HorizontalAlignment="Center"   Grid.Column="8" Grid.Row="19" />
+                                <Label x:Name="Label_B402" Content="" HorizontalAlignment="Center"   Grid.Column="9" Grid.Row="19" />
+                                
+                                <!--三级科目合计支出-->
+                                <Label x:Name="Label_B01" Content="" HorizontalAlignment="Center"   Grid.Column="1" Grid.Row="5" />
+                                <Label x:Name="Label_L01" Content="" HorizontalAlignment="Center"   Grid.Column="2" Grid.Row="5" />
+                                <Label x:Name="Label_B02" Content="" HorizontalAlignment="Center"	Grid.Column="1" Grid.Row="6" />
+                                <Label x:Name="Label_L02" Content="" HorizontalAlignment="Center"	Grid.Column="2" Grid.Row="6" />
+                                <Label x:Name="Label_B03" Content="" HorizontalAlignment="Center"	Grid.Column="1" Grid.Row="7" />
+                                <Label x:Name="Label_L03" Content="" HorizontalAlignment="Center"	Grid.Column="2" Grid.Row="7" />
+                                <Label x:Name="Label_B04" Content="" HorizontalAlignment="Center"	Grid.Column="1" Grid.Row="8" />
+                                <Label x:Name="Label_L04" Content="" HorizontalAlignment="Center"	Grid.Column="2" Grid.Row="8" />
+                                <Label x:Name="Label_B05" Content="" HorizontalAlignment="Center"	Grid.Column="1" Grid.Row="9" />
+                                <Label x:Name="Label_L05" Content="" HorizontalAlignment="Center"	Grid.Column="2" Grid.Row="9" />
+                                <Label x:Name="Label_B06" Content="" HorizontalAlignment="Center"	Grid.Column="1" Grid.Row="10" />
+                                <Label x:Name="Label_L06" Content="" HorizontalAlignment="Center"	Grid.Column="2" Grid.Row="10" />
+                                <Label x:Name="Label_B07" Content="" HorizontalAlignment="Center"	Grid.Column="1" Grid.Row="11" />
+                                <Label x:Name="Label_L07" Content="" HorizontalAlignment="Center"	Grid.Column="2" Grid.Row="11" />
+                                <Label x:Name="Label_B08" Content="" HorizontalAlignment="Center"	Grid.Column="1" Grid.Row="13" />
+                                <Label x:Name="Label_L08" Content="" HorizontalAlignment="Center"	Grid.Column="2" Grid.Row="13" />
+                                <Label x:Name="Label_B09" Content="" HorizontalAlignment="Center"	Grid.Column="1" Grid.Row="14" />
+                                <Label x:Name="Label_L09" Content="" HorizontalAlignment="Center"	Grid.Column="2" Grid.Row="14" />
+                                <Label x:Name="Label_B10" Content="" HorizontalAlignment="Center"	Grid.Column="1" Grid.Row="15" />
+                                <Label x:Name="Label_L10" Content="" HorizontalAlignment="Center"	Grid.Column="2" Grid.Row="15" />
+                                <Label x:Name="Label_B11" Content="" HorizontalAlignment="Center"	Grid.Column="1" Grid.Row="16" />
+                                <Label x:Name="Label_L11" Content="" HorizontalAlignment="Center"	Grid.Column="2" Grid.Row="16" />
+                                <Label x:Name="Label_B12" Content="" HorizontalAlignment="Center"	Grid.Column="1" Grid.Row="17" />
+                                <Label x:Name="Label_L12" Content="" HorizontalAlignment="Center"	Grid.Column="2" Grid.Row="17" />
+                                <Label x:Name="Label_B13" Content="" HorizontalAlignment="Center"	Grid.Column="1" Grid.Row="18" />
+                                <Label x:Name="Label_L13" Content="" HorizontalAlignment="Center"	Grid.Column="2" Grid.Row="18" />
+                                <Label x:Name="Label_B14" Content="" HorizontalAlignment="Center"	Grid.Column="1" Grid.Row="19" />
+                                <Label x:Name="Label_L14" Content="" HorizontalAlignment="Center"	Grid.Column="2" Grid.Row="19" />
+                                <Label x:Name="Label_B15" Content="" HorizontalAlignment="Center"	Grid.Column="1" Grid.Row="20" />
+                                <Label x:Name="Label_L15" Content="" HorizontalAlignment="Center"	Grid.Column="2" Grid.Row="20" />
+                                <Label x:Name="Label_B16" Content="" HorizontalAlignment="Center"	Grid.Column="1" Grid.Row="21" />
+                                <Label x:Name="Label_L16" Content="" HorizontalAlignment="Center"	Grid.Column="2" Grid.Row="21" />
+                                <Label x:Name="Label_B17" Content="" HorizontalAlignment="Center"	Grid.Column="1" Grid.Row="22" />
+                                <Label x:Name="Label_L17" Content="" HorizontalAlignment="Center"	Grid.Column="2" Grid.Row="22" />
+                                <Label x:Name="Label_B18" Content="" HorizontalAlignment="Center"	Grid.Column="1" Grid.Row="23" />
+                                <Label x:Name="Label_L18" Content="" HorizontalAlignment="Center"	Grid.Column="2" Grid.Row="23" />
+                                <Label x:Name="Label_B19" Content="" HorizontalAlignment="Center"	Grid.Column="1" Grid.Row="24" />
+                                <Label x:Name="Label_L19" Content="" HorizontalAlignment="Center"	Grid.Column="2" Grid.Row="24" />
+                                <Label x:Name="Label_B20" Content="" HorizontalAlignment="Center"	Grid.Column="1" Grid.Row="25" />
+                                <Label x:Name="Label_L20" Content="" HorizontalAlignment="Center"	Grid.Column="2" Grid.Row="25" />
+                                <Label x:Name="Label_B21" Content="" HorizontalAlignment="Center"	Grid.Column="1" Grid.Row="26" />
+                                <Label x:Name="Label_L21" Content="" HorizontalAlignment="Center"	Grid.Column="2" Grid.Row="26" />
+                                <Label x:Name="Label_B22" Content="" HorizontalAlignment="Center"	Grid.Column="1" Grid.Row="27" />
+                                <Label x:Name="Label_L22" Content="" HorizontalAlignment="Center"	Grid.Column="2" Grid.Row="27" />
+                                <Label x:Name="Label_B23" Content="" HorizontalAlignment="Center"	Grid.Column="1" Grid.Row="28" />
+                                <Label x:Name="Label_L23" Content="" HorizontalAlignment="Center"	Grid.Column="2" Grid.Row="28" />
+                                <Label x:Name="Label_B24" Content="" HorizontalAlignment="Center"	Grid.Column="1" Grid.Row="29" />
+                                <Label x:Name="Label_L24" Content="" HorizontalAlignment="Center"	Grid.Column="2" Grid.Row="29" />
+                                <Label x:Name="Label_B25" Content="" HorizontalAlignment="Center"	Grid.Column="1" Grid.Row="30" />
+                                <Label x:Name="Label_L25" Content="" HorizontalAlignment="Center"	Grid.Column="2" Grid.Row="30" />
+                                <Label x:Name="Label_B26" Content="" HorizontalAlignment="Center"	Grid.Column="1" Grid.Row="31" />
+                                <Label x:Name="Label_L26" Content="" HorizontalAlignment="Center"	Grid.Column="2" Grid.Row="31" />
+                                <Label x:Name="Label_B27" Content="" HorizontalAlignment="Center"	Grid.Column="1" Grid.Row="32" />
+                                <Label x:Name="Label_L27" Content="" HorizontalAlignment="Center"	Grid.Column="2" Grid.Row="32" />
+                                <Label x:Name="Label_B29" Content="" HorizontalAlignment="Center"	Grid.Column="8" Grid.Row="5" />
+                                <Label x:Name="Label_L29" Content="" HorizontalAlignment="Center"	Grid.Column="9" Grid.Row="5" />
+                                <Label x:Name="Label_B30" Content="" HorizontalAlignment="Center"	Grid.Column="8" Grid.Row="6" />
+                                <Label x:Name="Label_L30" Content="" HorizontalAlignment="Center"	Grid.Column="9" Grid.Row="6" />
+                                <Label x:Name="Label_B31" Content="" HorizontalAlignment="Center"	Grid.Column="8" Grid.Row="7" />
+                                <Label x:Name="Label_L31" Content="" HorizontalAlignment="Center"	Grid.Column="9" Grid.Row="7" />
+                                <Label x:Name="Label_B32" Content="" HorizontalAlignment="Center"	Grid.Column="8" Grid.Row="8" />
+                                <Label x:Name="Label_L32" Content="" HorizontalAlignment="Center"	Grid.Column="9" Grid.Row="8" />
+                                <Label x:Name="Label_B33" Content="" HorizontalAlignment="Center"	Grid.Column="8" Grid.Row="9" />
+                                <Label x:Name="Label_L33" Content="" HorizontalAlignment="Center"	Grid.Column="9" Grid.Row="9" />
+                                <Label x:Name="Label_B34" Content="" HorizontalAlignment="Center"	Grid.Column="8" Grid.Row="10" />
+                                <Label x:Name="Label_L34" Content="" HorizontalAlignment="Center"	Grid.Column="9" Grid.Row="10" />
+                                <Label x:Name="Label_B35" Content="" HorizontalAlignment="Center"	Grid.Column="8" Grid.Row="11" />
+                                <Label x:Name="Label_L35" Content="" HorizontalAlignment="Center"	Grid.Column="9" Grid.Row="11" />
+                                <Label x:Name="Label_B36" Content="" HorizontalAlignment="Center"	Grid.Column="8" Grid.Row="12" />
+                                <Label x:Name="Label_L36" Content="" HorizontalAlignment="Center"	Grid.Column="9" Grid.Row="12" />
+                                <Label x:Name="Label_B37" Content="" HorizontalAlignment="Center"	Grid.Column="8" Grid.Row="13" />
+                                <Label x:Name="Label_L37" Content="" HorizontalAlignment="Center"	Grid.Column="9" Grid.Row="13" />
+                                <Label x:Name="Label_B38" Content="" HorizontalAlignment="Center"	Grid.Column="8" Grid.Row="14" />
+                                <Label x:Name="Label_L38" Content="" HorizontalAlignment="Center"	Grid.Column="9" Grid.Row="14" />
+                                <Label x:Name="Label_B39" Content="" HorizontalAlignment="Center"	Grid.Column="8" Grid.Row="15" />
+                                <Label x:Name="Label_L39" Content="" HorizontalAlignment="Center"	Grid.Column="9" Grid.Row="15" />
+                                <Label x:Name="Label_B40" Content="" HorizontalAlignment="Center"	Grid.Column="8" Grid.Row="16" />
+                                <Label x:Name="Label_L40" Content="" HorizontalAlignment="Center"	Grid.Column="9" Grid.Row="16" />
+                                <Label x:Name="Label_B41" Content="" HorizontalAlignment="Center"	Grid.Column="8" Grid.Row="17" />
+                                <Label x:Name="Label_L41" Content="" HorizontalAlignment="Center"	Grid.Column="9" Grid.Row="17" />
+                                <Label x:Name="Label_B42" Content="" HorizontalAlignment="Center"	Grid.Column="8" Grid.Row="18" />
+                                <Label x:Name="Label_L42" Content="" HorizontalAlignment="Center"	Grid.Column="9" Grid.Row="18" />
+                                <Label x:Name="Label_B43" Content="" HorizontalAlignment="Center"	Grid.Column="8" Grid.Row="20" />
+                                <Label x:Name="Label_L43" Content="" HorizontalAlignment="Center"	Grid.Column="9" Grid.Row="20" />
+                                <Label x:Name="Label_B44" Content="" HorizontalAlignment="Center"	Grid.Column="8" Grid.Row="21" />
+                                <Label x:Name="Label_L44" Content="" HorizontalAlignment="Center"	Grid.Column="9" Grid.Row="21" />
+                                <Label x:Name="Label_B45" Content="" HorizontalAlignment="Center"	Grid.Column="8" Grid.Row="22" />
+                                <Label x:Name="Label_L45" Content="" HorizontalAlignment="Center"	Grid.Column="9" Grid.Row="22" />
+                                <Label x:Name="Label_B46" Content="" HorizontalAlignment="Center"	Grid.Column="8" Grid.Row="23" />
+                                <Label x:Name="Label_L46" Content="" HorizontalAlignment="Center"	Grid.Column="9" Grid.Row="23" />
+                                <Label x:Name="Label_B47" Content="" HorizontalAlignment="Center"	Grid.Column="8" Grid.Row="24" />
+                                <Label x:Name="Label_L47" Content="" HorizontalAlignment="Center"	Grid.Column="9" Grid.Row="24" />
+                                <Label x:Name="Label_B48" Content="" HorizontalAlignment="Center"	Grid.Column="8" Grid.Row="25" />
+                                <Label x:Name="Label_L48" Content="" HorizontalAlignment="Center"	Grid.Column="9" Grid.Row="25" />
                             </Grid>
                             <!--<Label Content="补充资料：编制人数" HorizontalAlignment="Left" VerticalAlignment="Bottom" RenderTransformOrigin="-0.85,0.625"/>
                             <TextBox HorizontalAlignment="Left" Height="23" Margin="118,0,0,0" TextWrapping="Wrap"  VerticalAlignment="Bottom" Width="80" BorderThickness="0,0,0,1"/>

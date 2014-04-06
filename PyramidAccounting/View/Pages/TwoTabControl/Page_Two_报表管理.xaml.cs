@@ -56,7 +56,6 @@ namespace PA.View.Pages.TwoTabControl
 
         private void Button_生成1_Click(object sender, RoutedEventArgs e)
         {
-            Model_操作日志 mr = new Model_操作日志();
             mr.日志 = "生成" + ComboBox_Date.Text + "资产负债表" ;
             vm.Insert(mr);
 
@@ -154,7 +153,6 @@ namespace PA.View.Pages.TwoTabControl
 
         private void Button_生成2_Click(object sender, RoutedEventArgs e)
         {
-            Model_操作日志 mr = new Model_操作日志();
             mr.日志 = "生成" + ComboBox_Date.Text + "收入支出总表";
             vm.Insert(mr);
 
@@ -224,6 +222,11 @@ namespace PA.View.Pages.TwoTabControl
                 B2.Content = "";
                 B3.Content = "";
             }
+        }
+
+        private void Button_生成3_Click(object sender, RoutedEventArgs e)
+        {
+
         }
         
     }
