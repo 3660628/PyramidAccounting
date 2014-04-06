@@ -542,10 +542,10 @@
                                 <Label Content="9.交通费" HorizontalAlignment="Left" Grid.Row="21"/>
                                 <Label Content="9.奖励金" HorizontalAlignment="Left" Grid.Column="7" Grid.Row="13"/>
                                 <Label Content="10.差旅费" HorizontalAlignment="Left" Grid.Row="22"/>
-                                <Label Content="10.生活补助" HorizontalAlignment="Left" Grid.Column="7" Grid.Row="14"/>
+                                <Label Content="10.生产补助" HorizontalAlignment="Left" Grid.Column="7" Grid.Row="14"/>
                                 <Label Content="11.出国费" HorizontalAlignment="Left" Grid.Row="23"/>
                                 <Label Content="11.住房公积金" HorizontalAlignment="Left" Grid.Column="7" Grid.Row="15"/>
-                                <Label Content="12.维修（护)费" HorizontalAlignment="Left" Grid.Row="24"/>
+                                <Label Content="12.维修（护）费" HorizontalAlignment="Left" Grid.Row="24"/>
                                 <Label Content="12.提租补贴" HorizontalAlignment="Left" Grid.Column="7" Grid.Row="16"/>
                                 <Label Content="13.租赁费" HorizontalAlignment="Left" Grid.Row="25"/>
                                 <Label Content="13.购房补贴" HorizontalAlignment="Left" Grid.Column="7" Grid.Row="17"/>
@@ -558,7 +558,7 @@
                                 <Label Content="19.工会经费" HorizontalAlignment="Left" Grid.Row="31"/>
                                 <Label Content="20.福利费" HorizontalAlignment="Left" Grid.Row="32"/>
                             </Grid>
-                            <Label Content="补充资料：编制人数" HorizontalAlignment="Left" VerticalAlignment="Bottom" RenderTransformOrigin="-0.85,0.625"/>
+                            <!--<Label Content="补充资料：编制人数" HorizontalAlignment="Left" VerticalAlignment="Bottom" RenderTransformOrigin="-0.85,0.625"/>
                             <TextBox HorizontalAlignment="Left" Height="23" Margin="118,0,0,0" TextWrapping="Wrap"  VerticalAlignment="Bottom" Width="80" BorderThickness="0,0,0,1"/>
                             <Label Content="在职人数" HorizontalAlignment="Left" Margin="200,0,0,0" VerticalAlignment="Bottom"/>
                             <TextBox HorizontalAlignment="Left" Height="23" Margin="258,0,0,0" TextWrapping="Wrap"  VerticalAlignment="Bottom" Width="80" BorderThickness="0,0,0,1"/>
@@ -569,6 +569,7 @@
                             <Label Content="机动车车辆核编数（实际数" HorizontalAlignment="Left" Margin="614,0,0,0" VerticalAlignment="Bottom"/>
                             <TextBox HorizontalAlignment="Left" Height="23" Margin="768,0,0,0" TextWrapping="Wrap"  VerticalAlignment="Bottom" Width="80" BorderThickness="0,0,0,1"/>
                             <Label Content="）" HorizontalAlignment="Left" Margin="845,0,0,0" VerticalAlignment="Bottom"/>
+                            -->
                         </Grid>
                     </ScrollViewer>
                 </Grid>

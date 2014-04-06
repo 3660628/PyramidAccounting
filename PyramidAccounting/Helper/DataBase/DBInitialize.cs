@@ -40,11 +40,14 @@ namespace PA.Helper.DataBase
             List<string> dataList = new List<string>();
             dataList = getSqlList(Properties.Resources.DatabaseTable);
             db.BatchOperate(dataList);
-            dataList.Clear();
-            dataList = getSqlList(Properties.Resources.DatabaseData);
-            db.BatchOperate(dataList);
+            
             dataList.Clear();
             dataList = GetSubjectSqlList();
+            db.BatchOperate(dataList);
+
+            //插入数据
+            dataList.Clear();
+            dataList = getSqlList(Properties.Resources.DatabaseData);
             db.BatchOperate(dataList);
         }
         private List<string> GetSubjectSqlList()

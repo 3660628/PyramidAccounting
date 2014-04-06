@@ -44,7 +44,7 @@ namespace PA.View.Pages.TwoTabControl
             InitializeComponent();
             SubscribeToEvent();
             VisibilityData();
-            this.DatePicker_操作记录.Text = DateTime.Now.AddDays(-1).ToShortDateString();
+            this.DatePicker_操作记录.Text = DateTime.Now.ToShortDateString();
             this.DatePicker_操作记录End.Text = DateTime.Now.ToShortDateString();
             this.Button_Brower.Click += new System.Windows.RoutedEventHandler(Button_Brower_Click);
             LoadXml();
