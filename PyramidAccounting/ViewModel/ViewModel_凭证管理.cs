@@ -37,11 +37,10 @@ namespace PA.ViewModel
                             + "voucher.REVIEW_MARK"
                         + " FROM "
                             + DBTablesName.T_VOUCHER + " voucher,"
-                            + DBTablesName.T_VOUCHER_DETAIL + " detail,"
-                            + DBTablesName.T_SUBJECT + " subject"
+                            + DBTablesName.T_VOUCHER_DETAIL + " detail "
+                            + " LEFT JOIN " + DBTablesName.T_SUBJECT + " subject ON detail.SUBJECT_ID = subject.subject_id"
                         + " WHERE "
                             + "voucher.ID = detail.PARENTID and DELETE_MARK=0 " + whereParm
-                            + " AND detail.SUBJECT_ID = subject.subject_id"
                         + " ORDER BY "
                             + "voucher.OP_TIME";
             DataSet ds = db.Query(sql);
