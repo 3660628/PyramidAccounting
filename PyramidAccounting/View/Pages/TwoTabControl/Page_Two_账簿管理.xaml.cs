@@ -41,6 +41,7 @@ namespace PA.View.Pages.TwoTabControl
         private void SubscribeToEvent()
         {
             PA.View.Pages.TwoTabControl.Page_Two_快捷界面.TabChange += new Page_Two_快捷界面_TabChange(DoTabChange);
+            PA.View.Pages.Pop.账簿管理.Page_添加固定资产.ECommit += new Pop.账簿管理.Page_添加固定资产_CommitEventHandle(Do固定资产Commit);
         }
         #endregion
         #region 接受事件后处理
@@ -50,6 +51,15 @@ namespace PA.View.Pages.TwoTabControl
             {
                 this.TabControl_账簿管理.SelectedIndex = e.X;
             }
+        }
+        private void Do固定资产Commit(object sender, MyEventArgs e)
+        {
+            if(e.IsCommit)
+            {
+                //reflash data
+            }
+            this.Grid_账簿管理弹出.Visibility = System.Windows.Visibility.Collapsed;
+            this.TabControl_账簿管理.IsEnabled = true;
         }
         #endregion
 
@@ -236,6 +246,7 @@ namespace PA.View.Pages.TwoTabControl
         {
             this.Grid_账簿管理弹出.Visibility = System.Windows.Visibility.Visible;
             this.Frame_账簿管理弹出.Content = new PA.View.Pages.Pop.账簿管理.Page_添加固定资产();
+            this.TabControl_账簿管理.IsEnabled = false;
         }
 
         private void Popup_科目子细目_Closed(object sender, EventArgs e)

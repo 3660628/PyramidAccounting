@@ -11,10 +11,14 @@ namespace PA.Model.CustomEventArgs
         private int x;
         private string str;
         private string type;
-
-        
+        private bool isCommit;
 
         #region GETSET
+        public bool IsCommit
+        {
+            get { return isCommit; }
+            set { isCommit = value; }
+        }
         public string 操作类型
         {
             get { return type; }
