@@ -152,7 +152,7 @@ namespace PA.Helper.ExcelHelper
                             }
                             else if (key.StartsWith("号", false, null))
                             {
-                                xlWorkSheet.Cells[yDetails + 1, xDetails] = VoucherDetails[(i * 6)].凭证号;
+                                xlWorkSheet.Cells[yDetails + 1, xDetails] = VoucherDetails[(i * 6)].凭证号 + "号";
                             }
                             //fill total money while the sheet is the last one
                             else if (key.StartsWith("合计借方金额", false, null) || key.StartsWith("合计贷方金额", false, null))
