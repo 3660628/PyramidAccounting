@@ -40,7 +40,22 @@
             <DataGrid.Columns>
                 <DataGridTextColumn Binding="{Binding 科目编号,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Header="子细目编号" IsReadOnly="True"/>
                 <DataGridTextColumn Binding="{Binding 科目名称,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Header="子细目名称" Width="*" MinWidth="100"/>
-                <DataGridTextColumn Binding="{Binding 年初金额,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Header="年初数" MinWidth="80" ElementStyle="{DynamicResource TextBlockStyle_右对齐}"/>
+                <DataGridTextColumn Binding="{Binding 年初金额,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Header="年初数" MinWidth="80" ElementStyle="{DynamicResource TextBlockStyle_右对齐}">
+                    <DataGridTextColumn.CellStyle>
+                        <Style TargetType="DataGridCell">
+                            <Setter Property="Padding" Value="0,0,5,0"/>
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="{x:Type DataGridCell}">
+                                        <Border Padding="{TemplateBinding Padding}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" SnapsToDevicePixels="True">
+                                            <ContentPresenter SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
+                                        </Border>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                        </Style>
+                    </DataGridTextColumn.CellStyle>
+                </DataGridTextColumn>
                 <DataGridTextColumn Binding="{Binding 类别}" Header="是否三级科目" Visibility="Hidden"/>
             </DataGrid.Columns>
         </DataGrid>
