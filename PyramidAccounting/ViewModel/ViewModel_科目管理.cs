@@ -127,10 +127,10 @@ namespace PA.ViewModel
             List<string> sqlList = new List<string>();
             foreach (Model_科目管理 m in list)
             {
-                string sql = "delete from " + DBTablesName.T_SUBJECT + " where id=" + m.ID;
+                string sql = "delete from " + DBTablesName.T_SUBJECT + " where id=" + m.ID + " OR parent_id=" + m.科目编号;
                 sqlList.Add(sql);
-                string sql2 = "delete from " + DBTablesName.T_YEAR_FEE + " where subject_id='" 
-                    + m.科目编号 + "' and parentid='" + m.父ID + "' and bookid='" + CommonInfo.账薄号 + "'";
+                string sql2 = "delete from " + DBTablesName.T_YEAR_FEE + " where "
+                    + " (subject_id='" + m.科目编号 + "' and parentid='" + m.父ID + "') OR parentid='" + m.科目编号 + "' and bookid='" + CommonInfo.账薄号 + "'";
                 sqlList.Add(sql2);
                 parentid = m.父ID;
             }
