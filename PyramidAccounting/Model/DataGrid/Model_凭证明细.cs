@@ -15,10 +15,23 @@ namespace PA.Model.DataGrid
         private string voucher_ID;
         private string abstract_comments;
         private string subject_id;
-        private string deal;
+        private string subject_name;//新增，不存数据库
+        private string detail_id;//新增
+        private string deal;//不存数据库
         private int bookkeep_mark;
         private decimal debit;
         private decimal credit;
+
+        public string 子细目ID
+        {
+            get { return detail_id; }
+            set { detail_id = value; }
+        }
+        public string 主科目名
+        {
+            get { return subject_name; }
+            set { subject_name = value; NotifyPropertyChanged("主科目名"); }
+        }
         public string 凭证字
         {
             get { return word; }

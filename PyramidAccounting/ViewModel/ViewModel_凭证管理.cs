@@ -28,17 +28,20 @@ namespace PA.ViewModel
                             + "detail.VOUCHER_NO,"
                             + "voucher.OP_TIME,"
                             + "detail.ABSTRACT,"
-                            + "detail.SUBJECT_ID,"
-                            + "detail.DETAIL,"
+                            + "detail.SUBJECT_ID,"//科目编号
+                            //+ "detail.DETAIL,"//子细目编号
+                            + "subject.subject_name,"//科目名
                             + "detail.DEBIT,"
                             + "detail.CREDIT,"
                             + "voucher.PERIOD,"
                             + "voucher.REVIEW_MARK"
                         + " FROM "
                             + DBTablesName.T_VOUCHER + " voucher,"
-                            + DBTablesName.T_VOUCHER_DETAIL + " detail"
+                            + DBTablesName.T_VOUCHER_DETAIL + " detail,"
+                            + DBTablesName.T_SUBJECT + " subject"
                         + " WHERE "
                             + "voucher.ID = detail.PARENTID and DELETE_MARK=0 " + whereParm
+                            + " AND detail.SUBJECT_ID = subject.subject_id"
                         + " ORDER BY "
                             + "voucher.OP_TIME";
             DataSet ds = db.Query(sql);
@@ -185,7 +188,14 @@ namespace PA.ViewModel
             bool StartAdd = false;
             List<Model_凭证明细> VoucherDetails = new List<Model_凭证明细>();
             Model_凭证明细 detail;
-            string sql = "select * from " + DBTablesName.T_VOUCHER_DETAIL + " where PARENTID='" + guid + "'";
+            string sql = "select detail.*, subjectA.subject_name as MainSubjectName, subjectB.subject_name as TimesSubjectName"
+                + " from " 
+                    + DBTablesName.T_VOUCHER_DETAIL +" detail,"
+                    + DBTablesName.T_SUBJECT + " subjectA,"
+                    + DBTablesName.T_SUBJECT + " subjectB"
+                + " where PARENTID='" + guid + "'"
+                    + " AND detail.subject_id=subjectA.subject_id"
+                    + " AND detail.detail=subjectB.subject_id";
             DataSet ds = new PA.Helper.DataBase.DataBase().Query(sql);
             foreach (DataRow dr in ds.Tables[0].Rows)
             {
@@ -199,10 +209,13 @@ namespace PA.ViewModel
                     detail.凭证号 = dr[4].ToString();
                     detail.摘要 = dr[5].ToString();
                     detail.科目编号 = dr[6].ToString();
-                    detail.子细目 = dr[7].ToString();
+                    detail.子细目ID = dr[7].ToString();
                     detail.记账 = int.Parse(dr[8].ToString());
                     detail.借方 = decimal.Parse(dr[9].ToString());
                     detail.贷方 = decimal.Parse(dr[10].ToString());
+
+                    detail.主科目名 = dr["MainSubjectName"].ToString();
+                    detail.子细目 = dr["TimesSubjectName"].ToString();
                     VoucherDetails.Add(detail);
                     LastVoucherNum = dr[4].ToString();
                     CountNum++;

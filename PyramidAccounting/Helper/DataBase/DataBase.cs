@@ -381,7 +381,7 @@ namespace PA.Helper.DataBase
                     cmd.Parameters.AddWithValue("@VOUCHER_NO", list.凭证号);
                     cmd.Parameters.AddWithValue("@ABSTRACT", list.摘要);
                     cmd.Parameters.AddWithValue("@SUBJECT_ID", list.科目编号);
-                    cmd.Parameters.AddWithValue("@DETAIL", list.子细目);
+                    cmd.Parameters.AddWithValue("@DETAIL", list.子细目ID);
                     cmd.Parameters.AddWithValue("@BOOKKEEP_MARK", list.记账);
                     cmd.Parameters.AddWithValue("@DEBIT", list.借方);
                     cmd.Parameters.AddWithValue("@CREDIT", list.贷方);
