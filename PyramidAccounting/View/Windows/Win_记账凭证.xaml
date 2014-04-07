@@ -3,6 +3,19 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="记账凭证" Height="450
         " Width="800" WindowStyle="None" AllowsTransparency="True" WindowStartupLocation="CenterScreen" MouseLeftButtonDown="Window_凭证输入_MouseLeftButtonDown" Background="{x:Null}" ResizeMode="NoResize" FontFamily="NSimSun" TextOptions.TextFormattingMode="Display">
+	<Window.Resources>
+		<Storyboard x:Key="Storyboard_WinLoaded">
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="Window_记账凭证">
+				<EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.1" Value="1"/>
+			</DoubleAnimationUsingKeyFrames>
+		</Storyboard>
+	</Window.Resources>
+	<Window.Triggers>
+		<EventTrigger RoutedEvent="FrameworkElement.Loaded">
+			<BeginStoryboard Storyboard="{StaticResource Storyboard_WinLoaded}"/>
+		</EventTrigger>
+	</Window.Triggers>
     <Grid Background="White" Margin="5">
         <Grid.Effect>
             <DropShadowEffect ShadowDepth="0" BlurRadius="3"/>
@@ -31,7 +44,7 @@
         <Button x:Name="Button_Previous" Content="&lt;" HorizontalAlignment="Left" Margin="610,409,0,0" VerticalAlignment="Top" Width="20" Height="20" Template="{DynamicResource ButtonControlTemplate_Common}" Click="Button_Previous_Click"/>
         <Button x:Name="Button_Next" Content="&gt;" HorizontalAlignment="Right" Margin="0,0,90,11" VerticalAlignment="Bottom" Width="20" Height="20" Template="{DynamicResource ButtonControlTemplate_Common}" Click="Button_Next_Click"/>
 
-        <DataGrid x:Name="DataGrid_凭证明细" Margin="10,97,10,0" VerticalAlignment="Top" AutoGenerateColumns="False" CanUserReorderColumns="False" CanUserResizeColumns="False" CanUserSortColumns="False" CanUserAddRows="False" CanUserDeleteRows="False" CanUserResizeRows="False" SelectionMode="Single" HeadersVisibility="Column" RowHeight="40" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle_凭证录入}" HorizontalGridLinesBrush="Gray" VerticalGridLinesBrush="Gray" HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Disabled" Height="271" ScrollViewer.CanContentScroll="False" CellStyle="{DynamicResource DataGridCellStyle_凭证录入}" CellEditEnding="DataGrid_凭证明细_CellEditEnding" SelectionUnit="Cell">
+        <DataGrid x:Name="DataGrid_凭证明细" Margin="10,97,10,0" VerticalAlignment="Top" AutoGenerateColumns="False" CanUserReorderColumns="False" CanUserResizeColumns="False" CanUserSortColumns="False" CanUserAddRows="False" CanUserDeleteRows="False" CanUserResizeRows="False" SelectionMode="Single" HeadersVisibility="Column" RowHeight="40" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle_凭证录入}" HorizontalGridLinesBrush="#FF99CCFF" VerticalGridLinesBrush="#FF99CCFF" HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Disabled" Height="271" ScrollViewer.CanContentScroll="False" CellStyle="{DynamicResource DataGridCellStyle_凭证录入}" CellEditEnding="DataGrid_凭证明细_CellEditEnding" SelectionUnit="Cell" BorderBrush="#FF99CCFF">
             <DataGrid.Resources>
                 <Style TargetType="DataGridRow">
                     <EventSetter Event="MouseDoubleClick" Handler="DataGrid_凭证明细_Cell_MouseDoubleClick" />
@@ -56,7 +69,7 @@
         <Label x:Name="Label_会计主管" Content="" HorizontalAlignment="Left" Margin="73,0,0,10" VerticalAlignment="Bottom"/>
         <Label x:Name="Label_制单人" Content="" HorizontalAlignment="Left" Margin="255,0,0,10" VerticalAlignment="Bottom" BorderThickness="0,0,0,1" BorderBrush="Black" VerticalContentAlignment="Bottom"/>
         <Label x:Name="Label_复核" Content="" HorizontalAlignment="Left" Margin="414,0,0,10" VerticalAlignment="Bottom"/>
-        <Label x:Name="Label_审核状态" Content="" HorizontalAlignment="Left" Margin="451,35,0,0" VerticalAlignment="Top" FontSize="14"/>
+        <Label x:Name="Label_审核状态" Content="" HorizontalAlignment="Left" Margin="451,35,0,0" VerticalAlignment="Top" FontSize="14" FontWeight="Bold"/>
         <Label x:Name="Label_借方合计" Content="0.0" HorizontalAlignment="Right" Margin="0,373,160,0" VerticalAlignment="Top"/>
         <Label x:Name="Label_贷方合计" Content="0.0" HorizontalAlignment="Right" Margin="0,373,10,0" VerticalAlignment="Top"/>
         <TextBlock x:Name="TextBlock_PageNum" HorizontalAlignment="Left" Margin="635,411,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="40" TextAlignment="Center" FontSize="14" MouseWheel="TextBlock_PageNum_MouseWheel"><Run Language="zh-cn" Text="1/1"/></TextBlock>

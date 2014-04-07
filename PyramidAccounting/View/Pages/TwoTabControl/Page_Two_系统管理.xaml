@@ -7,6 +7,19 @@
       mc:Ignorable="d" 
       d:DesignHeight="570" d:DesignWidth="800" FontFamily="NSimSun" TextOptions.TextFormattingMode="Display"
 	Title="Page_Two_系统管理">
+	<Page.Resources>
+        <Storyboard x:Key="Storyboard_GridPopVisibility">
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="Grid_Pop弹出">
+				<EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.1" Value="1"/>
+			</DoubleAnimationUsingKeyFrames>
+		</Storyboard>
+	</Page.Resources>
+	<Page.Triggers>
+		<EventTrigger RoutedEvent="ButtonBase.Click" SourceName="Button_新增">
+            <BeginStoryboard Storyboard="{StaticResource Storyboard_GridPopVisibility}"/>
+		</EventTrigger>
+	</Page.Triggers>
     <Grid Margin="-3,0,-3,-3">
         <StatusBar Height="25" Margin="0" VerticalAlignment="Bottom" Background="DarkGray"/>
         <TabControl Margin="0,0,0,25" BorderBrush="White">
@@ -32,7 +45,7 @@
                                 <Button x:Name="Button_新增" Content="新增" HorizontalAlignment="Right" Margin="0,15,170,0" VerticalAlignment="Top" Width="70" Click="Button_新增_Click" Template="{DynamicResource ButtonControlTemplate_CommonBlue}" Height="20" Foreground="White" />
                                 <Button x:Name="Button_修改" Content="修改" HorizontalAlignment="Right" Margin="0,15,85,0" VerticalAlignment="Top" Width="70" Click="Button_修改_Click" Template="{DynamicResource ButtonControlTemplate_Common}" Height="20" />
                                 <Button x:Name="Button_停用" Content="停用" HorizontalAlignment="Right" Margin="0,15,0,0" VerticalAlignment="Top" Width="70" Click="Button_停用_Click" Template="{DynamicResource ButtonControlTemplate_Common}" Height="20"/>
-                                <DataGrid x:Name="DataGrid_权限设置" HorizontalAlignment="Stretch" ItemsSource="{Binding}" AutoGenerateColumns="False" IsReadOnly="True" Margin="10,40,0,0" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle_凭证管理}" CellStyle="{DynamicResource DataGridCellStyle_无上下边距}" BorderBrush="#FF99CCFF" HorizontalGridLinesBrush="#FF99CCFF" VerticalGridLinesBrush="#FF99CCFF" HeadersVisibility="Column" SelectionMode="Single" Background="White">
+                                <DataGrid x:Name="DataGrid_权限设置" HorizontalAlignment="Stretch" ItemsSource="{Binding}" AutoGenerateColumns="False" IsReadOnly="True" Margin="10,40,0,10" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle_凭证管理}" CellStyle="{DynamicResource DataGridCellStyle_无上下边距}" BorderBrush="#FF99CCFF" HorizontalGridLinesBrush="#FF99CCFF" VerticalGridLinesBrush="#FF99CCFF" HeadersVisibility="Column" SelectionMode="Single" Background="White">
                                     <DataGrid.Columns>
                                         <DataGridTextColumn Binding="{Binding 序号}" Header="序号" />
                                         <DataGridTextColumn Binding="{Binding 用户名}" Header="用户名"/>

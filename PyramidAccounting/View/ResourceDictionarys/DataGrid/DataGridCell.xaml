@@ -8,6 +8,7 @@
     <Style x:Key="TextBlockStyle_右对齐" TargetType="{x:Type TextBlock}">
         <Setter Property="TextAlignment" Value="Right"/>
         <Setter Property="VerticalAlignment" Value="Center"/>
+        <Setter Property="TextWrapping" Value="Wrap"/>
     </Style>
     <Style x:Key="TextBlockStyle_居中对齐" TargetType="{x:Type TextBlock}">
         <Setter Property="TextAlignment" Value="Center"/>
