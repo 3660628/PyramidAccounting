@@ -8,7 +8,7 @@
       d:DesignHeight="570" d:DesignWidth="800" FontFamily="NSimSun" TextOptions.TextFormattingMode="Display"
 	Title="Page_Two_系统管理">
 	<Page.Resources>
-		<Storyboard x:Key="Storyboard1">
+        <Storyboard x:Key="Storyboard_GridPopVisibility">
 			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="Grid_Pop弹出">
 				<EasingDoubleKeyFrame KeyTime="0" Value="0"/>
 				<EasingDoubleKeyFrame KeyTime="0:0:0.1" Value="1"/>
@@ -17,7 +17,7 @@
 	</Page.Resources>
 	<Page.Triggers>
 		<EventTrigger RoutedEvent="ButtonBase.Click" SourceName="Button_新增">
-			<BeginStoryboard Storyboard="{StaticResource Storyboard1}"/>
+            <BeginStoryboard Storyboard="{StaticResource Storyboard_GridPopVisibility}"/>
 		</EventTrigger>
 	</Page.Triggers>
     <Grid Margin="-3,0,-3,-3">
