@@ -21,7 +21,6 @@ namespace PA
         public MainWindow()
         {
             InitializeComponent();
-            
             this.Frame_MainTabControl.Content = new PA.View.Pages.Page_MainTabControl();
         }
 
