@@ -30,7 +30,7 @@
         <TextBox x:Name="TextBox_清理日期" HorizontalAlignment="Left" Height="22" Margin="138,383,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
         <TextBox x:Name="TextBox_凭证编号" HorizontalAlignment="Left" Height="22" Margin="138,421,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
         <TextBox x:Name="TextBox_备注" HorizontalAlignment="Left" Height="22" Margin="138,459,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <Button x:Name="Button_PopCommit" Content="提交" HorizontalAlignment="Right" Margin="0,0,109,23" Width="80" Click="Button_PopCommit_Click" Height="25" Foreground="White" VerticalAlignment="Bottom" />
-        <Button x:Name="Button_PopClose" Content="取消" HorizontalAlignment="Right" Margin="0,0,18,23" VerticalAlignment="Bottom" Width="80" Click="Button_PopClose_Click" Height="25" Foreground="White"/>
+        <Button x:Name="Button_PopCommit" Content="提交" HorizontalAlignment="Right" Margin="0,0,109,23" Width="80" Click="Button_PopCommit_Click" Height="25" Foreground="White" VerticalAlignment="Bottom" Template="{DynamicResource ButtonControlTemplate_CommonBlue}" />
+        <Button x:Name="Button_PopClose" Content="取消" HorizontalAlignment="Right" Margin="0,0,18,23" VerticalAlignment="Bottom" Width="80" Click="Button_PopClose_Click" Height="25" Foreground="White" Template="{DynamicResource ButtonControlTemplate_CommonBlue}"/>
     </Grid>
 </Page>
