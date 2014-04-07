@@ -26,11 +26,16 @@ namespace PA.ViewModel
 
         public bool Update()
         {
+
+            string _sql = "delete from " + DBTablesName.T_FEE + " where period=0";
+            db.Excute(_sql);
+
             string sql = "insert into " + DBTablesName.T_FEE
                 + "(period,subject_id,comments,fee,mark) select 0,a.subject_id,'承上年结余',a.fee,b.Borrow_Mark from " 
                 + DBTablesName.T_YEAR_FEE + " a left join "
                 +  DBTablesName.T_SUBJECT +  " b on a.subject_id=b.subject_id where a.parentid = '0' and a.bookid='" 
                 + CommonInfo.账薄号 + "' order by a.subject_id";
+
             return db.Excute(sql);
         }
 
