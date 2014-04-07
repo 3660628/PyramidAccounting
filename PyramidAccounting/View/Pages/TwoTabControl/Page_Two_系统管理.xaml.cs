@@ -37,7 +37,8 @@ namespace PA.View.Pages.TwoTabControl
         private ViewModel_操作日志 vmr = new ViewModel_操作日志();
         private Model_操作日志 _mr = new Model_操作日志();
 
-        private string asd = "";
+        private string DoubleClickSubject = "";
+        private string ModifySubjectCellOldValue = "";
 
         public Page_Two_系统管理()
         {
@@ -70,7 +71,7 @@ namespace PA.View.Pages.TwoTabControl
         #region 接受事件后处理
         private void DoRerflashData(object sender, MyEventArgs e)
         {
-            new PA.ViewModel.ViewModel_科目管理().UpdateMainSubjectsFee(asd);
+            new PA.ViewModel.ViewModel_科目管理().UpdateMainSubjectsFee(DoubleClickSubject);
             TabControl_五大科目_SelectionChanged(null, null);
         }
         private void CloseGrid(object sender, RoutedEventArgs e)
@@ -340,18 +341,22 @@ namespace PA.View.Pages.TwoTabControl
             {
                 Model_科目管理 m = new Model_科目管理();
                 m = DataGrid_科目设置.SelectedCells[0].Item as Model_科目管理;
-                asd = m.科目编号;
+                DoubleClickSubject = m.科目编号;
                 Windows.Win_子细目 w = new Windows.Win_子细目(m.科目编号, m.科目名称, m.借贷标记);
                 w.ShowDialog();
             }
         }
         private void DataGrid_科目设置_BeginningEdit(object sender, DataGridBeginningEditEventArgs e)
         {
-
+            ModifySubjectCellOldValue = (e.Column.GetCellContent(e.Row) as TextBlock).Text;
         }
         private void DataGrid_科目设置_CellEditEnding(object sender, DataGridCellEditEndingEventArgs e)
         {
             string newValue = (e.EditingElement as TextBox).Text.Trim();
+            if (ModifySubjectCellOldValue == newValue)
+            {
+                return;
+            }
             Model_科目管理 detail = this.DataGrid_科目设置.SelectedCells[0].Item as Model_科目管理;
             string header = e.Column.Header.ToString();
             if(header == "年初数")

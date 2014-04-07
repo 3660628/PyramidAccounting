@@ -151,7 +151,7 @@ namespace PA.ViewModel
 
             //判断第一期查年初数
             //以后差每一期期末数
-            string sql2 = "select fee from t_yearfee where subject_id='" + subject_id.Split('\t')[0] + "' and bookid='" + CommonInfo.账薄号 + "'";
+            string sql2 = "select fee from t_yearfee where subject_id='" + pid + "' and bookid='" + CommonInfo.账薄号 + "'";
             string yearfee = db.GetAllData(sql2).Split('\t')[0].Split(',')[0];
             DataSet ds = new DataSet();
             ds = db.Query(sql);
