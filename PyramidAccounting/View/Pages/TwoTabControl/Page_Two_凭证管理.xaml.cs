@@ -33,15 +33,15 @@ namespace PA.View.Pages.TwoTabControl
             ReflashData();
             SubscribeToEvent();
         }
-        /// <summary>
-        /// 订阅事件
-        /// </summary>
+
+        #region 订阅事件
         private void SubscribeToEvent()
         {
             PA.View.Windows.Win_记账凭证.ESubmit += new Windows.Win_记账凭证_Submit(DoReflashData);
             PA.View.Pages.TwoTabControl.Page_Two_快捷界面.TabChange += new Page_Two_快捷界面_TabChange(DoTabChange);
         }
-
+        #endregion
+        #region 接收后处理
         private void DoReflashData(object sender, MyEventArgs e)
         {
             ReflashData();
@@ -53,6 +53,7 @@ namespace PA.View.Pages.TwoTabControl
                 if(e.操作类型 == "凭证审核")
                 {
                     this.ComboBox_Review.SelectedIndex = 2;
+                    this.ComboBox_Date.SelectedIndex = CommonInfo.当前期;
                 }
                 else if (e.操作类型 == "本月结账")
                 {
@@ -61,6 +62,7 @@ namespace PA.View.Pages.TwoTabControl
                 ReflashData();
             }
         }
+        #endregion
 
         private void InitData()
         {
@@ -91,13 +93,10 @@ namespace PA.View.Pages.TwoTabControl
             {
                 DateParm = " and PERIOD=" + DateSelectIndex;
             }
-            ReflashData(DateParm + ReviewParm);
-        }
-        private void ReflashData(string parm)
-        {
-            Data_本期凭证 = new PA.ViewModel.ViewModel_凭证管理().GetData(parm);
+            Data_本期凭证 = new PA.ViewModel.ViewModel_凭证管理().GetData(DateParm + ReviewParm);
             this.DataGrid_本期凭证.ItemsSource = Data_本期凭证;
         }
+
         private void Button_Add_Click(object sender, RoutedEventArgs e)
         {
             if (CommonInfo.是否初始化年初数)
@@ -137,9 +136,13 @@ namespace PA.View.Pages.TwoTabControl
         {
             if (this.DataGrid_本期凭证.SelectedCells.Count != 0)
             {
-                Model_凭证管理 asd = this.DataGrid_本期凭证.SelectedCells[0].Item as Model_凭证管理;
-                new PA.ViewModel.ViewModel_凭证管理().Delete(asd.ID);
-                ReflashData();
+                bool? result = MessageBoxDel.Show("注意", "确认删除数据？");
+                if (result == true)
+                {
+                    Model_凭证管理 asd = this.DataGrid_本期凭证.SelectedCells[0].Item as Model_凭证管理;
+                    new PA.ViewModel.ViewModel_凭证管理().Delete(asd.ID);
+                    ReflashData();
+                }
             }
         }
 
