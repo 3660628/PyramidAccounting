@@ -14,10 +14,64 @@
 				<EasingDoubleKeyFrame KeyTime="0:0:0.1" Value="1"/>
 			</DoubleAnimationUsingKeyFrames>
 		</Storyboard>
+        <Storyboard x:Key="Storyboard_Expender修改密码Expended">
+        	<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Height)" Storyboard.TargetName="Expander_修改密码">
+        		<EasingDoubleKeyFrame KeyTime="0" Value="25"/>
+        		<EasingDoubleKeyFrame KeyTime="0:0:0.1" Value="190"/>
+        	</DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+        <Storyboard x:Key="Storyboard_Expender修改密码Collapsed">
+        	<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Height)" Storyboard.TargetName="Expander_修改密码">
+                <EasingDoubleKeyFrame KeyTime="0" Value="190"/>
+        		<EasingDoubleKeyFrame KeyTime="0:0:0.1" Value="25"/>
+        	</DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+        <Storyboard x:Key="Storyboard_Expender权限Expended">
+        	<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Height)" Storyboard.TargetName="Expander_权限">
+        		<EasingDoubleKeyFrame KeyTime="0" Value="25"/>
+        		<EasingDoubleKeyFrame KeyTime="0:0:0.1" Value="300"/>
+        	</DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+        <Storyboard x:Key="Storyboard_Expender权限Collapsed">
+        	<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Height)" Storyboard.TargetName="Expander_权限">
+                <EasingDoubleKeyFrame KeyTime="0" Value="300"/>
+        		<EasingDoubleKeyFrame KeyTime="0:0:0.1" Value="25"/>
+        	</DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+        <Storyboard x:Key="Storyboard_Expender账套管理Expended">
+        	<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Height)" Storyboard.TargetName="Expander_账套管理">
+        		<EasingDoubleKeyFrame KeyTime="0" Value="25"/>
+        		<EasingDoubleKeyFrame KeyTime="0:0:0.1" Value="300"/>
+        	</DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+        <Storyboard x:Key="Storyboard_Expender账套管理Collasped">
+        	<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Height)" Storyboard.TargetName="Expander_账套管理">
+                <EasingDoubleKeyFrame KeyTime="0" Value="300"/>
+        		<EasingDoubleKeyFrame KeyTime="0:0:0.1" Value="25"/>
+        	</DoubleAnimationUsingKeyFrames>
+        </Storyboard>
 	</Page.Resources>
 	<Page.Triggers>
 		<EventTrigger RoutedEvent="ButtonBase.Click" SourceName="Button_新增">
             <BeginStoryboard Storyboard="{StaticResource Storyboard_GridPopVisibility}"/>
+		</EventTrigger>
+		<EventTrigger RoutedEvent="Expander.Expanded" SourceName="Expander_修改密码">
+			<BeginStoryboard x:Name="Storyboard_Expender修改密码Expended_BeginStoryboard" Storyboard="{StaticResource Storyboard_Expender修改密码Expended}"/>
+		</EventTrigger>
+		<EventTrigger RoutedEvent="Expander.Collapsed" SourceName="Expander_修改密码">
+			<BeginStoryboard x:Name="Storyboard_Expender修改密码Collapsed_BeginStoryboard" Storyboard="{StaticResource Storyboard_Expender修改密码Collapsed}"/>
+		</EventTrigger>
+		<EventTrigger RoutedEvent="Expander.Expanded" SourceName="Expander_权限">
+			<BeginStoryboard x:Name="Storyboard_Expender权限Expended_BeginStoryboard" Storyboard="{StaticResource Storyboard_Expender权限Expended}"/>
+		</EventTrigger>
+		<EventTrigger RoutedEvent="Expander.Collapsed" SourceName="Expander_权限">
+			<BeginStoryboard x:Name="Storyboard_Expender权限Collapsed_BeginStoryboard" Storyboard="{StaticResource Storyboard_Expender权限Collapsed}"/>
+		</EventTrigger>
+		<EventTrigger RoutedEvent="Expander.Expanded" SourceName="Expander_账套管理">
+			<BeginStoryboard x:Name="Storyboard_Expender账套管理Expended_BeginStoryboard" Storyboard="{StaticResource Storyboard_Expender账套管理Expended}"/>
+		</EventTrigger>
+		<EventTrigger RoutedEvent="Expander.Collapsed" SourceName="Expander_账套管理">
+			<BeginStoryboard x:Name="Storyboard_Expender账套管理Collasped_BeginStoryboard" Storyboard="{StaticResource Storyboard_Expender账套管理Collasped}"/>
 		</EventTrigger>
 	</Page.Triggers>
     <Grid Margin="-3,0,-3,-3">
@@ -26,7 +80,7 @@
             <TabItem FocusVisualStyle="{x:Null}" Header="用户安全" Margin="8,-1,-8,1" Template="{DynamicResource TabItemControlTemplate_TwoTabHeader}">
                 <Grid Background="White">
                     <StackPanel Margin="10" >
-                        <Expander x:Name="Expander_修改密码" Header="修改密码" Margin="0" IsExpanded="True" Expanded="Expander_修改密码_Expanded">
+                        <Expander x:Name="Expander_修改密码" Header="修改密码" Margin="0" IsExpanded="True" Expanded="Expander_修改密码_Expanded" Height="190">
                             <Grid Height="171" Background="White">
                                 <Label Content="旧密码" HorizontalAlignment="Left" Margin="50,10,0,0" VerticalAlignment="Top"/>
                                 <Label Content="新密码" HorizontalAlignment="Left" Margin="50,43,0,0" VerticalAlignment="Top"/>
@@ -40,7 +94,7 @@
                                 <Label x:Name="Label_密码修改成功" Content="密码修改成功" HorizontalAlignment="Left" Margin="281,123,0,0" VerticalAlignment="Top" Foreground="Green" Visibility="Collapsed"/>
                             </Grid>
                         </Expander>
-                        <Expander x:Name="Expander_权限" Header="权限设置" Expanded="Expander_权限_Expanded">
+                        <Expander x:Name="Expander_权限" Header="权限设置" Expanded="Expander_权限_Expanded" Height="25">
                             <Grid Height="280" Background="White">
                                 <Button x:Name="Button_新增" Content="新增" HorizontalAlignment="Right" Margin="0,15,170,0" VerticalAlignment="Top" Width="70" Click="Button_新增_Click" Template="{DynamicResource ButtonControlTemplate_CommonBlue}" Height="20" Foreground="White" />
                                 <Button x:Name="Button_修改" Content="修改" HorizontalAlignment="Right" Margin="0,15,85,0" VerticalAlignment="Top" Width="70" Click="Button_修改_Click" Template="{DynamicResource ButtonControlTemplate_Common}" Height="20" />
@@ -58,7 +112,7 @@
                                 </DataGrid>
                             </Grid>
                         </Expander>
-                        <Expander x:Name="Expander_账套管理" Header="账套管理" Expanded="Expander_账套管理_Expanded">
+                        <Expander x:Name="Expander_账套管理" Header="账套管理" Expanded="Expander_账套管理_Expanded" Height="25">
                             <Grid Height="280" Background="White">
                                 <Label Content="账套名称：" HorizontalAlignment="Left" Margin="100,20,0,0" VerticalAlignment="Top"/>
                                 <TextBox x:Name="TextBox_账套名称" HorizontalAlignment="Left" Margin="170,23,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="279" BorderThickness="0,0,0,1" VerticalContentAlignment="Bottom" FontSize="14"/>
