@@ -20,7 +20,7 @@ namespace PA.ViewModel
         /// <returns></returns>
         public List<Model_固定资产> GetAllSource()
         {
-            sql = "";
+            sql = "select * from " + DBTablesName.T_FIXEDASSETS ;
             List<Model_固定资产> list = new List<Model_固定资产>();
             DataSet ds = db.Query(sql);
             if (ds != null)
@@ -36,15 +36,49 @@ namespace PA.ViewModel
                     m.数量 = d[3].ToString();
                     m.价格 = d[4].ToString();
                     m.使用年限 = Convert.ToInt32(d[5]);
-                    m.购置日期 = Convert.ToDateTime(d[6].ToString()).ToString("yyyy-MM-dd HH:mm:ss");
+                    m.购置日期 = Convert.ToDateTime(d[6].ToString()).ToString("yyyy-MM-dd");
                     m.使用部门 = d[7].ToString();
-                    m.报废日期 = Convert.ToDateTime(d[8].ToString()).ToString("yyyy-MM-dd HH:mm:ss");
+                    m.报废日期 = Convert.ToDateTime(d[8].ToString()).ToString("yyyy-MM-dd");
                     m.凭证编号 = d[9].ToString();
-                    m.凭证编号 = d[10].ToString();
+                    m.备注 = d[10].ToString();
                     list.Add(m);
                 }
             }
             return list;
         }
+
+        /// <summary>
+        ///根据ID获取某一个固定资产信息
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        public Model_固定资产 GetSourceInfo(int id)
+        {
+            Model_固定资产 m = new Model_固定资产();
+            sql = "select * from " + DBTablesName.T_FIXEDASSETS + " where userid=" + id;
+            DataSet ds = db.Query(sql);
+            DataRow d = ds.Tables[0].Rows[0];
+            m.名称及规格 = d[1].ToString();
+            m.单位 = d[2].ToString();
+            m.数量 = d[3].ToString();
+            m.价格 = d[4].ToString();
+            m.使用年限 = Convert.ToInt32(d[5]);
+            m.购置日期 = Convert.ToDateTime(d[6].ToString()).ToString("yyyy-MM-dd");
+            m.使用部门 = d[7].ToString();
+            m.报废日期 = Convert.ToDateTime(d[8].ToString()).ToString("yyyy-MM-dd");
+            m.凭证编号 = d[9].ToString();
+            m.备注 = d[10].ToString();
+            return m;
+        }
+        /// <summary>
+        /// 添加固定资产
+        /// </summary>
+        /// <param name="list"></param>
+        /// <returns></returns>
+        public bool Insert(List<Model_固定资产> list)
+        {
+            return db.InsertPackage(DBTablesName.T_FIXEDASSETS, list.OfType<object>().ToList());
+        }
+
     }
 }

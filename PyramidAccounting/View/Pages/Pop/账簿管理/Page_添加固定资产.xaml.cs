@@ -39,7 +39,6 @@ namespace PA.View.Pages.Pop.账簿管理
         }
         #endregion
 
-
         /// <summary>
         /// 添加固定资产
         /// </summary>
@@ -58,6 +57,12 @@ namespace PA.View.Pages.Pop.账簿管理
         private void Button_PopClose_Click(object sender, RoutedEventArgs e)
         {
             OnCommit(false);
+        }
+
+        private bool Validate()
+        {
+             
+            return true;
         }
     }
 }
