@@ -25,7 +25,7 @@
         <TabControl x:Name="TabControl_账簿管理" Margin="0,0,0,25" BorderBrush="White">
             <TabItem FocusVisualStyle="{x:Null}" Header="总账" Margin="8,-1,-8,1" Template="{DynamicResource TabItemControlTemplate_TwoTabHeader}">
                 <Grid Background="White">
-                    <Button Content="打印" HorizontalAlignment="Right" Margin="0,10,76,0" VerticalAlignment="Top" Width="50" Height="20" Template="{DynamicResource ButtonControlTemplate_Common}"/>
+                    <Button x:Name="Button_总账Print" Content="打印" HorizontalAlignment="Right" Margin="0,10,76,0" VerticalAlignment="Top" Width="50" Height="20" Template="{DynamicResource ButtonControlTemplate_Common}" Click="Button_总账Print_Click"/>
                     <Button Content="导出" HorizontalAlignment="Right" Margin="0,10,11,0" VerticalAlignment="Top" Width="50" Height="20" Template="{DynamicResource ButtonControlTemplate_Common}"/>
                     <Label Content="科目及单位名称" HorizontalAlignment="Left" Margin="7,8,0,0" VerticalAlignment="Top"/>
                     <TextBox x:Name="TextBox_科目及单位名称" HorizontalAlignment="Left" Margin="106,13,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" BorderThickness="0,0,0,1" MouseDoubleClick="TextBox_科目及单位名称_MouseDoubleClick" MinWidth="120" IsReadOnly="True"/>

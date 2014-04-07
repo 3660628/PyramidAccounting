@@ -253,5 +253,10 @@ namespace PA.View.Pages.TwoTabControl
         {
             this.IsEnabled = true;
         }
+
+        private void Button_总账Print_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
