@@ -122,15 +122,16 @@ namespace PA.ViewModel
             }
             return list;
         }
-        public List<Model_费用明细> GetFeeDetail(string subject_id)
+        public List<Model_费用明细> GetFeeDetail(string parent_id)
         {
             ComboBox_科目 cb = new ComboBox_科目();
             List<string> lst = new List<string>();
-            lst = cb.GetChildSubjectList("",subject_id.Split('\t')[0]);
+            string pid = parent_id.Split('\t')[0];
+            lst = cb.GetChildSubjectList("", pid, true);
             string _tempstr = string.Empty;
             foreach(string i in lst)
             {
-                _tempstr += ",sum(case when t.detail='" + i.Split('\t')[1] 
+                _tempstr += ",sum(case when t.detail='" + i.Split('\t')[0] 
                     + "' then (t.fee1+t.fee2) else '0' end) as '" 
                     + i.Split('\t')[1] + "'";
             }
@@ -145,9 +146,8 @@ namespace PA.ViewModel
                 + DBTablesName.T_VOUCHER_DETAIL
                 + " a left join "
                 + DBTablesName.T_VOUCHER
-                + " b on a.parentid=b.id where a.subject_id='"
-                + subject_id.Split('\t')[0]
-                + "'" + " and b.delete_mark=0 order by b.op_time)t group by t.number,t.time ";
+                + " b on a.parentid=b.id where a.subject_id='501' and a.detail in (select subject_id from "
+                + DBTablesName.T_SUBJECT + " where parent_id='" + pid + "') and b.delete_mark=0 order by b.op_time)t group by t.number,t.time ";
 
             //判断第一期查年初数
             //以后差每一期期末数
