@@ -27,7 +27,7 @@
         <TextBox x:Name="TextBox_科目编号" HorizontalAlignment="Left" Margin="110,35,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" RenderTransformOrigin="0.197,0.332" IsReadOnly="True" BorderThickness="0,0,0,1"/>
         <Label x:Name="Label_科目名称" Content="所属科目名称：" HorizontalAlignment="Left" Margin="10,60,0,0" VerticalAlignment="Top"/>
         <TextBox x:Name="TextBox_科目名称" HorizontalAlignment="Left" Margin="110,65,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" IsReadOnly="True" MinWidth="120" BorderThickness="0,0,0,1"/>
-        <Button x:Name="Button_Del" Content="删除" HorizontalAlignment="right" Margin="0,141,10,0" VerticalAlignment="Top" Width="50" Click="Button_Del_Click" Template="{DynamicResource ButtonControlTemplate_Common}" Height="22"/>
+        <Button FocusVisualStyle="{x:Null}" x:Name="Button_Del" Content="删除" HorizontalAlignment="right" Margin="0,141,10,0" VerticalAlignment="Top" Width="50" Click="Button_Del_Click" Template="{DynamicResource ButtonControlTemplate_Common}" Height="22"/>
         <DataGrid x:Name="DataGrid_子细目" ItemsSource="{Binding}" HorizontalAlignment="Stretch" Margin="10,140,70,10" CanUserAddRows="False" AutoGenerateColumns="False" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle_凭证管理}" BorderBrush="#FF99CCFF" HeadersVisibility="Column" SelectionMode="Single" CellEditEnding="DataGrid_子细目_CellEditEnding" CanUserReorderColumns="False" CanUserSortColumns="False" CanUserResizeRows="False" CanUserResizeColumns="False" BeginningEdit="DataGrid_子细目_BeginningEdit" HorizontalGridLinesBrush="#FF99CCFF" VerticalGridLinesBrush="#FF99CCFF">
             <DataGrid.Resources>
                 <Style TargetType="DataGridCell">
@@ -135,7 +135,7 @@
                 </Style>
             </TextBox.Style>
         </TextBox>
-        <Button x:Name="Button_New_Add子细目" Content="添加" HorizontalAlignment="Left" Margin="380,100,0,0" VerticalAlignment="Top" Width="50" Height="22" Template="{DynamicResource ButtonControlTemplate_CommonBlue}" Foreground="White" Click="Button_New_Add子细目_Click"/>
+        <Button FocusVisualStyle="{x:Null}" x:Name="Button_New_Add子细目" Content="添加" HorizontalAlignment="Left" Margin="380,100,0,0" VerticalAlignment="Top" Width="50" Height="22" Template="{DynamicResource ButtonControlTemplate_CommonBlue}" Foreground="White" Click="Button_New_Add子细目_Click"/>
         <ComboBox x:Name="ComboBox_New_父ID" HorizontalAlignment="Left" Margin="290,100,0,0" VerticalAlignment="Top" Width="80" Height="22" ToolTip="选择所属科目编号；若选择的是二级科目，则该新增科目为三级科目" DropDownClosed="ComboBox_New_父ID_DropDownClosed"/>
     </Grid>
 </Window>

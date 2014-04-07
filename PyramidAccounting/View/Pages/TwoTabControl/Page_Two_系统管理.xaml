@@ -80,7 +80,7 @@
             <TabItem FocusVisualStyle="{x:Null}" Header="用户安全" Margin="8,-1,-8,1" Template="{DynamicResource TabItemControlTemplate_TwoTabHeader}">
                 <Grid Background="White">
                     <StackPanel Margin="10" >
-                        <Expander x:Name="Expander_修改密码" Header="修改密码" Margin="0" IsExpanded="True" Expanded="Expander_修改密码_Expanded" Height="190">
+                        <Expander FocusVisualStyle="{x:Null}" x:Name="Expander_修改密码" Header="修改密码" Margin="0" IsExpanded="True" Expanded="Expander_修改密码_Expanded" Height="190">
                             <Grid Height="171" Background="White">
                                 <Label Content="旧密码" HorizontalAlignment="Left" Margin="50,10,0,0" VerticalAlignment="Top"/>
                                 <Label Content="新密码" HorizontalAlignment="Left" Margin="50,43,0,0" VerticalAlignment="Top"/>
@@ -88,17 +88,17 @@
                                 <PasswordBox x:Name="PasswordBox_Old" HorizontalAlignment="Left" Margin="141,13,0,0" VerticalAlignment="Top" Width="123" VerticalContentAlignment="Center" FontSize="14"/>
                                 <PasswordBox x:Name="PasswordBox_New" HorizontalAlignment="Left" Margin="141,46,0,0" VerticalAlignment="Top" Width="123" VerticalContentAlignment="Center" FontSize="14"/>
                                 <PasswordBox x:Name="PasswordBox_NewRepeat" HorizontalAlignment="Left" Margin="141,79,0,0" VerticalAlignment="Top" Width="123" VerticalContentAlignment="Center" FontSize="14"/>
-                                <Button x:Name="Button_ChangePassword" Content="修改密码" HorizontalAlignment="Left" Margin="189,123,0,0" VerticalAlignment="Top" Width="70" Foreground="White" Height="20" Click="Button_ChangePassword_Click" Template="{DynamicResource ButtonControlTemplate_CommonBlue}"/>
+                                <Button FocusVisualStyle="{x:Null}" x:Name="Button_ChangePassword" Content="修改密码" HorizontalAlignment="Left" Margin="189,123,0,0" VerticalAlignment="Top" Width="70" Foreground="White" Height="20" Click="Button_ChangePassword_Click" Template="{DynamicResource ButtonControlTemplate_CommonBlue}"/>
                                 <Label x:Name="Label_密码错误" Content="密码错误" HorizontalAlignment="Left" Margin="281,10,0,0" VerticalAlignment="Top" Foreground="Red" Visibility="Collapsed"/>
                                 <Label x:Name="Label_新密码不一致" Content="新密码不一致" HorizontalAlignment="Left" Margin="281,76,0,0" VerticalAlignment="Top" Foreground="Red" Visibility="Collapsed"/>
                                 <Label x:Name="Label_密码修改成功" Content="密码修改成功" HorizontalAlignment="Left" Margin="281,123,0,0" VerticalAlignment="Top" Foreground="Green" Visibility="Collapsed"/>
                             </Grid>
                         </Expander>
-                        <Expander x:Name="Expander_权限" Header="权限设置" Expanded="Expander_权限_Expanded" Height="25">
+                        <Expander FocusVisualStyle="{x:Null}" x:Name="Expander_权限" Header="权限设置" Expanded="Expander_权限_Expanded" Height="25">
                             <Grid Height="280" Background="White">
-                                <Button x:Name="Button_新增" Content="新增" HorizontalAlignment="Right" Margin="0,15,180,0" VerticalAlignment="Top" Width="70" Click="Button_新增_Click" Template="{DynamicResource ButtonControlTemplate_CommonBlue}" Height="20" Foreground="White" />
-                                <Button x:Name="Button_修改" Content="修改" HorizontalAlignment="Right" Margin="0,15,95,0" VerticalAlignment="Top" Width="70" Click="Button_修改_Click" Template="{DynamicResource ButtonControlTemplate_Common}" Height="20" />
-                                <Button x:Name="Button_停用" Content="停用" HorizontalAlignment="Right" Margin="0,15,10,0" VerticalAlignment="Top" Width="70" Click="Button_停用_Click" Template="{DynamicResource ButtonControlTemplate_Common}" Height="20"/>
+                                <Button FocusVisualStyle="{x:Null}" x:Name="Button_新增" Content="新增" HorizontalAlignment="Right" Margin="0,15,180,0" VerticalAlignment="Top" Width="70" Click="Button_新增_Click" Template="{DynamicResource ButtonControlTemplate_CommonBlue}" Height="20" Foreground="White" />
+                                <Button FocusVisualStyle="{x:Null}" x:Name="Button_修改" Content="修改" HorizontalAlignment="Right" Margin="0,15,95,0" VerticalAlignment="Top" Width="70" Click="Button_修改_Click" Template="{DynamicResource ButtonControlTemplate_Common}" Height="20" />
+                                <Button FocusVisualStyle="{x:Null}" x:Name="Button_停用" Content="停用" HorizontalAlignment="Right" Margin="0,15,10,0" VerticalAlignment="Top" Width="70" Click="Button_停用_Click" Template="{DynamicResource ButtonControlTemplate_Common}" Height="20"/>
                                 <DataGrid x:Name="DataGrid_权限设置" HorizontalAlignment="Stretch" ItemsSource="{Binding}" AutoGenerateColumns="False" IsReadOnly="True" Margin="10,40,10,10" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle_凭证管理}" CellStyle="{DynamicResource DataGridCellStyle_无上下边距}" BorderBrush="#FF99CCFF" HorizontalGridLinesBrush="#FF99CCFF" VerticalGridLinesBrush="#FF99CCFF" HeadersVisibility="Column" SelectionMode="Single" Background="White">
                                     <DataGrid.Columns>
                                         <DataGridTextColumn Binding="{Binding 序号}" Header="序号" />
@@ -112,7 +112,7 @@
                                 </DataGrid>
                             </Grid>
                         </Expander>
-                        <Expander x:Name="Expander_账套管理" Header="账套管理" Expanded="Expander_账套管理_Expanded" Height="25">
+                        <Expander FocusVisualStyle="{x:Null}" x:Name="Expander_账套管理" Header="账套管理" Expanded="Expander_账套管理_Expanded" Height="25">
                             <Grid Height="280" Background="White">
                                 <Label Content="账套名称：" HorizontalAlignment="Left" Margin="100,20,0,0" VerticalAlignment="Top"/>
                                 <TextBox x:Name="TextBox_账套名称" HorizontalAlignment="Left" Margin="170,23,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="279" BorderThickness="0,0,0,1" VerticalContentAlignment="Bottom" FontSize="14"/>
@@ -122,7 +122,7 @@
                                 <TextBox x:Name="TextBox_制度" HorizontalAlignment="Left" Margin="170,124,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="279" IsReadOnly="True" VerticalContentAlignment="Bottom" BorderThickness="0,0,0,1" FontSize="14"/>
                                 <Label Content="创建时间：" HorizontalAlignment="Left" Margin="100,170,0,0" VerticalAlignment="Top"/>
                                 <TextBox x:Name="TextBox_创建时间" HorizontalAlignment="Left" Margin="170,174,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="279" IsReadOnly="True" VerticalContentAlignment="Bottom" BorderThickness="0,0,0,1" FontSize="14"/>
-                                <Button x:Name="Button_账套修改" Content="修改" HorizontalAlignment="Left" Margin="379,217,0,0" VerticalAlignment="Top" Width="70" Click="Button_账套修改_Click" Template="{DynamicResource ButtonControlTemplate_CommonBlue}" Height="20" Foreground="White"/>
+                                <Button FocusVisualStyle="{x:Null}" x:Name="Button_账套修改" Content="修改" HorizontalAlignment="Left" Margin="379,217,0,0" VerticalAlignment="Top" Width="70" Click="Button_账套修改_Click" Template="{DynamicResource ButtonControlTemplate_CommonBlue}" Height="20" Foreground="White"/>
                             </Grid>
                         </Expander>
                     </StackPanel>
@@ -183,7 +183,7 @@
                                 <TextBlock Text="天(D)" HorizontalAlignment="Left" Margin="306,16,0,0" VerticalAlignment="Top"/>
                                 <TextBlock Text="数据备份路径(R):" HorizontalAlignment="Left" Margin="30,74,0,0" VerticalAlignment="Top"/>
                                 <TextBox x:Name="backup_filePath" HorizontalAlignment="Left" Height="23" Margin="151,70,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="450" VerticalContentAlignment="Center"/>
-                                <Button Content="浏览(B)..." HorizontalAlignment="Left" Margin="630,71,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click"  Foreground="White" Height="20" Template="{DynamicResource ButtonControlTemplate_CommonBlue}"/>
+                                <Button FocusVisualStyle="{x:Null}" Content="浏览(B)..." HorizontalAlignment="Left" Margin="630,71,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click"  Foreground="White" Height="20" Template="{DynamicResource ButtonControlTemplate_CommonBlue}"/>
                                 <TextBlock HorizontalAlignment="Left" Margin="29,45,0,0" FontSize="12" TextWrapping="Wrap" Text="提示：建议备份数据存放在与软件不同硬盘位置" VerticalAlignment="Top" Width="317"/>
                             </Grid>
                         </Expander>
@@ -192,13 +192,13 @@
                                 <TextBlock Text="请选择需要恢复的数据文件:" HorizontalAlignment="Left" Margin="30,10,0,0" VerticalAlignment="Top"/>
                                 <TextBlock Text="文件位置(V):" HorizontalAlignment="Left" Margin="30,36,0,0" VerticalAlignment="Top"/>
                                 <TextBox x:Name="Recover_filepath" HorizontalAlignment="Left" Height="23" Margin="151,30,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="450" VerticalContentAlignment="Center"/>
-                                <Button x:Name="Button_Brower" Content="浏览(B)..." HorizontalAlignment="Left" Margin="630,31,0,0" VerticalAlignment="Top" Width="75" Foreground="White" Height="20" Template="{DynamicResource ButtonControlTemplate_CommonBlue}"/>
+                                <Button FocusVisualStyle="{x:Null}" x:Name="Button_Brower" Content="浏览(B)..." HorizontalAlignment="Left" Margin="630,31,0,0" VerticalAlignment="Top" Width="75" Foreground="White" Height="20" Template="{DynamicResource ButtonControlTemplate_CommonBlue}"/>
                             </Grid>
                         </Expander>
                     </StackPanel>
-                    <Button x:Name="ButtonBackUp" Content="备份" HorizontalAlignment="Left" Margin="150,350,0,0" VerticalAlignment="Top" Width="100" Click="ButtonBackUp_Click" Background="#7FFF00"  Foreground="White" Height="100" FontSize="22" FontWeight="Black" Style="{StaticResource GlassButton}"/>
-                    <Button x:Name="Button_Recover" Content="恢复" HorizontalAlignment="Left" Margin="300,350,0,0" VerticalAlignment="Top" Width="100" Click="Button_Recover_Click" Background="Red" Foreground="White" Height="100" FontSize="22" FontWeight="Black" Style="{StaticResource GlassButton}"/>
-                    <Button x:Name="Button_save" Content="保存" HorizontalAlignment="Left" Margin="450,350,0,0" VerticalAlignment="Top" Width="100" Click="Button_save_Click" Background="#00BFFF" Foreground="White" Height="100"  FontSize="22" FontWeight="Black" Style="{StaticResource GlassButton}"/>
+                    <Button FocusVisualStyle="{x:Null}" x:Name="ButtonBackUp" Content="备份" HorizontalAlignment="Left" Margin="150,350,0,0" VerticalAlignment="Top" Width="100" Click="ButtonBackUp_Click" Background="#7FFF00"  Foreground="White" Height="100" FontSize="22" FontWeight="Black" Style="{StaticResource GlassButton}"/>
+                    <Button FocusVisualStyle="{x:Null}" x:Name="Button_Recover" Content="恢复" HorizontalAlignment="Left" Margin="300,350,0,0" VerticalAlignment="Top" Width="100" Click="Button_Recover_Click" Background="Red" Foreground="White" Height="100" FontSize="22" FontWeight="Black" Style="{StaticResource GlassButton}"/>
+                    <Button FocusVisualStyle="{x:Null}" x:Name="Button_save" Content="保存" HorizontalAlignment="Left" Margin="450,350,0,0" VerticalAlignment="Top" Width="100" Click="Button_save_Click" Background="#00BFFF" Foreground="White" Height="100"  FontSize="22" FontWeight="Black" Style="{StaticResource GlassButton}"/>
                 </Grid>
             </TabItem>
             <TabItem FocusVisualStyle="{x:Null}" Header="操作记录" Margin="32,-1,-32,1" Template="{DynamicResource TabItemControlTemplate_TwoTabHeader}">
@@ -215,7 +215,7 @@
                     <DatePicker x:Name="DatePicker_操作记录" HorizontalAlignment="Left" Width="120" Margin="34,30,0,0" VerticalAlignment="Top" VerticalContentAlignment="Center"/>
                     <Label Content="到" HorizontalAlignment="Left" Margin="155,30,0,0" VerticalAlignment="Top"/>
                     <DatePicker x:Name="DatePicker_操作记录End" HorizontalAlignment="Left" Width="120" Margin="178,30,0,0" VerticalAlignment="Top"/>
-                    <Button x:Name="Button_操作记录查询" Content="查询" Grid.Column="1" HorizontalAlignment="Right" Margin="0,28,10,0" VerticalAlignment="Top" Width="70" Click="Button_操作记录查询_Click" Template="{DynamicResource ButtonControlTemplate_CommonBlue}" Height="20" Foreground="White"/>
+                    <Button FocusVisualStyle="{x:Null}" x:Name="Button_操作记录查询" Content="查询" Grid.Column="1" HorizontalAlignment="Right" Margin="0,28,10,0" VerticalAlignment="Top" Width="70" Click="Button_操作记录查询_Click" Template="{DynamicResource ButtonControlTemplate_CommonBlue}" Height="20" Foreground="White"/>
                     <DataGrid x:Name="DataGrid_操作记录" CanUserAddRows="False" IsReadOnly="True" AutoGenerateColumns="False" ItemsSource="{Binding}" Grid.Row="1" Grid.ColumnSpan="2" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle_凭证管理}" CellStyle="{DynamicResource DataGridCellStyle_无上下边距}" HeadersVisibility="Column" HorizontalGridLinesBrush="#FF99CCFF" VerticalGridLinesBrush="#FF99CCFF" BorderBrush="#FF99CCFF" Margin="7,0,10,7" Background="White" >
                         <DataGrid.Columns>
                             <DataGridTextColumn Header="序号" Binding="{Binding 序号}" />
