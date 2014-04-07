@@ -56,6 +56,11 @@ namespace PA.ViewModel
             }
             return list;
         }
+        /// <summary>
+        /// 行政费用支出明细表
+        /// </summary>
+        /// <param name="index"></param>
+        /// <returns></returns>
         public List<Model_报表类> GetAdministrativeExpenseDetail(int index)
         {
             List<string> sqlList = new List<string>();

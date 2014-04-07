@@ -229,7 +229,18 @@ namespace PA.View.Pages.TwoTabControl
             mr.日志 = "生成" + ComboBox_Date.Text + "行政费用支出明细表";
             vm.Insert(mr);
             List<Model_报表类> list = new List<Model_报表类>();
-            list = vmr.GetIncomeAndExpenses(ComboBox_Date.SelectedIndex + 1);
+            list = vmr.GetAdministrativeExpenseDetail(ComboBox_Date.SelectedIndex + 1);
+            if (list.Count > 0)
+            {
+                for (int i = 0; i < list.Count; i++)
+                {
+
+                }
+            }
+            else
+            {
+
+            }
         }
         
     }

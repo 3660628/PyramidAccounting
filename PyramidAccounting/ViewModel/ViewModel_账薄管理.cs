@@ -528,7 +528,7 @@ namespace PA.ViewModel
                           + "(OP_TIME,PERIOD,SUBJECT_ID,VOUCHER_NUMS,COMMENTS,DEBIT,CREDIT,MARK,DELETE_MARK,FEE)"
                           + " select t.*,b.mark,0,abs(b.mark*b.fee-(t.credit-t.debit)) as fee from ("
                           + "SELECT datetime('now', 'localtime') as op_time," + CommonInfo.当前期
-                          + ",b.subject_id,"
+                          + ",a.subject_id,"
                           + "a.voucher_nums,"
                           + "a.comments,"
                           + "a.debit as debit,"
