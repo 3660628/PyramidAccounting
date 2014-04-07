@@ -332,7 +332,7 @@ namespace PA.View.Pages.TwoTabControl
         private void DataGrid_科目设置_Row_MouseDoubleClick(object sender, RoutedEventArgs e)
         {
             string header = DataGrid_科目设置.CurrentCell.Column.Header.ToString();
-            if (header == "是否启用" || header == "借贷方向")
+            if (header == "是否启用" || header == "借贷方向" || header == "年初数")
             {
                 return;
             }
@@ -343,6 +343,20 @@ namespace PA.View.Pages.TwoTabControl
                 asd = m.科目编号;
                 Windows.Win_子细目 w = new Windows.Win_子细目(m.科目编号, m.科目名称, m.借贷标记);
                 w.ShowDialog();
+            }
+        }
+        private void DataGrid_科目设置_BeginningEdit(object sender, DataGridBeginningEditEventArgs e)
+        {
+
+        }
+        private void DataGrid_科目设置_CellEditEnding(object sender, DataGridCellEditEndingEventArgs e)
+        {
+            string newValue = (e.EditingElement as TextBox).Text.Trim();
+            Model_科目管理 detail = this.DataGrid_科目设置.SelectedCells[0].Item as Model_科目管理;
+            string header = e.Column.Header.ToString();
+            if(header == "年初数")
+            {
+                new PA.ViewModel.ViewModel_科目管理().UpdateMainSubjectsFeeManual(detail.科目编号, newValue);
             }
         }
         #endregion
@@ -537,6 +551,10 @@ namespace PA.View.Pages.TwoTabControl
             this.DataGrid_操作记录.ItemsSource = v.GetData(dateStart, dateEnd);
         }
         #endregion
+
+        
+
+        
 
     }
 }

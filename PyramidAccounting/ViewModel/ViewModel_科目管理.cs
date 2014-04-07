@@ -193,5 +193,13 @@ namespace PA.ViewModel
             sqlList.Add(sql);
             return db.BatchOperate(sqlList);
         }
+
+        public bool UpdateMainSubjectsFeeManual(string SubjectId, string NewFee)
+        {
+            List<string> sqlList = new List<string>();
+            string sql = "update " + DBTablesName.T_YEAR_FEE + " set FEE= " + NewFee + " where subject_id='" + SubjectId + "' AND bookid='" + CommonInfo.账薄号 + "'";
+            sqlList.Add(sql);
+            return db.BatchOperate(sqlList);
+        }
     }
 }
