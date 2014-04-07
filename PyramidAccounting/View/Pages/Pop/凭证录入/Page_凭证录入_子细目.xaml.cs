@@ -29,6 +29,12 @@ namespace PA.View.Pages.Pop.凭证录入
             this.id = id;
             this.ListBox_子细目.ItemsSource = cb.GetChildSubjectList("", id);
         }
+        public Page_凭证录入_子细目(string id, bool isTwo)
+        {
+            InitializeComponent();
+            this.id = id;
+            this.ListBox_子细目.ItemsSource = cb.GetChildSubjectList("", id, true);
+        }
 
         private void OnFillDate(string str)
         {
@@ -51,7 +57,7 @@ namespace PA.View.Pages.Pop.凭证录入
         private void TextBox_子细目_TextChanged(object sender, TextChangedEventArgs e)
         {
             TextBox tb = sender as TextBox;
-            this.ListBox_子细目.ItemsSource = cb.GetChildSubjectList(tb.Text.Trim(), id);
+            this.ListBox_子细目.ItemsSource = cb.GetChildSubjectList(tb.Text.Trim(), id, true);
         }
 
         private void Button_确定_Click(object sender, RoutedEventArgs e)

@@ -109,7 +109,7 @@ namespace PA.View.Pages.TwoTabControl
         }
         private void TextBox_费用明细_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
-            PA.View.Pages.Pop.凭证录入.Page_凭证录入_子细目 page = new PA.View.Pages.Pop.凭证录入.Page_凭证录入_子细目("501");
+            PA.View.Pages.Pop.凭证录入.Page_凭证录入_子细目 page = new PA.View.Pages.Pop.凭证录入.Page_凭证录入_子细目("501", true);
             page.FillDate += new Pages.Pop.凭证录入.Page_凭证录入_子细目_FillDateEventHandle(FillData费用);
             this.Frame_科目子细目.Content = page;
             this.Popup_科目子细目.IsOpen = true;
