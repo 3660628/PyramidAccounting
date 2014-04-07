@@ -161,7 +161,7 @@ namespace PA.View.Pages.TwoTabControl
             }
             else
             {
-                string a = TextBox_一级科目.Text.ToString().Split('\t')[1];
+                string a = TextBox_一级科目.Text.ToString();
                 string b = TextBox_二级科目.Text.ToString();
                 List<Model_科目明细账> lm = vmk.GetSubjectDetail(a, b ,ComboBox_Date.SelectedIndex+1);
                 if (lm.Count > 0)
