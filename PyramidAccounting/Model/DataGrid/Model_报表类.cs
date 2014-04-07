@@ -21,5 +21,21 @@ namespace PA.Model.DataGrid
             get { return monthfee; }
             set { monthfee = value; }
         }
+
+        private string _fee;
+
+        public string 本期数
+        {
+            get { return _fee; }
+            set { _fee = value; }
+        }
+
+        private string totalfee;
+
+        public string 累计数
+        {
+            get { return totalfee; }
+            set { totalfee = value; }
+        }
     }
 }

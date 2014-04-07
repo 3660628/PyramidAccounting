@@ -170,11 +170,11 @@ namespace PA.View.Pages.TwoTabControl
                 for (int i = 0; i < list.Count-1; i++)
                 {
                     Label lb = FindName("inM" + (i + 1)) as Label;
-                    lb.Content = list[i].期末数;
+                    lb.Content = list[i].本期数;
                     Label lb2 = FindName("inY" + +(i + 1)) as Label;
-                    lb2.Content = list[i].年初数;
-                    decimal.TryParse(list[i].年初数, out dy);
-                    decimal.TryParse(list[i].期末数, out dn);
+                    lb2.Content = list[i].累计数;
+                    decimal.TryParse(list[i].累计数, out dy);
+                    decimal.TryParse(list[i].本期数, out dn);
                     if (i < 3)
                     {
                         insumm1 += dn;
@@ -186,7 +186,7 @@ namespace PA.View.Pages.TwoTabControl
                         insumm2 += dn;
                     }
                 }
-                decimal.TryParse(list[list.Count - 1].年初数, out b3);
+                decimal.TryParse(list[list.Count - 1].累计数, out b3);
 
                 inSumM1.Content = insumm1;
                 inSumY1.Content = insumy1;
@@ -230,16 +230,80 @@ namespace PA.View.Pages.TwoTabControl
             vm.Insert(mr);
             List<Model_报表类> list = new List<Model_报表类>();
             list = vmr.GetAdministrativeExpenseDetail(ComboBox_Date.SelectedIndex + 1);
+            decimal dy = 0;
+            decimal dn = 0;
+            //二级科目
+            decimal b101 = 0;
+            decimal b102 = 0;
+            decimal b201 = 0;
+            decimal b202 = 0;
+            decimal b301 = 0;
+            decimal b302 = 0;
+            decimal b401 = 0;
+            decimal b402 = 0;
+
             if (list.Count > 0)
             {
                 for (int i = 0; i < list.Count; i++)
                 {
+                    Label lb = FindName("Label_B" + (i + 1)) as Label;
+                    lb.Content = list[i].本期数;
+                    Label lb2 = FindName("Label_L" + (i + 1)) as Label;
+                    lb2.Content = list[i].累计数;
+                    decimal.TryParse(list[i].本期数, out dn);
+                    decimal.TryParse(list[i].累计数, out dy);
+                    if (i < 7)
+                    {
+                        b101 += dn;
+                        b102 += dy;
+                    }
+                    else if (i >= 7 && i < 28)
+                    {
+                        b201 += dn;
+                        b202 += dy;
+                    }
+                    else if (i >= 28 && i < 42)
+                    {
+                        b301 += dn;
+                        b302 += dy;
+                    }
+                    else
+                    {
+                        b401 += dn;
+                        b402 += dy;
+                    }
 
+                    //2级科目设置
+                    Label_B101.Content = b101;
+                    Label_B102.Content = b102;
+                    Label_B201.Content = b201;
+                    Label_B202.Content = b202;
+                    Label_B301.Content = b301;
+                    Label_B302.Content = b302;
+                    Label_B401.Content = b401;
+                    Label_B402.Content = b402;
+
+                    Label_A01.Content = (b101 + b201 + b301 + b401);
+                    Label_A02.Content = (b102 + b202 + b302 + b402);
                 }
+
             }
             else
             {
-
+                for (int i = 0; i < 48; i++)
+                {
+                    Label lb = FindName("Label_B" + (i + 1)) as Label;
+                    lb.Content = "";
+                    Label lb2 = FindName("Label_L" + (i + 1)) as Label;
+                    lb2.Content = "";
+                }
+                for (int j = 0; j < 4; j++)
+                {
+                    Label lb = FindName("Label_B" + (j + 1) + "01") as Label;
+                    lb.Content = "";
+                    Label lb2 = FindName("Label_B" + (j + 1) + "02") as Label;
+                    lb2.Content = "";
+                }
             }
         }
         

@@ -50,8 +50,8 @@ namespace PA.ViewModel
             foreach (DataRow d in dt.Rows)
             {
                 Model_报表类 m = new Model_报表类();
-                m.年初数 = d[2].ToString();
-                m.期末数 = d[1].ToString();
+                m.累计数 = d[2].ToString();
+                m.本期数 = d[1].ToString();
                 list.Add(m);
             }
             return list;
