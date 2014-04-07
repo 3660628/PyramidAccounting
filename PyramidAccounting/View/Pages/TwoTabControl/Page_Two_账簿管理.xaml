@@ -6,19 +6,19 @@
       mc:Ignorable="d" 
       d:DesignHeight="570" d:DesignWidth="2500" FontFamily="NSimSun" TextOptions.TextFormattingMode="Display"
 	Title="Page_Two_账簿管理">
-	<Page.Resources>
-		<Storyboard x:Key="Storyboard_GridPopVisibility">
-			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="Grid_账簿管理弹出">
-				<EasingDoubleKeyFrame KeyTime="0" Value="0"/>
-				<EasingDoubleKeyFrame KeyTime="0:0:0.1" Value="1"/>
-			</DoubleAnimationUsingKeyFrames>
-		</Storyboard>
-	</Page.Resources>
-	<Page.Triggers>
-		<EventTrigger RoutedEvent="ButtonBase.Click" SourceName="Button_固定资产_添加">
-			<BeginStoryboard Storyboard="{StaticResource Storyboard_GridPopVisibility}"/>
-		</EventTrigger>
-	</Page.Triggers>
+    <Page.Resources>
+        <Storyboard x:Key="Storyboard_GridPopVisibility">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="Grid_账簿管理弹出">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.1" Value="1"/>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+    </Page.Resources>
+    <Page.Triggers>
+        <EventTrigger RoutedEvent="ButtonBase.Click" SourceName="Button_固定资产_添加">
+            <BeginStoryboard Storyboard="{StaticResource Storyboard_GridPopVisibility}"/>
+        </EventTrigger>
+    </Page.Triggers>
 
     <Grid Margin="-3,0,-3,-3">
         <StatusBar Height="25" Margin="0" VerticalAlignment="Bottom" Background="#FFA6D9FF"/>
@@ -129,7 +129,7 @@
                             <Border BorderBrush="White" BorderThickness="1,0,0,0" Grid.Row="1" Grid.Column="38" />
                             <Border BorderBrush="White" BorderThickness="1,0,0,0" Grid.Row="1" Grid.Column="39" />
                             <Border BorderBrush="White" BorderThickness="1,0,0,0" Grid.Row="1" Grid.Column="40" />
-                            
+
                             <Label x:Name="Label_总账年" Content="年" HorizontalAlignment="Right" Grid.ColumnSpan="2"/>
                             <Label Content="月" Grid.Row="1" Grid.Column="0"/>
                             <Label Content="日" Grid.Row="1" Grid.Column="1"/>
@@ -875,10 +875,10 @@
                 <Grid Background="White">
                     <Button Content="打印" HorizontalAlignment="Right" Margin="0,10,76,0" VerticalAlignment="Top" Width="50" Click="Button_Click" Height="20" Template="{DynamicResource ButtonControlTemplate_Common}"/>
                     <Button Content="导出" HorizontalAlignment="Right" Margin="0,10,11,0" VerticalAlignment="Top" Width="50" Height="20" Template="{DynamicResource ButtonControlTemplate_Common}"/>
-                    <Label Content="一级科目编号及名称" HorizontalAlignment="Left" Margin="7,8,0,0" VerticalAlignment="Top"/>
-                    <TextBox x:Name="TextBox_一级科目" HorizontalAlignment="Left" Margin="130,13,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" BorderThickness="0,0,0,1" MouseDoubleClick="TextBox_一级科目_MouseDoubleClick" MinWidth="120" IsReadOnly="True"/>
-                    <Label Content="二级科目编号及名称" HorizontalAlignment="Left" Margin="7,38,0,0" VerticalAlignment="Top"/>
-                    <TextBox x:Name="TextBox_二级科目" HorizontalAlignment="Left" Margin="130,43,0,0" TextWrapping="Wrap" VerticalAlignment="Top" BorderThickness="0,0,0,1" MouseDoubleClick="TextBox_二级科目_MouseDoubleClick" MinWidth="120" IsReadOnly="True"/>
+                    <Label Content="一级科目编号及名称" HorizontalAlignment="Left" Margin="166,8,0,0" VerticalAlignment="Top"/>
+                    <TextBox x:Name="TextBox_一级科目" HorizontalAlignment="Left" Margin="289,13,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" BorderThickness="0,0,0,1" MouseDoubleClick="TextBox_一级科目_MouseDoubleClick" MinWidth="120" IsReadOnly="True"/>
+                    <Label Content="二级科目编号及名称" HorizontalAlignment="Left" Margin="166,38,0,0" VerticalAlignment="Top"/>
+                    <TextBox x:Name="TextBox_二级科目" HorizontalAlignment="Left" Margin="289,43,0,0" TextWrapping="Wrap" VerticalAlignment="Top" BorderThickness="0,0,0,1" MouseDoubleClick="TextBox_二级科目_MouseDoubleClick" MinWidth="120" IsReadOnly="True"/>
                     <Button x:Name="Button_查询" Content="查询" HorizontalAlignment="Right" Margin="0,10,141,0" VerticalAlignment="Top" Width="50" Click="Button_查询_Click" Height="20" Template="{DynamicResource ButtonControlTemplate_Common}"/>
                     <ScrollViewer HorizontalScrollBarVisibility="Visible" VerticalScrollBarVisibility="Disabled" Margin="-3,74,0,-3">
                         <Grid Width="Auto" Margin="10,0,10,10">
@@ -1099,7 +1099,7 @@
                             </DataGrid>
                         </Grid>
                     </ScrollViewer>
-                    <ComboBox x:Name="ComboBox_Date" HorizontalAlignment="Left" Margin="318,25,0,0" VerticalAlignment="Top" Width="100"/>
+                    <ComboBox x:Name="ComboBox_Date" HorizontalAlignment="Left" Margin="7,10,0,0" VerticalAlignment="Top" Width="140"/>
                 </Grid>
             </TabItem>
             <TabItem FocusVisualStyle="{x:Null}" Header="固定资产管理" Margin="32,-1,-32,1" Template="{DynamicResource TabItemControlTemplate_TwoTabHeader}">
