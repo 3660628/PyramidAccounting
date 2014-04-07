@@ -6,7 +6,7 @@
 		<Storyboard x:Key="Storyboard_MainWinLoad">
 			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="Window_MainWindow">
 				<EasingDoubleKeyFrame KeyTime="0" Value="0"/>
-				<EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="1"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.1" Value="1"/>
 			</DoubleAnimationUsingKeyFrames>
 		</Storyboard>
 	</Window.Resources>

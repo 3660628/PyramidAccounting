@@ -11,7 +11,7 @@
 		<Storyboard x:Key="Storyboard1">
 			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="Grid_Pop弹出">
 				<EasingDoubleKeyFrame KeyTime="0" Value="0"/>
-				<EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="1"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.1" Value="1"/>
 			</DoubleAnimationUsingKeyFrames>
 		</Storyboard>
 	</Page.Resources>
