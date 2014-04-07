@@ -64,22 +64,25 @@ namespace PA.ViewModel
             sqlList.Add(_sql1);
             string _sql2 = "insert into sbtemp SELECT a.DETAIL,b.PERIOD,total(a.DEBIT - a.CREDIT) AS fee FROM "
                     + DBTablesName.T_VOUCHER_DETAIL + " a LEFT JOIN "
-                    + DBTablesName.T_VOUCHER + " b ON a.PARENTID = b.ID GROUP BY a.DETAIL,b.PERIOD  ";
-            /*--计算行政费用支出明细表
-            select a.subject_id,a.fee,b.fee from(select subject_id,fee from sbtemp
-             where period=1)
-             a,(select subject_id,sum(fee) as fee from sbtemp where period<=1 group by subject_id) b
-              where a.subject_id=b.subject_id 
-              and a.subject_id not in (select subject_id from t_subject_0 where parent_id='501') 
-              order by a.subject_id
-                       DataTable dt = db.Query(sql).Tables[0];
-                       foreach (DataRow d in dt.Rows)
-                       {
-                           Model_报表类 m = new Model_报表类();
-                           m.年初数 = d[2].ToString();
-                           m.期末数 = d[1].ToString();
-                           list.Add(m);
-                       }*/
+                    + DBTablesName.T_VOUCHER + " b ON a.PARENTID = b.ID GROUP BY a.DETAIL,b.PERIOD where a.detail like '501%'";
+            sqlList.Add(_sql2);
+            bool flag = db.BatchOperate(sqlList);
+            if ( flag )
+            {
+                string _sql3 = "select a.subject_id,a.fee,b.fee from(select subject_id,fee from sbtemp where period="
+                + index + ") a,(select subject_id,sum(fee) as fee from sbtemp where period<=" + 
+                index + " group by subject_id) b where a.subject_id=b.subject_id "
+                + "and a.subject_id not in (select subject_id from " + DBTablesName.T_SUBJECT 
+                + " where parent_id='501') order by a.subject_id ";
+                DataTable dt = db.Query(_sql3).Tables[0];
+                foreach (DataRow d in dt.Rows)
+                {
+                    Model_报表类 m = new Model_报表类();
+                    m.年初数 = d[2].ToString();
+                    m.期末数 = d[1].ToString();
+                    list.Add(m);
+                }
+            }
             return list;
        
         }

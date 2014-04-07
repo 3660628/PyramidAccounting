@@ -146,7 +146,7 @@ namespace PA.ViewModel
                 + " a left join "
                 + DBTablesName.T_VOUCHER
                 + " b on a.parentid=b.id where a.subject_id='"
-                + subject_id.Split('\t')[1]
+                + subject_id.Split('\t')[0]
                 + "'" + " and b.delete_mark=0 order by b.op_time)t group by t.number,t.time ";
 
             //判断第一期查年初数
@@ -385,7 +385,7 @@ namespace PA.ViewModel
                 + " b on a.parentid=b.id where a.subject_id='"
                 + subject_id
                 + "'" + " and b.delete_mark=0 and  a.detail='"
-                + detail.Split('\t')[1] + "' and b.period=" 
+                + detail.Split('\t')[0] + "' and b.period=" 
                 + peroid +" order by b.op_time";
 
             //判断第一期查年初数
@@ -528,7 +528,7 @@ namespace PA.ViewModel
                           + "(OP_TIME,PERIOD,SUBJECT_ID,VOUCHER_NUMS,COMMENTS,DEBIT,CREDIT,MARK,DELETE_MARK,FEE)"
                           + " select t.*,b.mark,0,abs(b.mark*b.fee-(t.credit-t.debit)) as fee from ("
                           + "SELECT datetime('now', 'localtime') as op_time," + CommonInfo.当前期
-                          + ",b.subject_id as subject_id,"
+                          + ",b.subject_id,"
                           + "a.voucher_nums,"
                           + "a.comments,"
                           + "a.debit as debit,"
@@ -545,9 +545,7 @@ namespace PA.ViewModel
                           + DBTablesName.T_VOUCHER
                           + " WHERE period = " + CommonInfo.当前期
                           + " and review_mark=1) GROUP BY "
-                          + "SUBJECT_ID  ORDER BY SUBJECT_ID) a "
-                          + "LEFT JOIN " + DBTablesName.T_SUBJECT 
-                          +" b ON a.SUBJECT_ID = b.SUBJECT_NAME where b.parent_id='0') t," + DBTablesName.T_FEE 
+                          + "SUBJECT_ID  ORDER BY SUBJECT_ID) a ) t," + DBTablesName.T_FEE 
                           + " b where t.subject_id=b.subject_id and b.period=" + (CommonInfo.当前期-1);
             bool flag = db.Excute(sql);
             if (flag && CommonInfo.当前期 != 12)
