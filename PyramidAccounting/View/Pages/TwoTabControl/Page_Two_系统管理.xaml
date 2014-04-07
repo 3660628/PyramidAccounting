@@ -160,15 +160,15 @@
                     </DataGrid>
                     <Button x:Name="Button_科目保存" Content="保存" HorizontalAlignment="Right" Margin="0,16,96,0" VerticalAlignment="Top" Click="Button_科目保存_Click" Width="70" Height="20" Template="{DynamicResource ButtonControlTemplate_CommonBlue}" Foreground="White"/>
                     <Button x:Name="Button_编辑子细目" Content="编写子细目" HorizontalAlignment="Right" Margin="0,16,11,0" VerticalAlignment="Top" Width="75" Height="20" Click="Button_编辑子细目_Click" Template="{DynamicResource ButtonControlTemplate_Common}"/>
-                    <TabControl x:Name="TabControl_五大科目" HorizontalAlignment="Left" Margin="6,10,0,0" VerticalAlignment="Top" BorderThickness="0" SelectionChanged="TabControl_五大科目_SelectionChanged" FontSize="14" Height="30">
+                    <TabControl x:Name="TabControl_五大科目" HorizontalAlignment="Left" Margin="6,10,0,0" VerticalAlignment="Top" BorderThickness="0" SelectionChanged="TabControl_五大科目_SelectionChanged" FontSize="14" Height="28">
                         <TabControl.Effect>
                             <DropShadowEffect ShadowDepth="0"/>
                         </TabControl.Effect>
-                        <TabItem Header="资产类" Template="{DynamicResource TabItemControlTemplate_科目管理}"/>
-                        <TabItem Header="负债类" Template="{DynamicResource TabItemControlTemplate_科目管理}"/>
-                        <TabItem Header="净资产类" Template="{DynamicResource TabItemControlTemplate_科目管理}"/>
-                        <TabItem Header="收入类" Template="{DynamicResource TabItemControlTemplate_科目管理}"/>
-                        <TabItem Header="支出类" Template="{DynamicResource TabItemControlTemplate_科目管理}"/>
+                        <TabItem Header="资产类" Template="{DynamicResource TabItemControlTemplate_科目管理}" FontSize="12"/>
+                        <TabItem Header="负债类" Template="{DynamicResource TabItemControlTemplate_科目管理}" FontSize="12"/>
+                        <TabItem Header="净资产类" Template="{DynamicResource TabItemControlTemplate_科目管理}" FontSize="12"/>
+                        <TabItem Header="收入类" Template="{DynamicResource TabItemControlTemplate_科目管理}" FontSize="12"/>
+                        <TabItem Header="支出类" Template="{DynamicResource TabItemControlTemplate_科目管理}" FontSize="12"/>
                     </TabControl>
                 </Grid>
             </TabItem>
