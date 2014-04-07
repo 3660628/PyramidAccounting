@@ -15,7 +15,7 @@
                     <Button Content="打印" HorizontalAlignment="Right" Margin="0,10,76,0" VerticalAlignment="Top" Width="50" Height="20" Template="{DynamicResource ButtonControlTemplate_Common}"/>
                     <Button Content="导出" HorizontalAlignment="Right" Margin="0,10,11,0" VerticalAlignment="Top" Width="50" Height="20" Template="{DynamicResource ButtonControlTemplate_Common}"/>
                     <Label Content="科目及单位名称" HorizontalAlignment="Left" Margin="7,8,0,0" VerticalAlignment="Top"/>
-                    <TextBox x:Name="TextBox_科目及单位名称" HorizontalAlignment="Left" Margin="106,13,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" BorderThickness="0,0,0,1" MouseDoubleClick="TextBox_科目及单位名称_MouseDoubleClick" MinWidth="120"/>
+                    <TextBox x:Name="TextBox_科目及单位名称" HorizontalAlignment="Left" Margin="106,13,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" BorderThickness="0,0,0,1" MouseDoubleClick="TextBox_科目及单位名称_MouseDoubleClick" MinWidth="120" IsReadOnly="True"/>
                     <Button x:Name="Button_总账查询" Content="查询" HorizontalAlignment="Right" Margin="0,10,141,0" VerticalAlignment="Top" Width="50" Click="Button_总账查询_Click" Template="{DynamicResource ButtonControlTemplate_Common}" Height="20"/>
                     <ScrollViewer VerticalScrollBarVisibility="Disabled" HorizontalScrollBarVisibility="Visible" Margin="-3,50,0,-3">
                         <Grid Width="Auto" Margin="10,0,10,10">
@@ -223,7 +223,7 @@
                     <Button Content="打印" HorizontalAlignment="Right" Margin="0,10,76,0" VerticalAlignment="Top" Width="50" Height="20" Template="{DynamicResource ButtonControlTemplate_Common}"/>
                     <Button Content="导出" HorizontalAlignment="Right" Margin="0,10,11,0" VerticalAlignment="Top" Width="50" Height="20" Template="{DynamicResource ButtonControlTemplate_Common}"/>
                     <Label Content="科目及单位名称" HorizontalAlignment="Left" Margin="7,8,0,0" VerticalAlignment="Top"/>
-                    <TextBox x:Name="TextBox_费用明细" HorizontalAlignment="Left" Margin="106,13,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" BorderThickness="0,0,0,1" MouseDoubleClick="TextBox_费用明细_MouseDoubleClick" MinWidth="120"/>
+                    <TextBox x:Name="TextBox_费用明细" HorizontalAlignment="Left" Margin="106,13,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" BorderThickness="0,0,0,1" MouseDoubleClick="TextBox_费用明细_MouseDoubleClick" MinWidth="120" IsReadOnly="True"/>
                     <Button x:Name="Button_费用明细查询" Content="查询" HorizontalAlignment="Right" Margin="0,10,141,0" VerticalAlignment="Top" Width="50" Click="Button_费用明细_Click" Height="20" Template="{DynamicResource ButtonControlTemplate_Common}"/>
                     <ScrollViewer VerticalScrollBarVisibility="Disabled" HorizontalScrollBarVisibility="Visible" Margin="-3,50,0,-3">
                         <Grid Width="Auto" Margin="10,0,10,10">
@@ -863,9 +863,9 @@
                     <Button Content="打印" HorizontalAlignment="Right" Margin="0,10,76,0" VerticalAlignment="Top" Width="50" Click="Button_Click" Height="20" Template="{DynamicResource ButtonControlTemplate_Common}"/>
                     <Button Content="导出" HorizontalAlignment="Right" Margin="0,10,11,0" VerticalAlignment="Top" Width="50" Height="20" Template="{DynamicResource ButtonControlTemplate_Common}"/>
                     <Label Content="一级科目编号及名称" HorizontalAlignment="Left" Margin="7,8,0,0" VerticalAlignment="Top"/>
-                    <TextBox x:Name="TextBox_一级科目" HorizontalAlignment="Left" Margin="130,13,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" BorderThickness="0,0,0,1" MouseDoubleClick="TextBox_一级科目_MouseDoubleClick" MinWidth="120"/>
+                    <TextBox x:Name="TextBox_一级科目" HorizontalAlignment="Left" Margin="130,13,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" BorderThickness="0,0,0,1" MouseDoubleClick="TextBox_一级科目_MouseDoubleClick" MinWidth="120" IsReadOnly="True"/>
                     <Label Content="二级科目编号及名称" HorizontalAlignment="Left" Margin="7,38,0,0" VerticalAlignment="Top"/>
-                    <TextBox x:Name="TextBox_二级科目" HorizontalAlignment="Left" Margin="130,43,0,0" TextWrapping="Wrap" VerticalAlignment="Top" BorderThickness="0,0,0,1" MouseDoubleClick="TextBox_二级科目_MouseDoubleClick" MinWidth="120"/>
+                    <TextBox x:Name="TextBox_二级科目" HorizontalAlignment="Left" Margin="130,43,0,0" TextWrapping="Wrap" VerticalAlignment="Top" BorderThickness="0,0,0,1" MouseDoubleClick="TextBox_二级科目_MouseDoubleClick" MinWidth="120" IsReadOnly="True"/>
                     <Button x:Name="Button_查询" Content="查询" HorizontalAlignment="Right" Margin="0,10,141,0" VerticalAlignment="Top" Width="50" Click="Button_查询_Click" Height="20" Template="{DynamicResource ButtonControlTemplate_Common}"/>
                     <ScrollViewer HorizontalScrollBarVisibility="Visible" VerticalScrollBarVisibility="Disabled" Margin="-3,80,0,-3">
                         <Grid Width="Auto" Margin="10,0,10,10">
