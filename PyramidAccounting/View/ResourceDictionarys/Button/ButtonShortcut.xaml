@@ -31,7 +31,7 @@
 				</VisualStateGroup>
 			</VisualStateManager.VisualStateGroups>
 			<Border x:Name="border" BorderBrush="{x:Null}" BorderThickness="1" Height="Auto" VerticalAlignment="Stretch" Width="Auto" Margin="5" CornerRadius="5"/>
-			<ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="51,0,51,20" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="Bottom"/>
+			<ContentPresenter Margin="0,0,0,20" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="Bottom" HorizontalAlignment="Center"/>
 			<Rectangle Height="100" Stroke="{x:Null}" VerticalAlignment="Center" Width="100" HorizontalAlignment="Center" Margin="32,20,18,34">
 				<Rectangle.Fill>
 					<ImageBrush ImageSource="/PyramidAccounting;component/View/Images/icon/256.256/凭证录入.png"/>
@@ -70,7 +70,7 @@
     			</VisualStateGroup>
     		</VisualStateManager.VisualStateGroups>
     		<Border x:Name="border" BorderBrush="{x:Null}" BorderThickness="1" Height="Auto" VerticalAlignment="Stretch" Width="Auto" Margin="5" CornerRadius="5"/>
-        	<ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="51,0,51,20" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="Bottom"/>
+        	<ContentPresenter Margin="0,0,0,20" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="Bottom" HorizontalAlignment="Center"/>
         	<Rectangle Height="100" Stroke="{x:Null}" VerticalAlignment="Center" Width="100" HorizontalAlignment="Center" Margin="32,20,18,34">
         		<Rectangle.Fill>
         			<ImageBrush ImageSource="/PyramidAccounting;component/View/Images/icon/256.256/凭证审核.png"/>
@@ -109,7 +109,7 @@
     			</VisualStateGroup>
     		</VisualStateManager.VisualStateGroups>
     		<Border x:Name="border" BorderBrush="{x:Null}" BorderThickness="1" HorizontalAlignment="Stretch" Height="Auto" VerticalAlignment="Stretch" Margin="5" CornerRadius="5"/>
-			<ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="51,0,51,20" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="Bottom"/>
+			<ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="0,0,0,20" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="Bottom"/>
 			<Rectangle Height="100" Stroke="{x:Null}" VerticalAlignment="Center" Width="100" HorizontalAlignment="Center" Margin="0,20,0,34">
 				<Rectangle.Fill>
 					<ImageBrush ImageSource="/PyramidAccounting;component/View/Images/icon/256.256/本期结账.png"/>
@@ -148,7 +148,7 @@
 				</VisualStateGroup>
 			</VisualStateManager.VisualStateGroups>
 			<Border x:Name="border" BorderBrush="{x:Null}" BorderThickness="1" HorizontalAlignment="Stretch" Height="Auto" VerticalAlignment="Stretch" Margin="5" CornerRadius="5"/>
-			<ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="51,0,51,20" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="Bottom"/>
+			<ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="0,0,0,20" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="Bottom"/>
 			<Rectangle Height="100" Stroke="{x:Null}" VerticalAlignment="Center" Width="100" HorizontalAlignment="Center" Margin="30,20,20,34">
 				<Rectangle.Fill>
 					<ImageBrush ImageSource="/PyramidAccounting;component/View/Images/icon/256.256/报表查询.png"/>
@@ -187,7 +187,7 @@
 				</VisualStateGroup>
 			</VisualStateManager.VisualStateGroups>
 			<Border x:Name="border" BorderBrush="{x:Null}" BorderThickness="1" HorizontalAlignment="Stretch" Height="Auto" VerticalAlignment="Stretch" Margin="5" CornerRadius="5"/>
-			<ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="51,0,51,20" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="Bottom"/>
+			<ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="0,0,0,20" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="Bottom"/>
 			<Rectangle Height="100" Stroke="{x:Null}" VerticalAlignment="Center" Width="100" HorizontalAlignment="Center" Margin="30,20,20,34">
 				<Rectangle.Fill>
 					<ImageBrush ImageSource="/PyramidAccounting;component/View/Images/icon/256.256/账簿查询.png"/>
@@ -226,7 +226,7 @@
 				</VisualStateGroup>
 			</VisualStateManager.VisualStateGroups>
 			<Border x:Name="border" BorderBrush="{x:Null}" BorderThickness="1" HorizontalAlignment="Stretch" Height="Auto" VerticalAlignment="Stretch" Margin="5" CornerRadius="5"/>
-			<ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="51,0,51,20" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="Bottom"/>
+			<ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="0,0,0,20" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="Bottom"/>
 			<Rectangle Height="100" Stroke="{x:Null}" VerticalAlignment="Center" Width="100" HorizontalAlignment="Center" Margin="0,20,0,34">
 				<Rectangle.Fill>
 					<ImageBrush ImageSource="/PyramidAccounting;component/View/Images/icon/256.256/科目查询.png"/>
