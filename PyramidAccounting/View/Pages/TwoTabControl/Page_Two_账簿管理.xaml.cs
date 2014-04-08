@@ -272,7 +272,10 @@ namespace PA.View.Pages.TwoTabControl
                 return;
             }
             string Parm = TextBox_科目及单位名称.Text.ToString();
-            new PA.Helper.ExcelHelper.ExcelWriter().ExportLedger(Parm);
+            if(!new PA.Helper.ExcelHelper.ExcelWriter().ExportLedger(Parm))
+            {
+                MessageBoxCommon.Show("打印失败，请检查数据。");
+            }
         }
 
         private void Button_经费支出明细Print_Click(object sender, RoutedEventArgs e)
@@ -284,7 +287,10 @@ namespace PA.View.Pages.TwoTabControl
                 return;
             }
             string Parm = TextBox_费用明细.Text.ToString();
-            new PA.Helper.ExcelHelper.ExcelWriter().ExportExpenditureDetails(Parm);
+            if(!new PA.Helper.ExcelHelper.ExcelWriter().ExportExpenditureDetails(Parm))
+            {
+                MessageBoxCommon.Show("打印失败，请检查数据。");
+            }
         }
 
         private void Button_科目明细Print_Click(object sender, RoutedEventArgs e)
@@ -301,7 +307,10 @@ namespace PA.View.Pages.TwoTabControl
                 TextBox_二级科目.Focus();
                 return;
             }
-            new PA.Helper.ExcelHelper.ExcelWriter().ExportSubjectDetails(TextBox_一级科目.Text, TextBox_二级科目.Text);
+            if(!new PA.Helper.ExcelHelper.ExcelWriter().ExportSubjectDetails(TextBox_一级科目.Text, TextBox_二级科目.Text))
+            {
+                MessageBoxCommon.Show("打印失败，请检查数据。");
+            }
         }
     }
 }
