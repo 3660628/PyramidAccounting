@@ -227,6 +227,41 @@
                     </DataGrid>
                 </Grid>
             </TabItem>
+            <TabItem Header="关于我们" FocusVisualStyle="{x:Null}" Margin="48,-1,-48,1" Template="{DynamicResource TabItemControlTemplate_TwoTabHeader}" >
+                <Grid Background="Snow">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="100*"/>
+                        <RowDefinition Height="50*"/>
+                        <RowDefinition Height="50*"/>
+                        <RowDefinition Height="50*"/>
+                        <RowDefinition Height="50*"/>
+                        <RowDefinition Height="50*"/>
+                        <RowDefinition Height="50*"/>
+                        <RowDefinition Height="287*"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="103*"/>
+                        <ColumnDefinition Width="163*"/>
+                    </Grid.ColumnDefinitions>
+                    <Image HorizontalAlignment="Left" Height="190" Margin="0,36,0,0" VerticalAlignment="Top" Width="197" Grid.RowSpan="6"/>
+                    <Label Content="金字塔会计软件" HorizontalAlignment="Center" Margin="4,45,313,0" VerticalAlignment="Top" FontSize="18" Grid.Column="1" FontWeight="Bold"/>
+                    <Label Content="Copyright © 2014 StoneAnt. " HorizontalAlignment="Left"  VerticalAlignment="Center" Width="275" Grid.Column="1" Grid.Row="4"/>
+                    <Label Content="All Rights Reserved" HorizontalAlignment="Left" Margin="50,0,0,0" VerticalAlignment="Center" Width="269" Grid.Column="1" Grid.Row="5" Height="30"/>
+                    <Label Content="客服热线：0754-85837039" HorizontalAlignment="Left" VerticalAlignment="Center" Width="279" Grid.Row="2" Grid.Column="1"/>
+                    <Label x:Name="Laber_Version" Content="Label" HorizontalAlignment="Left"  VerticalAlignment="Center" Grid.Column="1" Grid.Row="1"/>
+                    <Label Content="企业QQ： 2095250852" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center" Grid.Row="3"/>
+                    <Grid x:Name="Register" Grid.Row="7" Grid.ColumnSpan="2">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                        </Grid.ColumnDefinitions>
+                        <Label Content="注册码：" Margin="0,-2,0,0" HorizontalAlignment="Right"  VerticalAlignment="Top" Grid.Column="0"/>
+                        <TextBox HorizontalAlignment="Center" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="250" Grid.Column="1"/>
+                        <Button x:Name="Button_注册" Content="注册" HorizontalAlignment="Left" Margin="10,5,0,0"  VerticalAlignment="Top" Width="75" Grid.Column="2" Click="Button_注册_Click" Template="{DynamicResource ButtonControlTemplate_CommonBlue}" />
+                    </Grid>
+                </Grid>
+            </TabItem>
         </TabControl>
         <Grid x:Name="Grid_Pop弹出" Background="#7F000000" Margin="0,28,0,25" Visibility="Collapsed">
             <Frame x:Name="Frame_系统管理_Pop" Content="" Margin="269,0,0,0" Background="White" NavigationUIVisibility="Hidden"/>
