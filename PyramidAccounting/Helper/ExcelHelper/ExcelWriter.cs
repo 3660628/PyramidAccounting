@@ -34,6 +34,7 @@ namespace PA.Helper.ExcelHelper
         /// <summary>
         /// 记账凭证
         /// </summary>
+        /// <param name="guid"></param>
         public void ExportVouchers(Guid guid)
         {
             int SheetNum = new PA.ViewModel.ViewModel_凭证管理().GetPageNum(guid);
