@@ -256,7 +256,14 @@ namespace PA.View.Pages.TwoTabControl
 
         private void Button_总账Print_Click(object sender, RoutedEventArgs e)
         {
-
+            if (string.IsNullOrEmpty(TextBox_科目及单位名称.Text))
+            {
+                MessageBoxCommon.Show("请选择科目");
+                TextBox_科目及单位名称.Focus();
+                return;
+            }
+            string Parm = TextBox_科目及单位名称.Text.ToString();
+            new PA.Helper.ExcelHelper.ExcelWriter().ExportLedger(Parm);
         }
 
         private void ComboBox_Date_PreviewMouseLeftButtonUp(object sender, MouseButtonEventArgs e)

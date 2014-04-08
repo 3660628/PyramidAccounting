@@ -180,6 +180,78 @@ namespace PA.Helper.ExcelHelper
             releaseObject(xlWorkBook);
             releaseObject(xlApp);
         }
+        
+        /// <summary>
+        /// 总账
+        /// </summary>
+        /// <param name="Parm"></param>
+        /// <returns></returns>
+        public bool ExportLedger(string DetailsData)
+        {
+            Console.WriteLine("Print Ledger");
+            const int PageLine = 47;
+
+            List<Model_总账> LedgerData = new PA.ViewModel.ViewModel_账薄管理().GetTotalFee(DetailsData);
+            string SourceXls = Path + @"Data\打印\总账模板.xls";
+            string ExportXls = Path + @"Data\打印\总账export.xls";
+            File.Copy(SourceXls, ExportXls, true);
+            xlWorkBook = xlApp.Workbooks.Open(ExportXls);
+            xlWorkSheet = (xls.Worksheet)xlWorkBook.Worksheets.get_Item(1);
+
+            //fill data
+            xlWorkSheet.Cells[1,6] = "总账";
+            xlWorkSheet.Cells[3, 2] = "1/" + (LedgerData.Count / PageLine + 1);
+            xlWorkSheet.Cells[3, 30] = DetailsData.Split('\t')[1];
+            for (int i = 0; i < LedgerData.Count; i++)
+            {
+                xlWorkSheet.Cells[9 + i, 1] = LedgerData[i].月;
+                xlWorkSheet.Cells[9 + i, 2] = LedgerData[i].日;
+                xlWorkSheet.Cells[9 + i, 3] = LedgerData[i].号数;
+                xlWorkSheet.Cells[9 + i, 5] = LedgerData[i].摘要;
+                xlWorkSheet.Cells[9 + i, 7] = LedgerData[i].借方金额2;
+                xlWorkSheet.Cells[9 + i, 8] = LedgerData[i].借方金额3;
+                xlWorkSheet.Cells[9 + i, 9] = LedgerData[i].借方金额4;
+                xlWorkSheet.Cells[9 + i, 10] = LedgerData[i].借方金额5;
+                xlWorkSheet.Cells[9 + i, 11] = LedgerData[i].借方金额6;
+                xlWorkSheet.Cells[9 + i, 12] = LedgerData[i].借方金额7;
+                xlWorkSheet.Cells[9 + i, 13] = LedgerData[i].借方金额8;
+                xlWorkSheet.Cells[9 + i, 14] = LedgerData[i].借方金额9;
+                xlWorkSheet.Cells[9 + i, 15] = LedgerData[i].借方金额10;
+                xlWorkSheet.Cells[9 + i, 16] = LedgerData[i].借方金额11;
+                xlWorkSheet.Cells[9 + i, 17] = LedgerData[i].借方金额12;
+                xlWorkSheet.Cells[9 + i, 18] = LedgerData[i].贷方金额2;
+                xlWorkSheet.Cells[9 + i, 19] = LedgerData[i].贷方金额3;
+                xlWorkSheet.Cells[9 + i, 20] = LedgerData[i].贷方金额4;
+                xlWorkSheet.Cells[9 + i, 21] = LedgerData[i].贷方金额5;
+                xlWorkSheet.Cells[9 + i, 22] = LedgerData[i].贷方金额6;
+                xlWorkSheet.Cells[9 + i, 23] = LedgerData[i].贷方金额7;
+                xlWorkSheet.Cells[9 + i, 24] = LedgerData[i].贷方金额8;
+                xlWorkSheet.Cells[9 + i, 25] = LedgerData[i].贷方金额9;
+                xlWorkSheet.Cells[9 + i, 26] = LedgerData[i].贷方金额10;
+                xlWorkSheet.Cells[9 + i, 27] = LedgerData[i].贷方金额11;
+                xlWorkSheet.Cells[9 + i, 28] = LedgerData[i].贷方金额12;
+                xlWorkSheet.Cells[9 + i, 29] = LedgerData[i].借或贷;
+                xlWorkSheet.Cells[9 + i, 30] = LedgerData[i].余额2;
+                xlWorkSheet.Cells[9 + i, 31] = LedgerData[i].余额3;
+                xlWorkSheet.Cells[9 + i, 32] = LedgerData[i].余额4;
+                xlWorkSheet.Cells[9 + i, 33] = LedgerData[i].余额5;
+                xlWorkSheet.Cells[9 + i, 34] = LedgerData[i].余额6;
+                xlWorkSheet.Cells[9 + i, 35] = LedgerData[i].余额7;
+                xlWorkSheet.Cells[9 + i, 36] = LedgerData[i].余额8;
+                xlWorkSheet.Cells[9 + i, 37] = LedgerData[i].余额9;
+                xlWorkSheet.Cells[9 + i, 38] = LedgerData[i].余额10;
+                xlWorkSheet.Cells[9 + i, 39] = LedgerData[i].余额11;
+                xlWorkSheet.Cells[9 + i, 40] = LedgerData[i].余额12;
+            }
+
+
+            xlApp.Visible = true;
+
+            releaseObject(xlWorkSheet);
+            releaseObject(xlWorkBook);
+            releaseObject(xlApp);
+            return false;
+        }
 
         private void releaseObject(object obj)
         {
