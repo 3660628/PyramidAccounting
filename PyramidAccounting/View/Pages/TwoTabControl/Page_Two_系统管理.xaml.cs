@@ -557,9 +557,11 @@ namespace PA.View.Pages.TwoTabControl
         }
         #endregion
 
-        
+        #region 5.关于我们
+        private void Button_注册_Click(object sender, RoutedEventArgs e)
+        {
 
-        
-
+        }
+        #endregion
     }
 }
