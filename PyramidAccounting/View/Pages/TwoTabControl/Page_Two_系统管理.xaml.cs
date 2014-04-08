@@ -569,11 +569,11 @@ namespace PA.View.Pages.TwoTabControl
         private string GetVersionMessage()
         {
             string str = new Util().GetVersionType();
-            double d = 0;
-            double.TryParse(str.Split(',')[0],out d);
-            int i = (int)d;
             if (str.Split(',')[1].Equals("false"))
             {
+                double d = 0;
+                double.TryParse(str.Split(',')[0], out d);
+                int i = (int)d;
                 return "试用版\t还剩" + i + "天"; ;
             }
             else
