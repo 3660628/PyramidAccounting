@@ -182,7 +182,7 @@
                             <TextBlock Text="角" Grid.Column="39" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                             <TextBlock Text="分" Grid.Column="40" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                             <Label Content="金额" HorizontalContentAlignment="Center" Grid.Column="29" Grid.ColumnSpan="12"/>
-                            <DataGrid x:Name="DataGrid_总账" Grid.Row="2" ItemsSource="{Binding}" Grid.ColumnSpan="41" CanUserAddRows="False" AutoGenerateColumns="False" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="0,-1,0,0" HeadersVisibility="None" BorderBrush="#FF99CCFF" HorizontalGridLinesBrush="#FF99CCFF" VerticalGridLinesBrush="#FF99CCFF" Background="White" HorizontalScrollBarVisibility="Disabled">
+                            <DataGrid x:Name="DataGrid_总账" Grid.Row="2" ItemsSource="{Binding}" Grid.ColumnSpan="41" CanUserAddRows="False" AutoGenerateColumns="False" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="0,-1,0,0" HeadersVisibility="None" BorderBrush="#FF99CCFF" HorizontalGridLinesBrush="#FF99CCFF" VerticalGridLinesBrush="#FF99CCFF" Background="White" HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Hidden">
                                 <DataGrid.Columns>
                                     <DataGridTextColumn x:Name="zzcolumn1" MinWidth="25" Binding="{Binding 月}"/>
                                     <DataGridTextColumn x:Name="zzcolumn2" MinWidth="25" Binding="{Binding 日}"/>
@@ -719,7 +719,7 @@
                             <TextBlock Text="元"	Grid.Column="141"	Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                             <TextBlock Text="角"	Grid.Column="142"	Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                             <TextBlock Text="分"	Grid.Column="143"	Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                            <DataGrid x:Name="DataGrid_费用明细账" Grid.Row="3" ItemsSource="{Binding}" Grid.ColumnSpan="144" CanUserAddRows="False" AutoGenerateColumns="False" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" HeadersVisibility="None" Background="White" BorderBrush="#FF99CCFF" Margin="0,-1,0,0" HorizontalScrollBarVisibility="Disabled" HorizontalGridLinesBrush="#FF99CCFF" VerticalGridLinesBrush="#FF99CCFF">
+                            <DataGrid x:Name="DataGrid_费用明细账" Grid.Row="3" ItemsSource="{Binding}" Grid.ColumnSpan="144" CanUserAddRows="False" AutoGenerateColumns="False" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" HeadersVisibility="None" Background="White" BorderBrush="#FF99CCFF" Margin="0,-1,0,0" HorizontalScrollBarVisibility="Disabled" HorizontalGridLinesBrush="#FF99CCFF" VerticalGridLinesBrush="#FF99CCFF" VerticalScrollBarVisibility="Hidden">
                                 <DataGrid.Columns>
                                     <DataGridTextColumn x:Name="fycolumn1" MinWidth="25" Binding="{Binding 月}"/>
                                     <DataGridTextColumn x:Name="fycolumn2" MinWidth="25" Binding="{Binding 日}"/>
@@ -1048,7 +1048,7 @@
                             <TextBlock Text="分" Grid.Column="43" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                             <Label Content="金额" HorizontalContentAlignment="Center" Grid.Column="32" Grid.ColumnSpan="12"/>
                             <Label Content="√" VerticalContentAlignment="Center" Grid.Column="44" Grid.RowSpan="2"/>
-                            <DataGrid x:Name="DataGrid_科目明细" Grid.Row="2" ItemsSource="{Binding}" Grid.ColumnSpan="45" IsReadOnly="True" CanUserAddRows="False" AutoGenerateColumns="False" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" BorderBrush="#FF99CCFF" HorizontalGridLinesBrush="#FF99CCFF" VerticalGridLinesBrush="#FF99CCFF" HeadersVisibility="None" Margin="0,-1,0,0" Background="White" HorizontalScrollBarVisibility="Disabled">
+                            <DataGrid x:Name="DataGrid_科目明细" Grid.Row="2" ItemsSource="{Binding}" Grid.ColumnSpan="45" IsReadOnly="True" CanUserAddRows="False" AutoGenerateColumns="False" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" BorderBrush="#FF99CCFF" HorizontalGridLinesBrush="#FF99CCFF" VerticalGridLinesBrush="#FF99CCFF" HeadersVisibility="None" Margin="0,-1,0,0" Background="White" HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Hidden">
                                 <DataGrid.Columns>
                                     <DataGridTextColumn x:Name="column1" MinWidth="25" Binding="{Binding 月}"/>
                                     <DataGridTextColumn x:Name="column2" MinWidth="25" Binding="{Binding 日}"/>
