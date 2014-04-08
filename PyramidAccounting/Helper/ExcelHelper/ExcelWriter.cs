@@ -31,6 +31,7 @@ namespace PA.Helper.ExcelHelper
             }
         }
 
+        #region 1.凭证
         /// <summary>
         /// 记账凭证
         /// </summary>
@@ -181,7 +182,9 @@ namespace PA.Helper.ExcelHelper
             releaseObject(xlWorkBook);
             releaseObject(xlApp);
         }
-        
+        #endregion
+
+        #region 2.账簿
         /// <summary>
         /// 总账
         /// </summary>
@@ -274,6 +277,25 @@ namespace PA.Helper.ExcelHelper
             releaseObject(xlApp);
             return true;
         }
+        /// <summary>
+        /// 经费支出明细账
+        /// </summary>
+        public void ExportExpenditureDetails(string Parm)
+        {
+
+        }
+        /// <summary>
+        /// 科目明细账
+        /// </summary>
+        public void ExportSubjectDetails(string Parm1, string Parm2)
+        {
+
+        }
+        #endregion
+
+        #region 3.报表
+
+        #endregion
 
         private void releaseObject(object obj)
         {

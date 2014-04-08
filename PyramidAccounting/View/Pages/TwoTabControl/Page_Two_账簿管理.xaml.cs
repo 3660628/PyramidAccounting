@@ -151,10 +151,6 @@ namespace PA.View.Pages.TwoTabControl
             this.IsEnabled = false;
         }
         #endregion
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
 
 
         #region 查询事件
@@ -277,6 +273,35 @@ namespace PA.View.Pages.TwoTabControl
             }
             string Parm = TextBox_科目及单位名称.Text.ToString();
             new PA.Helper.ExcelHelper.ExcelWriter().ExportLedger(Parm);
+        }
+
+        private void Button_经费支出明细Print_Click(object sender, RoutedEventArgs e)
+        {
+            if (string.IsNullOrEmpty(TextBox_费用明细.Text))
+            {
+                MessageBoxCommon.Show("请选择科目");
+                this.TextBox_费用明细.Focus();
+                return;
+            }
+            string Parm = TextBox_费用明细.Text.ToString();
+            new PA.Helper.ExcelHelper.ExcelWriter().ExportExpenditureDetails(Parm);
+        }
+
+        private void Button_科目明细Print_Click(object sender, RoutedEventArgs e)
+        {
+            if (string.IsNullOrEmpty(TextBox_一级科目.Text))
+            {
+                MessageBoxCommon.Show("请选择一级科目");
+                TextBox_一级科目.Focus();
+                return;
+            }
+            else if (string.IsNullOrEmpty(TextBox_二级科目.Text))
+            {
+                MessageBoxCommon.Show("请选择二级科目");
+                TextBox_二级科目.Focus();
+                return;
+            }
+            new PA.Helper.ExcelHelper.ExcelWriter().ExportSubjectDetails(TextBox_一级科目.Text, TextBox_二级科目.Text);
         }
     }
 }
