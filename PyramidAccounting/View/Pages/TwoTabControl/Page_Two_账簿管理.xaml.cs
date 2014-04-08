@@ -51,6 +51,10 @@ namespace PA.View.Pages.TwoTabControl
             {
                 this.TabControl_账簿管理.SelectedIndex = e.X;
             }
+            if (e.操作类型 == "本月结账")
+            {
+                this.ComboBox_Date.ItemsSource = cbc.GetComboBox_期数(1);
+            }
         }
         private void Do固定资产Commit(object sender, MyEventArgs e)
         {
@@ -264,11 +268,6 @@ namespace PA.View.Pages.TwoTabControl
             }
             string Parm = TextBox_科目及单位名称.Text.ToString();
             new PA.Helper.ExcelHelper.ExcelWriter().ExportLedger(Parm);
-        }
-
-        private void ComboBox_Date_PreviewMouseLeftButtonUp(object sender, MouseButtonEventArgs e)
-        {
-            this.ComboBox_Date.ItemsSource = cbc.GetComboBox_期数(1);
         }
     }
 }
