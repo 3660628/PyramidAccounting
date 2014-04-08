@@ -298,8 +298,8 @@ namespace PA.Helper.ExcelHelper
         /// </summary>
         public void ExportSubjectDetails(string Parm1, string Parm2)
         {
-            string SourceXls = Path + @"Data\打印\管理费用模板.xls";
-            string ExportXls = Path + @"Data\打印\管理费用export.xls";
+            string SourceXls = Path + @"Data\打印\三栏明细账模板.xls";
+            string ExportXls = Path + @"Data\打印\三栏明细账export.xls";
             File.Copy(SourceXls, ExportXls, true);
             xlWorkBook = xlApp.Workbooks.Open(ExportXls);
             xlWorkSheet = (xls.Worksheet)xlWorkBook.Worksheets.get_Item(1);
