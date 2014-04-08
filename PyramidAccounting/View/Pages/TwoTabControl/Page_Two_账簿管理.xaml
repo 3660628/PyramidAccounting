@@ -724,7 +724,7 @@
                                     <DataGridTextColumn x:Name="fycolumn1" MinWidth="25" Binding="{Binding 月}"/>
                                     <DataGridTextColumn x:Name="fycolumn2" MinWidth="25" Binding="{Binding 日}"/>
                                     <DataGridTextColumn x:Name="fycolumn3" MinWidth="40" Binding="{Binding 号数}"/>
-                                    <DataGridTextColumn x:Name="fycolumn4" MinWidth="100" Binding="{Binding 摘要}"/>
+                                    <DataGridTextColumn x:Name="fycolumn4" MinWidth="140" Binding="{Binding 摘要}"/>
                                     <DataGridTextColumn x:Name="fycolumn5"	Binding="{Binding 借方金额1}" MinWidth="15" MaxWidth="15"/>
                                     <DataGridTextColumn x:Name="fycolumn6"	Binding="{Binding 借方金额2}" MinWidth="15" MaxWidth="15"/>
                                     <DataGridTextColumn x:Name="fycolumn7"	Binding="{Binding 借方金额3}" MinWidth="15" MaxWidth="15"/>
@@ -1053,7 +1053,7 @@
                                     <DataGridTextColumn x:Name="column1" MinWidth="25" Binding="{Binding 月}"/>
                                     <DataGridTextColumn x:Name="column2" MinWidth="25" Binding="{Binding 日}"/>
                                     <DataGridTextColumn x:Name="column3" MinWidth="40" Binding="{Binding 号数}"/>
-                                    <DataGridTextColumn x:Name="column4" MinWidth="100" Binding="{Binding 摘要}"/>
+                                    <DataGridTextColumn x:Name="column4" MinWidth="140" Binding="{Binding 摘要}"/>
                                     <DataGridTextColumn x:Name="column5"/>
                                     <DataGridTextColumn x:Name="column6" Binding="{Binding 借方金额1}" MaxWidth="15" MinWidth="15"/>
                                     <DataGridTextColumn x:Name="column7" Binding="{Binding 借方金额2}" MaxWidth="15" MinWidth="15"/>
