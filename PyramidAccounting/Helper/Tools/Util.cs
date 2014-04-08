@@ -17,15 +17,8 @@ namespace PA.Helper.Tools
 
         public string GetVersionType()
         {
-            string sql = "select julianday('now')-julianday(OP_TIME),value from t_systeminfo where rkey='999'";
-            if (db.GetSelectValue(sql).Equals(""))
-            {
-                return "试用版";
-            }
-            else
-            {
-                return "正式版";
-            }
+            string sql = "select 7-(julianday(datetime('now','localtime'))-julianday(OP_TIME)),value from t_systeminfo where rkey='999'";
+            return db.GetAllData(sql).Split('\t')[0];
         }
     }
 }

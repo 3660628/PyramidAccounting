@@ -258,7 +258,7 @@
                         </Grid.ColumnDefinitions>
                         <Label Content="注册码：" Margin="0,-2,0,0" HorizontalAlignment="Right"  VerticalAlignment="Top" Grid.Column="0"/>
                         <TextBox HorizontalAlignment="Center" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="250" Grid.Column="1"/>
-                        <Button x:Name="Button_注册" Content="注册" HorizontalAlignment="Left" Margin="10,5,0,0"  VerticalAlignment="Top" Width="75" Grid.Column="2" Click="Button_注册_Click" Template="{DynamicResource ButtonControlTemplate_CommonBlue}" />
+                        <Button x:Name="Button_注册"  FocusVisualStyle="{x:Null}" Content="注册" HorizontalAlignment="Left" Margin="10,2,0,0"  VerticalAlignment="Top" Foreground="White" Height="20" Width="75" Grid.Column="2" Click="Button_注册_Click" Template="{DynamicResource ButtonControlTemplate_CommonBlue}" />
                     </Grid>
                 </Grid>
             </TabItem>

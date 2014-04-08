@@ -20,6 +20,7 @@ using PA.Helper.DataDefind;
 using PA.View.ResourceDictionarys.MessageBox;
 using PA.Helper.XMLHelper;
 using System.Threading;
+using PA.Helper.Tools;
 
 namespace PA.View.Pages.TwoTabControl
 {
@@ -45,21 +46,11 @@ namespace PA.View.Pages.TwoTabControl
             InitializeComponent();
             SubscribeToEvent();
             VisibilityData();
-            this.DatePicker_操作记录.Text = DateTime.Now.ToShortDateString();
-            this.DatePicker_操作记录End.Text = DateTime.Now.ToShortDateString();
-            LoadXml();
+            LoadPage();
             _mr = vmr.GetOperateLog();
         }
 
-        private void LoadXml()
-        {
-            string text = xr.ReadXML("自动备份标志");
-            is_auto_backup.IsChecked = bool.Parse(xr.ReadXML("自动备份标志"));
-            backup_days.Text = xr.ReadXML("备份时间");
-            backup_filePath.Text = xr.ReadXML("备份路径");
-            Recover_filepath.Text = xr.ReadXML("还原路径");
-        }
-       
+ 
 
         #region 事件订阅
         private void SubscribeToEvent()
@@ -85,6 +76,22 @@ namespace PA.View.Pages.TwoTabControl
         #endregion
 
         #region 1.用户安全
+        private void LoadPage()
+        {
+            //1.用户安全
+            string text = xr.ReadXML("自动备份标志");
+            is_auto_backup.IsChecked = bool.Parse(xr.ReadXML("自动备份标志"));
+            backup_days.Text = xr.ReadXML("备份时间");
+            backup_filePath.Text = xr.ReadXML("备份路径");
+            Recover_filepath.Text = xr.ReadXML("还原路径");
+            //4.操作记录
+            this.DatePicker_操作记录.Text = DateTime.Now.ToShortDateString();
+            this.DatePicker_操作记录End.Text = DateTime.Now.ToShortDateString();
+            //5.关于我们
+            this.Laber_Version.Content = GetVersionMessage();
+            this.Laber_Version.Content += "\t V" + Application.ResourceAssembly.GetName().Version.ToString();
+        }
+       
         private void Button_ChangePassword_Click(object sender, RoutedEventArgs e)
         {
             string OldPassword = Secure.TranslatePassword(this.PasswordBox_Old.SecurePassword);
@@ -558,10 +565,27 @@ namespace PA.View.Pages.TwoTabControl
         #endregion
 
         #region 5.关于我们
+
+        private string GetVersionMessage()
+        {
+            string str = new Util().GetVersionType();
+            double d = 0;
+            double.TryParse(str.Split(',')[0],out d);
+            int i = (int)d;
+            if (str.Split(',')[1].Equals("false"))
+            {
+                return "试用版\t还剩" + i + "天"; ;
+            }
+            else
+            {
+                return "正式版";
+            }
+        }
         private void Button_注册_Click(object sender, RoutedEventArgs e)
         {
 
         }
+
         #endregion
     }
 }
