@@ -192,6 +192,10 @@ namespace PA.Helper.ExcelHelper
             const int PageLine = 47;
 
             List<Model_总账> LedgerData = new PA.ViewModel.ViewModel_账薄管理().GetTotalFee(DetailsData);
+            if (LedgerData.Count <= 1)
+            {
+                return false;
+            }
             int TotalPageNum = LedgerData.Count / PageLine + 1;
             string SourceXls = Path + @"Data\打印\总账模板.xls";
             string ExportXls = Path + @"Data\打印\总账export.xls";
@@ -202,6 +206,7 @@ namespace PA.Helper.ExcelHelper
             //fill head data
             xlWorkSheet.Cells[1,6] = "总账";
             xlWorkSheet.Cells[3, 30] = DetailsData.Split('\t')[1];
+            xlWorkSheet.Cells[6, 1] = LedgerData[1].年 + "年";
             //copy sheet
             for (int i = 1; i < TotalPageNum; i++)
             {
@@ -267,7 +272,7 @@ namespace PA.Helper.ExcelHelper
             releaseObject(xlWorkSheet);
             releaseObject(xlWorkBook);
             releaseObject(xlApp);
-            return false;
+            return true;
         }
 
         private void releaseObject(object obj)
