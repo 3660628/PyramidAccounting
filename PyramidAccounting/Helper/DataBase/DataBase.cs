@@ -125,6 +125,15 @@ namespace PA.Helper.DataBase
             return result;
         }
         /// <summary>
+        /// 获取一个值
+        /// </summary>
+        /// <param name="sql"></param>
+        /// <returns></returns>
+        public string GetSelectValue(string sql)
+        {
+            return GetAllData(sql).Split('\t')[0].Split(',')[0];
+        }
+        /// <summary>
         /// 根据查询的SQL返回一个dataset
         /// </summary>
         /// <param name="sql"></param>
