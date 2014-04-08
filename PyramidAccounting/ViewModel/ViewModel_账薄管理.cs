@@ -547,8 +547,8 @@ namespace PA.ViewModel
                           + DBTablesName.T_VOUCHER
                           + " WHERE period = " + CommonInfo.当前期
                           + " and review_mark=1) GROUP BY "
-                          + "SUBJECT_ID  ORDER BY SUBJECT_ID) a ) t," + DBTablesName.T_FEE 
-                          + " b where t.subject_id=b.subject_id and b.period=" + (CommonInfo.当前期-1);
+                          + "SUBJECT_ID  ORDER BY SUBJECT_ID) a ) t left join " + DBTablesName.T_FEE 
+                          + " b on t.subject_id=b.subject_id where b.period=" + (CommonInfo.当前期-1);
             bool flag = db.Excute(sql);
             if (flag && CommonInfo.当前期 != 12)
             {
