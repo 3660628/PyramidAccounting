@@ -74,10 +74,10 @@ namespace PA.ViewModel
             bool flag = db.BatchOperate(sqlList);
             if ( flag )
             {
-                string _sql3 = "select a.subject_id,a.fee,b.fee from(select subject_id,fee from sbtemp where period="
-                + index + ") a,(select subject_id,sum(fee) as fee from sbtemp where period<=" + 
-                index + " group by subject_id) b where a.subject_id=b.subject_id "
-                + "and a.subject_id not in (select subject_id from " + DBTablesName.T_SUBJECT 
+                string _sql3 = "select a.subject_id,a.fee,b.fee from (select subject_id,fee from sbtemp where period="
+                + index + ") a left join (select subject_id,sum(fee) as fee from sbtemp where period<=" + 
+                index + " group by subject_id) b on a.subject_id=b.subject_id "
+                + "where a.subject_id not in (select subject_id from " + DBTablesName.T_SUBJECT 
                 + " where parent_id='501') order by a.subject_id ";
                 DataTable dt = db.Query(_sql3).Tables[0];
                 foreach (DataRow d in dt.Rows)
