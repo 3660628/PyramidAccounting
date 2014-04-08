@@ -8,6 +8,7 @@ using PA.Helper.XMLHelper;
 using PA.Helper.ExcelHelper;
 using PA.Model.Others;
 using PA.Helper.DataDefind;
+using PA.Helper.Tools;
 
 namespace PA.Helper.DataBase
 {
@@ -56,7 +57,19 @@ namespace PA.Helper.DataBase
             string date = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
             string sql = "insert into t_systeminfo (op_time,rkey) values ('" + date + "','999')";
             dataList.Add(sql);
+            
+
+            //获取U盘唯一码
+            UsbController usb = new UsbController();
+            string _str = usb.getSerialNumberFromDriveLetter();
+
+            sql = "insert into t_systeminfo(op_time,rkey,value,comments) values ('" + date + "','555','" + _str + "','USB')";
+            dataList.Add(sql);
+
             db.BatchOperate(dataList);
+
+            
+
         }
         private List<string> GetSubjectSqlList()
         {

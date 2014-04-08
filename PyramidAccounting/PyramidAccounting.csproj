@@ -68,6 +68,7 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>Lib\System.Data.SQLite.dll</HintPath>
     </Reference>
+    <Reference Include="System.Management" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
@@ -100,6 +101,7 @@
     <Compile Include="Helper\GridHelper\GridBorderHelper.cs" />
     <Compile Include="Helper\SQLHelper\SQLReader.cs" />
     <Compile Include="Helper\Tools\TryParse.cs" />
+    <Compile Include="Helper\Tools\UsbController.cs" />
     <Compile Include="Helper\Tools\Util.cs" />
     <Compile Include="Helper\XMLHelper\InitXMLConfig.cs" />
     <Compile Include="Helper\XMLHelper\XMLReader.cs" />
