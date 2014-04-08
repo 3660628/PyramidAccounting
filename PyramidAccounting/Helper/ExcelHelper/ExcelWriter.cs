@@ -296,7 +296,7 @@ namespace PA.Helper.ExcelHelper
         /// <summary>
         /// 科目明细账
         /// </summary>
-        public void ExportSubjectDetails(string Parm1, string Parm2)
+        public bool ExportSubjectDetails(string Parm1, string Parm2)
         {
             string SourceXls = Path + @"Data\打印\三栏明细账模板.xls";
             string ExportXls = Path + @"Data\打印\三栏明细账export.xls";
@@ -304,6 +304,12 @@ namespace PA.Helper.ExcelHelper
             xlWorkBook = xlApp.Workbooks.Open(ExportXls);
             xlWorkSheet = (xls.Worksheet)xlWorkBook.Worksheets.get_Item(1);
 
+
+            xlApp.Visible = true;
+            releaseObject(xlWorkSheet);
+            releaseObject(xlWorkBook);
+            releaseObject(xlApp);
+            return true;
         }
         #endregion
 
