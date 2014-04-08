@@ -267,9 +267,6 @@ namespace PA.Helper.ExcelHelper
                     xlWorkSheet.Cells[9 + i, 40] = LedgerData[i + (PageNum * PageLine)].余额12;
                 }
             }
-                
-
-
             xlApp.Visible = true;
 
             releaseObject(xlWorkSheet);
@@ -280,15 +277,32 @@ namespace PA.Helper.ExcelHelper
         /// <summary>
         /// 经费支出明细账
         /// </summary>
-        public void ExportExpenditureDetails(string Parm)
+        public bool ExportExpenditureDetails(string Parm)
         {
+            string SourceXls = Path + @"Data\打印\管理费用模板.xls";
+            string ExportXls = Path + @"Data\打印\管理费用export.xls";
+            File.Copy(SourceXls, ExportXls, true);
+            xlWorkBook = xlApp.Workbooks.Open(ExportXls);
+            xlWorkSheet = (xls.Worksheet)xlWorkBook.Worksheets.get_Item(1);
 
+
+
+            xlApp.Visible = true;
+            releaseObject(xlWorkSheet);
+            releaseObject(xlWorkBook);
+            releaseObject(xlApp);
+            return true;
         }
         /// <summary>
         /// 科目明细账
         /// </summary>
         public void ExportSubjectDetails(string Parm1, string Parm2)
         {
+            string SourceXls = Path + @"Data\打印\管理费用模板.xls";
+            string ExportXls = Path + @"Data\打印\管理费用export.xls";
+            File.Copy(SourceXls, ExportXls, true);
+            xlWorkBook = xlApp.Workbooks.Open(ExportXls);
+            xlWorkSheet = (xls.Worksheet)xlWorkBook.Worksheets.get_Item(1);
 
         }
         #endregion
