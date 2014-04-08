@@ -32,15 +32,20 @@ namespace PA.Helper.DataBase
             SQLiteConnection conn = new SQLiteConnection();
             connstr.DataSource = dataSource;
             conn.ConnectionString = connstr.ToString();
-
             conn.Open();
             conn.Close();
+
+            DataInitialize();
+        }
+
+        private void DataInitialize()
+        {
 
             DataBase db = new DataBase();
             List<string> dataList = new List<string>();
             dataList = getSqlList(Properties.Resources.DatabaseTable);
             db.BatchOperate(dataList);
-            
+
             dataList.Clear();
             dataList = GetSubjectSqlList();
             db.BatchOperate(dataList);
@@ -48,6 +53,9 @@ namespace PA.Helper.DataBase
             //插入数据
             dataList.Clear();
             dataList = getSqlList(Properties.Resources.DatabaseData);
+            string date = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
+            string sql = "insert into t_systeminfo (op_time,rkey) values ('" + date + "','999')";
+            dataList.Add(sql);
             db.BatchOperate(dataList);
         }
         private List<string> GetSubjectSqlList()
