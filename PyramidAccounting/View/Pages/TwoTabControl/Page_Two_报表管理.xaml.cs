@@ -17,6 +17,7 @@ using PA.Helper.DataBase;
 using PA.Helper.DataDefind;
 using PA.Model.ComboBox;
 using PA.ViewModel;
+using PA.Model.CustomEventArgs;
 
 namespace PA.View.Pages.TwoTabControl
 {
@@ -34,20 +35,41 @@ namespace PA.View.Pages.TwoTabControl
         public Page_Two_报表管理()
         {
             InitializeComponent();
+            SubscribeToEvent();
             this.Label_编制单位1.Content += "\t" +xr.ReadXML("公司");   //程序启动后加载当前公司名称
-
-            this.ComboBox_Date.ItemsSource = cbc.GetComboBox_期数(1);
-            this.ComboBox_Date.SelectedIndex = CommonInfo.当前期-1;
-
-            this.ComboBox_Date1.ItemsSource = cbc.GetComboBox_期数(1);
-            this.ComboBox_Date1.SelectedIndex = CommonInfo.当前期-1;
-
-            this.ComboBox_Date2.ItemsSource = cbc.GetComboBox_期数(1);
-            this.ComboBox_Date2.SelectedIndex = CommonInfo.当前期-1;
-
             mr = vm.GetOperateLog();
 
         }
+
+        /// <summary>
+        /// 刷新日期下拉
+        /// </summary>
+        private void FreshComboBox()
+        {
+            this.ComboBox_Date.ItemsSource = cbc.GetComboBox_期数(1);
+            this.ComboBox_Date.SelectedIndex = CommonInfo.当前期 - 1;
+
+            this.ComboBox_Date1.ItemsSource = cbc.GetComboBox_期数(1);
+            this.ComboBox_Date1.SelectedIndex = CommonInfo.当前期 - 1;
+
+            this.ComboBox_Date2.ItemsSource = cbc.GetComboBox_期数(1);
+            this.ComboBox_Date2.SelectedIndex = CommonInfo.当前期 - 1;
+        }
+        #region 事件订阅
+        private void SubscribeToEvent()
+        {
+            PA.View.Pages.TwoTabControl.Page_Two_快捷界面.TabChange += new Page_Two_快捷界面_TabChange(DoTabChange);
+        }
+        #endregion
+        #region 接受事件后处理
+        private void DoTabChange(object sender, MyEventArgs e)
+        {
+            if (e.操作类型 == "本月结账")
+            {
+                FreshComboBox();
+            }
+        }
+
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {

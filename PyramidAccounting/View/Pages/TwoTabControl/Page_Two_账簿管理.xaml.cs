@@ -34,9 +34,18 @@ namespace PA.View.Pages.TwoTabControl
         {
             InitializeComponent();
             SubscribeToEvent();
-            this.ComboBox_Date.ItemsSource = cbc.GetComboBox_期数(1);
-            this.ComboBox_Date.SelectedIndex = CommonInfo.当前期-1;
+            FreshComboBox();
         }
+
+        /// <summary>
+        /// 刷新日期下拉
+        /// </summary>
+        private void FreshComboBox()
+        {
+            this.ComboBox_Date.ItemsSource = cbc.GetComboBox_期数(1);
+            this.ComboBox_Date.SelectedIndex = CommonInfo.当前期 - 1;
+        }
+
         #region 事件订阅
         private void SubscribeToEvent()
         {
@@ -53,7 +62,7 @@ namespace PA.View.Pages.TwoTabControl
             }
             if (e.操作类型 == "本月结账")
             {
-                this.ComboBox_Date.ItemsSource = cbc.GetComboBox_期数(1);
+                FreshComboBox();
             }
         }
         private void Do固定资产Commit(object sender, MyEventArgs e)
