@@ -258,5 +258,10 @@ namespace PA.View.Pages.TwoTabControl
         {
 
         }
+
+        private void ComboBox_Date_PreviewMouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            this.ComboBox_Date.ItemsSource = cbc.GetComboBox_期数(1);
+        }
     }
 }
