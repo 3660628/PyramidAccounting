@@ -14,22 +14,7 @@ namespace PA.Helper.ExcelHelper
     public class ExcelWriter
     {
         private string Path = AppDomain.CurrentDomain.BaseDirectory;
-        private xls.Application xlApp;
-        private xls.Workbook xlWorkBook;
-        private xls.Worksheet xlWorkSheet;
         private object misValue = System.Reflection.Missing.Value;
-
-        public ExcelWriter()
-        {
-            try
-            {
-                xlApp = new xls.Application();
-            }
-            catch (Exception)
-            {
-                Console.WriteLine("找不到EXCEL");
-            }
-        }
 
         #region 1.凭证
         /// <summary>
@@ -38,6 +23,10 @@ namespace PA.Helper.ExcelHelper
         /// <param name="guid"></param>
         public void ExportVouchers(Guid guid)
         {
+            xls.Application xlApp = null;
+            xls.Workbook xlWorkBook;
+            xls.Worksheet xlWorkSheet;
+
             int SheetNum = new PA.ViewModel.ViewModel_凭证管理().GetPageNum(guid);
             Model_凭证单 Voucher = new PA.ViewModel.ViewModel_凭证管理().GetVoucher(guid);
             List<Model_凭证明细> VoucherDetails = new PA.ViewModel.ViewModel_凭证管理().GetVoucherDetails(guid);
@@ -45,9 +34,17 @@ namespace PA.Helper.ExcelHelper
             string SourceXls = Path + @"Data\打印\记账凭证模板.xls";
             string ExportXls = Path + @"Data\打印\记账凭证export.xls";
             File.Copy(SourceXls, ExportXls, true);
+            try
+            {
+                xlApp = new xls.Application();
+            }
+            catch (Exception)
+            {
+                Console.WriteLine("找不到EXCEL");
+            }
             xlWorkBook = xlApp.Workbooks.Open(ExportXls);
             xlWorkSheet = (xls.Worksheet)xlWorkBook.Worksheets.get_Item(1);
-            //fill Voucher
+            #region fill Voucher
             int x = 1, y = 1;
             DataSet ds = new PA.Helper.ExcelHelper.ExcelReader().ExcelDataSource(ExportXls, "Sheet1");
             foreach (DataRow dr in ds.Tables[0].Rows)
@@ -83,13 +80,15 @@ namespace PA.Helper.ExcelHelper
                 y++;
                 x = 1;
             }
-            //copy sheet while SheetNum>1 after fill Voucher Data
+            #endregion
+            #region copy sheet while SheetNum>1 after fill Voucher Data
             for (int i = 1; i < SheetNum; i++)
             {
                 xlWorkSheet.Copy(Type.Missing, xlWorkBook.Sheets[i]);
                 xlWorkBook.Worksheets.get_Item(i + 1).Name = "Sheet" + (i + 1);
             }
-            //fill VoucherDetails
+            #endregion
+            #region fill VoucherDetails
             for (int i = 0; i < SheetNum; i++)
             {
                 xlWorkSheet = (xls.Worksheet)xlWorkBook.Worksheets.get_Item(i+1);
@@ -176,6 +175,7 @@ namespace PA.Helper.ExcelHelper
                     xDetails = 1;
                 }
             }
+            #endregion
             xlApp.Visible = true;
 
             releaseObject(xlWorkSheet);
@@ -192,17 +192,28 @@ namespace PA.Helper.ExcelHelper
         /// <returns></returns>
         public bool ExportLedger(string DetailsData)
         {
-            const int PageLine = 47;
+            xls.Application xlApp = null;
+            xls.Workbook xlWorkBook;
+            xls.Worksheet xlWorkSheet;
 
             List<Model_总账> LedgerData = new PA.ViewModel.ViewModel_账薄管理().GetTotalFee(DetailsData);
             if (LedgerData.Count <= 1)
             {
                 return false;
             }
+            const int PageLine = 47;
             int TotalPageNum = LedgerData.Count / PageLine + 1;
             string SourceXls = Path + @"Data\打印\总账模板.xls";
             string ExportXls = Path + @"Data\打印\总账export.xls";
             File.Copy(SourceXls, ExportXls, true);
+            try
+            {
+                xlApp = new xls.Application();
+            }
+            catch (Exception)
+            {
+                Console.WriteLine("找不到EXCEL");
+            }
             xlWorkBook = xlApp.Workbooks.Open(ExportXls);
             xlWorkSheet = (xls.Worksheet)xlWorkBook.Worksheets.get_Item(1);
 
@@ -227,6 +238,7 @@ namespace PA.Helper.ExcelHelper
                     {
                         break;
                     }
+                    #region 填充详细内容
                     xlWorkSheet.Cells[9 + i, 1 ] = LedgerData[i + (PageNum * PageLine)].月;
                     xlWorkSheet.Cells[9 + i, 2 ] = LedgerData[i + (PageNum * PageLine)].日;
                     xlWorkSheet.Cells[9 + i, 3 ] = LedgerData[i + (PageNum * PageLine)].号数;
@@ -265,6 +277,7 @@ namespace PA.Helper.ExcelHelper
                     xlWorkSheet.Cells[9 + i, 38] = LedgerData[i + (PageNum * PageLine)].余额10;
                     xlWorkSheet.Cells[9 + i, 39] = LedgerData[i + (PageNum * PageLine)].余额11;
                     xlWorkSheet.Cells[9 + i, 40] = LedgerData[i + (PageNum * PageLine)].余额12;
+                    #endregion
                 }
             }
             xlApp.Visible = true;
@@ -279,13 +292,84 @@ namespace PA.Helper.ExcelHelper
         /// </summary>
         public bool ExportExpenditureDetails(string Parm)
         {
+            xls.Application xlApp = null;
+            xls.Workbook xlWorkBook;
+            xls.Worksheet xlWorkSheet;
+
+            List<Model_费用明细> data = new PA.ViewModel.ViewModel_账薄管理().GetFeeDetail(Parm);
+            string year;
+            try
+            {
+                year = data[0].年;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+            const int PageLine = 23;
+            int TotalPageNum = data.Count / PageLine + 1;
             string SourceXls = Path + @"Data\打印\管理费用模板.xls";
             string ExportXls = Path + @"Data\打印\管理费用export.xls";
             File.Copy(SourceXls, ExportXls, true);
+            try
+            {
+                xlApp = new xls.Application();
+            }
+            catch (Exception)
+            {
+                Console.WriteLine("找不到EXCEL");
+            }
             xlWorkBook = xlApp.Workbooks.Open(ExportXls);
             xlWorkSheet = (xls.Worksheet)xlWorkBook.Worksheets.get_Item(1);
 
+            //fill head data
+            xlWorkSheet.Cells[1, 27] = "管    理    费    用";
+            xlWorkSheet.Cells[2, 1 ] = "项（或目）科目名称：" + Parm.Split('\t')[1];
+            xlWorkSheet.Cells[6, 1] = year + "年";
+            try
+            {
+                xlWorkSheet.Cells[7, "AI"] = data[0].列名[0].Split('\t')[1];
+                xlWorkSheet.Cells[7, "AS"] = data[0].列名[1].Split('\t')[1];
+                xlWorkSheet.Cells[7, "BD"] = data[0].列名[2].Split('\t')[1];
+                xlWorkSheet.Cells[7, "BN"] = data[0].列名[3].Split('\t')[1];
+                xlWorkSheet.Cells[7, "BX"] = data[0].列名[4].Split('\t')[1];
+                xlWorkSheet.Cells[7, "CH"] = data[0].列名[5].Split('\t')[1];
+                xlWorkSheet.Cells[7, "CR"] = data[0].列名[6].Split('\t')[1];
+                xlWorkSheet.Cells[7, "DB"] = data[0].列名[7].Split('\t')[1];
+                xlWorkSheet.Cells[7, "DL"] = data[0].列名[8].Split('\t')[1];
+                xlWorkSheet.Cells[7, "DV"] = data[0].列名[9].Split('\t')[1];
+                xlWorkSheet.Cells[7, "EF"] = data[0].列名[10].Split('\t')[1];
+            }
+            catch (ArgumentOutOfRangeException) { }
+            //copy sheet
+            for (int i = 1; i < TotalPageNum; i++)
+            {
+                xlWorkSheet.Copy(Type.Missing, xlWorkBook.Sheets[1]);
+                xlWorkBook.Worksheets.get_Item(i + 1).Name = "Sheet" + (i + 1);
+            }
+            //fill detail data
+            for (int PageNum = 0; PageNum < TotalPageNum; PageNum++)
+            {
+                xlWorkSheet = (xls.Worksheet)xlWorkBook.Worksheets.get_Item(PageNum + 1);
+                xlWorkSheet.Cells[3, "EE"] = (PageNum + 1) + "/" + TotalPageNum;
+                for (int i = 0; i < PageLine; i++)
+                {
+                    if (i + (PageNum * PageLine) >= data.Count)
+                    {
+                        break;
+                    }
+                    #region 填充详细内容
+                    xlWorkSheet.Cells[9 + i, 1] = data[i + (PageNum * PageLine)].月;
+                    xlWorkSheet.Cells[9 + i, 2] = data[i + (PageNum * PageLine)].日;
+                    xlWorkSheet.Cells[9 + i, 3] = data[i + (PageNum * PageLine)].号数;
+                    xlWorkSheet.Cells[9 + i, 4] = data[i + (PageNum * PageLine)].摘要;
 
+
+
+
+                    #endregion
+                }
+            }
 
             xlApp.Visible = true;
             releaseObject(xlWorkSheet);
@@ -298,9 +382,21 @@ namespace PA.Helper.ExcelHelper
         /// </summary>
         public bool ExportSubjectDetails(string Parm1, string Parm2)
         {
+            xls.Application xlApp = null;
+            xls.Workbook xlWorkBook;
+            xls.Worksheet xlWorkSheet;
+
             string SourceXls = Path + @"Data\打印\三栏明细账模板.xls";
             string ExportXls = Path + @"Data\打印\三栏明细账export.xls";
             File.Copy(SourceXls, ExportXls, true);
+            try
+            {
+                xlApp = new xls.Application();
+            }
+            catch (Exception)
+            {
+                Console.WriteLine("找不到EXCEL");
+            }
             xlWorkBook = xlApp.Workbooks.Open(ExportXls);
             xlWorkSheet = (xls.Worksheet)xlWorkBook.Worksheets.get_Item(1);
 
