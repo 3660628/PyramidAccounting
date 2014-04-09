@@ -18,6 +18,13 @@ namespace PA.Helper.DataDefind
         private static int period;
         private static bool isSaved;
         private static int m_SoftwareState;
+        private static string m_deviceID;
+
+        public static string U盘设备ID
+        {
+            get { return CommonInfo.m_deviceID; }
+            set { CommonInfo.m_deviceID = value; }
+        }
 
         public static bool 是否初始化年初数
         {

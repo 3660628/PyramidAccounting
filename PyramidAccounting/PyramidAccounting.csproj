@@ -133,6 +133,7 @@
     <Compile Include="ViewModel\ViewModel_年初金额.cs" />
     <Compile Include="ViewModel\ViewModel_操作日志.cs" />
     <Compile Include="ViewModel\ViewModel_用户.cs" />
+    <Compile Include="ViewModel\ViewModel_系统管理.cs" />
     <Compile Include="ViewModel\ViewModel_账薄管理.cs" />
     <Compile Include="ViewModel\ViewModel_科目管理.cs" />
     <Compile Include="View\Pages\Page_MainTabControl.xaml.cs">

@@ -31,6 +31,7 @@ namespace PA.View.Pages.TwoTabControl
         private ViewModel_凭证管理 vmp = new ViewModel_凭证管理();
         Model_操作日志 mr = new Model_操作日志();
         ViewModel_操作日志 vmr = new ViewModel_操作日志();
+        ViewModel_系统管理 vsy = new ViewModel_系统管理();
            
         public Page_Two_快捷界面()
         {
@@ -55,6 +56,11 @@ namespace PA.View.Pages.TwoTabControl
 
         private void Button_凭证输入_Click(object sender, RoutedEventArgs e)
         {
+            if (vsy.ValidateRuning() == false)
+            {
+                MessageBoxCommon.Show("试用期已过，不能使用此功能！");
+                return;
+            }
             if (CommonInfo.是否初始化年初数)
             {
                 new PA.View.Windows.Win_记账凭证().ShowDialog();
@@ -83,6 +89,11 @@ namespace PA.View.Pages.TwoTabControl
 
         private void Button_本月结账_Click(object sender, RoutedEventArgs e)
         {
+            if (vsy.ValidateRuning() == false)
+            {
+                MessageBoxCommon.Show("试用期已过，不能使用此功能！");
+                return;
+            }
             this.Button_隐藏.Focus();
             bool mark = false;
             if (CommonInfo.是否初始化年初数)

@@ -17,6 +17,7 @@ using PA.ViewModel;
 using PA.View.Windows;
 using PA.Helper.XMLHelper;
 using PA.Model.DataGrid;
+using PA.Helper.Tools;
 
 namespace PA
 {
@@ -26,6 +27,7 @@ namespace PA
         private XMLReader xr = new XMLReader();
         private ViewModel_用户 vm = new ViewModel_用户();
         private ViewModel_操作日志 vmr = new ViewModel_操作日志();
+        private ViewModel_系统管理 vsy = new ViewModel_系统管理();
 
         public Win_SignIn()
         {
@@ -44,6 +46,7 @@ namespace PA
             new PA.Helper.DataBase.StartUpInit().Init();
             InitComboBox();
             this.TextBox_登陆用户名.Focus();
+            
         }
         private void InitComboBox()
         {
@@ -51,6 +54,9 @@ namespace PA
             ComboBox_账套.DisplayMemberPath = "账套名称";
             ComboBox_账套.SelectedValuePath = "ID";
             ComboBox_账套.Text = new XMLReader().ReadXML("账套信息");
+
+            CommonInfo.U盘设备ID = vsy.GetUsbDeviceID();
+
         }
 
         #region Button事件
@@ -74,6 +80,11 @@ namespace PA
 
         private void Button_登陆_Click(object sender, RoutedEventArgs e)
         {
+            if (!vsy.GetRunningFlag())
+            {
+                TextBlock_登陆警告信息.Text = "此软件只能运行于U盘设备中，请确认运行软件的位置！";
+                return;
+            }
             string bookname = ComboBox_账套.Text.ToString();
             string  id = ComboBox_账套.SelectedValue.ToString();
             CommonInfo.账薄号 = id;

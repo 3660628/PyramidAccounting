@@ -24,7 +24,7 @@ namespace PA.View.Pages.TwoTabControl
         List<Model_凭证管理> Data_本期凭证 = new List<Model_凭证管理>();
         PA.Helper.XMLHelper.XMLReader xr = new Helper.XMLHelper.XMLReader();
         private ComboBox_Common cbc = new ComboBox_Common();
-
+        private ViewModel.ViewModel_系统管理 vsy = new ViewModel.ViewModel_系统管理();
         public Page_Two_凭证管理()
         {
             InitializeComponent();
@@ -99,6 +99,11 @@ namespace PA.View.Pages.TwoTabControl
 
         private void Button_Add_Click(object sender, RoutedEventArgs e)
         {
+            if (vsy.ValidateRuning() == false)
+            {
+                MessageBoxCommon.Show("试用期已过，不能使用此功能！");
+                return;
+            }
             if (CommonInfo.是否初始化年初数)
             {
                 PA.View.Windows.Win_记账凭证 win = new PA.View.Windows.Win_记账凭证();
@@ -112,6 +117,11 @@ namespace PA.View.Pages.TwoTabControl
 
         private void Button_Review_Click(object sender, RoutedEventArgs e)
         {
+            if (vsy.ValidateRuning() == false)
+            {
+                MessageBoxCommon.Show("试用期已过，不能使用此功能！");
+                return;
+            }
             if (this.DataGrid_本期凭证.SelectedCells.Count != 0)
             {
                 if (CommonInfo.权限值 >= 2)

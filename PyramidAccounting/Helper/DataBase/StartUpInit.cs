@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.IO;
 using PA.Helper.XMLHelper;
+using PA.Helper.DataDefind;
 
 namespace PA.Helper.DataBase
 {

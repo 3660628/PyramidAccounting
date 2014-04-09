@@ -575,16 +575,14 @@ namespace PA.View.Pages.TwoTabControl
             switch (status)
             {
                 case 0:
-                    CommonInfo.SoftwareState = (int)M_Enum.EM_SOFTWARESTATE.过期;
-                    msg = "试用期已过，部分功能受限！";
+                    msg = "试用期已过，部分功能使用受限！";
                     break;
                 case 1:
-                    CommonInfo.SoftwareState = (int)M_Enum.EM_SOFTWARESTATE.未注册;
                     int i = rg.NumsOfDayRemaining();
                     if (i < 0)
                     {
-                        rg.UpdateSoftwareVersionStatus((int)M_Enum.EM_SOFTWARESTATE.过期);
                         i = 0;
+                        rg.UpdateSoftwareVersionStatus((int)M_Enum.EM_SOFTWARESTATE.过期);
                         GetVersionMessage();
                     }
                     else
@@ -593,7 +591,6 @@ namespace PA.View.Pages.TwoTabControl
                     }
                     break;
                 case 2:
-                    CommonInfo.SoftwareState = (int)M_Enum.EM_SOFTWARESTATE.已注册;
                     msg = "正式版";
                     break;
             }
@@ -601,16 +598,18 @@ namespace PA.View.Pages.TwoTabControl
         }
         private void Button_注册_Click(object sender, RoutedEventArgs e)
         {
-            string registerCode = TextBox_注册.Text.Trim();
+            string registerCode = TextBox_注册.Text.Trim().ToUpper();
             UsbController usb = new Helper.Tools.UsbController();
             string date = DateTime.Now.ToString("yyyyMMdd");
             string orginCode = "StoneAnt.PA" + date + usb.getSerialNumberFromDriveLetter();
-            string validateCode = Secure.GetMD5_32(orginCode);
+            string validateCode = Secure.GetMD5_32(orginCode).ToUpper();
             if (registerCode.Equals(validateCode))
             {
                 rg.UpdateSoftwareVersionStatus((int)M_Enum.EM_SOFTWARESTATE.已注册);
+                rg.UpdateSoftwareRegisterCode(registerCode);
                 MessageBoxCommon.Show("注册成功！");
                 this.LoadPage();
+                Grid_Register.Visibility = Visibility.Hidden;
             }
             else
             {

@@ -250,7 +250,7 @@
                     <Label Content="客服热线：0754-85837039" HorizontalAlignment="Left" VerticalAlignment="Center" Width="279" Grid.Row="2" Grid.Column="1"/>
                     <Label x:Name="Laber_Version" Content="Label" HorizontalAlignment="Left"  VerticalAlignment="Center" Grid.Column="1" Grid.Row="1"/>
                     <Label Content="企业QQ： 2095250852" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center" Grid.Row="3"/>
-                    <Grid x:Name="Register" Grid.Row="7" Grid.ColumnSpan="2">
+                    <Grid x:Name="Grid_Register" Grid.Row="7" Grid.ColumnSpan="2">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition />
                             <ColumnDefinition />
