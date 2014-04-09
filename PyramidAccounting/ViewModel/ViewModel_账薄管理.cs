@@ -7,12 +7,14 @@ using PA.Helper.DataBase;
 using PA.Helper.DataDefind;
 using System.Data;
 using PA.Model.ComboBox;
+using PA.Helper.Tools;
 
 namespace PA.ViewModel
 {
     class ViewModel_账薄管理
     {
         private DataBase db = new DataBase();
+        private Util ut = new Util();
         public List<Model_总账> GetTotalFee(string subject_id)
         {
             List<Model_总账> list = new List<Model_总账>();
@@ -70,7 +72,7 @@ namespace PA.ViewModel
                     string temp = string.Empty;
                     List<string> _list = new List<string>();
 
-                    _list = Turn(m.贷方金额, 12);
+                    _list = ut.Turn(m.贷方金额, 12);
                     m.贷方金额1 = _list[0];
                     m.贷方金额2 = _list[1];
                     m.贷方金额3 = _list[2];
@@ -84,7 +86,7 @@ namespace PA.ViewModel
                     m.贷方金额11 = _list[10];
                     m.贷方金额12 = _list[11];
 
-                    _list = Turn(m.借方金额, 12);
+                    _list = ut.Turn(m.借方金额, 12);
                     m.借方金额1 = _list[0];
                     m.借方金额2 = _list[1];
                     m.借方金额3 = _list[2];
@@ -101,7 +103,7 @@ namespace PA.ViewModel
                     
                     
                     _list.Clear();
-                    _list = Turn(m.余额, 12);
+                    _list = ut.Turn(m.余额, 12);
                     m.余额1 = _list[0];
                     m.余额2 = _list[1];
                     m.余额3 = _list[2];
@@ -175,7 +177,7 @@ namespace PA.ViewModel
                     if (string.IsNullOrEmpty(m.借方金额))
                     {
                         temp = d[4].ToString();
-                        _list = Turn(d[4].ToString(), 10);
+                        _list = ut.Turn(d[4].ToString(), 10);
                         m.贷方金额1 = _list[0];
                         m.贷方金额2 = _list[1];
                         m.贷方金额3 = _list[2];
@@ -190,7 +192,7 @@ namespace PA.ViewModel
                     else
                     {
                         temp = d[3].ToString();
-                        _list = Turn(d[3].ToString(), 10);
+                        _list = ut.Turn(d[3].ToString(), 10);
                         m.借方金额1 = _list[0];
                         m.借方金额2 = _list[1];
                         m.借方金额3 = _list[2];
@@ -205,7 +207,7 @@ namespace PA.ViewModel
 
                     yearfee = (Convert.ToDecimal(yearfee) - Convert.ToDecimal(temp)).ToString();
                     _list.Clear();
-                    _list = Turn(yearfee, 10);
+                    _list = ut.Turn(yearfee, 10);
                     m.余额1 = _list[0];
                     m.余额2 = _list[1];
                     m.余额3 = _list[2];
@@ -219,7 +221,7 @@ namespace PA.ViewModel
                     _list.Clear();
 
                     
-                    _list = Turn(d[5].ToString(), 10);
+                    _list = ut.Turn(d[5].ToString(), 10);
                     m.金额31 = _list[0];
                     m.金额32 = _list[1];
                     m.金额33 = _list[2];
@@ -232,7 +234,7 @@ namespace PA.ViewModel
                     m.金额40 = _list[9];
 
                     _list.Clear();
-                    _list = Turn(d[6].ToString(), 10);
+                    _list = ut.Turn(d[6].ToString(), 10);
                     m.金额41 = _list[0];
                     m.金额42 = _list[1];
                     m.金额43 = _list[2];
@@ -245,7 +247,7 @@ namespace PA.ViewModel
                     m.金额50 = _list[9];
 
                     _list.Clear();
-                    _list = Turn(d[7].ToString(), 10);
+                    _list = ut.Turn(d[7].ToString(), 10);
                     m.金额51 = _list[0];
                     m.金额52 = _list[1];
                     m.金额53 = _list[2];
@@ -258,7 +260,7 @@ namespace PA.ViewModel
                     m.金额60 = _list[9];
 
                     _list.Clear();
-                    _list = Turn(d[8].ToString(), 10);
+                    _list = ut.Turn(d[8].ToString(), 10);
                     m.金额61 = _list[0];
                     m.金额62 = _list[1];
                     m.金额63 = _list[2];
@@ -271,7 +273,7 @@ namespace PA.ViewModel
                     m.金额70 = _list[9];
 
                     _list.Clear();
-                    _list = Turn(d[9].ToString(), 10);
+                    _list = ut.Turn(d[9].ToString(), 10);
                     m.金额71 = _list[0];
                     m.金额72 = _list[1];
                     m.金额73 = _list[2];
@@ -284,7 +286,7 @@ namespace PA.ViewModel
                     m.金额80 = _list[9];
 
                     _list.Clear();
-                    _list = Turn(d[10].ToString(), 10);
+                    _list = ut.Turn(d[10].ToString(), 10);
                     m.金额81 = _list[0];
                     m.金额82 = _list[1];
                     m.金额83 = _list[2];
@@ -297,7 +299,7 @@ namespace PA.ViewModel
                     m.金额90 = _list[9];
 
                     _list.Clear();
-                    _list = Turn(d[11].ToString(), 10);
+                    _list = ut.Turn(d[11].ToString(), 10);
                     m.金额91 = _list[0];
                     m.金额92 = _list[1];
                     m.金额93 = _list[2];
@@ -310,7 +312,7 @@ namespace PA.ViewModel
                     m.金额100 = _list[9];
 
                     _list.Clear();
-                    _list = Turn(d[12].ToString(), 10);
+                    _list = ut.Turn(d[12].ToString(), 10);
                     m.金额101 = _list[0];
                     m.金额102 = _list[1];
                     m.金额103 = _list[2];
@@ -323,7 +325,7 @@ namespace PA.ViewModel
                     m.金额110 = _list[9];
 
                     _list.Clear();
-                    _list = Turn(d[13].ToString(), 10);
+                    _list = ut.Turn(d[13].ToString(), 10);
                     m.金额111 = _list[0];
                     m.金额112 = _list[1];
                     m.金额113 = _list[2];
@@ -336,7 +338,7 @@ namespace PA.ViewModel
                     m.金额120 = _list[9];
 
                     _list.Clear();
-                    _list = Turn(d[14].ToString(), 10);
+                    _list = ut.Turn(d[14].ToString(), 10);
                     m.金额121 = _list[0];
                     m.金额122 = _list[1];
                     m.金额123 = _list[2];
@@ -349,7 +351,7 @@ namespace PA.ViewModel
                     m.金额130 = _list[9];
 
                     _list.Clear();
-                    _list = Turn(d[15].ToString(), 10);
+                    _list = ut.Turn(d[15].ToString(), 10);
                     m.金额131 = _list[0];
                     m.金额132 = _list[1];
                     m.金额133 = _list[2];
@@ -374,7 +376,7 @@ namespace PA.ViewModel
         /// <param name="subject_id">一级科目</param>
         /// <param name="detail">二级科目</param>
         /// <param name="peroid">查询期</param>
-        /// <returns></returns>
+        /// <reut.Turns></reut.Turns>
         public List<Model_科目明细账> GetSubjectDetail(string subject_id,string detail,int peroid)
         {
             List<Model_科目明细账> list = new List<Model_科目明细账>();
@@ -417,7 +419,7 @@ namespace PA.ViewModel
                     temp = d[5].ToString();  //差额
                     m.借或贷 = d[6].ToString();
 
-                    _list = Turn(m.贷方金额, 12);
+                    _list = ut.Turn(m.贷方金额, 12);
                     m.贷方金额1 = _list[0];
                     m.贷方金额2 = _list[1];
                     m.贷方金额3 = _list[2];
@@ -431,7 +433,7 @@ namespace PA.ViewModel
                     m.贷方金额11 = _list[10];
                     m.贷方金额12 = _list[11];
 
-                    _list = Turn(m.借方金额, 12);
+                    _list = ut.Turn(m.借方金额, 12);
                     m.借方金额1 = _list[0];
                     m.借方金额2 = _list[1];
                     m.借方金额3 = _list[2];
@@ -449,7 +451,7 @@ namespace PA.ViewModel
 
                     yearfee = (Convert.ToDecimal(yearfee) - Convert.ToDecimal(temp)).ToString();
                     _list.Clear();
-                    _list = Turn(yearfee,12);
+                    _list = ut.Turn(yearfee,12);
                     m.余额1 = _list[0];
                     m.余额2 = _list[1];
                     m.余额3 = _list[2];
@@ -469,57 +471,7 @@ namespace PA.ViewModel
             }
             return list;
         }
-
-        /// <summary>
-        /// 金额转换算法
-        /// </summary>
-        /// <param name="value">转换数</param>
-        /// <param name="size">位数</param>
-        /// <returns>List</returns>
-        private List<string> Turn(string value,int size)
-        {
-            List<string> list = new List<string>();
-            int length = value.Length;
-            if (value.Equals("0"))
-            {
-                for (int i = 0; i < size;i++ )
-                {
-                    list.Add(string.Empty);
-                }
-                return list;
-            }
-            value = value.Replace(".", "");
-            string s = string.Empty;
-            char[] cc = value.ToCharArray();
-
-            if (value.IndexOf(".") > 0)
-            {
-                for (int j = 0; j < size - length; j++)
-                {
-                    list.Add(s);
-                }
-                for (int i = 0; i < length; i++)
-                {
-                    s = cc[i].ToString();
-                    list.Add(s);
-                }
-            }
-            else
-            {
-                for (int j = 0; j < size - 2 - length; j++)
-                {
-                    list.Add(s);
-                }
-                for (int i = 0; i < length; i++)
-                {
-                    s = cc[i].ToString();
-                    list.Add(s);
-                }
-                list.Add("0");
-                list.Add("0");
-            }
-            return list;
-        }
+       
         /// <summary>
         /// 结账
         /// </summary>
