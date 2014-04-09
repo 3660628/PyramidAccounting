@@ -82,7 +82,7 @@ namespace PA
         {
             if (!vsy.GetRunningFlag())
             {
-                TextBlock_登陆警告信息.Text = "此软件只能运行于U盘设备中，/n请确认运行软件的位置！";
+                TextBlock_登陆警告信息.Text = "此软件只能运行于/n第一次运行的位置！";
                 return;
             }
             string bookname = ComboBox_账套.Text.ToString();

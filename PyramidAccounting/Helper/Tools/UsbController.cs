@@ -47,7 +47,8 @@ namespace PA.Helper.Tools
                     foreach (ManagementObject disk in disks.Get())
                     {
 
-                        if (disk["Name"].ToString() == ("\\\\.\\PHYSICALDRIVE" + driveNumber) & disk["InterfaceType"].ToString() == "USB")
+                        //if (disk["Name"].ToString() == ("\\\\.\\PHYSICALDRIVE" + driveNumber) & disk["InterfaceType"].ToString() == "USB")
+                        if (disk["Name"].ToString() == ("\\\\.\\PHYSICALDRIVE" + driveNumber))
                         {
                             this._serialNumber = parseSerialFromDeviceID(disk["PNPDeviceID"].ToString());
                         }
