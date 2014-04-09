@@ -70,9 +70,9 @@ namespace PA.View.Pages.TwoTabControl
             this.ComboBox_Date.SelectedIndex = CommonInfo.当前期;
             this.ComboBox_Review.ItemsSource = cbc.GetComboBox_审核();
             this.ComboBox_Review.SelectedIndex = 0;
-            Label_账套名称.Content = "当前帐套名称：" + xr.ReadXML("账套信息");
+            Label_账套名称.Content = "当前帐套名称：" + CommonInfo.账套信息;
             Label_操作员.Content = "操作员：" + CommonInfo.用户权限 + "\t" +CommonInfo.真实姓名;
-            Label_当前期数.Content = "当前期数：" + ComboBox_Date.SelectedValue.ToString();
+            Label_当前期数.Content = "当前期数：第" + CommonInfo.当前期 + "期";
         }
         private void ReflashData()
         {

@@ -19,6 +19,13 @@ namespace PA.Helper.DataDefind
         private static bool isSaved;
         private static int m_SoftwareState;
         private static string m_deviceID;
+        private static string m_bookName;
+
+        public static string 账套信息
+        {
+            get { return CommonInfo.m_bookName; }
+            set { CommonInfo.m_bookName = value; }
+        }
 
         public static string U盘设备ID
         {

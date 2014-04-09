@@ -89,6 +89,7 @@ namespace PA
             string bookname = ComboBox_账套.Text.ToString();
             string  id = ComboBox_账套.SelectedValue.ToString();
             CommonInfo.账薄号 = id;
+            CommonInfo.账套信息 = bookname;
             string UserName = TextBox_登陆用户名.Text.Trim();
             string Password = Secure.TranslatePassword(PasswordBox_登陆密码.SecurePassword);
 

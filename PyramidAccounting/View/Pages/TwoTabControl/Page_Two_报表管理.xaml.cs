@@ -54,6 +54,10 @@ namespace PA.View.Pages.TwoTabControl
 
             this.ComboBox_Date2.ItemsSource = cbc.GetComboBox_期数(1);
             this.ComboBox_Date2.SelectedIndex = CommonInfo.当前期 - 1;
+
+            Label_账套名称.Content = "当前帐套名称：" + CommonInfo.账套信息;
+            Label_操作员.Content = "操作员：" + CommonInfo.用户权限 + "\t" + CommonInfo.真实姓名;
+            Label_当前期数.Content = "当前期数：第" + CommonInfo.当前期 + "期";
         }
         #region 事件订阅
         private void SubscribeToEvent()
