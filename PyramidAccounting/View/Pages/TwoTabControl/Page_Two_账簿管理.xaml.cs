@@ -316,5 +316,14 @@ namespace PA.View.Pages.TwoTabControl
                 MessageBoxCommon.Show("打印失败，请检查数据。");
             }
         }
+
+        private void Button_固定资产_查询(object sender, RoutedEventArgs e)
+        {
+            ViewModel_固定资产 vm = new ViewModel_固定资产();
+            string a = TextBox_科目及单位名称.Text.ToString();
+            //List<Model_固定资产> lm = vm.GetAllSource();
+
+            this.DataGrid_固定资产.ItemsSource = vm.GetAllSource();
+        }
     }
 }

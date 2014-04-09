@@ -6,6 +6,7 @@ using PA.Helper.DataBase;
 using PA.Model.DataGrid;
 using PA.Helper.DataDefind;
 using System.Data;
+using PA.Helper.Tools;
 
 namespace PA.ViewModel
 {
@@ -13,6 +14,7 @@ namespace PA.ViewModel
     {
         DataBase db = new DataBase();
         private string sql = string.Empty;
+        private Util ut = new Util();
 
         /// <summary>
         /// 获取
@@ -30,17 +32,33 @@ namespace PA.ViewModel
                 {
                     Model_固定资产 m = new Model_固定资产();
                     DataRow d = dt.Rows[i];
-                    m.序号 = i + 1;
+                    m.编号 = d[0].ToString();
                     m.名称及规格 = d[1].ToString();
                     m.单位 = d[2].ToString();
                     m.数量 = d[3].ToString();
-                    m.价格 = d[4].ToString();
+                    
+                    string price = d[4].ToString();
+                    List<string> _list = new List<string>();
+
+                    _list = ut.Turn(price, 10);
+                    m.价格千万 = _list[0];
+                    m.价格百万 = _list[1];
+                    m.价格十万 = _list[2];
+                    m.价格万 = _list[3];
+                    m.价格千 = _list[4];
+                    m.价格百 = _list[5];
+                    m.价格十 = _list[6];
+                    m.价格元 = _list[7];
+                    m.价格角 = _list[8];
+                    m.价格分 = _list[9];
+
                     m.使用年限 = Convert.ToInt32(d[5]);
                     m.购置日期 = Convert.ToDateTime(d[6].ToString());
                     m.使用部门 = d[7].ToString();
                     m.报废日期 = Convert.ToDateTime(d[8].ToString());
                     m.凭证编号 = d[9].ToString();
                     m.备注 = d[10].ToString();
+                    m.删除标志 = Convert.ToInt32(d[11]);
                     list.Add(m);
                 }
             }
