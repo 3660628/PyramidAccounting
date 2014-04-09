@@ -480,18 +480,12 @@ namespace PA.ViewModel
             //string date = DateTime.Now.ToString("yyyy-MM-dd");
             string sql = "INSERT INTO " + DBTablesName.T_FEE
                           + "(OP_TIME,PERIOD,SUBJECT_ID,VOUCHER_NUMS,COMMENTS,DEBIT,CREDIT,MARK,DELETE_MARK,FEE)"
-                          + " select t.*,b.mark,0,abs(b.mark*b.fee-(t.credit-t.debit)) as fee from ("
-                          + "SELECT datetime('now', 'localtime') as op_time," + CommonInfo.当前期
-                          + ",a.subject_id,"
-                          + "a.voucher_nums,"
-                          + "a.comments,"
-                          + "a.debit as debit,"
-                          + "a.CREDIT as credit "
-                          + "FROM (SELECT min(VOUCHER_NO) || '-' || max(VOUCHER_NO) AS voucher_nums,"
-                          + "SUBJECT_ID,    "
-                          + "SUBJECT_ID || '汇总' AS comments,"
-                          + "sum(DEBIT) AS DEBIT,"
-                          + "sum(CREDIT) AS CREDIT"
+                          + " select datetime('now', 'localtime') as op_time," +  CommonInfo.当前期
+                          + ",b.subject_id,t.voucher_nums,b.SUBJECT_ID || '汇总' AS comments,t.DEBIT,t.CREDIT,b.mark,0,abs(b.mark*b.fee-(t.credit-t.debit)) as fee from " 
+                          + DBTablesName.T_FEE + " b left join ("
+                          + "SELECT min(VOUCHER_NO) || '-' || max(VOUCHER_NO) AS voucher_nums,"
+                          + "total(DEBIT) AS DEBIT,"
+                          + "total(CREDIT) AS CREDIT"
                           + " FROM "
                           + DBTablesName.T_VOUCHER_DETAIL
                           + " WHERE PARENTID IN (  "
@@ -499,8 +493,8 @@ namespace PA.ViewModel
                           + DBTablesName.T_VOUCHER
                           + " WHERE period = " + CommonInfo.当前期
                           + " and review_mark=1) GROUP BY "
-                          + "SUBJECT_ID  ORDER BY SUBJECT_ID) a ) t left join " + DBTablesName.T_FEE 
-                          + " b on t.subject_id=b.subject_id where b.period=" + (CommonInfo.当前期-1);
+                          + "SUBJECT_ID  ORDER BY SUBJECT_ID ) t on t.subject_id=b.subject_id where b.period=" 
+                          + (CommonInfo.当前期-1);
             bool flag = db.Excute(sql);
             if (flag && CommonInfo.当前期 != 12)
             {
