@@ -82,7 +82,7 @@ namespace PA
         {
             if (!vsy.GetRunningFlag())
             {
-                TextBlock_登陆警告信息.Text = "出于安全考虑，您无法进入系统/n详细联系开发商！";
+                TextBlock_登陆警告信息.Text = "出于安全考虑，您无法进入系统，详细请联系开发商！";
                 return;
             }
             string bookname = ComboBox_账套.Text.ToString();
