@@ -38,7 +38,7 @@ namespace PA.View.Pages.TwoTabControl
             SubscribeToEvent();
             this.Label_编制单位1.Content += "\t" +xr.ReadXML("公司");   //程序启动后加载当前公司名称
             mr = vm.GetOperateLog();
-
+            FreshComboBox();
         }
 
         /// <summary>
