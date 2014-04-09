@@ -307,7 +307,7 @@ namespace PA.View.Pages.TwoTabControl
                 TextBox_二级科目.Focus();
                 return;
             }
-            if(!new PA.Helper.ExcelHelper.ExcelWriter().ExportSubjectDetails(TextBox_一级科目.Text, TextBox_二级科目.Text))
+            if (!new PA.Helper.ExcelHelper.ExcelWriter().ExportSubjectDetails(TextBox_一级科目.Text, TextBox_二级科目.Text, ComboBox_Date.SelectedIndex + 1))
             {
                 MessageBoxCommon.Show("打印失败，请检查数据。");
             }

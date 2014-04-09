@@ -517,12 +517,24 @@ namespace PA.Helper.ExcelHelper
         /// <summary>
         /// 科目明细账
         /// </summary>
-        public bool ExportSubjectDetails(string Parm1, string Parm2)
+        public bool ExportSubjectDetails(string ParmSubjectId, string ParmDetailId, int ParmPeroid)
         {
+            List<Model_科目明细账> data = new PA.ViewModel.ViewModel_账薄管理().GetSubjectDetail(ParmSubjectId, ParmDetailId, ParmPeroid);
+            string year = "    ";
+            try
+            {
+                year = data[0].年;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+            const int PageLine = 21;
+            int TotalPageNum = data.Count / PageLine + 1;
+
             xls.Application xlApp = null;
             xls.Workbook xlWorkBook;
             xls.Worksheet xlWorkSheet;
-
             string SourceXls = Path + @"Data\打印\三栏明细账模板.xls";
             string ExportXls = Path + @"Data\打印\三栏明细账export.xls";
             File.Copy(SourceXls, ExportXls, true);
@@ -537,6 +549,79 @@ namespace PA.Helper.ExcelHelper
             xlWorkBook = xlApp.Workbooks.Open(ExportXls);
             xlWorkSheet = (xls.Worksheet)xlWorkBook.Worksheets.get_Item(1);
 
+            #region fill head data
+            xlWorkSheet.Cells[2, "AI"] = ParmSubjectId;
+            xlWorkSheet.Cells[3, "AI"] = ParmDetailId;
+            xlWorkSheet.Cells[5, "B"] = year + "年";
+            #endregion
+            #region copy sheet
+            for (int i = 1; i < TotalPageNum; i++)
+            {
+                xlWorkSheet.Copy(Type.Missing, xlWorkBook.Sheets[1]);
+                xlWorkBook.Worksheets.get_Item(i + 1).Name = "Sheet" + (i + 1);
+            }
+            #endregion
+            #region fill detail data
+            for (int PageNum = 0; PageNum < TotalPageNum; PageNum++)
+            {
+                xlWorkSheet = (xls.Worksheet)xlWorkBook.Worksheets.get_Item(PageNum + 1);
+                //xlWorkSheet.Cells[3, "EE"] = (PageNum + 1) + "/" + TotalPageNum;
+                for (int i = 0; i < PageLine; i++)
+                {
+                    if (i + (PageNum * PageLine) >= data.Count)
+                    {
+                        break;
+                    }
+                    #region fill data
+                    xlWorkSheet.Cells[8 + i, 2 ] = data[i + (PageNum * PageLine)].月;
+                    xlWorkSheet.Cells[8 + i, 3 ] = data[i + (PageNum * PageLine)].日;
+                    xlWorkSheet.Cells[8 + i, 4 ] = data[i + (PageNum * PageLine)].号数;
+                    xlWorkSheet.Cells[8 + i, 5 ] = data[i + (PageNum * PageLine)].摘要;
+                    xlWorkSheet.Cells[8 + i, 7 ] = data[i + (PageNum * PageLine)].日页;
+                    xlWorkSheet.Cells[8 + i, 8 ] = data[i + (PageNum * PageLine)].借方金额1;
+                    xlWorkSheet.Cells[8 + i, 9 ] = data[i + (PageNum * PageLine)].借方金额2;
+                    xlWorkSheet.Cells[8 + i, 10] = data[i + (PageNum * PageLine)].借方金额3;
+                    xlWorkSheet.Cells[8 + i, 11] = data[i + (PageNum * PageLine)].借方金额4;
+                    xlWorkSheet.Cells[8 + i, 12] = data[i + (PageNum * PageLine)].借方金额5;
+                    xlWorkSheet.Cells[8 + i, 13] = data[i + (PageNum * PageLine)].借方金额6;
+                    xlWorkSheet.Cells[8 + i, 14] = data[i + (PageNum * PageLine)].借方金额7;
+                    xlWorkSheet.Cells[8 + i, 15] = data[i + (PageNum * PageLine)].借方金额8;
+                    xlWorkSheet.Cells[8 + i, 16] = data[i + (PageNum * PageLine)].借方金额9;
+                    xlWorkSheet.Cells[8 + i, 17] = data[i + (PageNum * PageLine)].借方金额10;
+                    xlWorkSheet.Cells[8 + i, 18] = data[i + (PageNum * PageLine)].借方金额11;
+                    xlWorkSheet.Cells[8 + i, 19] = data[i + (PageNum * PageLine)].借方金额12;
+                    xlWorkSheet.Cells[8 + i, 20] = "";
+                    xlWorkSheet.Cells[8 + i, 21] = data[i + (PageNum * PageLine)].贷方金额1;
+                    xlWorkSheet.Cells[8 + i, 22] = data[i + (PageNum * PageLine)].贷方金额2;
+                    xlWorkSheet.Cells[8 + i, 23] = data[i + (PageNum * PageLine)].贷方金额3;
+                    xlWorkSheet.Cells[8 + i, 24] = data[i + (PageNum * PageLine)].贷方金额4;
+                    xlWorkSheet.Cells[8 + i, 25] = data[i + (PageNum * PageLine)].贷方金额5;
+                    xlWorkSheet.Cells[8 + i, 26] = data[i + (PageNum * PageLine)].贷方金额6;
+                    xlWorkSheet.Cells[8 + i, 27] = data[i + (PageNum * PageLine)].贷方金额7;
+                    xlWorkSheet.Cells[8 + i, 28] = data[i + (PageNum * PageLine)].贷方金额8;
+                    xlWorkSheet.Cells[8 + i, 29] = data[i + (PageNum * PageLine)].贷方金额9;
+                    xlWorkSheet.Cells[8 + i, 30] = data[i + (PageNum * PageLine)].贷方金额10;
+                    xlWorkSheet.Cells[8 + i, 31] = data[i + (PageNum * PageLine)].贷方金额11;
+                    xlWorkSheet.Cells[8 + i, 32] = data[i + (PageNum * PageLine)].贷方金额12;
+                    xlWorkSheet.Cells[8 + i, 33] = "";
+                    xlWorkSheet.Cells[8 + i, 34] = data[i + (PageNum * PageLine)].借或贷;
+                    xlWorkSheet.Cells[8 + i, 35] = data[i + (PageNum * PageLine)].余额1;
+                    xlWorkSheet.Cells[8 + i, 36] = data[i + (PageNum * PageLine)].余额2;
+                    xlWorkSheet.Cells[8 + i, 37] = data[i + (PageNum * PageLine)].余额3;
+                    xlWorkSheet.Cells[8 + i, 38] = data[i + (PageNum * PageLine)].余额4;
+                    xlWorkSheet.Cells[8 + i, 39] = data[i + (PageNum * PageLine)].余额5;
+                    xlWorkSheet.Cells[8 + i, 40] = data[i + (PageNum * PageLine)].余额6;
+                    xlWorkSheet.Cells[8 + i, 41] = data[i + (PageNum * PageLine)].余额7;
+                    xlWorkSheet.Cells[8 + i, 42] = data[i + (PageNum * PageLine)].余额8;
+                    xlWorkSheet.Cells[8 + i, 43] = data[i + (PageNum * PageLine)].余额9;
+                    xlWorkSheet.Cells[8 + i, 44] = data[i + (PageNum * PageLine)].余额10;
+                    xlWorkSheet.Cells[8 + i, 45] = data[i + (PageNum * PageLine)].余额11;
+                    xlWorkSheet.Cells[8 + i, 46] = data[i + (PageNum * PageLine)].余额12;
+                    xlWorkSheet.Cells[8 + i, 47] = "";
+                    #endregion
+                }
+            }
+            #endregion
 
             xlApp.Visible = true;
             releaseObject(xlWorkSheet);
