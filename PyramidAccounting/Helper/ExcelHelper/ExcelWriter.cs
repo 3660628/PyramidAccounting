@@ -777,6 +777,88 @@ namespace PA.Helper.ExcelHelper
             #endregion
 
             #region fill data
+            List<Model_报表类> data = new PA.ViewModel.ViewModel_ReportManager().GetIncomeAndExpenses(ParmPeroid);
+            if (data.Count <= 0)
+            {
+                return false;
+            }
+            decimal dy = 0;
+            decimal dn = 0;
+            decimal insumm1 = 0;
+            decimal insumy1 = 0;
+            decimal insumm2 = 0;
+            decimal insumy2 = 0;
+            decimal b3 = 0;
+            if (data.Count > 0)
+            {
+                xlWorkSheet.Cells[6, "B"] = data[0].本期数;
+                xlWorkSheet.Cells[6, "C"] = data[0].累计数;
+                decimal.TryParse(data[0].累计数, out dy);
+                decimal.TryParse(data[0].本期数, out dn);
+                insumm1 += dn;
+                insumy1 += dy;
+            }
+            if (data.Count > 1)
+            {
+                xlWorkSheet.Cells[9, "B"] = data[1].本期数;
+                xlWorkSheet.Cells[9, "C"] = data[1].累计数;
+                decimal.TryParse(data[1].累计数, out dy);
+                decimal.TryParse(data[1].本期数, out dn);
+                insumm1 += dn;
+                insumy1 += dy;
+            }
+            if (data.Count > 2)
+            {
+                xlWorkSheet.Cells[12, "B"] = data[2].本期数;
+                xlWorkSheet.Cells[12, "C"] = data[2].累计数;
+                decimal.TryParse(data[2].累计数, out dy);
+                decimal.TryParse(data[2].本期数, out dn);
+                insumm1 += dn;
+                insumy1 += dy;
+            }
+            if (data.Count > 3)
+            {
+                xlWorkSheet.Cells[6, "E"] = data[3].本期数;
+                xlWorkSheet.Cells[6, "F"] = data[3].累计数;
+                decimal.TryParse(data[3].累计数, out dy);
+                decimal.TryParse(data[3].本期数, out dn);
+                insumy2 += dy;
+                insumm2 += dn;
+            }
+            if (data.Count > 4)
+            {
+                xlWorkSheet.Cells[7, "E"] = data[4].本期数;
+                xlWorkSheet.Cells[7, "F"] = data[4].累计数;
+                decimal.TryParse(data[4].累计数, out dy);
+                decimal.TryParse(data[4].本期数, out dn);
+                insumy2 += dy;
+                insumm2 += dn;
+            }
+            if (data.Count > 5)
+            {
+                xlWorkSheet.Cells[12, "E"] = data[5].本期数;
+                xlWorkSheet.Cells[12, "F"] = data[5].累计数;
+                decimal.TryParse(data[5].累计数, out dy);
+                decimal.TryParse(data[5].本期数, out dn);
+                insumy2 += dy;
+                insumm2 += dn;
+            }
+
+            decimal.TryParse(data[data.Count - 1].累计数, out b3);
+
+            xlWorkSheet.Cells[16, "B"] = insumm1;
+            xlWorkSheet.Cells[16, "C"] = insumy1;
+
+            xlWorkSheet.Cells[16, "E"] = insumm2;
+            xlWorkSheet.Cells[16, "F"] = insumy2;
+
+            xlWorkSheet.Cells[7, "H"] = (insumy1 - insumy2);
+            xlWorkSheet.Cells[8, "H"] = b3;
+
+            xlWorkSheet.Cells[6, "H"] = ((insumy1 - insumy2) + b3);
+
+            xlWorkSheet.Cells[16, "H"] = ((insumy1 - insumy2) + b3);
+
 
             #endregion
 
