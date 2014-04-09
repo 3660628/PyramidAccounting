@@ -570,26 +570,32 @@ namespace PA.View.Pages.TwoTabControl
 
         private string GetVersionMessage()
         {
-            string str = rg.GetVersionType();
-            string value = str.Split(',')[1];
-            string msg = "试用期已过，部分功能将不能使用！";
-            if (value.Equals("false"))
+            int status = rg.GetVersionType();
+            string msg = string.Empty;
+            switch (status)
             {
-                double d = 0;
-                double.TryParse(str.Split(',')[0], out d);
-                int i = (int)d;
-                if (i > 0)
-                {
-                    msg =  "试用版\t还剩" + i + "天"; ;
-                }
-                else
-                {
-
-                }
-            }
-            else if(value.Equals("true"))
-            {
-                msg = "正式版";
+                case 0:
+                    CommonInfo.SoftwareState = (int)M_Enum.EM_SOFTWARESTATE.过期;
+                    msg = "试用期已过，部分功能受限！";
+                    break;
+                case 1:
+                    CommonInfo.SoftwareState = (int)M_Enum.EM_SOFTWARESTATE.未注册;
+                    int i = rg.NumsOfDayRemaining();
+                    if (i < 0)
+                    {
+                        rg.UpdateSoftwareVersionStatus((int)M_Enum.EM_SOFTWARESTATE.过期);
+                        i = 0;
+                        GetVersionMessage();
+                    }
+                    else
+                    {
+                        msg = "试用版：\t" + "还剩余" + i + "天";
+                    }
+                    break;
+                case 2:
+                    CommonInfo.SoftwareState = (int)M_Enum.EM_SOFTWARESTATE.已注册;
+                    msg = "正式版";
+                    break;
             }
             return msg;
         }
@@ -602,8 +608,13 @@ namespace PA.View.Pages.TwoTabControl
             string validateCode = Secure.GetMD5_32(orginCode);
             if (registerCode.Equals(validateCode))
             {
+                rg.UpdateSoftwareVersionStatus((int)M_Enum.EM_SOFTWARESTATE.已注册);
                 MessageBoxCommon.Show("注册成功！");
                 this.LoadPage();
+            }
+            else
+            {
+                MessageBoxCommon.Show("注册码不准确，请联系开发商！");
             }
         }
 
