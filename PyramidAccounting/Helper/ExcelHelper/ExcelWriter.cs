@@ -752,6 +752,7 @@ namespace PA.Helper.ExcelHelper
         }
         public bool ExportIncomeAndExpenditure()
         {
+            #region init Excel
             xls.Application xlApp = null;
             xls.Workbook xlWorkBook;
             xls.Worksheet xlWorkSheet;
@@ -768,6 +769,7 @@ namespace PA.Helper.ExcelHelper
             }
             xlWorkBook = xlApp.Workbooks.Open(ExportXls);
             xlWorkSheet = (xls.Worksheet)xlWorkBook.Worksheets.get_Item(1);
+            #endregion
 
             #region fill data
 
@@ -781,6 +783,7 @@ namespace PA.Helper.ExcelHelper
         }
         public bool ExportAdministrativeExpensesSchedule()
         {
+            #region init Excel
             xls.Application xlApp = null;
             xls.Workbook xlWorkBook;
             xls.Worksheet xlWorkSheet;
@@ -797,6 +800,7 @@ namespace PA.Helper.ExcelHelper
             }
             xlWorkBook = xlApp.Workbooks.Open(ExportXls);
             xlWorkSheet = (xls.Worksheet)xlWorkBook.Worksheets.get_Item(1);
+            #endregion
 
             #region fill data
 
