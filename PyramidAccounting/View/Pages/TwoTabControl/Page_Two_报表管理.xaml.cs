@@ -313,10 +313,18 @@ namespace PA.View.Pages.TwoTabControl
             {
                 for (int i = 0; i < 48; i++)
                 {
-                    Label lb = FindName("Label_B" + (i + 1)) as Label;
-                    lb.Content = "";
-                    Label lb2 = FindName("Label_L" + (i + 1)) as Label;
-                    lb2.Content = "";
+                    try
+                    {
+                        Label lb = FindName("Label_B" + (i + 1)) as Label;
+                        lb.Content = "";
+                        Label lb2 = FindName("Label_L" + (i + 1)) as Label; ;
+                        lb2.Content = "";
+                    }
+                    catch (Exception ee)
+                    {
+                        Console.Write(ee.Message);
+                    }
+                    
                 }
                 for (int j = 0; j < 4; j++)
                 {
