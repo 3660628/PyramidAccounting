@@ -230,24 +230,24 @@
             <TabItem Header="关于我们" FocusVisualStyle="{x:Null}" Margin="40,-1,-40,1" Template="{DynamicResource TabItemControlTemplate_TwoTabHeader}" >
                 <Grid Background="Snow">
                     <Grid.RowDefinitions>
-                        <RowDefinition Height="100*"/>
+                        <RowDefinition Height="150*"/>
                         <RowDefinition Height="50*"/>
                         <RowDefinition Height="50*"/>
                         <RowDefinition Height="50*"/>
                         <RowDefinition Height="50*"/>
+                        <RowDefinition Height="70*"/>
                         <RowDefinition Height="50*"/>
-                        <RowDefinition Height="50*"/>
-                        <RowDefinition Height="287*"/>
+                        <RowDefinition Height="250*"/>
                     </Grid.RowDefinitions>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="163*"/>
                     </Grid.ColumnDefinitions>
                     <Image HorizontalAlignment="Left" Height="190" Margin="0,36,0,0" VerticalAlignment="Top" Width="197" Grid.RowSpan="6"/>
                     <Label Content="金字塔会计软件" HorizontalAlignment="Left" Margin="40,25,0,0" VerticalAlignment="Top" FontSize="18" Grid.Column="1" FontWeight="ExtraBold"/>
-                    <Label Content="Copyright © 2014 StoneAnt. All Rights Reserved" Margin="50,0,0,0" HorizontalAlignment="Left"  VerticalAlignment="Center" Width="Auto" Grid.Row="5"/>
-                    <Label Content="客服热线：0754-85837039" Margin="50,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Center" Width="279" Grid.Row="3" />
-                    <Label x:Name="Laber_Version" Content="Label" Margin="50,0,0,0" HorizontalAlignment="Left"  VerticalAlignment="Center"  Grid.Row="2"/>
-                    <Label Content="企业QQ： 2095250852" Margin="50,0,0,0" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center" Grid.Row="4"/>
+                    <Label Content="Copyright © 2014 StoneAnt. All Rights Reserved" Margin="50,0,0,0" HorizontalAlignment="Left"  VerticalAlignment="Center" Width="Auto" Grid.Row="4"/>
+                    <Label Content="客服热线：0754-85837039" Margin="50,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Center" Width="279" Grid.Row="2" />
+                    <Label x:Name="Laber_Version" Content="Label" Margin="50,0,0,0" HorizontalAlignment="Left"  VerticalAlignment="Center"  Grid.Row="1"/>
+                    <Label Content="企业QQ： 2095250852" Margin="50,0,0,0" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center" Grid.Row="3"/>
                     <Label x:Name="Label_状态" Content="Label" HorizontalAlignment="Left" Margin="50,10,0,0" VerticalAlignment="Top" Grid.Row="6" />
                     <Grid x:Name="Grid_Register" Grid.Row="7" Grid.ColumnSpan="2">
                         <Grid.ColumnDefinitions>
