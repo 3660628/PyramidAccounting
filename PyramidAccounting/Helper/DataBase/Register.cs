@@ -48,9 +48,9 @@ namespace PA.Helper.DataBase
         public int NumsOfDayRemaining()
         {
             string sql = "select 7-(julianday(datetime('now','localtime'))-julianday(OP_TIME)) from t_systeminfo where rkey='" + (int)M_Enum.EM_KEY.软件版本 + "'";
-            int i = 0;
-            int.TryParse(db.GetSelectValue(sql), out i);
-            
+            double d = 0;
+            double.TryParse(db.GetSelectValue(sql), out d);
+            int i = (int) d;
             return i;
         }
     }
