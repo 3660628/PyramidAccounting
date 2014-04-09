@@ -112,7 +112,7 @@
                                 <Label Content="负债部类" HorizontalAlignment="Center" Grid.Column="5" VerticalAlignment="Center"  />
                                 <Label Content="年初数" HorizontalAlignment="Center" Grid.Column="6" VerticalAlignment="Center"  />
                                 <Label Content="期末数" HorizontalAlignment="Center" Grid.Column="7" VerticalAlignment="Center"  />
-                                <Label Content="资产类" HorizontalAlignment="Center" Grid.Column="1" Grid.Row="1" />
+                                <Label Content="一、资产类" HorizontalAlignment="Center" Grid.Column="1" Grid.Row="1" />
                                 <Label Content="二、负债类" HorizontalAlignment="Center" Grid.Column="5" Grid.Row="1" />
                                 <Label Content="101" HorizontalAlignment="Center" Grid.Row="2" />
                                 <Label Content="现金" HorizontalAlignment="Center" Grid.Column="1" Grid.Row="2" />
