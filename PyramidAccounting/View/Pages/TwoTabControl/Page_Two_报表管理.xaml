@@ -9,7 +9,26 @@
 	Title="Page_Two_报表管理">
 
     <Grid Margin="-3,0,-3,-3">
-        <StatusBar Height="25" Margin="0" VerticalAlignment="Bottom" Background="#FFA6D9FF"/>
+        <StatusBar Height="25" Margin="0" VerticalAlignment="Bottom" Background="#FFA6D9FF">
+            <StatusBar.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+                    </Grid>
+                </ItemsPanelTemplate>
+            </StatusBar.ItemsPanel>
+            <Label x:Name="Label_账套名称" Content="当前帐套名称" HorizontalAlignment="Left" VerticalAlignment='Center' Height="30"/>
+            <StatusBarItem Grid.Column="1" >
+                <Label x:Name="Label_操作员" Content="操作员" HorizontalAlignment="Center" VerticalAlignment='Center' Height="30" Margin="0"/>
+            </StatusBarItem>
+            <StatusBarItem Grid.Column="2">
+                <Label x:Name="Label_当前期数" Content="当前期数" HorizontalAlignment="Right" Height="30" VerticalAlignment='Center' Margin="0,0,10,0"/>
+            </StatusBarItem>
+        </StatusBar>
         <TabControl Margin="0,0,0,25" BorderBrush="White">
             <TabItem FocusVisualStyle="{x:Null}" Header="资产负债表" Margin="8,-1,-8,1" Template="{DynamicResource TabItemControlTemplate_TwoTabHeader}">
                 <Grid Background="White">
