@@ -632,22 +632,98 @@ namespace PA.Helper.ExcelHelper
         #endregion
 
         #region 3.报表
-        public bool ExportBalanceSheet()
+        public bool ExportBalanceSheet(int Parm)
         {
+            #region init Excel
+            xls.Application xlApp = null;
+            xls.Workbook xlWorkBook;
+            xls.Worksheet xlWorkSheet;
+            string SourceXls = Path + @"Data\打印\资产负债表模板.xls";
+            string ExportXls = Path + @"Data\打印\资产负债表export.xls";
+            File.Copy(SourceXls, ExportXls, true);
+            try
+            {
+                xlApp = new xls.Application();
+            }
+            catch (Exception)
+            {
+                Console.WriteLine("找不到EXCEL");
+            }
+            xlWorkBook = xlApp.Workbooks.Open(ExportXls);
+            xlWorkSheet = (xls.Worksheet)xlWorkBook.Worksheets.get_Item(1);
+            #endregion
+
+            #region fill data
+            List<Model_报表类> data = new PA.ViewModel.ViewModel_ReportManager().GetBalanceSheet(Parm);
+       
 
 
+
+
+            #endregion
+
+            xlApp.Visible = true;
+            releaseObject(xlWorkSheet);
+            releaseObject(xlWorkBook);
+            releaseObject(xlApp);
             return true;
         }
         public bool ExportIncomeAndExpenditure()
         {
+            xls.Application xlApp = null;
+            xls.Workbook xlWorkBook;
+            xls.Worksheet xlWorkSheet;
+            string SourceXls = Path + @"Data\打印\收入支出总表模板.xls";
+            string ExportXls = Path + @"Data\打印\收入支出总表export.xls";
+            File.Copy(SourceXls, ExportXls, true);
+            try
+            {
+                xlApp = new xls.Application();
+            }
+            catch (Exception)
+            {
+                Console.WriteLine("找不到EXCEL");
+            }
+            xlWorkBook = xlApp.Workbooks.Open(ExportXls);
+            xlWorkSheet = (xls.Worksheet)xlWorkBook.Worksheets.get_Item(1);
 
+            #region fill data
 
+            #endregion
+
+            xlApp.Visible = true;
+            releaseObject(xlWorkSheet);
+            releaseObject(xlWorkBook);
+            releaseObject(xlApp);
             return true;
         }
         public bool ExportAdministrativeExpensesSchedule()
         {
+            xls.Application xlApp = null;
+            xls.Workbook xlWorkBook;
+            xls.Worksheet xlWorkSheet;
+            string SourceXls = Path + @"Data\打印\行政费用支出明细表模板.xls";
+            string ExportXls = Path + @"Data\打印\行政费用支出明细表export.xls";
+            File.Copy(SourceXls, ExportXls, true);
+            try
+            {
+                xlApp = new xls.Application();
+            }
+            catch (Exception)
+            {
+                Console.WriteLine("找不到EXCEL");
+            }
+            xlWorkBook = xlApp.Workbooks.Open(ExportXls);
+            xlWorkSheet = (xls.Worksheet)xlWorkBook.Worksheets.get_Item(1);
 
+            #region fill data
 
+            #endregion
+
+            xlApp.Visible = true;
+            releaseObject(xlWorkSheet);
+            releaseObject(xlWorkBook);
+            releaseObject(xlApp);
             return true;
         }
         #endregion
