@@ -16,7 +16,7 @@ namespace PA.Helper.ExcelHelper
         private string Path = AppDomain.CurrentDomain.BaseDirectory;
         private object misValue = System.Reflection.Missing.Value;
 
-        #region 1.凭证
+    #region 1.凭证
         /// <summary>
         /// 记账凭证
         /// </summary>
@@ -195,9 +195,9 @@ namespace PA.Helper.ExcelHelper
             releaseObject(xlApp);
             return result;
         }
-        #endregion
+    #endregion
 
-        #region 2.账簿
+    #region 2.账簿
         /// <summary>
         /// 总账
         /// </summary>
@@ -678,9 +678,9 @@ namespace PA.Helper.ExcelHelper
             releaseObject(xlApp);
             return result;
         }
-        #endregion
+    #endregion
 
-        #region 3.报表
+    #region 3.报表
         /// <summary>
         /// 资产负债表
         /// </summary>
@@ -989,7 +989,7 @@ namespace PA.Helper.ExcelHelper
             releaseObject(xlApp);
             return result;
         }
-        #endregion
+    #endregion
 
         private void releaseObject(object obj)
         {
