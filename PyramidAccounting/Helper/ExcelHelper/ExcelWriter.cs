@@ -632,7 +632,24 @@ namespace PA.Helper.ExcelHelper
         #endregion
 
         #region 3.报表
+        public bool ExportBalanceSheet()
+        {
 
+
+            return true;
+        }
+        public bool ExportIncomeAndExpenditure()
+        {
+
+
+            return true;
+        }
+        public bool ExportAdministrativeExpensesSchedule()
+        {
+
+
+            return true;
+        }
         #endregion
 
         private void releaseObject(object obj)
