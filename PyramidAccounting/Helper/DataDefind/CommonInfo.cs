@@ -17,6 +17,7 @@ namespace PA.Helper.DataDefind
         private static string confirmPassword;
         private static int period;
         private static bool isSaved;
+        private static int m_SoftwareState;
 
         public static bool 是否初始化年初数
         {
@@ -82,5 +83,12 @@ namespace PA.Helper.DataDefind
             get { return CommonInfo.bookid; }
             set { CommonInfo.bookid = value; }
         }
+
+        public static int SoftwareState
+        {
+            get { return m_SoftwareState; }
+            set { m_SoftwareState = value; }
+        }
+
     }
 }

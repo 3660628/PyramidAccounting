@@ -90,9 +90,11 @@
     <Compile Include="Helper\DataBase\DataBase.cs" />
     <Compile Include="Helper\DataBase\DBInitialize.cs" />
     <Compile Include="Helper\DataBase\Log.cs" />
+    <Compile Include="Helper\DataBase\Register.cs" />
     <Compile Include="Helper\DataBase\Secure.cs" />
     <Compile Include="Helper\DataBase\StartUpInit.cs" />
     <Compile Include="Helper\DataDefind\DBTablesName.cs" />
+    <Compile Include="Helper\DataDefind\M_Enum.cs" />
     <Compile Include="Helper\DataDefind\SqlString.cs" />
     <Compile Include="Helper\DataDefind\CommonInfo.cs" />
     <Compile Include="Helper\ExcelHelper\ExcelHelper.cs" />

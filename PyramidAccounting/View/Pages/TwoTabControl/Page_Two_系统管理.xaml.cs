@@ -21,6 +21,7 @@ using PA.View.ResourceDictionarys.MessageBox;
 using PA.Helper.XMLHelper;
 using System.Threading;
 using PA.Helper.Tools;
+using PA.Helper.Tools;
 
 namespace PA.View.Pages.TwoTabControl
 {
@@ -37,6 +38,7 @@ namespace PA.View.Pages.TwoTabControl
         private List<Model_科目管理> lm = new List<Model_科目管理>();
         private ViewModel_操作日志 vmr = new ViewModel_操作日志();
         private Model_操作日志 _mr = new Model_操作日志();
+        Register rg = new Register();
 
         private string DoubleClickSubject = "";
         private string ModifySubjectCellOldValue = "";
@@ -89,7 +91,7 @@ namespace PA.View.Pages.TwoTabControl
             this.DatePicker_操作记录End.Text = DateTime.Now.ToShortDateString();
             //5.关于我们
             this.Laber_Version.Content = GetVersionMessage();
-            this.Laber_Version.Content += "\t V" + Application.ResourceAssembly.GetName().Version.ToString();
+            this.Laber_Version.Content += "\t 版本号：V" + Application.ResourceAssembly.GetName().Version.ToString();
         }
        
         private void Button_ChangePassword_Click(object sender, RoutedEventArgs e)
@@ -568,22 +570,41 @@ namespace PA.View.Pages.TwoTabControl
 
         private string GetVersionMessage()
         {
-            string str = new Util().GetVersionType();
-            if (str.Split(',')[1].Equals("false"))
+            string str = rg.GetVersionType();
+            string value = str.Split(',')[1];
+            string msg = "试用期已过，部分功能将不能使用！";
+            if (value.Equals("false"))
             {
                 double d = 0;
                 double.TryParse(str.Split(',')[0], out d);
                 int i = (int)d;
-                return "试用版\t还剩" + i + "天"; ;
+                if (i > 0)
+                {
+                    msg =  "试用版\t还剩" + i + "天"; ;
+                }
+                else
+                {
+
+                }
             }
-            else
+            else if(value.Equals("true"))
             {
-                return "正式版";
+                msg = "正式版";
             }
+            return msg;
         }
         private void Button_注册_Click(object sender, RoutedEventArgs e)
         {
-
+            string registerCode = TextBox_注册.Text.Trim();
+            UsbController usb = new Helper.Tools.UsbController();
+            string date = DateTime.Now.ToString("yyyyMMdd");
+            string orginCode = "StoneAnt.PA" + date + usb.getSerialNumberFromDriveLetter();
+            string validateCode = Secure.GetMD5_32(orginCode);
+            if (registerCode.Equals(validateCode))
+            {
+                MessageBoxCommon.Show("注册成功！");
+                this.LoadPage();
+            }
         }
 
         #endregion

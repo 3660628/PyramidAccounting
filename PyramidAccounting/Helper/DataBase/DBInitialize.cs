@@ -61,9 +61,9 @@ namespace PA.Helper.DataBase
             string _str = usb.getSerialNumberFromDriveLetter();
 
             string sql = "insert into t_systeminfo (op_time,rkey,value,comments) values ('" + date
-                + "','999','false','第一次运行显示未注册'),('" + date
-                + "','777','','注册码'),('" + date 
-                + "','555','" + _str + "','USB')";
+                + "','" + (int)M_Enum.EM_KEY.软件版本 + "','" + (int)M_Enum.EM_SOFTWARESTATE.未注册 + "','第一次运行显示未注册'),('" + date
+                + "','" + (int)M_Enum.EM_KEY.注册码 + "','','注册码'),('" + date
+                + "','" + (int)M_Enum.EM_KEY.U盘标识 + "','" + _str + "','USB')";
             dataList.Add(sql);
             db.BatchOperate(dataList);
 
