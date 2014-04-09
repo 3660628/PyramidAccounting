@@ -330,7 +330,7 @@ namespace PA.View.Pages.TwoTabControl
 
         private void Button_BalanceSheetPrint_Click(object sender, RoutedEventArgs e)
         {
-            new PA.Helper.ExcelHelper.ExcelWriter().ExportBalanceSheet(ComboBox_Date.SelectedIndex + 1);
+            new PA.Helper.ExcelHelper.ExcelWriter().ExportBalanceSheet(ComboBox_Date.SelectedIndex + 1, CommonInfo.真实姓名, Label_填表日期.Content.ToString());
         }
 
         private void Button_IncomeAndExpenditurePrint_Click(object sender, RoutedEventArgs e)

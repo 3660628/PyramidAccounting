@@ -632,7 +632,14 @@ namespace PA.Helper.ExcelHelper
         #endregion
 
         #region 3.报表
-        public bool ExportBalanceSheet(int Parm)
+        /// <summary>
+        /// 资产负债表
+        /// </summary>
+        /// <param name="ParmPeroid"></param>
+        /// <param name="People"></param>
+        /// <param name="Date"></param>
+        /// <returns></returns>
+        public bool ExportBalanceSheet(int ParmPeroid, string People, string Date)
         {
             #region init Excel
             xls.Application xlApp = null;
@@ -654,12 +661,87 @@ namespace PA.Helper.ExcelHelper
             #endregion
 
             #region fill data
-            List<Model_报表类> data = new PA.ViewModel.ViewModel_ReportManager().GetBalanceSheet(Parm);
-       
-
-
-
-
+            decimal dy = 0;
+            decimal dn = 0;
+            decimal sumy1 = 0;
+            decimal sumn1 = 0;
+            decimal sumy2 = 0;
+            decimal sumn2 = 0;
+            decimal sumy3 = 0;
+            decimal sumn3 = 0;
+            decimal sumy4 = 0;
+            decimal sumn4 = 0;
+            decimal sumy5 = 0;
+            decimal sumn5 = 0;
+            List<Model_报表类> data = new PA.ViewModel.ViewModel_ReportManager().GetBalanceSheet(ParmPeroid);
+            if(data.Count < 1)
+            {
+                return false;
+            }
+            for (int i = 0; i < data.Count; i++)
+            {
+                if (i < 10)
+                {
+                    xlWorkSheet.Cells[6 + i, "C"] = data[i].年初数;
+                    xlWorkSheet.Cells[6 + i, "D"] = data[i].期末数;
+                    decimal.TryParse(data[i].年初数, out dy);
+                    decimal.TryParse(data[i].期末数, out dn);
+                    sumy1 += dy;
+                    sumn1 += dn;
+                }
+                else if (i >= 10 && i < 16)
+                {
+                    xlWorkSheet.Cells[6 + i - 10, "G"] = data[i].年初数;
+                    xlWorkSheet.Cells[6 + i - 10, "H"] = data[i].期末数;
+                    decimal.TryParse(data[i].年初数, out dy);
+                    decimal.TryParse(data[i].期末数, out dn);
+                    sumy2 += dy;
+                    sumn2 += dn;
+                }
+                else if (i >= 16 && i < 18)
+                {
+                    xlWorkSheet.Cells[i - 1, "G"] = data[i].年初数;
+                    xlWorkSheet.Cells[i - 1, "H"] = data[i].期末数;
+                    decimal.TryParse(data[i].年初数, out dy);
+                    decimal.TryParse(data[i].期末数, out dn);
+                    sumy3 += dy;
+                    sumn3 += dn;
+                }
+                else if (i >= 18 && i < 21)
+                {
+                    xlWorkSheet.Cells[4 + i, "G"] = data[i].年初数;
+                    xlWorkSheet.Cells[4 + i, "H"] = data[i].期末数;
+                    decimal.TryParse(data[i].年初数, out dy);
+                    decimal.TryParse(data[i].期末数, out dn);
+                    sumy4 += dy;
+                    sumn4 += dn;
+                }
+                else
+                {
+                    xlWorkSheet.Cells[i, "C"] = data[i].年初数;
+                    xlWorkSheet.Cells[i, "D"] = data[i].期末数;
+                    decimal.TryParse(data[i].年初数, out dy);
+                    decimal.TryParse(data[i].期末数, out dn);
+                    sumy5 += dy;
+                    sumn5 += dn;
+                }
+            }
+            xlWorkSheet.Cells[16, "C"] = sumy1;
+            xlWorkSheet.Cells[16, "D"] = sumn1;
+            xlWorkSheet.Cells[12, "G"] = sumy2;
+            xlWorkSheet.Cells[12, "H"] = sumn2;
+            xlWorkSheet.Cells[19, "G"] = sumy3;
+            xlWorkSheet.Cells[19, "H"] = sumn3;
+            xlWorkSheet.Cells[25, "G"] = sumy4;
+            xlWorkSheet.Cells[25, "H"] = sumn4;
+            xlWorkSheet.Cells[24, "C"] = sumy5;
+            xlWorkSheet.Cells[24, "D"] = sumn5;
+            xlWorkSheet.Cells[27, "C"] = sumy1 + sumy5;
+            xlWorkSheet.Cells[27, "D"] = sumn1 + sumn5;
+            xlWorkSheet.Cells[27, "G"] = sumy2 + sumy3 + sumy4;
+            xlWorkSheet.Cells[27, "H"] = sumn2 + sumn3 + sumn4;
+            xlWorkSheet.Cells[28, "D"] = People;
+            xlWorkSheet.Cells[28, "E"] = Date;
             #endregion
 
             xlApp.Visible = true;
