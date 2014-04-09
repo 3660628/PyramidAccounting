@@ -88,6 +88,8 @@ namespace PA.ViewModel
                     list.Add(m);
                 }
             }
+            string dropSql = "drop table sbtemp";
+            db.Excute(dropSql);
             return list;
        
         }

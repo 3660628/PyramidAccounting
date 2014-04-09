@@ -7,73 +7,73 @@
       mc:Ignorable="d" 
       d:DesignHeight="570" d:DesignWidth="800" FontFamily="NSimSun" TextOptions.TextFormattingMode="Display"
 	Title="Page_Two_系统管理">
-	<Page.Resources>
+    <Page.Resources>
         <Storyboard x:Key="Storyboard_GridPopVisibility">
-			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="Grid_Pop弹出">
-				<EasingDoubleKeyFrame KeyTime="0" Value="0"/>
-				<EasingDoubleKeyFrame KeyTime="0:0:0.1" Value="1"/>
-			</DoubleAnimationUsingKeyFrames>
-		</Storyboard>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="Grid_Pop弹出">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.1" Value="1"/>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
         <Storyboard x:Key="Storyboard_Expender修改密码Expended">
-        	<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Height)" Storyboard.TargetName="Expander_修改密码">
-        		<EasingDoubleKeyFrame KeyTime="0" Value="25"/>
-        		<EasingDoubleKeyFrame KeyTime="0:0:0.1" Value="190"/>
-        	</DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Height)" Storyboard.TargetName="Expander_修改密码">
+                <EasingDoubleKeyFrame KeyTime="0" Value="25"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.1" Value="190"/>
+            </DoubleAnimationUsingKeyFrames>
         </Storyboard>
         <Storyboard x:Key="Storyboard_Expender修改密码Collapsed">
-        	<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Height)" Storyboard.TargetName="Expander_修改密码">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Height)" Storyboard.TargetName="Expander_修改密码">
                 <EasingDoubleKeyFrame KeyTime="0" Value="190"/>
-        		<EasingDoubleKeyFrame KeyTime="0:0:0.1" Value="25"/>
-        	</DoubleAnimationUsingKeyFrames>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.1" Value="25"/>
+            </DoubleAnimationUsingKeyFrames>
         </Storyboard>
         <Storyboard x:Key="Storyboard_Expender权限Expended">
-        	<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Height)" Storyboard.TargetName="Expander_权限">
-        		<EasingDoubleKeyFrame KeyTime="0" Value="25"/>
-        		<EasingDoubleKeyFrame KeyTime="0:0:0.1" Value="300"/>
-        	</DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Height)" Storyboard.TargetName="Expander_权限">
+                <EasingDoubleKeyFrame KeyTime="0" Value="25"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.1" Value="300"/>
+            </DoubleAnimationUsingKeyFrames>
         </Storyboard>
         <Storyboard x:Key="Storyboard_Expender权限Collapsed">
-        	<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Height)" Storyboard.TargetName="Expander_权限">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Height)" Storyboard.TargetName="Expander_权限">
                 <EasingDoubleKeyFrame KeyTime="0" Value="300"/>
-        		<EasingDoubleKeyFrame KeyTime="0:0:0.1" Value="25"/>
-        	</DoubleAnimationUsingKeyFrames>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.1" Value="25"/>
+            </DoubleAnimationUsingKeyFrames>
         </Storyboard>
         <Storyboard x:Key="Storyboard_Expender账套管理Expended">
-        	<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Height)" Storyboard.TargetName="Expander_账套管理">
-        		<EasingDoubleKeyFrame KeyTime="0" Value="25"/>
-        		<EasingDoubleKeyFrame KeyTime="0:0:0.1" Value="300"/>
-        	</DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Height)" Storyboard.TargetName="Expander_账套管理">
+                <EasingDoubleKeyFrame KeyTime="0" Value="25"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.1" Value="300"/>
+            </DoubleAnimationUsingKeyFrames>
         </Storyboard>
         <Storyboard x:Key="Storyboard_Expender账套管理Collasped">
-        	<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Height)" Storyboard.TargetName="Expander_账套管理">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Height)" Storyboard.TargetName="Expander_账套管理">
                 <EasingDoubleKeyFrame KeyTime="0" Value="300"/>
-        		<EasingDoubleKeyFrame KeyTime="0:0:0.1" Value="25"/>
-        	</DoubleAnimationUsingKeyFrames>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.1" Value="25"/>
+            </DoubleAnimationUsingKeyFrames>
         </Storyboard>
-	</Page.Resources>
-	<Page.Triggers>
-		<EventTrigger RoutedEvent="ButtonBase.Click" SourceName="Button_新增">
+    </Page.Resources>
+    <Page.Triggers>
+        <EventTrigger RoutedEvent="ButtonBase.Click" SourceName="Button_新增">
             <BeginStoryboard Storyboard="{StaticResource Storyboard_GridPopVisibility}"/>
-		</EventTrigger>
-		<EventTrigger RoutedEvent="Expander.Expanded" SourceName="Expander_修改密码">
-			<BeginStoryboard x:Name="Storyboard_Expender修改密码Expended_BeginStoryboard" Storyboard="{StaticResource Storyboard_Expender修改密码Expended}"/>
-		</EventTrigger>
-		<EventTrigger RoutedEvent="Expander.Collapsed" SourceName="Expander_修改密码">
-			<BeginStoryboard x:Name="Storyboard_Expender修改密码Collapsed_BeginStoryboard" Storyboard="{StaticResource Storyboard_Expender修改密码Collapsed}"/>
-		</EventTrigger>
-		<EventTrigger RoutedEvent="Expander.Expanded" SourceName="Expander_权限">
-			<BeginStoryboard x:Name="Storyboard_Expender权限Expended_BeginStoryboard" Storyboard="{StaticResource Storyboard_Expender权限Expended}"/>
-		</EventTrigger>
-		<EventTrigger RoutedEvent="Expander.Collapsed" SourceName="Expander_权限">
-			<BeginStoryboard x:Name="Storyboard_Expender权限Collapsed_BeginStoryboard" Storyboard="{StaticResource Storyboard_Expender权限Collapsed}"/>
-		</EventTrigger>
-		<EventTrigger RoutedEvent="Expander.Expanded" SourceName="Expander_账套管理">
-			<BeginStoryboard x:Name="Storyboard_Expender账套管理Expended_BeginStoryboard" Storyboard="{StaticResource Storyboard_Expender账套管理Expended}"/>
-		</EventTrigger>
-		<EventTrigger RoutedEvent="Expander.Collapsed" SourceName="Expander_账套管理">
-			<BeginStoryboard x:Name="Storyboard_Expender账套管理Collasped_BeginStoryboard" Storyboard="{StaticResource Storyboard_Expender账套管理Collasped}"/>
-		</EventTrigger>
-	</Page.Triggers>
+        </EventTrigger>
+        <EventTrigger RoutedEvent="Expander.Expanded" SourceName="Expander_修改密码">
+            <BeginStoryboard x:Name="Storyboard_Expender修改密码Expended_BeginStoryboard" Storyboard="{StaticResource Storyboard_Expender修改密码Expended}"/>
+        </EventTrigger>
+        <EventTrigger RoutedEvent="Expander.Collapsed" SourceName="Expander_修改密码">
+            <BeginStoryboard x:Name="Storyboard_Expender修改密码Collapsed_BeginStoryboard" Storyboard="{StaticResource Storyboard_Expender修改密码Collapsed}"/>
+        </EventTrigger>
+        <EventTrigger RoutedEvent="Expander.Expanded" SourceName="Expander_权限">
+            <BeginStoryboard x:Name="Storyboard_Expender权限Expended_BeginStoryboard" Storyboard="{StaticResource Storyboard_Expender权限Expended}"/>
+        </EventTrigger>
+        <EventTrigger RoutedEvent="Expander.Collapsed" SourceName="Expander_权限">
+            <BeginStoryboard x:Name="Storyboard_Expender权限Collapsed_BeginStoryboard" Storyboard="{StaticResource Storyboard_Expender权限Collapsed}"/>
+        </EventTrigger>
+        <EventTrigger RoutedEvent="Expander.Expanded" SourceName="Expander_账套管理">
+            <BeginStoryboard x:Name="Storyboard_Expender账套管理Expended_BeginStoryboard" Storyboard="{StaticResource Storyboard_Expender账套管理Expended}"/>
+        </EventTrigger>
+        <EventTrigger RoutedEvent="Expander.Collapsed" SourceName="Expander_账套管理">
+            <BeginStoryboard x:Name="Storyboard_Expender账套管理Collasped_BeginStoryboard" Storyboard="{StaticResource Storyboard_Expender账套管理Collasped}"/>
+        </EventTrigger>
+    </Page.Triggers>
     <Grid Margin="-3,0,-3,-3">
         <StatusBar Height="25" Margin="0" VerticalAlignment="Bottom" Background="DarkGray"/>
         <TabControl Margin="0,0,0,25" BorderBrush="White">
@@ -240,25 +240,24 @@
                         <RowDefinition Height="287*"/>
                     </Grid.RowDefinitions>
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="103*"/>
                         <ColumnDefinition Width="163*"/>
                     </Grid.ColumnDefinitions>
                     <Image HorizontalAlignment="Left" Height="190" Margin="0,36,0,0" VerticalAlignment="Top" Width="197" Grid.RowSpan="6"/>
-                    <Label Content="金字塔会计软件" HorizontalAlignment="Center" Margin="4,45,313,0" VerticalAlignment="Top" FontSize="18" Grid.Column="1" FontWeight="Bold"/>
-                    <Label Content="Copyright © 2014 StoneAnt. " HorizontalAlignment="Left"  VerticalAlignment="Center" Width="275" Grid.Column="1" Grid.Row="4"/>
-                    <Label Content="All Rights Reserved" HorizontalAlignment="Left" Margin="50,0,0,0" VerticalAlignment="Center" Width="269" Grid.Column="1" Grid.Row="5" Height="30"/>
-                    <Label Content="客服热线：0754-85837039" HorizontalAlignment="Left" VerticalAlignment="Center" Width="279" Grid.Row="2" Grid.Column="1"/>
-                    <Label x:Name="Laber_Version" Content="Label" HorizontalAlignment="Left"  VerticalAlignment="Center" Grid.Column="1" Grid.Row="1"/>
-                    <Label Content="企业QQ： 2095250852" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center" Grid.Row="3"/>
+                    <Label Content="金字塔会计软件" HorizontalAlignment="Left" Margin="40,25,0,0" VerticalAlignment="Top" FontSize="18" Grid.Column="1" FontWeight="ExtraBold"/>
+                    <Label Content="Copyright © 2014 StoneAnt. All Rights Reserved" Margin="50,0,0,0" HorizontalAlignment="Left"  VerticalAlignment="Center" Width="Auto" Grid.Row="5"/>
+                    <Label Content="客服热线：0754-85837039" Margin="50,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Center" Width="279" Grid.Row="3" />
+                    <Label x:Name="Laber_Version" Content="Label" Margin="50,0,0,0" HorizontalAlignment="Left"  VerticalAlignment="Center"  Grid.Row="2"/>
+                    <Label Content="企业QQ： 2095250852" Margin="50,0,0,0" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center" Grid.Row="4"/>
+                    <Label x:Name="Label_状态" Content="Label" HorizontalAlignment="Left" Margin="50,10,0,0" VerticalAlignment="Top" Grid.Row="6" />
                     <Grid x:Name="Grid_Register" Grid.Row="7" Grid.ColumnSpan="2">
                         <Grid.ColumnDefinitions>
-                            <ColumnDefinition />
-                            <ColumnDefinition />
-                            <ColumnDefinition />
+                            <ColumnDefinition Width="109*" />
+                            <ColumnDefinition Width="291*"/>
+                            <ColumnDefinition Width="400*" />
                         </Grid.ColumnDefinitions>
-                        <Label Content="注册码：" Margin="0,-2,0,0" HorizontalAlignment="Right"  VerticalAlignment="Top" Grid.Column="0"/>
-                        <TextBox x:Name="TextBox_注册" HorizontalAlignment="Center" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="250" Grid.Column="1"/>
-                        <Button x:Name="Button_注册"  FocusVisualStyle="{x:Null}" Content="注册" HorizontalAlignment="Left" Margin="10,2,0,0"  VerticalAlignment="Top" Foreground="White" Height="20" Width="75" Grid.Column="2" Click="Button_注册_Click" Template="{DynamicResource ButtonControlTemplate_CommonBlue}" />
+                        <Label Content="注册码：" Margin="50,10,0,0" HorizontalAlignment="Left"  VerticalAlignment="Top" Grid.Column="0"/>
+                        <TextBox x:Name="TextBox_注册" HorizontalAlignment="Center" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="250" Grid.Column="1" Margin="10,10,0,0"/>
+                        <Button x:Name="Button_注册"  FocusVisualStyle="{x:Null}" Content="注册" HorizontalAlignment="Left" Margin="10,10,0,0"  VerticalAlignment="Top" Foreground="White" Height="20" Width="75" Grid.Column="2" Click="Button_注册_Click" Template="{DynamicResource ButtonControlTemplate_CommonBlue}" />
                     </Grid>
                 </Grid>
             </TabItem>

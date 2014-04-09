@@ -93,8 +93,8 @@ namespace PA.View.Pages.TwoTabControl
             this.DatePicker_操作记录.Text = DateTime.Now.ToShortDateString();
             this.DatePicker_操作记录End.Text = DateTime.Now.ToShortDateString();
             //5.关于我们
-            this.Laber_Version.Content = GetVersionMessage();
-            this.Laber_Version.Content += "\t 版本V" + Application.ResourceAssembly.GetName().Version.ToString();
+            this.Label_状态.Content = GetVersionMessage();
+            this.Laber_Version.Content ="版本V" + Application.ResourceAssembly.GetName().Version.ToString();
         }
        
         private void Button_ChangePassword_Click(object sender, RoutedEventArgs e)
