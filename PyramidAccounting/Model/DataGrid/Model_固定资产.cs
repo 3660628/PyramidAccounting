@@ -8,14 +8,15 @@ namespace PA.Model.DataGrid
     class Model_固定资产
     {
         private int rowid;
+        private string serialNumber;
         private string sourceName;
         private string unit;
         private string amount;
         private string price;
         private int usedYear;
-        private string buyDate;
+        private DateTime buyDate;
         private string deparment;
-        private string createDate;
+        private DateTime createDate;
         private string voucherNo;
         private string comments;
         private int deleteMark;
@@ -24,6 +25,12 @@ namespace PA.Model.DataGrid
         {
             get { return rowid; }
             set { rowid = value; }
+        }
+
+        public string 编号
+        {
+            get { return serialNumber; }
+            set { serialNumber = value; }
         }
 
         public string 名称及规格
@@ -56,7 +63,7 @@ namespace PA.Model.DataGrid
             set { usedYear = value; }
         }
 
-        public string 购置日期
+        public DateTime 购置日期
         {
             get { return buyDate; }
             set { buyDate = value; }
@@ -68,7 +75,7 @@ namespace PA.Model.DataGrid
             set { deparment = value; }
         }
 
-        public string 报废日期
+        public DateTime 报废日期
         {
             get { return createDate; }
             set { createDate = value; }

@@ -36,9 +36,9 @@ namespace PA.ViewModel
                     m.数量 = d[3].ToString();
                     m.价格 = d[4].ToString();
                     m.使用年限 = Convert.ToInt32(d[5]);
-                    m.购置日期 = Convert.ToDateTime(d[6].ToString()).ToString("yyyy-MM-dd");
+                    m.购置日期 = Convert.ToDateTime(d[6].ToString());
                     m.使用部门 = d[7].ToString();
-                    m.报废日期 = Convert.ToDateTime(d[8].ToString()).ToString("yyyy-MM-dd");
+                    m.报废日期 = Convert.ToDateTime(d[8].ToString());
                     m.凭证编号 = d[9].ToString();
                     m.备注 = d[10].ToString();
                     list.Add(m);
@@ -63,13 +63,14 @@ namespace PA.ViewModel
             m.数量 = d[3].ToString();
             m.价格 = d[4].ToString();
             m.使用年限 = Convert.ToInt32(d[5]);
-            m.购置日期 = Convert.ToDateTime(d[6].ToString()).ToString("yyyy-MM-dd");
+            m.购置日期 = Convert.ToDateTime(d[6].ToString());
             m.使用部门 = d[7].ToString();
-            m.报废日期 = Convert.ToDateTime(d[8].ToString()).ToString("yyyy-MM-dd");
+            m.报废日期 = Convert.ToDateTime(d[8].ToString());
             m.凭证编号 = d[9].ToString();
             m.备注 = d[10].ToString();
             return m;
         }
+
         /// <summary>
         /// 添加固定资产
         /// </summary>
@@ -80,5 +81,15 @@ namespace PA.ViewModel
             return db.InsertPackage(DBTablesName.T_FIXEDASSETS, list.OfType<object>().ToList());
         }
 
+        /// <summary>
+        /// 判断固定资产的编号是否已存在
+        /// </summary>
+        /// <param name="index"></param>
+        /// <returns></returns>
+        public bool ValidateIndex(string index)
+        {
+            sql = "select 1 from " + DBTablesName.T_FIXEDASSETS + " where name ='" + index + "' and delete_mark = 0";
+            return db.IsExist(sql);
+        }
     }
 }

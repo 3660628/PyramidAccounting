@@ -34,6 +34,8 @@ namespace PA.Helper.DataDefind
         private static readonly string insert_T_YEAR_FEE = "insert into T_YEAR_FEE(SUBJECT_ID,FEE,BOOKID) "
             + "values(@SUBJECT_ID, @FEE, @BOOKID)";
 
+        private static readonly string insert_T_FIXEDASSETS = "insert into @T_FIXEDASSETS(ID,NAME,UNIT,AMOUNT,PRICE,USED_YEAR,BUY_DATE,DEPARMENT,CLEAR_DATE,VOUCHER_NO,COMMENTS) "
+            + "values(@ID, @NAME, @UNIT, @AMOUNT, @PRICE, @USED_YEAR, @BUY_DATE, @DEPARMENT, @CLEAR_DATE, @VOUCHER_NO, @COMMENTS)";
 
         #region GetSet
         public static string Insert_T_YEAR_FEE
@@ -84,6 +86,11 @@ namespace PA.Helper.DataDefind
         public static string Insert_T_VOUCHER
         {
             get { return SqlString.insert_T_VOUCHER.Replace("@T_VOUCHER", DBTablesName.T_VOUCHER); }
+        }
+
+        public static string Insert_T_FIXEDASSETS
+        {
+            get { return SqlString.insert_T_FIXEDASSETS.Replace("@T_FIXEDASSETS", DBTablesName.T_FIXEDASSETS); }
         }
         #endregion
 

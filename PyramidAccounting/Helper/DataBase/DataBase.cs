@@ -323,6 +323,31 @@ namespace PA.Helper.DataBase
                         }
                         #endregion
                         break;
+                    case "T_FIXEDASSETS":   
+                        #region 固定资产
+                        sql = PA.Helper.DataDefind.SqlString.Insert_T_FIXEDASSETS;
+                        List<Model_固定资产> 固定资产List = Values.OfType<Model_固定资产>().ToList();
+                        foreach (Model_固定资产 list in 固定资产List)
+                        {
+                            SQLiteCommand cmd = new SQLiteCommand();
+                            cmd.CommandText = sql;
+                            cmd.Parameters.AddWithValue("@ID", list.编号);
+                            cmd.Parameters.AddWithValue("@NAME", list.名称及规格);
+                            cmd.Parameters.AddWithValue("@UNIT", list.单位);
+                            cmd.Parameters.AddWithValue("@AMOUNT", list.数量);
+                            cmd.Parameters.AddWithValue("@PRICE", list.价格);
+                            cmd.Parameters.AddWithValue("@USED_YEAR", list.使用年限);
+                            cmd.Parameters.AddWithValue("@BUY_DATE", list.购置日期);
+                            cmd.Parameters.AddWithValue("@DEPARMENT", list.使用部门);
+                            cmd.Parameters.AddWithValue("@CLEAR_DATE", list.报废日期);
+                            cmd.Parameters.AddWithValue("@VOUCHER_NO", list.凭证编号);
+                            cmd.Parameters.AddWithValue("@COMMENTS", list.备注);
+                            cmd.Connection = conn;
+                            cmd.ExecuteNonQuery();
+                        }
+
+                        #endregion
+                        break;
                 }
                 strans.Commit();
                 flag = true;

@@ -25,9 +25,9 @@
         <TextBox x:Name="TextBox_单位" HorizontalAlignment="Left" Height="22" Margin="138,140,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
         <TextBox x:Name="TextBox_数量" HorizontalAlignment="Left" Height="22" Margin="138,177,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
         <TextBox x:Name="TextBox_原价" HorizontalAlignment="Left" Height="22" Margin="138,219,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <TextBox x:Name="TextBox_购入日期" HorizontalAlignment="Left" Height="22" Margin="138,260,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <DatePicker x:Name="DatePicker_置购日期" HorizontalAlignment="Left" Width="120" Margin="138,262,0,0" VerticalAlignment="Top" VerticalContentAlignment="Center"/>
         <TextBox x:Name="TextBox_部门" HorizontalAlignment="Left" Height="22" Margin="138,300,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <TextBox x:Name="TextBox_清理日期" HorizontalAlignment="Left" Height="22" Margin="138,383,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <DatePicker x:Name="DatePicker_清理日期" HorizontalAlignment="Left" Width="120" Margin="138,383,0,0" VerticalAlignment="Top" VerticalContentAlignment="Center"/>
         <TextBox x:Name="TextBox_凭证编号" HorizontalAlignment="Left" Height="22" Margin="138,421,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
         <TextBox x:Name="TextBox_备注" HorizontalAlignment="Left" Height="22" Margin="138,459,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
         <Button x:Name="Button_PopCommit" Content="提交" HorizontalAlignment="Right" Margin="0,0,109,23" Width="80" Click="Button_PopCommit_Click" Height="25" Foreground="White" VerticalAlignment="Bottom" Template="{DynamicResource ButtonControlTemplate_CommonBlue}" />
