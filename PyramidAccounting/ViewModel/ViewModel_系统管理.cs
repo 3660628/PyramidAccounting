@@ -19,7 +19,6 @@ namespace PA.ViewModel
         public string GetUsbDeviceID()
         {
             string sql = "select value from t_systeminfo where rkey='" + (int)M_Enum.EM_KEY.U盘标识 + "'";
-            Log.Write(sql);
             return db.GetSelectValue(sql);
         }
 

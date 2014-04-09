@@ -51,6 +51,8 @@ namespace PA.Helper.Tools
                         if (disk["Name"].ToString() == ("\\\\.\\PHYSICALDRIVE" + driveNumber))
                         {
                             this._serialNumber = parseSerialFromDeviceID(disk["SerialNumber"].ToString());
+                            //this._serialNumber = parseSerialFromDeviceID(disk["PNPDeviceID"].ToString());
+                           // PA.Helper.DataBase.Log.Write(_serialNumber);
                         }
                     }
                 }

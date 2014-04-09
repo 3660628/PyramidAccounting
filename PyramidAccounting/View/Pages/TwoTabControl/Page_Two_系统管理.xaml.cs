@@ -21,7 +21,6 @@ using PA.View.ResourceDictionarys.MessageBox;
 using PA.Helper.XMLHelper;
 using System.Threading;
 using PA.Helper.Tools;
-using PA.Helper.Tools;
 
 namespace PA.View.Pages.TwoTabControl
 {

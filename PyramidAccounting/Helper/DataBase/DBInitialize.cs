@@ -59,7 +59,6 @@ namespace PA.Helper.DataBase
             //获取U盘唯一码
             UsbController usb = new UsbController();
             string _str = usb.getSerialNumberFromDriveLetter();
-
             string sql = "insert into t_systeminfo (op_time,rkey,value,comments) values ('" + date
                 + "','" + (int)M_Enum.EM_KEY.软件版本 + "','" + (int)M_Enum.EM_SOFTWARESTATE.未注册 + "','第一次运行显示未注册'),('" + date
                 + "','" + (int)M_Enum.EM_KEY.注册码 + "','','注册码'),('" + date

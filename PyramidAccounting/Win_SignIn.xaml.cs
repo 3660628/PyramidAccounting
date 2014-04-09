@@ -56,6 +56,7 @@ namespace PA
             ComboBox_账套.Text = new XMLReader().ReadXML("账套信息");
 
             CommonInfo.U盘设备ID = vsy.GetUsbDeviceID();
+            Log.Write(CommonInfo.U盘设备ID);
 
         }
 
