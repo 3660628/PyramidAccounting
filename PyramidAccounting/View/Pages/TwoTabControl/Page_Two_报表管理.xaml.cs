@@ -75,11 +75,6 @@ namespace PA.View.Pages.TwoTabControl
         }
         #endregion
 
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            
-        }
-
         private void Button_生成1_Click(object sender, RoutedEventArgs e)
         {
             mr.日志 = "生成" + ComboBox_Date.Text + "资产负债表" ;
@@ -331,6 +326,21 @@ namespace PA.View.Pages.TwoTabControl
                     lb2.Content = "";
                 }
             }
+        }
+
+        private void Button_BalanceSheetPrint_Click(object sender, RoutedEventArgs e)
+        {
+            new PA.Helper.ExcelHelper.ExcelWriter().ExportBalanceSheet(ComboBox_Date.SelectedIndex + 1);
+        }
+
+        private void Button_IncomeAndExpenditurePrint_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Button_AdministrativeExpensesSchedulePrint_Click(object sender, RoutedEventArgs e)
+        {
+
         }
         
     }
