@@ -81,7 +81,8 @@ namespace PA.View.Pages.TwoTabControl
             vm.Insert(mr);
 
             List<Model_报表类> list = new List<Model_报表类>();
-            list = vmr.GetBalanceSheet(ComboBox_Date.SelectedIndex + 1);
+            int value = ComboBox_Date1.SelectedIndex;
+            list = vmr.GetBalanceSheet(value + 1);
             decimal dy = 0;
             decimal dn = 0;
             decimal sumy1 = 0;
@@ -178,7 +179,8 @@ namespace PA.View.Pages.TwoTabControl
             vm.Insert(mr);
 
             List<Model_报表类> list = new List<Model_报表类>();
-            list = vmr.GetIncomeAndExpenses(ComboBox_Date.SelectedIndex + 1);
+            int value = ComboBox_Date1.SelectedIndex;
+            list = vmr.GetIncomeAndExpenses(value+1);
             decimal dy = 0;
             decimal dn = 0;
             decimal insumm1 = 0;
@@ -250,7 +252,8 @@ namespace PA.View.Pages.TwoTabControl
             mr.日志 = "生成" + ComboBox_Date.Text + "行政费用支出明细表";
             vm.Insert(mr);
             List<Model_报表类> list = new List<Model_报表类>();
-            list = vmr.GetAdministrativeExpenseDetail(ComboBox_Date.SelectedIndex + 1);
+            int value = ComboBox_Date2.SelectedIndex;
+            list = vmr.GetAdministrativeExpenseDetail(value + 1);
             decimal dy = 0;
             decimal dn = 0;
             //二级科目
