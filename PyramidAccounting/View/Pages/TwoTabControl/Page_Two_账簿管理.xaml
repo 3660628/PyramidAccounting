@@ -1245,6 +1245,29 @@
                             <DataGrid x:Name="DataGrid_固定资产" Grid.Row="3" ItemsSource="{Binding}" Grid.ColumnSpan="24" CanUserAddRows="False" AutoGenerateColumns="False" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" HeadersVisibility="None" Margin="0,-1,0,0" Background="White" BorderBrush="#FF99CCFF" HorizontalGridLinesBrush="#FF99CCFF" VerticalGridLinesBrush="#FF99CCFF" HorizontalScrollBarVisibility="Disabled">
                                 <DataGrid.Columns>
                                     <DataGridTextColumn Binding="{Binding 编号}" />
+                                    <DataGridTextColumn Binding="{Binding 名称及规格}" />
+                                    <DataGridTextColumn Binding="{Binding 单位}" />
+                                    <DataGridTextColumn Binding="{Binding 数量}" />
+                                    <DataGridTextColumn Binding="{Binding 价格千万}" />
+                                    <DataGridTextColumn Binding="{Binding 价格百万}" />
+                                    <DataGridTextColumn Binding="{Binding 价格十万}" />
+                                    <DataGridTextColumn Binding="{Binding 价格万}" />
+                                    <DataGridTextColumn Binding="{Binding 价格千}" />
+                                    <DataGridTextColumn Binding="{Binding 价格百}" />
+                                    <DataGridTextColumn Binding="{Binding 价格十}" />
+                                    <DataGridTextColumn Binding="{Binding 价格元}" />
+                                    <DataGridTextColumn Binding="{Binding 价格角}" />
+                                    <DataGridTextColumn Binding="{Binding 价格分}" />
+                                    <DataGridTextColumn Binding="{Binding 使用年限}" />
+                                    <DataGridTextColumn Binding="{Binding 购置年}" />
+                                    <DataGridTextColumn Binding="{Binding 购置月}" />
+                                    <DataGridTextColumn Binding="{Binding 购置日}" />
+                                    <DataGridTextColumn Binding="{Binding 使用部门}" />
+                                    <DataGridTextColumn Binding="{Binding 移除年}" />
+                                    <DataGridTextColumn Binding="{Binding 移除月}" />
+                                    <DataGridTextColumn Binding="{Binding 移除日}" />
+                                    <DataGridTextColumn Binding="{Binding 凭证编号}" />
+                                    <DataGridTextColumn Binding="{Binding 备注}" />
                                 </DataGrid.Columns>
                             </DataGrid>
                         </Grid>

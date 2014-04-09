@@ -11,12 +11,12 @@ namespace PA.Model.DataGrid
         private string serialNumber;
         private string sourceName;
         private string unit;
-        private string amount;
-        private string price;
+        private decimal amount;
+        private decimal price;
         private int usedYear;
         private DateTime buyDate;
         private string deparment;
-        private DateTime createDate;
+        private DateTime clearDate;
         private string voucherNo;
         private string comments;
         private int deleteMark;
@@ -154,13 +154,13 @@ namespace PA.Model.DataGrid
             set { unit = value; }
         }
 
-        public string 数量
+        public decimal 数量
         {
             get { return amount; }
             set { amount = value; }
         }
 
-        public string 价格
+        public decimal 价格
         {
             get { return price; }
             set { price = value; }
@@ -186,8 +186,8 @@ namespace PA.Model.DataGrid
 
         public DateTime 报废日期
         {
-            get { return createDate; }
-            set { createDate = value; }
+            get { return clearDate; }
+            set { clearDate = value; }
         }
 
         public string 凭证编号

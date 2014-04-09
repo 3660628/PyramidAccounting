@@ -103,8 +103,8 @@ namespace PA.View.Pages.Pop.账簿管理
             model.编号 = TextBox_编号.Text.Trim();
             model.名称及规格 = TextBox_名称.Text.Trim();
             model.单位 = TextBox_单位.Text.Trim();
-            model.数量 = TextBox_数量.Text.Trim();
-            model.价格 = TextBox_原价.Text.Trim();
+            model.数量 = Convert.ToDecimal(TextBox_数量.Text.Trim());
+            model.价格 = Convert.ToDecimal(TextBox_原价.Text.Trim());
             model.购置日期 = (DateTime)DatePicker_置购日期.SelectedDate;
             model.使用部门 = TextBox_部门.Text.Trim();
             model.报废日期 = (DateTime)DatePicker_清理日期.SelectedDate;
