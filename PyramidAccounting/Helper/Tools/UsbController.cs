@@ -50,7 +50,7 @@ namespace PA.Helper.Tools
                         //if (disk["Name"].ToString() == ("\\\\.\\PHYSICALDRIVE" + driveNumber) & disk["InterfaceType"].ToString() == "USB")
                         if (disk["Name"].ToString() == ("\\\\.\\PHYSICALDRIVE" + driveNumber))
                         {
-                            this._serialNumber = parseSerialFromDeviceID(disk["PNPDeviceID"].ToString());
+                            this._serialNumber = parseSerialFromDeviceID(disk["SerialNumber"].ToString());
                         }
                     }
                 }
