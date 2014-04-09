@@ -343,12 +343,12 @@ namespace PA.View.Pages.TwoTabControl
 
         private void Button_IncomeAndExpenditurePrint_Click(object sender, RoutedEventArgs e)
         {
-
+            new PA.Helper.ExcelHelper.ExcelWriter().ExportIncomeAndExpenditure(ComboBox_Date1.SelectedIndex + 1);
         }
 
         private void Button_AdministrativeExpensesSchedulePrint_Click(object sender, RoutedEventArgs e)
         {
-
+            new PA.Helper.ExcelHelper.ExcelWriter().ExportAdministrativeExpensesSchedule(ComboBox_Date1.SelectedIndex + 1);
         }
         
     }

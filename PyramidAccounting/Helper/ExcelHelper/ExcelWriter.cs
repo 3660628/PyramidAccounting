@@ -750,7 +750,12 @@ namespace PA.Helper.ExcelHelper
             releaseObject(xlApp);
             return true;
         }
-        public bool ExportIncomeAndExpenditure()
+        /// <summary>
+        /// 收入支出总表
+        /// </summary>
+        /// <param name="ParmPeroid"></param>
+        /// <returns></returns>
+        public bool ExportIncomeAndExpenditure(int ParmPeroid)
         {
             #region init Excel
             xls.Application xlApp = null;
@@ -781,7 +786,12 @@ namespace PA.Helper.ExcelHelper
             releaseObject(xlApp);
             return true;
         }
-        public bool ExportAdministrativeExpensesSchedule()
+        /// <summary>
+        /// 行政费用支出明细表
+        /// </summary>
+        /// <param name="ParmPeroid"></param>
+        /// <returns></returns>
+        public bool ExportAdministrativeExpensesSchedule(int ParmPeroid)
         {
             #region init Excel
             xls.Application xlApp = null;
