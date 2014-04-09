@@ -49,6 +49,10 @@ namespace PA.View.Pages.TwoTabControl
             SubscribeToEvent();
             VisibilityData();
             LoadPage();
+            if (CommonInfo.SoftwareState == (int)M_Enum.EM_SOFTWARESTATE.已注册)
+            {
+                Grid_Register.Visibility = Visibility.Hidden;
+            }
             _mr = vmr.GetOperateLog();
         }
 

@@ -66,7 +66,7 @@
             </PasswordBox.ContextMenu>
         </PasswordBox>
         <Button FocusVisualStyle="{x:Null}" x:Name="Button_登陆" Content="登录" HorizontalAlignment="Right" Margin="0,89,136,0" VerticalAlignment="Top" Click="Button_登陆_Click" IsDefault="True" Foreground="White" FontSize="13.333" Width="100" Height="25" Template="{DynamicResource ButtonControlTemplate_CommonBlue}" Grid.Column="1" Grid.Row="2"/>
-        <TextBlock x:Name="TextBlock_登陆警告信息" HorizontalAlignment="Center" Margin="64,130,64,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="172" Foreground="Red" Grid.Column="1" Grid.Row="2" Height="14"/>
+        <TextBlock x:Name="TextBlock_登陆警告信息" HorizontalAlignment="Center" Margin="64,130,64,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="Auto" Foreground="Red" Grid.Column="1" Grid.Row="2" Height="14"/>
         <Rectangle Fill="Black" HorizontalAlignment="Right" Margin="0" Stroke="Black" Width="1" Grid.Row="2"/>
         <TextBlock Grid.Column="1" HorizontalAlignment="Center" Margin="64,0,56,0" Grid.Row="2" TextWrapping="Wrap" Text="您正在使用正版软件，请放心登录" VerticalAlignment="Bottom" Foreground="#FF4486C2"/>
         <Label Content="金字塔" HorizontalAlignment="Left" Margin="120,13,0,0" Grid.Row="2" VerticalAlignment="Top" Foreground="#FF2984C2" FontWeight="Bold" FontSize="22" FontFamily="Microsoft YaHei"/>

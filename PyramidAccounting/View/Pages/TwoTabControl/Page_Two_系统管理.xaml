@@ -227,7 +227,7 @@
                     </DataGrid>
                 </Grid>
             </TabItem>
-            <TabItem Header="关于我们" FocusVisualStyle="{x:Null}" Margin="48,-1,-48,1" Template="{DynamicResource TabItemControlTemplate_TwoTabHeader}" >
+            <TabItem Header="关于我们" FocusVisualStyle="{x:Null}" Margin="40,-1,-40,1" Template="{DynamicResource TabItemControlTemplate_TwoTabHeader}" >
                 <Grid Background="Snow">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="100*"/>
