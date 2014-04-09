@@ -46,14 +46,18 @@ namespace PA.Helper.Tools
                     ManagementObjectSearcher disks = new ManagementObjectSearcher("SELECT * FROM Win32_DiskDrive");
                     foreach (ManagementObject disk in disks.Get())
                     {
-
-                        //if (disk["Name"].ToString() == ("\\\\.\\PHYSICALDRIVE" + driveNumber) & disk["InterfaceType"].ToString() == "USB")
+#if (DEBUG)
                         if (disk["Name"].ToString() == ("\\\\.\\PHYSICALDRIVE" + driveNumber))
                         {
                             this._serialNumber = parseSerialFromDeviceID(disk["SerialNumber"].ToString());
-                            //this._serialNumber = parseSerialFromDeviceID(disk["PNPDeviceID"].ToString());
-                           // PA.Helper.DataBase.Log.Write(_serialNumber);
                         }
+#endif
+#if(!DEBUG)
+                        if (disk["Name"].ToString() == ("\\\\.\\PHYSICALDRIVE" + driveNumber) & disk["InterfaceType"].ToString() == "USB")
+                        {
+                            this._serialNumber = parseSerialFromDeviceID(disk["PNPDeviceID"].ToString());
+                        }
+#endif
                     }
                 }
             }
