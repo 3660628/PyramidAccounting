@@ -130,34 +130,6 @@
             </TabItem>
             <TabItem FocusVisualStyle="{x:Null}" Header="科目设置" Margin="16,-1,-16,1" Template="{DynamicResource TabItemControlTemplate_TwoTabHeader}">
                 <Grid Background="White">
-                    <DataGrid x:Name="DataGrid_科目设置" ItemsSource="{Binding}" AutoGenerateColumns="False" HorizontalAlignment="Stretch" Margin="7,54,10,7" VerticalAlignment="Stretch" Background="White" RowEditEnding="DataGrid_科目设置_RowEditEnding" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle_凭证管理}" BorderBrush="#FF99CCFF" HeadersVisibility="Column" SelectionUnit="Cell" SelectionMode="Single" CanUserReorderColumns="False" CanUserSortColumns="False" CanUserAddRows="False" CanUserResizeRows="False" CanUserResizeColumns="False" CellStyle="{DynamicResource DataGridCellStyle_无上下边距}" HorizontalGridLinesBrush="#FF99CCFF" VerticalGridLinesBrush="#FF99CCFF" CellEditEnding="DataGrid_科目设置_CellEditEnding" BeginningEdit="DataGrid_科目设置_BeginningEdit">
-                        <DataGrid.Resources>
-                            <!--DataGridRow的双击事件-->
-                            <Style TargetType="DataGridRow">
-                                <EventSetter Event="MouseDoubleClick" Handler="DataGrid_科目设置_Row_MouseDoubleClick" />
-                            </Style>
-                        </DataGrid.Resources>
-                        <DataGrid.Columns>
-                            <DataGridTextColumn Binding="{Binding 序号}" Header="序号" IsReadOnly="True" ElementStyle="{DynamicResource TextBlockStyle_左对齐}"/>
-                            <DataGridTextColumn Binding="{Binding 科目编号}" Header="科目编号" IsReadOnly="True" ElementStyle="{DynamicResource TextBlockStyle_左对齐}"/>
-                            <DataGridTextColumn Binding="{Binding 科目名称}" Header="科目名称" IsReadOnly="True" ElementStyle="{DynamicResource TextBlockStyle_左对齐}"/>
-                            <DataGridTextColumn x:Name="DataGridTextColumn_fee" Binding="{Binding 年初金额}" Header="年初数" MinWidth="100" ElementStyle="{DynamicResource TextBlockStyle_右对齐}"/>
-                            <DataGridTemplateColumn  x:Name="DataGridTemplateColumn_mark" Header="是否启用">
-                                <DataGridTemplateColumn.CellTemplate>
-                                    <DataTemplate>
-                                        <CheckBox x:Name="CheckBox_启用" Style="{DynamicResource SliderCheckBox}" IsChecked="{Binding 是否启用}" Click="CheckBox_启用_Click" />
-                                    </DataTemplate>
-                                </DataGridTemplateColumn.CellTemplate>
-                            </DataGridTemplateColumn>
-                            <DataGridTemplateColumn  x:Name="DataGridTemplateColumn_BorrowMark" Header="借贷方向">
-                                <DataGridTemplateColumn.CellTemplate>
-                                    <DataTemplate>
-                                        <CheckBox x:Name="CheckBox_借贷方向" Style="{DynamicResource SliderCheckBox}" IsChecked="{Binding 借贷标记}" Click="CheckBox_借贷方向_Click" />
-                                    </DataTemplate>
-                                </DataGridTemplateColumn.CellTemplate>
-                            </DataGridTemplateColumn>
-                        </DataGrid.Columns>
-                    </DataGrid>
                     <Button x:Name="Button_科目保存" Content="保存" HorizontalAlignment="Right" Margin="0,16,96,0" VerticalAlignment="Top" Click="Button_科目保存_Click" Width="70" Height="20" Template="{DynamicResource ButtonControlTemplate_CommonBlue}" Foreground="White"/>
                     <Button x:Name="Button_编辑子细目" Content="编写子细目" HorizontalAlignment="Right" Margin="0,16,11,0" VerticalAlignment="Top" Width="75" Height="20" Click="Button_编辑子细目_Click" Template="{DynamicResource ButtonControlTemplate_Common}"/>
                     <TabControl x:Name="TabControl_五大科目" HorizontalAlignment="Left" Margin="6,10,0,0" VerticalAlignment="Top" BorderThickness="0" SelectionChanged="TabControl_五大科目_SelectionChanged" FontSize="14" Height="28">
@@ -170,6 +142,38 @@
                         <TabItem Header="收入类" Template="{DynamicResource TabItemControlTemplate_科目管理}" FontSize="12"/>
                         <TabItem Header="支出类" Template="{DynamicResource TabItemControlTemplate_科目管理}" FontSize="12"/>
                     </TabControl>
+                    <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto" Margin="-3,40,0,-3" Grid.ColumnSpan="2">
+                        <Grid>
+                            <DataGrid x:Name="DataGrid_科目设置" ItemsSource="{Binding}" AutoGenerateColumns="False" HorizontalAlignment="Stretch" Margin="7" VerticalAlignment="Stretch" Background="White" RowEditEnding="DataGrid_科目设置_RowEditEnding" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle_凭证管理}" BorderBrush="#FF99CCFF" HeadersVisibility="Column" SelectionUnit="Cell" SelectionMode="Single" CanUserReorderColumns="False" CanUserSortColumns="False" CanUserAddRows="False" CanUserResizeRows="False" CanUserResizeColumns="False" CellStyle="{DynamicResource DataGridCellStyle_无上下边距}" HorizontalGridLinesBrush="#FF99CCFF" VerticalGridLinesBrush="#FF99CCFF" CellEditEnding="DataGrid_科目设置_CellEditEnding" BeginningEdit="DataGrid_科目设置_BeginningEdit">
+                                <DataGrid.Resources>
+                                    <!--DataGridRow的双击事件-->
+                                    <Style TargetType="DataGridRow">
+                                        <EventSetter Event="MouseDoubleClick" Handler="DataGrid_科目设置_Row_MouseDoubleClick" />
+                                    </Style>
+                                </DataGrid.Resources>
+                                <DataGrid.Columns>
+                                    <DataGridTextColumn Binding="{Binding 序号}" Header="序号" IsReadOnly="True" ElementStyle="{DynamicResource TextBlockStyle_左对齐}"/>
+                                    <DataGridTextColumn Binding="{Binding 科目编号}" Header="科目编号" IsReadOnly="True" ElementStyle="{DynamicResource TextBlockStyle_左对齐}"/>
+                                    <DataGridTextColumn Binding="{Binding 科目名称}" Header="科目名称" IsReadOnly="True" ElementStyle="{DynamicResource TextBlockStyle_左对齐}"/>
+                                    <DataGridTextColumn x:Name="DataGridTextColumn_fee" Binding="{Binding 年初金额}" Header="年初数" MinWidth="100" ElementStyle="{DynamicResource TextBlockStyle_右对齐}"/>
+                                    <DataGridTemplateColumn  x:Name="DataGridTemplateColumn_mark" Header="是否启用">
+                                        <DataGridTemplateColumn.CellTemplate>
+                                            <DataTemplate>
+                                                <CheckBox x:Name="CheckBox_启用" Style="{DynamicResource SliderCheckBox}" IsChecked="{Binding 是否启用}" Click="CheckBox_启用_Click" />
+                                            </DataTemplate>
+                                        </DataGridTemplateColumn.CellTemplate>
+                                    </DataGridTemplateColumn>
+                                    <DataGridTemplateColumn  x:Name="DataGridTemplateColumn_BorrowMark" Header="借贷方向">
+                                        <DataGridTemplateColumn.CellTemplate>
+                                            <DataTemplate>
+                                                <CheckBox x:Name="CheckBox_借贷方向" Style="{DynamicResource SliderCheckBox}" IsChecked="{Binding 借贷标记}" Click="CheckBox_借贷方向_Click" />
+                                            </DataTemplate>
+                                        </DataGridTemplateColumn.CellTemplate>
+                                    </DataGridTemplateColumn>
+                                </DataGrid.Columns>
+                            </DataGrid>
+                        </Grid>
+                    </ScrollViewer>
                 </Grid>
             </TabItem>
             <TabItem FocusVisualStyle="{x:Null}" Header="数据管理" Margin="24,-1,-24,1" Template="{DynamicResource TabItemControlTemplate_TwoTabHeader}">
@@ -202,6 +206,7 @@
                 </Grid>
             </TabItem>
             <TabItem FocusVisualStyle="{x:Null}" Header="操作记录" Margin="32,-1,-32,1" Template="{DynamicResource TabItemControlTemplate_TwoTabHeader}">
+                
                 <Grid Background="White">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="65*"/>
@@ -216,15 +221,20 @@
                     <Label Content="到" HorizontalAlignment="Left" Margin="155,30,0,0" VerticalAlignment="Top"/>
                     <DatePicker x:Name="DatePicker_操作记录End" HorizontalAlignment="Left" Width="120" Margin="178,30,0,0" VerticalAlignment="Top"/>
                     <Button FocusVisualStyle="{x:Null}" x:Name="Button_操作记录查询" Content="查询" Grid.Column="1" HorizontalAlignment="Right" Margin="0,28,10,0" VerticalAlignment="Top" Width="70" Click="Button_操作记录查询_Click" Template="{DynamicResource ButtonControlTemplate_CommonBlue}" Height="20" Foreground="White"/>
-                    <DataGrid x:Name="DataGrid_操作记录" CanUserAddRows="False" IsReadOnly="True" AutoGenerateColumns="False" ItemsSource="{Binding}" Grid.Row="1" Grid.ColumnSpan="2" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle_凭证管理}" CellStyle="{DynamicResource DataGridCellStyle_无上下边距}" HeadersVisibility="Column" HorizontalGridLinesBrush="#FF99CCFF" VerticalGridLinesBrush="#FF99CCFF" BorderBrush="#FF99CCFF" Margin="7,0,10,7" Background="White" >
-                        <DataGrid.Columns>
-                            <DataGridTextColumn Header="序号" Binding="{Binding 序号}" />
-                            <DataGridTextColumn Header="操作时间" MinWidth="100" Binding="{Binding 日期}" />
-                            <DataGridTextColumn Header="用户名" MinWidth="100" Binding="{Binding 用户名}" ElementStyle="{DynamicResource TextBlockStyle_居中对齐}"/>
-                            <DataGridTextColumn Header="姓名" MinWidth="100" Binding="{Binding 姓名}" ElementStyle="{DynamicResource TextBlockStyle_居中对齐}"/>
-                            <DataGridTextColumn Header="日志" Width="*" Binding="{Binding 日志}" />
-                        </DataGrid.Columns>
-                    </DataGrid>
+                    <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto" Margin="-3,0,0,-3" Grid.ColumnSpan="2" Grid.Row="1">
+                        <Grid>
+                            <DataGrid x:Name="DataGrid_操作记录" CanUserAddRows="False" IsReadOnly="True" AutoGenerateColumns="False" ItemsSource="{Binding}" Grid.Row="1" Grid.ColumnSpan="2" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle_凭证管理}" CellStyle="{DynamicResource DataGridCellStyle_无上下边距}" HeadersVisibility="Column" HorizontalGridLinesBrush="#FF99CCFF"
+                                      VerticalGridLinesBrush="#FF99CCFF" BorderBrush="#FF99CCFF" Margin="7,7,7,7" Background="White" >
+                                <DataGrid.Columns>
+                                    <DataGridTextColumn Header="序号" MinWidth="60" Binding="{Binding 序号}" />
+                                    <DataGridTextColumn Header="操作时间" MinWidth="100" Binding="{Binding 日期}" />
+                                    <DataGridTextColumn Header="用户名" MinWidth="100" Binding="{Binding 用户名}" ElementStyle="{DynamicResource TextBlockStyle_居中对齐}"/>
+                                    <DataGridTextColumn Header="姓名" MinWidth="100" Binding="{Binding 姓名}" ElementStyle="{DynamicResource TextBlockStyle_居中对齐}"/>
+                                    <DataGridTextColumn Header="日志" MinWidth="200" Width="*" Binding="{Binding 日志}" />
+                                </DataGrid.Columns>
+                            </DataGrid>
+                        </Grid>
+                    </ScrollViewer>
                 </Grid>
             </TabItem>
             <TabItem Header="关于我们" FocusVisualStyle="{x:Null}" Margin="40,-1,-40,1" Template="{DynamicResource TabItemControlTemplate_TwoTabHeader}" >
