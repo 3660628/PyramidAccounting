@@ -146,6 +146,16 @@ namespace PA.View.Windows
                 this.Label_审核状态.Content = "未审核";
                 this.Label_审核状态.Foreground = Brushes.Red;
             }
+            //已审核，不能编辑修改
+            if (Voucher.审核标志 == 1)
+            {
+                this.Button_保存.Visibility = System.Windows.Visibility.Collapsed;
+                this.Button_NewDataGrid.Visibility = System.Windows.Visibility.Collapsed;
+                this.TextBox_号.IsReadOnly = true;
+                this.TextBox_附属单证.IsReadOnly = true;
+                this.DataGrid_凭证明细.IsReadOnly = true;
+                this.DatePicker_Date.IsEnabled = false;
+            }
             this.Label_制单人.Content = Voucher.制单人;
         }
         /// <summary>
@@ -268,6 +278,10 @@ namespace PA.View.Windows
         
         private void DataGrid_凭证明细_Cell_MouseDoubleClick(object sender, RoutedEventArgs e)
         {
+            if (Voucher.审核标志 == 1)
+            {
+                return;
+            }
             Model_凭证明细 SelectedRow = this.DataGrid_凭证明细.SelectedCells[0].Item as Model_凭证明细;
             DataGridCellInfo DoubleClickCell = this.DataGrid_凭证明细.CurrentCell;
             CellId = SelectedRow.序号;
@@ -343,6 +357,10 @@ namespace PA.View.Windows
 
         private void TextBox_附属单证_MouseWheel(object sender, MouseWheelEventArgs e)
         {
+            if (Voucher.审核标志 == 1)
+            {
+                return;
+            }
             int result = 0;
             int.TryParse(this.TextBox_附属单证.Text.Trim(), out result);
             if (e.Delta > 0)
@@ -360,6 +378,10 @@ namespace PA.View.Windows
 
         private void TextBox_号_MouseWheel(object sender, MouseWheelEventArgs e)
         {
+            if (Voucher.审核标志 == 1)
+            {
+                return;
+            }
             int result = 0;
             int.TryParse(this.TextBox_号.Text.Trim(), out result);
             if (e.Delta > 0)
