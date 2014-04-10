@@ -48,7 +48,7 @@
                             <DataGridTextColumn Header="凭证号" Binding="{Binding 凭证号}" MinWidth="50"/>
                             <DataGridTextColumn Header="制表日期" Binding="{Binding 制表时间}"/>
                             <DataGridTextColumn Header="摘要" Binding="{Binding 摘要}" MinWidth="100"/>
-                            <DataGridTextColumn Header="科目编号" Binding="{Binding 科目编号}" MinWidth="50" ElementStyle="{DynamicResource TextBlockStyle_居中对齐}"/>
+                            <DataGridTextColumn Header="科目编号" Binding="{Binding 科目编号}" MinWidth="100" ElementStyle="{DynamicResource TextBlockStyle_居中对齐}"/>
                             <DataGridTextColumn Header="科目名称"  Binding="{Binding 科目名称}" MinWidth="100" ElementStyle="{DynamicResource TextBlockStyle_居中对齐}"/>
                             <DataGridTextColumn Header="借方金额"  Binding="{Binding 借方金额}" MinWidth="100" ElementStyle="{DynamicResource TextBlockStyle_右对齐}"/>
                             <DataGridTextColumn Header="贷方金额"  Binding="{Binding 贷方金额}" MinWidth="100" ElementStyle="{DynamicResource TextBlockStyle_右对齐}"/>
