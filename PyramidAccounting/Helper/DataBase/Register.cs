@@ -53,5 +53,37 @@ namespace PA.Helper.DataBase
             int i = (int) d;
             return i;
         }
+        /// <summary>
+        /// 返回版本信息
+        /// </summary>
+        /// <returns></returns>
+        public string GetVersionMessage()
+        {
+            int status = GetVersionType();
+            string msg = string.Empty;
+            switch (status)
+            {
+                case 0:
+                    msg = "试用期已过，部分功能使用受限！";
+                    break;
+                case 1:
+                    int i = NumsOfDayRemaining();
+                    if (i < 0)
+                    {
+                        i = 0;
+                        UpdateSoftwareVersionStatus((int)M_Enum.EM_SOFTWARESTATE.过期);
+                        GetVersionMessage();
+                    }
+                    else
+                    {
+                        msg = "试用版：\t" + "还剩余" + i + "天";
+                    }
+                    break;
+                case 2:
+                    msg = "正式版";
+                    break;
+            }
+            return msg;
+        }
     }
 }

@@ -50,7 +50,7 @@ namespace PA.View.Pages.TwoTabControl
             LoadPage();
             if (CommonInfo.SoftwareState == (int)M_Enum.EM_SOFTWARESTATE.已注册)
             {
-                Grid_Register.Visibility = Visibility.Hidden;
+                Grid_Register.Visibility = Visibility.Collapsed;
             }
             _mr = vmr.GetOperateLog();
         }
@@ -93,7 +93,7 @@ namespace PA.View.Pages.TwoTabControl
             this.DatePicker_操作记录.Text = DateTime.Now.ToShortDateString();
             this.DatePicker_操作记录End.Text = DateTime.Now.ToShortDateString();
             //5.关于我们
-            this.Label_状态.Content = GetVersionMessage();
+            this.Label_状态.Content = rg.GetVersionMessage();
             this.Laber_Version.Content ="版本V" + Application.ResourceAssembly.GetName().Version.ToString();
         }
        
@@ -571,34 +571,6 @@ namespace PA.View.Pages.TwoTabControl
 
         #region 5.关于我们
 
-        private string GetVersionMessage()
-        {
-            int status = rg.GetVersionType();
-            string msg = string.Empty;
-            switch (status)
-            {
-                case 0:
-                    msg = "试用期已过，部分功能使用受限！";
-                    break;
-                case 1:
-                    int i = rg.NumsOfDayRemaining();
-                    if (i < 0)
-                    {
-                        i = 0;
-                        rg.UpdateSoftwareVersionStatus((int)M_Enum.EM_SOFTWARESTATE.过期);
-                        GetVersionMessage();
-                    }
-                    else
-                    {
-                        msg = "试用版：\t" + "还剩余" + i + "天";
-                    }
-                    break;
-                case 2:
-                    msg = "正式版";
-                    break;
-            }
-            return msg;
-        }
         private void Button_注册_Click(object sender, RoutedEventArgs e)
         {
             string registerCode = TextBox_注册.Text.Trim().ToUpper();
@@ -612,7 +584,7 @@ namespace PA.View.Pages.TwoTabControl
                 rg.UpdateSoftwareRegisterCode(registerCode);
                 MessageBoxCommon.Show("注册成功！");
                 this.LoadPage();
-                Grid_Register.Visibility = Visibility.Hidden;
+                Grid_Register.Visibility = Visibility.Collapsed;
             }
             else
             {
