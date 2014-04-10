@@ -483,7 +483,7 @@ namespace PA.ViewModel
                           + " select datetime('now', 'localtime') as op_time," +  CommonInfo.当前期
                           + ",b.subject_id,t.voucher_nums,b.SUBJECT_ID || '汇总' AS comments,t.DEBIT,t.CREDIT,b.mark,0,abs(b.mark*b.fee-(t.credit-t.debit)) as fee from " 
                           + DBTablesName.T_FEE + " b left join ("
-                          + "SELECT min(VOUCHER_NO) || '-' || max(VOUCHER_NO) AS voucher_nums,"
+                          + "SELECT min(VOUCHER_NO) || '-' || max(VOUCHER_NO) AS voucher_nums,subject_id,"
                           + "total(DEBIT) AS DEBIT,"
                           + "total(CREDIT) AS CREDIT"
                           + " FROM "

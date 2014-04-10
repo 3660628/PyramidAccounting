@@ -24,7 +24,7 @@ namespace PA.Helper.Tools
         public List<string> Turn(string value, int size)
         {
             List<string> list = new List<string>();
-            int length = value.Length;
+            int length = 0;
             if (value.Equals("0"))
             {
                 for (int i = 0; i < size; i++)
@@ -33,12 +33,13 @@ namespace PA.Helper.Tools
                 }
                 return list;
             }
-            value = value.Replace(".", "");
             string s = string.Empty;
-            char[] cc = value.ToCharArray();
 
             if (value.IndexOf(".") > 0)
             {
+                value = value.Replace(".", "");
+                length = value.Length;
+                char[] cc = value.ToCharArray();
                 for (int j = 0; j < size - length; j++)
                 {
                     list.Add(s);
@@ -51,13 +52,15 @@ namespace PA.Helper.Tools
             }
             else
             {
+                length = value.Length;
+                char[] dd = value.ToCharArray();
                 for (int j = 0; j < size - 2 - length; j++)
                 {
                     list.Add(s);
                 }
                 for (int i = 0; i < length; i++)
                 {
-                    s = cc[i].ToString();
+                    s = dd[i].ToString();
                     list.Add(s);
                 }
                 list.Add("0");
