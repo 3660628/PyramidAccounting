@@ -81,7 +81,7 @@ namespace PA.View.Pages.TwoTabControl
             vm.Insert(mr);
 
             List<Model_报表类> list = new List<Model_报表类>();
-            int value = ComboBox_Date1.SelectedIndex;
+            int value = ComboBox_Date.SelectedIndex;
             list = vmr.GetBalanceSheet(value + 1);
             decimal dy = 0;
             decimal dn = 0;
