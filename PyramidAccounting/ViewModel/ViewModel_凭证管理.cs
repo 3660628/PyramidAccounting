@@ -184,7 +184,7 @@ namespace PA.ViewModel
         {
             string LastVoucherNum = "";
             int CountNum = 0;
-            bool StartAdd = false;
+            bool isFirstLine = true;
             List<Model_凭证明细> VoucherDetails = new List<Model_凭证明细>();
             Model_凭证明细 detail;
             string sql = "select detail.*, subjectA.subject_name as MainSubjectName, subjectB.subject_name as TimesSubjectName"
@@ -196,7 +196,7 @@ namespace PA.ViewModel
             DataSet ds = new PA.Helper.DataBase.DataBase().Query(sql);
             foreach (DataRow dr in ds.Tables[0].Rows)
             {
-                if (LastVoucherNum == dr[4].ToString() || !StartAdd)
+                if (LastVoucherNum == dr[4].ToString() || isFirstLine)
                 {
                     detail = new Model_凭证明细();
                     detail.ID = int.Parse(dr[0].ToString());
@@ -216,10 +216,11 @@ namespace PA.ViewModel
                     VoucherDetails.Add(detail);
                     LastVoucherNum = dr[4].ToString();
                     CountNum++;
-                    StartAdd = true;
+                    isFirstLine = false;
                 }
                 else
                 {
+                    //补全上一页剩余空白行
                     for (int i = CountNum; i < 6; i++)
                     {
                         detail = new Model_凭证明细();
@@ -239,6 +240,8 @@ namespace PA.ViewModel
                     detail.记账 = int.Parse(dr[8].ToString());
                     detail.借方 = decimal.Parse(dr[9].ToString());
                     detail.贷方 = decimal.Parse(dr[10].ToString());
+                    detail.主科目名 = dr["MainSubjectName"].ToString();
+                    detail.子细目 = dr["TimesSubjectName"].ToString();
                     VoucherDetails.Add(detail);
                     LastVoucherNum = dr[4].ToString();
                     CountNum++;
