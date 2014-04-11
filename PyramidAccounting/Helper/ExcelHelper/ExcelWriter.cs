@@ -980,6 +980,64 @@ namespace PA.Helper.ExcelHelper
             #endregion
 
             #region fill data
+            List<Model_报表类> data = new PA.ViewModel.ViewModel_ReportManager().GetAdministrativeExpenseDetail(ParmPeroid);
+            if(data.Count <= 0)
+            {
+                return "NoData";
+            }
+            decimal dy = 0;
+            decimal dn = 0;
+            //二级科目
+            decimal b101 = 0;
+            decimal b102 = 0;
+            decimal b201 = 0;
+            decimal b202 = 0;
+            decimal b301 = 0;
+            decimal b302 = 0;
+            decimal b401 = 0;
+            decimal b402 = 0;
+
+            for (int i = 0; i < data.Count; i++)
+            {
+                xlWorkSheet.Cells[6 + i, "C"] = data[i].本期数;
+                xlWorkSheet.Cells[6 + i, "C"] = data[i].累计数;
+                decimal.TryParse(data[i].本期数, out dn);
+                decimal.TryParse(data[i].累计数, out dy);
+                if (i < 7)
+                {
+                    b101 += dn;
+                    b102 += dy;
+                }
+                else if (i >= 7 && i < 28)
+                {
+                    b201 += dn;
+                    b202 += dy;
+                }
+                else if (i >= 28 && i < 42)
+                {
+                    b301 += dn;
+                    b302 += dy;
+                }
+                else
+                {
+                    b401 += dn;
+                    b402 += dy;
+                }
+
+                //2级科目设置
+                xlWorkSheet.Cells[8, "B"] = b101;
+                xlWorkSheet.Cells[8, "C"] = b102;
+                xlWorkSheet.Cells[16, "B"] = b201;
+                xlWorkSheet.Cells[16, "C"] = b202;
+                xlWorkSheet.Cells[6 + i, "C"] = b301;
+                xlWorkSheet.Cells[6 + i, "C"] = b302;
+                xlWorkSheet.Cells[6 + i, "C"] = b401;
+                xlWorkSheet.Cells[6 + i, "C"] = b402;
+
+                xlWorkSheet.Cells[6 + i, "C"] = (b101 + b201 + b301 + b401);
+                xlWorkSheet.Cells[6 + i, "C"] = (b102 + b202 + b302 + b402);
+            }
+
 
             #endregion
 
