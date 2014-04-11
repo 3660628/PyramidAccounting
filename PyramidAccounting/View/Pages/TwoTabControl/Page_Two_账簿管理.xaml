@@ -1124,7 +1124,7 @@
             <TabItem FocusVisualStyle="{x:Null}" Header="固定资产管理" Margin="32,-1,-32,1" Template="{DynamicResource TabItemControlTemplate_TwoTabHeader}">
                 <Grid Background="White">
                     <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Disabled" Margin="-3,44,0,-3">
-                        <Grid Width="Auto" Margin="10,50,10,10" HorizontalAlignment="Center" >
+                        <Grid Width="Auto" Margin="7,0,10,7" >
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="25" />
                                 <RowDefinition Height="25" />
@@ -1132,30 +1132,30 @@
                                 <RowDefinition Height="*" />
                             </Grid.RowDefinitions>
                             <Grid.ColumnDefinitions>
-                                <ColumnDefinition />
-                                <ColumnDefinition />
-                                <ColumnDefinition />
-                                <ColumnDefinition />
-                                <ColumnDefinition />
-                                <ColumnDefinition />
-                                <ColumnDefinition />
-                                <ColumnDefinition />
-                                <ColumnDefinition />
-                                <ColumnDefinition />
-                                <ColumnDefinition />
-                                <ColumnDefinition />
-                                <ColumnDefinition />
-                                <ColumnDefinition />
-                                <ColumnDefinition />
-                                <ColumnDefinition />
-                                <ColumnDefinition />
-                                <ColumnDefinition />
-                                <ColumnDefinition />
-                                <ColumnDefinition />
-                                <ColumnDefinition />
-                                <ColumnDefinition />
-                                <ColumnDefinition />
-                                <ColumnDefinition />
+                                <ColumnDefinition Width="{Binding ElementName=gdzcColumn0,Path=ActualWidth}"/>
+                                <ColumnDefinition Width="{Binding ElementName=gdzcColumn1,Path=ActualWidth}"/>
+                                <ColumnDefinition Width="{Binding ElementName=gdzcColumn2,Path=ActualWidth}"/>
+                                <ColumnDefinition Width="{Binding ElementName=gdzcColumn3,Path=ActualWidth}"/>
+                                <ColumnDefinition Width="{Binding ElementName=gdzcColumn4,Path=ActualWidth}"/>
+                                <ColumnDefinition Width="{Binding ElementName=gdzcColumn5,Path=ActualWidth}"/>
+                                <ColumnDefinition Width="{Binding ElementName=gdzcColumn6,Path=ActualWidth}"/>
+                                <ColumnDefinition Width="{Binding ElementName=gdzcColumn7,Path=ActualWidth}"/>
+                                <ColumnDefinition Width="{Binding ElementName=gdzcColumn8,Path=ActualWidth}"/>
+                                <ColumnDefinition Width="{Binding ElementName=gdzcColumn9,Path=ActualWidth}"/>
+                                <ColumnDefinition Width="{Binding ElementName=gdzcColumn10,Path=ActualWidth}"/>
+                                <ColumnDefinition Width="{Binding ElementName=gdzcColumn11,Path=ActualWidth}"/>
+                                <ColumnDefinition Width="{Binding ElementName=gdzcColumn12,Path=ActualWidth}"/>
+                                <ColumnDefinition Width="{Binding ElementName=gdzcColumn13,Path=ActualWidth}"/>
+                                <ColumnDefinition Width="{Binding ElementName=gdzcColumn14,Path=ActualWidth}"/>
+                                <ColumnDefinition Width="{Binding ElementName=gdzcColumn15,Path=ActualWidth}"/>
+                                <ColumnDefinition Width="{Binding ElementName=gdzcColumn16,Path=ActualWidth}"/>
+                                <ColumnDefinition Width="{Binding ElementName=gdzcColumn17,Path=ActualWidth}"/>
+                                <ColumnDefinition Width="{Binding ElementName=gdzcColumn18,Path=ActualWidth}"/>
+                                <ColumnDefinition Width="{Binding ElementName=gdzcColumn19,Path=ActualWidth}"/>
+                                <ColumnDefinition Width="{Binding ElementName=gdzcColumn20,Path=ActualWidth}"/>
+                                <ColumnDefinition Width="{Binding ElementName=gdzcColumn21,Path=ActualWidth}"/>
+                                <ColumnDefinition Width="{Binding ElementName=gdzcColumn22,Path=ActualWidth}"/>
+                                <ColumnDefinition Width="{Binding ElementName=gdzcColumn23,Path=ActualWidth}"/>
                             </Grid.ColumnDefinitions>
                             <Border BorderBrush="#FF99CCFF" BorderThickness="1" Grid.ColumnSpan="24" Grid.RowSpan="3" Background="#FF99CCFF" />
                             <Border BorderBrush="White" BorderThickness="1,0,1,0" Grid.Column="1" Grid.ColumnSpan="2" Grid.RowSpan="3" />
@@ -1177,6 +1177,9 @@
                             <Border BorderBrush="White" BorderThickness="0,1,1,0" Grid.Column="20" Grid.Row="2" />
                             <Border BorderBrush="White" BorderThickness="0,1,0,0" Grid.Column="21" Grid.Row="2" />
                             <Border BorderBrush="White" BorderThickness="1,0,1,0" Grid.Column="22" Grid.Row="1" Grid.RowSpan="2" />
+                            <Border BorderBrush="White" Grid.Row="2" Grid.Column="5" BorderThickness="1,0" />
+                            <Border BorderBrush="White" Grid.Row="2" Grid.Column="7" BorderThickness="1,0" />
+                            
                             <Label Content="编号" Grid.RowSpan="3" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                             <Label Content="名称及规格" Grid.Column="1" Grid.RowSpan="3" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                             <TextBlock Grid.Column="2" Grid.RowSpan="3" VerticalAlignment="Center" HorizontalAlignment="Center">
@@ -1196,16 +1199,16 @@
                                 <LineBreak />
                                 <Run Text="重置价格"/>
                             </TextBlock>
-                            <Label Content="千" HorizontalAlignment="Center" Grid.Column="4" Grid.Row="2" />
-                            <Label Content="百" HorizontalAlignment="Center" Grid.Column="5" Grid.Row="2" />
-                            <Label Content="十" HorizontalAlignment="Center" Grid.Column="6" Grid.Row="2" />
-                            <Label Content="万"  HorizontalAlignment="Center" Grid.Column="7" Grid.Row="2" />
-                            <Label Content="千" HorizontalAlignment="Center" Grid.Column="8" Grid.Row="2" />
-                            <Label Content="百" HorizontalAlignment="Center" Grid.Column="9" Grid.Row="2" />
-                            <Label Content="十" HorizontalAlignment="Center" Grid.Column="10" Grid.Row="2" />
-                            <Label Content="元"  HorizontalAlignment="Center" Grid.Column="11" Grid.Row="2" />
-                            <Label Content="角" HorizontalAlignment="Center" Grid.Column="12" Grid.Row="2" />
-                            <Label Content="分" HorizontalAlignment="Center" Grid.Column="13" Grid.Row="2" />
+                            <TextBlock Text="千" HorizontalAlignment="Center" Grid.Column="4" Grid.Row="2" VerticalAlignment="Center" />
+                            <TextBlock Text="百" HorizontalAlignment="Center" Grid.Column="5" Grid.Row="2" VerticalAlignment="Center" />
+                            <TextBlock Text="十" HorizontalAlignment="Center" Grid.Column="6" Grid.Row="2" VerticalAlignment="Center" />
+                            <TextBlock Text="万" HorizontalAlignment="Center" Grid.Column="7" Grid.Row="2" VerticalAlignment="Center" />
+                            <TextBlock Text="千" HorizontalAlignment="Center" Grid.Column="8" Grid.Row="2" VerticalAlignment="Center" />
+                            <TextBlock Text="百" HorizontalAlignment="Center" Grid.Column="9" Grid.Row="2" VerticalAlignment="Center" />
+                            <TextBlock Text="十" HorizontalAlignment="Center" Grid.Column="10" Grid.Row="2" VerticalAlignment="Center" />
+                            <TextBlock Text="元" HorizontalAlignment="Center" Grid.Column="11" Grid.Row="2" VerticalAlignment="Center" />
+                            <TextBlock Text="角" HorizontalAlignment="Center" Grid.Column="12" Grid.Row="2" VerticalAlignment="Center" />
+                            <TextBlock Text="分" HorizontalAlignment="Center" Grid.Column="13" Grid.Row="2" VerticalAlignment="Center" />
                             <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="14" Grid.RowSpan="3">
                                 <Run Text="使" />
                                 <LineBreak/>
@@ -1214,11 +1217,9 @@
                                 <Run Text="年" />
                                 <LineBreak/>
                                 <Run Text="限"/>
-                                <LineBreak/>
                             </TextBlock>
                             <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="15" Grid.RowSpan="2" Grid.ColumnSpan="3">
                                 <Run Text="购置"/>
-                                <LineBreak/>
                                 <LineBreak/>
                                 <Run Text="日期"/>
                             </TextBlock>
@@ -1242,38 +1243,38 @@
                                 <Run Text="编号" />
                             </TextBlock>
                             <Label Content="备 注" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Column="23" Grid.Row="1"  Grid.RowSpan="2"/>
-                            <DataGrid x:Name="DataGrid_固定资产" Grid.Row="3" ItemsSource="{Binding}" Grid.ColumnSpan="24" CanUserAddRows="False" AutoGenerateColumns="False" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" HeadersVisibility="None" Margin="0,-1,0,0" Background="White" BorderBrush="#FF99CCFF" HorizontalGridLinesBrush="#FF99CCFF" VerticalGridLinesBrush="#FF99CCFF" HorizontalScrollBarVisibility="Disabled">
+                            <DataGrid x:Name="DataGrid_固定资产" Grid.Row="3" ItemsSource="{Binding}" Grid.ColumnSpan="24" CanUserAddRows="False" AutoGenerateColumns="False" VerticalAlignment="Stretch" HeadersVisibility="None" Margin="0,-1,0,0" Background="White" BorderBrush="#FF99CCFF" HorizontalGridLinesBrush="#FF99CCFF" VerticalGridLinesBrush="#FF99CCFF" HorizontalScrollBarVisibility="Disabled">
                                 <DataGrid.Columns>
-                                    <DataGridTextColumn Binding="{Binding 编号}" />
-                                    <DataGridTextColumn Binding="{Binding 名称及规格}" />
-                                    <DataGridTextColumn Binding="{Binding 单位}" />
-                                    <DataGridTextColumn Binding="{Binding 数量}" />
-                                    <DataGridTextColumn Binding="{Binding 价格千万}" />
-                                    <DataGridTextColumn Binding="{Binding 价格百万}" />
-                                    <DataGridTextColumn Binding="{Binding 价格十万}" />
-                                    <DataGridTextColumn Binding="{Binding 价格万}" />
-                                    <DataGridTextColumn Binding="{Binding 价格千}" />
-                                    <DataGridTextColumn Binding="{Binding 价格百}" />
-                                    <DataGridTextColumn Binding="{Binding 价格十}" />
-                                    <DataGridTextColumn Binding="{Binding 价格元}" />
-                                    <DataGridTextColumn Binding="{Binding 价格角}" />
-                                    <DataGridTextColumn Binding="{Binding 价格分}" />
-                                    <DataGridTextColumn Binding="{Binding 使用年限}" />
-                                    <DataGridTextColumn Binding="{Binding 购置年}" />
-                                    <DataGridTextColumn Binding="{Binding 购置月}" />
-                                    <DataGridTextColumn Binding="{Binding 购置日}" />
-                                    <DataGridTextColumn Binding="{Binding 使用部门}" />
-                                    <DataGridTextColumn Binding="{Binding 移除年}" />
-                                    <DataGridTextColumn Binding="{Binding 移除月}" />
-                                    <DataGridTextColumn Binding="{Binding 移除日}" />
-                                    <DataGridTextColumn Binding="{Binding 凭证编号}" />
-                                    <DataGridTextColumn Binding="{Binding 备注}" />
+                                    <DataGridTextColumn x:Name="gdzcColumn0" Binding="{Binding 编号}" MinWidth="50"/>
+                                    <DataGridTextColumn x:Name="gdzcColumn1" Binding="{Binding 名称及规格}" MinWidth="100"/>
+                                    <DataGridTextColumn x:Name="gdzcColumn2" Binding="{Binding 单位}" MinWidth="25"/>
+                                    <DataGridTextColumn x:Name="gdzcColumn3" Binding="{Binding 数量}" MinWidth="25"/>
+                                    <DataGridTextColumn x:Name="gdzcColumn4" Binding="{Binding 价格千万}" MaxWidth="15" MinWidth="15"/>
+                                    <DataGridTextColumn x:Name="gdzcColumn5" Binding="{Binding 价格百万}" MaxWidth="15" MinWidth="15"/>
+                                    <DataGridTextColumn x:Name="gdzcColumn6" Binding="{Binding 价格十万}" MaxWidth="15" MinWidth="15"/>
+                                    <DataGridTextColumn x:Name="gdzcColumn7" Binding="{Binding 价格万}" MaxWidth="15" MinWidth="15"/>
+                                    <DataGridTextColumn x:Name="gdzcColumn8" Binding="{Binding 价格千}" MaxWidth="15" MinWidth="15"/>
+                                    <DataGridTextColumn x:Name="gdzcColumn9" Binding="{Binding 价格百}" MaxWidth="15" MinWidth="15"/>
+                                    <DataGridTextColumn x:Name="gdzcColumn10" Binding="{Binding 价格十}" MaxWidth="15" MinWidth="15"/>
+                                    <DataGridTextColumn x:Name="gdzcColumn11" Binding="{Binding 价格元}" MaxWidth="15" MinWidth="15"/>
+                                    <DataGridTextColumn x:Name="gdzcColumn12" Binding="{Binding 价格角}" MaxWidth="15" MinWidth="15"/>
+                                    <DataGridTextColumn x:Name="gdzcColumn13" Binding="{Binding 价格分}" MaxWidth="15" MinWidth="15"/>
+                                    <DataGridTextColumn x:Name="gdzcColumn14" Binding="{Binding 使用年限}" MinWidth="30"/>
+                                    <DataGridTextColumn x:Name="gdzcColumn15" Binding="{Binding 购置年}" MinWidth="50"/>
+                                    <DataGridTextColumn x:Name="gdzcColumn16" Binding="{Binding 购置月}" MinWidth="30"/>
+                                    <DataGridTextColumn x:Name="gdzcColumn17" Binding="{Binding 购置日}" MinWidth="30"/>
+                                    <DataGridTextColumn x:Name="gdzcColumn18" Binding="{Binding 使用部门}" MinWidth="45"/>
+                                    <DataGridTextColumn x:Name="gdzcColumn19" Binding="{Binding 移除年}" MinWidth="50"/>
+                                    <DataGridTextColumn x:Name="gdzcColumn20" Binding="{Binding 移除月}" MinWidth="30"/>
+                                    <DataGridTextColumn x:Name="gdzcColumn21" Binding="{Binding 移除日}" MinWidth="30"/>
+                                    <DataGridTextColumn x:Name="gdzcColumn22" Binding="{Binding 凭证编号}" MinWidth="40"/>
+                                    <DataGridTextColumn x:Name="gdzcColumn23" Binding="{Binding 备注}" MinWidth="60"/>
                                 </DataGrid.Columns>
                             </DataGrid>
                         </Grid>
                     </ScrollViewer>
-                    <Button x:Name="Button_固定资产_添加" Content="添加" HorizontalAlignment="Right" Margin="0,0,49,490" VerticalAlignment="Bottom" Width="50" Click="Button_添加" Height="20" Template="{DynamicResource ButtonControlTemplate_Common}" RenderTransformOrigin="-0.021,0.537"/>
-                    <Button x:Name="Button_固定资产_查询a" Content="查询" HorizontalAlignment="Right" Margin="0,0,125,490" VerticalAlignment="Bottom" Width="50" Click="Button_固定资产_查询" Height="20" Template="{DynamicResource ButtonControlTemplate_Common}" RenderTransformOrigin="-0.021,0.537"/>
+                    <Button x:Name="Button_固定资产_添加" Content="添加" HorizontalAlignment="Right" Margin="0,10,11,0" VerticalAlignment="Top" Width="50" Click="Button_添加" Height="20" Template="{DynamicResource ButtonControlTemplate_Common}" RenderTransformOrigin="-0.021,0.537"/>
+                    <Button x:Name="Button_固定资产_查询a" Content="查询" HorizontalAlignment="Right" Margin="0,10,76,0" VerticalAlignment="Top" Width="50" Click="Button_固定资产_查询" Height="20" Template="{DynamicResource ButtonControlTemplate_Common}" RenderTransformOrigin="-0.021,0.537"/>
                 </Grid>
             </TabItem>
         </TabControl>
