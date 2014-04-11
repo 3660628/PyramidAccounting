@@ -7,7 +7,6 @@ namespace PA.Model.DataGrid
 {
     class Model_固定资产
     {
-        private int rowid;
         private string serialNumber;
         private string sourceName;
         private string unit;
