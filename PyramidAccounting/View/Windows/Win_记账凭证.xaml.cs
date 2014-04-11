@@ -156,7 +156,9 @@ namespace PA.View.Windows
                 this.DataGrid_凭证明细.IsReadOnly = true;
                 this.DatePicker_Date.IsEnabled = false;
             }
+            this.Label_会计主管.Content = Voucher.会计主管;
             this.Label_制单人.Content = Voucher.制单人;
+            this.Label_复核.Content = Voucher.复核;
         }
         /// <summary>
         /// 获取全部数据
