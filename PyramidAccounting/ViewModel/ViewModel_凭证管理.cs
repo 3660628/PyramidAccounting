@@ -124,6 +124,14 @@ namespace PA.ViewModel
             db.BatchOperate(lists);
         }
 
+        public void UnReview(Guid id)
+        {
+            string sql = "update " + DBTablesName.T_VOUCHER + " set review_mark=0,REVIEWER='" + CommonInfo.真实姓名 + "' where id='" + id + "'";
+            List<string> lists = new List<string>();
+            lists.Add(sql);
+            db.BatchOperate(lists);
+        }
+
         public void Delete(Guid id)
         {
             string sql = "update " + DBTablesName.T_VOUCHER + " set DELETE_MARK=-1 where id='" + id + "'";
