@@ -229,7 +229,6 @@ namespace PA.View.Windows
             {
                 detail.类别 = "10000";
             }
-            //detail.类别 = (this.ComboBox_New_父ID.SelectedIndex==0)?"100":"1000";
             detail.父ID = ParentsID;
             detail.借贷标记 = BorrowMark;
             details.Add(detail);

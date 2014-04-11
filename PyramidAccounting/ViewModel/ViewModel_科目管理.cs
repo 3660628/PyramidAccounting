@@ -121,8 +121,15 @@ namespace PA.ViewModel
             }
             //刷新上级科目金额
             string sql3 = "update T_YEARFEE set fee = (select total(fee) from T_YEARFEE where parentid='" + parentid + "' and bookid='" + CommonInfo.账薄号 + "') "
-                +" where subject_id='" + parentid + "' and bookid='" + CommonInfo.账薄号 + "'";
+                        + " where subject_id='" + parentid + "' and bookid='" + CommonInfo.账薄号 + "'";
             sqlList.Add(sql3);
+            if (parentid.Length == 7)
+            {
+                string parentid2 = parentid.Substring(0, 5);
+                string sql4 = "update T_YEARFEE set fee = (select total(fee) from T_YEARFEE where parentid='" + parentid2 + "' and bookid='" + CommonInfo.账薄号 + "') "
+                            + " where subject_id='" + parentid2 + "' and bookid='" + CommonInfo.账薄号 + "'";
+                sqlList.Add(sql4);
+            }
             return db.BatchOperate(sqlList);
         }
 
