@@ -11,6 +11,9 @@ using PA.Model.DataGrid;
 
 namespace PA.Helper.ExcelHelper
 {
+    /// <summary>
+    /// By:Lugia
+    /// </summary>
     public class ExcelWriter
     {
         private string Path = AppDomain.CurrentDomain.BaseDirectory;
