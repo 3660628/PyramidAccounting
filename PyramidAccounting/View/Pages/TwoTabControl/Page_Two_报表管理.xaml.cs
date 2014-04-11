@@ -351,7 +351,7 @@ namespace PA.View.Pages.TwoTabControl
 
         private void Button_AdministrativeExpensesSchedulePrint_Click(object sender, RoutedEventArgs e)
         {
-            new PA.Helper.ExcelHelper.ExcelWriter().ExportAdministrativeExpensesSchedule(ComboBox_Date1.SelectedIndex + 1);
+            new PA.Helper.ExcelHelper.ExcelWriter().ExportAdministrativeExpensesSchedule(ComboBox_Date2.SelectedIndex + 1);
         }
         
     }

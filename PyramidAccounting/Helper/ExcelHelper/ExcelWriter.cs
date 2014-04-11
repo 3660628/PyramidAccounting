@@ -953,8 +953,8 @@ namespace PA.Helper.ExcelHelper
             xls.Application xlApp = null;
             xls.Workbook xlWorkBook;
             xls.Worksheet xlWorkSheet;
-            string SourceXls = Path + @"Data\打印\行政费用支出明细表模板.xls";
-            string ExportXls = Path + @"Data\打印\行政费用支出明细表export.xls";
+            string SourceXls = Path + @"Data\打印\行政费用支出明细表模板2.xls";
+            string ExportXls = Path + @"Data\打印\行政费用支出明细表2export.xls";
             try
             {
                 File.Copy(SourceXls, ExportXls, true);
@@ -981,6 +981,7 @@ namespace PA.Helper.ExcelHelper
 
             #region fill data
             List<Model_报表类> data = new PA.ViewModel.ViewModel_ReportManager().GetAdministrativeExpenseDetail(ParmPeroid);
+            Console.WriteLine(data.Count);
             if(data.Count <= 0)
             {
                 return "NoData";
@@ -999,27 +1000,48 @@ namespace PA.Helper.ExcelHelper
 
             for (int i = 0; i < data.Count; i++)
             {
-                xlWorkSheet.Cells[6 + i, "C"] = data[i].本期数;
-                xlWorkSheet.Cells[6 + i, "C"] = data[i].累计数;
-                decimal.TryParse(data[i].本期数, out dn);
-                decimal.TryParse(data[i].累计数, out dy);
                 if (i < 7)
                 {
+                    xlWorkSheet.Cells[9 + i, "B"] = data[i].本期数;
+                    xlWorkSheet.Cells[9 + i, "C"] = data[i].累计数;
+                    decimal.TryParse(data[i].本期数, out dn);
+                    decimal.TryParse(data[i].累计数, out dy);
                     b101 += dn;
                     b102 += dy;
                 }
-                else if (i >= 7 && i < 28)
+                else if (i >= 7 && i < 27)
                 {
+                    xlWorkSheet.Cells[10 + i, "B"] = data[i].本期数;
+                    xlWorkSheet.Cells[10 + i, "C"] = data[i].累计数;
+                    decimal.TryParse(data[i].本期数, out dn);
+                    decimal.TryParse(data[i].累计数, out dy);
+                    b201 += dn;
+                    b202 += dy;
+                }
+                else if (i == 27)
+                {
+                    xlWorkSheet.Cells[7, "I"] = data[i].本期数;
+                    xlWorkSheet.Cells[7, "J"] = data[i].累计数;
+                    decimal.TryParse(data[i].本期数, out dn);
+                    decimal.TryParse(data[i].累计数, out dy);
                     b201 += dn;
                     b202 += dy;
                 }
                 else if (i >= 28 && i < 42)
                 {
+                    xlWorkSheet.Cells[i-28+9, "I"] = data[i].本期数;
+                    xlWorkSheet.Cells[i-28+9, "J"] = data[i].累计数;
+                    decimal.TryParse(data[i].本期数, out dn);
+                    decimal.TryParse(data[i].累计数, out dy);
                     b301 += dn;
                     b302 += dy;
                 }
                 else
                 {
+                    xlWorkSheet.Cells[i-42+24, "B"] = data[i].本期数;
+                    xlWorkSheet.Cells[i-42+24, "C"] = data[i].累计数;
+                    decimal.TryParse(data[i].本期数, out dn);
+                    decimal.TryParse(data[i].累计数, out dy);
                     b401 += dn;
                     b402 += dy;
                 }
@@ -1029,13 +1051,13 @@ namespace PA.Helper.ExcelHelper
                 xlWorkSheet.Cells[8, "C"] = b102;
                 xlWorkSheet.Cells[16, "B"] = b201;
                 xlWorkSheet.Cells[16, "C"] = b202;
-                xlWorkSheet.Cells[6 + i, "C"] = b301;
-                xlWorkSheet.Cells[6 + i, "C"] = b302;
-                xlWorkSheet.Cells[6 + i, "C"] = b401;
-                xlWorkSheet.Cells[6 + i, "C"] = b402;
+                xlWorkSheet.Cells[8, "I"] = b301;
+                xlWorkSheet.Cells[8, "J"] = b302;
+                xlWorkSheet.Cells[23, "I"] = b401;
+                xlWorkSheet.Cells[23, "J"] = b402;
 
-                xlWorkSheet.Cells[6 + i, "C"] = (b101 + b201 + b301 + b401);
-                xlWorkSheet.Cells[6 + i, "C"] = (b102 + b202 + b302 + b402);
+                xlWorkSheet.Cells[7, "B"] = (b101 + b201 + b301 + b401);
+                xlWorkSheet.Cells[7, "C"] = (b102 + b202 + b302 + b402);
             }
 
 
