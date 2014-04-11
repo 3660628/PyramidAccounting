@@ -1124,7 +1124,7 @@
             <TabItem FocusVisualStyle="{x:Null}" Header="固定资产管理" Margin="32,-1,-32,1" Template="{DynamicResource TabItemControlTemplate_TwoTabHeader}">
                 <Grid Background="White">
                     <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Disabled" Margin="-3,44,0,-3">
-                        <Grid Width="Auto" Margin="7,0,10,7" >
+                        <Grid Width="Auto" Margin="10,0,10,10" >
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="25" />
                                 <RowDefinition Height="25" />
@@ -1246,9 +1246,9 @@
                             <DataGrid x:Name="DataGrid_固定资产" Grid.Row="3" ItemsSource="{Binding}" Grid.ColumnSpan="24" CanUserAddRows="False" AutoGenerateColumns="False" VerticalAlignment="Stretch" HeadersVisibility="None" Margin="0,-1,0,0" Background="White" BorderBrush="#FF99CCFF" HorizontalGridLinesBrush="#FF99CCFF" VerticalGridLinesBrush="#FF99CCFF" HorizontalScrollBarVisibility="Disabled">
                                 <DataGrid.Columns>
                                     <DataGridTextColumn x:Name="gdzcColumn0" Binding="{Binding 编号}" MinWidth="50"/>
-                                    <DataGridTextColumn x:Name="gdzcColumn1" Binding="{Binding 名称及规格}" MinWidth="100"/>
-                                    <DataGridTextColumn x:Name="gdzcColumn2" Binding="{Binding 单位}" MinWidth="25"/>
-                                    <DataGridTextColumn x:Name="gdzcColumn3" Binding="{Binding 数量}" MinWidth="25"/>
+                                    <DataGridTextColumn x:Name="gdzcColumn1" Binding="{Binding 名称及规格}" MinWidth="120"/>
+                                    <DataGridTextColumn x:Name="gdzcColumn2" Binding="{Binding 单位}" MinWidth="30"/>
+                                    <DataGridTextColumn x:Name="gdzcColumn3" Binding="{Binding 数量}" MinWidth="30"/>
                                     <DataGridTextColumn x:Name="gdzcColumn4" Binding="{Binding 价格千万}" MaxWidth="15" MinWidth="15"/>
                                     <DataGridTextColumn x:Name="gdzcColumn5" Binding="{Binding 价格百万}" MaxWidth="15" MinWidth="15"/>
                                     <DataGridTextColumn x:Name="gdzcColumn6" Binding="{Binding 价格十万}" MaxWidth="15" MinWidth="15"/>
