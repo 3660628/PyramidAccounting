@@ -72,7 +72,7 @@ namespace PA.View.Windows
             {
                 foreach (Model_科目管理 detail in dataList)
                 {
-                    if (detail.类别 != "1000")
+                    if (detail.类别 != "10000")
                     {
                         ComboBox_New_ParentsID.Add(detail.科目编号);
                     }
@@ -217,7 +217,19 @@ namespace PA.View.Windows
             detail.科目编号 = Number;
             detail.科目名称 = Name;
             detail.年初金额 = Money;
-            detail.类别 = (this.ComboBox_New_父ID.SelectedIndex==0)?"100":"1000";
+            if (this.ComboBox_New_父ID.Text.Length <= 3)
+            {
+                detail.类别 = "100";
+            }
+            else if (this.ComboBox_New_父ID.Text.Length <= 5)
+            {
+                detail.类别 = "1000";
+            }
+            else
+            {
+                detail.类别 = "10000";
+            }
+            //detail.类别 = (this.ComboBox_New_父ID.SelectedIndex==0)?"100":"1000";
             detail.父ID = ParentsID;
             detail.借贷标记 = BorrowMark;
             details.Add(detail);
