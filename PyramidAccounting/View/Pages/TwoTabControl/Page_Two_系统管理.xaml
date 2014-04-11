@@ -221,20 +221,16 @@
                     <Label Content="到" HorizontalAlignment="Left" Margin="155,30,0,0" VerticalAlignment="Top"/>
                     <DatePicker x:Name="DatePicker_操作记录End" HorizontalAlignment="Left" Width="120" Margin="178,30,0,0" VerticalAlignment="Top"/>
                     <Button FocusVisualStyle="{x:Null}" x:Name="Button_操作记录查询" Content="查询" Grid.Column="1" HorizontalAlignment="Right" Margin="0,28,10,0" VerticalAlignment="Top" Width="70" Click="Button_操作记录查询_Click" Template="{DynamicResource ButtonControlTemplate_CommonBlue}" Height="20" Foreground="White"/>
-                    <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto" Margin="-3,0,0,-3" Grid.ColumnSpan="2" Grid.Row="1">
-                        <Grid>
-                            <DataGrid x:Name="DataGrid_操作记录" CanUserAddRows="False" IsReadOnly="True" AutoGenerateColumns="False" ItemsSource="{Binding}" Grid.Row="1" Grid.ColumnSpan="2" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle_凭证管理}" CellStyle="{DynamicResource DataGridCellStyle_无上下边距}" HeadersVisibility="Column" HorizontalGridLinesBrush="#FF99CCFF"
-                                      VerticalGridLinesBrush="#FF99CCFF" BorderBrush="#FF99CCFF" Margin="7,7,7,7" Background="White" >
-                                <DataGrid.Columns>
-                                    <DataGridTextColumn Header="序号" MinWidth="60" Binding="{Binding 序号}" />
-                                    <DataGridTextColumn Header="操作时间" MinWidth="100" Binding="{Binding 日期}" />
-                                    <DataGridTextColumn Header="用户名" MinWidth="100" Binding="{Binding 用户名}" ElementStyle="{DynamicResource TextBlockStyle_居中对齐}"/>
-                                    <DataGridTextColumn Header="姓名" MinWidth="100" Binding="{Binding 姓名}" ElementStyle="{DynamicResource TextBlockStyle_居中对齐}"/>
-                                    <DataGridTextColumn Header="日志" MinWidth="200" Width="*" Binding="{Binding 日志}" />
-                                </DataGrid.Columns>
-                            </DataGrid>
-                        </Grid>
-                    </ScrollViewer>
+                        <DataGrid x:Name="DataGrid_操作记录" CanUserAddRows="False" IsReadOnly="True" AutoGenerateColumns="False" ItemsSource="{Binding}" Grid.Row="1" Grid.ColumnSpan="2" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle_凭证管理}" CellStyle="{DynamicResource DataGridCellStyle_无上下边距}" HeadersVisibility="Column" HorizontalGridLinesBrush="#FF99CCFF"
+                                    VerticalGridLinesBrush="#FF99CCFF" BorderBrush="#FF99CCFF" Margin="7,7,7,7" Background="White" >
+                            <DataGrid.Columns>
+                                <DataGridTextColumn Header="序号" MinWidth="60" Binding="{Binding 序号}" />
+                                <DataGridTextColumn Header="操作时间" MinWidth="100" Binding="{Binding 日期}" />
+                                <DataGridTextColumn Header="用户名" MinWidth="100" Binding="{Binding 用户名}" ElementStyle="{DynamicResource TextBlockStyle_居中对齐}"/>
+                                <DataGridTextColumn Header="姓名" MinWidth="100" Binding="{Binding 姓名}" ElementStyle="{DynamicResource TextBlockStyle_居中对齐}"/>
+                                <DataGridTextColumn Header="日志" MinWidth="200" Width="*" Binding="{Binding 日志}" />
+                            </DataGrid.Columns>
+                        </DataGrid>
                 </Grid>
             </TabItem>
             <TabItem Header="关于我们" FocusVisualStyle="{x:Null}" Margin="40,-1,-40,1" Template="{DynamicResource TabItemControlTemplate_TwoTabHeader}" >
