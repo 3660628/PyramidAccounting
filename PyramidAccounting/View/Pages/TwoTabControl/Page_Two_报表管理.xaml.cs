@@ -18,6 +18,7 @@ using PA.Helper.DataDefind;
 using PA.Model.ComboBox;
 using PA.ViewModel;
 using PA.Model.CustomEventArgs;
+using PA.View.ResourceDictionarys.MessageBox;
 
 namespace PA.View.Pages.TwoTabControl
 {
@@ -341,17 +342,29 @@ namespace PA.View.Pages.TwoTabControl
 
         private void Button_BalanceSheetPrint_Click(object sender, RoutedEventArgs e)
         {
-            new PA.Helper.ExcelHelper.ExcelWriter().ExportBalanceSheet(ComboBox_Date.SelectedIndex + 1, CommonInfo.真实姓名, Label_填表日期.Content.ToString());
+            string result = new PA.Helper.ExcelHelper.ExcelWriter().ExportBalanceSheet(ComboBox_Date.SelectedIndex + 1, CommonInfo.真实姓名, Label_填表日期.Content.ToString());
+            if(result != "")
+            {
+                MessageBoxCommon.Show(result);
+            }
         }
 
         private void Button_IncomeAndExpenditurePrint_Click(object sender, RoutedEventArgs e)
         {
-            new PA.Helper.ExcelHelper.ExcelWriter().ExportIncomeAndExpenditure(ComboBox_Date1.SelectedIndex + 1);
+            string result = new PA.Helper.ExcelHelper.ExcelWriter().ExportIncomeAndExpenditure(ComboBox_Date1.SelectedIndex + 1);
+            if (result != "")
+            {
+                MessageBoxCommon.Show(result);
+            }
         }
 
         private void Button_AdministrativeExpensesSchedulePrint_Click(object sender, RoutedEventArgs e)
         {
-            new PA.Helper.ExcelHelper.ExcelWriter().ExportAdministrativeExpensesSchedule(ComboBox_Date2.SelectedIndex + 1);
+            string result = new PA.Helper.ExcelHelper.ExcelWriter().ExportAdministrativeExpensesSchedule(ComboBox_Date2.SelectedIndex + 1);
+            if (result != "")
+            {
+                MessageBoxCommon.Show(result);
+            }
         }
         
     }
