@@ -123,7 +123,7 @@ namespace PA.ViewModel
             string sql3 = "update T_YEARFEE set fee = (select total(fee) from T_YEARFEE where parentid='" + parentid + "' and bookid='" + CommonInfo.账薄号 + "') "
                         + " where subject_id='" + parentid + "' and bookid='" + CommonInfo.账薄号 + "'";
             sqlList.Add(sql3);
-            if (parentid.Length == 7)
+            if (parentid.Length == 7)//四级科目
             {
                 string parentid2 = parentid.Substring(0, 5);
                 string sql4 = "update T_YEARFEE set fee = (select total(fee) from T_YEARFEE where parentid='" + parentid2 + "' and bookid='" + CommonInfo.账薄号 + "') "
@@ -178,7 +178,7 @@ namespace PA.ViewModel
                 string sql3 = "update T_YEARFEE set fee = (select total(fee) from T_YEARFEE where parentid=" + sqlparentid + " and bookid='" + CommonInfo.账薄号 + "') "
                 + " where subject_id=" + sqlparentid + " and bookid='" + CommonInfo.账薄号 + "'";
                 sqlList.Add(sql3);
-                if (id.Length == 9)
+                if (id.Length == 9)//四级科目
                 {
                     sqlparentid = "(select parentid from " + DBTablesName.T_YEAR_FEE + " where subject_id='" + id.Substring(0,7) + "')";
                     string sql4 = "update T_YEARFEE set fee = (select total(fee) from T_YEARFEE where parentid=" + sqlparentid + " and bookid='" + CommonInfo.账薄号 + "') "
