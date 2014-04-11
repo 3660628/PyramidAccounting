@@ -118,7 +118,7 @@ namespace PA.ViewModel
 
         public void Review(Guid id)
         {
-            string sql = "update "+DBTablesName.T_VOUCHER+" set review_mark=1 where id='" + id + "'";
+            string sql = "update " + DBTablesName.T_VOUCHER + " set review_mark=1,REVIEWER='" + CommonInfo.真实姓名 + "' where id='" + id + "'";
             List<string> lists = new List<string>();
             lists.Add(sql);
             db.BatchOperate(lists);
