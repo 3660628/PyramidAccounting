@@ -228,5 +228,10 @@ namespace PA.View.Pages.TwoTabControl
                 }
             }
         }
+
+        private void Page_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            this.StackPanel_MoreButton.Visibility = System.Windows.Visibility.Collapsed;
+        }
     }
 }
