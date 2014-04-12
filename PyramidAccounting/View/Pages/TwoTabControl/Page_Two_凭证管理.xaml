@@ -69,10 +69,12 @@
                             </DataGridTextColumn>
                         </DataGrid.Columns>
                     </DataGrid>
-                    <StackPanel x:Name="StackPanel_MoreButton" HorizontalAlignment="Right" Margin="729,35,2,0" VerticalAlignment="Top" Background="White" Width="70">
-                        <Button FocusVisualStyle="{x:Null}" x:Name="Button_打印" Content="打印" Height="25" Click="Button_打印_Click" BorderThickness="1,1,1,0" Background="White" BorderBrush="#FF99CCFF"/>
-                        <Button FocusVisualStyle="{x:Null}" x:Name="Button_反审核" Content="反审核" Height="25" BorderThickness="1,0" Background="White" BorderBrush="#FF99CCFF" Margin="0" Click="Button_反审核_Click"/>
-                        <Button FocusVisualStyle="{x:Null}" Content="Button" Height="25" BorderThickness="1,0,1,1" Background="White" BorderBrush="#FF99CCFF" Margin="0"/>
+                    <StackPanel x:Name="StackPanel_MoreButton" HorizontalAlignment="Right" Margin="0,35,2,0" VerticalAlignment="Top" Background="#FFA6D9FF" Width="80">
+                        <StackPanel.Effect>
+                            <DropShadowEffect ShadowDepth="0" BlurRadius="5" Color="#FFA6D9FF"/>
+                        </StackPanel.Effect>
+                        <Button FocusVisualStyle="{x:Null}" x:Name="Button_打印" Content="打印" Height="25" Click="Button_打印_Click" BorderThickness="0" Background="White" BorderBrush="{x:Null}" Margin="0"/>
+                        <Button FocusVisualStyle="{x:Null}" x:Name="Button_反审核" Content="反审核" Height="25" BorderThickness="0" Background="White" BorderBrush="{x:Null}" Margin="0" Click="Button_反审核_Click"/>
                     </StackPanel>
                 </Grid>
             </TabItem>
