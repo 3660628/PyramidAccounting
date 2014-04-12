@@ -84,7 +84,7 @@
                 <DataGridTextColumn Binding="{Binding 类别}" Header="是否三级科目" Visibility="Hidden"/>
             </DataGrid.Columns>
         </DataGrid>
-        <TextBox x:Name="TextBox_New_子细目编号" HorizontalAlignment="Left" Height="22" Margin="10,100,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="70" VerticalContentAlignment="Center">
+        <TextBox x:Name="TextBox_New_子细目编号" HorizontalAlignment="Left" Height="22" Margin="10,100,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="70" VerticalContentAlignment="Center" ToolTip="编号遵守：编号=上级编号+二位数字">
             <TextBox.Resources>
                 <VisualBrush x:Key="HelpBrush" TileMode="None" Opacity="0.3" Stretch="None" AlignmentX="Left">
                     <VisualBrush.Visual>

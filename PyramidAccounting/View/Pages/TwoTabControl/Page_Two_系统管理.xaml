@@ -144,7 +144,7 @@
                     </TabControl>
                     <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto" Margin="-3,40,0,-3" Grid.ColumnSpan="2">
                         <Grid>
-                            <DataGrid x:Name="DataGrid_科目设置" ItemsSource="{Binding}" AutoGenerateColumns="False" HorizontalAlignment="Stretch" Margin="7" VerticalAlignment="Stretch" Background="White" RowEditEnding="DataGrid_科目设置_RowEditEnding" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle_凭证管理}" BorderBrush="#FF99CCFF" HeadersVisibility="Column" SelectionUnit="Cell" SelectionMode="Single" CanUserReorderColumns="False" CanUserSortColumns="False" CanUserAddRows="False" CanUserResizeRows="False" CanUserResizeColumns="False" CellStyle="{DynamicResource DataGridCellStyle_无上下边距}" HorizontalGridLinesBrush="#FF99CCFF" VerticalGridLinesBrush="#FF99CCFF" CellEditEnding="DataGrid_科目设置_CellEditEnding" BeginningEdit="DataGrid_科目设置_BeginningEdit">
+                            <DataGrid x:Name="DataGrid_科目设置" ItemsSource="{Binding}" AutoGenerateColumns="False" HorizontalAlignment="Stretch" Margin="7,7,7,27" VerticalAlignment="Stretch" Background="White" RowEditEnding="DataGrid_科目设置_RowEditEnding" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle_凭证管理}" BorderBrush="#FF99CCFF" HeadersVisibility="Column" SelectionUnit="Cell" SelectionMode="Single" CanUserReorderColumns="False" CanUserSortColumns="False" CanUserAddRows="False" CanUserResizeRows="False" CanUserResizeColumns="False" CellStyle="{DynamicResource DataGridCellStyle_无上下边距}" HorizontalGridLinesBrush="#FF99CCFF" VerticalGridLinesBrush="#FF99CCFF" CellEditEnding="DataGrid_科目设置_CellEditEnding" BeginningEdit="DataGrid_科目设置_BeginningEdit">
                                 <DataGrid.Resources>
                                     <!--DataGridRow的双击事件-->
                                     <Style TargetType="DataGridRow">
@@ -172,6 +172,8 @@
                                     </DataGridTemplateColumn>
                                 </DataGrid.Columns>
                             </DataGrid>
+                            <TextBlock HorizontalAlignment="Left" Margin="7,0,0,7" TextWrapping="Wrap" Text="注：" VerticalAlignment="Bottom" FontWeight="Bold"/>
+                            <TextBlock HorizontalAlignment="Left" Margin="36,0,0,7" TextWrapping="Wrap" Text="借贷方向向右为借，向左为贷" VerticalAlignment="Bottom"/>
                         </Grid>
                     </ScrollViewer>
                 </Grid>
