@@ -196,13 +196,13 @@ namespace PA.View.Pages.TwoTabControl
             {
                 this.Button_Add.IsEnabled = false;
                 this.Button_Del.IsEnabled = false;
-                this.Button_Review.IsEnabled = false;
+                //this.Button_Review.IsEnabled = false;
             }
             else
             {
                 this.Button_Add.IsEnabled = true;
                 this.Button_Del.IsEnabled = true;
-                this.Button_Review.IsEnabled = true;
+                //this.Button_Review.IsEnabled = true;
             }
         }
 
