@@ -42,7 +42,7 @@ namespace PA.ViewModel
                         + " WHERE "
                             + "voucher.ID = detail.PARENTID and DELETE_MARK=0 " + whereParm
                         + " ORDER BY "
-                            + "voucher.OP_TIME";
+                            + "voucher.PERIOD,voucher.OP_TIME";
             DataSet ds = db.Query(sql);
             foreach (DataRow dr in ds.Tables[0].Rows)
             {
