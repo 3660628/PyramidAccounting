@@ -107,6 +107,7 @@ namespace PA.View.Windows
             }
             Count合计();
             this.Label_制单人.Content = PA.Helper.DataDefind.CommonInfo.真实姓名;
+            this.TextBox_号.Text = "";
         }
         /// <summary>
         /// 填充数据(查看修改)

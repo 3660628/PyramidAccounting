@@ -388,8 +388,8 @@ namespace PA.ViewModel
                 + DBTablesName.T_VOUCHER 
                 + " b on a.parentid=b.id where a.subject_id='"
                 + subject_id
-                + "'" + " and b.delete_mark=0 and  a.detail='"
-                + detail + "' and b.period=" 
+                + "'" + " and b.delete_mark=0 and  a.detail LIKE '"
+                + detail + "%' and b.period=" 
                 + peroid +" order by b.op_time";
 
             //判断第一期查年初数
