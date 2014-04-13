@@ -65,19 +65,33 @@ namespace PA.View.Windows
             if (typeof(PA.View.Pages.Pop.凭证录入.Page_凭证录入_科目).IsInstanceOfType(sender))
             {
                 VoucherDetailsNow[CellId].科目编号 = e.Str.Split('\t')[0];
-                VoucherDetailsNow[CellId].主科目名 = e.Str.Split('\t')[1];
+                VoucherDetailsNow[CellId].主科目名 = e.Str.Split('\t')[0] + " " + e.Str.Split('\t')[1];
             }
             else if (typeof(PA.View.Pages.Pop.凭证录入.Page_凭证录入_子细目).IsInstanceOfType(sender))
             {
                 if (e.Str.IndexOf('\t') > 0)
                 {
-                    VoucherDetailsNow[CellId].子细目ID = e.Str.Split('\t')[0];
-                    VoucherDetailsNow[CellId].子细目 = e.Str.Split('\t')[1];
+                    if ((e.Str.Split('\t')).Length >= 3)
+                    {
+                        if (e.Str.Split('\t')[2] != e.Str.Split('\t')[0])
+                        {
+                            VoucherDetailsNow[CellId].子细目ID = e.Str.Split('\t')[0];
+                            VoucherDetailsNow[CellId].子细目 = e.Str.Split('\t')[1];
+                            VoucherDetailsNow[CellId].科目编号 = e.Str.Split('\t')[2];
+                            VoucherDetailsNow[CellId].主科目名 = e.Str.Split('\t')[2] + " " + e.Str.Split('\t')[3];
+                        }
+                        else
+                        {
+                            VoucherDetailsNow[CellId].科目编号 = e.Str.Split('\t')[0];
+                            VoucherDetailsNow[CellId].主科目名 = e.Str.Split('\t')[0] + " " + e.Str.Split('\t')[1];
+                        }
+                    }
+                    else
+                    {
+                        VoucherDetailsNow[CellId].子细目ID = e.Str.Split('\t')[0];
+                        VoucherDetailsNow[CellId].子细目 = e.Str.Split('\t')[1];
+                    }
                 }
-                //else
-                //{
-                //    VoucherDetailsNow[CellId].子细目 = e.Str;
-                //}
             }
         }
         #endregion
@@ -298,14 +312,17 @@ namespace PA.View.Windows
             }
             else if (DoubleClickCell.Column.Header.ToString() == "子细目")
             {
+                PA.View.Pages.Pop.凭证录入.Page_凭证录入_子细目 page;
                 //获取科目编号
-                if (string.IsNullOrEmpty(SelectedRow.主科目名))
+                //if (string.IsNullOrEmpty(SelectedRow.主科目名))
                 {
-                    MessageBoxCommon.Show("请选择科目后再选择子细目！");
-                    return;
+                    page = new PA.View.Pages.Pop.凭证录入.Page_凭证录入_子细目();
                 }
-                string str = new PA.ViewModel.ViewModel_科目管理().GetSubjectID(SelectedRow.主科目名);
-                PA.View.Pages.Pop.凭证录入.Page_凭证录入_子细目 page = new PA.View.Pages.Pop.凭证录入.Page_凭证录入_子细目(str);
+                //else
+                //{
+                //    string str = new PA.ViewModel.ViewModel_科目管理().GetSubjectID(SelectedRow.主科目名);
+                //    page = new PA.View.Pages.Pop.凭证录入.Page_凭证录入_子细目(str);
+                //}
                 page.FillDate += new Pages.Pop.凭证录入.Page_凭证录入_子细目_FillDateEventHandle(DoFillData);
                 this.Frame_科目子细目.Content = page;
                 this.Popup_科目子细目.IsOpen = true;

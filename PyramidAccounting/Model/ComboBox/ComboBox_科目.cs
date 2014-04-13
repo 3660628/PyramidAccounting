@@ -82,5 +82,40 @@ namespace PA.Model.ComboBox
             }
             return list;
         }
+        /// <summary>
+        /// 获取所有科目的最低级科目（子细目）
+        /// </summary>
+        /// <returns></returns>
+        public List<string> GetChildSubjectList()
+        {
+            List<string> lists = new List<string>();
+            string sql  = " SELECT                                                                  "
+                        + "     a.SUBJECT_ID,                                                       "
+                        + "     a.subject_name,                                                     "
+                        + "     b.SUBJECT_ID ParentID,                                              "
+                        + "     b.subject_name ParentName                                           "
+                        + " FROM                                                                    "
+                        + "     T_SUBJECT_0 a                                                       "
+                        + " LEFT JOIN T_SUBJECT_0 b ON substr(a.SUBJECT_ID,0,4) = b.SUBJECT_ID      "
+                        + " WHERE                                                                   "
+                        + "     a.SUBJECT_ID NOT IN (                                               "
+                        + "         SELECT                                                          "
+                        + "             PARENT_ID                                                   "
+                        + "         FROM                                                            "
+                        + "             T_SUBJECT_0                                                 "
+                        + "         GROUP BY                                                        "
+                        + "             PARENT_ID                                                   "
+                        + "     )                                                                   "
+                        + " ORDER BY                                                                "
+                        + "     a.SUBJECT_ID                                                        ";
+            DataBase db = new DataBase();
+            DataTable dt = db.Query(sql).Tables[0];
+            for (int i = 0; i < dt.Rows.Count; i++)
+            {
+                string str = dt.Rows[i][0] + "\t" + dt.Rows[i][1] + "\t" + dt.Rows[i][2] + "\t" + dt.Rows[i][3];
+                lists.Add(str);
+            }
+            return lists;
+        }
     }
 }

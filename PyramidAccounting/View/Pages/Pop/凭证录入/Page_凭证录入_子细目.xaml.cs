@@ -23,17 +23,32 @@ namespace PA.View.Pages.Pop.凭证录入
         public event Page_凭证录入_子细目_FillDateEventHandle FillDate;
         ComboBox_科目 cb = new ComboBox_科目();
         private string id;
+        private List<string> ChildData = new List<string>();
+
+        public Page_凭证录入_子细目()
+        {
+            InitializeComponent();
+            ChildData = cb.GetChildSubjectList();
+            List<string> ItemsSourceData = new List<string>();
+            foreach (string a in ChildData)
+            {
+                ItemsSourceData.Add(a.Split('\t')[0] + "\t" + a.Split('\t')[1]);
+            }
+            this.ListBox_子细目.ItemsSource = ItemsSourceData;
+        }
         public Page_凭证录入_子细目(string id)
         {
             InitializeComponent();
             this.id = id;
-            this.ListBox_子细目.ItemsSource = cb.GetChildSubjectList("", id);
+            ChildData = cb.GetChildSubjectList("", id);
+            this.ListBox_子细目.ItemsSource = ChildData;
         }
         public Page_凭证录入_子细目(string id, bool isTwo)
         {
             InitializeComponent();
             this.id = id;
-            this.ListBox_子细目.ItemsSource = cb.GetChildSubjectList("", id, true);
+            ChildData = cb.GetChildSubjectList("", id, true);
+            this.ListBox_子细目.ItemsSource = ChildData;
         }
 
         private void OnFillDate(string str)
@@ -50,7 +65,13 @@ namespace PA.View.Pages.Pop.凭证录入
         {
             if (this.ListBox_子细目.SelectedValue != null)
             {
-                OnFillDate(this.ListBox_子细目.SelectedValue.ToString());
+                foreach (string str in ChildData)
+                {
+                    if (str.Split('\t')[0] == this.ListBox_子细目.SelectedValue.ToString().Split('\t')[0])
+                    {
+                        OnFillDate(str);
+                    }
+                }
             }
         }
 
