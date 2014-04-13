@@ -202,9 +202,9 @@
                             </Grid>
                         </Expander>
                     </StackPanel>
-                    <Button FocusVisualStyle="{x:Null}" x:Name="ButtonBackUp" Content="备份" HorizontalAlignment="Left" Margin="150,350,0,0" VerticalAlignment="Top" Width="100" Click="ButtonBackUp_Click" Background="#7FFF00"  Foreground="White" Height="100" FontSize="22" FontWeight="Black" Style="{StaticResource GlassButton}"/>
-                    <Button FocusVisualStyle="{x:Null}" x:Name="Button_Recover" Content="恢复" HorizontalAlignment="Left" Margin="300,350,0,0" VerticalAlignment="Top" Width="100" Click="Button_Recover_Click" Background="Red" Foreground="White" Height="100" FontSize="22" FontWeight="Black" Style="{StaticResource GlassButton}"/>
-                    <Button FocusVisualStyle="{x:Null}" x:Name="Button_save" Content="保存" HorizontalAlignment="Left" Margin="450,350,0,0" VerticalAlignment="Top" Width="100" Click="Button_save_Click" Background="#00BFFF" Foreground="White" Height="100"  FontSize="22" FontWeight="Black" Style="{StaticResource GlassButton}"/>
+                    <Button FocusVisualStyle="{x:Null}" x:Name="ButtonBackUp" Content="备份" HorizontalAlignment="Left" Margin="476,454,0,0" VerticalAlignment="Top" Width="70" Click="ButtonBackUp_Click" Background="#7FFF00"  Foreground="White" Height="20" FontWeight="Black" Style="{StaticResource GlassButton}" Template="{DynamicResource ButtonControlTemplate_CommonBlue}"/>
+                    <Button FocusVisualStyle="{x:Null}" x:Name="Button_Recover" Content="恢复" HorizontalAlignment="Left" Margin="577,454,0,0" VerticalAlignment="Top" Width="70" Click="Button_Recover_Click" Background="Red" Foreground="White" Height="20" FontWeight="Black" Style="{StaticResource GlassButton}" Template="{DynamicResource ButtonControlTemplate_CommonBlue}"/>
+                    <Button FocusVisualStyle="{x:Null}" x:Name="Button_save" Content="保存" HorizontalAlignment="Left" Margin="676,454,0,0" VerticalAlignment="Top" Width="70" Click="Button_save_Click" Background="#00BFFF" Foreground="White" Height="20" FontWeight="Black" Style="{StaticResource GlassButton}" Template="{DynamicResource ButtonControlTemplate_CommonBlue}"/>
                 </Grid>
             </TabItem>
             <TabItem FocusVisualStyle="{x:Null}" Header="操作记录" Margin="32,-1,-32,1" Template="{DynamicResource TabItemControlTemplate_TwoTabHeader}">
