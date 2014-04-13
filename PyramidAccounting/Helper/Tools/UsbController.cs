@@ -47,15 +47,19 @@ namespace PA.Helper.Tools
                     foreach (ManagementObject disk in disks.Get())
                     {
 #if (DEBUG)
-                        if (disk["Name"].ToString() == ("\\\\.\\PHYSICALDRIVE" + driveNumber))
-                        {
-                            this._serialNumber = parseSerialFromDeviceID(disk["SerialNumber"].ToString());
-                        }
+                        //if (disk["Name"].ToString() == ("\\\\.\\PHYSICALDRIVE" + driveNumber))
+                        //{
+                            this._serialNumber = "0";// parseSerialFromDeviceID(disk["SerialNumber"].ToString());
+                        //}
 #endif
 #if(!DEBUG)
                         if (disk["Name"].ToString() == ("\\\\.\\PHYSICALDRIVE" + driveNumber) & disk["InterfaceType"].ToString() == "USB")
                         {
                             this._serialNumber = parseSerialFromDeviceID(disk["PNPDeviceID"].ToString());
+                        }
+                        else if(disk["Name"].ToString() == ("\\\\.\\PHYSICALDRIVE" + driveNumber) & disk["InterfaceType"].ToString() != "USB")
+                        {
+                            this._serialNumber = parseSerialFromDeviceID(disk["SerialNumber"].ToString());
                         }
 #endif
                     }
