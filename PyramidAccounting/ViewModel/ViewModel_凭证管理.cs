@@ -219,7 +219,7 @@ namespace PA.ViewModel
                     detail.借方 = decimal.Parse(dr[9].ToString());
                     detail.贷方 = decimal.Parse(dr[10].ToString());
 
-                    detail.主科目名 = dr["MainSubjectName"].ToString();
+                    detail.主科目名 = dr[6].ToString()+ " " +dr["MainSubjectName"].ToString();
                     detail.子细目 = dr["TimesSubjectName"].ToString();
                     VoucherDetails.Add(detail);
                     LastVoucherNum = dr[4].ToString();
@@ -248,7 +248,7 @@ namespace PA.ViewModel
                     detail.记账 = int.Parse(dr[8].ToString());
                     detail.借方 = decimal.Parse(dr[9].ToString());
                     detail.贷方 = decimal.Parse(dr[10].ToString());
-                    detail.主科目名 = dr["MainSubjectName"].ToString();
+                    detail.主科目名 = dr[6].ToString()+ " " +dr["MainSubjectName"].ToString();
                     detail.子细目 = dr["TimesSubjectName"].ToString();
                     VoucherDetails.Add(detail);
                     LastVoucherNum = dr[4].ToString();
