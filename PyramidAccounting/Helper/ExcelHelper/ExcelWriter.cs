@@ -18,7 +18,7 @@ namespace PA.Helper.ExcelHelper
     {
         private string Path = AppDomain.CurrentDomain.BaseDirectory;
         private object misValue = System.Reflection.Missing.Value;
-        private string DateNow;
+        private string DateNow = "";
 
         public ExcelWriter()
         {
