@@ -76,7 +76,7 @@
 
         <!--弹出面板-->
         <Popup x:Name="Popup_科目子细目" Placement="MousePoint">
-            <Grid Background="White" Height="250" Width="200" Margin="1">
+            <Grid Background="White" Height="250" Width="330" Margin="1">
                 <Grid.Effect>
                     <DropShadowEffect ShadowDepth="0"/>
                 </Grid.Effect>
