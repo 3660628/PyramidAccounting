@@ -21,6 +21,8 @@ namespace PA.Helper.DataBase
             List<string> folderList = new List<string>();
             folderList.Add("Data");
             folderList.Add("Log");
+            folderList.Add("Excel");
+            folderList.Add("Excel\\打印");
             this.CheckFolder(folderList);
 
             if (!File.Exists("Data\\" + currentDBName))

@@ -18,6 +18,12 @@ namespace PA.Helper.ExcelHelper
     {
         private string Path = AppDomain.CurrentDomain.BaseDirectory;
         private object misValue = System.Reflection.Missing.Value;
+        private string DateNow;
+
+        public ExcelWriter()
+        {
+            DateNow = DateTime.Now.ToString("_yyyyMMddHHmmss");
+        }
 
     #region 1.凭证
         /// <summary>
@@ -36,7 +42,7 @@ namespace PA.Helper.ExcelHelper
             List<Model_凭证明细> VoucherDetails = new PA.ViewModel.ViewModel_凭证管理().GetVoucherDetails(guid);
 
             string SourceXls = Path + @"Data\打印\记账凭证模板.xls";
-            string ExportXls = Path + @"Data\打印\记账凭证export.xls";
+            string ExportXls = Path + @"Excel\打印\记账凭证" + DateNow + ".xls";
             try
             {
                 File.Copy(SourceXls, ExportXls, true);
@@ -221,7 +227,7 @@ namespace PA.Helper.ExcelHelper
             const int PageLine = 47;
             int TotalPageNum = LedgerData.Count / PageLine + 1;
             string SourceXls = Path + @"Data\打印\总账模板.xls";
-            string ExportXls = Path + @"Data\打印\总账export.xls";
+            string ExportXls = Path + @"Excel\打印\总账" + DateNow + ".xls";
             try
             {
                 File.Copy(SourceXls, ExportXls, true);
@@ -338,7 +344,7 @@ namespace PA.Helper.ExcelHelper
             const int PageLine = 23;
             int TotalPageNum = data.Count / PageLine + 1;
             string SourceXls = Path + @"Data\打印\管理费用模板.xls";
-            string ExportXls = Path + @"Data\打印\管理费用export.xls";
+            string ExportXls = Path + @"Excel\打印\管理费用" + DateNow + ".xls";
             try
             {
                 File.Copy(SourceXls, ExportXls, true);
@@ -577,7 +583,7 @@ namespace PA.Helper.ExcelHelper
             xls.Workbook xlWorkBook;
             xls.Worksheet xlWorkSheet;
             string SourceXls = Path + @"Data\打印\三栏明细账模板.xls";
-            string ExportXls = Path + @"Data\打印\三栏明细账export.xls";
+            string ExportXls = Path + @"Excel\打印\三栏明细账" + DateNow + ".xls";
             try
             {
                 File.Copy(SourceXls, ExportXls, true);
@@ -699,7 +705,7 @@ namespace PA.Helper.ExcelHelper
             xls.Workbook xlWorkBook;
             xls.Worksheet xlWorkSheet;
             string SourceXls = Path + @"Data\打印\资产负债表模板.xls";
-            string ExportXls = Path + @"Data\打印\资产负债表export.xls";
+            string ExportXls = Path + @"Excel\打印\资产负债表" + DateNow + ".xls";
             try
             {
                 File.Copy(SourceXls, ExportXls, true);
@@ -827,7 +833,7 @@ namespace PA.Helper.ExcelHelper
             xls.Workbook xlWorkBook;
             xls.Worksheet xlWorkSheet;
             string SourceXls = Path + @"Data\打印\收入支出总表模板.xls";
-            string ExportXls = Path + @"Data\打印\收入支出总表export.xls";
+            string ExportXls = Path + @"Excel\打印\收入支出总表" + DateNow + ".xls";
             try
             {
                 File.Copy(SourceXls, ExportXls, true);
@@ -957,7 +963,7 @@ namespace PA.Helper.ExcelHelper
             xls.Workbook xlWorkBook;
             xls.Worksheet xlWorkSheet;
             string SourceXls = Path + @"Data\打印\行政费用支出明细表模板2.xls";
-            string ExportXls = Path + @"Data\打印\行政费用支出明细表2export.xls";
+            string ExportXls = Path + @"Excel\打印\行政费用支出明细表" + DateNow + ".xls";
             try
             {
                 File.Copy(SourceXls, ExportXls, true);
