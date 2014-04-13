@@ -49,11 +49,11 @@ namespace PA.Helper.ExcelHelper
             }
             catch (FileNotFoundException)
             {
-                return "FileNotFound";
+                return "模板文件未找到";
             }
             catch (IOException)
             {
-                return "FileLocking";
+                return "文件锁定，请重启软件后重试";
             }
             try
             {
@@ -61,7 +61,7 @@ namespace PA.Helper.ExcelHelper
             }
             catch (Exception)
             {
-                return "找不到EXCEL";
+                return "找不到EXCEL软件";
             }
             xlWorkBook = xlApp.Workbooks.Open(ExportXls);
             xlWorkSheet = (xls.Worksheet)xlWorkBook.Worksheets.get_Item(1);
@@ -222,7 +222,7 @@ namespace PA.Helper.ExcelHelper
             List<Model_总账> LedgerData = new PA.ViewModel.ViewModel_账薄管理().GetTotalFee(DetailsData);
             if (LedgerData.Count <= 1)
             {
-                return "NoData";
+                return "没有数据";
             }
             const int PageLine = 47;
             int TotalPageNum = LedgerData.Count / PageLine + 1;
@@ -234,11 +234,11 @@ namespace PA.Helper.ExcelHelper
             }
             catch (FileNotFoundException)
             {
-                return "FileNotFound";
+                return "模板文件未找到";
             }
             catch (IOException)
             {
-                return "FileLocking";
+                return "文件锁定，请重启软件后重试";
             }
             try
             {
@@ -246,7 +246,7 @@ namespace PA.Helper.ExcelHelper
             }
             catch (Exception)
             {
-                return "找不到EXCEL";
+                return "找不到EXCEL软件";
             }
             xlWorkBook = xlApp.Workbooks.Open(ExportXls);
             xlWorkSheet = (xls.Worksheet)xlWorkBook.Worksheets.get_Item(1);
@@ -339,7 +339,7 @@ namespace PA.Helper.ExcelHelper
             }
             catch (Exception)
             {
-                return "NoData";
+                return "没有数据";
             }
             const int PageLine = 23;
             int TotalPageNum = data.Count / PageLine + 1;
@@ -351,11 +351,11 @@ namespace PA.Helper.ExcelHelper
             }
             catch (FileNotFoundException)
             {
-                return "FileNotFound";
+                return "模板文件未找到";
             }
             catch (IOException)
             {
-                return "FileLocking";
+                return "文件锁定，请重启软件后重试";
             }
             try
             {
@@ -363,7 +363,7 @@ namespace PA.Helper.ExcelHelper
             }
             catch (Exception)
             {
-                return "找不到EXCEL";
+                return "找不到EXCEL软件";
             }
             xlWorkBook = xlApp.Workbooks.Open(ExportXls);
             xlWorkSheet = (xls.Worksheet)xlWorkBook.Worksheets.get_Item(1);
@@ -574,7 +574,7 @@ namespace PA.Helper.ExcelHelper
             }
             catch (Exception)
             {
-                return "NoData";
+                return "没有数据";
             }
             const int PageLine = 21;
             int TotalPageNum = data.Count / PageLine + 1;
@@ -590,11 +590,11 @@ namespace PA.Helper.ExcelHelper
             }
             catch (FileNotFoundException)
             {
-                return "FileNotFound";
+                return "模板文件未找到";
             }
             catch (IOException)
             {
-                return "FileLocking";
+                return "文件锁定，请重启软件后重试";
             }
             try
             {
@@ -602,7 +602,7 @@ namespace PA.Helper.ExcelHelper
             }
             catch (Exception)
             {
-                return "找不到EXCEL";
+                return "找不到EXCEL软件";
             }
             xlWorkBook = xlApp.Workbooks.Open(ExportXls);
             xlWorkSheet = (xls.Worksheet)xlWorkBook.Worksheets.get_Item(1);
@@ -712,11 +712,11 @@ namespace PA.Helper.ExcelHelper
             }
             catch (FileNotFoundException)
             {
-                return "FileNotFound";
+                return "模板文件未找到";
             }
             catch (IOException)
             {
-                return "FileLocking";
+                return "文件锁定，请重启软件后重试";
             }
             try
             {
@@ -724,7 +724,7 @@ namespace PA.Helper.ExcelHelper
             }
             catch (Exception)
             {
-                return "找不到EXCEL";
+                return "找不到EXCEL软件";
             }
             xlWorkBook = xlApp.Workbooks.Open(ExportXls);
             xlWorkSheet = (xls.Worksheet)xlWorkBook.Worksheets.get_Item(1);
@@ -746,7 +746,7 @@ namespace PA.Helper.ExcelHelper
             List<Model_报表类> data = new PA.ViewModel.ViewModel_ReportManager().GetBalanceSheet(ParmPeroid);
             if(data.Count < 1)
             {
-                return "NoData";
+                return "没有数据";
             }
             for (int i = 0; i < data.Count; i++)
             {
@@ -840,11 +840,11 @@ namespace PA.Helper.ExcelHelper
             }
             catch (FileNotFoundException)
             {
-                return "FileNotFound";
+                return "模板文件未找到";
             }
             catch (IOException)
             {
-                return "FileLocking";
+                return "文件锁定，请重启软件后重试";
             }
             try
             {
@@ -852,7 +852,7 @@ namespace PA.Helper.ExcelHelper
             }
             catch (Exception)
             {
-                return "找不到EXCEL";
+                return "找不到EXCEL软件";
             }
             xlWorkBook = xlApp.Workbooks.Open(ExportXls);
             xlWorkSheet = (xls.Worksheet)xlWorkBook.Worksheets.get_Item(1);
@@ -862,7 +862,7 @@ namespace PA.Helper.ExcelHelper
             List<Model_报表类> data = new PA.ViewModel.ViewModel_ReportManager().GetIncomeAndExpenses(ParmPeroid);
             if (data.Count <= 0)
             {
-                return "NoData";
+                return "没有数据";
             }
             decimal dy = 0;
             decimal dn = 0;
@@ -970,11 +970,11 @@ namespace PA.Helper.ExcelHelper
             }
             catch (FileNotFoundException)
             {
-                return "FileNotFound";
+                return "模板文件未找到";
             }
             catch (IOException)
             {
-                return "FileLocking";
+                return "文件锁定，请重启软件后重试";
             }
             try
             {
@@ -982,7 +982,7 @@ namespace PA.Helper.ExcelHelper
             }
             catch (Exception)
             {
-                return "找不到EXCEL";
+                return "找不到EXCEL软件";
             }
             xlWorkBook = xlApp.Workbooks.Open(ExportXls);
             xlWorkSheet = (xls.Worksheet)xlWorkBook.Worksheets.get_Item(1);
@@ -993,7 +993,7 @@ namespace PA.Helper.ExcelHelper
             Console.WriteLine(data.Count);
             if(data.Count <= 0)
             {
-                return "NoData";
+                return "没有数据";
             }
             decimal dy = 0;
             decimal dn = 0;
