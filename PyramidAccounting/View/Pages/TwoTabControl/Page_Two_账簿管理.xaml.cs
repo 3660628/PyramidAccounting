@@ -202,7 +202,15 @@ namespace PA.View.Pages.TwoTabControl
             else
             {
                 string a = TextBox_科目及单位名称.Text.ToString();
-                List<Model_总账> lm = vmk.GetTotalFee(a);
+                List<Model_总账> lm;
+                if(a.Substring(0,1) == "4")
+                {
+                    lm = vmk.GetTotalFee(a, true);
+                }
+                else
+                {
+                    lm = vmk.GetTotalFee(a);
+                }
                 this.DataGrid_总账.ItemsSource = lm;
                 if (lm.Count > 1)
                 {

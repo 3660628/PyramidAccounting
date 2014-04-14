@@ -17,11 +17,20 @@ namespace PA.ViewModel
         private Util ut = new Util();
         public List<Model_总账> GetTotalFee(string subject_id)
         {
+            return GetTotalFee(subject_id, false);
+        }
+        public List<Model_总账> GetTotalFee(string subject_id, bool WithoutBalance)
+        {
+            string WhereParm = "";
+            if (WithoutBalance)
+            {
+                WhereParm = " COMMENTS <> '承上年结余' AND ";
+            }
             List<Model_总账> list = new List<Model_总账>();
             string id = subject_id.Split('\t')[0];
             string name = subject_id.Split('\t')[1];
-            string sql = "select strftime(op_time),VOUCHER_NUMS,COMMENTS,DEBIT,CREDIT,FEE,mark from " 
-                + DBTablesName.T_FEE + " where delete_mark=0 and subject_id='" + id + "' order by op_time";
+            string sql = "select strftime(op_time),VOUCHER_NUMS,COMMENTS,DEBIT,CREDIT,FEE,mark from "
+                + DBTablesName.T_FEE + " where " + WhereParm + " delete_mark=0 and subject_id='" + id + "' order by op_time";
 
             DataSet ds = new DataSet();
             decimal debit = 0;

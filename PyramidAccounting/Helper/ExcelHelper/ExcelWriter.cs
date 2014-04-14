@@ -212,17 +212,32 @@ namespace PA.Helper.ExcelHelper
         /// </summary>
         /// <param name="Parm"></param>
         /// <returns></returns>
-        public string ExportLedger(string DetailsData)
+        public string ExportLedger(string DetailName)
         {
             string result = "";
             xls.Application xlApp = null;
             xls.Workbook xlWorkBook;
             xls.Worksheet xlWorkSheet;
 
-            List<Model_总账> LedgerData = new PA.ViewModel.ViewModel_账薄管理().GetTotalFee(DetailsData);
-            if (LedgerData.Count <= 1)
+            List<Model_总账> LedgerData;
+            int FirstDataLine = 0;//第一行数据的行数，0-
+            if (DetailName.Substring(0,1) == "4")
             {
-                return "没有数据";
+                LedgerData = new PA.ViewModel.ViewModel_账薄管理().GetTotalFee(DetailName, true);
+                FirstDataLine = 0;
+                if (LedgerData.Count == FirstDataLine)
+                {
+                    return "没有数据";
+                }
+            }
+            else
+            {
+                LedgerData = new PA.ViewModel.ViewModel_账薄管理().GetTotalFee(DetailName);
+                FirstDataLine = 1;
+                if (LedgerData.Count <= FirstDataLine)
+                {
+                    return "没有数据";
+                }
             }
             const int PageLine = 47;
             int TotalPageNum = LedgerData.Count / PageLine + 1;
@@ -253,8 +268,8 @@ namespace PA.Helper.ExcelHelper
 
             //fill head data
             xlWorkSheet.Cells[1,6] = "总账";
-            xlWorkSheet.Cells[3, 30] = DetailsData.Split('\t')[1];
-            xlWorkSheet.Cells[6, 1] = LedgerData[1].年 + "年";
+            xlWorkSheet.Cells[3, 30] = DetailName.Split('\t')[1];
+            xlWorkSheet.Cells[6, 1] = LedgerData[FirstDataLine].年 + "年";
             //copy sheet
             for (int i = 1; i < TotalPageNum; i++)
             {
