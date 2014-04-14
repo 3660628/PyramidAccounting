@@ -76,7 +76,7 @@ namespace PA.View.Windows
                         if (e.Str.Split('\t')[2] != e.Str.Split('\t')[0])
                         {
                             VoucherDetailsNow[CellId].子细目ID = e.Str.Split('\t')[0];
-                            VoucherDetailsNow[CellId].子细目 = e.Str.Split('\t')[1];
+                            VoucherDetailsNow[CellId].子细目 = e.Str.Split('\t')[0] + " " + e.Str.Split('\t')[1];
                             VoucherDetailsNow[CellId].科目编号 = e.Str.Split('\t')[2];
                             VoucherDetailsNow[CellId].主科目名 = e.Str.Split('\t')[2] + " " + e.Str.Split('\t')[3];
                         }
@@ -91,7 +91,7 @@ namespace PA.View.Windows
                     else
                     {
                         VoucherDetailsNow[CellId].子细目ID = e.Str.Split('\t')[0];
-                        VoucherDetailsNow[CellId].子细目 = e.Str.Split('\t')[1];
+                        VoucherDetailsNow[CellId].子细目 = e.Str.Split('\t')[0] + " " + e.Str.Split('\t')[1];
                     }
                 }
             }
