@@ -20,11 +20,11 @@ using PA.Model.DataGrid;
 
 namespace PA.View.Pages.TwoTabControl
 {
-    public delegate void Page_Two_快捷界面_TabChange(object sender, MyEventArgs e);
+    //public delegate void Page_Two_快捷界面_TabChange(object sender, MyEventArgs e);
 
     public partial class Page_Two_快捷界面 : Page
     {
-        public static event Page_Two_快捷界面_TabChange TabChange;
+        public static event EventHandler<MyEventArgs> TabChange;
         private XMLWriter xw = new XMLWriter();
         private ViewModel_Books vmb = new ViewModel_Books();
         private ViewModel_账薄管理 vm = new ViewModel_账薄管理();

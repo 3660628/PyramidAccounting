@@ -63,7 +63,7 @@ namespace PA.View.Pages.TwoTabControl
         #region 事件订阅
         private void SubscribeToEvent()
         {
-            PA.View.Pages.TwoTabControl.Page_Two_快捷界面.TabChange += new Page_Two_快捷界面_TabChange(DoTabChange);
+            PA.View.Pages.TwoTabControl.Page_Two_快捷界面.TabChange += DoTabChange;
         }
         #endregion
         #region 接受事件后处理
