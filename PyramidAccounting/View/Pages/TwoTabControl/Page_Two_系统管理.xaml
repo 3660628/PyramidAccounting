@@ -224,7 +224,7 @@
                     <DatePicker x:Name="DatePicker_操作记录End" HorizontalAlignment="Left" Width="120" Margin="178,30,0,0" VerticalAlignment="Top"/>
                     <Button FocusVisualStyle="{x:Null}" x:Name="Button_操作记录查询" Content="查询" Grid.Column="1" HorizontalAlignment="Right" Margin="0,28,10,0" VerticalAlignment="Top" Width="70" Click="Button_操作记录查询_Click" Template="{DynamicResource ButtonControlTemplate_CommonBlue}" Height="20" Foreground="White"/>
                     <DataGrid x:Name="DataGrid_操作记录" CanUserAddRows="False" IsReadOnly="True" AutoGenerateColumns="False" ItemsSource="{Binding}" Grid.Row="1" Grid.ColumnSpan="2" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle_凭证管理}" CellStyle="{DynamicResource DataGridCellStyle_无上下边距}" HeadersVisibility="Column" HorizontalGridLinesBrush="#FF99CCFF"
-                                    VerticalGridLinesBrush="#FF99CCFF" BorderBrush="#FF99CCFF" Margin="7,7,7,7" Background="White" >
+                                    VerticalGridLinesBrush="#FF99CCFF" BorderBrush="#FF99CCFF" Margin="7,7,7,7" Background="White" CanUserReorderColumns="False" CanUserResizeRows="False" CanUserResizeColumns="False" CanUserSortColumns="False" >
                         <DataGrid.Columns>
                             <DataGridTextColumn Header="序号" MinWidth="60" Binding="{Binding 序号}" />
                             <DataGridTextColumn Header="操作时间" MinWidth="100" Binding="{Binding 日期}" />
