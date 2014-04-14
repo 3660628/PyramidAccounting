@@ -221,7 +221,7 @@ namespace PA.Helper.ExcelHelper
 
             List<Model_总账> LedgerData;
             int FirstDataLine = 0;//第一行数据的行数，0-
-            if (DetailName.Substring(0,1) == "4")
+            if (DetailName.Substring(0, 1) == "4" || DetailName.Substring(0, 1) == "5")
             {
                 LedgerData = new PA.ViewModel.ViewModel_账薄管理().GetTotalFee(DetailName, true);
                 FirstDataLine = 0;

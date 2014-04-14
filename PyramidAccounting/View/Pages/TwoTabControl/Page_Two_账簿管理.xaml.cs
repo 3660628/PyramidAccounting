@@ -203,7 +203,7 @@ namespace PA.View.Pages.TwoTabControl
             {
                 string a = TextBox_科目及单位名称.Text.ToString();
                 List<Model_总账> lm;
-                if(a.Substring(0,1) == "4")
+                if (a.Substring(0, 1) == "4" || a.Substring(0, 1) == "5")
                 {
                     lm = vmk.GetTotalFee(a, true);
                 }
