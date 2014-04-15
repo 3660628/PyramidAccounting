@@ -82,13 +82,13 @@ namespace PA.View.Pages.TwoTabControl
         private void Button_PopupClose_Click(object sender, RoutedEventArgs e)
         {
             this.Popup_科目子细目.IsOpen = false;
-            this.IsEnabled = true;
+            //this.IsEnabled = true;
         }
         #region Mouse事件
         private void FillData总账(object sender, MyEventArgs e)
         {
             this.Popup_科目子细目.IsOpen = false;
-            this.IsEnabled = true;
+            //this.IsEnabled = true;
             if (typeof(PA.View.Pages.Pop.凭证录入.Page_凭证录入_科目).IsInstanceOfType(sender))
             {
                 TextBox_科目及单位名称.Text = e.Str;
@@ -97,7 +97,7 @@ namespace PA.View.Pages.TwoTabControl
         private void FillData费用(object sender, MyEventArgs e)
         {
             this.Popup_科目子细目.IsOpen = false;
-            this.IsEnabled = true;
+            //this.IsEnabled = true;
             if (typeof(PA.View.Pages.Pop.凭证录入.Page_凭证录入_子细目).IsInstanceOfType(sender))
             {
                 this.TextBox_费用明细.Text = e.Str;
@@ -106,7 +106,7 @@ namespace PA.View.Pages.TwoTabControl
         private void DoFillData(object sender, MyEventArgs e)
         {
             this.Popup_科目子细目.IsOpen = false;
-            this.IsEnabled = true;
+            //this.IsEnabled = true;
             if (typeof(PA.View.Pages.Pop.凭证录入.Page_凭证录入_科目).IsInstanceOfType(sender))
             {
                 TextBox_一级科目.Text = e.Str;
@@ -121,7 +121,7 @@ namespace PA.View.Pages.TwoTabControl
             page.FillDate += new Pages.Pop.凭证录入.Page_凭证录入_科目_FillDateEventHandle(FillData总账);
             this.Frame_科目子细目.Content = page;
             this.Popup_科目子细目.IsOpen = true;
-            this.IsEnabled = false;
+            //this.IsEnabled = false;
         }
         private void TextBox_费用明细_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
@@ -129,7 +129,7 @@ namespace PA.View.Pages.TwoTabControl
             page.FillDate += new Pages.Pop.凭证录入.Page_凭证录入_子细目_FillDateEventHandle(FillData费用);
             this.Frame_科目子细目.Content = page;
             this.Popup_科目子细目.IsOpen = true;
-            this.IsEnabled = false;
+            //this.IsEnabled = false;
         }
 
         private void TextBox_一级科目_MouseDoubleClick(object sender, MouseButtonEventArgs e)
@@ -137,7 +137,7 @@ namespace PA.View.Pages.TwoTabControl
             page.FillDate += new Pages.Pop.凭证录入.Page_凭证录入_科目_FillDateEventHandle(DoFillData);
             this.Frame_科目子细目.Content = page;
             this.Popup_科目子细目.IsOpen = true;
-            this.IsEnabled = false;
+            //this.IsEnabled = false;
         }
 
         private void TextBox_二级科目_MouseDoubleClick(object sender, MouseButtonEventArgs e)
@@ -151,7 +151,7 @@ namespace PA.View.Pages.TwoTabControl
             page.FillDate += new Pages.Pop.凭证录入.Page_凭证录入_子细目_FillDateEventHandle(DoFillData);
             this.Frame_科目子细目.Content = page;
             this.Popup_科目子细目.IsOpen = true;
-            this.IsEnabled = false;
+            //this.IsEnabled = false;
         }
         #endregion
 
@@ -271,7 +271,7 @@ namespace PA.View.Pages.TwoTabControl
 
         private void Popup_科目子细目_Closed(object sender, EventArgs e)
         {
-            this.IsEnabled = true;
+            //this.IsEnabled = true;
         }
 
         private void Button_总账Print_Click(object sender, RoutedEventArgs e)
