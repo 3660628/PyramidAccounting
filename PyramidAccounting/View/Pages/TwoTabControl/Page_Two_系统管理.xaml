@@ -179,12 +179,12 @@
                 </Grid>
             </TabItem>
             <TabItem FocusVisualStyle="{x:Null}" Header="数据管理" Margin="24,-1,-24,1" Template="{DynamicResource TabItemControlTemplate_TwoTabHeader}">
-                <Grid Background="White">
+                <Grid FocusVisualStyle="{x:Null}" Background="White">
                     <StackPanel Margin="10" FocusVisualStyle="{x:Null}">
                         <Expander x:Name="Expander_backup" Header="数据备份" IsExpanded="True">
                             <Grid Background="Snow" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" >
                                 <TextBlock x:Name="is_auto_mark" HorizontalAlignment="Left" Margin="30,16,0,0" Text="关" VerticalAlignment="Top" />
-                                <CheckBox x:Name="is_auto_backup" Content="自动备份数据间隔时间(A)" HorizontalAlignment="Left" Margin="59,14,0,0" VerticalAlignment="Top" Style="{StaticResource SliderCheckBox}" Checked="is_auto_backup_Checked" Unchecked="is_auto_backup_Unchecked"/>
+                                <CheckBox FocusVisualStyle="{x:Null}" x:Name="is_auto_backup" Content="自动备份数据间隔时间(A)" HorizontalAlignment="Left" Margin="59,14,0,0" VerticalAlignment="Top" Style="{StaticResource SliderCheckBox}" Checked="is_auto_backup_Checked" Unchecked="is_auto_backup_Unchecked"/>
                                 <TextBox x:Name="backup_days" HorizontalContentAlignment="Center" Text="7" HorizontalAlignment="Left" Height="23" Margin="251,11,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="50" PreviewKeyDown="backup_days_PreviewKeyDown" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="backup_days_PreviewTextInput" VerticalContentAlignment="Center"/>
                                 <TextBlock Text="天(D)" HorizontalAlignment="Left" Margin="306,16,0,0" VerticalAlignment="Top"/>
                                 <TextBlock Text="数据备份路径(R):" HorizontalAlignment="Left" Margin="30,74,0,0" VerticalAlignment="Top"/>
@@ -219,9 +219,9 @@
                         <ColumnDefinition/>
                     </Grid.ColumnDefinitions>
                     <Label Content="从" HorizontalAlignment="Left" Margin="10,28,0,0" VerticalAlignment="Top"/>
-                    <DatePicker x:Name="DatePicker_操作记录" HorizontalAlignment="Left" Width="120" Margin="34,30,0,0" VerticalAlignment="Top" VerticalContentAlignment="Center"/>
+                    <DatePicker FocusVisualStyle="{x:Null}" x:Name="DatePicker_操作记录" HorizontalAlignment="Left" Width="120" Margin="34,30,0,0" VerticalAlignment="Top" VerticalContentAlignment="Center"/>
                     <Label Content="到" HorizontalAlignment="Left" Margin="155,30,0,0" VerticalAlignment="Top"/>
-                    <DatePicker x:Name="DatePicker_操作记录End" HorizontalAlignment="Left" Width="120" Margin="178,30,0,0" VerticalAlignment="Top"/>
+                    <DatePicker FocusVisualStyle="{x:Null}" x:Name="DatePicker_操作记录End" HorizontalAlignment="Left" Width="120" Margin="178,30,0,0" VerticalAlignment="Top"/>
                     <Button FocusVisualStyle="{x:Null}" x:Name="Button_操作记录查询" Content="查询" Grid.Column="1" HorizontalAlignment="Right" Margin="0,28,10,0" VerticalAlignment="Top" Width="70" Click="Button_操作记录查询_Click" Template="{DynamicResource ButtonControlTemplate_CommonBlue}" Height="20" Foreground="White"/>
                     <DataGrid x:Name="DataGrid_操作记录" CanUserAddRows="False" IsReadOnly="True" AutoGenerateColumns="False" ItemsSource="{Binding}" Grid.Row="1" Grid.ColumnSpan="2" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle_凭证管理}" CellStyle="{DynamicResource DataGridCellStyle_无上下边距}" HeadersVisibility="Column" HorizontalGridLinesBrush="#FF99CCFF"
                                     VerticalGridLinesBrush="#FF99CCFF" BorderBrush="#FF99CCFF" Margin="7,7,7,7" Background="White" CanUserReorderColumns="False" CanUserResizeRows="False" CanUserResizeColumns="False" CanUserSortColumns="False" >

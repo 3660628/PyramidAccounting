@@ -39,7 +39,7 @@
             </TabItem>
         </TabControl>
         <Grid Margin="0" Background="#7F000000" Visibility="Collapsed">
-            <Frame x:Name="Frame_PopPage" Content="" Margin="149,53,0,23" NavigationUIVisibility="Hidden"/>
+            <Frame FocusVisualStyle="{x:Null}" x:Name="Frame_PopPage" Content="" Margin="149,53,0,23" NavigationUIVisibility="Hidden"/>
         </Grid>
     </Grid>
 </Page>

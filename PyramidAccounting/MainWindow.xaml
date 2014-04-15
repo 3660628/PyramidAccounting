@@ -17,7 +17,7 @@
 	</Window.Triggers>
     <Grid Background="#FF29A2FF">
         <Grid Margin="0">
-            <Frame x:Name="Frame_MainTabControl" Content="" Margin="0" NavigationUIVisibility="Hidden"/>
+            <Frame FocusVisualStyle="{x:Null}" x:Name="Frame_MainTabControl" Content="" Margin="0" NavigationUIVisibility="Hidden"/>
         </Grid>
         <Button FocusVisualStyle="{x:Null}" x:Name="Button_Min" Content="Button" HorizontalAlignment="Right" Margin="0,0,66,0" VerticalAlignment="Top" Width="28" Height="20" Template="{DynamicResource ButtonControlTemplate_Min}" Click="Button_Min_Click"/>
         <Button FocusVisualStyle="{x:Null}" x:Name="Button_Max" Content="Button" HorizontalAlignment="Right" Margin="0,0,38,0" VerticalAlignment="Top" Width="28" Height="20" Template="{DynamicResource ButtonControlTemplate_Max}" Click="Button_Max_Click"/>
