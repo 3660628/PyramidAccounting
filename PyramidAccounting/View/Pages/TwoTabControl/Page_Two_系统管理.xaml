@@ -136,11 +136,11 @@
                         <TabControl.Effect>
                             <DropShadowEffect ShadowDepth="0"/>
                         </TabControl.Effect>
-                        <TabItem Header="资产类" Template="{DynamicResource TabItemControlTemplate_科目管理}" FontSize="12"/>
-                        <TabItem Header="负债类" Template="{DynamicResource TabItemControlTemplate_科目管理}" FontSize="12"/>
-                        <TabItem Header="净资产类" Template="{DynamicResource TabItemControlTemplate_科目管理}" FontSize="12"/>
-                        <TabItem Header="收入类" Template="{DynamicResource TabItemControlTemplate_科目管理}" FontSize="12"/>
-                        <TabItem Header="支出类" Template="{DynamicResource TabItemControlTemplate_科目管理}" FontSize="12"/>
+                        <TabItem FocusVisualStyle="{x:Null}" Header="资产类" Template="{DynamicResource TabItemControlTemplate_科目管理}" FontSize="12"/>
+                        <TabItem FocusVisualStyle="{x:Null}" Header="负债类" Template="{DynamicResource TabItemControlTemplate_科目管理}" FontSize="12"/>
+                        <TabItem FocusVisualStyle="{x:Null}" Header="净资产类" Template="{DynamicResource TabItemControlTemplate_科目管理}" FontSize="12"/>
+                        <TabItem FocusVisualStyle="{x:Null}" Header="收入类" Template="{DynamicResource TabItemControlTemplate_科目管理}" FontSize="12"/>
+                        <TabItem FocusVisualStyle="{x:Null}" Header="支出类" Template="{DynamicResource TabItemControlTemplate_科目管理}" FontSize="12"/>
                     </TabControl>
                     <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto" Margin="-3,40,0,-3" Grid.ColumnSpan="2">
                         <Grid>
