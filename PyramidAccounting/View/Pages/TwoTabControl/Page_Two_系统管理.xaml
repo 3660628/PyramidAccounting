@@ -130,8 +130,8 @@
             </TabItem>
             <TabItem FocusVisualStyle="{x:Null}" Header="科目设置" Margin="16,-1,-16,1" Template="{DynamicResource TabItemControlTemplate_TwoTabHeader}">
                 <Grid Background="White">
-                    <Button x:Name="Button_科目保存" Content="保存" HorizontalAlignment="Right" Margin="0,16,96,0" VerticalAlignment="Top" Click="Button_科目保存_Click" Width="70" Height="20" Template="{DynamicResource ButtonControlTemplate_CommonBlue}" Foreground="White"/>
-                    <Button x:Name="Button_编辑子细目" Content="编写子细目" HorizontalAlignment="Right" Margin="0,16,11,0" VerticalAlignment="Top" Width="75" Height="20" Click="Button_编辑子细目_Click" Template="{DynamicResource ButtonControlTemplate_Common}"/>
+                    <Button FocusVisualStyle="{x:Null}" x:Name="Button_科目保存" Content="保存" HorizontalAlignment="Right" Margin="0,16,96,0" VerticalAlignment="Top" Click="Button_科目保存_Click" Width="70" Height="20" Template="{DynamicResource ButtonControlTemplate_CommonBlue}" Foreground="White"/>
+                    <Button FocusVisualStyle="{x:Null}" x:Name="Button_编辑子细目" Content="编写子细目" HorizontalAlignment="Right" Margin="0,16,11,0" VerticalAlignment="Top" Width="75" Height="20" Click="Button_编辑子细目_Click" Template="{DynamicResource ButtonControlTemplate_Common}"/>
                     <TabControl x:Name="TabControl_五大科目" HorizontalAlignment="Left" Margin="6,10,0,0" VerticalAlignment="Top" BorderThickness="0" SelectionChanged="TabControl_五大科目_SelectionChanged" FontSize="14" Height="28">
                         <TabControl.Effect>
                             <DropShadowEffect ShadowDepth="0"/>
@@ -265,7 +265,7 @@
                         </Grid.ColumnDefinitions>
                         <Label Content="注册码：" Margin="50,10,0,0" HorizontalAlignment="Left"  VerticalAlignment="Top" Grid.Column="0"/>
                         <TextBox x:Name="TextBox_注册" HorizontalAlignment="Center" Height="20" TextWrapping="Wrap" VerticalAlignment="Top" Width="375" Grid.Column="1" Margin="0,10,25,0" VerticalContentAlignment="Center"/>
-                        <Button x:Name="Button_注册"  FocusVisualStyle="{x:Null}" Content="注册" HorizontalAlignment="Left" Margin="10,10,0,0"  VerticalAlignment="Top" Foreground="White" Height="20" Width="75" Grid.Column="2" Click="Button_注册_Click" Template="{DynamicResource ButtonControlTemplate_CommonBlue}" />
+                        <Button FocusVisualStyle="{x:Null}" x:Name="Button_注册" Content="注册" HorizontalAlignment="Left" Margin="10,10,0,0"  VerticalAlignment="Top" Foreground="White" Height="20" Width="75" Grid.Column="2" Click="Button_注册_Click" Template="{DynamicResource ButtonControlTemplate_CommonBlue}" />
                     </Grid>
                 </Grid>
             </TabItem>
