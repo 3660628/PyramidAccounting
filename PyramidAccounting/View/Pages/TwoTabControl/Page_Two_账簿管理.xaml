@@ -1115,7 +1115,7 @@
                             </DataGrid>
                         </Grid>
                     </ScrollViewer>
-                    <ComboBox x:Name="ComboBox_Date" HorizontalAlignment="Left" Margin="7,10,0,0" VerticalAlignment="Top" Width="140" />
+                    <ComboBox FocusVisualStyle="{x:Null}" x:Name="ComboBox_Date" HorizontalAlignment="Left" Margin="7,10,0,0" VerticalAlignment="Top" Width="140" />
                 </Grid>
             </TabItem>
             <TabItem FocusVisualStyle="{x:Null}" Header="固定资产管理" Margin="32,-1,-32,1" Template="{DynamicResource TabItemControlTemplate_TwoTabHeader}">
