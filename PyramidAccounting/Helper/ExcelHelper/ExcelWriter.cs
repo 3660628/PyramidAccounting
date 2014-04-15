@@ -53,7 +53,7 @@ namespace PA.Helper.ExcelHelper
             }
             catch (IOException)
             {
-                return "文件锁定，请重启软件后重试";
+                return "文件锁定，请关闭Excel再试";
             }
             try
             {
@@ -253,7 +253,7 @@ namespace PA.Helper.ExcelHelper
             }
             catch (IOException)
             {
-                return "文件锁定，请重启软件后重试";
+                return "文件锁定，请关闭Excel再试";
             }
             try
             {
@@ -370,7 +370,7 @@ namespace PA.Helper.ExcelHelper
             }
             catch (IOException)
             {
-                return "文件锁定，请重启软件后重试";
+                return "文件锁定，请关闭Excel再试";
             }
             try
             {
@@ -609,7 +609,7 @@ namespace PA.Helper.ExcelHelper
             }
             catch (IOException)
             {
-                return "文件锁定，请重启软件后重试";
+                return "文件锁定，请关闭Excel再试";
             }
             try
             {
@@ -731,7 +731,7 @@ namespace PA.Helper.ExcelHelper
             }
             catch (IOException)
             {
-                return "文件锁定，请重启软件后重试";
+                return "文件锁定，请关闭Excel再试";
             }
             try
             {
@@ -859,7 +859,7 @@ namespace PA.Helper.ExcelHelper
             }
             catch (IOException)
             {
-                return "文件锁定，请重启软件后重试";
+                return "文件锁定，请关闭Excel再试";
             }
             try
             {
@@ -989,7 +989,7 @@ namespace PA.Helper.ExcelHelper
             }
             catch (IOException)
             {
-                return "文件锁定，请重启软件后重试";
+                return "文件锁定，请关闭Excel再试";
             }
             try
             {
