@@ -74,7 +74,7 @@ namespace PA.View.Pages.TwoTabControl
             this.TabControl_账簿管理.IsEnabled = true;
             if(e.IsCommit)
             {
-                //reflash data
+                Button_固定资产_查询(null,null);
             }
         }
         #endregion
