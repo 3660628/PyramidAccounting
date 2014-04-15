@@ -188,7 +188,7 @@
                                 <TextBox x:Name="backup_days" HorizontalContentAlignment="Center" Text="7" HorizontalAlignment="Left" Height="23" Margin="251,11,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="50" PreviewKeyDown="backup_days_PreviewKeyDown" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="backup_days_PreviewTextInput" VerticalContentAlignment="Center"/>
                                 <TextBlock Text="天(D)" HorizontalAlignment="Left" Margin="306,16,0,0" VerticalAlignment="Top"/>
                                 <TextBlock Text="数据备份路径(R):" HorizontalAlignment="Left" Margin="30,74,0,0" VerticalAlignment="Top"/>
-                                <TextBox x:Name="backup_filePath" HorizontalAlignment="Left" Height="23" Margin="151,70,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="450" VerticalContentAlignment="Center"/>
+                                <TextBox x:Name="backup_filePath" HorizontalAlignment="Left" Height="23" Margin="151,70,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="450" VerticalContentAlignment="Center" IsReadOnly="True"/>
                                 <Button FocusVisualStyle="{x:Null}" Content="浏览(B)..." HorizontalAlignment="Left" Margin="630,71,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click"  Foreground="White" Height="20" Template="{DynamicResource ButtonControlTemplate_CommonBlue}"/>
                                 <TextBlock HorizontalAlignment="Left" Margin="29,45,0,0" FontSize="12" TextWrapping="Wrap" Text="提示：建议备份数据存放在与软件不同硬盘位置" VerticalAlignment="Top" Width="317"/>
                             </Grid>
@@ -197,7 +197,7 @@
                             <Grid Background="Snow">
                                 <TextBlock Text="请选择需要恢复的数据文件:" HorizontalAlignment="Left" Margin="30,10,0,0" VerticalAlignment="Top"/>
                                 <TextBlock Text="文件位置(V):" HorizontalAlignment="Left" Margin="30,36,0,0" VerticalAlignment="Top"/>
-                                <TextBox x:Name="Recover_filepath" HorizontalAlignment="Left" Height="23" Margin="151,30,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="450" VerticalContentAlignment="Center"/>
+                                <TextBox x:Name="Recover_filepath" HorizontalAlignment="Left" Height="23" Margin="151,30,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="450" VerticalContentAlignment="Center" IsReadOnly="True"/>
                                 <Button FocusVisualStyle="{x:Null}" x:Name="Button_Brower" Content="浏览(B)..." HorizontalAlignment="Left" Margin="630,31,0,0" VerticalAlignment="Top" Width="75" Foreground="White" Height="20" Template="{DynamicResource ButtonControlTemplate_CommonBlue}"/>
                             </Grid>
                         </Expander>
