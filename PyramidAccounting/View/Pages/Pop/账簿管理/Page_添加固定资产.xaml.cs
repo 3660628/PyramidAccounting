@@ -31,6 +31,8 @@ namespace PA.View.Pages.Pop.账簿管理
         public Page_添加固定资产()
         {
             InitializeComponent();
+            this.DatePicker_清理日期.SelectedDate = DateTime.Now;
+            this.DatePicker_置购日期.SelectedDate = DateTime.Now;
         }
 
         #region 自定义事件
@@ -100,11 +102,14 @@ namespace PA.View.Pages.Pop.账簿管理
         private Model_固定资产 SetDate()
         {
             Model_固定资产 model = new Model_固定资产();
+            decimal temp = 0m;
             model.编号 = TextBox_编号.Text.Trim();
             model.名称及规格 = TextBox_名称.Text.Trim();
             model.单位 = TextBox_单位.Text.Trim();
-            model.数量 = Convert.ToDecimal(TextBox_数量.Text.Trim());
-            model.价格 = Convert.ToDecimal(TextBox_原价.Text.Trim());
+            decimal.TryParse(TextBox_数量.Text.Trim(), out temp);
+            model.数量 = temp;
+            decimal.TryParse(TextBox_原价.Text.Trim(), out temp);
+            model.价格 = temp;
             model.购置日期 = (DateTime)DatePicker_置购日期.SelectedDate;
             model.使用部门 = TextBox_部门.Text.Trim();
             model.报废日期 = (DateTime)DatePicker_清理日期.SelectedDate;
