@@ -12,7 +12,6 @@ namespace PA.ViewModel
     class ViewModel_凭证管理
     {
         private string DateFormat = "yyyy-MM-dd";
-        private Guid  LastID = Guid.Empty;
         private Model_凭证管理 LastData = new Model_凭证管理();
         private DataBase db = new DataBase();
         /// <summary>
@@ -23,6 +22,7 @@ namespace PA.ViewModel
         public List<Model_凭证管理> GetData(string whereParm)
         {
             List<Model_凭证管理> datas = new List<Model_凭证管理>();
+            Guid LastID = Guid.Empty;
             string sql = "SELECT "
                             + "voucher.ID,"
                             + "detail.VOUCHER_NO,"
