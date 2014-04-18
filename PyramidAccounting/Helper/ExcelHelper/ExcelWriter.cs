@@ -1028,7 +1028,10 @@ namespace PA.Helper.ExcelHelper
             for (int i = 0; i < data.Count; i++)
             {
                 int Number = 0;
-                int.TryParse(data[i].编号.Substring(5, 2), out Number);
+                if(!int.TryParse(data[i].编号.Substring(5, 2), out Number))
+                {
+                    return "编号出错，请联系管理员。";
+                }
                 //if (i < 7)
                 if (data[i].编号.StartsWith("50101"))
                 {
