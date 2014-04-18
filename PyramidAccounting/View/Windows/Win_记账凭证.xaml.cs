@@ -475,11 +475,11 @@ namespace PA.View.Windows
 
         private void TextBlock_PageNum_MouseWheel(object sender, MouseWheelEventArgs e)
         {
-            if (e.Delta > 0)
+            if (e.Delta < 0)
             {
                 Button_Next_Click(null,null);
             }
-            else if (e.Delta < 0)
+            else if (e.Delta > 0)
             {
                 Button_Previous_Click(null,null);
             }
