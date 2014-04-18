@@ -42,8 +42,6 @@ namespace PA.View.Pages.TwoTabControl
         /// </summary>
         private void FreshComboBox()
         {
-            this.ComboBox_Date.ItemsSource = cbc.GetComboBox_期数(1);
-            this.ComboBox_Date.SelectedIndex = CommonInfo.当前期 - 1;
             Label_账套名称.Content = "当前帐套名称：" + CommonInfo.账套信息;
             Label_操作员.Content = "操作员：" + CommonInfo.用户权限 + "\t" + CommonInfo.真实姓名;
             Label_当前期数.Content = "当前期数：第" + CommonInfo.当前期 + "期";
@@ -88,19 +86,34 @@ namespace PA.View.Pages.TwoTabControl
         private void FillData总账(object sender, MyEventArgs e)
         {
             this.Popup_科目子细目.IsOpen = false;
-            //this.IsEnabled = true;
             if (typeof(PA.View.Pages.Pop.凭证录入.Page_凭证录入_科目).IsInstanceOfType(sender))
             {
                 TextBox_科目及单位名称.Text = e.Str;
             }
         }
-        private void FillData费用(object sender, MyEventArgs e)
+
+        private void FillData多栏明细账_一(object sender, MyEventArgs e)
         {
             this.Popup_科目子细目.IsOpen = false;
-            //this.IsEnabled = true;
+            if (typeof(PA.View.Pages.Pop.凭证录入.Page_凭证录入_科目).IsInstanceOfType(sender))
+            {
+                TextBox_多栏明细账_一.Text = e.Str;
+            }
+        }
+        private void FillData多栏明细账_二(object sender, MyEventArgs e)
+        {
+            this.Popup_科目子细目.IsOpen = false;
             if (typeof(PA.View.Pages.Pop.凭证录入.Page_凭证录入_子细目).IsInstanceOfType(sender))
             {
-                this.TextBox_费用明细.Text = e.Str;
+                TextBox_多栏明细账_二.Text = e.Str;
+            }
+        }
+        private void FillData多栏明细账_三(object sender, MyEventArgs e)
+        {
+            this.Popup_科目子细目.IsOpen = false;
+            if (typeof(PA.View.Pages.Pop.凭证录入.Page_凭证录入_子细目).IsInstanceOfType(sender))
+            {
+                TextBox_多栏明细账_三.Text = e.Str;
             }
         }
         private void DoFillData(object sender, MyEventArgs e)
@@ -123,13 +136,45 @@ namespace PA.View.Pages.TwoTabControl
             this.Popup_科目子细目.IsOpen = true;
             //this.IsEnabled = false;
         }
-        private void TextBox_费用明细_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+
+
+        private void TextBox_多栏明细账_一_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
-            PA.View.Pages.Pop.凭证录入.Page_凭证录入_子细目 page = new PA.View.Pages.Pop.凭证录入.Page_凭证录入_子细目("501", true);
-            page.FillDate += new Pages.Pop.凭证录入.Page_凭证录入_子细目_FillDateEventHandle(FillData费用);
+            string condition = "4%' or subject_id like '5";
+            PA.View.Pages.Pop.凭证录入.Page_凭证录入_科目 page = new PA.View.Pages.Pop.凭证录入.Page_凭证录入_科目(condition);
+            page.FillDate += new Pages.Pop.凭证录入.Page_凭证录入_科目_FillDateEventHandle(FillData多栏明细账_一);
             this.Frame_科目子细目.Content = page;
             this.Popup_科目子细目.IsOpen = true;
-            //this.IsEnabled = false;
+        }
+
+        private void TextBox_多栏明细账_二_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            if (TextBox_多栏明细账_一.Text == null || TextBox_多栏明细账_一.Text.Equals(""))
+            {
+                MessageBoxCommon.Show("请选择一级科目编号及名称!");
+                TextBox_多栏明细账_一.Focus();
+                return;
+            }
+            string subject_id = TextBox_多栏明细账_一.Text.Split('\t')[0];
+            PA.View.Pages.Pop.凭证录入.Page_凭证录入_子细目 page = new PA.View.Pages.Pop.凭证录入.Page_凭证录入_子细目(subject_id, true);
+            page.FillDate += new Pages.Pop.凭证录入.Page_凭证录入_子细目_FillDateEventHandle(FillData多栏明细账_二);
+            this.Frame_科目子细目.Content = page;
+            this.Popup_科目子细目.IsOpen = true;
+        }
+
+        private void TextBox_多栏明细账_三_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            if (TextBox_多栏明细账_二.Text == null || TextBox_多栏明细账_二.Text.Equals(""))
+            {
+                MessageBoxCommon.Show("请选择一级科目编号及名称!");
+                TextBox_多栏明细账_二.Focus();
+                return;
+            }
+            string subject_id = TextBox_多栏明细账_二.Text.Split('\t')[0];
+            PA.View.Pages.Pop.凭证录入.Page_凭证录入_子细目 page = new PA.View.Pages.Pop.凭证录入.Page_凭证录入_子细目(subject_id, true);
+            page.FillDate += new Pages.Pop.凭证录入.Page_凭证录入_子细目_FillDateEventHandle(FillData多栏明细账_三);
+            this.Frame_科目子细目.Content = page;
+            this.Popup_科目子细目.IsOpen = true;
         }
 
         private void TextBox_一级科目_MouseDoubleClick(object sender, MouseButtonEventArgs e)
@@ -175,7 +220,7 @@ namespace PA.View.Pages.TwoTabControl
             {
                 string a = TextBox_一级科目.Text.ToString();
                 string b = TextBox_二级科目.Text.ToString();
-                List<Model_科目明细账> lm = vmk.GetSubjectDetail(a, b ,ComboBox_Date.SelectedIndex+1);
+                List<Model_科目明细账> lm = vmk.GetSubjectDetail(a, b);
                 if (lm.Count > 0)
                 {
                     this.Label_年.Content = lm[0].年 + "年";
@@ -228,7 +273,7 @@ namespace PA.View.Pages.TwoTabControl
 
         private void Button_费用明细_Click(object sender, RoutedEventArgs e)
         {
-            if (string.IsNullOrEmpty(TextBox_费用明细.Text))
+            /*if (string.IsNullOrEmpty(TextBox_费用明细.Text))
             {
                 MessageBoxCommon.Show("请选择科目");
                 this.TextBox_费用明细.Focus();
@@ -259,6 +304,7 @@ namespace PA.View.Pages.TwoTabControl
                 }
                 this.DataGrid_费用明细账.ItemsSource = lm;
             }
+             * */
         }
         #endregion
 
@@ -292,7 +338,7 @@ namespace PA.View.Pages.TwoTabControl
 
         private void Button_经费支出明细Print_Click(object sender, RoutedEventArgs e)
         {
-            if (string.IsNullOrEmpty(TextBox_费用明细.Text))
+            /*if (string.IsNullOrEmpty(TextBox_费用明细.Text))
             {
                 MessageBoxCommon.Show("请选择科目");
                 this.TextBox_费用明细.Focus();
@@ -302,7 +348,7 @@ namespace PA.View.Pages.TwoTabControl
             if(new PA.Helper.ExcelHelper.ExcelWriter().ExportExpenditureDetails(Parm) != "")
             {
                 MessageBoxCommon.Show("打印失败，请检查数据。");
-            }
+            }*/
         }
 
         private void Button_科目明细Print_Click(object sender, RoutedEventArgs e)
@@ -319,7 +365,7 @@ namespace PA.View.Pages.TwoTabControl
                 TextBox_二级科目.Focus();
                 return;
             }
-            if (new PA.Helper.ExcelHelper.ExcelWriter().ExportSubjectDetails(TextBox_一级科目.Text, TextBox_二级科目.Text, ComboBox_Date.SelectedIndex + 1) != "")
+            if (new PA.Helper.ExcelHelper.ExcelWriter().ExportSubjectDetails(TextBox_一级科目.Text, TextBox_二级科目.Text) != "")
             {
                 MessageBoxCommon.Show("打印失败，请检查数据。");
             }
@@ -333,5 +379,6 @@ namespace PA.View.Pages.TwoTabControl
 
             this.DataGrid_固定资产.ItemsSource = vm.GetAllSource();
         }
+
     }
 }

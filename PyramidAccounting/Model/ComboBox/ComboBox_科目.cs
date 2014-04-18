@@ -21,8 +21,8 @@ namespace PA.Model.ComboBox
             }
             else
             {
-                sql = "select subject_id,subject_name from " + DBTablesName.T_SUBJECT + " where used_mark=0  and parent_id=0 " + "and subject_id like '" + condition +
-                        "%' order by id";
+                sql = "select subject_id,subject_name from " + DBTablesName.T_SUBJECT + " where used_mark=0 " + "and subject_id like '" + condition +
+                        "%' and parent_id=0  order by id";
             }
             DataBase db = new DataBase();
             DataTable dt = db.Query(sql).Tables[0];

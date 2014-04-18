@@ -386,7 +386,7 @@ namespace PA.ViewModel
         /// <param name="detail">二级科目</param>
         /// <param name="peroid">查询期</param>
         /// <reut.Turns></reut.Turns>
-        public List<Model_科目明细账> GetSubjectDetail(string subject_id,string detail,int peroid)
+        public List<Model_科目明细账> GetSubjectDetail(string subject_id,string detail)
         {
             List<Model_科目明细账> list = new List<Model_科目明细账>();
             subject_id = subject_id.Split('\t')[0];
@@ -398,11 +398,9 @@ namespace PA.ViewModel
                 + " b on a.parentid=b.id where a.subject_id='"
                 + subject_id
                 + "'" + " and b.delete_mark=0 and  a.detail LIKE '"
-                + detail + "%' and b.period=" 
-                + peroid +" order by b.op_time";
+                + detail + "%' order by b.op_time";
 
-            //判断第一期查年初数
-            //以后差每一期期末数
+            //查年初数
             string sql2 = "select abs(a.fee*b.borrow_mark) from "+ DBTablesName.T_YEAR_FEE + " a left join " + DBTablesName.T_SUBJECT
                 + " b on a.subject_id=b.subject_id where "
                 + " a.subject_id LIKE'" + detail + "%' and a.bookid='" + CommonInfo.账薄号 + "'";
@@ -424,8 +422,10 @@ namespace PA.ViewModel
                     m.摘要 = d[2].ToString();
                     m.借方金额 = d[3].ToString();
                     m.贷方金额 = d[4].ToString();
+
                     string temp = string.Empty;
                     temp = d[5].ToString();  //差额
+
                     m.借或贷 = d[6].ToString();
 
                     _list = ut.Turn(m.贷方金额, 12);

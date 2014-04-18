@@ -578,10 +578,10 @@ namespace PA.Helper.ExcelHelper
         /// <summary>
         /// 科目明细账
         /// </summary>
-        public string ExportSubjectDetails(string ParmSubjectId, string ParmDetailId, int ParmPeroid)
+        public string ExportSubjectDetails(string ParmSubjectId, string ParmDetailId)
         {
             string result = "";
-            List<Model_科目明细账> data = new PA.ViewModel.ViewModel_账薄管理().GetSubjectDetail(ParmSubjectId, ParmDetailId, ParmPeroid);
+            List<Model_科目明细账> data = new PA.ViewModel.ViewModel_账薄管理().GetSubjectDetail(ParmSubjectId, ParmDetailId);
             string year = "    ";
             try
             {
