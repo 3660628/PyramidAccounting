@@ -1027,25 +1027,19 @@ namespace PA.Helper.ExcelHelper
 
             for (int i = 0; i < data.Count; i++)
             {
-                if (i < 7)
+                int Number = 0;
+                int.TryParse(data[i].编号.Substring(5, 2), out Number);
+                //if (i < 7)
+                if (data[i].编号.StartsWith("50101"))
                 {
-                    xlWorkSheet.Cells[9 + i, "B"] = data[i].本期数;
-                    xlWorkSheet.Cells[9 + i, "C"] = data[i].累计数;
+                    xlWorkSheet.Cells[8 + Number, "B"] = data[i].本期数;
+                    xlWorkSheet.Cells[8 + Number, "C"] = data[i].累计数;
                     decimal.TryParse(data[i].本期数, out dn);
                     decimal.TryParse(data[i].累计数, out dy);
                     b101 += dn;
                     b102 += dy;
                 }
-                else if (i >= 7 && i < 27)
-                {
-                    xlWorkSheet.Cells[10 + i, "B"] = data[i].本期数;
-                    xlWorkSheet.Cells[10 + i, "C"] = data[i].累计数;
-                    decimal.TryParse(data[i].本期数, out dn);
-                    decimal.TryParse(data[i].累计数, out dy);
-                    b201 += dn;
-                    b202 += dy;
-                }
-                else if (i == 27)
+                else if (data[i].编号 == "5010221")
                 {
                     xlWorkSheet.Cells[7, "I"] = data[i].本期数;
                     xlWorkSheet.Cells[7, "J"] = data[i].累计数;
@@ -1054,19 +1048,28 @@ namespace PA.Helper.ExcelHelper
                     b201 += dn;
                     b202 += dy;
                 }
-                else if (i >= 28 && i < 42)
+                else if (data[i].编号.StartsWith("50102"))
                 {
-                    xlWorkSheet.Cells[i-28+9, "I"] = data[i].本期数;
-                    xlWorkSheet.Cells[i-28+9, "J"] = data[i].累计数;
+                    xlWorkSheet.Cells[16 + Number, "B"] = data[i].本期数;
+                    xlWorkSheet.Cells[16 + Number, "C"] = data[i].累计数;
+                    decimal.TryParse(data[i].本期数, out dn);
+                    decimal.TryParse(data[i].累计数, out dy);
+                    b201 += dn;
+                    b202 += dy;
+                }
+                else if (data[i].编号.StartsWith("50103"))
+                {
+                    xlWorkSheet.Cells[8 + Number, "I"] = data[i].本期数;
+                    xlWorkSheet.Cells[8 + Number, "J"] = data[i].累计数;
                     decimal.TryParse(data[i].本期数, out dn);
                     decimal.TryParse(data[i].累计数, out dy);
                     b301 += dn;
                     b302 += dy;
                 }
-                else
+                else if (data[i].编号.StartsWith("50104"))
                 {
-                    xlWorkSheet.Cells[i-42+24, "B"] = data[i].本期数;
-                    xlWorkSheet.Cells[i-42+24, "C"] = data[i].累计数;
+                    xlWorkSheet.Cells[23 + Number, "I"] = data[i].本期数;
+                    xlWorkSheet.Cells[23 + Number, "J"] = data[i].累计数;
                     decimal.TryParse(data[i].本期数, out dn);
                     decimal.TryParse(data[i].累计数, out dy);
                     b401 += dn;
