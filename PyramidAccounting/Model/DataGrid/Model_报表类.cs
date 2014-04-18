@@ -37,5 +37,13 @@ namespace PA.Model.DataGrid
             get { return totalfee; }
             set { totalfee = value; }
         }
+
+        private string ID;
+
+        public string 编号
+        {
+            get { return ID; }
+            set { ID = value; }
+        }
     }
 }

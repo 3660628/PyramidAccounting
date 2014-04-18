@@ -275,28 +275,28 @@ namespace PA.View.Pages.TwoTabControl
             {
                 for (int i = 0; i < list.Count; i++)
                 {
-                    Label lb = FindName("Label_B" + (i + 1)) as Label;
+                    Label lb = FindName("Label_B" + list[i].编号) as Label;
                     lb.Content = list[i].本期数;
-                    Label lb2 = FindName("Label_L" + (i + 1)) as Label;
+                    Label lb2 = FindName("Label_L" + list[i].编号) as Label;
                     lb2.Content = list[i].累计数;
                     decimal.TryParse(list[i].本期数, out dn);
                     decimal.TryParse(list[i].累计数, out dy);
-                    if (i < 7)
+                    if (list[i].编号.StartsWith("50101"))
                     {
                         b101 += dn;
                         b102 += dy;
                     }
-                    else if (i >= 7 && i < 28)
+                    else if (list[i].编号.StartsWith("50102"))
                     {
                         b201 += dn;
                         b202 += dy;
                     }
-                    else if (i >= 28 && i < 42)
+                    else if (list[i].编号.StartsWith("50103"))
                     {
                         b301 += dn;
                         b302 += dy;
                     }
-                    else
+                    else if (list[i].编号.StartsWith("50104"))
                     {
                         b401 += dn;
                         b402 += dy;
