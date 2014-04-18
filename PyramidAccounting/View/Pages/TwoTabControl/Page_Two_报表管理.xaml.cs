@@ -247,7 +247,11 @@ namespace PA.View.Pages.TwoTabControl
                 B3.Content = "";
             }
         }
-
+        /// <summary>
+        /// 行政费用明细表
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Button_生成3_Click(object sender, RoutedEventArgs e)
         {
             mr.日志 = "生成" + ComboBox_Date.Text + "行政费用支出明细表";
