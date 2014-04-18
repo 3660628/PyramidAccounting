@@ -133,12 +133,11 @@ namespace PA.ViewModel
             }
             return list;
         }
-        public List<Model_费用明细> GetFeeDetail(string parent_id)
+        public List<Model_费用明细> GetFeeDetail(string subject_id,string detail_id)
         {
             ComboBox_科目 cb = new ComboBox_科目();
             List<string> lst = new List<string>();
-            string pid = parent_id.Split('\t')[0];
-            lst = cb.GetChildSubjectList("", pid, true);
+            lst = cb.GetChildSubjectList("", detail_id, true);
             string _tempstr = string.Empty;
             foreach(string i in lst)
             {
@@ -157,12 +156,12 @@ namespace PA.ViewModel
                 + DBTablesName.T_VOUCHER_DETAIL
                 + " a left join "
                 + DBTablesName.T_VOUCHER
-                + " b on a.parentid=b.id where a.subject_id='501' and a.detail in (select subject_id from "
-                + DBTablesName.T_SUBJECT + " where parent_id='" + pid + "') and b.delete_mark=0 order by b.op_time)t group by t.number,t.time ";
+                + " b on a.parentid=b.id where a.subject_id='" + detail_id +"' and a.detail in (select subject_id from "
+                + DBTablesName.T_SUBJECT + " where parent_id='" + subject_id + "') and b.delete_mark=0 order by b.op_time)t group by t.number,t.time ";
 
             //判断第一期查年初数
             //以后差每一期期末数
-            string sql2 = "select fee from t_yearfee where subject_id='" + pid + "' and bookid='" + CommonInfo.账薄号 + "'";
+            string sql2 = "select fee from t_yearfee where subject_id='" + subject_id + "' and bookid='" + CommonInfo.账薄号 + "'";
             string yearfee = db.GetAllData(sql2).Split('\t')[0].Split(',')[0];
             DataSet ds = new DataSet();
             ds = db.Query(sql);

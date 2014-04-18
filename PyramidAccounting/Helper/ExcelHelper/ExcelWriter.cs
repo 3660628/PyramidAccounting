@@ -337,16 +337,19 @@ namespace PA.Helper.ExcelHelper
             return result;
         }
         /// <summary>
-        /// 经费支出明细账
+        /// 多兰明细单打印
         /// </summary>
-        public string ExportExpenditureDetails(string Parm)
+        /// <param name="subjectid">一级科目编号及名称</param>
+        /// <param name="detailid">二级或三级科目编号</param>
+        /// <returns></returns>
+        public string ExportExpenditureDetails(string subjectid,string detailid)
         {
             string result = "";
             xls.Application xlApp = null;
             xls.Workbook xlWorkBook;
             xls.Worksheet xlWorkSheet;
 
-            List<Model_费用明细> data = new PA.ViewModel.ViewModel_账薄管理().GetFeeDetail(Parm);
+            List<Model_费用明细> data = new PA.ViewModel.ViewModel_账薄管理().GetFeeDetail(subjectid.Split('\t')[0], detailid);
             string year;
             try
             {
@@ -385,7 +388,7 @@ namespace PA.Helper.ExcelHelper
 
             //fill head data
             xlWorkSheet.Cells[1, 27] = "管    理    费    用";
-            xlWorkSheet.Cells[2, 1 ] = "项（或目）科目名称：" + Parm.Split('\t')[1];
+            xlWorkSheet.Cells[2, 1] = "项（或目）科目名称：" + subjectid.Split('\t')[1];
             xlWorkSheet.Cells[6, 1] = year + "年";
             try
             {

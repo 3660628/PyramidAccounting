@@ -80,7 +80,6 @@ namespace PA.View.Pages.TwoTabControl
         private void Button_PopupClose_Click(object sender, RoutedEventArgs e)
         {
             this.Popup_科目子细目.IsOpen = false;
-            //this.IsEnabled = true;
         }
         #region Mouse事件
         private void FillData总账(object sender, MyEventArgs e)
@@ -119,7 +118,6 @@ namespace PA.View.Pages.TwoTabControl
         private void DoFillData(object sender, MyEventArgs e)
         {
             this.Popup_科目子细目.IsOpen = false;
-            //this.IsEnabled = true;
             if (typeof(PA.View.Pages.Pop.凭证录入.Page_凭证录入_科目).IsInstanceOfType(sender))
             {
                 TextBox_一级科目.Text = e.Str;
@@ -137,7 +135,11 @@ namespace PA.View.Pages.TwoTabControl
             //this.IsEnabled = false;
         }
 
-
+        /// <summary>
+        /// 加载收入类和支出类一级科目
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void TextBox_多栏明细账_一_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
             string condition = "4%' or subject_id like '5";
@@ -166,7 +168,7 @@ namespace PA.View.Pages.TwoTabControl
         {
             if (TextBox_多栏明细账_二.Text == null || TextBox_多栏明细账_二.Text.Equals(""))
             {
-                MessageBoxCommon.Show("请选择一级科目编号及名称!");
+                MessageBoxCommon.Show("请选择二级科目编号及名称!");
                 TextBox_多栏明细账_二.Focus();
                 return;
             }
@@ -182,7 +184,6 @@ namespace PA.View.Pages.TwoTabControl
             page.FillDate += new Pages.Pop.凭证录入.Page_凭证录入_科目_FillDateEventHandle(DoFillData);
             this.Frame_科目子细目.Content = page;
             this.Popup_科目子细目.IsOpen = true;
-            //this.IsEnabled = false;
         }
 
         private void TextBox_二级科目_MouseDoubleClick(object sender, MouseButtonEventArgs e)
@@ -196,10 +197,8 @@ namespace PA.View.Pages.TwoTabControl
             page.FillDate += new Pages.Pop.凭证录入.Page_凭证录入_子细目_FillDateEventHandle(DoFillData);
             this.Frame_科目子细目.Content = page;
             this.Popup_科目子细目.IsOpen = true;
-            //this.IsEnabled = false;
         }
         #endregion
-
 
         #region 查询事件
         private void Button_查询_Click(object sender, RoutedEventArgs e)
@@ -232,7 +231,6 @@ namespace PA.View.Pages.TwoTabControl
                     lm.Add(m);
                 }
                 this.DataGrid_科目明细.ItemsSource = lm;
-                
             }
         }
 
@@ -273,16 +271,33 @@ namespace PA.View.Pages.TwoTabControl
 
         private void Button_费用明细_Click(object sender, RoutedEventArgs e)
         {
-            /*if (string.IsNullOrEmpty(TextBox_费用明细.Text))
+            string _subjectid = string.Empty;
+            string _detailid = string.Empty;
+
+            if (string.IsNullOrEmpty(TextBox_多栏明细账_一.Text))
             {
-                MessageBoxCommon.Show("请选择科目");
-                this.TextBox_费用明细.Focus();
+                MessageBoxCommon.Show("请选择一级科目！");
+                this.TextBox_多栏明细账_一.Focus();
+                return;
+            }
+            if (string.IsNullOrEmpty(TextBox_多栏明细账_二.Text))
+            {
+                MessageBoxCommon.Show("请选择二级科目！");
+                this.TextBox_多栏明细账_二.Focus();
                 return;
             }
             else
             {
-                string a = TextBox_费用明细.Text.ToString();
-                List<Model_费用明细> lm = vmk.GetFeeDetail(a);
+                if (string.IsNullOrEmpty(TextBox_多栏明细账_三.Text))
+                {
+                    _detailid = TextBox_多栏明细账_二.Text.Split('\t')[0];
+                }
+                else
+                {
+                    _detailid = TextBox_多栏明细账_三.Text.Split('\t')[0];
+                }
+                _subjectid = TextBox_多栏明细账_一.Text.Split('\t')[0];
+                List<Model_费用明细> lm = vmk.GetFeeDetail(_subjectid, _detailid);
                 this.DataGrid_费用明细账.ItemsSource = lm;
                 if (lm.Count > 0)
                 {
@@ -304,7 +319,6 @@ namespace PA.View.Pages.TwoTabControl
                 }
                 this.DataGrid_费用明细账.ItemsSource = lm;
             }
-             * */
         }
         #endregion
 
@@ -338,17 +352,37 @@ namespace PA.View.Pages.TwoTabControl
 
         private void Button_经费支出明细Print_Click(object sender, RoutedEventArgs e)
         {
-            /*if (string.IsNullOrEmpty(TextBox_费用明细.Text))
+            string _subjectid = string.Empty;
+            string _detailid = string.Empty;
+
+            if (string.IsNullOrEmpty(TextBox_多栏明细账_一.Text))
             {
-                MessageBoxCommon.Show("请选择科目");
-                this.TextBox_费用明细.Focus();
+                MessageBoxCommon.Show("请选择一级科目！");
+                this.TextBox_多栏明细账_一.Focus();
                 return;
             }
-            string Parm = TextBox_费用明细.Text.ToString();
-            if(new PA.Helper.ExcelHelper.ExcelWriter().ExportExpenditureDetails(Parm) != "")
+            if (string.IsNullOrEmpty(TextBox_多栏明细账_二.Text))
             {
-                MessageBoxCommon.Show("打印失败，请检查数据。");
-            }*/
+                MessageBoxCommon.Show("请选择二级科目！");
+                this.TextBox_多栏明细账_二.Focus();
+                return;
+            }
+            else
+            {
+                if (string.IsNullOrEmpty(TextBox_多栏明细账_三.Text))
+                {
+                    _detailid = TextBox_多栏明细账_二.Text.Split('\t')[0];
+                }
+                else
+                {
+                    _detailid = TextBox_多栏明细账_三.Text.Split('\t')[0];
+                }
+                _subjectid = TextBox_多栏明细账_一.Text;
+                if (new PA.Helper.ExcelHelper.ExcelWriter().ExportExpenditureDetails(_subjectid, _detailid) != "")
+                {
+                    MessageBoxCommon.Show("打印失败，请检查数据。");
+                }
+            }
         }
 
         private void Button_科目明细Print_Click(object sender, RoutedEventArgs e)
