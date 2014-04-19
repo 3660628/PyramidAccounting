@@ -28,7 +28,11 @@ namespace PA.View.Pages.Pop.凭证录入
         public Page_凭证录入_子细目()
         {
             InitializeComponent();
-            ChildData = cb.GetChildSubjectList();
+            FillItemSource("");
+        }
+        private void FillItemSource(string condition)
+        {
+            ChildData = cb.GetChildSubjectList(condition);
             List<string> ItemsSourceData = new List<string>();
             foreach (string a in ChildData)
             {
@@ -85,8 +89,16 @@ namespace PA.View.Pages.Pop.凭证录入
         private void TextBox_子细目_TextChanged(object sender, TextChangedEventArgs e)
         {
             TextBox tb = sender as TextBox;
-            ChildData = cb.GetChildSubjectList(tb.Text.Trim(), id, true);
-            this.ListBox_子细目.ItemsSource = ChildData;
+            string textValue = tb.Text.Trim();
+            if (string.IsNullOrEmpty(id))
+            {
+                FillItemSource(textValue);
+            }
+            else
+            {
+                ChildData = cb.GetChildSubjectList(textValue, id, true);
+                this.ListBox_子细目.ItemsSource = ChildData;
+            }
         }
 
         private void Button_确定_Click(object sender, RoutedEventArgs e)

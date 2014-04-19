@@ -86,9 +86,14 @@ namespace PA.Model.ComboBox
         /// 获取所有科目的最低级科目（子细目）
         /// </summary>
         /// <returns></returns>
-        public List<string> GetChildSubjectList()
+        public List<string> GetChildSubjectList(string condition)
         {
             List<string> lists = new List<string>();
+            string parm = string.Empty;
+            if (!string.IsNullOrEmpty(condition))
+            {
+                parm = " and a.subject_id like '" + condition + "%'";
+            }
             string sql  = " SELECT                                                                  "
                         + "     a.SUBJECT_ID,                                                       "
                         + "     a.subject_name,                                                     "
@@ -106,6 +111,7 @@ namespace PA.Model.ComboBox
                         + "         GROUP BY                                                        "
                         + "             PARENT_ID                                                   "
                         + "     )                                                                   "
+                        + parm
                         + " ORDER BY                                                                "
                         + "     a.SUBJECT_ID                                                        ";
             DataBase db = new DataBase();
