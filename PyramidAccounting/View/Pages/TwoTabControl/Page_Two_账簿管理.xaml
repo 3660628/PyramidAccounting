@@ -782,6 +782,13 @@
                             <Label x:Name="Label_9" Content="" HorizontalAlignment="Center" Grid.Column="114" Grid.ColumnSpan="10" Grid.Row="1" />
                             <Label x:Name="Label_10" Content="" HorizontalAlignment="Center" Grid.Column="124" Grid.ColumnSpan="10" Grid.Row="1" />
                             <Label x:Name="Label_11" Content="" HorizontalAlignment="Center" Grid.Column="134" Grid.ColumnSpan="10" Grid.Row="1" />
+                            <Label x:Name="Label_12" Content="" HorizontalAlignment="Center" Grid.Column="144" Grid.ColumnSpan="10" Grid.Row="1" />
+                            <Label x:Name="Label_13" Content="" HorizontalAlignment="Center" Grid.Column="154" Grid.ColumnSpan="10" Grid.Row="1" />
+                            <Label x:Name="Label_14" Content="" HorizontalAlignment="Center" Grid.Column="164" Grid.ColumnSpan="10" Grid.Row="1" />
+                            <Label x:Name="Label_15" Content="" HorizontalAlignment="Center" Grid.Column="174" Grid.ColumnSpan="10" Grid.Row="1" />
+                            <Label x:Name="Label_16" Content="" HorizontalAlignment="Center" Grid.Column="184" Grid.ColumnSpan="10" Grid.Row="1" />
+                            <Label x:Name="Label_17" Content="" HorizontalAlignment="Center" Grid.Column="194" Grid.ColumnSpan="10" Grid.Row="1" />
+                            <Label x:Name="Label_18" Content="" HorizontalAlignment="Center" Grid.Column="204" Grid.ColumnSpan="10" Grid.Row="1" />
                             <TextBlock Text="千" Grid.Column="34" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                             <TextBlock Text="百" Grid.Column="35" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                             <TextBlock Text="十" Grid.Column="36" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center"/>

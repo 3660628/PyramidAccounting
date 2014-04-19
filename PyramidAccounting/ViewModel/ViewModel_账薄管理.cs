@@ -156,8 +156,8 @@ namespace PA.ViewModel
                 + DBTablesName.T_VOUCHER_DETAIL
                 + " a left join "
                 + DBTablesName.T_VOUCHER
-                + " b on a.parentid=b.id where a.subject_id='" + detail_id +"' and a.detail in (select subject_id from "
-                + DBTablesName.T_SUBJECT + " where parent_id='" + subject_id + "') and b.delete_mark=0 order by b.op_time)t group by t.number,t.time ";
+                + " b on a.parentid=b.id where a.subject_id='" + subject_id + "' and a.detail in (select subject_id from "
+                + DBTablesName.T_SUBJECT + " where parent_id='" + detail_id + "') and b.delete_mark=0 order by b.op_time)t group by t.number,t.time ";
 
             //查年初数
             string sql2 = "select fee from t_yearfee where subject_id='" + subject_id + "' and bookid='" + CommonInfo.账薄号 + "'";
@@ -166,6 +166,8 @@ namespace PA.ViewModel
             DataTable dt = db.Query(sql).Tables[0];
             foreach (DataRow d in dt.Rows)
             {
+                decimal debit = 0;
+                decimal credit = 0;
                 Model_费用明细 m = new Model_费用明细();
                 string date = d[0].ToString().Split(' ')[0];
                 #region 赋值
@@ -176,41 +178,37 @@ namespace PA.ViewModel
                 m.摘要 = d[2].ToString();
                 m.借方金额 = d[3].ToString();
                 m.贷方金额 = d[4].ToString();
-                string temp = string.Empty;
-                List<string> _list = new List<string>();
-                if (string.IsNullOrEmpty(m.借方金额))
-                {
-                    temp = d[4].ToString();
-                    _list = ut.Turn(d[4].ToString(), 10);
-                    m.贷方金额1 = _list[0];
-                    m.贷方金额2 = _list[1];
-                    m.贷方金额3 = _list[2];
-                    m.贷方金额4 = _list[3];
-                    m.贷方金额5 = _list[4];
-                    m.贷方金额6 = _list[5];
-                    m.贷方金额7 = _list[6];
-                    m.贷方金额8 = _list[7];
-                    m.贷方金额9 = _list[8];
-                    m.贷方金额10 = _list[9];
-                }
-                else
-                {
-                    temp = d[3].ToString();
-                    _list = ut.Turn(d[3].ToString(), 10);
-                    m.借方金额1 = _list[0];
-                    m.借方金额2 = _list[1];
-                    m.借方金额3 = _list[2];
-                    m.借方金额4 = _list[3];
-                    m.借方金额5 = _list[4];
-                    m.借方金额6 = _list[5];
-                    m.借方金额7 = _list[6];
-                    m.借方金额8 = _list[7];
-                    m.借方金额9 = _list[8];
-                    m.借方金额10 = _list[9];
-                }
 
-                yearfee = (Convert.ToDecimal(yearfee) - Convert.ToDecimal(temp)).ToString();
-                _list.Clear();
+                decimal.TryParse(m.借方金额, out debit);
+                decimal.TryParse(m.贷方金额, out credit);
+
+                List<string> _list = new List<string>();
+                _list = ut.Turn(d[4].ToString(), 10);
+                m.贷方金额1 = _list[0];
+                m.贷方金额2 = _list[1];
+                m.贷方金额3 = _list[2];
+                m.贷方金额4 = _list[3];
+                m.贷方金额5 = _list[4];
+                m.贷方金额6 = _list[5];
+                m.贷方金额7 = _list[6];
+                m.贷方金额8 = _list[7];
+                m.贷方金额9 = _list[8];
+                m.贷方金额10 = _list[9];
+
+                _list = ut.Turn(d[3].ToString(), 10);
+                m.借方金额1 = _list[0];
+                m.借方金额2 = _list[1];
+                m.借方金额3 = _list[2];
+                m.借方金额4 = _list[3];
+                m.借方金额5 = _list[4];
+                m.借方金额6 = _list[5];
+                m.借方金额7 = _list[6];
+                m.借方金额8 = _list[7];
+                m.借方金额9 = _list[8];
+                m.借方金额10 = _list[9];    
+
+                yearfee = (Convert.ToDecimal(yearfee) - credit + debit ).ToString();
+                _list.Clear(); 
                 _list = ut.Turn(yearfee, 10);
                 m.余额1 = _list[0];
                 m.余额2 = _list[1];
