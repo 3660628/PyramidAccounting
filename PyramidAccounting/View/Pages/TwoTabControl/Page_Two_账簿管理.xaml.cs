@@ -414,5 +414,15 @@ namespace PA.View.Pages.TwoTabControl
             this.DataGrid_固定资产.ItemsSource = vm.GetAllSource();
         }
 
+        private void MenuItem_3_Click(object sender, RoutedEventArgs e)
+        {
+            TextBox_多栏明细账_三.Text = string.Empty;
+        }
+
+        private void MenuItem_4_Click(object sender, RoutedEventArgs e)
+        {
+            TextBox_二级科目.Text = string.Empty;
+        }
+
     }
 }

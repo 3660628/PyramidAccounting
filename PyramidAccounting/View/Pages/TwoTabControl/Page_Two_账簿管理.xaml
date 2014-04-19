@@ -257,7 +257,13 @@
                     <Label Content="二级科目编号及名称" HorizontalAlignment="Left" Margin="20,38,0,0" VerticalAlignment="Top"/>
                     <TextBox x:Name="TextBox_多栏明细账_二" HorizontalAlignment="Left" Margin="150,43,0,0" TextWrapping="Wrap" VerticalAlignment="Top" BorderThickness="0,0,0,1" MouseDoubleClick="TextBox_多栏明细账_二_MouseDoubleClick" MinWidth="120" IsReadOnly="True"/>
                     <Label Content="三级科目编号及名称" HorizontalAlignment="Left" Margin="300,8,0,0" VerticalAlignment="Top"/>
-                    <TextBox x:Name="TextBox_多栏明细账_三" HorizontalAlignment="Left" Margin="430,13,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" BorderThickness="0,0,0,1" MouseDoubleClick="TextBox_多栏明细账_三_MouseDoubleClick" MinWidth="120" IsReadOnly="True"/>
+                    <TextBox x:Name="TextBox_多栏明细账_三" HorizontalAlignment="Left" Margin="430,13,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" BorderThickness="0,0,0,1" MouseDoubleClick="TextBox_多栏明细账_三_MouseDoubleClick" MinWidth="120" IsReadOnly="True">
+                        <TextBox.ContextMenu>
+                            <ContextMenu>
+                                <MenuItem x:Name="MenuItem_3" Header="清空" Click="MenuItem_3_Click" />
+                            </ContextMenu>
+                        </TextBox.ContextMenu>
+                    </TextBox>
                     <Button FocusVisualStyle="{x:Null}" x:Name="Button_费用明细查询" Content="查询" HorizontalAlignment="Right" Margin="0,10,76,0" VerticalAlignment="Top" Width="50" Click="Button_费用明细_Click" Height="20" Template="{DynamicResource ButtonControlTemplate_Common}"/>
                     <ScrollViewer VerticalScrollBarVisibility="Disabled" HorizontalScrollBarVisibility="Auto" Margin="-3,74,0,-3">
                         <Grid Width="Auto" Margin="10,0,10,10">
@@ -898,7 +904,13 @@
                     <Label Content="一级科目编号及名称" HorizontalAlignment="Left" Margin="20,8,0,0" VerticalAlignment="Top"/>
                     <TextBox x:Name="TextBox_一级科目" HorizontalAlignment="Left" Margin="150,13,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" BorderThickness="0,0,0,1" MouseDoubleClick="TextBox_一级科目_MouseDoubleClick" MinWidth="120" IsReadOnly="True"/>
                     <Label Content="二级科目编号及名称" HorizontalAlignment="Left" Margin="20,38,0,0" VerticalAlignment="Top"/>
-                    <TextBox x:Name="TextBox_二级科目" HorizontalAlignment="Left" Margin="150,43,0,0" TextWrapping="Wrap" VerticalAlignment="Top" BorderThickness="0,0,0,1" MouseDoubleClick="TextBox_二级科目_MouseDoubleClick" MinWidth="120" IsReadOnly="True"/>
+                    <TextBox x:Name="TextBox_二级科目" HorizontalAlignment="Left" Margin="150,43,0,0" TextWrapping="Wrap" VerticalAlignment="Top" BorderThickness="0,0,0,1" MouseDoubleClick="TextBox_二级科目_MouseDoubleClick" MinWidth="120" IsReadOnly="True">
+                        <TextBox.ContextMenu>
+                            <ContextMenu>
+                                <MenuItem x:Name="MenuItem_4" Header="清空" Click="MenuItem_4_Click" />
+                            </ContextMenu>
+                        </TextBox.ContextMenu>
+                    </TextBox>
                     <Button FocusVisualStyle="{x:Null}" x:Name="Button_查询" Content="查询" HorizontalAlignment="Right" Margin="0,10,76,0" VerticalAlignment="Top" Width="50" Click="Button_查询_Click" Height="20" Template="{DynamicResource ButtonControlTemplate_Common}"/>
                     <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Disabled" Margin="-3,74,0,-3">
                         <Grid Width="Auto" Margin="10,0,10,10">
