@@ -337,7 +337,7 @@ namespace PA.Helper.ExcelHelper
             return result;
         }
         /// <summary>
-        /// 多兰明细单打印
+        /// 多栏明细账打印
         /// </summary>
         /// <param name="subjectid">一级科目编号及名称</param>
         /// <param name="detailid">二级或三级科目编号</param>
@@ -361,8 +361,8 @@ namespace PA.Helper.ExcelHelper
             }
             const int PageLine = 23;
             int TotalPageNum = data.Count / PageLine + 1;
-            string SourceXls = Path + @"Data\打印\管理费用模板.xls";
-            string ExportXls = Path + @"Excel\打印\管理费用" + DateNow + ".xls";
+            string SourceXls = Path + @"Data\打印\管理费用模板18栏.xls";
+            string ExportXls = Path + @"Excel\打印\多栏明细账" + DateNow + ".xls";
             try
             {
                 File.Copy(SourceXls, ExportXls, true);
@@ -568,6 +568,77 @@ namespace PA.Helper.ExcelHelper
                     xlWorkSheet.Cells[9 + i, 143] = data[i + (PageNum * PageLine)].金额138;
                     xlWorkSheet.Cells[9 + i, 144] = data[i + (PageNum * PageLine)].金额139;
                     xlWorkSheet.Cells[9 + i, 145] = data[i + (PageNum * PageLine)].金额140;
+                    //第三页
+                    xlWorkSheet.Cells[9 + i, 147] = data[i + (PageNum * PageLine)].金额141;
+                    xlWorkSheet.Cells[9 + i, 148] = data[i + (PageNum * PageLine)].金额142;
+                    xlWorkSheet.Cells[9 + i, 149] = data[i + (PageNum * PageLine)].金额143;
+                    xlWorkSheet.Cells[9 + i, 150] = data[i + (PageNum * PageLine)].金额144;
+                    xlWorkSheet.Cells[9 + i, 151] = data[i + (PageNum * PageLine)].金额145;
+                    xlWorkSheet.Cells[9 + i, 152] = data[i + (PageNum * PageLine)].金额146;
+                    xlWorkSheet.Cells[9 + i, 153] = data[i + (PageNum * PageLine)].金额147;
+                    xlWorkSheet.Cells[9 + i, 154] = data[i + (PageNum * PageLine)].金额148;
+                    xlWorkSheet.Cells[9 + i, 155] = data[i + (PageNum * PageLine)].金额149;
+                    xlWorkSheet.Cells[9 + i, 156] = data[i + (PageNum * PageLine)].金额150;
+                    xlWorkSheet.Cells[9 + i, 157] = data[i + (PageNum * PageLine)].金额151;
+                    xlWorkSheet.Cells[9 + i, 158] = data[i + (PageNum * PageLine)].金额152;
+                    xlWorkSheet.Cells[9 + i, 159] = data[i + (PageNum * PageLine)].金额153;
+                    xlWorkSheet.Cells[9 + i, 160] = data[i + (PageNum * PageLine)].金额154;
+                    xlWorkSheet.Cells[9 + i, 161] = data[i + (PageNum * PageLine)].金额155;
+                    xlWorkSheet.Cells[9 + i, 162] = data[i + (PageNum * PageLine)].金额156;
+                    xlWorkSheet.Cells[9 + i, 163] = data[i + (PageNum * PageLine)].金额157;
+                    xlWorkSheet.Cells[9 + i, 164] = data[i + (PageNum * PageLine)].金额158;
+                    xlWorkSheet.Cells[9 + i, 165] = data[i + (PageNum * PageLine)].金额159;
+                    xlWorkSheet.Cells[9 + i, 166] = data[i + (PageNum * PageLine)].金额160;
+                    xlWorkSheet.Cells[9 + i, 167] = data[i + (PageNum * PageLine)].金额161;
+                    xlWorkSheet.Cells[9 + i, 168] = data[i + (PageNum * PageLine)].金额162;
+                    xlWorkSheet.Cells[9 + i, 169] = data[i + (PageNum * PageLine)].金额163;
+                    xlWorkSheet.Cells[9 + i, 170] = data[i + (PageNum * PageLine)].金额164;
+                    xlWorkSheet.Cells[9 + i, 171] = data[i + (PageNum * PageLine)].金额165;
+                    xlWorkSheet.Cells[9 + i, 172] = data[i + (PageNum * PageLine)].金额166;
+                    xlWorkSheet.Cells[9 + i, 173] = data[i + (PageNum * PageLine)].金额167;
+                    xlWorkSheet.Cells[9 + i, 174] = data[i + (PageNum * PageLine)].金额168;
+                    xlWorkSheet.Cells[9 + i, 175] = data[i + (PageNum * PageLine)].金额169;
+                    xlWorkSheet.Cells[9 + i, 176] = data[i + (PageNum * PageLine)].金额170;
+                    xlWorkSheet.Cells[9 + i, 177] = data[i + (PageNum * PageLine)].金额171;
+                    xlWorkSheet.Cells[9 + i, 178] = data[i + (PageNum * PageLine)].金额172;
+                    xlWorkSheet.Cells[9 + i, 179] = data[i + (PageNum * PageLine)].金额173;
+                    xlWorkSheet.Cells[9 + i, 180] = data[i + (PageNum * PageLine)].金额174;
+                    xlWorkSheet.Cells[9 + i, 181] = data[i + (PageNum * PageLine)].金额175;
+                    xlWorkSheet.Cells[9 + i, 182] = data[i + (PageNum * PageLine)].金额176;
+                    xlWorkSheet.Cells[9 + i, 183] = data[i + (PageNum * PageLine)].金额177;
+                    xlWorkSheet.Cells[9 + i, 184] = data[i + (PageNum * PageLine)].金额178;
+                    xlWorkSheet.Cells[9 + i, 185] = data[i + (PageNum * PageLine)].金额179;
+                    xlWorkSheet.Cells[9 + i, 186] = data[i + (PageNum * PageLine)].金额180;
+                    xlWorkSheet.Cells[9 + i, 187] = data[i + (PageNum * PageLine)].金额181;
+                    xlWorkSheet.Cells[9 + i, 188] = data[i + (PageNum * PageLine)].金额182;
+                    xlWorkSheet.Cells[9 + i, 189] = data[i + (PageNum * PageLine)].金额183;
+                    xlWorkSheet.Cells[9 + i, 190] = data[i + (PageNum * PageLine)].金额184;
+                    xlWorkSheet.Cells[9 + i, 191] = data[i + (PageNum * PageLine)].金额185;
+                    xlWorkSheet.Cells[9 + i, 192] = data[i + (PageNum * PageLine)].金额186;
+                    xlWorkSheet.Cells[9 + i, 193] = data[i + (PageNum * PageLine)].金额187;
+                    xlWorkSheet.Cells[9 + i, 194] = data[i + (PageNum * PageLine)].金额188;
+                    xlWorkSheet.Cells[9 + i, 195] = data[i + (PageNum * PageLine)].金额189;
+                    xlWorkSheet.Cells[9 + i, 196] = data[i + (PageNum * PageLine)].金额190;
+                    xlWorkSheet.Cells[9 + i, 197] = data[i + (PageNum * PageLine)].金额191;
+                    xlWorkSheet.Cells[9 + i, 198] = data[i + (PageNum * PageLine)].金额192;
+                    xlWorkSheet.Cells[9 + i, 199] = data[i + (PageNum * PageLine)].金额193;
+                    xlWorkSheet.Cells[9 + i, 200] = data[i + (PageNum * PageLine)].金额194;
+                    xlWorkSheet.Cells[9 + i, 201] = data[i + (PageNum * PageLine)].金额195;
+                    xlWorkSheet.Cells[9 + i, 202] = data[i + (PageNum * PageLine)].金额196;
+                    xlWorkSheet.Cells[9 + i, 203] = data[i + (PageNum * PageLine)].金额197;
+                    xlWorkSheet.Cells[9 + i, 204] = data[i + (PageNum * PageLine)].金额198;
+                    xlWorkSheet.Cells[9 + i, 205] = data[i + (PageNum * PageLine)].金额199;
+                    xlWorkSheet.Cells[9 + i, 206] = data[i + (PageNum * PageLine)].金额200;
+                    xlWorkSheet.Cells[9 + i, 207] = data[i + (PageNum * PageLine)].金额201;
+                    xlWorkSheet.Cells[9 + i, 208] = data[i + (PageNum * PageLine)].金额202;
+                    xlWorkSheet.Cells[9 + i, 209] = data[i + (PageNum * PageLine)].金额203;
+                    xlWorkSheet.Cells[9 + i, 210] = data[i + (PageNum * PageLine)].金额204;
+                    xlWorkSheet.Cells[9 + i, 211] = data[i + (PageNum * PageLine)].金额205;
+                    xlWorkSheet.Cells[9 + i, 212] = data[i + (PageNum * PageLine)].金额206;
+                    xlWorkSheet.Cells[9 + i, 213] = data[i + (PageNum * PageLine)].金额207;
+                    xlWorkSheet.Cells[9 + i, 214] = data[i + (PageNum * PageLine)].金额208;
+                    xlWorkSheet.Cells[9 + i, 215] = data[i + (PageNum * PageLine)].金额209;
+                    xlWorkSheet.Cells[9 + i, 216] = data[i + (PageNum * PageLine)].金额210;
                     #endregion
                 }
             }
