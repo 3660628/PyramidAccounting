@@ -418,9 +418,79 @@
                                 <ColumnDefinition Width="{Binding ElementName=fycolumn142,Path=ActualWidth}"/>
                                 <ColumnDefinition Width="{Binding ElementName=fycolumn143,Path=ActualWidth}"/>
                                 <ColumnDefinition Width="{Binding ElementName=fycolumn144,Path=ActualWidth}"/>
+                                <ColumnDefinition Width="{Binding ElementName=fycolumn145,Path=ActualWidth}"/>
+                                <ColumnDefinition Width="{Binding ElementName=fycolumn146,Path=ActualWidth}"/>
+                                <ColumnDefinition Width="{Binding ElementName=fycolumn147,Path=ActualWidth}"/>
+                                <ColumnDefinition Width="{Binding ElementName=fycolumn148,Path=ActualWidth}"/>
+                                <ColumnDefinition Width="{Binding ElementName=fycolumn149,Path=ActualWidth}"/>
+                                <ColumnDefinition Width="{Binding ElementName=fycolumn150,Path=ActualWidth}"/>
+                                <ColumnDefinition Width="{Binding ElementName=fycolumn151,Path=ActualWidth}"/>
+                                <ColumnDefinition Width="{Binding ElementName=fycolumn152,Path=ActualWidth}"/>
+                                <ColumnDefinition Width="{Binding ElementName=fycolumn153,Path=ActualWidth}"/>
+                                <ColumnDefinition Width="{Binding ElementName=fycolumn154,Path=ActualWidth}"/>
+                                <ColumnDefinition Width="{Binding ElementName=fycolumn155,Path=ActualWidth}"/>
+                                <ColumnDefinition Width="{Binding ElementName=fycolumn156,Path=ActualWidth}"/>
+                                <ColumnDefinition Width="{Binding ElementName=fycolumn157,Path=ActualWidth}"/>
+                                <ColumnDefinition Width="{Binding ElementName=fycolumn158,Path=ActualWidth}"/>
+                                <ColumnDefinition Width="{Binding ElementName=fycolumn159,Path=ActualWidth}"/>
+                                <ColumnDefinition Width="{Binding ElementName=fycolumn160,Path=ActualWidth}"/>
+                                <ColumnDefinition Width="{Binding ElementName=fycolumn161,Path=ActualWidth}"/>
+                                <ColumnDefinition Width="{Binding ElementName=fycolumn162,Path=ActualWidth}"/>
+                                <ColumnDefinition Width="{Binding ElementName=fycolumn163,Path=ActualWidth}"/>
+                                <ColumnDefinition Width="{Binding ElementName=fycolumn164,Path=ActualWidth}"/>
+                                <ColumnDefinition Width="{Binding ElementName=fycolumn165,Path=ActualWidth}"/>
+                                <ColumnDefinition Width="{Binding ElementName=fycolumn166,Path=ActualWidth}"/>
+                                <ColumnDefinition Width="{Binding ElementName=fycolumn167,Path=ActualWidth}"/>
+                                <ColumnDefinition Width="{Binding ElementName=fycolumn168,Path=ActualWidth}"/>
+                                <ColumnDefinition Width="{Binding ElementName=fycolumn169,Path=ActualWidth}"/>
+                                <ColumnDefinition Width="{Binding ElementName=fycolumn170,Path=ActualWidth}"/>
+                                <ColumnDefinition Width="{Binding ElementName=fycolumn171,Path=ActualWidth}"/>
+                                <ColumnDefinition Width="{Binding ElementName=fycolumn172,Path=ActualWidth}"/>
+                                <ColumnDefinition Width="{Binding ElementName=fycolumn173,Path=ActualWidth}"/>
+                                <ColumnDefinition Width="{Binding ElementName=fycolumn174,Path=ActualWidth}"/>
+                                <ColumnDefinition Width="{Binding ElementName=fycolumn175,Path=ActualWidth}"/>
+                                <ColumnDefinition Width="{Binding ElementName=fycolumn176,Path=ActualWidth}"/>
+                                <ColumnDefinition Width="{Binding ElementName=fycolumn177,Path=ActualWidth}"/>
+                                <ColumnDefinition Width="{Binding ElementName=fycolumn178,Path=ActualWidth}"/>
+                                <ColumnDefinition Width="{Binding ElementName=fycolumn179,Path=ActualWidth}"/>
+                                <ColumnDefinition Width="{Binding ElementName=fycolumn180,Path=ActualWidth}"/>
+                                <ColumnDefinition Width="{Binding ElementName=fycolumn181,Path=ActualWidth}"/>
+                                <ColumnDefinition Width="{Binding ElementName=fycolumn182,Path=ActualWidth}"/>
+                                <ColumnDefinition Width="{Binding ElementName=fycolumn183,Path=ActualWidth}"/>
+                                <ColumnDefinition Width="{Binding ElementName=fycolumn184,Path=ActualWidth}"/>
+                                <ColumnDefinition Width="{Binding ElementName=fycolumn185,Path=ActualWidth}"/>
+                                <ColumnDefinition Width="{Binding ElementName=fycolumn186,Path=ActualWidth}"/>
+                                <ColumnDefinition Width="{Binding ElementName=fycolumn187,Path=ActualWidth}"/>
+                                <ColumnDefinition Width="{Binding ElementName=fycolumn188,Path=ActualWidth}"/>
+                                <ColumnDefinition Width="{Binding ElementName=fycolumn189,Path=ActualWidth}"/>
+                                <ColumnDefinition Width="{Binding ElementName=fycolumn190,Path=ActualWidth}"/>
+                                <ColumnDefinition Width="{Binding ElementName=fycolumn191,Path=ActualWidth}"/>
+                                <ColumnDefinition Width="{Binding ElementName=fycolumn192,Path=ActualWidth}"/>
+                                <ColumnDefinition Width="{Binding ElementName=fycolumn193,Path=ActualWidth}"/>
+                                <ColumnDefinition Width="{Binding ElementName=fycolumn194,Path=ActualWidth}"/>
+                                <ColumnDefinition Width="{Binding ElementName=fycolumn195,Path=ActualWidth}"/>
+                                <ColumnDefinition Width="{Binding ElementName=fycolumn196,Path=ActualWidth}"/>
+                                <ColumnDefinition Width="{Binding ElementName=fycolumn197,Path=ActualWidth}"/>
+                                <ColumnDefinition Width="{Binding ElementName=fycolumn198,Path=ActualWidth}"/>
+                                <ColumnDefinition Width="{Binding ElementName=fycolumn199,Path=ActualWidth}"/>
+                                <ColumnDefinition Width="{Binding ElementName=fycolumn200,Path=ActualWidth}"/>
+                                <ColumnDefinition Width="{Binding ElementName=fycolumn201,Path=ActualWidth}"/>
+                                <ColumnDefinition Width="{Binding ElementName=fycolumn202,Path=ActualWidth}"/>
+                                <ColumnDefinition Width="{Binding ElementName=fycolumn203,Path=ActualWidth}"/>
+                                <ColumnDefinition Width="{Binding ElementName=fycolumn204,Path=ActualWidth}"/>
+                                <ColumnDefinition Width="{Binding ElementName=fycolumn205,Path=ActualWidth}"/>
+                                <ColumnDefinition Width="{Binding ElementName=fycolumn206,Path=ActualWidth}"/>
+                                <ColumnDefinition Width="{Binding ElementName=fycolumn207,Path=ActualWidth}"/>
+                                <ColumnDefinition Width="{Binding ElementName=fycolumn208,Path=ActualWidth}"/>
+                                <ColumnDefinition Width="{Binding ElementName=fycolumn209,Path=ActualWidth}"/>
+                                <ColumnDefinition Width="{Binding ElementName=fycolumn210,Path=ActualWidth}"/>
+                                <ColumnDefinition Width="{Binding ElementName=fycolumn211,Path=ActualWidth}"/>
+                                <ColumnDefinition Width="{Binding ElementName=fycolumn212,Path=ActualWidth}"/>
+                                <ColumnDefinition Width="{Binding ElementName=fycolumn213,Path=ActualWidth}"/>
+                                <ColumnDefinition Width="{Binding ElementName=fycolumn214,Path=ActualWidth}"/>
                                 <ColumnDefinition />
                             </Grid.ColumnDefinitions>
-                            <Border BorderBrush="#FF99CCFF" BorderThickness="1" Grid.ColumnSpan="144" Grid.RowSpan="4" Background="#FF99CCFF"/>
+                            <Border BorderBrush="#FF99CCFF" BorderThickness="1" Grid.ColumnSpan="214" Grid.RowSpan="4" Background="#FF99CCFF"/>
                             <!--First Line-->
                             <Border BorderBrush="White" BorderThickness="0,0,0,1" Grid.ColumnSpan="2" />
                             <Border BorderBrush="White" BorderThickness="1,0,0,1" Grid.Column="2" Grid.RowSpan="3" />
@@ -443,6 +513,13 @@
                             <Border BorderBrush="White" BorderThickness="1,0,0,1" Grid.Row="1" Grid.Column="114" Grid.ColumnSpan="10" />
                             <Border BorderBrush="White" BorderThickness="1,0,0,1" Grid.Row="1" Grid.Column="124" Grid.ColumnSpan="10" />
                             <Border BorderBrush="White" BorderThickness="1,0,0,1" Grid.Row="1" Grid.Column="134" Grid.ColumnSpan="10" />
+                            <Border BorderBrush="White" BorderThickness="1,0,0,1" Grid.Row="1" Grid.Column="144" Grid.ColumnSpan="10" />
+                            <Border BorderBrush="White" BorderThickness="1,0,0,1" Grid.Row="1" Grid.Column="154" Grid.ColumnSpan="10" />
+                            <Border BorderBrush="White" BorderThickness="1,0,0,1" Grid.Row="1" Grid.Column="164" Grid.ColumnSpan="10" />
+                            <Border BorderBrush="White" BorderThickness="1,0,0,1" Grid.Row="1" Grid.Column="174" Grid.ColumnSpan="10" />
+                            <Border BorderBrush="White" BorderThickness="1,0,0,1" Grid.Row="1" Grid.Column="184" Grid.ColumnSpan="10" />
+                            <Border BorderBrush="White" BorderThickness="1,0,0,1" Grid.Row="1" Grid.Column="194" Grid.ColumnSpan="10" />
+                            <Border BorderBrush="White" BorderThickness="1,0,0,1" Grid.Row="1" Grid.Column="204" Grid.ColumnSpan="10" />
                             <!--Third Line-->
                             <Border BorderBrush="White" BorderThickness="1,0,0,0" Grid.Row="2" Grid.Column="4" />
                             <Border BorderBrush="White" BorderThickness="1,0,0,0" Grid.Row="2" Grid.Column="5" />
@@ -584,7 +661,76 @@
                             <Border BorderBrush="White" BorderThickness="1,0,0,0" Grid.Row="2" Grid.Column="141" />
                             <Border BorderBrush="White" BorderThickness="1,0,0,0" Grid.Row="2" Grid.Column="142" />
                             <Border BorderBrush="White" BorderThickness="1,0,0,0" Grid.Row="2" Grid.Column="143" />
-
+                            <Border BorderBrush="White" BorderThickness="1,0,0,0" Grid.Row="2" Grid.Column="144" />
+                            <Border BorderBrush="White" BorderThickness="1,0,0,0" Grid.Row="2" Grid.Column="145" />
+                            <Border BorderBrush="White" BorderThickness="1,0,0,0" Grid.Row="2" Grid.Column="146" />
+                            <Border BorderBrush="White" BorderThickness="1,0,0,0" Grid.Row="2" Grid.Column="147" />
+                            <Border BorderBrush="White" BorderThickness="1,0,0,0" Grid.Row="2" Grid.Column="148" />
+                            <Border BorderBrush="White" BorderThickness="1,0,0,0" Grid.Row="2" Grid.Column="149" />
+                            <Border BorderBrush="White" BorderThickness="1,0,0,0" Grid.Row="2" Grid.Column="150" />
+                            <Border BorderBrush="White" BorderThickness="1,0,0,0" Grid.Row="2" Grid.Column="151" />
+                            <Border BorderBrush="White" BorderThickness="1,0,0,0" Grid.Row="2" Grid.Column="152" />
+                            <Border BorderBrush="White" BorderThickness="1,0,0,0" Grid.Row="2" Grid.Column="153" />
+                            <Border BorderBrush="White" BorderThickness="1,0,0,0" Grid.Row="2" Grid.Column="154" />
+                            <Border BorderBrush="White" BorderThickness="1,0,0,0" Grid.Row="2" Grid.Column="155" />
+                            <Border BorderBrush="White" BorderThickness="1,0,0,0" Grid.Row="2" Grid.Column="156" />
+                            <Border BorderBrush="White" BorderThickness="1,0,0,0" Grid.Row="2" Grid.Column="157" />
+                            <Border BorderBrush="White" BorderThickness="1,0,0,0" Grid.Row="2" Grid.Column="158" />
+                            <Border BorderBrush="White" BorderThickness="1,0,0,0" Grid.Row="2" Grid.Column="159" />
+                            <Border BorderBrush="White" BorderThickness="1,0,0,0" Grid.Row="2" Grid.Column="160" />
+                            <Border BorderBrush="White" BorderThickness="1,0,0,0" Grid.Row="2" Grid.Column="161" />
+                            <Border BorderBrush="White" BorderThickness="1,0,0,0" Grid.Row="2" Grid.Column="162" />
+                            <Border BorderBrush="White" BorderThickness="1,0,0,0" Grid.Row="2" Grid.Column="163" />
+                            <Border BorderBrush="White" BorderThickness="1,0,0,0" Grid.Row="2" Grid.Column="164" />
+                            <Border BorderBrush="White" BorderThickness="1,0,0,0" Grid.Row="2" Grid.Column="165" />
+                            <Border BorderBrush="White" BorderThickness="1,0,0,0" Grid.Row="2" Grid.Column="166" />
+                            <Border BorderBrush="White" BorderThickness="1,0,0,0" Grid.Row="2" Grid.Column="167" />
+                            <Border BorderBrush="White" BorderThickness="1,0,0,0" Grid.Row="2" Grid.Column="168" />
+                            <Border BorderBrush="White" BorderThickness="1,0,0,0" Grid.Row="2" Grid.Column="169" />
+                            <Border BorderBrush="White" BorderThickness="1,0,0,0" Grid.Row="2" Grid.Column="170" />
+                            <Border BorderBrush="White" BorderThickness="1,0,0,0" Grid.Row="2" Grid.Column="171" />
+                            <Border BorderBrush="White" BorderThickness="1,0,0,0" Grid.Row="2" Grid.Column="172" />
+                            <Border BorderBrush="White" BorderThickness="1,0,0,0" Grid.Row="2" Grid.Column="173" />
+                            <Border BorderBrush="White" BorderThickness="1,0,0,0" Grid.Row="2" Grid.Column="174" />
+                            <Border BorderBrush="White" BorderThickness="1,0,0,0" Grid.Row="2" Grid.Column="175" />
+                            <Border BorderBrush="White" BorderThickness="1,0,0,0" Grid.Row="2" Grid.Column="176" />
+                            <Border BorderBrush="White" BorderThickness="1,0,0,0" Grid.Row="2" Grid.Column="177" />
+                            <Border BorderBrush="White" BorderThickness="1,0,0,0" Grid.Row="2" Grid.Column="178" />
+                            <Border BorderBrush="White" BorderThickness="1,0,0,0" Grid.Row="2" Grid.Column="179" />
+                            <Border BorderBrush="White" BorderThickness="1,0,0,0" Grid.Row="2" Grid.Column="180" />
+                            <Border BorderBrush="White" BorderThickness="1,0,0,0" Grid.Row="2" Grid.Column="181" />
+                            <Border BorderBrush="White" BorderThickness="1,0,0,0" Grid.Row="2" Grid.Column="182" />
+                            <Border BorderBrush="White" BorderThickness="1,0,0,0" Grid.Row="2" Grid.Column="183" />
+                            <Border BorderBrush="White" BorderThickness="1,0,0,0" Grid.Row="2" Grid.Column="184" />
+                            <Border BorderBrush="White" BorderThickness="1,0,0,0" Grid.Row="2" Grid.Column="185" />
+                            <Border BorderBrush="White" BorderThickness="1,0,0,0" Grid.Row="2" Grid.Column="186" />
+                            <Border BorderBrush="White" BorderThickness="1,0,0,0" Grid.Row="2" Grid.Column="187" />
+                            <Border BorderBrush="White" BorderThickness="1,0,0,0" Grid.Row="2" Grid.Column="188" />
+                            <Border BorderBrush="White" BorderThickness="1,0,0,0" Grid.Row="2" Grid.Column="189" />
+                            <Border BorderBrush="White" BorderThickness="1,0,0,0" Grid.Row="2" Grid.Column="190" />
+                            <Border BorderBrush="White" BorderThickness="1,0,0,0" Grid.Row="2" Grid.Column="191" />
+                            <Border BorderBrush="White" BorderThickness="1,0,0,0" Grid.Row="2" Grid.Column="192" />
+                            <Border BorderBrush="White" BorderThickness="1,0,0,0" Grid.Row="2" Grid.Column="193" />
+                            <Border BorderBrush="White" BorderThickness="1,0,0,0" Grid.Row="2" Grid.Column="194" />
+                            <Border BorderBrush="White" BorderThickness="1,0,0,0" Grid.Row="2" Grid.Column="195" />
+                            <Border BorderBrush="White" BorderThickness="1,0,0,0" Grid.Row="2" Grid.Column="196" />
+                            <Border BorderBrush="White" BorderThickness="1,0,0,0" Grid.Row="2" Grid.Column="197" />
+                            <Border BorderBrush="White" BorderThickness="1,0,0,0" Grid.Row="2" Grid.Column="198" />
+                            <Border BorderBrush="White" BorderThickness="1,0,0,0" Grid.Row="2" Grid.Column="199" />
+                            <Border BorderBrush="White" BorderThickness="1,0,0,0" Grid.Row="2" Grid.Column="200" />
+                            <Border BorderBrush="White" BorderThickness="1,0,0,0" Grid.Row="2" Grid.Column="201" />
+                            <Border BorderBrush="White" BorderThickness="1,0,0,0" Grid.Row="2" Grid.Column="202" />
+                            <Border BorderBrush="White" BorderThickness="1,0,0,0" Grid.Row="2" Grid.Column="203" />
+                            <Border BorderBrush="White" BorderThickness="1,0,0,0" Grid.Row="2" Grid.Column="204" />
+                            <Border BorderBrush="White" BorderThickness="1,0,0,0" Grid.Row="2" Grid.Column="205" />
+                            <Border BorderBrush="White" BorderThickness="1,0,0,0" Grid.Row="2" Grid.Column="206" />
+                            <Border BorderBrush="White" BorderThickness="1,0,0,0" Grid.Row="2" Grid.Column="207" />
+                            <Border BorderBrush="White" BorderThickness="1,0,0,0" Grid.Row="2" Grid.Column="208" />
+                            <Border BorderBrush="White" BorderThickness="1,0,0,0" Grid.Row="2" Grid.Column="209" />
+                            <Border BorderBrush="White" BorderThickness="1,0,0,0" Grid.Row="2" Grid.Column="210" />
+                            <Border BorderBrush="White" BorderThickness="1,0,0,0" Grid.Row="2" Grid.Column="211" />
+                            <Border BorderBrush="White" BorderThickness="1,0,0,0" Grid.Row="2" Grid.Column="212" />
+                            <Border BorderBrush="White" BorderThickness="1,0,0,0" Grid.Row="2" Grid.Column="213" />
                             <Label x:Name="Label_费用明细年" Content="年" HorizontalAlignment="Right" Grid.ColumnSpan="2"/>
                             <Label Content="月" VerticalAlignment="Center" Grid.Row="1" Grid.Column="0" Grid.RowSpan="2"/>
                             <Label Content="日" VerticalAlignment="Center" Grid.Row="1" Grid.Column="1" Grid.RowSpan="2"/>
@@ -746,7 +892,77 @@
                             <TextBlock Text="元"	Grid.Column="141"	Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                             <TextBlock Text="角"	Grid.Column="142"	Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                             <TextBlock Text="分"	Grid.Column="143"	Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                            <DataGrid x:Name="DataGrid_费用明细账" Grid.Row="3" ItemsSource="{Binding}" Grid.ColumnSpan="144" CanUserAddRows="False" AutoGenerateColumns="False" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" HeadersVisibility="None" Background="#FFF6F6F6" BorderBrush="#FF99CCFF" Margin="0,-1,0,0" HorizontalScrollBarVisibility="Disabled" HorizontalGridLinesBrush="#FF99CCFF" VerticalGridLinesBrush="#FF99CCFF" VerticalScrollBarVisibility="Hidden">
+                            <TextBlock Text="千"	Grid.Column="144"	Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <TextBlock Text="百"	Grid.Column="145"	Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <TextBlock Text="十"	Grid.Column="146"	Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <TextBlock Text="万"	Grid.Column="147"	Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <TextBlock Text="千"	Grid.Column="148"	Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <TextBlock Text="百"	Grid.Column="149"	Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <TextBlock Text="十"	Grid.Column="150"	Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <TextBlock Text="元"	Grid.Column="151"	Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <TextBlock Text="角"	Grid.Column="152"	Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <TextBlock Text="分"	Grid.Column="153"	Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <TextBlock Text="千"	Grid.Column="154"	Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <TextBlock Text="百"	Grid.Column="155"	Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <TextBlock Text="十"	Grid.Column="156"	Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <TextBlock Text="万"	Grid.Column="157"	Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <TextBlock Text="千"	Grid.Column="158"	Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <TextBlock Text="百"	Grid.Column="159"	Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <TextBlock Text="十"	Grid.Column="160"	Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <TextBlock Text="元"	Grid.Column="161"	Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <TextBlock Text="角"	Grid.Column="162"	Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <TextBlock Text="分"	Grid.Column="163"	Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <TextBlock Text="千"	Grid.Column="164"	Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <TextBlock Text="百"	Grid.Column="165"	Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <TextBlock Text="十"	Grid.Column="166"	Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <TextBlock Text="万"	Grid.Column="167"	Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <TextBlock Text="千"	Grid.Column="168"	Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <TextBlock Text="百"	Grid.Column="169"	Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <TextBlock Text="十"	Grid.Column="170"	Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <TextBlock Text="元"	Grid.Column="171"	Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <TextBlock Text="角"	Grid.Column="172"	Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <TextBlock Text="分"	Grid.Column="173"	Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <TextBlock Text="千"	Grid.Column="174"	Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <TextBlock Text="百"	Grid.Column="175"	Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <TextBlock Text="十"	Grid.Column="176"	Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <TextBlock Text="万"	Grid.Column="177"	Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <TextBlock Text="千"	Grid.Column="178"	Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <TextBlock Text="百"	Grid.Column="179"	Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <TextBlock Text="十"	Grid.Column="180"	Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <TextBlock Text="元"	Grid.Column="181"	Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <TextBlock Text="角"	Grid.Column="182"	Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <TextBlock Text="分"	Grid.Column="183"	Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <TextBlock Text="千"	Grid.Column="184"	Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <TextBlock Text="百"	Grid.Column="185"	Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <TextBlock Text="十"	Grid.Column="186"	Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <TextBlock Text="万"	Grid.Column="187"	Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <TextBlock Text="千"	Grid.Column="188"	Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <TextBlock Text="百"	Grid.Column="189"	Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <TextBlock Text="十"	Grid.Column="190"	Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <TextBlock Text="元"	Grid.Column="191"	Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <TextBlock Text="角"	Grid.Column="192"	Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <TextBlock Text="分"	Grid.Column="193"	Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <TextBlock Text="千"	Grid.Column="194"	Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <TextBlock Text="百"	Grid.Column="195"	Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <TextBlock Text="十"	Grid.Column="196"	Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <TextBlock Text="万"	Grid.Column="197"	Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <TextBlock Text="千"	Grid.Column="198"	Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <TextBlock Text="百"	Grid.Column="199"	Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <TextBlock Text="十"	Grid.Column="200"	Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <TextBlock Text="元"	Grid.Column="201"	Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <TextBlock Text="角"	Grid.Column="202"	Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <TextBlock Text="分"	Grid.Column="203"	Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <TextBlock Text="千"	Grid.Column="204"	Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <TextBlock Text="百"	Grid.Column="205"	Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <TextBlock Text="十"	Grid.Column="206"	Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <TextBlock Text="万"	Grid.Column="207"	Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <TextBlock Text="千"	Grid.Column="208"	Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <TextBlock Text="百"	Grid.Column="209"	Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <TextBlock Text="十"	Grid.Column="210"	Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <TextBlock Text="元"	Grid.Column="211"	Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <TextBlock Text="角"	Grid.Column="212"	Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <TextBlock Text="分"	Grid.Column="213"	Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <DataGrid x:Name="DataGrid_费用明细账" Grid.Row="3" ItemsSource="{Binding}" Grid.ColumnSpan="214" CanUserAddRows="False" AutoGenerateColumns="False" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" HeadersVisibility="None" Background="#FFF6F6F6" BorderBrush="#FF99CCFF" Margin="0,-1,0,0" HorizontalScrollBarVisibility="Disabled" HorizontalGridLinesBrush="#FF99CCFF" VerticalGridLinesBrush="#FF99CCFF" VerticalScrollBarVisibility="Hidden">
                                 <DataGrid.Columns>
                                     <DataGridTextColumn x:Name="fycolumn1" MinWidth="25" Binding="{Binding 月}"/>
                                     <DataGridTextColumn x:Name="fycolumn2" MinWidth="25" Binding="{Binding 日}"/>
@@ -892,6 +1108,76 @@
                                     <DataGridTextColumn x:Name="fycolumn142" Binding="{Binding 金额138}" MinWidth="15" MaxWidth="15"/>
                                     <DataGridTextColumn x:Name="fycolumn143" Binding="{Binding 金额139}" MinWidth="15" MaxWidth="15"/>
                                     <DataGridTextColumn x:Name="fycolumn144" Binding="{Binding 金额140}" MinWidth="15" MaxWidth="15"/>
+                                    <DataGridTextColumn x:Name="fycolumn145"	Binding="{Binding 金额141}"	 MinWidth="15" MaxWidth="15"/>
+                                    <DataGridTextColumn x:Name="fycolumn146"	Binding="{Binding 金额142}"	 MinWidth="15" MaxWidth="15"/>
+                                    <DataGridTextColumn x:Name="fycolumn147"	Binding="{Binding 金额143}"	 MinWidth="15" MaxWidth="15"/>
+                                    <DataGridTextColumn x:Name="fycolumn148"	Binding="{Binding 金额144}"	 MinWidth="15" MaxWidth="15"/>
+                                    <DataGridTextColumn x:Name="fycolumn149"	Binding="{Binding 金额145}"	 MinWidth="15" MaxWidth="15"/>
+                                    <DataGridTextColumn x:Name="fycolumn150"	Binding="{Binding 金额146}"	 MinWidth="15" MaxWidth="15"/>
+                                    <DataGridTextColumn x:Name="fycolumn151"	Binding="{Binding 金额147}"	 MinWidth="15" MaxWidth="15"/>
+                                    <DataGridTextColumn x:Name="fycolumn152"	Binding="{Binding 金额148}"	 MinWidth="15" MaxWidth="15"/>
+                                    <DataGridTextColumn x:Name="fycolumn153"	Binding="{Binding 金额149}"	 MinWidth="15" MaxWidth="15"/>
+                                    <DataGridTextColumn x:Name="fycolumn154"	Binding="{Binding 金额150}"	 MinWidth="15" MaxWidth="15"/>
+                                    <DataGridTextColumn x:Name="fycolumn155"	Binding="{Binding 金额151}"	 MinWidth="15" MaxWidth="15"/>
+                                    <DataGridTextColumn x:Name="fycolumn156"	Binding="{Binding 金额152}"	 MinWidth="15" MaxWidth="15"/>
+                                    <DataGridTextColumn x:Name="fycolumn157"	Binding="{Binding 金额153}"	 MinWidth="15" MaxWidth="15"/>
+                                    <DataGridTextColumn x:Name="fycolumn158"	Binding="{Binding 金额154}"	 MinWidth="15" MaxWidth="15"/>
+                                    <DataGridTextColumn x:Name="fycolumn159"	Binding="{Binding 金额155}"	 MinWidth="15" MaxWidth="15"/>
+                                    <DataGridTextColumn x:Name="fycolumn160"	Binding="{Binding 金额156}"	 MinWidth="15" MaxWidth="15"/>
+                                    <DataGridTextColumn x:Name="fycolumn161"	Binding="{Binding 金额157}"	 MinWidth="15" MaxWidth="15"/>
+                                    <DataGridTextColumn x:Name="fycolumn162"	Binding="{Binding 金额158}"	 MinWidth="15" MaxWidth="15"/>
+                                    <DataGridTextColumn x:Name="fycolumn163"	Binding="{Binding 金额159}"	 MinWidth="15" MaxWidth="15"/>
+                                    <DataGridTextColumn x:Name="fycolumn164"	Binding="{Binding 金额160}"	 MinWidth="15" MaxWidth="15"/>
+                                    <DataGridTextColumn x:Name="fycolumn165"	Binding="{Binding 金额161}"	 MinWidth="15" MaxWidth="15"/>
+                                    <DataGridTextColumn x:Name="fycolumn166"	Binding="{Binding 金额162}"	 MinWidth="15" MaxWidth="15"/>
+                                    <DataGridTextColumn x:Name="fycolumn167"	Binding="{Binding 金额163}"	 MinWidth="15" MaxWidth="15"/>
+                                    <DataGridTextColumn x:Name="fycolumn168"	Binding="{Binding 金额164}"	 MinWidth="15" MaxWidth="15"/>
+                                    <DataGridTextColumn x:Name="fycolumn169"	Binding="{Binding 金额165}"	 MinWidth="15" MaxWidth="15"/>
+                                    <DataGridTextColumn x:Name="fycolumn170"	Binding="{Binding 金额166}"	 MinWidth="15" MaxWidth="15"/>
+                                    <DataGridTextColumn x:Name="fycolumn171"	Binding="{Binding 金额167}"	 MinWidth="15" MaxWidth="15"/>
+                                    <DataGridTextColumn x:Name="fycolumn172"	Binding="{Binding 金额168}"	 MinWidth="15" MaxWidth="15"/>
+                                    <DataGridTextColumn x:Name="fycolumn173"	Binding="{Binding 金额169}"	 MinWidth="15" MaxWidth="15"/>
+                                    <DataGridTextColumn x:Name="fycolumn174"	Binding="{Binding 金额170}"	 MinWidth="15" MaxWidth="15"/>
+                                    <DataGridTextColumn x:Name="fycolumn175"	Binding="{Binding 金额171}"	 MinWidth="15" MaxWidth="15"/>
+                                    <DataGridTextColumn x:Name="fycolumn176"	Binding="{Binding 金额172}"	 MinWidth="15" MaxWidth="15"/>
+                                    <DataGridTextColumn x:Name="fycolumn177"	Binding="{Binding 金额173}"	 MinWidth="15" MaxWidth="15"/>
+                                    <DataGridTextColumn x:Name="fycolumn178"	Binding="{Binding 金额174}"	 MinWidth="15" MaxWidth="15"/>
+                                    <DataGridTextColumn x:Name="fycolumn179"	Binding="{Binding 金额175}"	 MinWidth="15" MaxWidth="15"/>
+                                    <DataGridTextColumn x:Name="fycolumn180"	Binding="{Binding 金额176}"	 MinWidth="15" MaxWidth="15"/>
+                                    <DataGridTextColumn x:Name="fycolumn181"	Binding="{Binding 金额177}"	 MinWidth="15" MaxWidth="15"/>
+                                    <DataGridTextColumn x:Name="fycolumn182"	Binding="{Binding 金额178}"	 MinWidth="15" MaxWidth="15"/>
+                                    <DataGridTextColumn x:Name="fycolumn183"	Binding="{Binding 金额179}"	 MinWidth="15" MaxWidth="15"/>
+                                    <DataGridTextColumn x:Name="fycolumn184"	Binding="{Binding 金额180}"	 MinWidth="15" MaxWidth="15"/>
+                                    <DataGridTextColumn x:Name="fycolumn185"	Binding="{Binding 金额181}"	 MinWidth="15" MaxWidth="15"/>
+                                    <DataGridTextColumn x:Name="fycolumn186"	Binding="{Binding 金额182}"	 MinWidth="15" MaxWidth="15"/>
+                                    <DataGridTextColumn x:Name="fycolumn187"	Binding="{Binding 金额183}"	 MinWidth="15" MaxWidth="15"/>
+                                    <DataGridTextColumn x:Name="fycolumn188"	Binding="{Binding 金额184}"	 MinWidth="15" MaxWidth="15"/>
+                                    <DataGridTextColumn x:Name="fycolumn189"	Binding="{Binding 金额185}"	 MinWidth="15" MaxWidth="15"/>
+                                    <DataGridTextColumn x:Name="fycolumn190"	Binding="{Binding 金额186}"	 MinWidth="15" MaxWidth="15"/>
+                                    <DataGridTextColumn x:Name="fycolumn191"	Binding="{Binding 金额187}"	 MinWidth="15" MaxWidth="15"/>
+                                    <DataGridTextColumn x:Name="fycolumn192"	Binding="{Binding 金额188}"	 MinWidth="15" MaxWidth="15"/>
+                                    <DataGridTextColumn x:Name="fycolumn193"	Binding="{Binding 金额189}"	 MinWidth="15" MaxWidth="15"/>
+                                    <DataGridTextColumn x:Name="fycolumn194"	Binding="{Binding 金额190}"	 MinWidth="15" MaxWidth="15"/>
+                                    <DataGridTextColumn x:Name="fycolumn195"	Binding="{Binding 金额191}"	 MinWidth="15" MaxWidth="15"/>
+                                    <DataGridTextColumn x:Name="fycolumn196"	Binding="{Binding 金额192}"	 MinWidth="15" MaxWidth="15"/>
+                                    <DataGridTextColumn x:Name="fycolumn197"	Binding="{Binding 金额193}"	 MinWidth="15" MaxWidth="15"/>
+                                    <DataGridTextColumn x:Name="fycolumn198"	Binding="{Binding 金额194}"	 MinWidth="15" MaxWidth="15"/>
+                                    <DataGridTextColumn x:Name="fycolumn199"	Binding="{Binding 金额195}"	 MinWidth="15" MaxWidth="15"/>
+                                    <DataGridTextColumn x:Name="fycolumn200"	Binding="{Binding 金额196}"	 MinWidth="15" MaxWidth="15"/>
+                                    <DataGridTextColumn x:Name="fycolumn201"	Binding="{Binding 金额197}"	 MinWidth="15" MaxWidth="15"/>
+                                    <DataGridTextColumn x:Name="fycolumn202"	Binding="{Binding 金额198}"	 MinWidth="15" MaxWidth="15"/>
+                                    <DataGridTextColumn x:Name="fycolumn203"	Binding="{Binding 金额199}"	 MinWidth="15" MaxWidth="15"/>
+                                    <DataGridTextColumn x:Name="fycolumn204"	Binding="{Binding 金额200}"	 MinWidth="15" MaxWidth="15"/>
+                                    <DataGridTextColumn x:Name="fycolumn205"	Binding="{Binding 金额201}"	 MinWidth="15" MaxWidth="15"/>
+                                    <DataGridTextColumn x:Name="fycolumn206"	Binding="{Binding 金额202}"	 MinWidth="15" MaxWidth="15"/>
+                                    <DataGridTextColumn x:Name="fycolumn207"	Binding="{Binding 金额203}"	 MinWidth="15" MaxWidth="15"/>
+                                    <DataGridTextColumn x:Name="fycolumn208"	Binding="{Binding 金额204}"	 MinWidth="15" MaxWidth="15"/>
+                                    <DataGridTextColumn x:Name="fycolumn209"	Binding="{Binding 金额205}"	 MinWidth="15" MaxWidth="15"/>
+                                    <DataGridTextColumn x:Name="fycolumn210"	Binding="{Binding 金额206}"	 MinWidth="15" MaxWidth="15"/>
+                                    <DataGridTextColumn x:Name="fycolumn211"	Binding="{Binding 金额207}"	 MinWidth="15" MaxWidth="15"/>
+                                    <DataGridTextColumn x:Name="fycolumn212"	Binding="{Binding 金额208}"	 MinWidth="15" MaxWidth="15"/>
+                                    <DataGridTextColumn x:Name="fycolumn213"	Binding="{Binding 金额209}"	 MinWidth="15" MaxWidth="15"/>
+                                    <DataGridTextColumn x:Name="fycolumn214"	Binding="{Binding 金额210}"	 MinWidth="15" MaxWidth="15"/>
                                 </DataGrid.Columns>
                             </DataGrid>
                         </Grid>

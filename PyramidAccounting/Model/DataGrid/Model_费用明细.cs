@@ -238,69 +238,139 @@ namespace PA.Model.DataGrid
         private string col129;
         private string col130;
         private string col131;
+        private string col132;
+        private string col133;
+        private string col134;
+        private string col135;
+        private string col136;
+        private string col137;
+        private string col138;
+        private string col139;
+        private string col140;
+        private string col141;
+        private string col142;
+        private string col143;
+        private string col144;
+        private string col145;
+        private string col146;
+        private string col147;
+        private string col148;
+        private string col149;
+        private string col150;
+        private string col151;
+        private string col152;
+        private string col153;
+        private string col154;
+        private string col155;
+        private string col156;
+        private string col157;
+        private string col158;
+        private string col159;
+        private string col160;
+        private string col161;
+        private string col162;
+        private string col163;
+        private string col164;
+        private string col165;
+        private string col166;
+        private string col167;
+        private string col168;
+        private string col169;
+        private string col170;
+        private string col171;
+        private string col172;
+        private string col173;
+        private string col174;
+        private string col175;
+        private string col176;
+        private string col177;
+        private string col178;
+        private string col179;
+        private string col180;
+        private string col181;
+        private string col182;
+        private string col183;
+        private string col184;
+        private string col185;
+        private string col186;
+        private string col187;
+        private string col188;
+        private string col189;
+        private string col190;
+        private string col191;
+        private string col192;
+        private string col193;
+        private string col194;
+        private string col195;
+        private string col196;
+        private string col197;
+        private string col198;
+        private string col199;
+        private string col200;
+        private string col201;
+        private string col202;
+        private string col203;
+        private string col204;
+        private string col205;
+        private string col206;
+        private string col207;
+        private string col208;
+        private string col209;
+        private string col210;
 
         public string 金额131
         {
             get { return col131; }
             set { col131 = value; }
         }
-        private string col132;
 
         public string 金额132
         {
             get { return col132; }
             set { col132 = value; }
         }
-        private string col133;
 
         public string 金额133
         {
             get { return col133; }
             set { col133 = value; }
         }
-        private string col134;
 
         public string 金额134
         {
             get { return col134; }
             set { col134 = value; }
         }
-        private string col135;
 
         public string 金额135
         {
             get { return col135; }
             set { col135 = value; }
         }
-        private string col136;
 
         public string 金额136
         {
             get { return col136; }
             set { col136 = value; }
         }
-        private string col137;
 
         public string 金额137
         {
             get { return col137; }
             set { col137 = value; }
         }
-        private string col138;
 
         public string 金额138
         {
             get { return col138; }
             set { col138 = value; }
         }
-        private string col139;
 
         public string 金额139
         {
             get { return col139; }
             set { col139 = value; }
         }
-        private string col140;
 
         public string 金额140
         {
@@ -922,6 +992,357 @@ namespace PA.Model.DataGrid
             get { return col130; }
             set { col130 = value; }
         }
+        public string 金额141
+        {
+            get { return col141; }
+            set { col141 = value; }
+        }
+        public string 金额142
+        {
+            get { return col142; }
+            set { col142 = value; }
+        }
+        public string 金额143
+        {
+            get { return col143; }
+            set { col143 = value; }
+        }
+        public string 金额144
+        {
+            get { return col144; }
+            set { col144 = value; }
+        }
+        public string 金额145
+        {
+            get { return col145; }
+            set { col145 = value; }
+        }
+        public string 金额146
+        {
+            get { return col146; }
+            set { col146 = value; }
+        }
+        public string 金额147
+        {
+            get { return col147; }
+            set { col147 = value; }
+        }
+        public string 金额148
+        {
+            get { return col148; }
+            set { col148 = value; }
+        }
+        public string 金额149
+        {
+            get { return col149; }
+            set { col149 = value; }
+        }
+        public string 金额150
+        {
+            get { return col150; }
+            set { col150 = value; }
+        }
+        public string 金额151
+        {
+            get { return col151; }
+            set { col151 = value; }
+        }
+        public string 金额152
+        {
+            get { return col152; }
+            set { col152 = value; }
+        }
+        public string 金额153
+        {
+            get { return col153; }
+            set { col153 = value; }
+        }
+        public string 金额154
+        {
+            get { return col154; }
+            set { col154 = value; }
+        }
+        public string 金额155
+        {
+            get { return col155; }
+            set { col155 = value; }
+        }
+        public string 金额156
+        {
+            get { return col156; }
+            set { col156 = value; }
+        }
+        public string 金额157
+        {
+            get { return col157; }
+            set { col157 = value; }
+        }
+        public string 金额158
+        {
+            get { return col158; }
+            set { col158 = value; }
+        }
+        public string 金额159
+        {
+            get { return col159; }
+            set { col159 = value; }
+        }
+        public string 金额160
+        {
+            get { return col160; }
+            set { col160 = value; }
+        }
+        public string 金额161
+        {
+            get { return col161; }
+            set { col161 = value; }
+        }
+        public string 金额162
+        {
+            get { return col162; }
+            set { col162 = value; }
+        }
+        public string 金额163
+        {
+            get { return col163; }
+            set { col163 = value; }
+        }
+        public string 金额164
+        {
+            get { return col164; }
+            set { col164 = value; }
+        }
+        public string 金额165
+        {
+            get { return col165; }
+            set { col165 = value; }
+        }
+        public string 金额166
+        {
+            get { return col166; }
+            set { col166 = value; }
+        }
+        public string 金额167
+        {
+            get { return col167; }
+            set { col167 = value; }
+        }
+        public string 金额168
+        {
+            get { return col168; }
+            set { col168 = value; }
+        }
+        public string 金额169
+        {
+            get { return col169; }
+            set { col169 = value; }
+        }
+        public string 金额170
+        {
+            get { return col170; }
+            set { col170 = value; }
+        }
+        public string 金额171
+        {
+            get { return col171; }
+            set { col171 = value; }
+        }
+        public string 金额172
+        {
+            get { return col172; }
+            set { col172 = value; }
+        }
+        public string 金额173
+        {
+            get { return col173; }
+            set { col173 = value; }
+        }
+        public string 金额174
+        {
+            get { return col174; }
+            set { col174 = value; }
+        }
+        public string 金额175
+        {
+            get { return col175; }
+            set { col175 = value; }
+        }
+        public string 金额176
+        {
+            get { return col176; }
+            set { col176 = value; }
+        }
+        public string 金额177
+        {
+            get { return col177; }
+            set { col177 = value; }
+        }
+        public string 金额178
+        {
+            get { return col178; }
+            set { col178 = value; }
+        }
+        public string 金额179
+        {
+            get { return col179; }
+            set { col179 = value; }
+        }
+        public string 金额180
+        {
+            get { return col180; }
+            set { col180 = value; }
+        }
+        public string 金额181
+        {
+            get { return col181; }
+            set { col181 = value; }
+        }
+        public string 金额182
+        {
+            get { return col182; }
+            set { col182 = value; }
+        }
+        public string 金额183
+        {
+            get { return col183; }
+            set { col183 = value; }
+        }
+        public string 金额184
+        {
+            get { return col184; }
+            set { col184 = value; }
+        }
+        public string 金额185
+        {
+            get { return col185; }
+            set { col185 = value; }
+        }
+        public string 金额186
+        {
+            get { return col186; }
+            set { col186 = value; }
+        }
+        public string 金额187
+        {
+            get { return col187; }
+            set { col187 = value; }
+        }
+        public string 金额188
+        {
+            get { return col188; }
+            set { col188 = value; }
+        }
+        public string 金额189
+        {
+            get { return col189; }
+            set { col189 = value; }
+        }
+        public string 金额190
+        {
+            get { return col190; }
+            set { col190 = value; }
+        }
+        public string 金额191
+        {
+            get { return col191; }
+            set { col191 = value; }
+        }
+        public string 金额192
+        {
+            get { return col192; }
+            set { col192 = value; }
+        }
+        public string 金额193
+        {
+            get { return col193; }
+            set { col193 = value; }
+        }
+        public string 金额194
+        {
+            get { return col194; }
+            set { col194 = value; }
+        }
+        public string 金额195
+        {
+            get { return col195; }
+            set { col195 = value; }
+        }
+        public string 金额196
+        {
+            get { return col196; }
+            set { col196 = value; }
+        }
+        public string 金额197
+        {
+            get { return col197; }
+            set { col197 = value; }
+        }
+        public string 金额198
+        {
+            get { return col198; }
+            set { col198 = value; }
+        }
+        public string 金额199
+        {
+            get { return col199; }
+            set { col199 = value; }
+        }
+        public string 金额200
+        {
+            get { return col200; }
+            set { col200 = value; }
+        }
+        public string 金额201
+        {
+            get { return col201; }
+            set { col201 = value; }
+        }
+        public string 金额202
+        {
+            get { return col202; }
+            set { col202 = value; }
+        }
+        public string 金额203
+        {
+            get { return col203; }
+            set { col203 = value; }
+        }
+        public string 金额204
+        {
+            get { return col204; }
+            set { col204 = value; }
+        }
+        public string 金额205
+        {
+            get { return col205; }
+            set { col205 = value; }
+        }
+        public string 金额206
+        {
+            get { return col206; }
+            set { col206 = value; }
+        }
+        public string 金额207
+        {
+            get { return col207; }
+            set { col207 = value; }
+        }
+        public string 金额208
+        {
+            get { return col208; }
+            set { col208 = value; }
+        }
+        public string 金额209
+        {
+            get { return col209; }
+            set { col209 = value; }
+        }
+        public string 金额210
+        {
+            get { return col210; }
+            set { col210 = value; }
+        }
+
         private List<string> title;
 
         public List<string> 列名
