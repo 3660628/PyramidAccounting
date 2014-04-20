@@ -71,7 +71,7 @@ namespace PA.ViewModel
             sqlList.Add(_sql1);
             string _sql2 = "insert into sbtemp SELECT a.DETAIL,b.PERIOD,total(a.CREDIT - a.DEBIT) AS fee FROM "
                     + DBTablesName.T_VOUCHER_DETAIL + " a LEFT JOIN "
-                    + DBTablesName.T_VOUCHER + " b ON a.PARENTID = b.ID where a.detail like '501%' GROUP BY a.DETAIL,b.PERIOD";
+                    + DBTablesName.T_VOUCHER + " b ON a.PARENTID = b.ID where b.REVIEW_MARK=1 and a.detail like '501%' GROUP BY a.DETAIL,b.PERIOD";
             sqlList.Add(_sql2);
             bool flag = db.BatchOperate(sqlList);
             if ( flag )
