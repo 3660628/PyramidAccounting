@@ -34,8 +34,9 @@ namespace PA.Helper.ExcelHelper
             {
                 oada.Fill(ds);
             }
-            catch(Exception)
+            catch(Exception ee)
             {
+                PA.Helper.DataBase.Log.Write("ExcelDataSource Fill ERROR::filepath:" + filepath + ";sheetname:" + sheetname + "\n\t" + ee.ToString());
                 return null;
             }
             finally
