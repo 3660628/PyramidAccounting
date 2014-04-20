@@ -280,6 +280,11 @@ namespace PA.View.Pages.TwoTabControl
         }
         private void Button_科目保存_Click(object sender, RoutedEventArgs e)
         {
+            if (CommonInfo.权限值 < 2)
+            {
+                MessageBoxCommon.Show("需要会计主管确认后再进行保存！");
+                return;
+            }
             string messageBoxText = "年初金额初始化不能修改哦，请确认是否填写完整？";
             string caption = "注意";
             bool? result = MessageBoxDel.Show(caption, messageBoxText);
