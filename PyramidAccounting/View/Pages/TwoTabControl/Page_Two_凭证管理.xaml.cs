@@ -52,8 +52,9 @@ namespace PA.View.Pages.TwoTabControl
             {
                 if(e.操作类型 == "凭证审核")
                 {
+                    this.ComboBox_Date.SelectedIndex = 0;
                     this.ComboBox_Review.SelectedIndex = 2;
-                    this.ComboBox_Date.SelectedIndex = CommonInfo.当前期;
+                    //this.ComboBox_Date.SelectedIndex = CommonInfo.当前期;
                 }
                 else if (e.操作类型 == "本月结账")
                 {
