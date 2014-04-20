@@ -1585,7 +1585,7 @@
         </TabControl>
         <!--弹出面板-->
         <Popup x:Name="Popup_科目子细目" Placement="MousePoint" Closed="Popup_科目子细目_Closed">
-            <Grid Background="White" Height="250" Width="200" Margin="1">
+            <Grid Background="White" Height="250" Width="300" Margin="1">
                 <Grid.Effect>
                     <DropShadowEffect ShadowDepth="0"/>
                 </Grid.Effect>
