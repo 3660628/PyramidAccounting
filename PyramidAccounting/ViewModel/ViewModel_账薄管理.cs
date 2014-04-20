@@ -165,8 +165,8 @@ namespace PA.ViewModel
                 + "' and a.detail in (select subject_id from "
                 + DBTablesName.T_SUBJECT
                 + " where parent_id='"
-                + detail_id 
-                + "') and b.delete_mark=0 order by b.op_time)t group by t.number,t.time ";
+                + detail_id
+                + "') and b.delete_mark=0 and b.REVIEW_MARK=1 order by b.op_time)t group by t.number,t.time ";
 
             //查年初数
             string sql2 = "select a.fee*b.borrow_mark from t_yearfee a left join "
@@ -497,7 +497,7 @@ namespace PA.ViewModel
                 + DBTablesName.T_VOUCHER 
                 + " b on a.parentid=b.id where a.subject_id='"
                 + subject_id
-                + "'" + " and b.delete_mark=0 and  a.detail LIKE '"
+                + "'" + " and b.delete_mark=0 and a.REVIEW_MARK=1 and  a.detail LIKE '"
                 + detail + "%' order by b.op_time";
 
             //查年初数
