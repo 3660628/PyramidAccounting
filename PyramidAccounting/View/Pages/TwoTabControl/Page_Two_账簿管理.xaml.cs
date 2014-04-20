@@ -142,8 +142,7 @@ namespace PA.View.Pages.TwoTabControl
         /// <param name="e"></param>
         private void TextBox_多栏明细账_一_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
-            string condition = "4%' or subject_id like '5";
-            PA.View.Pages.Pop.凭证录入.Page_凭证录入_科目 page = new PA.View.Pages.Pop.凭证录入.Page_凭证录入_科目(condition);
+            PA.View.Pages.Pop.凭证录入.Page_凭证录入_科目 page = new PA.View.Pages.Pop.凭证录入.Page_凭证录入_科目();
             page.FillDate += new Pages.Pop.凭证录入.Page_凭证录入_科目_FillDateEventHandle(FillData多栏明细账_一);
             this.Frame_科目子细目.Content = page;
             this.Popup_科目子细目.IsOpen = true;
