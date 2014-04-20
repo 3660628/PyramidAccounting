@@ -394,6 +394,7 @@ namespace PA.Helper.ExcelHelper
             {
                 xlWorkSheet.Cells[7, "AI"] = data[0].列名[0].Split('\t')[1];
                 xlWorkSheet.Cells[7, "AS"] = data[0].列名[1].Split('\t')[1];
+                //第二页
                 xlWorkSheet.Cells[7, "BD"] = data[0].列名[2].Split('\t')[1];
                 xlWorkSheet.Cells[7, "BN"] = data[0].列名[3].Split('\t')[1];
                 xlWorkSheet.Cells[7, "BX"] = data[0].列名[4].Split('\t')[1];
@@ -403,8 +404,21 @@ namespace PA.Helper.ExcelHelper
                 xlWorkSheet.Cells[7, "DL"] = data[0].列名[8].Split('\t')[1];
                 xlWorkSheet.Cells[7, "DV"] = data[0].列名[9].Split('\t')[1];
                 xlWorkSheet.Cells[7, "EF"] = data[0].列名[10].Split('\t')[1];
+                //第三页
+                xlWorkSheet.Cells[7, "EQ"] = data[0].列名[11].Split('\t')[1];
+                xlWorkSheet.Cells[7, "FA"] = data[0].列名[12].Split('\t')[1];
+                xlWorkSheet.Cells[7, "FK"] = data[0].列名[13].Split('\t')[1];
+                xlWorkSheet.Cells[7, "FU"] = data[0].列名[14].Split('\t')[1];
+                xlWorkSheet.Cells[7, "GE"] = data[0].列名[15].Split('\t')[1];
+                xlWorkSheet.Cells[7, "GO"] = data[0].列名[16].Split('\t')[1];
+                xlWorkSheet.Cells[7, "GY"] = data[0].列名[17].Split('\t')[1];
+                xlWorkSheet.Cells[7, "HI"] = data[0].列名[18].Split('\t')[1];
+                xlWorkSheet.Cells[7, "HS"] = data[0].列名[19].Split('\t')[1];
             }
-            catch (ArgumentOutOfRangeException) { }
+            catch (ArgumentOutOfRangeException) 
+            {
+                Console.WriteLine("ArgumentOutOfRangeException 溢出是正常的");
+            }
             //copy sheet
             for (int i = 1; i < TotalPageNum; i++)
             {
