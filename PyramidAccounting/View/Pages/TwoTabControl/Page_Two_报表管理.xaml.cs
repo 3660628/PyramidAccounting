@@ -247,6 +247,8 @@ namespace PA.View.Pages.TwoTabControl
                 B3.Content = "";
             }
         }
+
+        private List<Model_报表类> LastList = new List<Model_报表类>();
         /// <summary>
         /// 行政费用明细表
         /// </summary>
@@ -254,6 +256,15 @@ namespace PA.View.Pages.TwoTabControl
         /// <param name="e"></param>
         private void Button_生成3_Click(object sender, RoutedEventArgs e)
         {
+            //清除上一次赋值的值
+            for (int i = 0; i < LastList.Count; i++)
+            {
+                Label lb = FindName("Label_B" + LastList[i].编号) as Label;
+                lb.Content = "";
+                Label lb2 = FindName("Label_L" + LastList[i].编号) as Label;
+                lb2.Content = "";
+            }
+
             mr.日志 = "生成" + ComboBox_Date.Text + "行政费用支出明细表";
             vm.Insert(mr);
             List<Model_报表类> list = new List<Model_报表类>();
@@ -315,24 +326,24 @@ namespace PA.View.Pages.TwoTabControl
                     Label_A01.Content = (b101 + b201 + b301 + b401);
                     Label_A02.Content = (b102 + b202 + b302 + b402);
                 }
-
+                LastList = list;
             }
             else
             {
-                for (int i = 0; i < 48; i++)
-                {
-                    try
-                    {
-                        Label lb = FindName("Label_B" + (i + 1)) as Label;
-                        lb.Content = "";
-                        Label lb2 = FindName("Label_L" + (i + 1)) as Label;
-                        lb2.Content = "";
-                    }
-                    catch (Exception ee)
-                    {
-                        Console.Write(ee.Message);
-                    }
-                }
+                //for (int i = 0; i < 48; i++)
+                //{
+                //    try
+                //    {
+                //        Label lb = FindName("Label_B" + (i + 1)) as Label;
+                //        lb.Content = "";
+                //        Label lb2 = FindName("Label_L" + (i + 1)) as Label;
+                //        lb2.Content = "";
+                //    }
+                //    catch (Exception ee)
+                //    {
+                //        Console.Write(ee.Message);
+                //    }
+                //}
                 for (int j = 0; j < 4; j++)
                 {
                     Label lb = FindName("Label_B" + (j + 1) + "01") as Label;
