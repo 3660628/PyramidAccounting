@@ -56,5 +56,10 @@ namespace PA.View.Pages.Pop.凭证录入
         {
             ListBox_科目_MouseDoubleClick(this, null);
         }
+
+        private void Page_Loaded(object sender, RoutedEventArgs e)
+        {
+            this.TextBox_科目搜索.Focus();
+        }
     }
 }
