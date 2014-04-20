@@ -18,7 +18,8 @@ namespace PA.Helper.DataDefind
         {
             软件版本 = 999,
             注册码 = 777,
-            U盘标识 = 555
+            U盘标识 = 555,
+            备份标识 = 333
         }
     }
 }
