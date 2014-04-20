@@ -67,7 +67,7 @@ namespace PA.Helper.ExcelHelper
             xlWorkSheet = (xls.Worksheet)xlWorkBook.Worksheets.get_Item(1);
             #region fill Voucher
             int x = 1, y = 1;
-            DataSet ds = new PA.Helper.ExcelHelper.ExcelReader().ExcelDataSource(ExportXls, "Sheet1");
+            DataSet ds = new PA.Helper.ExcelHelper.ExcelReader().ExcelDataSource(SourceXls, "Sheet1");
             foreach (DataRow dr in ds.Tables[0].Rows)
             {
                 foreach (DataColumn dc in ds.Tables[0].Columns)
@@ -114,10 +114,10 @@ namespace PA.Helper.ExcelHelper
             {
                 xlWorkSheet = (xls.Worksheet)xlWorkBook.Worksheets.get_Item(i+1);
                 int xDetails = 1, yDetails = 1;
-                DataSet dsDetails = new PA.Helper.ExcelHelper.ExcelReader().ExcelDataSource(ExportXls, "Sheet"+(i+1));
-                foreach (DataRow dr in dsDetails.Tables[0].Rows)
+                //DataSet ds = ds;// new PA.Helper.ExcelHelper.ExcelReader().ExcelDataSource(SourceXls, "Sheet" + (i + 1));
+                foreach (DataRow dr in ds.Tables[0].Rows)
                 {
-                    foreach (DataColumn dc in dsDetails.Tables[0].Columns)
+                    foreach (DataColumn dc in ds.Tables[0].Columns)
                     {
                         if (dr[dc].ToString().StartsWith("@", false, null))
                         {

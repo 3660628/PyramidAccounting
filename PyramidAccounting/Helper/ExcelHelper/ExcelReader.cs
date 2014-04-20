@@ -30,7 +30,20 @@ namespace PA.Helper.ExcelHelper
             OleDbConnection conn = new OleDbConnection(strConn);
             OleDbDataAdapter oada = new OleDbDataAdapter("select * from [" + sheetname + "$]", strConn);
             DataSet ds = new DataSet();
-            oada.Fill(ds);
+            try
+            {
+                oada.Fill(ds);
+            }
+            catch(Exception)
+            {
+                return null;
+            }
+            finally
+            {
+                oada.Dispose();
+                conn.Close();
+                conn.Dispose();
+            }
             return ds;
         }
 
