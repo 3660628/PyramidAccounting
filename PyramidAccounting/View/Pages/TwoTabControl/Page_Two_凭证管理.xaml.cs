@@ -208,14 +208,19 @@ namespace PA.View.Pages.TwoTabControl
 
         private void Button_反审核_Click(object sender, RoutedEventArgs e)
         {
-            this.StackPanel_MoreButton.Visibility = System.Windows.Visibility.Collapsed;
-            if (vsy.ValidateRuning() == false)
-            {
-                MessageBoxCommon.Show("试用期已过，不能使用此功能！");
-                return;
-            }
             if (this.DataGrid_本期凭证.SelectedCells.Count != 0)
             {
+                this.StackPanel_MoreButton.Visibility = System.Windows.Visibility.Collapsed;
+                bool? result = MessageBoxDel.Show("注意", "确认反审核凭证？");
+                if (result == false)
+                {
+                    return;
+                }
+                if (vsy.ValidateRuning() == false)
+                {
+                    MessageBoxCommon.Show("试用期已过，不能使用此功能！");
+                    return;
+                }
                 if (CommonInfo.权限值 >= 2)
                 {
                     Model_凭证管理 asd = this.DataGrid_本期凭证.SelectedCells[0].Item as Model_凭证管理;
@@ -226,6 +231,10 @@ namespace PA.View.Pages.TwoTabControl
                 {
                     MessageBoxCommon.Show("您的权限不够，不能进行审核！");
                 }
+            }
+            else
+            {
+                MessageBoxCommon.Show("请先选择数据");
             }
         }
 
