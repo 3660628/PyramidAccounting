@@ -141,9 +141,11 @@ namespace PA.ViewModel
             string _tempstr = string.Empty;
             foreach(string i in lst)
             {
-                _tempstr += ",sum(case when t.detail='" + i.Split('\t')[0] 
+                _tempstr += ",sum(case when t.detail='"
+                    + i.Split('\t')[0] 
                     + "' then (t.fee1+t.fee2) else '0' end) as '" 
-                    + i.Split('\t')[1] + "'";
+                    + i.Split('\t')[1]
+                    + "'";
             }
             for (int i = lst.Count; i < 18; i++)
             {
@@ -151,16 +153,30 @@ namespace PA.ViewModel
             }
 
             List<Model_费用明细> list = new List<Model_费用明细>();
-            string sql = "select strftime(time),number,comments,sum(fee1),sum(fee2)" + _tempstr + " from " 
+            string sql = "select strftime(time),number,comments,sum(fee1),sum(fee2)"
+                + _tempstr
+                + " from " 
                 + "(select b.op_time as time ,a.voucher_no as number,a.abstract as comments,a.debit as fee1,a.credit as fee2,a.detail as detail from "
                 + DBTablesName.T_VOUCHER_DETAIL
                 + " a left join "
                 + DBTablesName.T_VOUCHER
-                + " b on a.parentid=b.id where a.subject_id='" + subject_id + "' and a.detail in (select subject_id from "
-                + DBTablesName.T_SUBJECT + " where parent_id='" + detail_id + "') and b.delete_mark=0 order by b.op_time)t group by t.number,t.time ";
+                + " b on a.parentid=b.id where a.subject_id='"
+                + subject_id
+                + "' and a.detail in (select subject_id from "
+                + DBTablesName.T_SUBJECT
+                + " where parent_id='"
+                + detail_id 
+                + "') and b.delete_mark=0 order by b.op_time)t group by t.number,t.time ";
 
             //查年初数
-            string sql2 = "select fee from t_yearfee where subject_id='" + subject_id + "' and bookid='" + CommonInfo.账薄号 + "'";
+            string sql2 = "select a.fee*b.borrow_mark from t_yearfee a left join "
+                + DBTablesName.T_SUBJECT
+                + " b on a.subject_id = b.subject_id where a.subject_id='"
+                + subject_id
+                + "' and a.bookid='"
+                + CommonInfo.账薄号
+                + "'";
+
             string yearfee = db.GetAllData(sql2).Split('\t')[0].Split(',')[0];
 
             DataTable dt = db.Query(sql).Tables[0];
@@ -209,7 +225,7 @@ namespace PA.ViewModel
 
                 yearfee = (Convert.ToDecimal(yearfee) - credit + debit ).ToString();
                 _list.Clear(); 
-                _list = ut.Turn(yearfee, 10);
+                _list = ut.Turn(yearfee.Replace("-",""), 10);
                 m.余额1 = _list[0];
                 m.余额2 = _list[1];
                 m.余额3 = _list[2];
