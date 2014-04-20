@@ -34,7 +34,10 @@ namespace PA.View.Pages.TwoTabControl
         private XMLWriter xw = new XMLWriter();
         private XMLReader xr = new XMLReader();
 
+        //更改备份标识
         private bool alterBackupTag = false;
+        //后台备份标识
+        private bool backgroundBackupTag = false;
 
         private Model_操作日志 _mr = new Model_操作日志();
 
@@ -73,6 +76,7 @@ namespace PA.View.Pages.TwoTabControl
             Recover_filepath.Text = xr.ReadXML("还原路径");
             if (vmm.IsBackupNow())
             {
+                backgroundBackupTag = true;
                 this.Button_备份_Click(this, null);
             }
             //4.操作记录
@@ -404,6 +408,11 @@ namespace PA.View.Pages.TwoTabControl
         private void is_auto_backup_Checked(object sender, RoutedEventArgs e)
         {
             this.is_auto_mark.Text = "开";
+            if (alterBackupTag)
+            {
+                vmm.UpdateAutoBackTag(TextBox_备份天数.Text);
+            }
+            alterBackupTag = true;
         }
         /// <summary>
         /// 显示自动备份关闭状态
@@ -488,8 +497,10 @@ namespace PA.View.Pages.TwoTabControl
                 System.IO.File.Copy(dbfilepath, newfilepath, true);     //做数据库文件复制
 
                 vmm.UpdateAutoBackTag(TextBox_备份天数.Text);
-
-                MessageBoxCommon.Show("数据备份操作成功！");
+                if (!backgroundBackupTag)
+                {
+                    MessageBoxCommon.Show("数据备份操作成功！");
+                }
                 _mr.日志 = "进行备份操作，备份路径为：" + newfilepath;
                 vmr.Insert(_mr);
             }
