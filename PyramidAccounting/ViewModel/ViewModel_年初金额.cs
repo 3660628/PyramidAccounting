@@ -39,11 +39,14 @@ namespace PA.ViewModel
             return db.Excute(sql);
         }
 
+        /// <summary>
+        /// 检查是否初始化年初金额
+        /// </summary>
+        /// <returns></returns>
         public bool IsSaved()
         {
             bool flag = false;
-            string sql = "select total(fee) from " + DBTablesName.T_YEAR_FEE 
-                + " where bookid='" + CommonInfo.账薄号 + "'";
+            string sql = "select count(1) from " + DBTablesName.T_FEE; 
             string str = db.GetAllData(sql).Split('\t')[0].Split(',')[0];
             if (str.Equals("0"))
             {
