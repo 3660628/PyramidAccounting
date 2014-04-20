@@ -93,6 +93,10 @@ namespace PA.Helper.DataBase
             return list;
         }
 
+        /// <summary>
+        /// 获取数据库链接
+        /// </summary>
+        /// <returns></returns>
         public static SQLiteConnection getDBConnection()
         {
             SQLiteConnection conn = new SQLiteConnection();
@@ -101,6 +105,30 @@ namespace PA.Helper.DataBase
             conn.ConnectionString = connstr.ToString();
             //conn.SetPassword(password);
             return conn;
+        }
+        /// <summary>
+        /// 修改数据库密码
+        /// </summary>
+        /// <returns></returns>
+        public bool ChangeDBPassword()
+        {
+            bool flag = false;
+            SQLiteConnection conn = getDBConnection();
+            try
+            {
+                conn.Open();
+                conn.ChangePassword("123456");
+                flag = true;
+            }
+            catch (Exception ee)
+            {
+                Log.Write(ee.Message);
+            }
+            finally
+            {
+                conn.Close();
+            }
+            return flag;
         }
         /// <summary>
         /// 获取SQL创建脚步方法，封装成List<string>
