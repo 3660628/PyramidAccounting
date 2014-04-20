@@ -57,7 +57,7 @@ namespace PA.ViewModel
             return list;
         }
         /// <summary>
-        /// 行政费用支出明细表
+        /// 行政费用支出明细表    2014/4/20      a.DEBIT - a.CREDIT  改为 a.CREDIT - a.DEBIT
         /// </summary>
         /// <param name="index"></param>
         /// <returns></returns>
@@ -69,7 +69,7 @@ namespace PA.ViewModel
             sqlList.Add(dropSql);
             string _sql1 = "create table sbtemp(detail text,period int,fee decimal)";
             sqlList.Add(_sql1);
-            string _sql2 = "insert into sbtemp SELECT a.DETAIL,b.PERIOD,total(a.DEBIT - a.CREDIT) AS fee FROM "
+            string _sql2 = "insert into sbtemp SELECT a.DETAIL,b.PERIOD,total(a.CREDIT - a.DEBIT) AS fee FROM "
                     + DBTablesName.T_VOUCHER_DETAIL + " a LEFT JOIN "
                     + DBTablesName.T_VOUCHER + " b ON a.PARENTID = b.ID where a.detail like '501%' GROUP BY a.DETAIL,b.PERIOD";
             sqlList.Add(_sql2);
