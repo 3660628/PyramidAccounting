@@ -53,19 +53,38 @@ namespace PA.ViewModel
 
         #region 备份
         /// <summary>
+        /// 是否现在备份
+        /// </summary>
+        /// <param name="day">自定义备份周期</param>
+        /// <returns></returns>
+        public bool IsBackupNow()
+        {
+            bool flag = false;
+            string sql = "select case when (julianday(datetime('now','localtime'))-julianday(OP_TIME)) >= value then 'true' else 'false' end from " + DBTablesName.T_SYSTEMINFO + " where rkey='" + (int)M_Enum.EM_KEY.备份标识 + "'" ;
+            string value = db.GetSelectValue(sql);
+            if (value.Equals("true"))
+            {
+                flag = true;
+            }
+            return flag;
+        }
+        /// <summary>
         /// 启用自动备份
         /// </summary>
         /// <param name="day"></param>
         /// <returns></returns>
-        public bool UpdateAutoBackTag(int day) 
+        public bool UpdateAutoBackTag(string day) 
         {
             this.DeleteAutoBackTag();
-            string sql = "update " + DBTablesName.T_SYSTEMINFO + " set value='" + day + "',set op_time='"
-                + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + "' where rkey='" 
-                + (int)M_Enum.EM_KEY.备份标识 + "'";
+            string sql = "insert into  " + DBTablesName.T_SYSTEMINFO + " (op_time,rkey,value,comments) values('"
+                + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + "','" + (int)M_Enum.EM_KEY.备份标识 + "','"
+                + day + "','备份标识')";
             return db.Excute(sql);
         }
-
+        /// <summary>
+        /// 取消自动备份
+        /// </summary>
+        /// <returns></returns>
         public bool DeleteAutoBackTag()
         {
             string delSql = "delete from " + DBTablesName.T_SYSTEMINFO + " where rkey='" + (int)M_Enum.EM_KEY.备份标识 + "'";

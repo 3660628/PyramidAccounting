@@ -185,7 +185,7 @@
                             <Grid Background="Snow" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" >
                                 <TextBlock x:Name="is_auto_mark" HorizontalAlignment="Left" Margin="30,16,0,0" Text="关" VerticalAlignment="Top" />
                                 <CheckBox FocusVisualStyle="{x:Null}" x:Name="is_auto_backup" Content="自动备份数据间隔时间(A)" HorizontalAlignment="Left" Margin="59,14,0,0" VerticalAlignment="Top" Style="{StaticResource SliderCheckBox}" Checked="is_auto_backup_Checked" Unchecked="is_auto_backup_Unchecked"/>
-                                <TextBox x:Name="backup_days" HorizontalContentAlignment="Center" Text="7" HorizontalAlignment="Left" Height="23" Margin="251,11,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="50" PreviewKeyDown="backup_days_PreviewKeyDown" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="backup_days_PreviewTextInput" VerticalContentAlignment="Center"/>
+                                <TextBox x:Name="TextBox_备份天数" HorizontalContentAlignment="Center" Text="7" HorizontalAlignment="Left" Height="23" Margin="251,11,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="50" PreviewKeyDown="TextBox_备份天数_PreviewKeyDown" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="TextBox_备份天数_PreviewTextInput" VerticalContentAlignment="Center"/>
                                 <TextBlock Text="天(D)" HorizontalAlignment="Left" Margin="306,16,0,0" VerticalAlignment="Top"/>
                                 <TextBlock Text="数据备份路径(R):" HorizontalAlignment="Left" Margin="30,74,0,0" VerticalAlignment="Top"/>
                                 <TextBox x:Name="backup_filePath" HorizontalAlignment="Left" Height="23" Margin="151,70,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="450" VerticalContentAlignment="Center" IsReadOnly="True"/>
@@ -202,7 +202,7 @@
                             </Grid>
                         </Expander>
                     </StackPanel>
-                    <Button FocusVisualStyle="{x:Null}" x:Name="ButtonBackUp" Content="备份" HorizontalAlignment="Left" Margin="546,484,0,0" VerticalAlignment="Top" Width="70" Click="ButtonBackUp_Click" Background="#7FFF00"  Foreground="White" Height="20" FontWeight="Black" Style="{StaticResource GlassButton}" Template="{DynamicResource ButtonControlTemplate_CommonBlue}"/>
+                    <Button FocusVisualStyle="{x:Null}" x:Name="ButtonBackUp" Content="备份" HorizontalAlignment="Left" Margin="546,484,0,0" VerticalAlignment="Top" Width="70" Click="Button_备份_Click" Background="#7FFF00"  Foreground="White" Height="20" FontWeight="Black" Style="{StaticResource GlassButton}" Template="{DynamicResource ButtonControlTemplate_CommonBlue}"/>
                     <Button FocusVisualStyle="{x:Null}" x:Name="Button_Recover" Content="恢复" HorizontalAlignment="Left" Margin="633,484,0,0" VerticalAlignment="Top" Width="70" Click="Button_Recover_Click" Background="Red" Foreground="White" Height="20" FontWeight="Black" Style="{StaticResource GlassButton}" Template="{DynamicResource ButtonControlTemplate_CommonBlue}"/>
                     <Button FocusVisualStyle="{x:Null}" x:Name="Button_save" Content="保存" HorizontalAlignment="Left" Margin="720,484,0,0" VerticalAlignment="Top" Width="70" Click="Button_save_Click" Background="#00BFFF" Foreground="White" Height="20" FontWeight="Black" Style="{StaticResource GlassButton}" Template="{DynamicResource ButtonControlTemplate_CommonBlue}"/>
                 </Grid>

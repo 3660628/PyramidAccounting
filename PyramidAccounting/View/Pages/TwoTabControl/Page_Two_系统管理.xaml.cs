@@ -30,13 +30,21 @@ namespace PA.View.Pages.TwoTabControl
     public partial class Page_Two_系统管理 : Page
     {
         private string dbfilepath = DBInitialize.dataSource;
-        private ViewModel_用户 vm = new ViewModel_用户();
-        private ViewModel_Books vmb = new ViewModel_Books();
+
         private XMLWriter xw = new XMLWriter();
         private XMLReader xr = new XMLReader();
-        private List<Model_科目管理> lm = new List<Model_科目管理>();
-        private ViewModel_操作日志 vmr = new ViewModel_操作日志();
+
+        private bool alterBackupTag = false;
+
         private Model_操作日志 _mr = new Model_操作日志();
+
+        private List<Model_科目管理> lm = new List<Model_科目管理>();
+
+        private ViewModel_操作日志 vmr = new ViewModel_操作日志();
+        private ViewModel_系统管理 vmm = new ViewModel_系统管理();
+        private ViewModel_用户 vm = new ViewModel_用户();
+        private ViewModel_Books vmb = new ViewModel_Books();
+
         Register rg = new Register();
 
         private string DoubleClickSubject = "";
@@ -55,7 +63,25 @@ namespace PA.View.Pages.TwoTabControl
             _mr = vmr.GetOperateLog();
         }
 
- 
+        private void LoadPage()
+        {
+            //1.用户安全
+            string text = xr.ReadXML("自动备份标志");
+            is_auto_backup.IsChecked = bool.Parse(xr.ReadXML("自动备份标志"));
+            TextBox_备份天数.Text = xr.ReadXML("备份时间");
+            backup_filePath.Text = xr.ReadXML("备份路径");
+            Recover_filepath.Text = xr.ReadXML("还原路径");
+            if (vmm.IsBackupNow())
+            {
+                this.Button_备份_Click(this, null);
+            }
+            //4.操作记录
+            this.DatePicker_操作记录.Text = DateTime.Now.ToShortDateString();
+            this.DatePicker_操作记录End.Text = DateTime.Now.ToShortDateString();
+            //5.关于我们
+            this.Label_状态.Content = rg.GetVersionMessage();
+            this.Laber_Version.Content = "版本V" + Application.ResourceAssembly.GetName().Version.ToString();
+        }
 
         #region 事件订阅
         private void SubscribeToEvent()
@@ -81,22 +107,6 @@ namespace PA.View.Pages.TwoTabControl
         #endregion
 
         #region 1.用户安全
-        private void LoadPage()
-        {
-            //1.用户安全
-            string text = xr.ReadXML("自动备份标志");
-            is_auto_backup.IsChecked = bool.Parse(xr.ReadXML("自动备份标志"));
-            backup_days.Text = xr.ReadXML("备份时间");
-            backup_filePath.Text = xr.ReadXML("备份路径");
-            Recover_filepath.Text = xr.ReadXML("还原路径");
-            //4.操作记录
-            this.DatePicker_操作记录.Text = DateTime.Now.ToShortDateString();
-            this.DatePicker_操作记录End.Text = DateTime.Now.ToShortDateString();
-            //5.关于我们
-            this.Label_状态.Content = rg.GetVersionMessage();
-            this.Laber_Version.Content ="版本V" + Application.ResourceAssembly.GetName().Version.ToString();
-        }
-       
         private void Button_ChangePassword_Click(object sender, RoutedEventArgs e)
         {
             string OldPassword = Secure.TranslatePassword(this.PasswordBox_Old.SecurePassword);
@@ -403,6 +413,7 @@ namespace PA.View.Pages.TwoTabControl
         private void is_auto_backup_Unchecked(object sender, RoutedEventArgs e)
         {
             this.is_auto_mark.Text = "关";
+            vmm.DeleteAutoBackTag();
         }
         /// <summary>
         /// 浏览备份文件位置
@@ -464,7 +475,7 @@ namespace PA.View.Pages.TwoTabControl
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void ButtonBackUp_Click(object sender, RoutedEventArgs e)
+        private void Button_备份_Click(object sender, RoutedEventArgs e)
         {
             try
             {
@@ -475,6 +486,9 @@ namespace PA.View.Pages.TwoTabControl
                     System.IO.Directory.CreateDirectory(folderpath);
                 }
                 System.IO.File.Copy(dbfilepath, newfilepath, true);     //做数据库文件复制
+
+                vmm.UpdateAutoBackTag(TextBox_备份天数.Text);
+
                 MessageBoxCommon.Show("数据备份操作成功！");
                 _mr.日志 = "进行备份操作，备份路径为：" + newfilepath;
                 vmr.Insert(_mr);
@@ -490,7 +504,7 @@ namespace PA.View.Pages.TwoTabControl
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void backup_days_PreviewKeyDown(object sender, KeyEventArgs e)
+        private void TextBox_备份天数_PreviewKeyDown(object sender, KeyEventArgs e)
         {
             if (e.Key == Key.Space)
                 e.Handled = true;
@@ -500,7 +514,7 @@ namespace PA.View.Pages.TwoTabControl
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void backup_days_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        private void TextBox_备份天数_PreviewTextInput(object sender, TextCompositionEventArgs e)
         {
             if (!new PA.Helper.Tools.Util().IsNumber(e.Text))
             {
@@ -543,7 +557,7 @@ namespace PA.View.Pages.TwoTabControl
             try
             {
                 xw.WriteXML("自动备份标志",is_auto_backup.IsChecked.ToString());
-                xw.WriteXML("备份时间",backup_days.Text);
+                xw.WriteXML("备份时间",TextBox_备份天数.Text);
                 xw.WriteXML("备份路径", backup_filePath.Text);
                 xw.WriteXML("还原路径", Recover_filepath.Text);
                 _mr.日志 = "保存当前配置信息！";
