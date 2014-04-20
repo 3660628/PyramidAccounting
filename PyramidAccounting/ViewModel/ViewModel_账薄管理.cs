@@ -133,6 +133,12 @@ namespace PA.ViewModel
             }
             return list;
         }
+        /// <summary>
+        /// 支持1.2.3级科目查询子科目
+        /// </summary>
+        /// <param name="subject_id"></param>
+        /// <param name="detail_id"></param>
+        /// <returns></returns>
         public List<Model_费用明细> GetFeeDetail(string subject_id,string detail_id)
         {
             ComboBox_科目 cb = new ComboBox_科目();

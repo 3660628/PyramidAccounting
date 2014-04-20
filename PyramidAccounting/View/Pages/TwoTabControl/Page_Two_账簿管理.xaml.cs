@@ -268,10 +268,12 @@ namespace PA.View.Pages.TwoTabControl
             }
         }
 
-        private void Button_费用明细_Click(object sender, RoutedEventArgs e)
+        private void Button_多栏明细_Click(object sender, RoutedEventArgs e)
         {
             string _subjectid = string.Empty;
             string _detailid = string.Empty;
+
+            List<Model_费用明细> lm = new List<Model_费用明细>();
 
             if (string.IsNullOrEmpty(TextBox_多栏明细账_一.Text))
             {
@@ -281,9 +283,7 @@ namespace PA.View.Pages.TwoTabControl
             }
             if (string.IsNullOrEmpty(TextBox_多栏明细账_二.Text))
             {
-                MessageBoxCommon.Show("请选择二级科目！");
-                this.TextBox_多栏明细账_二.Focus();
-                return;
+                _detailid = TextBox_多栏明细账_一.Text.Split('\t')[0];
             }
             else
             {
@@ -295,29 +295,29 @@ namespace PA.View.Pages.TwoTabControl
                 {
                     _detailid = TextBox_多栏明细账_三.Text.Split('\t')[0];
                 }
-                _subjectid = TextBox_多栏明细账_一.Text.Split('\t')[0];
-                List<Model_费用明细> lm = vmk.GetFeeDetail(_subjectid, _detailid);
-                this.DataGrid_费用明细账.ItemsSource = lm;
-                if (lm.Count > 0)
-                {
-                    this.Label_费用明细年.Content = lm[0].年 + "年";
-                    int count = 1;
-                    foreach(string s in lm[0].列名)
-                    {
-                        Label lb = new Label();
-                        lb = FindName("Label_" + count) as Label;
-                        lb.Content = s.Split('\t')[1];
-                        count++;
-                    }
-                }
-                else
-                {
-                    Model_费用明细 m = new Model_费用明细();
-                    m.摘要 = "查询不到数据！";
-                    lm.Add(m);
-                }
-                this.DataGrid_费用明细账.ItemsSource = lm;
             }
+            _subjectid = TextBox_多栏明细账_一.Text.Split('\t')[0];
+            lm = vmk.GetFeeDetail(_subjectid, _detailid);
+            this.DataGrid_费用明细账.ItemsSource = lm;
+            if (lm.Count > 0)
+            {
+                this.Label_费用明细年.Content = lm[0].年 + "年";
+                int count = 1;
+                foreach (string s in lm[0].列名)
+                {
+                    Label lb = new Label();
+                    lb = FindName("Label_" + count) as Label;
+                    lb.Content = s.Split('\t')[1];
+                    count++;
+                }
+            }
+            else
+            {
+                Model_费用明细 m = new Model_费用明细();
+                m.摘要 = "查询不到数据！";
+                lm.Add(m);
+            }
+            this.DataGrid_费用明细账.ItemsSource = lm;
         }
         #endregion
 
@@ -362,9 +362,7 @@ namespace PA.View.Pages.TwoTabControl
             }
             if (string.IsNullOrEmpty(TextBox_多栏明细账_二.Text))
             {
-                MessageBoxCommon.Show("请选择二级科目！");
-                this.TextBox_多栏明细账_二.Focus();
-                return;
+                _detailid = TextBox_多栏明细账_一.Text.Split('\t')[0];
             }
             else
             {
@@ -376,11 +374,11 @@ namespace PA.View.Pages.TwoTabControl
                 {
                     _detailid = TextBox_多栏明细账_三.Text.Split('\t')[0];
                 }
-                _subjectid = TextBox_多栏明细账_一.Text;
-                if (new PA.Helper.ExcelHelper.ExcelWriter().ExportExpenditureDetails(_subjectid, _detailid) != "")
-                {
-                    MessageBoxCommon.Show("打印失败，请检查数据。");
-                }
+            }
+            _subjectid = TextBox_多栏明细账_一.Text;
+            if (new PA.Helper.ExcelHelper.ExcelWriter().ExportExpenditureDetails(_subjectid, _detailid) != "")
+            {
+                MessageBoxCommon.Show("打印失败，请检查数据。");
             }
         }
 
@@ -421,6 +419,11 @@ namespace PA.View.Pages.TwoTabControl
         private void MenuItem_4_Click(object sender, RoutedEventArgs e)
         {
             TextBox_二级科目.Text = string.Empty;
+        }
+
+        private void MenuItem_2_Click(object sender, RoutedEventArgs e)
+        {
+            TextBox_多栏明细账_二.Text = string.Empty;
         }
 
     }
