@@ -33,6 +33,8 @@ namespace PA.View.Windows
         private ViewModel_科目管理 vm = new ViewModel_科目管理();
         private string preDataGridValue;
 
+        private string ComboboxText = "";
+
         public Win_子细目(string SubjectNum, string SubjectName, bool BorrowMark)
         {
             InitializeComponent();
@@ -80,7 +82,14 @@ namespace PA.View.Windows
             }
             DataGrid_子细目.ItemsSource = dataList;
             this.ComboBox_New_父ID.ItemsSource = ComboBox_New_ParentsID;
-            this.ComboBox_New_父ID.SelectedIndex = 0;
+            if (ComboboxText == "")
+            {
+                this.ComboBox_New_父ID.SelectedIndex = 0;
+            }
+            else
+            {
+                this.ComboBox_New_父ID.SelectedValue = ComboboxText;
+            }
             this.TextBox_New_子细目编号.Text = this.ComboBox_New_父ID.Text;
         }
         /// <summary>
@@ -273,6 +282,7 @@ namespace PA.View.Windows
         private void ComboBox_New_父ID_DropDownClosed(object sender, EventArgs e)
         {
             this.TextBox_New_子细目编号.Text = this.ComboBox_New_父ID.Text;
+            ComboboxText = this.ComboBox_New_父ID.Text;
         }
 
         private void DataGrid_子细目_BeginningEdit(object sender, DataGridBeginningEditEventArgs e)

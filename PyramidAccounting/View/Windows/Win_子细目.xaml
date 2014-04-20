@@ -2,19 +2,19 @@
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="子细目管理" Height="400" Width="450" WindowStartupLocation="CenterScreen" AllowsTransparency="True" WindowStyle="None" ResizeMode="NoResize" MouseLeftButtonDown="Window_MouseLeftButtonDown" Background="{x:Null}" FontFamily="NSimSun" TextOptions.TextFormattingMode="Display">
-	<Window.Resources>
-		<Storyboard x:Key="Storyboard_WinLoaded">
-			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="window">
-				<EasingDoubleKeyFrame KeyTime="0" Value="0"/>
-				<EasingDoubleKeyFrame KeyTime="0:0:0.1" Value="1"/>
-			</DoubleAnimationUsingKeyFrames>
-		</Storyboard>
-	</Window.Resources>
-	<Window.Triggers>
-		<EventTrigger RoutedEvent="FrameworkElement.Loaded">
-			<BeginStoryboard Storyboard="{StaticResource Storyboard_WinLoaded}"/>
-		</EventTrigger>
-	</Window.Triggers>
+    <Window.Resources>
+        <Storyboard x:Key="Storyboard_WinLoaded">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="window">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.1" Value="1"/>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+    </Window.Resources>
+    <Window.Triggers>
+        <EventTrigger RoutedEvent="FrameworkElement.Loaded">
+            <BeginStoryboard Storyboard="{StaticResource Storyboard_WinLoaded}"/>
+        </EventTrigger>
+    </Window.Triggers>
     <Grid Background="White" Margin="5">
         <Grid.Effect>
             <DropShadowEffect ShadowDepth="0" BlurRadius="3"/>
@@ -27,8 +27,7 @@
         <TextBox x:Name="TextBox_科目编号" HorizontalAlignment="Left" Margin="110,35,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" RenderTransformOrigin="0.197,0.332" IsReadOnly="True" BorderThickness="0,0,0,1"/>
         <Label x:Name="Label_科目名称" Content="所属科目名称：" HorizontalAlignment="Left" Margin="10,60,0,0" VerticalAlignment="Top"/>
         <TextBox x:Name="TextBox_科目名称" HorizontalAlignment="Left" Margin="110,65,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" IsReadOnly="True" MinWidth="120" BorderThickness="0,0,0,1"/>
-        <Button FocusVisualStyle="{x:Null}" x:Name="Button_Del" Content="删除" HorizontalAlignment="right" Margin="0,141,10,0" VerticalAlignment="Top" Width="50" Click="Button_Del_Click" Template="{DynamicResource ButtonControlTemplate_Common}" Height="22"/>
-        <DataGrid x:Name="DataGrid_子细目" ItemsSource="{Binding}" HorizontalAlignment="Stretch" Margin="10,140,70,10" CanUserAddRows="False" AutoGenerateColumns="False" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle_凭证管理}" BorderBrush="#FF99CCFF" HeadersVisibility="Column" SelectionMode="Single" CellEditEnding="DataGrid_子细目_CellEditEnding" CanUserReorderColumns="False" CanUserSortColumns="False" CanUserResizeRows="False" CanUserResizeColumns="False" BeginningEdit="DataGrid_子细目_BeginningEdit" HorizontalGridLinesBrush="#FF99CCFF" VerticalGridLinesBrush="#FF99CCFF">
+        <DataGrid x:Name="DataGrid_子细目" ItemsSource="{Binding}" HorizontalAlignment="Stretch" Margin="10,118,10,37" CanUserAddRows="False" AutoGenerateColumns="False" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle_凭证管理}" BorderBrush="#FF99CCFF" HeadersVisibility="Column" SelectionMode="Single" CellEditEnding="DataGrid_子细目_CellEditEnding" CanUserReorderColumns="False" CanUserSortColumns="False" CanUserResizeRows="False" CanUserResizeColumns="False" BeginningEdit="DataGrid_子细目_BeginningEdit" HorizontalGridLinesBrush="#FF99CCFF" VerticalGridLinesBrush="#FF99CCFF">
             <DataGrid.Resources>
                 <Style TargetType="DataGridCell">
                     <Style.Triggers>
@@ -65,7 +64,7 @@
             <DataGrid.Columns>
                 <DataGridTextColumn Binding="{Binding 科目编号,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Header="子细目编号" IsReadOnly="True"/>
                 <DataGridTextColumn Binding="{Binding 科目名称,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Header="子细目名称" Width="*" MinWidth="100"/>
-                <DataGridTextColumn Binding="{Binding 年初金额,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Header="年初数" MinWidth="80" ElementStyle="{DynamicResource TextBlockStyle_右对齐}">
+                <DataGridTextColumn Binding="{Binding 年初金额,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Header="年初数" MinWidth="60" ElementStyle="{DynamicResource TextBlockStyle_右对齐}">
                     <DataGridTextColumn.CellStyle>
                         <Style TargetType="DataGridCell">
                             <Setter Property="Padding" Value="0,0,5,0"/>
@@ -84,7 +83,7 @@
                 <DataGridTextColumn Binding="{Binding 类别}" Header="是否三级科目" Visibility="Hidden"/>
             </DataGrid.Columns>
         </DataGrid>
-        <TextBox x:Name="TextBox_New_子细目编号" HorizontalAlignment="Left" Height="22" Margin="10,100,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="70" VerticalContentAlignment="Center" ToolTip="编号遵守：编号=上级编号+二位数字">
+        <TextBox x:Name="TextBox_New_子细目编号" HorizontalAlignment="Left" Height="22" Margin="10,91,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="70" VerticalContentAlignment="Center" ToolTip="编号遵守：编号=上级编号+二位数字">
             <TextBox.Resources>
                 <VisualBrush x:Key="HelpBrush" TileMode="None" Opacity="0.3" Stretch="None" AlignmentX="Left">
                     <VisualBrush.Visual>
@@ -105,7 +104,7 @@
                 </Style>
             </TextBox.Style>
         </TextBox>
-        <TextBox x:Name="TextBox_New_子细目名称" HorizontalAlignment="Left" Height="22" Margin="85,100,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="100" VerticalContentAlignment="Center">
+        <TextBox x:Name="TextBox_New_子细目名称" HorizontalAlignment="Left" Height="22" Margin="85,91,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="100" VerticalContentAlignment="Center">
             <TextBox.Resources>
                 <VisualBrush x:Key="HelpBrush" TileMode="None" Opacity="0.3" Stretch="None" AlignmentX="Left">
                     <VisualBrush.Visual>
@@ -126,7 +125,7 @@
                 </Style>
             </TextBox.Style>
         </TextBox>
-        <TextBox x:Name="TextBox_New_年初数" HorizontalAlignment="Left" Height="22" Margin="190,100,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="95" VerticalContentAlignment="Center" HorizontalContentAlignment="Right" Padding="0,0,5,0">
+        <TextBox x:Name="TextBox_New_年初数" HorizontalAlignment="Left" Height="22" Margin="190,91,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="95" VerticalContentAlignment="Center" HorizontalContentAlignment="Right" Padding="0,0,5,0">
             <TextBox.Resources>
                 <VisualBrush x:Key="HelpBrush" TileMode="None" Opacity="0.3" Stretch="None" AlignmentX="Right">
                     <VisualBrush.Visual>
@@ -147,7 +146,8 @@
                 </Style>
             </TextBox.Style>
         </TextBox>
-        <Button FocusVisualStyle="{x:Null}" x:Name="Button_New_Add子细目" Content="添加" HorizontalAlignment="Left" Margin="380,100,0,0" VerticalAlignment="Top" Width="50" Height="22" Template="{DynamicResource ButtonControlTemplate_CommonBlue}" Foreground="White" Click="Button_New_Add子细目_Click"/>
-        <ComboBox x:Name="ComboBox_New_父ID" HorizontalAlignment="Left" Margin="290,100,0,0" VerticalAlignment="Top" Width="80" Height="22" ToolTip="选择所属科目编号；若选择的是二级科目，则该新增科目为三级科目" DropDownClosed="ComboBox_New_父ID_DropDownClosed"/>
+        <Button FocusVisualStyle="{x:Null}" x:Name="Button_New_Add子细目" Content="添加" HorizontalAlignment="Left" Margin="380,91,0,0" VerticalAlignment="Top" Width="50" Height="22" Template="{DynamicResource ButtonControlTemplate_CommonBlue}" Foreground="White" Click="Button_New_Add子细目_Click"/>
+        <ComboBox x:Name="ComboBox_New_父ID" HorizontalAlignment="Left" Margin="290,91,0,0" VerticalAlignment="Top" Width="80" Height="22" ToolTip="选择所属科目编号；若选择的是二级科目，则该新增科目为三级科目" DropDownClosed="ComboBox_New_父ID_DropDownClosed"/>
+        <Button FocusVisualStyle="{x:Null}" x:Name="Button_Del" Content="删除" HorizontalAlignment="right" Margin="0,358,10,0" VerticalAlignment="Top" Width="50" Click="Button_Del_Click" Template="{DynamicResource ButtonControlTemplate_Common}" Height="22"/>
     </Grid>
 </Window>
