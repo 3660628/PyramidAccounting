@@ -27,12 +27,6 @@ namespace PA.View.Pages.Pop.凭证录入
             this.ListBox_科目.ItemsSource = new ComboBox_科目().GetSubjectList("");
             this.TextBox_科目搜索.Focus();
         }
-        public Page_凭证录入_科目(string condition)
-        {
-            InitializeComponent();
-            this.ListBox_科目.ItemsSource = new ComboBox_科目().GetSubjectList(condition);
-            this.TextBox_科目搜索.Focus();
-        }
 
         private void OnFillDate(string str)
         {
