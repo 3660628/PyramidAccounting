@@ -36,6 +36,7 @@ namespace PA.ViewModel
             }
             return flag;
         }
+
         /// <summary>
         /// 是否过期
         /// </summary>
@@ -49,5 +50,28 @@ namespace PA.ViewModel
             }
             return flag;
         }
+
+        #region 备份
+        /// <summary>
+        /// 启用自动备份
+        /// </summary>
+        /// <param name="day"></param>
+        /// <returns></returns>
+        public bool UpdateAutoBackTag(int day) 
+        {
+            this.DeleteAutoBackTag();
+            string sql = "update " + DBTablesName.T_SYSTEMINFO + " set value='" + day + "',set op_time='"
+                + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + "' where rkey='" 
+                + (int)M_Enum.EM_KEY.备份标识 + "'";
+            return db.Excute(sql);
+        }
+
+        public bool DeleteAutoBackTag()
+        {
+            string delSql = "delete from " + DBTablesName.T_SYSTEMINFO + " where rkey='" + (int)M_Enum.EM_KEY.备份标识 + "'";
+            return db.Excute(delSql);
+        }
+
+        #endregion
     }
 }

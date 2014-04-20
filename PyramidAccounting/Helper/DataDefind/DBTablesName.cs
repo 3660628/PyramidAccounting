@@ -17,9 +17,13 @@ namespace PA.Helper.DataDefind
         private static readonly string t_YEAR_FEE = "T_YEARFEE";
         private static readonly string t_FEE = "T_FEE";
         private static readonly string t_FIXEDASSETS = "T_FIXEDASSETS";
-
+        private static readonly string t_SYSTEMINFO = "T_SYSTEMINFO";
         
         #region GETSET
+        public static string T_SYSTEMINFO
+        {
+            get { return DBTablesName.t_SYSTEMINFO; }
+        } 
 
         public static string T_YEAR_FEE
         {
