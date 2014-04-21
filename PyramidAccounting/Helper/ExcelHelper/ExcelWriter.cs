@@ -1044,7 +1044,12 @@ namespace PA.Helper.ExcelHelper
 
             xlWorkSheet.Cells[16, "H"] = ((insumy1 - insumy2) + b3);
 
+            data.Clear();
+            data = new PA.ViewModel.ViewModel_ReportManager().GetIncomeAndExpensesForTwoSubject(ParmPeroid);
+            if (data.Count > 0)
+            {
 
+            }
             #endregion
 
             xlApp.Visible = true;
