@@ -195,6 +195,10 @@ namespace PA.View.Pages.TwoTabControl
                 lb.Content = "";
                 Label lb2 = FindName("inY" + m.编号) as Label;
                 lb2.Content = "";
+                inSumM1.Content = "";
+                inSumY1.Content = "";
+                inSumM2.Content = "";
+                inSumY2.Content = "";
             }
 
             List<Model_报表类> list = new List<Model_报表类>();
@@ -228,22 +232,10 @@ namespace PA.View.Pages.TwoTabControl
                     }
                 }
 
-                if (insumm1 != 0)
-                {
                     inSumM1.Content = insumm1;
-                }
-                if (insumy1 != 0)
-                {
                     inSumY1.Content = insumy1;
-                }
-                if (insumm2 != 0)
-                {
                     inSumM2.Content = insumm2;
-                }
-                if (insumy2 != 0)
-                {
                     inSumY2.Content = insumy2;
-                }
                 lastList_fee1 = list;
             }
 
