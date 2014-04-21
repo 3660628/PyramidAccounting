@@ -84,9 +84,11 @@ namespace PA.ViewModel
                 + DBTablesName.T_VOUCHER_DETAIL + " a LEFT JOIN "
                 + DBTablesName.T_VOUCHER + " b ON a.PARENTID = b.ID WHERE b.REVIEW_MARK = 1 AND b.PERIOD = " 
                 + index + ") a LEFT JOIN (SELECT a.DETAIL,total(a.DEBIT) - total(a.CREDIT) AS fee FROM " 
-                + DBTablesName.T_VOUCHER_DETAIL + " a LEFT JOIN T_VOUCHER_20140420164636 b ON a.PARENTID = b.ID WHERE b.REVIEW_MARK = 1 AND b.PERIOD <= "
+                + DBTablesName.T_VOUCHER_DETAIL + " a LEFT JOIN "
+                + DBTablesName.T_VOUCHER + " b ON a.PARENTID = b.ID WHERE b.REVIEW_MARK = 1 AND b.PERIOD <= "
                 + index + " GROUP BY a.DETAIL) b ON a.DETAIL = b.DETAIL WHERE a.DETAIL IN (SELECT t.SUBJECT_ID FROM " 
-                + DBTablesName.T_SUBJECT + " t WHERE t.PARENT_ID IN ('40101','40102','40401','40402'))) w LEFT JOIN T_SUBJECT_0 c ON w.detail = c.subject_id GROUP BY c.PARENT_ID";
+                + DBTablesName.T_SUBJECT + " t WHERE t.PARENT_ID IN ('40101','40102','40401','40402'))) w LEFT JOIN "
+                + DBTablesName.T_SUBJECT + " c ON w.detail = c.subject_id GROUP BY c.PARENT_ID";
             DataTable dt = db.Query(sql).Tables[0];
             foreach (DataRow d in dt.Rows)
             {
