@@ -1048,7 +1048,29 @@ namespace PA.Helper.ExcelHelper
             data = new PA.ViewModel.ViewModel_ReportManager().GetIncomeAndExpensesForTwoSubject(ParmPeroid);
             if (data.Count > 0)
             {
-
+                foreach (Model_报表类 a in data)
+                {
+                    if (a.编号 == "40101")
+                    {
+                        xlWorkSheet.Cells[7, "B"] = a.本期数;
+                        xlWorkSheet.Cells[7, "C"] = a.累计数;
+                    }
+                    else if (a.编号 == "40102")
+                    {
+                        xlWorkSheet.Cells[8, "B"] = a.本期数;
+                        xlWorkSheet.Cells[8, "C"] = a.累计数;
+                    }
+                    else if (a.编号 == "40401")
+                    {
+                        xlWorkSheet.Cells[10, "B"] = a.本期数;
+                        xlWorkSheet.Cells[10, "C"] = a.累计数;
+                    }
+                    else if (a.编号 == "40402")
+                    {
+                        xlWorkSheet.Cells[11, "B"] = a.本期数;
+                        xlWorkSheet.Cells[11, "C"] = a.累计数;
+                    }
+                }
             }
             #endregion
 
