@@ -102,11 +102,11 @@ namespace PA.Helper.DataBase
             SQLiteConnection conn = new SQLiteConnection();
             SQLiteConnectionStringBuilder connstr = new SQLiteConnectionStringBuilder();
             connstr.DataSource = dataSource;
-            conn.ConnectionString = connstr.ToString();
             if (new XMLReader().ReadXML("注册").Equals("true"))
             {
                 conn.SetPassword(dbPassword);
             }
+            conn.ConnectionString = connstr.ToString();
             return conn;
         }
         /// <summary>
