@@ -75,7 +75,7 @@
         </EventTrigger>
     </Page.Triggers>
     <Grid Margin="-3,0,-3,-3">
-        <StatusBar Height="25" Margin="0" VerticalAlignment="Bottom" Background="DarkGray"/>
+        <StatusBar Height="25" Margin="0" VerticalAlignment="Bottom" Background="#FFA6D9FF"/>
         <TabControl Margin="0,0,0,25" BorderBrush="White">
             <TabItem FocusVisualStyle="{x:Null}" Header="用户安全" Margin="8,-1,-8,1" Template="{DynamicResource TabItemControlTemplate_TwoTabHeader}">
                 <Grid Background="White">
