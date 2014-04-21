@@ -357,6 +357,18 @@
                                 <Label x:Name="inM1" Content="" HorizontalAlignment="Center" Grid.Column="1" Grid.Row="2" />
                                 <Label x:Name="inY1" Content="" HorizontalAlignment="Center" Grid.Column="2" Grid.Row="2" />
 
+                                <Label x:Name="inM40101" Content="" HorizontalAlignment="Center" Grid.Column="1" Grid.Row="3" />
+                                <Label x:Name="inY40101" Content="" HorizontalAlignment="Center" Grid.Column="2" Grid.Row="3" />
+
+                                <Label x:Name="inM40102" Content="" HorizontalAlignment="Center" Grid.Column="1" Grid.Row="4" />
+                                <Label x:Name="inY40102" Content="" HorizontalAlignment="Center" Grid.Column="2" Grid.Row="4" />
+
+                                <Label x:Name="inM40401" Content="" HorizontalAlignment="Center" Grid.Column="1" Grid.Row="6" />
+                                <Label x:Name="inY40401" Content="" HorizontalAlignment="Center" Grid.Column="2" Grid.Row="6" />
+
+                                <Label x:Name="inM40402" Content="" HorizontalAlignment="Center" Grid.Column="1" Grid.Row="7" />
+                                <Label x:Name="inY40402" Content="" HorizontalAlignment="Center" Grid.Column="2" Grid.Row="7" />
+
                                 <Label x:Name="inM2" Content="" HorizontalAlignment="Center" Grid.Column="1" Grid.Row="5" />
                                 <Label x:Name="inY2" Content="" HorizontalAlignment="Center" Grid.Column="2" Grid.Row="5" />
 

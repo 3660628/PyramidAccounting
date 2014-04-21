@@ -246,6 +246,28 @@ namespace PA.View.Pages.TwoTabControl
                 B2.Content = "";
                 B3.Content = "";
             }
+
+            list.Clear();
+            list = vmr.GetIncomeAndExpensesForTwoSubject(value + 1);
+            //清除上一次赋值的值
+            foreach (Model_报表类 m in LastList)
+            {
+                Label lb = FindName("inM" + m.编号) as Label;
+                lb.Content = "";
+                Label lb2 = FindName("inY" + m.编号) as Label;
+                lb2.Content = "";
+            }
+            if (list.Count > 0)
+            {
+                foreach (Model_报表类 m in list)
+                {
+                    Label lb = FindName("inM" + m.编号) as Label;
+                    lb.Content = m.本期数;
+                    Label lb2 = FindName("inY" + m.编号) as Label;
+                    lb2.Content = m.累计数;
+                }
+                LastList = list;
+            }
         }
 
         private List<Model_报表类> LastList = new List<Model_报表类>();
