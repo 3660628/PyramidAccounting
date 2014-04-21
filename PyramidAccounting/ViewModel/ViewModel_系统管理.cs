@@ -18,7 +18,7 @@ namespace PA.ViewModel
         /// <returns></returns>
         public string GetUsbDeviceID()
         {
-            string sql = "select value from t_systeminfo where rkey='" + (int)M_Enum.EM_KEY.U盘标识 + "'";
+            string sql = "select value from t_systeminfo where rkey='" + (int)ENUM.EM_KEY.U盘标识 + "'";
             return db.GetSelectValue(sql);
         }
 
@@ -44,7 +44,7 @@ namespace PA.ViewModel
         public bool ValidateRuning()
         {
             bool flag = false;
-            if (CommonInfo.SoftwareState != (int)M_Enum.EM_SOFTWARESTATE.过期)
+            if (CommonInfo.SoftwareState != (int)ENUM.EM_SOFTWARESTATE.过期)
             {
                 flag = true;
             }
@@ -60,7 +60,7 @@ namespace PA.ViewModel
         public bool IsBackupNow()
         {
             bool flag = false;
-            string sql = "select case when (julianday(datetime('now','localtime'))-julianday(OP_TIME)) >= value then 'true' else 'false' end from " + DBTablesName.T_SYSTEMINFO + " where rkey='" + (int)M_Enum.EM_KEY.备份标识 + "'" ;
+            string sql = "select case when (julianday(datetime('now','localtime'))-julianday(OP_TIME)) >= value then 'true' else 'false' end from " + DBTablesName.T_SYSTEMINFO + " where rkey='" + (int)ENUM.EM_KEY.备份标识 + "'" ;
             string value = db.GetSelectValue(sql);
             if (value.Equals("true"))
             {
@@ -77,7 +77,7 @@ namespace PA.ViewModel
         {
             this.DeleteAutoBackTag();
             string sql = "insert into  " + DBTablesName.T_SYSTEMINFO + " (op_time,rkey,value,comments) values('"
-                + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + "','" + (int)M_Enum.EM_KEY.备份标识 + "','"
+                + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + "','" + (int)ENUM.EM_KEY.备份标识 + "','"
                 + day + "','备份标识')";
             return db.Excute(sql);
         }
@@ -87,7 +87,7 @@ namespace PA.ViewModel
         /// <returns></returns>
         public bool DeleteAutoBackTag()
         {
-            string delSql = "delete from " + DBTablesName.T_SYSTEMINFO + " where rkey='" + (int)M_Enum.EM_KEY.备份标识 + "'";
+            string delSql = "delete from " + DBTablesName.T_SYSTEMINFO + " where rkey='" + (int)ENUM.EM_KEY.备份标识 + "'";
             return db.Excute(delSql);
         }
 

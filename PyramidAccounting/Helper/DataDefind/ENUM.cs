@@ -5,7 +5,7 @@ using System.Text;
 
 namespace PA.Helper.DataDefind
 {
-    class M_Enum
+    class ENUM
     {
         public enum EM_SOFTWARESTATE
         {

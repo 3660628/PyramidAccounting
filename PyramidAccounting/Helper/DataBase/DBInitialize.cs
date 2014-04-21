@@ -15,7 +15,7 @@ namespace PA.Helper.DataBase
     public class DBInitialize
     {
         public static string dataSource = "Data\\" + new XMLReader().ReadXML("数据库");
-        public static string dbPassword = "";
+        private static string dbPassword = Secure.GetMD5_32(new UsbController().getSerialNumberFromDriveLetter());
 
         public DBInitialize()
         {
@@ -60,9 +60,9 @@ namespace PA.Helper.DataBase
             UsbController usb = new UsbController();
             string _str = usb.getSerialNumberFromDriveLetter();
             string sql = "insert into t_systeminfo (op_time,rkey,value,comments) values ('" + date
-                + "','" + (int)M_Enum.EM_KEY.软件版本 + "','" + (int)M_Enum.EM_SOFTWARESTATE.未注册 + "','第一次运行显示未注册'),('" + date
-                + "','" + (int)M_Enum.EM_KEY.注册码 + "','','注册码'),('" + date
-                + "','" + (int)M_Enum.EM_KEY.U盘标识 + "','" + _str + "','USB')";
+                + "','" + (int)ENUM.EM_KEY.软件版本 + "','" + (int)ENUM.EM_SOFTWARESTATE.未注册 + "','第一次运行显示未注册'),('" + date
+                + "','" + (int)ENUM.EM_KEY.注册码 + "','','注册码'),('" + date
+                + "','" + (int)ENUM.EM_KEY.U盘标识 + "','" + _str + "','USB')";
             dataList.Add(sql);
             db.BatchOperate(dataList);
 
@@ -103,21 +103,24 @@ namespace PA.Helper.DataBase
             SQLiteConnectionStringBuilder connstr = new SQLiteConnectionStringBuilder();
             connstr.DataSource = dataSource;
             conn.ConnectionString = connstr.ToString();
-            //conn.SetPassword(password);
+            if (new XMLReader().ReadXML("注册").Equals("true"))
+            {
+                conn.SetPassword(dbPassword);
+            }
             return conn;
         }
         /// <summary>
         /// 修改数据库密码
         /// </summary>
         /// <returns></returns>
-        public bool ChangeDBPassword()
+        public static bool ChangeDBPassword()
         {
             bool flag = false;
             SQLiteConnection conn = getDBConnection();
             try
             {
                 conn.Open();
-                conn.ChangePassword("123456");
+                conn.ChangePassword(dbPassword);
                 flag = true;
             }
             catch (Exception ee)

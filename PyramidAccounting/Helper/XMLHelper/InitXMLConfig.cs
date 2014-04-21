@@ -62,6 +62,12 @@ namespace PA.Helper.XMLHelper
 
             #endregion
 
+            #region 3.注册
+            XmlElement register = xmldoc.CreateElement("注册");
+            register.InnerText = "false";
+            s系统信息.AppendChild(register);
+            #endregion
+
             xmldoc.Save(AppDomain.CurrentDomain.BaseDirectory + "Data\\config.xml");
         }
     }

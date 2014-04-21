@@ -59,7 +59,7 @@ namespace PA.View.Pages.TwoTabControl
             SubscribeToEvent();
             VisibilityData();
             LoadPage();
-            if (CommonInfo.SoftwareState == (int)M_Enum.EM_SOFTWARESTATE.已注册)
+            if (CommonInfo.SoftwareState == (int)ENUM.EM_SOFTWARESTATE.已注册)
             {
                 Grid_Register.Visibility = Visibility.Collapsed;
             }
@@ -610,8 +610,12 @@ namespace PA.View.Pages.TwoTabControl
             string validateCode = Secure.GetMD5_32(orginCode).ToUpper();
             if (registerCode.Equals(validateCode))
             {
-                rg.UpdateSoftwareVersionStatus((int)M_Enum.EM_SOFTWARESTATE.已注册);
+                rg.UpdateSoftwareVersionStatus((int)ENUM.EM_SOFTWARESTATE.已注册);
                 rg.UpdateSoftwareRegisterCode(registerCode);
+                //注册后加密数据库
+                DBInitialize.ChangeDBPassword();
+                xw.WriteXML("注册", "true");
+
                 MessageBoxCommon.Show("注册成功！");
                 this.LoadPage();
                 Grid_Register.Visibility = Visibility.Collapsed;
