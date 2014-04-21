@@ -74,6 +74,7 @@ namespace PA.View.Pages.TwoTabControl
             TextBox_备份天数.Text = xr.ReadXML("备份时间");
             backup_filePath.Text = xr.ReadXML("备份路径");
             Recover_filepath.Text = xr.ReadXML("还原路径");
+            //3.数据管理
             if (vmm.IsBackupNow())
             {
                 backgroundBackupTag = true;
