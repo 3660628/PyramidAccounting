@@ -68,24 +68,29 @@ namespace PA.View.Pages.TwoTabControl
 
         private void LoadPage()
         {
-            //1.用户安全
+            #region 3.数据管理
             string text = xr.ReadXML("自动备份标志");
             is_auto_backup.IsChecked = bool.Parse(xr.ReadXML("自动备份标志"));
             TextBox_备份天数.Text = xr.ReadXML("备份时间");
             backup_filePath.Text = xr.ReadXML("备份路径");
             Recover_filepath.Text = xr.ReadXML("还原路径");
-            //3.数据管理
             if (vmm.IsBackupNow())
             {
                 backgroundBackupTag = true;
                 this.Button_备份_Click(this, null);
             }
-            //4.操作记录
+            alterBackupTag = true;
+            #endregion
+
+            #region 4.操作记录
             this.DatePicker_操作记录.Text = DateTime.Now.ToShortDateString();
             this.DatePicker_操作记录End.Text = DateTime.Now.ToShortDateString();
-            //5.关于我们
+
+            #endregion
+            #region 5.关于我们
             this.Label_状态.Content = rg.GetVersionMessage();
             this.Laber_Version.Content = "版本V" + Application.ResourceAssembly.GetName().Version.ToString();
+            #endregion
         }
 
         #region 事件订阅
@@ -413,7 +418,6 @@ namespace PA.View.Pages.TwoTabControl
             {
                 vmm.UpdateAutoBackTag(TextBox_备份天数.Text);
             }
-            alterBackupTag = true;
         }
         /// <summary>
         /// 显示自动备份关闭状态
