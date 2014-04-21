@@ -176,11 +176,17 @@ namespace PA.View.Pages.TwoTabControl
 
         private void Button_生成2_Click(object sender, RoutedEventArgs e)
         {
+            int value = ComboBox_Date1.SelectedIndex;
+
+            if (value == CommonInfo.当前期 - 1)
+            {
+                MessageBoxCommon.Show("结账后方可生成报表!");
+                return;
+            }
             mr.日志 = "生成" + ComboBox_Date.Text + "收入支出总表";
             vm.Insert(mr);
 
             List<Model_报表类> list = new List<Model_报表类>();
-            int value = ComboBox_Date1.SelectedIndex;
             list = vmr.GetIncomeAndExpenses(value+1);
             decimal dy = 0;
             decimal dn = 0;
@@ -188,63 +194,45 @@ namespace PA.View.Pages.TwoTabControl
             decimal insumy1 = 0;
             decimal insumm2 = 0;
             decimal insumy2 = 0;
-            decimal b3 = 0;
+            string temp = string.Empty ;
             if (list.Count > 0)
             {
-                for (int i = 0; i < list.Count-1; i++)
+                foreach (Model_报表类 m in list)
                 {
-                    Label lb = FindName("inM" + (i + 1)) as Label;
-                    lb.Content = list[i].本期数;
-                    Label lb2 = FindName("inY" + +(i + 1)) as Label;
-                    lb2.Content = list[i].累计数;
-                    decimal.TryParse(list[i].累计数, out dy);
-                    decimal.TryParse(list[i].本期数, out dn);
-                    if (i < 3)
+                    Label lb = FindName("inM" + m.编号) as Label;
+                    lb.Content = m.本期数;
+                    Label lb2 = FindName("inY" + m.编号) as Label;
+                    lb2.Content = m.累计数;
+                    decimal.TryParse(m.累计数, out dy);
+                    decimal.TryParse(m.本期数, out dn);
+                    if (m.编号.StartsWith("40"))
                     {
                         insumm1 += dn;
                         insumy1 += dy;
                     }
-                    else if (i >= 3 && i < 6) 
+                    else if (m.编号.StartsWith("50"))
                     {
                         insumy2 += dy;
                         insumm2 += dn;
                     }
                 }
-                decimal.TryParse(list[list.Count - 1].累计数, out b3);
 
-                inSumM1.Content = insumm1;
-                inSumY1.Content = insumy1;
-
-                inSumM2.Content = insumm2;
-                inSumY2.Content = insumy2;
-
-                B2.Content = (insumy1 - insumy2);
-                B3.Content = b3;
-
-                B1.Content = ((insumy1 - insumy2) + b3);
-
-                inSumY3.Content = B1.Content;
-
-            }
-            else
-            {
-                for (int i = 0; i < 6; i++)
+                if (insumm1 != 0)
                 {
-                    Label lb = FindName("inM" + (i + 1)) as Label;
-                    lb.Content = "";
-                    Label lb2 = FindName("inY" + +(i + 1)) as Label;
-                    lb2.Content = "";
+                    inSumM1.Content = insumm1;
                 }
-                inSumM1.Content ="";
-                inSumY1.Content ="";
-
-                inSumM2.Content ="";
-                inSumY2.Content = "";
-                inSumY3.Content = "";
-
-                B1.Content = "";
-                B2.Content = "";
-                B3.Content = "";
+                if (insumy1 != 0)
+                {
+                    inSumY1.Content = insumy1;
+                }
+                if (insumm2 != 0)
+                {
+                    inSumM2.Content = insumm2;
+                }
+                if (insumy2 != 0)
+                {
+                    inSumY2.Content = insumy2;
+                }
             }
 
             list.Clear();
@@ -257,17 +245,14 @@ namespace PA.View.Pages.TwoTabControl
                 Label lb2 = FindName("inY" + m.编号) as Label;
                 lb2.Content = "";
             }
-            if (list.Count > 0)
+            foreach (Model_报表类 m in list)
             {
-                foreach (Model_报表类 m in list)
-                {
-                    Label lb = FindName("inM" + m.编号) as Label;
-                    lb.Content = m.本期数;
-                    Label lb2 = FindName("inY" + m.编号) as Label;
-                    lb2.Content = m.累计数;
-                }
-                LastList = list;
+                Label lb = FindName("inM" + m.编号) as Label;
+                lb.Content = m.本期数;
+                Label lb2 = FindName("inY" + m.编号) as Label;
+                lb2.Content = m.累计数;
             }
+            LastList = list;    
         }
 
         private List<Model_报表类> LastList = new List<Model_报表类>();

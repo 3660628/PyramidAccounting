@@ -45,13 +45,28 @@ namespace PA.ViewModel
             string sql = "SELECT a.SUBJECT_ID,a.fee,b.fee FROM (SELECT SUBJECT_ID,fee FROM " +
                 DBTablesName.T_FEE + " WHERE PERIOD = " + index + ") a LEFT JOIN (SELECT SUBJECT_ID,total(fee) AS fee FROM "
                 + DBTablesName.T_FEE + " WHERE PERIOD <= " + index + " GROUP BY SUBJECT_ID) b ON a.SUBJECT_ID = b.SUBJECT_ID "
-                + "WHERE a.SUBJECT_ID IN ('401','404','407','501','502','505','303') ";
+                + "WHERE a.SUBJECT_ID IN ('401','404','407','501','502','505') ";
             DataTable dt = db.Query(sql).Tables[0];
             foreach (DataRow d in dt.Rows)
             {
                 Model_报表类 m = new Model_报表类();
-                m.累计数 = d[2].ToString();
-                m.本期数 = d[1].ToString();
+                m.编号 = d[0].ToString();
+                if (d[2].ToString().Equals("0"))
+                {
+                    m.累计数 = "";
+                }
+                else
+                {
+                    m.累计数 = d[2].ToString();
+                }
+                if (d[1].ToString().Equals("0"))
+                {
+                    m.本期数 = "";
+                }
+                else
+                {
+                    m.本期数 = d[1].ToString();
+                }
                 list.Add(m);
             }
             return list;
@@ -77,8 +92,22 @@ namespace PA.ViewModel
             {
                 Model_报表类 m = new Model_报表类();
                 m.编号 = d[0].ToString();
-                m.累计数 = d[2].ToString();
-                m.本期数 = d[1].ToString();
+                if (d[2].ToString().Equals("0"))
+                {
+                    m.累计数 = "";
+                }
+                else
+                {
+                    m.累计数 = d[2].ToString();
+                }
+                if (d[1].ToString().Equals("0"))
+                {
+                    m.本期数 = "";
+                }
+                else
+                {
+                    m.本期数 = d[1].ToString();
+                }
                 list.Add(m);
             }
             return list;

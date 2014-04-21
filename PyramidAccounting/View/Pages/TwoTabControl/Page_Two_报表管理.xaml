@@ -354,8 +354,8 @@
                                 <Label Content="累计结余" HorizontalAlignment="Center" Grid.Column="6" Grid.Row="13"/>
 
                                 <!--收入-->
-                                <Label x:Name="inM1" Content="" HorizontalAlignment="Center" Grid.Column="1" Grid.Row="2" />
-                                <Label x:Name="inY1" Content="" HorizontalAlignment="Center" Grid.Column="2" Grid.Row="2" />
+                                <Label x:Name="inM401" Content="" HorizontalAlignment="Center" Grid.Column="1" Grid.Row="2" />
+                                <Label x:Name="inY401" Content="" HorizontalAlignment="Center" Grid.Column="2" Grid.Row="2" />
 
                                 <Label x:Name="inM40101" Content="" HorizontalAlignment="Center" Grid.Column="1" Grid.Row="3" />
                                 <Label x:Name="inY40101" Content="" HorizontalAlignment="Center" Grid.Column="2" Grid.Row="3" />
@@ -369,18 +369,18 @@
                                 <Label x:Name="inM40402" Content="" HorizontalAlignment="Center" Grid.Column="1" Grid.Row="7" />
                                 <Label x:Name="inY40402" Content="" HorizontalAlignment="Center" Grid.Column="2" Grid.Row="7" />
 
-                                <Label x:Name="inM2" Content="" HorizontalAlignment="Center" Grid.Column="1" Grid.Row="5" />
-                                <Label x:Name="inY2" Content="" HorizontalAlignment="Center" Grid.Column="2" Grid.Row="5" />
+                                <Label x:Name="inM404" Content="" HorizontalAlignment="Center" Grid.Column="1" Grid.Row="5" />
+                                <Label x:Name="inY404" Content="" HorizontalAlignment="Center" Grid.Column="2" Grid.Row="5" />
 
-                                <Label x:Name="inM3" Content="" HorizontalAlignment="Center" Grid.Column="1" Grid.Row="8" />
-                                <Label x:Name="inY3" Content="" HorizontalAlignment="Center" Grid.Column="2" Grid.Row="8" />
+                                <Label x:Name="inM407" Content="" HorizontalAlignment="Center" Grid.Column="1" Grid.Row="8" />
+                                <Label x:Name="inY407" Content="" HorizontalAlignment="Center" Grid.Column="2" Grid.Row="8" />
                                 <!--支出-->
-                                <Label x:Name="inM4" Content="" HorizontalAlignment="Center" Grid.Column="4" Grid.Row="2" />
-                                <Label x:Name="inY4" Content="" HorizontalAlignment="Center" Grid.Column="5" Grid.Row="2" />
-                                <Label x:Name="inM5" Content="" HorizontalAlignment="Center" Grid.Column="4" Grid.Row="3" />
-                                <Label x:Name="inY5" Content="" HorizontalAlignment="Center" Grid.Column="5" Grid.Row="3" />
-                                <Label x:Name="inM6" Content="" HorizontalAlignment="Center" Grid.Column="4" Grid.Row="8" />
-                                <Label x:Name="inY6" Content="" HorizontalAlignment="Center" Grid.Column="5" Grid.Row="8" />
+                                <Label x:Name="inM501" Content="" HorizontalAlignment="Center" Grid.Column="4" Grid.Row="2" />
+                                <Label x:Name="inY501" Content="" HorizontalAlignment="Center" Grid.Column="5" Grid.Row="2" />
+                                <Label x:Name="inM502" Content="" HorizontalAlignment="Center" Grid.Column="4" Grid.Row="3" />
+                                <Label x:Name="inY502" Content="" HorizontalAlignment="Center" Grid.Column="5" Grid.Row="3" />
+                                <Label x:Name="inM505" Content="" HorizontalAlignment="Center" Grid.Column="4" Grid.Row="8" />
+                                <Label x:Name="inY505" Content="" HorizontalAlignment="Center" Grid.Column="5" Grid.Row="8" />
                                 <!--结余-->
                                 <Label x:Name="B1" Content="" HorizontalAlignment="Center" Grid.Column="7" Grid.Row="2" />
                                 <Label x:Name="B2" Content="" HorizontalAlignment="Center" Grid.Column="7" Grid.Row="3" />
