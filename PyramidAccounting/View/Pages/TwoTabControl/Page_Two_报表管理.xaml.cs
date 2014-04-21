@@ -174,6 +174,8 @@ namespace PA.View.Pages.TwoTabControl
             }
         }
 
+        private List<Model_报表类> lastList_fee1 = new List<Model_报表类>();
+        private List<Model_报表类> lastList_fee2 = new List<Model_报表类>();
         private void Button_生成2_Click(object sender, RoutedEventArgs e)
         {
             int value = ComboBox_Date1.SelectedIndex;
@@ -185,6 +187,15 @@ namespace PA.View.Pages.TwoTabControl
             }
             mr.日志 = "生成" + ComboBox_Date.Text + "收入支出总表";
             vm.Insert(mr);
+
+            //清除上一次赋值的值
+            foreach (Model_报表类 m in lastList_fee1)
+            {
+                Label lb = FindName("inM" + m.编号) as Label;
+                lb.Content = "";
+                Label lb2 = FindName("inY" + m.编号) as Label;
+                lb2.Content = "";
+            }
 
             List<Model_报表类> list = new List<Model_报表类>();
             list = vmr.GetIncomeAndExpenses(value+1);
@@ -233,12 +244,13 @@ namespace PA.View.Pages.TwoTabControl
                 {
                     inSumY2.Content = insumy2;
                 }
+                lastList_fee1 = list;
             }
 
             list.Clear();
             list = vmr.GetIncomeAndExpensesForTwoSubject(value + 1);
             //清除上一次赋值的值
-            foreach (Model_报表类 m in LastList)
+            foreach (Model_报表类 m in lastList_fee2)
             {
                 Label lb = FindName("inM" + m.编号) as Label;
                 lb.Content = "";
@@ -252,7 +264,7 @@ namespace PA.View.Pages.TwoTabControl
                 Label lb2 = FindName("inY" + m.编号) as Label;
                 lb2.Content = m.累计数;
             }
-            LastList = list;    
+            lastList_fee2 = list;    
         }
 
         private List<Model_报表类> LastList = new List<Model_报表类>();
