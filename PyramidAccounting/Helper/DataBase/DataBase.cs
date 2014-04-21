@@ -20,7 +20,7 @@ namespace PA.Helper.DataBase
         public bool Excute(string sql)
         {
             bool flag = false;
-            SQLiteConnection conn = DBInitialize.getDBConnection();
+            SQLiteConnection conn = DBInitialize.GetDBConnection();
             conn.Open();
             try
             {
@@ -50,7 +50,7 @@ namespace PA.Helper.DataBase
         public bool BatchOperate(List<string> sqlList)
         {
             bool flag = false;
-            SQLiteConnection conn = DBInitialize.getDBConnection();
+            SQLiteConnection conn = DBInitialize.GetDBConnection();
             conn.Open();
             SQLiteTransaction strans = conn.BeginTransaction();
             try
@@ -81,7 +81,7 @@ namespace PA.Helper.DataBase
 
         public string GetAllData(string sql)
         {
-            SQLiteConnection conn = DBInitialize.getDBConnection();
+            SQLiteConnection conn = DBInitialize.GetDBConnection();
             StringBuilder sb = new StringBuilder();
             string result = "";
             conn.Open();
@@ -141,7 +141,7 @@ namespace PA.Helper.DataBase
         public DataSet Query(string sql)
         {
             DataSet ds = new DataSet();
-            SQLiteConnection conn = DBInitialize.getDBConnection();
+            SQLiteConnection conn = DBInitialize.GetDBConnection();
             conn.Open();
             try
             {
@@ -179,7 +179,7 @@ namespace PA.Helper.DataBase
         public bool InsertPackage(string TableName, List<object> Values)
         {
             bool flag = false;
-            SQLiteConnection conn = DBInitialize.getDBConnection();
+            SQLiteConnection conn = DBInitialize.GetDBConnection();
             conn.Open();
             SQLiteTransaction strans = conn.BeginTransaction();
             string newTabname = TableName;
@@ -373,7 +373,7 @@ namespace PA.Helper.DataBase
         public bool InsertVoucherAll(List<object> Voucher, List<object> VoucherDetail)
         {
             bool flag = false;
-            SQLiteConnection conn = DBInitialize.getDBConnection();
+            SQLiteConnection conn = DBInitialize.GetDBConnection();
             conn.Open();
             SQLiteTransaction strans = conn.BeginTransaction();
             string sql = "";

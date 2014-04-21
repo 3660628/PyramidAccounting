@@ -97,7 +97,7 @@ namespace PA.Helper.DataBase
         /// 获取数据库链接
         /// </summary>
         /// <returns></returns>
-        public static SQLiteConnection getDBConnection()
+        public static SQLiteConnection GetDBConnection()
         {
             SQLiteConnection conn = new SQLiteConnection();
             SQLiteConnectionStringBuilder connstr = new SQLiteConnectionStringBuilder();
@@ -116,7 +116,7 @@ namespace PA.Helper.DataBase
         public static bool ChangeDBPassword()
         {
             bool flag = false;
-            SQLiteConnection conn = getDBConnection();
+            SQLiteConnection conn = GetDBConnection();
             try
             {
                 conn.Open();
