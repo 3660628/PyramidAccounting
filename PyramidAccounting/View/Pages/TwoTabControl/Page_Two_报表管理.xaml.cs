@@ -391,6 +391,5 @@ namespace PA.View.Pages.TwoTabControl
                 MessageBoxCommon.Show(result);
             }
         }
-        
     }
 }
