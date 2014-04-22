@@ -37,22 +37,23 @@ namespace PA.View.Pages.Pop.凭证录入
             foreach (string a in ChildData)
             {
                 string lastname = "";
-                string show;
-                if (a.Split('\t')[0].Length >= 9)
-                {
-                    show = a.Split('\t')[0] + "\t";
-                }
-                else
-                {
-                    show = a.Split('\t')[0] + "\t\t";
-                }
+                string show = "";
+                
                 for (int i = 7; i > 1; i -= 2)
                 {
                     if (lastname != a.Split('\t')[i] && a.Split('\t')[1] != a.Split('\t')[i])
                     {
                         lastname = a.Split('\t')[i];
-                        show += lastname + " - ";
+                        show = lastname + " - " + show;
                     }
+                }
+                if (a.Split('\t')[0].Length >= 9)
+                {
+                    show = a.Split('\t')[0] + "\t" + show;
+                }
+                else
+                {
+                    show = a.Split('\t')[0] + "\t\t" + show;
                 }
                 show += a.Split('\t')[1];
                 ItemsSourceData.Add(show);
