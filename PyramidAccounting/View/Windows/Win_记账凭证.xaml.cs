@@ -200,12 +200,33 @@ namespace PA.View.Windows
         }
         private bool CheckData()
         {
-            if (this.Label_借方合计.Content.ToString() == this.Label_贷方合计.Content.ToString())
+            if (this.Label_借方合计.Content.ToString() != this.Label_贷方合计.Content.ToString())
             {
-                return true;
+                MessageBoxCommon.Show("借贷不平衡");
+                return false;
             }
-            MessageBoxCommon.Show("借贷不平衡");
-            return false;
+            List<string> VoucherNum = new List<string>();
+            for (int i = 0; i < PageAll; i++)
+            {
+                if(VoucherDetails[i * 6].凭证号 == "")
+                {
+                    MessageBoxCommon.Show("凭证号不能为空");
+                    return false;
+                }
+                else
+                {
+                    if(!VoucherNum.Contains(VoucherDetails[i * 6].凭证号))
+                    {
+                        VoucherNum.Add(VoucherDetails[i * 6].凭证号);
+                    }
+                    else
+                    {
+                        MessageBoxCommon.Show("凭证号不能相同");
+                        return false;
+                    }
+                }
+            }
+            return true;
         }
         private void Count合计()
         {
