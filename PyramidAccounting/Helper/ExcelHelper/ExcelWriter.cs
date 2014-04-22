@@ -1124,8 +1124,6 @@ namespace PA.Helper.ExcelHelper
             {
                 return "没有数据";
             }
-            decimal dy = 0;
-            decimal dn = 0;
             //二级科目
             decimal b101 = 0;
             decimal b102 = 0;
@@ -1136,75 +1134,87 @@ namespace PA.Helper.ExcelHelper
             decimal b401 = 0;
             decimal b402 = 0;
 
-            for (int i = 0; i < data.Count; i++)
+            int x = 1, y = 1;
+            DataSet ds = new PA.Helper.ExcelHelper.ExcelReader().ExcelDataSource(SourceXls, "Sheet1");
+            foreach (DataRow dr in ds.Tables[0].Rows)
             {
-                int Number = 0;
-                if(!int.TryParse(data[i].编号.Substring(5, 2), out Number))
+                foreach (DataColumn dc in ds.Tables[0].Columns)
                 {
-                    return "编号出错，请联系管理员。";
+                    if (dr[dc].ToString().StartsWith("@", false, null))
+                    {
+                        bool HasData = false;
+                        string key = dr[dc].ToString().Replace("@", "");
+                        foreach(Model_报表类 a in data)
+                        {
+                            if(key == a.编号)
+                            {
+                                xlWorkSheet.Cells[y + 1, x] = a.本期数;
+                                xlWorkSheet.Cells[y + 1, x + 1] = a.累计数;
+                                HasData = true;
+                            }
+                        }
+                        if (!HasData)
+                        {
+                            xlWorkSheet.Cells[y + 1, x] = "";
+                            xlWorkSheet.Cells[y + 1, x + 1] = "";
+                        }
+                    }
+                    x++;
                 }
-                //if (i < 7)
-                if (data[i].编号.StartsWith("50101"))
-                {
-                    xlWorkSheet.Cells[8 + Number, "B"] = data[i].本期数;
-                    xlWorkSheet.Cells[8 + Number, "C"] = data[i].累计数;
-                    decimal.TryParse(data[i].本期数, out dn);
-                    decimal.TryParse(data[i].累计数, out dy);
-                    b101 += dn;
-                    b102 += dy;
-                }
-                else if (data[i].编号 == "5010221")
-                {
-                    xlWorkSheet.Cells[7, "I"] = data[i].本期数;
-                    xlWorkSheet.Cells[7, "J"] = data[i].累计数;
-                    decimal.TryParse(data[i].本期数, out dn);
-                    decimal.TryParse(data[i].累计数, out dy);
-                    b201 += dn;
-                    b202 += dy;
-                }
-                else if (data[i].编号.StartsWith("50102"))
-                {
-                    xlWorkSheet.Cells[16 + Number, "B"] = data[i].本期数;
-                    xlWorkSheet.Cells[16 + Number, "C"] = data[i].累计数;
-                    decimal.TryParse(data[i].本期数, out dn);
-                    decimal.TryParse(data[i].累计数, out dy);
-                    b201 += dn;
-                    b202 += dy;
-                }
-                else if (data[i].编号.StartsWith("50103"))
-                {
-                    xlWorkSheet.Cells[8 + Number, "I"] = data[i].本期数;
-                    xlWorkSheet.Cells[8 + Number, "J"] = data[i].累计数;
-                    decimal.TryParse(data[i].本期数, out dn);
-                    decimal.TryParse(data[i].累计数, out dy);
-                    b301 += dn;
-                    b302 += dy;
-                }
-                else if (data[i].编号.StartsWith("50104"))
-                {
-                    xlWorkSheet.Cells[23 + Number, "I"] = data[i].本期数;
-                    xlWorkSheet.Cells[23 + Number, "J"] = data[i].累计数;
-                    decimal.TryParse(data[i].本期数, out dn);
-                    decimal.TryParse(data[i].累计数, out dy);
-                    b401 += dn;
-                    b402 += dy;
-                }
-
-                //2级科目设置
-                xlWorkSheet.Cells[8, "B"] = b101;
-                xlWorkSheet.Cells[8, "C"] = b102;
-                xlWorkSheet.Cells[16, "B"] = b201;
-                xlWorkSheet.Cells[16, "C"] = b202;
-                xlWorkSheet.Cells[8, "I"] = b301;
-                xlWorkSheet.Cells[8, "J"] = b302;
-                xlWorkSheet.Cells[23, "I"] = b401;
-                xlWorkSheet.Cells[23, "J"] = b402;
-
-                xlWorkSheet.Cells[7, "B"] = (b101 + b201 + b301 + b401);
-                xlWorkSheet.Cells[7, "C"] = (b102 + b202 + b302 + b402);
+                y++;
+                x = 1;
             }
 
+            //计算合计
+            for (int i = 0; i < 7; i++ )
+            {
+                decimal temp101 = 0m, temp102 = 0m;
+                decimal.TryParse(((xls.Range)xlWorkSheet.Cells[i + 9, "B"]).Text, out temp101);
+                b101 += temp101;
+                decimal.TryParse(((xls.Range)xlWorkSheet.Cells[i + 9, "C"]).Text, out temp102);
+                b102 += temp102;
+            }
+            for (int i = 17; i < 34; i++ )
+            {
+                decimal temp201 = 0m, temp202 = 0m;
+                decimal.TryParse(((xls.Range)xlWorkSheet.Cells[i, "B"]).Text, out temp201);
+                b201 += temp201;
+                decimal.TryParse(((xls.Range)xlWorkSheet.Cells[i, "C"]).Text, out temp202);
+                b202 += temp202;
+            }
+            decimal temp201b = 0m, temp202b = 0m;
+            decimal.TryParse(((xls.Range)xlWorkSheet.Cells[7, "B"]).Text, out temp201b);
+            b201 += temp201b;
+            decimal.TryParse(((xls.Range)xlWorkSheet.Cells[7, "C"]).Text, out temp202b);
+            b202 += temp202b;
+            for (int i = 0; i < 14; i++)
+            {
+                decimal temp301 = 0m, temp302 = 0m;
+                decimal.TryParse(((xls.Range)xlWorkSheet.Cells[i + 9, "I"]).Text, out temp301);
+                b301 += temp301;
+                decimal.TryParse(((xls.Range)xlWorkSheet.Cells[i + 9, "J"]).Text, out temp302);
+                b302 += temp302;
+            }
+            for (int i = 24; i < 30; i++)
+            {
+                decimal temp401 = 0m, temp402 = 0m;
+                decimal.TryParse(((xls.Range)xlWorkSheet.Cells[i, "I"]).Text, out temp401);
+                b401 += temp401;
+                decimal.TryParse(((xls.Range)xlWorkSheet.Cells[i, "J"]).Text, out temp402);
+                b402 += temp402;
+            }
 
+            xlWorkSheet.Cells[8, "B"] = b101;
+            xlWorkSheet.Cells[8, "C"] = b102;
+            xlWorkSheet.Cells[16, "B"] = b201;
+            xlWorkSheet.Cells[16, "C"] = b202;
+            xlWorkSheet.Cells[8, "I"] = b301;
+            xlWorkSheet.Cells[8, "J"] = b302;
+            xlWorkSheet.Cells[23, "I"] = b401;
+            xlWorkSheet.Cells[23, "J"] = b402;
+
+            xlWorkSheet.Cells[7, "B"] = (b101 + b201 + b301 + b401);
+            xlWorkSheet.Cells[7, "C"] = (b102 + b202 + b302 + b402);
             #endregion
 
             xlApp.Visible = true;
