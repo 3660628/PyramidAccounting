@@ -369,6 +369,7 @@
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <None Include="app.config" />
+    <None Include="Data\客户资料\PyramidAccounting.db" />
     <None Include="Data\打印\三栏明细账模板.xls">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
