@@ -310,8 +310,6 @@ namespace PA.View.Pages.TwoTabControl
                 #region 本期数赋值
                 decimal.TryParse(Label_B基本工资.Content.ToString(), out dn);
                 b101 += dn;
-                decimal.TryParse(Label_B基本工资.Content.ToString(), out dn);
-                b101 += dn;
                 decimal.TryParse(Label_B津贴.Content.ToString(), out dn);
                 b101 += dn;
                 decimal.TryParse(Label_B奖金.Content.ToString(), out dn);
