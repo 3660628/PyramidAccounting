@@ -125,20 +125,20 @@ namespace PA.ViewModel
             List<Model_报表类> list = new List<Model_报表类>();
             string dropSql = "drop table IF EXISTS sbtemp";
             sqlList.Add(dropSql);
-            string _sql1 = "create table sbtemp(detail text,period int,fee decimal)";
+            string _sql1 = "create table sbtemp(subject_name text,period int,fee decimal)";
             sqlList.Add(_sql1);
-            string _sql2 = "insert into sbtemp SELECT a.DETAIL,b.PERIOD,total(a.CREDIT - a.DEBIT) AS fee FROM "
+            string _sql2 = "insert into sbtemp select b.subject_name,a.PERIOD,a.fee from (SELECT a.DETAIL,b.PERIOD,total(a.DEBIT - a.CREDIT) AS fee FROM "
                     + DBTablesName.T_VOUCHER_DETAIL + " a LEFT JOIN "
-                    + DBTablesName.T_VOUCHER + " b ON a.PARENTID = b.ID where b.REVIEW_MARK=1 and a.detail like '501%' GROUP BY a.DETAIL,b.PERIOD";
+                    + DBTablesName.T_VOUCHER + " b ON a.PARENTID = b.ID where b.REVIEW_MARK=1 and a.detail like '501%' GROUP BY a.DETAIL,b.PERIOD ) a LEFT JOIN "
+                    + DBTablesName.T_SUBJECT 
+                    + " b ON a.DETAIL = b.subject_id group by a.PERIOD,b.SUBJECT_NAME";
             sqlList.Add(_sql2);
             bool flag = db.BatchOperate(sqlList);
             if ( flag )
             {
-                string _sql3 = "select a.detail,a.fee,b.fee from (select detail,fee from sbtemp where period="
-                + index + ") a left join (select detail,sum(fee) as fee from sbtemp where period<=" +
-                index + " group by detail) b on a.detail=b.detail "
-                + "where a.detail not in (select subject_id from " + DBTablesName.T_SUBJECT
-                + " where parent_id='501') order by a.detail ";
+                string _sql3 = "select a.subject_name,a.fee,b.fee from (select subject_name,fee from sbtemp where period="
+                + index + ") a left join (select subject_name,sum(fee) as fee from sbtemp where period<=" +
+                index + " group by subject_name) b on a.subject_name=b.subject_name";
                 DataTable dt = db.Query(_sql3).Tables[0];
                 foreach (DataRow d in dt.Rows)
                 {

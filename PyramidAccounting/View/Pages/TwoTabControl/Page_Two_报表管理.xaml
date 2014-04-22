@@ -463,22 +463,12 @@
                                 
                                 <Border BorderBrush="White" BorderThickness="0,1,0,0" Grid.Column="5" Margin="0" Grid.Row="2" Background="#FF99CCFF"/>
                                 <Border BorderBrush="White" BorderThickness="1,1,1,0" Grid.Column="6" Margin="0" Grid.Row="2" Background="#FF99CCFF" Height="25" VerticalAlignment="Top"/>
-                                <Border BorderBrush="White" BorderThickness="1,1,1,0" Grid.Column="8" Margin="0" Grid.Row="2" Background="#FF99CCFF"/>
-                                <Border BorderBrush="White" BorderThickness="0,1,0,0" Grid.Column="9" Margin="0" Grid.Row="2" Background="#FF99CCFF"/>
-                                <Border BorderBrush="White" BorderThickness="1,1,1,0" Grid.Column="10" Margin="0" Grid.Row="2" Background="#FF99CCFF"/>
-                                <Border BorderBrush="White" BorderThickness="0,1,0,0" Grid.Column="11" Margin="0" Grid.Row="2" Background="#FF99CCFF"/>
-                                <Border BorderBrush="White" BorderThickness="1,1,1,0" Grid.Column="12" Margin="0" Grid.Row="2" Background="#FF99CCFF"/>
-                                <Border BorderBrush="White" BorderThickness="0,1,0,0" Grid.Column="13" Margin="0" Grid.Row="2" Background="#FF99CCFF"/>
                                 <!--其他-->
                                 <!--其他。竖-->
                                 <Border BorderBrush="#FF99CCFF" BorderThickness="1,0" Margin="0" Grid.Column="0" Grid.Row="3" Grid.RowSpan="99"/>
                                 <Border BorderBrush="#FF99CCFF" BorderThickness="1,0" Margin="0" Grid.Column="2" Grid.Row="3" Grid.RowSpan="99"/>
                                 <Border BorderBrush="#FF99CCFF" BorderThickness="1,0" Margin="0" Grid.Column="4" Grid.Row="3" Grid.RowSpan="99"/>
                                 <Border BorderBrush="#FF99CCFF" BorderThickness="1,0" Margin="0" Grid.Column="6" Grid.Row="3" Grid.RowSpan="99"/>
-                                <Border BorderBrush="#FF99CCFF" BorderThickness="1,0" Margin="0" Grid.Column="8" Grid.Row="3" Grid.RowSpan="99"/>
-                                <Border BorderBrush="#FF99CCFF" BorderThickness="1,0" Margin="0" Grid.Column="10" Grid.Row="3" Grid.RowSpan="99"/>
-                                <Border BorderBrush="#FF99CCFF" BorderThickness="1,0" Margin="0" Grid.Column="12" Grid.Row="3" Grid.RowSpan="99"/>
-                                <Border BorderBrush="#FF99CCFF" BorderThickness="0,0,1,0" Margin="0" Grid.Column="13" Grid.Row="3" Grid.RowSpan="99"/>
                                 <!--其他。横-->
                                 <Border BorderBrush="#FF99CCFF" BorderThickness="0,1" Margin="0" Grid.Row="3" Grid.ColumnSpan="99"/>
                                 <Border BorderBrush="#FF99CCFF" BorderThickness="0,1" Margin="0" Grid.Row="5" Grid.ColumnSpan="99"/>
@@ -554,7 +544,7 @@
                                 <Label Content="14.劳务费" HorizontalAlignment="Left" Grid.Row="26"/>
                                 <Label Content="14.其他对个人和家庭的补助支出" HorizontalAlignment="Left" Grid.Column="4" Grid.Row="18"/>
                                 <Label Content="15.委托业务费" HorizontalAlignment="Left" Grid.Row="27"/>
-                                <Label Content="16.公会经费" HorizontalAlignment="Left" Grid.Row="28"/>
+                                <Label Content="16.工会经费" HorizontalAlignment="Left" Grid.Row="28"/>
                                 <Label Content="17.福利费" HorizontalAlignment="Left" Grid.Row="29"/>
                                 <!--支出合计-->
                                 <Label x:Name="Label_A01" Content="" HorizontalAlignment="Center"   Grid.Column="1" Grid.Row="3" />
@@ -614,8 +604,8 @@
                                 <Label x:Name="Label_L劳务费" Content="" HorizontalAlignment="Center"	Grid.Column="2" Grid.Row="26" />
                                 <Label x:Name="Label_B委托业务费" Content="" HorizontalAlignment="Center"	Grid.Column="1" Grid.Row="27" />
                                 <Label x:Name="Label_L委托业务费" Content="" HorizontalAlignment="Center"	Grid.Column="2" Grid.Row="27" />
-                                <Label x:Name="Label_B公会经费" Content="" HorizontalAlignment="Center"	Grid.Column="1" Grid.Row="28" />
-                                <Label x:Name="Label_L公会经费" Content="" HorizontalAlignment="Center"	Grid.Column="2" Grid.Row="28" />
+                                <Label x:Name="Label_B工会经费" Content="" HorizontalAlignment="Center"	Grid.Column="1" Grid.Row="28" />
+                                <Label x:Name="Label_L工会经费" Content="" HorizontalAlignment="Center"	Grid.Column="2" Grid.Row="28" />
                                 <Label x:Name="Label_B福利费" Content="" HorizontalAlignment="Center"	Grid.Column="1" Grid.Row="29" />
                                 <Label x:Name="Label_L福利费" Content="" HorizontalAlignment="Center"	Grid.Column="2" Grid.Row="29" />
                                 <Label x:Name="Label_B其他商品和服务支出" Content="" HorizontalAlignment="Center"	Grid.Column="5" Grid.Row="3" />

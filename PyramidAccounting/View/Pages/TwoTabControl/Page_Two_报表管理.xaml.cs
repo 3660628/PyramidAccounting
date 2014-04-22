@@ -283,6 +283,8 @@ namespace PA.View.Pages.TwoTabControl
             list = vmr.GetAdministrativeExpenseDetail(value + 1);
             decimal dy = 0;
             decimal dn = 0;
+
+            decimal temp1 = 0;
             //二级科目
             decimal b101 = 0;
             decimal b102 = 0;
@@ -303,58 +305,230 @@ namespace PA.View.Pages.TwoTabControl
                     lb2.Content = list[i].累计数;
                     decimal.TryParse(list[i].本期数, out dn);
                     decimal.TryParse(list[i].累计数, out dy);
-                    if (list[i].编号.StartsWith("50101"))
-                    {
-                        b101 += dn;
-                        b102 += dy;
-                    }
-                    else if (list[i].编号.StartsWith("50102"))
-                    {
-                        b201 += dn;
-                        b202 += dy;
-                    }
-                    else if (list[i].编号.StartsWith("50103"))
-                    {
-                        b301 += dn;
-                        b302 += dy;
-                    }
-                    else if (list[i].编号.StartsWith("50104"))
-                    {
-                        b401 += dn;
-                        b402 += dy;
-                    }
-
-                    //2级科目设置
-                    Label_B101.Content = b101;
-                    Label_B102.Content = b102;
-                    Label_B201.Content = b201;
-                    Label_B202.Content = b202;
-                    Label_B301.Content = b301;
-                    Label_B302.Content = b302;
-                    Label_B401.Content = b401;
-                    Label_B402.Content = b402;
-
-                    Label_A01.Content = (b101 + b201 + b301 + b401);
-                    Label_A02.Content = (b102 + b202 + b302 + b402);
                 }
+                //2级科目设置
+                #region 本期数赋值
+                decimal.TryParse(Label_B基本工资.Content.ToString(), out dn);
+                b101 += dn;
+                decimal.TryParse(Label_B基本工资.Content.ToString(), out dn);
+                b101 += dn;
+                decimal.TryParse(Label_B津贴.Content.ToString(), out dn);
+                b101 += dn;
+                decimal.TryParse(Label_B奖金.Content.ToString(), out dn);
+                b101 += dn;
+                decimal.TryParse(Label_B社会保障缴费.Content.ToString(), out dn);
+                b101 += dn;
+                decimal.TryParse(Label_B伙食费.Content.ToString(), out dn);
+                b101 += dn;
+                decimal.TryParse(Label_B伙食补助费.Content.ToString(), out dn);
+                b101 += dn;
+                decimal.TryParse(Label_B其他.Content.ToString(), out dn);
+                b101 += dn;
+
+                Label_B101.Content = b101;
+
+                decimal.TryParse(Label_B办公费.Content.ToString(), out dn);
+                b201 += dn;
+                decimal.TryParse(Label_B印刷费.Content.ToString(), out dn);
+                b201 += dn;
+                decimal.TryParse(Label_B咨询费.Content.ToString(), out dn);
+                b201 += dn;
+                decimal.TryParse(Label_B手续费.Content.ToString(), out dn);
+                b201 += dn;
+                decimal.TryParse(Label_B水电费.Content.ToString(), out dn);
+                b201 += dn;
+                decimal.TryParse(Label_B邮电费.Content.ToString(), out dn);
+                b201 += dn;
+                decimal.TryParse(Label_B交通费.Content.ToString(), out dn);
+                b201 += dn;
+                decimal.TryParse(Label_B差旅费.Content.ToString(), out dn);
+                b201 += dn;
+                decimal.TryParse(Label_B维修护费.Content.ToString(), out dn);
+                b201 += dn;
+                decimal.TryParse(Label_B租赁费.Content.ToString(), out dn);
+                b201 += dn;
+                decimal.TryParse(Label_B会议费.Content.ToString(), out dn);
+                b201 += dn;
+                decimal.TryParse(Label_B培训费.Content.ToString(), out dn);
+                b201 += dn;
+                decimal.TryParse(Label_B招待费.Content.ToString(), out dn);
+                b201 += dn;
+                decimal.TryParse(Label_B劳务费.Content.ToString(), out dn);
+                b201 += dn;
+                decimal.TryParse(Label_B委托业务费.Content.ToString(), out dn);
+                b201 += dn;
+                decimal.TryParse(Label_B工会经费.Content.ToString(), out dn);
+                b201 += dn;
+                decimal.TryParse(Label_B福利费.Content.ToString(), out dn);
+                b201 += dn;
+                decimal.TryParse(Label_B其他商品和服务支出.Content.ToString(), out dn);
+                b201 += dn;
+
+                Label_B201.Content = b201;
+
+                decimal.TryParse(Label_B离休费.Content.ToString(), out dn);
+                b301 += dn;
+                decimal.TryParse(Label_B退休费.Content.ToString(), out dn);
+                b301 += dn;
+                decimal.TryParse(Label_B退职役费.Content.ToString(), out dn);
+                b301 += dn;
+                decimal.TryParse(Label_B抚恤金.Content.ToString(), out dn);
+                b301 += dn;
+                decimal.TryParse(Label_B生活补助.Content.ToString(), out dn);
+                b301 += dn;
+                decimal.TryParse(Label_B救济费.Content.ToString(), out dn);
+                b301 += dn;
+                decimal.TryParse(Label_B医疗费.Content.ToString(), out dn);
+                b301 += dn;
+                decimal.TryParse(Label_B助学金.Content.ToString(), out dn);
+                b301 += dn;
+                decimal.TryParse(Label_B奖励金.Content.ToString(), out dn);
+                b301 += dn;
+                decimal.TryParse(Label_B生产补助.Content.ToString(), out dn);
+                b301 += dn;
+                decimal.TryParse(Label_B住房公积金.Content.ToString(), out dn);
+                b301 += dn;
+                decimal.TryParse(Label_B提租补贴.Content.ToString(), out dn);
+                b301 += dn;
+                decimal.TryParse(Label_B购房补贴.Content.ToString(), out dn);
+                b301 += dn;
+                decimal.TryParse(Label_B其他对个人和家庭的补助支出.Content.ToString(), out dn);
+                b301 += dn;
+
+                Label_B301.Content = b301;
+
+                decimal.TryParse(Label_B房屋建筑物购建.Content.ToString(), out dn);
+                b401 += dn;
+                decimal.TryParse(Label_B办公设备购置费.Content.ToString(), out dn);
+                b401 += dn;
+                decimal.TryParse(Label_B交通工具购置费.Content.ToString(), out dn);
+                b401 += dn;
+                decimal.TryParse(Label_B大型修缮.Content.ToString(), out dn);
+                b401 += dn;
+                decimal.TryParse(Label_B信息网络购建.Content.ToString(), out dn);
+                b401 += dn;
+                decimal.TryParse(Label_B其他资本性支出.Content.ToString(), out dn);
+                b401 += dn;
+
+                Label_B401.Content = b401;
+                #endregion
+
+                #region 年累计
+                decimal.TryParse(Label_L基本工资.Content.ToString(), out dy);
+                b102 += dy;
+                decimal.TryParse(Label_L基本工资.Content.ToString(), out dy);
+                b102 += dy;
+                decimal.TryParse(Label_L津贴.Content.ToString(), out dy);
+                b102 += dy;
+                decimal.TryParse(Label_L奖金.Content.ToString(), out dy);
+                b102 += dy;
+                decimal.TryParse(Label_L社会保障缴费.Content.ToString(), out dy);
+                b102 += dy;
+                decimal.TryParse(Label_L伙食费.Content.ToString(), out dy);
+                b102 += dy;
+                decimal.TryParse(Label_L伙食补助费.Content.ToString(), out dy);
+                b102 += dy;
+                decimal.TryParse(Label_L其他.Content.ToString(), out dy);
+                b102 += dy;
+
+                Label_B102.Content = b102;
+
+                decimal.TryParse(Label_L办公费.Content.ToString(), out dy);
+                b202 += dy;
+                decimal.TryParse(Label_L印刷费.Content.ToString(), out dy);
+                b202 += dy;
+                decimal.TryParse(Label_L咨询费.Content.ToString(), out dy);
+                b202 += dy;
+                decimal.TryParse(Label_L手续费.Content.ToString(), out dy);
+                b202 += dy;
+                decimal.TryParse(Label_L水电费.Content.ToString(), out dy);
+                b202 += dy;
+                decimal.TryParse(Label_L邮电费.Content.ToString(), out dy);
+                b202 += dy;
+                decimal.TryParse(Label_L交通费.Content.ToString(), out dy);
+                b202 += dy;
+                decimal.TryParse(Label_L差旅费.Content.ToString(), out dy);
+                b202 += dy;
+                decimal.TryParse(Label_L维修护费.Content.ToString(), out dy);
+                b202 += dy;
+                decimal.TryParse(Label_L租赁费.Content.ToString(), out dy);
+                b202 += dy;
+                decimal.TryParse(Label_L会议费.Content.ToString(), out dy);
+                b202 += dy;
+                decimal.TryParse(Label_L培训费.Content.ToString(), out dy);
+                b202 += dy;
+                decimal.TryParse(Label_L招待费.Content.ToString(), out dy);
+                b202 += dy;
+                decimal.TryParse(Label_L劳务费.Content.ToString(), out dy);
+                b202 += dy;
+                decimal.TryParse(Label_L委托业务费.Content.ToString(), out dy);
+                b202 += dy;
+                decimal.TryParse(Label_L工会经费.Content.ToString(), out dy);
+                b202 += dy;
+                decimal.TryParse(Label_L福利费.Content.ToString(), out dy);
+                b202 += dy;
+                decimal.TryParse(Label_L其他商品和服务支出.Content.ToString(), out dy);
+                b202 += dy;
+
+                Label_B202.Content = b202;
+                decimal.TryParse(Label_L离休费.Content.ToString(), out dy);
+                b302 += dy;
+                decimal.TryParse(Label_L退休费.Content.ToString(), out dy);
+                b302 += dy;
+                decimal.TryParse(Label_L退职役费.Content.ToString(), out dy);
+                b302 += dy;
+                decimal.TryParse(Label_L抚恤金.Content.ToString(), out dy);
+                b302 += dy;
+                decimal.TryParse(Label_L生活补助.Content.ToString(), out dy);
+                b302 += dy;
+                decimal.TryParse(Label_L救济费.Content.ToString(), out dy);
+                b302 += dy;
+                decimal.TryParse(Label_L医疗费.Content.ToString(), out dy);
+                b302 += dy;
+                decimal.TryParse(Label_L助学金.Content.ToString(), out dy);
+                b302 += dy;
+                decimal.TryParse(Label_L奖励金.Content.ToString(), out dy);
+                b302 += dy;
+                decimal.TryParse(Label_L生产补助.Content.ToString(), out dy);
+                b302 += dy;
+                decimal.TryParse(Label_L住房公积金.Content.ToString(), out dy);
+                b302 += dy;
+                decimal.TryParse(Label_L提租补贴.Content.ToString(), out dy);
+                b302 += dy;
+                decimal.TryParse(Label_L购房补贴.Content.ToString(), out dy);
+                b302 += dy;
+                decimal.TryParse(Label_L其他对个人和家庭的补助支出.Content.ToString(), out dy);
+                b302 += dy;
+
+                Label_B302.Content = b302;
+
+                decimal.TryParse(Label_L房屋建筑物购建.Content.ToString(), out dy);
+                b402 += dy;
+                decimal.TryParse(Label_L办公设备购置费.Content.ToString(), out dy);
+                b402 += dy;
+                decimal.TryParse(Label_L交通工具购置费.Content.ToString(), out dy);
+                b402 += dy;
+                decimal.TryParse(Label_L大型修缮.Content.ToString(), out dy);
+                b402 += dy;
+                decimal.TryParse(Label_L信息网络购建.Content.ToString(), out dy);
+                b402 += dy;
+                decimal.TryParse(Label_L其他资本性支出.Content.ToString(), out dy);
+                b402 += dy;
+
+                Label_B402.Content = b402;
+
+                #endregion
+                Label_B102.Content = b102;
+                Label_B202.Content = b202;
+                Label_B302.Content = b302;
+                Label_B402.Content = b402;
+
+                Label_A01.Content = (b101 + b201 + b301 + b401);
+                Label_A02.Content = (b102 + b202 + b302 + b402);
                 LastList = list;
             }
             else
             {
-                //for (int i = 0; i < 48; i++)
-                //{
-                //    try
-                //    {
-                //        Label lb = FindName("Label_B" + (i + 1)) as Label;
-                //        lb.Content = "";
-                //        Label lb2 = FindName("Label_L" + (i + 1)) as Label;
-                //        lb2.Content = "";
-                //    }
-                //    catch (Exception ee)
-                //    {
-                //        Console.Write(ee.Message);
-                //    }
-                //}
                 for (int j = 0; j < 4; j++)
                 {
                     Label lb = FindName("Label_B" + (j + 1) + "01") as Label;
