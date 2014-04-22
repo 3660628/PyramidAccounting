@@ -440,29 +440,29 @@
                                     <RowDefinition Height="25" />
                                 </Grid.RowDefinitions>
                                 <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="1*" MinWidth="150" MaxWidth="200"/>
-                                    <ColumnDefinition Width="*"/>
-                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="190" MinWidth="150" MaxWidth="200"/>
+                                    <ColumnDefinition Width="Auto" MinWidth="90"/>
+                                    <ColumnDefinition Width="Auto" MinWidth="90"/>
                                     <ColumnDefinition Width="2"/>
                                     <ColumnDefinition Width="190" MinWidth="150" MaxWidth="200"/>
-                                    <ColumnDefinition Width="*"/>
-                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="Auto" MinWidth="90"/>
+                                    <ColumnDefinition Width="Auto" MinWidth="90"/>
                                 </Grid.ColumnDefinitions>
                                 <!--第一行表头-->
                                 <Border BorderBrush="White" BorderThickness="0,0,1,0" Margin="0" Grid.RowSpan="3" Background="#FF99CCFF"/>
-                                <Border BorderBrush="White" BorderThickness="0,0,1,0" Grid.ColumnSpan="2" Grid.Column="1" Margin="0" Background="#FF99CCFF"/>
-                                <Border BorderBrush="White" BorderThickness="0,0,1,0" Grid.ColumnSpan="2" Grid.Column="5" Margin="0" Background="#FF99CCFF"/>
+                                <Border BorderBrush="White" BorderThickness="0" Grid.ColumnSpan="2" Grid.Column="1" Margin="0" Background="#FF99CCFF"/>
+                                <Border BorderBrush="White" BorderThickness="0" Grid.ColumnSpan="2" Grid.Column="5" Margin="0" Background="#FF99CCFF"/>
                                 <!--第二行表头-->
                                 <Border BorderBrush="White" BorderThickness="0,0,1,0" Margin="0" Grid.Column="4" Grid.RowSpan="3" Background="#FF99CCFF"/>
-                                <Border BorderBrush="White" BorderThickness="0,1,1,0" Grid.Column="1" Margin="0" Grid.Row="1" Background="#FF99CCFF" Grid.ColumnSpan="2"/>
-                                <Border BorderBrush="White" BorderThickness="0,1,1,0" Grid.Column="5" Margin="0" Grid.Row="1" Background="#FF99CCFF" Grid.ColumnSpan="2"/>
+                                <Border BorderBrush="White" BorderThickness="0,1,0,0" Grid.Column="1" Margin="0" Grid.Row="1" Background="#FF99CCFF" Grid.ColumnSpan="2"/>
+                                <Border BorderBrush="White" BorderThickness="0,1,0,0" Grid.Column="5" Margin="0" Grid.Row="1" Background="#FF99CCFF" Grid.ColumnSpan="2"/>
                                 
                                 <!--第三行表头-->
                                 <Border BorderBrush="White" BorderThickness="0,1,0,0" Grid.Column="1" Margin="0" Grid.Row="2" Background="#FF99CCFF"/>
-                                <Border BorderBrush="White" BorderThickness="1,1,1,0" Grid.Column="2" Margin="0" Grid.Row="2" Background="#FF99CCFF"/>
+                                <Border BorderBrush="White" BorderThickness="1,1,0,0" Grid.Column="2" Margin="0" Grid.Row="2" Background="#FF99CCFF"/>
                                 
                                 <Border BorderBrush="White" BorderThickness="0,1,0,0" Grid.Column="5" Margin="0" Grid.Row="2" Background="#FF99CCFF"/>
-                                <Border BorderBrush="White" BorderThickness="1,1,1,0" Grid.Column="6" Margin="0" Grid.Row="2" Background="#FF99CCFF" Height="25" VerticalAlignment="Top"/>
+                                <Border BorderBrush="White" BorderThickness="1,1,0,0" Grid.Column="6" Margin="0" Grid.Row="2" Background="#FF99CCFF" Height="25" VerticalAlignment="Top"/>
                                 <!--其他-->
                                 <!--其他。竖-->
                                 <Border BorderBrush="#FF99CCFF" BorderThickness="1,0" Margin="0" Grid.Column="0" Grid.Row="3" Grid.RowSpan="99"/>
