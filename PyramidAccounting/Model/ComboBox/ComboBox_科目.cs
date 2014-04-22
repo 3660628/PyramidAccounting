@@ -98,10 +98,16 @@ namespace PA.Model.ComboBox
                         + "     a.SUBJECT_ID,                                                       "
                         + "     a.subject_name,                                                     "
                         + "     b.SUBJECT_ID ParentID,                                              "
-                        + "     b.subject_name ParentName                                           "
+                        + "     b.subject_name ParentName,                                          "
+                        + "     c.SUBJECT_ID ParentID,                                              "
+                        + "     c.subject_name ParentName,                                          "
+                        + "     d.SUBJECT_ID ParentID,                                              "
+                        + "     d.subject_name ParentName                                           "
                         + " FROM                                                                    "
                         + "     T_SUBJECT_0 a                                                       "
-                        + " LEFT JOIN T_SUBJECT_0 b ON substr(a.SUBJECT_ID,0,4) = b.SUBJECT_ID      "
+                        + " LEFT JOIN T_SUBJECT_0 b ON substr(a.SUBJECT_ID, 0, 4) = b.SUBJECT_ID    "
+                        + " LEFT JOIN T_SUBJECT_0 c ON substr(a.SUBJECT_ID, 0, 6) = c.SUBJECT_ID    "
+                        + " LEFT JOIN T_SUBJECT_0 d ON substr(a.SUBJECT_ID, 0, 8) = d.SUBJECT_ID    "
                         + " WHERE                                                                   "
                         + "     a.SUBJECT_ID NOT IN (                                               "
                         + "         SELECT                                                          "
@@ -115,10 +121,18 @@ namespace PA.Model.ComboBox
                         + " ORDER BY                                                                "
                         + "     a.SUBJECT_ID                                                        ";
             DataBase db = new DataBase();
+            Console.WriteLine(sql);
             DataTable dt = db.Query(sql).Tables[0];
             for (int i = 0; i < dt.Rows.Count; i++)
             {
-                string str = dt.Rows[i][0] + "\t" + dt.Rows[i][1] + "\t" + dt.Rows[i][2] + "\t" + dt.Rows[i][3];
+                string str  = dt.Rows[i][0] + "\t" 
+                            + dt.Rows[i][1] + "\t"  //name
+                            + dt.Rows[i][2] + "\t"
+                            + dt.Rows[i][3] + "\t"  //name
+                            + dt.Rows[i][4] + "\t" 
+                            + dt.Rows[i][5] + "\t"  //name
+                            + dt.Rows[i][6] + "\t" 
+                            + dt.Rows[i][7];        //name
                 lists.Add(str);
             }
             return lists;

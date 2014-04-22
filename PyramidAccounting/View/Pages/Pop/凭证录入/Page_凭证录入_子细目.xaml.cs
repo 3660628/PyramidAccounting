@@ -36,14 +36,26 @@ namespace PA.View.Pages.Pop.凭证录入
             List<string> ItemsSourceData = new List<string>();
             foreach (string a in ChildData)
             {
+                string lastname = "";
+                string show;
                 if (a.Split('\t')[0].Length >= 9)
                 {
-                    ItemsSourceData.Add(a.Split('\t')[0] + "\t" + a.Split('\t')[1]);
+                    show = a.Split('\t')[0] + "\t";
                 }
                 else
                 {
-                    ItemsSourceData.Add(a.Split('\t')[0] + "\t\t" + a.Split('\t')[1]);
+                    show = a.Split('\t')[0] + "\t\t";
                 }
+                for (int i = 7; i > 1; i -= 2)
+                {
+                    if (lastname != a.Split('\t')[i] && a.Split('\t')[1] != a.Split('\t')[i])
+                    {
+                        lastname = a.Split('\t')[i];
+                        show += lastname + " - ";
+                    }
+                }
+                show += a.Split('\t')[1];
+                ItemsSourceData.Add(show);
             }
             this.ListBox_子细目.ItemsSource = ItemsSourceData;
         }
