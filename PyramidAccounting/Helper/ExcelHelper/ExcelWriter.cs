@@ -1190,17 +1190,17 @@ namespace PA.Helper.ExcelHelper
             for (int i = 0; i < 14; i++)
             {
                 decimal temp301 = 0m, temp302 = 0m;
-                decimal.TryParse(((xls.Range)xlWorkSheet.Cells[i + 9, "I"]).Text, out temp301);
+                decimal.TryParse(((xls.Range)xlWorkSheet.Cells[i + 9, "E"]).Text, out temp301);
                 b301 += temp301;
-                decimal.TryParse(((xls.Range)xlWorkSheet.Cells[i + 9, "J"]).Text, out temp302);
+                decimal.TryParse(((xls.Range)xlWorkSheet.Cells[i + 9, "F"]).Text, out temp302);
                 b302 += temp302;
             }
             for (int i = 24; i < 30; i++)
             {
                 decimal temp401 = 0m, temp402 = 0m;
-                decimal.TryParse(((xls.Range)xlWorkSheet.Cells[i, "I"]).Text, out temp401);
+                decimal.TryParse(((xls.Range)xlWorkSheet.Cells[i, "E"]).Text, out temp401);
                 b401 += temp401;
-                decimal.TryParse(((xls.Range)xlWorkSheet.Cells[i, "J"]).Text, out temp402);
+                decimal.TryParse(((xls.Range)xlWorkSheet.Cells[i, "F"]).Text, out temp402);
                 b402 += temp402;
             }
 
@@ -1208,10 +1208,10 @@ namespace PA.Helper.ExcelHelper
             xlWorkSheet.Cells[8, "C"] = b102;
             xlWorkSheet.Cells[16, "B"] = b201;
             xlWorkSheet.Cells[16, "C"] = b202;
-            xlWorkSheet.Cells[8, "I"] = b301;
-            xlWorkSheet.Cells[8, "J"] = b302;
-            xlWorkSheet.Cells[23, "I"] = b401;
-            xlWorkSheet.Cells[23, "J"] = b402;
+            xlWorkSheet.Cells[8, "E"] = b301;
+            xlWorkSheet.Cells[8, "F"] = b302;
+            xlWorkSheet.Cells[23, "E"] = b401;
+            xlWorkSheet.Cells[23, "F"] = b402;
 
             xlWorkSheet.Cells[7, "B"] = (b101 + b201 + b301 + b401);
             xlWorkSheet.Cells[7, "C"] = (b102 + b202 + b302 + b402);
