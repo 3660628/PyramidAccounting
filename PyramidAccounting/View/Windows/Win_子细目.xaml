@@ -1,7 +1,7 @@
 ﻿<Window x:Name="window" x:Class="PA.View.Windows.Win_子细目"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="子细目管理" Height="400" Width="450" WindowStartupLocation="CenterScreen" AllowsTransparency="True" WindowStyle="None" ResizeMode="NoResize" MouseLeftButtonDown="Window_MouseLeftButtonDown" Background="{x:Null}" FontFamily="NSimSun" TextOptions.TextFormattingMode="Display">
+        Title="子细目管理" Height="600" Width="450" WindowStartupLocation="CenterScreen" AllowsTransparency="True" WindowStyle="None" ResizeMode="NoResize" MouseLeftButtonDown="Window_MouseLeftButtonDown" Background="{x:Null}" FontFamily="NSimSun" TextOptions.TextFormattingMode="Display">
     <Window.Resources>
         <Storyboard x:Key="Storyboard_WinLoaded">
             <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="window">
@@ -148,6 +148,6 @@
         </TextBox>
         <Button FocusVisualStyle="{x:Null}" x:Name="Button_New_Add子细目" Content="添加" HorizontalAlignment="Left" Margin="380,91,0,0" VerticalAlignment="Top" Width="50" Height="22" Template="{DynamicResource ButtonControlTemplate_CommonBlue}" Foreground="White" Click="Button_New_Add子细目_Click"/>
         <ComboBox x:Name="ComboBox_New_父ID" HorizontalAlignment="Left" Margin="290,91,0,0" VerticalAlignment="Top" Width="80" Height="22" ToolTip="选择所属科目编号；若选择的是二级科目，则该新增科目为三级科目" DropDownClosed="ComboBox_New_父ID_DropDownClosed"/>
-        <Button FocusVisualStyle="{x:Null}" x:Name="Button_Del" Content="删除" HorizontalAlignment="right" Margin="0,358,10,0" VerticalAlignment="Top" Width="50" Click="Button_Del_Click" Template="{DynamicResource ButtonControlTemplate_Common}" Height="22"/>
+        <Button FocusVisualStyle="{x:Null}" x:Name="Button_Del" Content="删除" HorizontalAlignment="right" Margin="0,558,10,0" VerticalAlignment="Top" Width="50" Click="Button_Del_Click" Template="{DynamicResource ButtonControlTemplate_Common}" Height="22"/>
     </Grid>
 </Window>
