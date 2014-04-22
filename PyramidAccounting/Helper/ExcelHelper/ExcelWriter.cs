@@ -1092,7 +1092,7 @@ namespace PA.Helper.ExcelHelper
             xls.Application xlApp = null;
             xls.Workbook xlWorkBook;
             xls.Worksheet xlWorkSheet;
-            string SourceXls = Path + @"Data\打印\行政费用支出明细表模板2.xls";
+            string SourceXls = Path + @"Data\打印\行政费用支出明细表模板3.xls";
             string ExportXls = Path + @"Excel\打印\行政费用支出明细表" + DateNow + ".xls";
             try
             {
@@ -1120,7 +1120,6 @@ namespace PA.Helper.ExcelHelper
 
             #region fill data
             List<Model_报表类> data = new PA.ViewModel.ViewModel_ReportManager().GetAdministrativeExpenseDetail(ParmPeroid);
-            Console.WriteLine(data.Count);
             if(data.Count <= 0)
             {
                 return "没有数据";

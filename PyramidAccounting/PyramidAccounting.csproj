@@ -381,14 +381,13 @@
     <None Include="Data\打印\收入支出总表模板.xls">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="Data\打印\管理费用模板.xls">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
+    <None Include="Data\打印\管理费用模板.xls" />
     <None Include="Data\打印\管理费用模板18栏.xls">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Include="Data\打印\行政费用支出明细表模板.xls" />
-    <None Include="Data\打印\行政费用支出明细表模板2.xls">
+    <None Include="Data\打印\行政费用支出明细表模板2.xls" />
+    <None Include="Data\打印\行政费用支出明细表模板3.xls">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Include="Data\打印\记账凭证模板.xls">
