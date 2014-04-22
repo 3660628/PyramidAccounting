@@ -16,11 +16,14 @@ namespace PA.Helper.DataBase
     {
         public static string dataSource = "Data\\" + new XMLReader().ReadXML("数据库");
         private static string dbPassword = Secure.GetMD5_32(new UsbController().getSerialNumberFromDriveLetter());
-
+        private XMLReader xr = new XMLReader();
+        private XMLWriter xw = new XMLWriter();
         public DBInitialize()
         {
             Log.Write("DBInitialize");
         }
+
+      
         public void Initialize()
         {
             //新建数据库
@@ -99,6 +102,7 @@ namespace PA.Helper.DataBase
         /// <returns></returns>
         public static SQLiteConnection GetDBConnection()
         {
+            
             SQLiteConnection conn = new SQLiteConnection();
             SQLiteConnectionStringBuilder connstr = new SQLiteConnectionStringBuilder();
             connstr.DataSource = dataSource;
@@ -109,6 +113,27 @@ namespace PA.Helper.DataBase
             conn.ConnectionString = connstr.ToString();
             return conn;
         }
+        /// <summary>
+        /// 清除数据库密码
+        /// </summary>
+        public static void ClearPassword()
+        {
+            SQLiteConnection conn = GetDBConnection();
+            try
+            {
+                conn.Open();
+                conn.ChangePassword("");
+            }
+            catch (Exception e)
+            {
+                Log.Write(e.Message);
+            }
+            finally
+            {
+                conn.Close();
+            }
+        }
+
         /// <summary>
         /// 修改数据库密码
         /// </summary>

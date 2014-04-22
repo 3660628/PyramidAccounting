@@ -21,6 +21,7 @@ using PA.View.ResourceDictionarys.MessageBox;
 using PA.Helper.XMLHelper;
 using System.Threading;
 using PA.Helper.Tools;
+using System.IO;
 
 namespace PA.View.Pages.TwoTabControl
 {
@@ -284,11 +285,10 @@ namespace PA.View.Pages.TwoTabControl
         /// </summary>
         private void VisibilityData()
         {
-            /*if (new ViewModel_年初金额().IsSaved())
+            if (CommonInfo.权限值 != 4)
             {
-                this.DataGridTextColumn_fee.IsReadOnly = true;
-                this.Button_科目保存.Visibility = Visibility.Hidden;
-            }*/
+                Button_解密.Visibility = Visibility.Collapsed;
+            }
             if (CommonInfo.权限值 < 3)
             {
                 Expander_权限.Visibility = Visibility.Hidden;
@@ -631,6 +631,16 @@ namespace PA.View.Pages.TwoTabControl
             }
         }
 
+        #endregion
+        #region 拷贝数据库
+        private void Button_解密_Click(object sender, RoutedEventArgs e)
+        {
+            DBInitialize.ClearPassword();
+            File.Copy(DBInitialize.dataSource, "Data\\DataWithoutPassword.db", true);
+            DBInitialize.ChangeDBPassword();
+            Log.Write("成功拷贝机密文件");
+            MessageBoxCommon.Show("拷贝成功!");    
+        }
         #endregion
     }
 }

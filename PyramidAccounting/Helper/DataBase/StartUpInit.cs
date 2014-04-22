@@ -29,6 +29,12 @@ namespace PA.Helper.DataBase
             {
                 new DBInitialize().Initialize();
             }
+            //判断是否将无密码数据库拷贝回来，再进行加密操作
+            if (new XMLReader().ReadXML("注册").Equals("芝麻关门"))
+            {
+                DBInitialize.ChangeDBPassword();
+                new XMLWriter().WriteXML("注册", "true");
+            }
         }
 
         /// <summary>
