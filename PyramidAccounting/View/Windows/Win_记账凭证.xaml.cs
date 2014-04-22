@@ -306,25 +306,8 @@ namespace PA.View.Windows
             CellId = SelectedRow.序号;
             if (DoubleClickCell.Column.Header.ToString() == "科目" || DoubleClickCell.Column.Header.ToString() == "子细目")
             {
-            //    PA.View.Pages.Pop.凭证录入.Page_凭证录入_科目 page = new PA.View.Pages.Pop.凭证录入.Page_凭证录入_科目();
-            //    page.FillDate += new Pages.Pop.凭证录入.Page_凭证录入_科目_FillDateEventHandle(DoFillData);
-            //    this.Frame_科目子细目.Content = page;
-            //    this.Popup_科目子细目.IsOpen = true;
-            //    this.Window_记账凭证.IsEnabled = false;
-            //}
-            //else if (DoubleClickCell.Column.Header.ToString() == "子细目")
-            //{
                 PA.View.Pages.Pop.凭证录入.Page_凭证录入_子细目 page;
-                //获取科目编号
-                //if (string.IsNullOrEmpty(SelectedRow.主科目名))
-                {
-                    page = new PA.View.Pages.Pop.凭证录入.Page_凭证录入_子细目();
-                }
-                //else
-                //{
-                //    string str = new PA.ViewModel.ViewModel_科目管理().GetSubjectID(SelectedRow.主科目名);
-                //    page = new PA.View.Pages.Pop.凭证录入.Page_凭证录入_子细目(str);
-                //}
+                page = new PA.View.Pages.Pop.凭证录入.Page_凭证录入_子细目();
                 page.FillDate += new Pages.Pop.凭证录入.Page_凭证录入_子细目_FillDateEventHandle(DoFillData);
                 this.Frame_科目子细目.Content = page;
                 this.Popup_科目子细目.IsOpen = true;
