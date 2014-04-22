@@ -60,10 +60,6 @@ namespace PA.View.Pages.TwoTabControl
             SubscribeToEvent();
             VisibilityData();
             LoadPage();
-            if (CommonInfo.SoftwareState == (int)ENUM.EM_SOFTWARESTATE.已注册)
-            {
-                Grid_Register.Visibility = Visibility.Collapsed;
-            }
             _mr = vmr.GetOperateLog();
         }
 
@@ -296,6 +292,10 @@ namespace PA.View.Pages.TwoTabControl
             if (CommonInfo.权限值 < 2)
             {
                 Expander_账套管理.Visibility = Visibility.Hidden;
+            }
+            if (CommonInfo.SoftwareState == (int)ENUM.EM_SOFTWARESTATE.已注册)
+            {
+                Grid_Register.Visibility = Visibility.Collapsed;
             }
         }
         private void Button_科目保存_Click(object sender, RoutedEventArgs e)
