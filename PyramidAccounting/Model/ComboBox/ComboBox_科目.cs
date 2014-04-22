@@ -121,7 +121,6 @@ namespace PA.Model.ComboBox
                         + " ORDER BY                                                                "
                         + "     a.SUBJECT_ID                                                        ";
             DataBase db = new DataBase();
-            Console.WriteLine(sql);
             DataTable dt = db.Query(sql).Tables[0];
             for (int i = 0; i < dt.Rows.Count; i++)
             {
