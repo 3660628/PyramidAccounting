@@ -25,6 +25,7 @@ namespace PA.Helper.Tools
         {
             List<string> list = new List<string>();
             int length = 0;
+            value = value.Replace("-", "");
             if (value.Equals("0"))
             {
                 for (int i = 0; i < size; i++)
@@ -37,6 +38,11 @@ namespace PA.Helper.Tools
 
             if (value.IndexOf(".") > 0)
             {
+                string temp = value.Split('.')[1];
+                if (temp.Length == 1)
+                {
+                    value += "0";
+                }
                 value = value.Replace(".", "");
                 length = value.Length;
                 char[] cc = value.ToCharArray();

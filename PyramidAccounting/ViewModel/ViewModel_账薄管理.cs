@@ -231,7 +231,7 @@ namespace PA.ViewModel
 
                 yearfee = (Convert.ToDecimal(yearfee) - credit + debit ).ToString();
                 _list.Clear(); 
-                _list = ut.Turn(yearfee.Replace("-",""), 10);
+                _list = ut.Turn(yearfee, 10);
                 m.余额1 = _list[0];
                 m.余额2 = _list[1];
                 m.余额3 = _list[2];
@@ -497,14 +497,14 @@ namespace PA.ViewModel
 
             subject_id = subject_id.Split('\t')[0];
             detail = detail.Split('\t')[0];
-            string sql = "select strftime(b.op_time),a.voucher_no,a.abstract,a.debit,a.credit,total(a.credit-a.debit),case when a.debit>a.credit then '借' when a.debit<a.credit then '贷' else '平' end  from " 
+            string sql = "select strftime(b.op_time),a.voucher_no,a.abstract,a.debit,a.credit,a.credit - a.debit,case when a.debit>a.credit then '借' when a.debit<a.credit then '贷' else '平' end  from " 
                 + DBTablesName.T_VOUCHER_DETAIL
                 + " a left join " 
                 + DBTablesName.T_VOUCHER 
                 + " b on a.parentid=b.id where a.subject_id='"
                 + subject_id
-                + "'" + " and b.delete_mark=0 and b.REVIEW_MARK=1 and  a.detail LIKE '"
-                + detail + "%' order by b.op_time";
+                + "'" + " and b.delete_mark=0 and b.REVIEW_MARK=1 and  a.detail='"
+                + detail + "' order by b.op_time";
 
             //查年初数
             string sql2 = "select case when b.borrow_mark=1 then '借' else '贷' end,abs(a.fee*b.borrow_mark) from " 
@@ -531,10 +531,11 @@ namespace PA.ViewModel
             firstRow.余额12 = _list[11];
             list.Add(firstRow);
 
-            string yearfee = firstRow.余额;
+            decimal yearfee = 0;
+            decimal.TryParse(firstRow.余额,out yearfee);
 
             DataTable dt = db.Query(sql).Tables[0];
-            if (!string.IsNullOrEmpty(dt.Rows[0][0].ToString()))
+            if (dt.Rows.Count > 0)
             {
                 foreach (DataRow d in dt.Rows)
                 {
@@ -549,7 +550,6 @@ namespace PA.ViewModel
                     m.贷方金额 = d[4].ToString();
 
                     string temp = string.Empty;
-                    temp = d[5].ToString();  //差额
 
                     m.借或贷 = d[6].ToString();
 
@@ -583,9 +583,10 @@ namespace PA.ViewModel
                     m.借方金额11 = _list[10];
                     m.借方金额12 = _list[11];
 
-                    yearfee = (Convert.ToDecimal(yearfee) - Convert.ToDecimal(temp)).ToString();
+                    yearfee -= Convert.ToDecimal(m.贷方金额) - Convert.ToDecimal(m.借方金额);
+                    string tempvalue = yearfee.ToString();
                     _list.Clear();
-                    _list = ut.Turn(yearfee, 12);
+                    _list = ut.Turn(tempvalue, 12);
                     m.余额1 = _list[0];
                     m.余额2 = _list[1];
                     m.余额3 = _list[2];
