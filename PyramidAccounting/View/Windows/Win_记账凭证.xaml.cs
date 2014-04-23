@@ -185,7 +185,10 @@ namespace PA.View.Windows
         {
             SaveVoucherDetails();
             Voucher.ID = Guid.NewGuid().ToString();
-            Voucher.制表时间 = (DateTime)this.DatePicker_Date.SelectedDate + DateTime.Now.TimeOfDay;
+            if ((DateTime)this.DatePicker_Date.SelectedDate != Voucher.制表时间.Date)
+            {
+                Voucher.制表时间 = (DateTime)this.DatePicker_Date.SelectedDate + DateTime.Now.TimeOfDay;
+            }
             Voucher.附属单证数 = int.Parse(this.TextBox_附属单证.Text.Trim());
             Voucher.合计借方金额 = decimal.Parse(this.Label_借方合计.Content.ToString());
             Voucher.合计贷方金额 = decimal.Parse(this.Label_贷方合计.Content.ToString());
