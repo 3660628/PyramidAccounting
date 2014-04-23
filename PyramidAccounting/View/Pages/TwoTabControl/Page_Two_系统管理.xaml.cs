@@ -637,7 +637,9 @@ namespace PA.View.Pages.TwoTabControl
         {
             DBInitialize.ClearPassword();
             File.Copy(DBInitialize.dataSource, "Data\\DataWithoutPassword.db", true);
+            new XMLWriter().WriteXML("注册", "false");
             DBInitialize.ChangeDBPassword();
+            new XMLWriter().WriteXML("注册", "true");
             Log.Write("成功拷贝机密文件");
             MessageBoxCommon.Show("拷贝成功!");    
         }
