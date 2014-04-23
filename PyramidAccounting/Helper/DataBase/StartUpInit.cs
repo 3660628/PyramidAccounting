@@ -5,6 +5,7 @@ using System.Text;
 using System.IO;
 using PA.Helper.XMLHelper;
 using PA.Helper.DataDefind;
+using PA.View.ResourceDictionarys.MessageBox;
 
 namespace PA.Helper.DataBase
 {
@@ -15,7 +16,7 @@ namespace PA.Helper.DataBase
             
         }
 
-        public void Init()
+        public bool Init()
         {
             string currentDBName = new XMLReader().ReadXML("数据库");
             List<string> folderList = new List<string>();
@@ -27,7 +28,9 @@ namespace PA.Helper.DataBase
 
             if (!File.Exists("Data\\" + currentDBName))
             {
-                new DBInitialize().Initialize();
+                MessageBoxCommon.Show("找不到数据库,请联系软件开发商！");
+                return false;
+                //new DBInitialize().Initialize();
             }
             //判断是否将无密码数据库拷贝回来，再进行加密操作
             if (new XMLReader().ReadXML("注册").Equals("芝麻关门"))
@@ -35,6 +38,7 @@ namespace PA.Helper.DataBase
                 DBInitialize.ChangeDBPassword();
                 new XMLWriter().WriteXML("注册", "true");
             }
+            return true;
         }
 
         /// <summary>

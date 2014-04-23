@@ -32,9 +32,7 @@ namespace PA
         public Win_SignIn()
         {
             InitializeComponent();
-            new PA.Helper.DataBase.StartUpInit().Init();
-            InitComboBox();
-            this.TextBox_登陆用户名.Focus();
+            Load();
         }
 
         public Win_SignIn(double Left, double Top)
@@ -43,10 +41,20 @@ namespace PA
             this.WindowStartupLocation = System.Windows.WindowStartupLocation.Manual;
             this.Left = Left;
             this.Top = Top;
-            new PA.Helper.DataBase.StartUpInit().Init();
-            InitComboBox();
-            this.TextBox_登陆用户名.Focus();
-            
+            Load();
+        }
+        private void Load()
+        {
+            bool flag = new PA.Helper.DataBase.StartUpInit().Init();
+            if (flag)
+            {
+                InitComboBox();
+                this.TextBox_登陆用户名.Focus();
+            }
+            else
+            {
+                this.Button_Close_Click(this, null);
+            }
         }
         private void InitComboBox()
         {

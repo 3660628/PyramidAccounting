@@ -23,7 +23,7 @@ namespace PA.Helper.DataBase
             Log.Write("DBInitialize");
         }
 
-      
+        /*
         public void Initialize()
         {
             //新建数据库
@@ -68,10 +68,27 @@ namespace PA.Helper.DataBase
                 + "','" + (int)ENUM.EM_KEY.U盘标识 + "','" + _str + "','USB')";
             dataList.Add(sql);
             db.BatchOperate(dataList);
-
-            
-
         }
+        /// <summary>
+        /// 获取SQL创建脚步方法，封装成List<string>
+        /// </summary>
+        /// <param name="filePath"></param>
+        /// <returns></returns>
+        public List<string> getSqlList(string fileName)
+        {
+            string filePath = fileName;
+            List<string> sqlList = new List<string>();
+            {
+                string str = filePath;
+                string[] arr = str.Split(';');
+                foreach (string s in arr)
+                {
+                    sqlList.Add(s);
+                }
+            }
+            return sqlList;
+        }
+        
         private List<string> GetSubjectSqlList()
         {
             List<string> list = new List<string>();
@@ -95,7 +112,7 @@ namespace PA.Helper.DataBase
             }
             return list;
         }
-
+        */
         /// <summary>
         /// 获取数据库链接
         /// </summary>
@@ -158,24 +175,6 @@ namespace PA.Helper.DataBase
             }
             return flag;
         }
-        /// <summary>
-        /// 获取SQL创建脚步方法，封装成List<string>
-        /// </summary>
-        /// <param name="filePath"></param>
-        /// <returns></returns>
-        public List<string> getSqlList(string fileName)
-        {
-            string filePath = fileName;
-            List<string> sqlList = new List<string>();
-            {
-                string str = filePath;
-                string[] arr = str.Split(';');
-                foreach (string s in arr)
-                {
-                    sqlList.Add(s);
-                }
-            }
-            return sqlList;
-        }
+        
     }
 }
