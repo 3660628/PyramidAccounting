@@ -27,6 +27,7 @@ namespace PA
         private XMLReader xr = new XMLReader();
         private ViewModel_用户 vm = new ViewModel_用户();
         private ViewModel_操作日志 vmr = new ViewModel_操作日志();
+        private ViewModel_Books vmb = new ViewModel_Books();
         private ViewModel_系统管理 vsy = new ViewModel_系统管理();
 
         public Win_SignIn()
@@ -63,7 +64,7 @@ namespace PA
             ComboBox_账套.SelectedValuePath = "ID";
             ComboBox_账套.Text = new XMLReader().ReadXML("账套信息");
 
-            CommonInfo.U盘设备ID = vsy.GetUsbDeviceID();
+            CommonInfo.U盘设备ID = vsy.GetSystemValue((int)ENUM.EM_KEY.U盘标识);
             Log.Write(CommonInfo.U盘设备ID);
 
         }
@@ -110,7 +111,8 @@ namespace PA
                 CommonInfo.用户权限 = m.用户权限;
                 CommonInfo.权限值 = m.权限值;
                 CommonInfo.登录密码 = Password;
-                CommonInfo.制度索引 = Convert.ToInt32(xr.ReadXML("会计制度"));
+                CommonInfo.当前期 = vmb.GetPeriod();
+                CommonInfo.制度索引 = vsy.GetSystemValue((int)ENUM.EM_KEY.会计制度);
                 CommonInfo.是否初始化年初数 = new ViewModel_年初金额().IsSaved();
                 //先记录一些信息
                 Model_操作日志 mr = new Model_操作日志();

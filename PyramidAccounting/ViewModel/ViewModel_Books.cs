@@ -97,6 +97,7 @@ namespace PA.ViewModel
             int.TryParse(str, out i);
             return i;
         }
+        
 
         /// <summary>
         /// 更新期数

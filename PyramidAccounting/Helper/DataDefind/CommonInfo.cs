@@ -12,7 +12,7 @@ namespace PA.Helper.DataDefind
         private static string realname;
         private static string authority;
         private static int authority_value;
-        private static int system_index;
+        private static string system_index;
         private static string currentPassword;
         private static string confirmPassword;
         private static int period;
@@ -66,7 +66,7 @@ namespace PA.Helper.DataDefind
         /// <summary>
         /// 012345 按会计制度下拉框索引值设定
         /// </summary>
-        public static int 制度索引
+        public static string 制度索引
         {
             get { return CommonInfo.system_index; }
             set { CommonInfo.system_index = value; }

@@ -13,15 +13,20 @@ namespace PA.ViewModel
         DataBase db = new DataBase();
         UsbController usb = new UsbController();
         /// <summary>
-        /// 从数据库中获取第一次运行的存入的U盘标识
+        /// 从数据库中=查询数据
         /// </summary>
         /// <returns></returns>
-        public string GetUsbDeviceID()
+        public string GetSystemValue(int key)
         {
-            string sql = "select value from t_systeminfo where rkey='" + (int)ENUM.EM_KEY.U盘标识 + "'";
+            string sql = "select value from " + DBTablesName.T_SYSTEMINFO + " where rkey='" + key + "'";
             return db.GetSelectValue(sql);
         }
 
+        public bool UpdateStandardIndex(int index)
+        {
+            string sql = "update " + DBTablesName.T_SYSTEMINFO + " set value='" + index + "' where rkey='" + (int)ENUM.EM_KEY.会计制度 + "'";
+            return db.Excute(sql);
+        }
         /// <summary>
         /// 验证是否拷贝到其他地方运行
         /// </summary>

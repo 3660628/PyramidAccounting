@@ -28,6 +28,8 @@ namespace PA.View.Windows
         private DataBase db = new DataBase();
         private ComboBox_Common cc = new ComboBox_Common();
         private ViewModel_Books vb = new ViewModel_Books();
+        private ViewModel_系统管理 vsy = new ViewModel_系统管理();
+
         private Helper.XMLHelper.XMLReader xr = new Helper.XMLHelper.XMLReader();
         private PA.Helper.XMLHelper.XMLWriter xw = new Helper.XMLHelper.XMLWriter();
         private string date = DateTime.Now.ToString("yyyy-M-d");
@@ -53,7 +55,7 @@ namespace PA.View.Windows
             TextBox_year.Text = date.Split('-')[0];
             TextBox_期.Text = "1";
             ComboBox_制度.ItemsSource = cc.GetComboBox_会计制度();
-            ComboBox_制度.SelectedIndex = Convert.ToInt32(xr.ReadXML("会计制度"));
+            ComboBox_制度.SelectedIndex = Convert.ToInt32(vsy.GetSystemValue((int)ENUM.EM_KEY.会计制度));
         }
         
         #region Button事件
@@ -77,7 +79,7 @@ namespace PA.View.Windows
             Model.DataGrid.Model_账套 m = new Model.DataGrid.Model_账套();
             m.ID = DateTime.Now.ToString("yyyyMMddHHmmss");
             CommonInfo.账薄号 = m.ID;
-            CommonInfo.制度索引 = ComboBox_制度.SelectedIndex;
+            vsy.UpdateStandardIndex(ComboBox_制度.SelectedIndex);
             CommonInfo.当前期 = Convert.ToInt32(TextBox_期.Text.Trim());
             m.账套名称 = TextBox_账套名称.Text.Trim();
             m.单位名称 = TextBox_公司.Text.Trim();
@@ -90,8 +92,8 @@ namespace PA.View.Windows
             //修改下次启动时帐套的显示
             xw.WriteXML("账套信息", m.账套名称);
             xw.WriteXML("公司",TextBox_公司.Text.Trim());
-            xw.WriteXML("会计制度", ComboBox_制度.SelectedIndex.ToString());
-            xw.WriteXML("期", TextBox_期.Text.Trim());
+            //xw.WriteXML("会计制度", ComboBox_制度.SelectedIndex.ToString());
+            //xw.WriteXML("期", TextBox_期.Text.Trim());
 
             //数据创建步骤
             //1.创建账套

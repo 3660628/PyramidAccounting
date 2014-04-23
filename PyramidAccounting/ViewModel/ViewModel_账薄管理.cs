@@ -612,7 +612,6 @@ namespace PA.ViewModel
         /// </summary>
         public bool CheckOut()
         {
-            //string date = DateTime.Now.ToString("yyyy-MM-dd");
             string sql = "INSERT INTO " + DBTablesName.T_FEE
                           + "(OP_TIME,PERIOD,SUBJECT_ID,VOUCHER_NUMS,COMMENTS,DEBIT,CREDIT,MARK,DELETE_MARK,FEE) ";
             sql += "select op_time,period,subject_id,voucher_nums,comments,case when debit is null then 0 else debit end, case when credit is null then 0 else credit end,mark,0,"
@@ -633,7 +632,7 @@ namespace PA.ViewModel
                 + "SUBJECT_ID  ORDER BY SUBJECT_ID ) t on t.subject_id=b.subject_id where b.period = "
                 + (CommonInfo.当前期-1) + " group by b.subject_id) a";          
             bool flag = db.Excute(sql);
-            if (flag && CommonInfo.当前期 != 12)
+            if (flag)
             {
                 CommonInfo.当前期++;
             }
