@@ -70,18 +70,27 @@ namespace PA.Model.ComboBox
         public List<string> GetComboBox_期数(int type)
         {
             List<string> list = new List<string>();
+            int count = 0;
             switch (type)
             {
                 case 0:
                     list.Add("全部");
+                    count = CommonInfo.当前期;
+                    break;
+                case 1:
+                    count = CommonInfo.当前期 - 1;
                     break;
             }
             string str = vmb.GetValue();
             string value = str.Split('\t')[0].Split(',')[0].Split('年')[0];
-            int count = CommonInfo.当前期;
             for (int i = 1; i <= count; i++)
             {
                 string s = value + "年" + i + "期";
+                list.Add(s);
+            }
+            if (count == 0)
+            {
+                string s = value + "年1期";
                 list.Add(s);
             }
             return list;

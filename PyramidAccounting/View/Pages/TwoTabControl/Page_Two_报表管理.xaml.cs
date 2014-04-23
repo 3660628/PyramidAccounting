@@ -48,13 +48,13 @@ namespace PA.View.Pages.TwoTabControl
         private void FreshComboBox()
         {
             this.ComboBox_Date.ItemsSource = cbc.GetComboBox_期数(1);
-            this.ComboBox_Date.SelectedIndex = CommonInfo.当前期 - 1;
+            this.ComboBox_Date.SelectedIndex = CommonInfo.当前期 - 2;
 
             this.ComboBox_Date1.ItemsSource = cbc.GetComboBox_期数(1);
-            this.ComboBox_Date1.SelectedIndex = CommonInfo.当前期 - 1;
+            this.ComboBox_Date1.SelectedIndex = CommonInfo.当前期 - 2;
 
             this.ComboBox_Date2.ItemsSource = cbc.GetComboBox_期数(1);
-            this.ComboBox_Date2.SelectedIndex = CommonInfo.当前期 - 1;
+            this.ComboBox_Date2.SelectedIndex = CommonInfo.当前期 - 2;
 
             Label_账套名称.Content = "当前帐套名称：" + CommonInfo.账套信息;
             Label_操作员.Content = "操作员：" + CommonInfo.用户权限 + "\t" + CommonInfo.真实姓名;
@@ -412,8 +412,6 @@ namespace PA.View.Pages.TwoTabControl
                 #endregion
 
                 #region 年累计
-                decimal.TryParse(Label_L基本工资.Content.ToString(), out dy);
-                b102 += dy;
                 decimal.TryParse(Label_L基本工资.Content.ToString(), out dy);
                 b102 += dy;
                 decimal.TryParse(Label_L津贴.Content.ToString(), out dy);

@@ -503,7 +503,7 @@ namespace PA.ViewModel
                 + DBTablesName.T_VOUCHER 
                 + " b on a.parentid=b.id where a.subject_id='"
                 + subject_id
-                + "'" + " and b.delete_mark=0 and a.REVIEW_MARK=1 and  a.detail LIKE '"
+                + "'" + " and b.delete_mark=0 and b.REVIEW_MARK=1 and  a.detail LIKE '"
                 + detail + "%' order by b.op_time";
 
             //查年初数

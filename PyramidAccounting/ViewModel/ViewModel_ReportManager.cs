@@ -80,10 +80,10 @@ namespace PA.ViewModel
         public List<Model_报表类> GetIncomeAndExpensesForTwoSubject(int index)
         {
             List<Model_报表类> list = new List<Model_报表类>();
-            string sql = "SELECT c.parent_id,total(w.fee1),total(w.fee2) FROM (SELECT a.DETAIL,a.fee as fee1,b.fee as fee2 FROM (SELECT a.DETAIL,a.DEBIT - a.CREDIT AS fee FROM "
+            string sql = "SELECT c.parent_id,total(w.fee1),total(w.fee2) FROM (SELECT a.DETAIL,a.fee as fee1,b.fee as fee2 FROM (SELECT a.DETAIL,a.CREDIT - a.DEBIT AS fee FROM "
                 + DBTablesName.T_VOUCHER_DETAIL + " a LEFT JOIN "
-                + DBTablesName.T_VOUCHER + " b ON a.PARENTID = b.ID WHERE b.REVIEW_MARK = 1 AND b.PERIOD = " 
-                + index + ") a LEFT JOIN (SELECT a.DETAIL,total(a.DEBIT) - total(a.CREDIT) AS fee FROM " 
+                + DBTablesName.T_VOUCHER + " b ON a.PARENTID = b.ID WHERE b.REVIEW_MARK = 1 AND b.PERIOD = "
+                + index + ") a LEFT JOIN (SELECT a.DETAIL,total(a.CREDIT) - total(a.DEBIT) AS fee FROM " 
                 + DBTablesName.T_VOUCHER_DETAIL + " a LEFT JOIN "
                 + DBTablesName.T_VOUCHER + " b ON a.PARENTID = b.ID WHERE b.REVIEW_MARK = 1 AND b.PERIOD <= "
                 + index + " GROUP BY a.DETAIL) b ON a.DETAIL = b.DETAIL WHERE a.DETAIL IN (SELECT t.SUBJECT_ID FROM " 
