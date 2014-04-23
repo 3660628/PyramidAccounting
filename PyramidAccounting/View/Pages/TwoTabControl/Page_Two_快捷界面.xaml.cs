@@ -125,13 +125,12 @@ namespace PA.View.Pages.TwoTabControl
                             bool flag = vm.CheckOut();
                             if (flag)
                             {
-
                                 MessageBoxCommon.Show("结账完毕！");
                                 if (CommonInfo.当前期 <= 12)
                                 {
-                                    vmb.UpdatePeriod(CommonInfo.当前期-1);
+                                    vmb.UpdatePeriod(CommonInfo.当前期);
                                 }
-                                temp = CommonInfo.当前期 - 1;
+                                temp = CommonInfo.当前期;
                                 mr.日志 = "进行了结账操作，结算第：" + temp + "期账";
                                 vmr.Insert(mr);
                                 OnTabChange(1, 0, "本月结账");
