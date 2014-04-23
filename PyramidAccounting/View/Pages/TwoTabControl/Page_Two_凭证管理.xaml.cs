@@ -243,5 +243,26 @@ namespace PA.View.Pages.TwoTabControl
         {
             this.StackPanel_MoreButton.Visibility = System.Windows.Visibility.Collapsed;
         }
+
+        private int ScrollNum = 0;
+        private void DataGrid_本期凭证_PreviewMouseWheel(object sender, MouseWheelEventArgs e)
+        {
+            //问题：当那行已经在页面上显示了，视觉上他就不滚动了
+            //e.Handled = true;
+            //if (e.Delta < 0)
+            //{
+            //    if (ScrollNum < Data_本期凭证.Count - 1)
+            //    {
+            //        this.DataGrid_本期凭证.ScrollIntoView(Data_本期凭证[++ScrollNum]);
+            //    }
+            //}
+            //else if (e.Delta > 0)
+            //{
+            //    if (ScrollNum > 0)
+            //    {
+            //        this.DataGrid_本期凭证.ScrollIntoView(Data_本期凭证[--ScrollNum]);
+            //    }
+            //}
+        }
     }
 }
