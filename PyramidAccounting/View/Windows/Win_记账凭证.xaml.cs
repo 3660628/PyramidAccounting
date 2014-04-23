@@ -37,7 +37,7 @@ namespace PA.View.Windows
         {
             InitializeComponent();
             this.Button_打印.Visibility = System.Windows.Visibility.Collapsed;
-            InitData();
+            InitData(true);
             Voucher.当前期 = PA.Helper.DataDefind.CommonInfo.当前期;
         }
 
@@ -102,7 +102,7 @@ namespace PA.View.Windows
         /// <summary>
         /// 初始化数据(空)
         /// </summary>
-        private void InitData()
+        private void InitData(bool isFirstInit)
         {
             VoucherDetailsNow = new List<Model_凭证明细>();
             for (int i = 0; i < 6; i++)
@@ -111,18 +111,18 @@ namespace PA.View.Windows
                 a.序号 = i;
                 VoucherDetailsNow.Add(a);
             }
-            this.DatePicker_Date.SelectedDate = DateTime.Now;
-            this.DataGrid_凭证明细.ItemsSource = VoucherDetailsNow;
-
-            if (VoucherDetails.Count < 6 * PageAll)
+            if (isFirstInit)
             {
-                for (int i = 0; i < 6; i++)
-                {
-                    VoucherDetails.Add(VoucherDetailsNow[i]);
-                }
+                this.DatePicker_Date.SelectedDate = DateTime.Now;
+                this.Label_制单人.Content = PA.Helper.DataDefind.CommonInfo.真实姓名;
+            }
+            this.DataGrid_凭证明细.ItemsSource = VoucherDetailsNow;
+            VoucherDetails.Clear();
+            for (int i = 0; i < 6; i++)
+            {
+                VoucherDetails.Add(VoucherDetailsNow[i]);
             }
             Count合计();
-            this.Label_制单人.Content = PA.Helper.DataDefind.CommonInfo.真实姓名;
             this.TextBox_号.Text = "";
         }
         /// <summary>
@@ -263,6 +263,7 @@ namespace PA.View.Windows
         #region 控件事件
         private void Button_Close_Click(object sender, RoutedEventArgs e)
         {
+            OnSubmit();
             this.Close();
         }
 
@@ -287,8 +288,7 @@ namespace PA.View.Windows
                 {
                     new PA.ViewModel.ViewModel_凭证管理().DeleteAsModify(guid);
                 }
-                OnSubmit();
-                this.Close();
+                Button_Close_Click(null,null);
             }
             else
             {
@@ -306,7 +306,7 @@ namespace PA.View.Windows
             }
             if(new PA.ViewModel.ViewModel_凭证管理().InsertData(Voucher, VoucherDetails))
             {
-                InitData();
+                InitData(false);
             }
             else
             {
