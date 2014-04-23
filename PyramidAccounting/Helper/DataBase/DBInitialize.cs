@@ -163,7 +163,7 @@ namespace PA.Helper.DataBase
             {
                 conn.Open();
                 conn.ChangePassword(dbPassword);
-                Log.Write(dbPassword);
+                //Log.Write(dbPassword);
                 flag = true;
             }
             catch (Exception ee)

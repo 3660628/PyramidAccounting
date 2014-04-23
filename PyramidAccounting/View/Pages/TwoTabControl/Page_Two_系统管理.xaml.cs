@@ -58,8 +58,8 @@ namespace PA.View.Pages.TwoTabControl
         {
             InitializeComponent();
             SubscribeToEvent();
-            VisibilityData();
             LoadPage();
+            VisibilityData();
             _mr = vmr.GetOperateLog();
         }
 
