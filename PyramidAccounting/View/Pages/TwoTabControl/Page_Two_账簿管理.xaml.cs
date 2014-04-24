@@ -304,10 +304,6 @@ namespace PA.View.Pages.TwoTabControl
                 int count = 1;
                 if (lm[0].列名.Count > 18)
                 {
-                    //Model_费用明细 m = new Model_费用明细();
-                    //m.摘要 = "查询不到数据！";
-                    //lm.Add(m);
-                    //this.DataGrid_费用明细账.ItemsSource = lm;
                     MessageBoxCommon.Show("该版本软件不支持查询该科目！");
                     return;
                 }
