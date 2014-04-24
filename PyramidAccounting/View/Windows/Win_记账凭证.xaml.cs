@@ -312,6 +312,7 @@ namespace PA.View.Windows
             GetData();
             if(new PA.ViewModel.ViewModel_凭证管理().InsertData(Voucher, VoucherDetails))
             {
+                OnSubmit();
                 InitData(false);
             }
             else
