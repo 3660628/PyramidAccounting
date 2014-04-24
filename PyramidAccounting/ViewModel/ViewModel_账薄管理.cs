@@ -203,8 +203,31 @@ namespace PA.ViewModel
 
                 decimal.TryParse(m.借方金额, out debit);
                 decimal.TryParse(m.贷方金额, out credit);
+                yearfee = (Convert.ToDecimal(yearfee) - credit + debit).ToString();
 
+                String MonthLastValue = "01";
+
+                //月合计
+                List<decimal> MonthList = new List<decimal>(20);
+
+                //月累计
+                List<decimal> YearList = new List<decimal>(20);
+
+                #region 赋值
                 List<string> _list = new List<string>();
+
+                _list = ut.Turn(d[3].ToString(), 10);
+                m.借方金额1 = _list[0];
+                m.借方金额2 = _list[1];
+                m.借方金额3 = _list[2];
+                m.借方金额4 = _list[3];
+                m.借方金额5 = _list[4];
+                m.借方金额6 = _list[5];
+                m.借方金额7 = _list[6];
+                m.借方金额8 = _list[7];
+                m.借方金额9 = _list[8];
+                m.借方金额10 = _list[9]; 
+
                 _list = ut.Turn(d[4].ToString(), 10);
                 m.贷方金额1 = _list[0];
                 m.贷方金额2 = _list[1];
@@ -217,19 +240,6 @@ namespace PA.ViewModel
                 m.贷方金额9 = _list[8];
                 m.贷方金额10 = _list[9];
 
-                _list = ut.Turn(d[3].ToString(), 10);
-                m.借方金额1 = _list[0];
-                m.借方金额2 = _list[1];
-                m.借方金额3 = _list[2];
-                m.借方金额4 = _list[3];
-                m.借方金额5 = _list[4];
-                m.借方金额6 = _list[5];
-                m.借方金额7 = _list[6];
-                m.借方金额8 = _list[7];
-                m.借方金额9 = _list[8];
-                m.借方金额10 = _list[9];    
-
-                yearfee = (Convert.ToDecimal(yearfee) - credit + debit ).ToString();
                 _list.Clear(); 
                 _list = ut.Turn(yearfee, 10);
                 m.余额1 = _list[0];
@@ -243,7 +253,6 @@ namespace PA.ViewModel
                 m.余额9 = _list[8];
                 m.余额10 = _list[9];
                 _list.Clear();
-
 
                 _list = ut.Turn(d[5].ToString(), 10);
                 m.金额31 = _list[0];
@@ -479,6 +488,38 @@ namespace PA.ViewModel
                 m.金额210 = _list[9];
 
                 m.列名 = lst;
+
+                decimal dValue = 0;
+                if (MonthLastValue.Equals(m.月))
+                {
+                    for (int i = 0; i < 20; i++)
+                    {
+                        decimal.TryParse(d[i + 3].ToString(), out dValue);
+                        MonthList[i] += dValue;
+                        YearList[i] += dValue;
+                    }
+                }
+                /*else
+                {
+                    Model_费用明细 mm = new Model_费用明细();
+                    mm = GetModel_Subject(MonthDebit, MonthCredit, yearfee);
+                    mm.摘要 = "本月合计";
+                    list.Add(mm);
+
+                    if (!m.月.Equals("01"))
+                    {
+                        Model_科目明细账 mmm = new Model_科目明细账();
+                        mmm = GetModel_Subject(YearDebit, YearCredit, yearfee);
+                        mmm.摘要 = "本月累计";
+                        list.Add(mmm);
+                    }
+                    MonthDebit = 0;
+                    MonthCredit = 0;
+                }*/
+                MonthLastValue = m.月;
+                #endregion
+
+
                 #endregion
                 list.Add(m);
             }
@@ -540,12 +581,10 @@ namespace PA.ViewModel
             String MonthLastValue = "01";
 
             //月合计
-            decimal MonthTotal = 0;
             decimal MonthDebit = 0;
             decimal MonthCredit = 0;
 
             //月累计
-            decimal YearTotal = 0;
             decimal YearDebit = 0;
             decimal YearCredit = 0;
 
@@ -625,6 +664,14 @@ namespace PA.ViewModel
                     }
                     else
                     {
+                        decimal.TryParse(m.借方金额, out dValue);
+                        MonthDebit += dValue;
+                        YearDebit += dValue;
+
+                        decimal.TryParse(m.贷方金额, out dValue);
+                        MonthCredit += dValue;
+                        YearCredit += dValue;
+
                         Model_科目明细账 mm = new Model_科目明细账();
                         mm = GetModel_Subject(MonthDebit, MonthCredit, yearfee);
                         mm.摘要 = "本月合计";
@@ -637,7 +684,6 @@ namespace PA.ViewModel
                             mmm.摘要 = "本月累计";
                             list.Add(mmm);
                         }
-                        MonthTotal = 0;
                         MonthDebit = 0;
                         MonthCredit = 0;
                     }
@@ -646,7 +692,7 @@ namespace PA.ViewModel
                 }
                 Model_科目明细账 mlast = new Model_科目明细账();
                 mlast = GetModel_Subject(MonthDebit, MonthCredit, yearfee);
-                mlast.摘要 = "本月结账";
+                mlast.摘要 = "本月合计";
                 list.Add(mlast);
                 if (!MonthLastValue.Equals("01"))
                 {
