@@ -125,7 +125,7 @@ namespace PA.View.Pages.TwoTabControl
             }
             if (this.DataGrid_本期凭证.SelectedCells.Count != 0)
             {
-                if (CommonInfo.权限值 >= 2)
+                if (CommonInfo.权限值 >= 1)
                 {
                     Model_凭证管理 asd = this.DataGrid_本期凭证.SelectedCells[0].Item as Model_凭证管理;
                     new PA.ViewModel.ViewModel_凭证管理().Review(asd.ID);
@@ -212,11 +212,6 @@ namespace PA.View.Pages.TwoTabControl
             if (this.DataGrid_本期凭证.SelectedCells.Count != 0)
             {
                 this.StackPanel_MoreButton.Visibility = System.Windows.Visibility.Collapsed;
-                bool? result = MessageBoxDel.Show("注意", "确认反审核凭证？");
-                if (result == false)
-                {
-                    return;
-                }
                 if (vsy.ValidateRuning() == false)
                 {
                     MessageBoxCommon.Show("试用期已过，不能使用此功能！");
@@ -224,6 +219,11 @@ namespace PA.View.Pages.TwoTabControl
                 }
                 if (CommonInfo.权限值 >= 2)
                 {
+                    bool? result = MessageBoxDel.Show("注意", "确认反审核凭证？");
+                    if (result == false)
+                    {
+                        return;
+                    }
                     Model_凭证管理 asd = this.DataGrid_本期凭证.SelectedCells[0].Item as Model_凭证管理;
                     new PA.ViewModel.ViewModel_凭证管理().UnReview(asd.ID);
                     ReflashData();
