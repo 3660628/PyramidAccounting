@@ -145,7 +145,10 @@ namespace PA.View.Pages.TwoTabControl
 
         private void ComboBox_Review_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            ReflashData();
+            if(this.IsLoaded)
+            {
+                ReflashData();
+            }
         }
 
         private void Button_Del_Click(object sender, RoutedEventArgs e)
@@ -197,18 +200,19 @@ namespace PA.View.Pages.TwoTabControl
 
         private void ComboBox_Date_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            ReflashData();
-            if(this.ComboBox_Date.SelectedIndex != CommonInfo.当前期)
+            if(this.IsLoaded)
             {
-                this.Button_Add.IsEnabled = false;
-                this.Button_Del.IsEnabled = false;
-                //this.Button_Review.IsEnabled = false;
-            }
-            else
-            {
-                this.Button_Add.IsEnabled = true;
-                this.Button_Del.IsEnabled = true;
-                //this.Button_Review.IsEnabled = true;
+                ReflashData();
+                if(this.ComboBox_Date.SelectedIndex != CommonInfo.当前期)
+                {
+                    this.Button_Add.IsEnabled = false;
+                    this.Button_Del.IsEnabled = false;
+                }
+                else
+                {
+                    this.Button_Add.IsEnabled = true;
+                    this.Button_Del.IsEnabled = true;
+                }
             }
         }
 
