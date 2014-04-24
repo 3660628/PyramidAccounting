@@ -94,6 +94,11 @@ namespace PA.View.Pages.TwoTabControl
                 MessageBoxCommon.Show("试用期已过，不能使用此功能！");
                 return;
             }
+            if(CommonInfo.权限值 < 2)
+            {
+                MessageBoxCommon.Show("权限不足，不能使用此功能！");
+                return;
+            }
             this.Button_隐藏.Focus();
             bool mark = false;
             if (CommonInfo.是否初始化年初数)
