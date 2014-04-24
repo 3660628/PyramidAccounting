@@ -10,8 +10,8 @@ namespace PA.Helper.DataDefind
         private static readonly string update_Sql = "Update @tableName set @key = @value where @whereParm";
         private static readonly string delete_Sql = "Delete from @tableName where @whereParm";
 
-        private static readonly string insert_T_BOOKS = "insert into @T_BOOKS(ID,BOOK_NAME,COMPANY_NAME,BOOK_TIME,CREATE_DATE,ACCOUNTING_SYSTEM,PERIOD) "
-            + "values (@ID, @BOOK_NAME,@COMPANY_NAME, @BOOK_TIME, @CREATE_DATE, @ACCOUNTING_SYSTEM, @PERIOD)";
+        private static readonly string insert_T_BOOKS = "insert into @T_BOOKS(ID,BOOK_NAME,COMPANY_NAME,BOOK_TIME,CREATE_DATE,ACCOUNTING_SYSTEM,PERIOD,BOOK_INDEX) "
+            + "values (@ID, @BOOK_NAME,@COMPANY_NAME, @BOOK_TIME, @CREATE_DATE, @ACCOUNTING_SYSTEM, @PERIOD ,@BOOK_INDEX)";
 
         private static readonly string insert_T_VOUCHER = "Insert into @T_VOUCHER(ID,PERIOD,OP_TIME,PERIOD,SUBSIDIARY_COUNTS,FEE_DEBIT,FEE_CREDIT,ACCOUNTANT,BOOKEEPER,REVIEWER,REVIEW_MARK,DELETE_MARK) "
             + "values(@ID, @PERIOD, @OP_TIME, @PERIOD, @SUBSIDIARY_COUNTS, @FEE_DEBIT, @FEE_CREDIT, @ACCOUNTANT, @BOOKEEPER, @REVIEWER, @REVIEW_MARK, @DELETE_MARK)";

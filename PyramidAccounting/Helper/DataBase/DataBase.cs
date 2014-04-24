@@ -207,6 +207,7 @@ namespace PA.Helper.DataBase
                             cmd.Parameters.AddWithValue("@CREATE_DATE", list.创建时间);
                             cmd.Parameters.AddWithValue("@ACCOUNTING_SYSTEM", list.会计制度);
                             cmd.Parameters.AddWithValue("@PERIOD", list.当前期);
+                            cmd.Parameters.AddWithValue("@BOOK_INDEX",list.制度索引);
                             cmd.Connection = conn;
                             cmd.ExecuteNonQuery();
                         }

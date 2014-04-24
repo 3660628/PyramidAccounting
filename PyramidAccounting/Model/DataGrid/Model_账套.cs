@@ -17,6 +17,13 @@ namespace PA.Model.DataGrid
         private string accounting_system;
         private int delete_mark;
         private int period;
+        private int sys_index;
+
+        public int 制度索引
+        {
+            get { return sys_index; }
+            set { sys_index = value; }
+        }
 
         public int 当前期
         {

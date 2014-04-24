@@ -60,7 +60,7 @@ namespace PA.ViewModel
         /// 插入方法
         /// </summary>
         /// <param name="list"></param>
-        public void Insert(List<Model_账套> list)
+        public bool Insert(List<Model_账套> list)
         {
             List<string> sqlList = new List<string>();
             db.InsertPackage(DBTablesName.T_BOOKS, list.OfType<object>().ToList());
@@ -72,8 +72,7 @@ namespace PA.ViewModel
             sqlList.Add(sql);
             sql = sr.ReadSQL(4, "T_FEE", DBTablesName.T_FEE);
             sqlList.Add(sql);
-            db.BatchOperate(sqlList);
-            
+            return  db.BatchOperate(sqlList);
         }
 
         /// <summary>
@@ -85,6 +84,14 @@ namespace PA.ViewModel
         {
             sql = "select 1 from " + DBTablesName.T_BOOKS + " where book_name='" + bookName +"' and delete_mark=0";
             return db.IsExist(sql);
+        }
+        /// <summary>
+        /// 获取当前制度索引
+        /// </summary>
+        /// <returns></returns>
+        public string GetStandardIndex()
+        {
+            return GetValue().Split('\t')[0].Split(',')[2];
         }
         /// <summary>
         /// 获取当前期数
@@ -115,7 +122,7 @@ namespace PA.ViewModel
         /// <returns></returns>
         public string GetValue()
         {
-            sql = "select book_time,period from " + DBTablesName.T_BOOKS + " where id='" + CommonInfo.账薄号 + "'";
+            sql = "select book_time,period,book_index from " + DBTablesName.T_BOOKS + " where id='" + CommonInfo.账薄号 + "'";
             return db.GetAllData(sql);
         }
     }

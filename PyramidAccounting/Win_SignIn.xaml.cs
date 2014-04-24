@@ -111,13 +111,11 @@ namespace PA
                 CommonInfo.用户权限 = m.用户权限;
                 CommonInfo.权限值 = m.权限值;
                 CommonInfo.登录密码 = Password;
-                CommonInfo.制度索引 = vsy.GetSystemValue((int)ENUM.EM_KEY.会计制度);
-                CommonInfo.是否初始化年初数 = new ViewModel_年初金额().IsSaved();
                 //先记录一些信息
                 Model_操作日志 mr = new Model_操作日志();
                 mr = vmr.GetOperateLog();
 
-                if (ComboBox_账套.SelectedValue.ToString().Equals("0"))
+                if (ComboBox_账套.SelectedIndex==0)
                 {
                     if (m.权限值 >= 2)
                     {
@@ -133,6 +131,8 @@ namespace PA
                 }
                 else
                 {
+                    CommonInfo.制度索引 = vmb.GetStandardIndex();
+                    CommonInfo.是否初始化年初数 = new ViewModel_年初金额().IsSaved();
                     CommonInfo.当前期 = vmb.GetPeriod();
                     //这里写日志信息
                     mr.日志 = "登录了账套：" + bookname;
