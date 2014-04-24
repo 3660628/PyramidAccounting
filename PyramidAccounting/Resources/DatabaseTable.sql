@@ -6,6 +6,7 @@ CREATE TABLE T_BOOKS (									--账套表
     CREATE_DATE       DATE,								--创建日期
     ACCOUNTING_SYSTEM TEXT,								--会计制度
 	PERIOD            INTEGER,							--当前期
+	BOOK_INDEX		  INTEGER,							--账套索引
 	DELETE_MARK		  INTEGER DEFAULT ( 0 )				--删除标志    -1表示已删除
 );
 CREATE TABLE T_YEARFEE (								--科目年初金额设置表
