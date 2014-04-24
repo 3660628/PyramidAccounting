@@ -40,7 +40,7 @@ namespace PA.View.Pages.TwoTabControl
         //后台备份标识
         private bool backgroundBackupTag = false;
 
-        private Model_操作日志 _mr = new Model_操作日志();
+        private Model_操作日志 mrc = new Model_操作日志();
 
         private List<Model_科目管理> lm = new List<Model_科目管理>();
 
@@ -60,7 +60,7 @@ namespace PA.View.Pages.TwoTabControl
             SubscribeToEvent();
             LoadPage();
             VisibilityData();
-            _mr = vmr.GetOperateLog();
+            mrc = vmr.GetOperateLog();
         }
 
         private void LoadPage()
@@ -134,8 +134,8 @@ namespace PA.View.Pages.TwoTabControl
                     this.PasswordBox_Old.Clear();
                     this.PasswordBox_New.Clear();
                     this.PasswordBox_NewRepeat.Clear();
-                    _mr.日志 = "修改密码";
-                    vmr.Insert(_mr);
+                    mrc.日志 = "修改密码";
+                    vmr.Insert(mrc);
                     CommonInfo.登录密码 = NewPassword;
                 }
                 else
@@ -193,8 +193,8 @@ namespace PA.View.Pages.TwoTabControl
                 bool flag = vm.StopUse(m.ID);
                 if (flag)
                 {
-                    _mr.日志 = "进行停用了用户名：" + m.用户名;
-                    vmr.Insert(_mr);
+                    mrc.日志 = "进行停用了用户名：" + m.用户名;
+                    vmr.Insert(mrc);
                     FreshData();
                 }
                 else
@@ -215,8 +215,8 @@ namespace PA.View.Pages.TwoTabControl
             bool flag = vmb.UpdateBookName(m, 0);
             if (flag)
             {
-                _mr.日志 = "账套名称由" + xr.ReadXML("账套信息") + "修改为" + m.账套名称;
-                vmr.Insert(_mr);
+                mrc.日志 = "账套名称由" + xr.ReadXML("账套信息") + "修改为" + m.账套名称;
+                vmr.Insert(mrc);
                 MessageBoxCommon.Show("修改账套名称成功,重启程序生效！");
                 xw.WriteXML("账套信息", m.账套名称);
             }
@@ -316,8 +316,8 @@ namespace PA.View.Pages.TwoTabControl
             bool flag = new ViewModel_年初金额().Update();
             if (flag)
             {
-                _mr.日志 = "保存了年初金额初始化！";
-                vmr.Insert(_mr);
+                mrc.日志 = "保存了年初金额初始化！";
+                vmr.Insert(mrc);
                 MessageBoxCommon.Show("保存成功！");
             }
             //刷新操作
@@ -507,8 +507,8 @@ namespace PA.View.Pages.TwoTabControl
                 {
                     MessageBoxCommon.Show("数据备份操作成功！");
                 }
-                _mr.日志 = "进行备份操作，备份路径为：" + newfilepath;
-                vmr.Insert(_mr);
+                mrc.日志 = "进行备份操作，备份路径为：" + newfilepath;
+                vmr.Insert(mrc);
             }
             catch (Exception ee)
             {
@@ -558,8 +558,8 @@ namespace PA.View.Pages.TwoTabControl
                     System.IO.File.Copy(recover_path, newpath, true);  //复制回原来的目录
                     xw.WriteXML("数据库", newDBname);
                     MessageBoxCommon.Show("成功", "恢复数据成功，重启软件生效哦！");
-                    _mr.日志 = "进行了恢复数据";
-                    vmr.Insert(_mr);
+                    mrc.日志 = "进行了恢复数据";
+                    vmr.Insert(mrc);
                 }
                 else
                 {
@@ -577,8 +577,8 @@ namespace PA.View.Pages.TwoTabControl
                 xw.WriteXML("备份时间",TextBox_备份天数.Text);
                 xw.WriteXML("备份路径", backup_filePath.Text);
                 xw.WriteXML("还原路径", Recover_filepath.Text);
-                _mr.日志 = "保存当前配置信息！";
-                vmr.Insert(_mr);
+                mrc.日志 = "保存当前配置信息！";
+                vmr.Insert(mrc);
             }
             catch (Exception ex)
             {
