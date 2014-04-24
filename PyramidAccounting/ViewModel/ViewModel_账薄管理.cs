@@ -673,7 +673,6 @@ namespace PA.ViewModel
                             mm.摘要 = "本月合计";
                             list.Add(mm);
 
-                            Console.WriteLine(m.月);
                             if (!MonthLastValue.Equals("01"))
                             {
                                 Model_科目明细账 mmm = new Model_科目明细账();
