@@ -229,6 +229,12 @@ namespace PA.View.Windows
                     }
                 }
             }
+            int temp;
+            if (!int.TryParse(this.TextBox_附属单证.Text.Trim(), out temp))
+            {
+                MessageBoxCommon.Show("附属单证必须为数字");
+                return false;
+            }
             return true;
         }
         private void Count合计()
@@ -277,11 +283,11 @@ namespace PA.View.Windows
 
         private void Button_保存_Click(object sender, RoutedEventArgs e)
         {
-            GetData();
             if (!CheckData())
             {
                 return;
             }
+            GetData();
             if(new PA.ViewModel.ViewModel_凭证管理().InsertData(Voucher, VoucherDetails))
             {
                 if (!isNew)
@@ -299,11 +305,11 @@ namespace PA.View.Windows
 
         private void Button_保存并新增_Click(object sender, RoutedEventArgs e)
         {
-            GetData();
             if (!CheckData())
             {
                 return;
             }
+            GetData();
             if(new PA.ViewModel.ViewModel_凭证管理().InsertData(Voucher, VoucherDetails))
             {
                 InitData(false);
