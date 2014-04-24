@@ -96,6 +96,11 @@ namespace PA.View.Pages.TwoTabControl
             }
             Data_本期凭证 = new PA.ViewModel.ViewModel_凭证管理().GetData(DateParm + ReviewParm);
             this.DataGrid_本期凭证.ItemsSource = Data_本期凭证;
+            int count = DataGrid_本期凭证.Items.Count;
+            if (count > 0)
+            {
+                this.DataGrid_本期凭证.ScrollIntoView(DataGrid_本期凭证.Items[count - 1]);//滚动到最下
+            }
         }
 
         private void Button_Add_Click(object sender, RoutedEventArgs e)
