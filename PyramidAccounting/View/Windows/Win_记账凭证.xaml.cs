@@ -269,7 +269,6 @@ namespace PA.View.Windows
         #region 控件事件
         private void Button_Close_Click(object sender, RoutedEventArgs e)
         {
-            OnSubmit();
             this.Close();
         }
 
@@ -294,6 +293,7 @@ namespace PA.View.Windows
                 {
                     new PA.ViewModel.ViewModel_凭证管理().DeleteAsModify(guid);
                 }
+                OnSubmit();
                 Button_Close_Click(null,null);
             }
             else
