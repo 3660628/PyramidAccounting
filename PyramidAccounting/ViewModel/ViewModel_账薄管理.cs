@@ -512,6 +512,7 @@ namespace PA.ViewModel
                 + " b on a.subject_id=b.subject_id where "
                 + " a.subject_id='" + detail + "' and a.bookid='" + CommonInfo.账薄号 + "'";
             DataRow dr = db.Query(sql2).Tables[0].Rows[0];
+
             Model_科目明细账 firstRow = new Model_科目明细账();
             firstRow.摘要 = "承上年结余";
             firstRow.借或贷 = dr[0].ToString();
@@ -536,7 +537,7 @@ namespace PA.ViewModel
 
             DataTable dt = db.Query(sql).Tables[0];
 
-            String MonthLastValue = string.Empty;
+            String MonthLastValue = "01";
 
             //月合计
             decimal MonthTotal = 0;
@@ -561,11 +562,9 @@ namespace PA.ViewModel
                     m.摘要 = d[2].ToString();
                     m.借方金额 = d[3].ToString();
                     m.贷方金额 = d[4].ToString();
-
-                    string temp = string.Empty;
-
                     m.借或贷 = d[6].ToString();
-
+                    yearfee -= Convert.ToDecimal(m.贷方金额) - Convert.ToDecimal(m.借方金额);
+                    string tempvalue = yearfee.ToString();
                     _list.Clear();
                     _list = ut.Turn(m.贷方金额, 12);
                     m.贷方金额1 = _list[0];
@@ -595,9 +594,7 @@ namespace PA.ViewModel
                     m.借方金额10 = _list[9];
                     m.借方金额11 = _list[10];
                     m.借方金额12 = _list[11];
-
-                    yearfee -= Convert.ToDecimal(m.贷方金额) - Convert.ToDecimal(m.借方金额);
-                    string tempvalue = yearfee.ToString();
+                    
                     _list.Clear();
                     _list = ut.Turn(tempvalue, 12);
                     m.余额1 = _list[0];
@@ -615,124 +612,31 @@ namespace PA.ViewModel
                     _list.Clear();
 
                     decimal dValue = 0;
-                    if (MonthLastValue.Equals(m.月)&&!string.IsNullOrEmpty(m.月))
+                    if (MonthLastValue.Equals(m.月))
                     {
                         decimal.TryParse(m.借方金额, out dValue);
                         MonthDebit += dValue;
+                        YearDebit += dValue;
+
                         decimal.TryParse(m.贷方金额, out dValue);
                         MonthCredit += dValue;
-                        MonthTotal += yearfee;
+                        YearCredit += dValue;
+
                     }
                     else
                     {
                         Model_科目明细账 mm = new Model_科目明细账();
+                        mm = GetModel_Subject(MonthDebit, MonthCredit, yearfee);
                         mm.摘要 = "本月合计";
-                        _list.Clear();
-                        _list = ut.Turn(MonthDebit.ToString(), 12);
-                        mm.借方金额1 = _list[0];
-                        mm.借方金额2 = _list[1];
-                        mm.借方金额3 = _list[2];
-                        mm.借方金额4 = _list[3];
-                        mm.借方金额5 = _list[4];
-                        mm.借方金额6 = _list[5];
-                        mm.借方金额7 = _list[6];
-                        mm.借方金额8 = _list[7];
-                        mm.借方金额9 = _list[8];
-                        mm.借方金额10 = _list[9];
-                        mm.借方金额11 = _list[10];
-                        mm.借方金额12 = _list[11];
-                        _list.Clear();
-                        _list = ut.Turn(MonthCredit.ToString(), 12);
-                        mm.贷方金额1 = _list[0];
-                        mm.贷方金额2 = _list[1];
-                        mm.贷方金额3 = _list[2];
-                        mm.贷方金额4 = _list[3];
-                        mm.贷方金额5 = _list[4];
-                        mm.贷方金额6 = _list[5];
-                        mm.贷方金额7 = _list[6];
-                        mm.贷方金额8 = _list[7];
-                        mm.贷方金额9 = _list[8];
-                        mm.贷方金额10 = _list[9];
-                        mm.贷方金额11 = _list[10];
-                        mm.贷方金额12 = _list[11];
-
-                        _list.Clear();
-                        _list = ut.Turn(MonthTotal.ToString(), 12);
-                        mm.余额1 = _list[0];
-                        mm.余额2 = _list[1];
-                        mm.余额3 = _list[2];
-                        mm.余额4 = _list[3];
-                        mm.余额5 = _list[4];
-                        mm.余额6 = _list[5];
-                        mm.余额7 = _list[6];
-                        mm.余额8 = _list[7];
-                        mm.余额9 = _list[8];
-                        mm.余额10 = _list[9];
-                        mm.余额11 = _list[10];
-                        mm.余额12 = _list[11];
-
                         list.Add(mm);
 
-                        YearTotal += MonthTotal;
-                        YearDebit += MonthDebit;
-                        YearCredit += MonthCredit;
-                        if (!m.月.Equals("1"))
+                        if (!m.月.Equals("01"))
                         {
                             Model_科目明细账 mmm = new Model_科目明细账();
-                            if (MonthLastValue.Equals("12"))
-                            {
-                                mmm.摘要 = "本年累计";
-                            }
-                            else
-                            {
-                                mmm.摘要 = "本月累计";
-                            }
-                            _list.Clear();
-                            _list = ut.Turn(YearDebit.ToString(), 12);
-                            mmm.借方金额1 = _list[0];
-                            mmm.借方金额2 = _list[1];
-                            mmm.借方金额3 = _list[2];
-                            mmm.借方金额4 = _list[3];
-                            mmm.借方金额5 = _list[4];
-                            mmm.借方金额6 = _list[5];
-                            mmm.借方金额7 = _list[6];
-                            mmm.借方金额8 = _list[7];
-                            mmm.借方金额9 = _list[8];
-                            mmm.借方金额10 = _list[9];
-                            mmm.借方金额11 = _list[10];
-                            mmm.借方金额12 = _list[11];
-                            _list.Clear();
-                            _list = ut.Turn(YearCredit.ToString(), 12);
-                            mmm.贷方金额1 = _list[0];
-                            mmm.贷方金额2 = _list[1];
-                            mmm.贷方金额3 = _list[2];
-                            mmm.贷方金额4 = _list[3];
-                            mmm.贷方金额5 = _list[4];
-                            mmm.贷方金额6 = _list[5];
-                            mmm.贷方金额7 = _list[6];
-                            mmm.贷方金额8 = _list[7];
-                            mmm.贷方金额9 = _list[8];
-                            mmm.贷方金额10 = _list[9];
-                            mmm.贷方金额11 = _list[10];
-                            mmm.贷方金额12 = _list[11];
-
-                            _list.Clear();
-                            _list = ut.Turn(YearTotal.ToString(), 12);
-                            mmm.余额1 = _list[0];
-                            mmm.余额2 = _list[1];
-                            mmm.余额3 = _list[2];
-                            mmm.余额4 = _list[3];
-                            mmm.余额5 = _list[4];
-                            mmm.余额6 = _list[5];
-                            mmm.余额7 = _list[6];
-                            mmm.余额8 = _list[7];
-                            mmm.余额9 = _list[8];
-                            mmm.余额10 = _list[9];
-                            mmm.余额11 = _list[10];
-                            mmm.余额12 = _list[11];
+                            mmm = GetModel_Subject(YearDebit, YearCredit, yearfee);
+                            mmm.摘要 = "本月累计";
                             list.Add(mmm);
                         }
-
                         MonthTotal = 0;
                         MonthDebit = 0;
                         MonthCredit = 0;
@@ -740,8 +644,76 @@ namespace PA.ViewModel
                     MonthLastValue = m.月;
                     list.Add(m);
                 }
+                Model_科目明细账 mlast = new Model_科目明细账();
+                mlast = GetModel_Subject(MonthDebit, MonthCredit, yearfee);
+                mlast.摘要 = "本月结账";
+                list.Add(mlast);
+                if (!MonthLastValue.Equals("01"))
+                {
+                    Model_科目明细账 mmm = new Model_科目明细账();
+                    mmm = GetModel_Subject(YearDebit, YearCredit, yearfee);
+                    if (MonthLastValue.Equals("12"))
+                    {
+                        mmm.摘要 = "本年结账";
+                    }
+                    else
+                    {
+                        mmm.摘要 = "本月累计";
+                    }
+                    list.Add(mmm);
+                }
             }
             return list;
+        }
+
+        private Model_科目明细账 GetModel_Subject(decimal a,decimal b,decimal c)
+        {
+            Model_科目明细账 m = new Model_科目明细账();
+            List<string> _list = new List<string>();
+            _list = ut.Turn(a.ToString(), 12);
+            m.借方金额1 = _list[0];
+            m.借方金额2 = _list[1];
+            m.借方金额3 = _list[2];
+            m.借方金额4 = _list[3];
+            m.借方金额5 = _list[4];
+            m.借方金额6 = _list[5];
+            m.借方金额7 = _list[6];
+            m.借方金额8 = _list[7];
+            m.借方金额9 = _list[8];
+            m.借方金额10 = _list[9];
+            m.借方金额11 = _list[10];
+            m.借方金额12 = _list[11];
+            _list.Clear();
+            _list = ut.Turn(b.ToString(), 12);
+            m.贷方金额1 = _list[0];
+            m.贷方金额2 = _list[1];
+            m.贷方金额3 = _list[2];
+            m.贷方金额4 = _list[3];
+            m.贷方金额5 = _list[4];
+            m.贷方金额6 = _list[5];
+            m.贷方金额7 = _list[6];
+            m.贷方金额8 = _list[7];
+            m.贷方金额9 = _list[8];
+            m.贷方金额10 = _list[9];
+            m.贷方金额11 = _list[10];
+            m.贷方金额12 = _list[11];
+
+            _list.Clear();
+            _list = ut.Turn(c.ToString(), 12);
+            m.余额1 = _list[0];
+            m.余额2 = _list[1];
+            m.余额3 = _list[2];
+            m.余额4 = _list[3];
+            m.余额5 = _list[4];
+            m.余额6 = _list[5];
+            m.余额7 = _list[6];
+            m.余额8 = _list[7];
+            m.余额9 = _list[8];
+            m.余额10 = _list[9];
+            m.余额11 = _list[10];
+            m.余额12 = _list[11];
+
+            return m;
         }
        
         /// <summary>

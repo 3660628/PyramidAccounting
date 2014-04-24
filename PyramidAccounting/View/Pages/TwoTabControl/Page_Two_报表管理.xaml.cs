@@ -305,7 +305,6 @@ namespace PA.View.Pages.TwoTabControl
             decimal dy = 0;
             decimal dn = 0;
 
-            decimal temp1 = 0;
             //二级科目
             decimal b101 = 0;
             decimal b102 = 0;
