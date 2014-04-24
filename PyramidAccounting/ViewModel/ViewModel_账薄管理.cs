@@ -535,6 +535,7 @@ namespace PA.ViewModel
             decimal.TryParse(firstRow.余额,out yearfee);
 
             DataTable dt = db.Query(sql).Tables[0];
+
             String MonthLastValue = string.Empty;
 
             //月合计
@@ -614,7 +615,7 @@ namespace PA.ViewModel
                     _list.Clear();
 
                     decimal dValue = 0;
-                    if (MonthLastValue.Equals(m.月))
+                    if (MonthLastValue.Equals(m.月)&&!string.IsNullOrEmpty(m.月))
                     {
                         decimal.TryParse(m.借方金额, out dValue);
                         MonthDebit += dValue;
