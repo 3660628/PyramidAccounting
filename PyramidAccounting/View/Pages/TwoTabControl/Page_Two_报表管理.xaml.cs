@@ -78,11 +78,17 @@ namespace PA.View.Pages.TwoTabControl
 
         private void Button_生成1_Click(object sender, RoutedEventArgs e)
         {
+            int value = ComboBox_Date.SelectedIndex;
+
+            if (value == CommonInfo.当前期 - 1)
+            {
+                MessageBoxCommon.Show("结账后方可生成报表!");
+                return;
+            }
             mr.日志 = "生成" + ComboBox_Date.Text + "资产负债表" ;
             vm.Insert(mr);
 
             List<Model_报表类> list = new List<Model_报表类>();
-            int value = ComboBox_Date.SelectedIndex;
             list = vmr.GetBalanceSheet(value + 1);
             decimal dy = 0;
             decimal dn = 0;
@@ -267,6 +273,13 @@ namespace PA.View.Pages.TwoTabControl
         /// <param name="e"></param>
         private void Button_生成3_Click(object sender, RoutedEventArgs e)
         {
+            int value = ComboBox_Date2.SelectedIndex;
+
+            if (value == CommonInfo.当前期 - 1)
+            {
+                MessageBoxCommon.Show("结账后方可生成报表!");
+                return;
+            }
             //清除上一次赋值的值
             for (int i = 0; i < LastList.Count; i++)
             {
@@ -279,7 +292,6 @@ namespace PA.View.Pages.TwoTabControl
             mr.日志 = "生成" + ComboBox_Date.Text + "行政费用支出明细表";
             vm.Insert(mr);
             List<Model_报表类> list = new List<Model_报表类>();
-            int value = ComboBox_Date2.SelectedIndex;
             list = vmr.GetAdministrativeExpenseDetail(value + 1);
             decimal dy = 0;
             decimal dn = 0;
