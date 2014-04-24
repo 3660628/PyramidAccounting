@@ -185,7 +185,23 @@ namespace PA.ViewModel
 
             string yearfee = db.GetAllData(sql2).Split('\t')[0].Split(',')[0];
 
+            string YearStartFee = yearfee;  //年初值
+            String MonthLastValue = "01";
+
+                //月合计
+            List<decimal> MonthList = new List<decimal>(20);
+            List<decimal> YearList = new List<decimal>(20);
+            for (int i = 0; i < 20;i++ )
+            {
+                decimal childvalue = 0;
+                MonthList.Add(childvalue);
+                YearList.Add(childvalue);
+            }
+            //月累计
+            
+
             DataTable dt = db.Query(sql).Tables[0];
+            bool isHasData = false;
             foreach (DataRow d in dt.Rows)
             {
                 decimal debit = 0;
@@ -204,14 +220,6 @@ namespace PA.ViewModel
                 decimal.TryParse(m.借方金额, out debit);
                 decimal.TryParse(m.贷方金额, out credit);
                 yearfee = (Convert.ToDecimal(yearfee) - credit + debit).ToString();
-
-                String MonthLastValue = "01";
-
-                //月合计
-                List<decimal> MonthList = new List<decimal>(20);
-
-                //月累计
-                List<decimal> YearList = new List<decimal>(20);
 
                 #region 赋值
                 List<string> _list = new List<string>();
@@ -498,24 +506,40 @@ namespace PA.ViewModel
                         MonthList[i] += dValue;
                         YearList[i] += dValue;
                     }
+                    isHasData = true;  //f1001
                 }
-                /*else
+                else
                 {
-                    Model_费用明细 mm = new Model_费用明细();
-                    mm = GetModel_Subject(MonthDebit, MonthCredit, yearfee);
-                    mm.摘要 = "本月合计";
-                    list.Add(mm);
-
-                    if (!m.月.Equals("01"))
+                    if (isHasData)
                     {
-                        Model_科目明细账 mmm = new Model_科目明细账();
-                        mmm = GetModel_Subject(YearDebit, YearCredit, yearfee);
-                        mmm.摘要 = "本月累计";
-                        list.Add(mmm);
+                        Model_费用明细 mm = new Model_费用明细();
+                        mm = GetFeeDetail(MonthList, MonthList[0] - MonthList[1] + decimal.Parse(YearStartFee));
+                        mm.摘要 = "本月合计";
+                        list.Add(mm);
+
+                        if (!MonthLastValue.Equals("01"))
+                        {
+                            Model_费用明细 mmm = new Model_费用明细();
+                            mmm = GetFeeDetail(YearList, YearList[0] - YearList[1] + decimal.Parse(YearStartFee));
+                            mmm.摘要 = "本月累计";
+                            list.Add(mmm);
+                        }
+                    } 
+                    MonthList = new List<decimal>(20);
+                    YearList = new List<decimal>(20);
+                    for (int i = 0; i < 20; i++)
+                    {
+                        decimal childvalue = 0;
+                        MonthList.Add(childvalue);
+                        YearList.Add(childvalue);
                     }
-                    MonthDebit = 0;
-                    MonthCredit = 0;
-                }*/
+                    for (int i = 0; i < 20; i++)
+                    {
+                        decimal.TryParse(d[i + 3].ToString(), out dValue);
+                        MonthList[i] += dValue;
+                        YearList[i] += dValue;
+                    }
+                }
                 MonthLastValue = m.月;
                 #endregion
 
@@ -523,7 +547,303 @@ namespace PA.ViewModel
                 #endregion
                 list.Add(m);
             }
+            Model_费用明细 mlast = new Model_费用明细();
+            mlast = GetFeeDetail(MonthList, decimal.Parse(yearfee));
+            mlast.摘要 = "本月合计";
+            list.Add(mlast);
+            if (!MonthLastValue.Equals("01"))
+            {
+                Model_费用明细 mmm = new Model_费用明细();
+                mmm = GetFeeDetail(YearList, decimal.Parse(yearfee));
+                if (MonthLastValue.Equals("12"))
+                {
+                    mmm.摘要 = "本年结账";
+                }
+                else
+                {
+                    mmm.摘要 = "本月累计";
+                }
+                list.Add(mmm);
+            }
             return list;
+        }
+
+        private Model_费用明细 GetFeeDetail(List<decimal> list,decimal SumFee)
+        {
+            Model_费用明细 m = new Model_费用明细();
+            List<string> _list = new List<string>();
+
+            _list = ut.Turn(list[0].ToString(), 10);
+            m.借方金额1 = _list[0];
+            m.借方金额2 = _list[1];
+            m.借方金额3 = _list[2];
+            m.借方金额4 = _list[3];
+            m.借方金额5 = _list[4];
+            m.借方金额6 = _list[5];
+            m.借方金额7 = _list[6];
+            m.借方金额8 = _list[7];
+            m.借方金额9 = _list[8];
+            m.借方金额10 = _list[9];
+
+            _list = ut.Turn(list[1].ToString(), 10);
+            m.贷方金额1 = _list[0];
+            m.贷方金额2 = _list[1];
+            m.贷方金额3 = _list[2];
+            m.贷方金额4 = _list[3];
+            m.贷方金额5 = _list[4];
+            m.贷方金额6 = _list[5];
+            m.贷方金额7 = _list[6];
+            m.贷方金额8 = _list[7];
+            m.贷方金额9 = _list[8];
+            m.贷方金额10 = _list[9];
+
+            _list.Clear();
+            _list = ut.Turn(SumFee.ToString(), 10);
+            m.余额1 = _list[0];
+            m.余额2 = _list[1];
+            m.余额3 = _list[2];
+            m.余额4 = _list[3];
+            m.余额5 = _list[4];
+            m.余额6 = _list[5];
+            m.余额7 = _list[6];
+            m.余额8 = _list[7];
+            m.余额9 = _list[8];
+            m.余额10 = _list[9];
+            _list.Clear();
+
+            _list = ut.Turn(list[2].ToString(), 10);
+            m.金额31 = _list[0];
+            m.金额32 = _list[1];
+            m.金额33 = _list[2];
+            m.金额34 = _list[3];
+            m.金额35 = _list[4];
+            m.金额36 = _list[5];
+            m.金额37 = _list[6];
+            m.金额38 = _list[7];
+            m.金额39 = _list[8];
+            m.金额40 = _list[9];
+
+            _list.Clear();
+            _list = ut.Turn(list[3].ToString(), 10);
+            m.金额41 = _list[0];
+            m.金额42 = _list[1];
+            m.金额43 = _list[2];
+            m.金额44 = _list[3];
+            m.金额45 = _list[4];
+            m.金额46 = _list[5];
+            m.金额47 = _list[6];
+            m.金额48 = _list[7];
+            m.金额49 = _list[8];
+            m.金额50 = _list[9];
+
+            _list.Clear();
+            _list = ut.Turn(list[4].ToString(), 10);
+            m.金额51 = _list[0];
+            m.金额52 = _list[1];
+            m.金额53 = _list[2];
+            m.金额54 = _list[3];
+            m.金额55 = _list[4];
+            m.金额56 = _list[5];
+            m.金额57 = _list[6];
+            m.金额58 = _list[7];
+            m.金额59 = _list[8];
+            m.金额60 = _list[9];
+
+            _list.Clear();
+            _list = ut.Turn(list[5].ToString(), 10);
+            m.金额61 = _list[0];
+            m.金额62 = _list[1];
+            m.金额63 = _list[2];
+            m.金额64 = _list[3];
+            m.金额65 = _list[4];
+            m.金额66 = _list[5];
+            m.金额67 = _list[6];
+            m.金额68 = _list[7];
+            m.金额69 = _list[8];
+            m.金额70 = _list[9];
+
+            _list.Clear();
+            _list = ut.Turn(list[6].ToString(), 10);
+            m.金额71 = _list[0];
+            m.金额72 = _list[1];
+            m.金额73 = _list[2];
+            m.金额74 = _list[3];
+            m.金额75 = _list[4];
+            m.金额76 = _list[5];
+            m.金额77 = _list[6];
+            m.金额78 = _list[7];
+            m.金额79 = _list[8];
+            m.金额80 = _list[9];
+
+            _list.Clear();
+            _list = ut.Turn(list[7].ToString(), 10);
+            m.金额81 = _list[0];
+            m.金额82 = _list[1];
+            m.金额83 = _list[2];
+            m.金额84 = _list[3];
+            m.金额85 = _list[4];
+            m.金额86 = _list[5];
+            m.金额87 = _list[6];
+            m.金额88 = _list[7];
+            m.金额89 = _list[8];
+            m.金额90 = _list[9];
+
+            _list.Clear();
+            _list = ut.Turn(list[8].ToString(), 10);
+            m.金额91 = _list[0];
+            m.金额92 = _list[1];
+            m.金额93 = _list[2];
+            m.金额94 = _list[3];
+            m.金额95 = _list[4];
+            m.金额96 = _list[5];
+            m.金额97 = _list[6];
+            m.金额98 = _list[7];
+            m.金额99 = _list[8];
+            m.金额100 = _list[9];
+
+            _list.Clear();
+            _list = ut.Turn(list[9].ToString(), 10);
+            m.金额101 = _list[0];
+            m.金额102 = _list[1];
+            m.金额103 = _list[2];
+            m.金额104 = _list[3];
+            m.金额105 = _list[4];
+            m.金额106 = _list[5];
+            m.金额107 = _list[6];
+            m.金额108 = _list[7];
+            m.金额109 = _list[8];
+            m.金额110 = _list[9];
+
+            _list.Clear();
+            _list = ut.Turn(list[10].ToString(), 10);
+            m.金额111 = _list[0];
+            m.金额112 = _list[1];
+            m.金额113 = _list[2];
+            m.金额114 = _list[3];
+            m.金额115 = _list[4];
+            m.金额116 = _list[5];
+            m.金额117 = _list[6];
+            m.金额118 = _list[7];
+            m.金额119 = _list[8];
+            m.金额120 = _list[9];
+
+            _list.Clear();
+            _list = ut.Turn(list[11].ToString(), 10);
+            m.金额121 = _list[0];
+            m.金额122 = _list[1];
+            m.金额123 = _list[2];
+            m.金额124 = _list[3];
+            m.金额125 = _list[4];
+            m.金额126 = _list[5];
+            m.金额127 = _list[6];
+            m.金额128 = _list[7];
+            m.金额129 = _list[8];
+            m.金额130 = _list[9];
+
+            _list.Clear();
+            _list = ut.Turn(list[12].ToString(), 10);
+            m.金额131 = _list[0];
+            m.金额132 = _list[1];
+            m.金额133 = _list[2];
+            m.金额134 = _list[3];
+            m.金额135 = _list[4];
+            m.金额136 = _list[5];
+            m.金额137 = _list[6];
+            m.金额138 = _list[7];
+            m.金额139 = _list[8];
+            m.金额140 = _list[9];
+
+            _list.Clear();
+            _list = ut.Turn(list[13].ToString(), 10);
+            m.金额141 = _list[0];
+            m.金额142 = _list[1];
+            m.金额143 = _list[2];
+            m.金额144 = _list[3];
+            m.金额145 = _list[4];
+            m.金额146 = _list[5];
+            m.金额147 = _list[6];
+            m.金额148 = _list[7];
+            m.金额149 = _list[8];
+            m.金额150 = _list[9];
+
+            _list.Clear();
+            _list = ut.Turn(list[14].ToString(), 10);
+            m.金额151 = _list[0];
+            m.金额152 = _list[1];
+            m.金额153 = _list[2];
+            m.金额154 = _list[3];
+            m.金额155 = _list[4];
+            m.金额156 = _list[5];
+            m.金额157 = _list[6];
+            m.金额158 = _list[7];
+            m.金额159 = _list[8];
+            m.金额160 = _list[9];
+
+            _list.Clear();
+            _list = ut.Turn(list[15].ToString(), 10);
+            m.金额161 = _list[0];
+            m.金额162 = _list[1];
+            m.金额163 = _list[2];
+            m.金额164 = _list[3];
+            m.金额165 = _list[4];
+            m.金额166 = _list[5];
+            m.金额167 = _list[6];
+            m.金额168 = _list[7];
+            m.金额169 = _list[8];
+            m.金额170 = _list[9];
+
+            _list.Clear();
+            _list = ut.Turn(list[16].ToString(), 10);
+            m.金额171 = _list[0];
+            m.金额172 = _list[1];
+            m.金额173 = _list[2];
+            m.金额174 = _list[3];
+            m.金额175 = _list[4];
+            m.金额176 = _list[5];
+            m.金额177 = _list[6];
+            m.金额178 = _list[7];
+            m.金额179 = _list[8];
+            m.金额180 = _list[9];
+
+            _list.Clear();
+            _list = ut.Turn(list[17].ToString(), 10);
+            m.金额181 = _list[0];
+            m.金额182 = _list[1];
+            m.金额183 = _list[2];
+            m.金额184 = _list[3];
+            m.金额185 = _list[4];
+            m.金额186 = _list[5];
+            m.金额187 = _list[6];
+            m.金额188 = _list[7];
+            m.金额189 = _list[8];
+            m.金额190 = _list[9];
+
+            _list.Clear();
+            _list = ut.Turn(list[18].ToString(), 10);
+            m.金额191 = _list[0];
+            m.金额192 = _list[1];
+            m.金额193 = _list[2];
+            m.金额194 = _list[3];
+            m.金额195 = _list[4];
+            m.金额196 = _list[5];
+            m.金额197 = _list[6];
+            m.金额198 = _list[7];
+            m.金额199 = _list[8];
+            m.金额200 = _list[9];
+
+            _list.Clear();
+            _list = ut.Turn(list[19].ToString(), 10);
+            m.金额201 = _list[0];
+            m.金额202 = _list[1];
+            m.金额203 = _list[2];
+            m.金额204 = _list[3];
+            m.金额205 = _list[4];
+            m.金额206 = _list[5];
+            m.金额207 = _list[6];
+            m.金额208 = _list[7];
+            m.金额209 = _list[8];
+            m.金额210 = _list[9];
+            return m;
         }
         /// <summary>
         /// 科目明细账查询方法
