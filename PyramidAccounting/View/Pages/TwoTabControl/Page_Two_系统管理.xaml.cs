@@ -136,6 +136,7 @@ namespace PA.View.Pages.TwoTabControl
                     this.PasswordBox_NewRepeat.Clear();
                     _mr.日志 = "修改密码";
                     vmr.Insert(_mr);
+                    CommonInfo.登录密码 = NewPassword;
                 }
                 else
                 {
