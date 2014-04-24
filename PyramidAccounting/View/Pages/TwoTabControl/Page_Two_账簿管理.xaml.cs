@@ -298,11 +298,19 @@ namespace PA.View.Pages.TwoTabControl
             }
             _subjectid = TextBox_多栏明细账_一.Text.Split('\t')[0];
             lm = vmk.GetFeeDetail(_subjectid, _detailid);
-            this.DataGrid_费用明细账.ItemsSource = lm;
             if (lm.Count > 0)
             {
                 this.Label_费用明细年.Content = lm[0].年 + "年";
                 int count = 1;
+                if (lm[0].列名.Count > 18)
+                {
+                    //Model_费用明细 m = new Model_费用明细();
+                    //m.摘要 = "查询不到数据！";
+                    //lm.Add(m);
+                    //this.DataGrid_费用明细账.ItemsSource = lm;
+                    MessageBoxCommon.Show("该版本软件不支持查询该科目！");
+                    return;
+                }
                 foreach (string s in lm[0].列名)
                 {
                     Label lb = new Label();
