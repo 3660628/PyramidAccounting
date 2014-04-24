@@ -590,6 +590,7 @@ namespace PA.ViewModel
 
             if (dt.Rows.Count > 0)
             {
+                bool isHasData = false;//这个月是否有数据，有才打印合计累计
                 foreach (DataRow d in dt.Rows)
                 {
                     Model_科目明细账 m = new Model_科目明细账();
@@ -650,6 +651,7 @@ namespace PA.ViewModel
                     m.余额12 = _list[11];
                     _list.Clear();
 
+                    
                     decimal dValue = 0;
                     if (MonthLastValue.Equals(m.月))
                     {
@@ -660,10 +662,29 @@ namespace PA.ViewModel
                         decimal.TryParse(m.贷方金额, out dValue);
                         MonthCredit += dValue;
                         YearCredit += dValue;
-
+                        isHasData = true;
                     }
                     else
                     {
+                        if (isHasData)
+                        {
+                            Model_科目明细账 mm = new Model_科目明细账();
+                            mm = GetModel_Subject(MonthDebit, MonthCredit, MonthDebit - MonthCredit + decimal.Parse(firstRow.余额));
+                            mm.摘要 = "本月合计";
+                            list.Add(mm);
+
+                            Console.WriteLine(m.月);
+                            if (!MonthLastValue.Equals("01"))
+                            {
+                                Model_科目明细账 mmm = new Model_科目明细账();
+                                mmm = GetModel_Subject(YearDebit, YearCredit, MonthDebit - MonthCredit + decimal.Parse(firstRow.余额));
+                                mmm.摘要 = "本月累计";
+                                list.Add(mmm);
+                            }
+                        }
+                        MonthDebit = 0;
+                        MonthCredit = 0;
+
                         decimal.TryParse(m.借方金额, out dValue);
                         MonthDebit += dValue;
                         YearDebit += dValue;
@@ -671,21 +692,6 @@ namespace PA.ViewModel
                         decimal.TryParse(m.贷方金额, out dValue);
                         MonthCredit += dValue;
                         YearCredit += dValue;
-
-                        Model_科目明细账 mm = new Model_科目明细账();
-                        mm = GetModel_Subject(MonthDebit, MonthCredit, yearfee);
-                        mm.摘要 = "本月合计";
-                        list.Add(mm);
-
-                        if (!m.月.Equals("01"))
-                        {
-                            Model_科目明细账 mmm = new Model_科目明细账();
-                            mmm = GetModel_Subject(YearDebit, YearCredit, yearfee);
-                            mmm.摘要 = "本月累计";
-                            list.Add(mmm);
-                        }
-                        MonthDebit = 0;
-                        MonthCredit = 0;
                     }
                     MonthLastValue = m.月;
                     list.Add(m);
