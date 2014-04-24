@@ -113,6 +113,7 @@ namespace PA.View.Windows
                 mr.日志 = "创建了账套：" + m.账套名称;
                 vmr.Insert(mr);
                 //调整至主页面
+                CommonInfo.账套信息 = m.账套名称;
                 MainWindow mw = new MainWindow();
                 mw.Show();
                 this.Close();
