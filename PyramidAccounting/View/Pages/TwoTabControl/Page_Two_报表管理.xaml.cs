@@ -270,9 +270,9 @@ namespace PA.View.Pages.TwoTabControl
             //清除上一次赋值的值
             for (int i = 0; i < LastList.Count; i++)
             {
-                Label lb = FindName("Label_B" + LastList[i].编号) as Label;
+                Label lb = FindName("Label_B" + LastList[i].编号.Replace("（", "").Replace("）", "")) as Label;
                 lb.Content = "";
-                Label lb2 = FindName("Label_L" + LastList[i].编号) as Label;
+                Label lb2 = FindName("Label_L" + LastList[i].编号.Replace("（", "").Replace("）", "")) as Label;
                 lb2.Content = "";
             }
 
@@ -299,9 +299,9 @@ namespace PA.View.Pages.TwoTabControl
             {
                 for (int i = 0; i < list.Count; i++)
                 {
-                    Label lb = FindName("Label_B" + list[i].编号) as Label;
+                    Label lb = FindName("Label_B" + list[i].编号.Replace("（", "").Replace("）", "")) as Label;
                     lb.Content = list[i].本期数;
-                    Label lb2 = FindName("Label_L" + list[i].编号) as Label;
+                    Label lb2 = FindName("Label_L" + list[i].编号.Replace("（", "").Replace("）", "")) as Label;
                     lb2.Content = list[i].累计数;
                     decimal.TryParse(list[i].本期数, out dn);
                     decimal.TryParse(list[i].累计数, out dy);
