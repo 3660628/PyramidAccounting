@@ -23,13 +23,13 @@ namespace PA.Helper.ExcelHelper
         /// <param name="filepath">文件路径</param>
         /// <param name="sheetname">Sheet表名</param>
         /// <returns></returns>
-        public DataSet ExcelDataSource(string filepath, string sheetname)
+        public bool ExcelDataSource(string filepath, string sheetname, out DataSet ds)
         {
             string strConn;
             strConn = "Provider=Microsoft.Jet.OLEDB.4.0;Data Source=" + filepath + ";Extended Properties=Excel 8.0;";
             OleDbConnection conn = new OleDbConnection(strConn);
             OleDbDataAdapter oada = new OleDbDataAdapter("select * from [" + sheetname + "$]", strConn);
-            DataSet ds = new DataSet();
+            ds = new DataSet();
             try
             {
                 oada.Fill(ds);
@@ -37,7 +37,7 @@ namespace PA.Helper.ExcelHelper
             catch(Exception ee)
             {
                 PA.Helper.DataBase.Log.Write("ExcelDataSource Fill ERROR::filepath:" + filepath + ";sheetname:" + sheetname + "\n\t" + ee.ToString());
-                return null;
+                return false;
             }
             finally
             {
@@ -45,7 +45,7 @@ namespace PA.Helper.ExcelHelper
                 conn.Close();
                 conn.Dispose();
             }
-            return ds;
+            return true;
         }
 
         /// <summary>

@@ -67,7 +67,11 @@ namespace PA.Helper.ExcelHelper
             xlWorkSheet = (xls.Worksheet)xlWorkBook.Worksheets.get_Item(1);
             #region fill Voucher
             int x = 1, y = 1;
-            DataSet ds = new PA.Helper.ExcelHelper.ExcelReader().ExcelDataSource(SourceXls, "Sheet1");
+            DataSet ds;
+            if(!new PA.Helper.ExcelHelper.ExcelReader().ExcelDataSource(SourceXls, "Sheet1", out ds))
+            {
+                return "出错了，请联系管理员。";
+            }
             foreach (DataRow dr in ds.Tables[0].Rows)
             {
                 foreach (DataColumn dc in ds.Tables[0].Columns)
@@ -1135,7 +1139,11 @@ namespace PA.Helper.ExcelHelper
             decimal b402 = 0;
 
             int x = 1, y = 1;
-            DataSet ds = new PA.Helper.ExcelHelper.ExcelReader().ExcelDataSource(SourceXls, "Sheet1");
+            DataSet ds;
+            if(!new PA.Helper.ExcelHelper.ExcelReader().ExcelDataSource(SourceXls, "Sheet1", out ds))
+            {
+                return "出错了，请联系管理员。";
+            }
             foreach (DataRow dr in ds.Tables[0].Rows)
             {
                 foreach (DataColumn dc in ds.Tables[0].Columns)
