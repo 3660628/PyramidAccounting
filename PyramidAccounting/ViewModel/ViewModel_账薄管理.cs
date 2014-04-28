@@ -1101,7 +1101,7 @@ namespace PA.ViewModel
             sql += "select op_time,period,subject_id,voucher_nums,comments,case when debit is null then 0 else debit end, case when credit is null then 0 else credit end,mark,0,"
                 + "case when fee is null then 0 else fee end from (select datetime('now', 'localtime') as op_time," + CommonInfo.当前期
                 + " as period,b.subject_id as subject_id,t.voucher_nums as voucher_nums,b.SUBJECT_ID || '汇总' AS comments,t.DEBIT as debit,t.CREDIT as credit,b.mark as mark," 
-                + "abs(b.mark*b.fee-total(t.credit -t.debit)) as fee from "
+                + "round(abs(b.mark*b.fee-total(t.credit -t.debit)),2) as fee from "
                 + DBTablesName.T_FEE + " b left join ("
                 + "SELECT min(VOUCHER_NO) || '-' || max(VOUCHER_NO) AS voucher_nums,subject_id,"
                 + "total(DEBIT) AS DEBIT,"

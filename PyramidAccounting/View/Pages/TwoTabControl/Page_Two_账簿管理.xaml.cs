@@ -85,7 +85,7 @@ namespace PA.View.Pages.TwoTabControl
         private void FillData总账(object sender, MyEventArgs e)
         {
             this.Popup_科目子细目.IsOpen = false;
-            if (typeof(PA.View.Pages.Pop.凭证录入.Page_凭证录入_科目).IsInstanceOfType(sender))
+            if (typeof(PA.View.Pages.Pop.凭证录入.Page_凭证录入_科目).IsInstanceOfType(sender) && TabControl_账簿管理.SelectedIndex==0)
             {
                 TextBox_科目及单位名称.Text = e.Str;
             }
@@ -94,7 +94,7 @@ namespace PA.View.Pages.TwoTabControl
         private void FillData多栏明细账_一(object sender, MyEventArgs e)
         {
             this.Popup_科目子细目.IsOpen = false;
-            if (typeof(PA.View.Pages.Pop.凭证录入.Page_凭证录入_科目).IsInstanceOfType(sender))
+            if (typeof(PA.View.Pages.Pop.凭证录入.Page_凭证录入_科目).IsInstanceOfType(sender) && TabControl_账簿管理.SelectedIndex == 1)
             {
                 TextBox_多栏明细账_一.Text = e.Str;
             }
@@ -102,7 +102,7 @@ namespace PA.View.Pages.TwoTabControl
         private void FillData多栏明细账_二(object sender, MyEventArgs e)
         {
             this.Popup_科目子细目.IsOpen = false;
-            if (typeof(PA.View.Pages.Pop.凭证录入.Page_凭证录入_子细目).IsInstanceOfType(sender))
+            if (typeof(PA.View.Pages.Pop.凭证录入.Page_凭证录入_子细目).IsInstanceOfType(sender) && TabControl_账簿管理.SelectedIndex == 1)
             {
                 TextBox_多栏明细账_二.Text = e.Str;
             }
@@ -110,7 +110,7 @@ namespace PA.View.Pages.TwoTabControl
         private void FillData多栏明细账_三(object sender, MyEventArgs e)
         {
             this.Popup_科目子细目.IsOpen = false;
-            if (typeof(PA.View.Pages.Pop.凭证录入.Page_凭证录入_子细目).IsInstanceOfType(sender))
+            if (typeof(PA.View.Pages.Pop.凭证录入.Page_凭证录入_子细目).IsInstanceOfType(sender) && TabControl_账簿管理.SelectedIndex == 1)
             {
                 TextBox_多栏明细账_三.Text = e.Str;
             }
@@ -118,11 +118,11 @@ namespace PA.View.Pages.TwoTabControl
         private void DoFillData(object sender, MyEventArgs e)
         {
             this.Popup_科目子细目.IsOpen = false;
-            if (typeof(PA.View.Pages.Pop.凭证录入.Page_凭证录入_科目).IsInstanceOfType(sender))
+            if (typeof(PA.View.Pages.Pop.凭证录入.Page_凭证录入_科目).IsInstanceOfType(sender) && TabControl_账簿管理.SelectedIndex == 2)
             {
                 TextBox_一级科目.Text = e.Str;
             }
-            else if (typeof(PA.View.Pages.Pop.凭证录入.Page_凭证录入_子细目).IsInstanceOfType(sender))
+            else if (typeof(PA.View.Pages.Pop.凭证录入.Page_凭证录入_子细目).IsInstanceOfType(sender) && TabControl_账簿管理.SelectedIndex == 2)
             {
                 TextBox_二级科目.Text = e.Str;
             }
@@ -429,6 +429,29 @@ namespace PA.View.Pages.TwoTabControl
         {
             TextBox_多栏明细账_二.Text = string.Empty;
         }
-
+        #region TextChanged事件
+        private void TextBox_一级科目_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (!string.IsNullOrEmpty(TextBox_二级科目.Text))
+            {
+                TextBox_二级科目.Text = "";
+            }
+        }
+        private void TextBox_多栏明细账_一_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (!string.IsNullOrEmpty(this.TextBox_多栏明细账_二.Text))
+            {
+                TextBox_多栏明细账_二.Text = "";
+                TextBox_多栏明细账_三.Text = "";
+            }
+        }
+        private void TextBox_多栏明细账_二_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (!string.IsNullOrEmpty(this.TextBox_多栏明细账_三.Text))
+            {
+                TextBox_多栏明细账_三.Text = "";
+            }
+        }
+        #endregion
     }
 }

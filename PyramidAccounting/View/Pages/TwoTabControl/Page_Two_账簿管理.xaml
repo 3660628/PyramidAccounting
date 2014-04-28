@@ -253,9 +253,9 @@
                 <Grid Background="White">
                     <Button FocusVisualStyle="{x:Null}" x:Name="Button_经费支出明细Print" Content="打印" HorizontalAlignment="Right" Margin="0,10,11,0" VerticalAlignment="Top" Width="50" Height="20" Template="{DynamicResource ButtonControlTemplate_Common}" Click="Button_经费支出明细Print_Click"/>
                     <Label Content="一级科目编号及名称" HorizontalAlignment="Left" Margin="20,8,0,0" VerticalAlignment="Top"/>
-                    <TextBox x:Name="TextBox_多栏明细账_一" HorizontalAlignment="Left" Margin="150,13,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" BorderThickness="0,0,0,1" MinWidth="120" IsReadOnly="True" MouseDoubleClick="TextBox_多栏明细账_一_MouseDoubleClick" Width="145"/>
+                    <TextBox x:Name="TextBox_多栏明细账_一" HorizontalAlignment="Left" Margin="150,13,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" BorderThickness="0,0,0,1" MinWidth="120" IsReadOnly="True" MouseDoubleClick="TextBox_多栏明细账_一_MouseDoubleClick" Width="145" TextChanged="TextBox_多栏明细账_一_TextChanged"/>
                     <Label Content="二级科目编号及名称" HorizontalAlignment="Left" Margin="20,38,0,0" VerticalAlignment="Top"/>
-                    <TextBox x:Name="TextBox_多栏明细账_二" HorizontalAlignment="Left" Margin="150,43,0,0" TextWrapping="Wrap" VerticalAlignment="Top" BorderThickness="0,0,0,1" MouseDoubleClick="TextBox_多栏明细账_二_MouseDoubleClick" MinWidth="120" IsReadOnly="True" Width="145">
+                    <TextBox x:Name="TextBox_多栏明细账_二" HorizontalAlignment="Left" Margin="150,43,0,0" TextWrapping="Wrap" VerticalAlignment="Top" BorderThickness="0,0,0,1" MouseDoubleClick="TextBox_多栏明细账_二_MouseDoubleClick" MinWidth="120" IsReadOnly="True" Width="145" TextChanged="TextBox_多栏明细账_二_TextChanged">
                         <TextBox.ContextMenu>
                             <ContextMenu>
                                 <MenuItem x:Name="MenuItem_2" Header="清空" Click="MenuItem_2_Click" />
@@ -1201,7 +1201,7 @@
                 <Grid Background="White">
                     <Button FocusVisualStyle="{x:Null}" x:Name="Button_科目明细Print" Content="打印" HorizontalAlignment="Right" Margin="0,10,11,0" VerticalAlignment="Top" Width="50" Height="20" Template="{DynamicResource ButtonControlTemplate_Common}" Click="Button_科目明细Print_Click"/>
                     <Label Content="一级科目编号及名称" HorizontalAlignment="Left" Margin="20,8,0,0" VerticalAlignment="Top"/>
-                    <TextBox x:Name="TextBox_一级科目" HorizontalAlignment="Left" Margin="150,13,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" BorderThickness="0,0,0,1" MouseDoubleClick="TextBox_一级科目_MouseDoubleClick" MinWidth="120" IsReadOnly="True"/>
+                    <TextBox x:Name="TextBox_一级科目" HorizontalAlignment="Left" Margin="150,13,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" BorderThickness="0,0,0,1" MouseDoubleClick="TextBox_一级科目_MouseDoubleClick" MinWidth="120" IsReadOnly="True" TextChanged="TextBox_一级科目_TextChanged"/>
                     <Label Content="二级科目编号及名称" HorizontalAlignment="Left" Margin="20,38,0,0" VerticalAlignment="Top"/>
                     <TextBox x:Name="TextBox_二级科目" HorizontalAlignment="Left" Margin="150,43,0,0" TextWrapping="Wrap" VerticalAlignment="Top" BorderThickness="0,0,0,1" MouseDoubleClick="TextBox_二级科目_MouseDoubleClick" MinWidth="120" IsReadOnly="True">
                         <TextBox.ContextMenu>

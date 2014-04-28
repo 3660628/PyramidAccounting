@@ -43,6 +43,11 @@ namespace PA.Helper.Tools
                 {
                     value += "0";
                 }
+                else if (temp.Length > 2)
+                {
+                    temp = temp.Substring(0, 2);
+                    value = value.Split('.')[0] + temp;
+                }
                 value = value.Replace(".", "");
                 length = value.Length;
                 char[] cc = value.ToCharArray();
