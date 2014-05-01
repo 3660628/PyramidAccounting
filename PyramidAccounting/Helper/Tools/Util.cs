@@ -25,7 +25,7 @@ namespace PA.Helper.Tools
         {
             List<string> list = new List<string>();
             int length = 0;
-            value = value.Replace("-", "");
+            //value = value.Replace("-", "");   //20140501要求显示-号 作此不再进行转换
             if (value.Equals("0"))
             {
                 for (int i = 0; i < size; i++)
