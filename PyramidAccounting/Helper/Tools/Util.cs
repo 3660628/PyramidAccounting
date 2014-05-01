@@ -21,11 +21,14 @@ namespace PA.Helper.Tools
         /// <param name="value">转换数</param>
         /// <param name="size">位数</param>
         /// <returns>List</returns>
-        public List<string> Turn(string value, int size)
+        public List<string> Turn(string value, int size, bool flag)
         {
             List<string> list = new List<string>();
             int length = 0;
-            //value = value.Replace("-", "");   //20140501要求显示-号 作此不再进行转换
+            if (flag)
+            {
+                value = value.Replace("-", "");
+            }
             if (value.Equals("0"))
             {
                 for (int i = 0; i < size; i++)
@@ -78,6 +81,11 @@ namespace PA.Helper.Tools
                 list.Add("0");
             }
             return list;
+        }
+
+        public List<string> Turn(string value, int size)
+        {
+            return Turn(value,size,true);
         }
 
     }

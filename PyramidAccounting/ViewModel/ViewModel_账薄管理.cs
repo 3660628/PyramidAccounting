@@ -108,8 +108,6 @@ namespace PA.ViewModel
                     m.借方金额10 = _list[9];
                     m.借方金额11 = _list[10];
                     m.借方金额12 = _list[11];
-
-                    
                     
                     _list.Clear();
                     _list = ut.Turn(m.余额, 12);
@@ -141,6 +139,7 @@ namespace PA.ViewModel
         /// <returns></returns>
         public List<Model_费用明细> GetFeeDetail(string subject_id,string detail_id)
         {
+            bool flag = true;
             ComboBox_科目 cb = new ComboBox_科目();
             List<string> lst = new List<string>();
             lst = cb.GetChildSubjectList("", detail_id, true);
@@ -172,7 +171,7 @@ namespace PA.ViewModel
                 + DBTablesName.T_SUBJECT
                 + " where parent_id='"
                 + detail_id
-                + "') and b.delete_mark=0 and b.REVIEW_MARK=1 order by b.op_time)t group by t.number,t.time ";
+                + "') and b.delete_mark=0 and b.REVIEW_MARK=1 order by b.op_time)t group by t.time,t.number order by t.time ";
 
             //查年初数
             string sql2 = "select a.fee*b.borrow_mark from t_yearfee a left join "
@@ -223,6 +222,11 @@ namespace PA.ViewModel
                     if (m.贷方金额.Contains("-") || m.借方金额.Contains("-"))
                     {
                         m.红字标记 = 1;
+                        flag = false;
+                    }
+                    else
+                    {
+                        flag = true;
                     }
 
                     decimal.TryParse(m.借方金额, out debit);
@@ -232,7 +236,7 @@ namespace PA.ViewModel
                     #region 赋值
                     List<string> _list = new List<string>();
 
-                    _list = ut.Turn(d[3].ToString(), 10);
+                    _list = ut.Turn(d[3].ToString(), 10, flag);
                     m.借方金额1 = _list[0];
                     m.借方金额2 = _list[1];
                     m.借方金额3 = _list[2];
@@ -244,7 +248,7 @@ namespace PA.ViewModel
                     m.借方金额9 = _list[8];
                     m.借方金额10 = _list[9];
 
-                    _list = ut.Turn(d[4].ToString(), 10);
+                    _list = ut.Turn(d[4].ToString(), 10, flag);
                     m.贷方金额1 = _list[0];
                     m.贷方金额2 = _list[1];
                     m.贷方金额3 = _list[2];
@@ -257,7 +261,7 @@ namespace PA.ViewModel
                     m.贷方金额10 = _list[9];
 
                     _list.Clear();
-                    _list = ut.Turn(yearfee, 10);
+                    _list = ut.Turn(yearfee, 10, flag);
                     m.余额1 = _list[0];
                     m.余额2 = _list[1];
                     m.余额3 = _list[2];
@@ -270,7 +274,7 @@ namespace PA.ViewModel
                     m.余额10 = _list[9];
                     _list.Clear();
 
-                    _list = ut.Turn(d[5].ToString(), 10);
+                    _list = ut.Turn(d[5].ToString(), 10, flag);
                     m.金额31 = _list[0];
                     m.金额32 = _list[1];
                     m.金额33 = _list[2];
@@ -283,7 +287,7 @@ namespace PA.ViewModel
                     m.金额40 = _list[9];
 
                     _list.Clear();
-                    _list = ut.Turn(d[6].ToString(), 10);
+                    _list = ut.Turn(d[6].ToString(), 10, flag);
                     m.金额41 = _list[0];
                     m.金额42 = _list[1];
                     m.金额43 = _list[2];
@@ -296,7 +300,7 @@ namespace PA.ViewModel
                     m.金额50 = _list[9];
 
                     _list.Clear();
-                    _list = ut.Turn(d[7].ToString(), 10);
+                    _list = ut.Turn(d[7].ToString(), 10, flag);
                     m.金额51 = _list[0];
                     m.金额52 = _list[1];
                     m.金额53 = _list[2];
@@ -309,7 +313,7 @@ namespace PA.ViewModel
                     m.金额60 = _list[9];
 
                     _list.Clear();
-                    _list = ut.Turn(d[8].ToString(), 10);
+                    _list = ut.Turn(d[8].ToString(), 10, flag);
                     m.金额61 = _list[0];
                     m.金额62 = _list[1];
                     m.金额63 = _list[2];
@@ -322,7 +326,7 @@ namespace PA.ViewModel
                     m.金额70 = _list[9];
 
                     _list.Clear();
-                    _list = ut.Turn(d[9].ToString(), 10);
+                    _list = ut.Turn(d[9].ToString(), 10, flag);
                     m.金额71 = _list[0];
                     m.金额72 = _list[1];
                     m.金额73 = _list[2];
@@ -335,7 +339,7 @@ namespace PA.ViewModel
                     m.金额80 = _list[9];
 
                     _list.Clear();
-                    _list = ut.Turn(d[10].ToString(), 10);
+                    _list = ut.Turn(d[10].ToString(), 10, flag);
                     m.金额81 = _list[0];
                     m.金额82 = _list[1];
                     m.金额83 = _list[2];
@@ -348,7 +352,7 @@ namespace PA.ViewModel
                     m.金额90 = _list[9];
 
                     _list.Clear();
-                    _list = ut.Turn(d[11].ToString(), 10);
+                    _list = ut.Turn(d[11].ToString(), 10, flag);
                     m.金额91 = _list[0];
                     m.金额92 = _list[1];
                     m.金额93 = _list[2];
@@ -361,7 +365,7 @@ namespace PA.ViewModel
                     m.金额100 = _list[9];
 
                     _list.Clear();
-                    _list = ut.Turn(d[12].ToString(), 10);
+                    _list = ut.Turn(d[12].ToString(), 10, flag);
                     m.金额101 = _list[0];
                     m.金额102 = _list[1];
                     m.金额103 = _list[2];
@@ -374,7 +378,7 @@ namespace PA.ViewModel
                     m.金额110 = _list[9];
 
                     _list.Clear();
-                    _list = ut.Turn(d[13].ToString(), 10);
+                    _list = ut.Turn(d[13].ToString(), 10, flag);
                     m.金额111 = _list[0];
                     m.金额112 = _list[1];
                     m.金额113 = _list[2];
@@ -387,7 +391,7 @@ namespace PA.ViewModel
                     m.金额120 = _list[9];
 
                     _list.Clear();
-                    _list = ut.Turn(d[14].ToString(), 10);
+                    _list = ut.Turn(d[14].ToString(), 10, flag);
                     m.金额121 = _list[0];
                     m.金额122 = _list[1];
                     m.金额123 = _list[2];
@@ -400,7 +404,7 @@ namespace PA.ViewModel
                     m.金额130 = _list[9];
 
                     _list.Clear();
-                    _list = ut.Turn(d[15].ToString(), 10);
+                    _list = ut.Turn(d[15].ToString(), 10, flag);
                     m.金额131 = _list[0];
                     m.金额132 = _list[1];
                     m.金额133 = _list[2];
@@ -413,7 +417,7 @@ namespace PA.ViewModel
                     m.金额140 = _list[9];
 
                     _list.Clear();
-                    _list = ut.Turn(d[16].ToString(), 10);
+                    _list = ut.Turn(d[16].ToString(), 10, flag);
                     m.金额141 = _list[0];
                     m.金额142 = _list[1];
                     m.金额143 = _list[2];
@@ -426,7 +430,7 @@ namespace PA.ViewModel
                     m.金额150 = _list[9];
 
                     _list.Clear();
-                    _list = ut.Turn(d[17].ToString(), 10);
+                    _list = ut.Turn(d[17].ToString(), 10, flag);
                     m.金额151 = _list[0];
                     m.金额152 = _list[1];
                     m.金额153 = _list[2];
@@ -439,7 +443,7 @@ namespace PA.ViewModel
                     m.金额160 = _list[9];
 
                     _list.Clear();
-                    _list = ut.Turn(d[18].ToString(), 10);
+                    _list = ut.Turn(d[18].ToString(), 10, flag);
                     m.金额161 = _list[0];
                     m.金额162 = _list[1];
                     m.金额163 = _list[2];
@@ -452,7 +456,7 @@ namespace PA.ViewModel
                     m.金额170 = _list[9];
 
                     _list.Clear();
-                    _list = ut.Turn(d[19].ToString(), 10);
+                    _list = ut.Turn(d[19].ToString(), 10, flag);
                     m.金额171 = _list[0];
                     m.金额172 = _list[1];
                     m.金额173 = _list[2];
@@ -465,7 +469,7 @@ namespace PA.ViewModel
                     m.金额180 = _list[9];
 
                     _list.Clear();
-                    _list = ut.Turn(d[20].ToString(), 10);
+                    _list = ut.Turn(d[20].ToString(), 10, flag);
                     m.金额181 = _list[0];
                     m.金额182 = _list[1];
                     m.金额183 = _list[2];
@@ -478,7 +482,7 @@ namespace PA.ViewModel
                     m.金额190 = _list[9];
 
                     _list.Clear();
-                    _list = ut.Turn(d[21].ToString(), 10);
+                    _list = ut.Turn(d[21].ToString(), 10, flag);
                     m.金额191 = _list[0];
                     m.金额192 = _list[1];
                     m.金额193 = _list[2];
@@ -491,7 +495,7 @@ namespace PA.ViewModel
                     m.金额200 = _list[9];
 
                     _list.Clear();
-                    _list = ut.Turn(d[22].ToString(), 10);
+                    _list = ut.Turn(d[22].ToString(), 10, flag);
                     m.金额201 = _list[0];
                     m.金额202 = _list[1];
                     m.金额203 = _list[2];
@@ -521,25 +525,23 @@ namespace PA.ViewModel
                         if (isHasData)
                         {
                             Model_费用明细 mm = new Model_费用明细();
-                            mm = GetFeeDetail(MonthList, MonthList[0] - MonthList[1] + decimal.Parse(YearStartFee));
+                            mm = GetFeeDetail(MonthList, MonthList[0] - MonthList[1] + decimal.Parse(YearStartFee),flag);
                             mm.摘要 = "本月合计";
                             list.Add(mm);
 
                             if (!MonthLastValue.Equals("01"))
                             {
                                 Model_费用明细 mmm = new Model_费用明细();
-                                mmm = GetFeeDetail(YearList, YearList[0] - YearList[1] + decimal.Parse(YearStartFee));
+                                mmm = GetFeeDetail(YearList, YearList[0] - YearList[1] + decimal.Parse(YearStartFee), flag);
                                 mmm.摘要 = "本月累计";
                                 list.Add(mmm);
                             }
                         }
                         MonthList = new List<decimal>(20);
-                        YearList = new List<decimal>(20);
                         for (int i = 0; i < 20; i++)
                         {
                             decimal childvalue = 0;
                             MonthList.Add(childvalue);
-                            YearList.Add(childvalue);
                         }
                         for (int i = 0; i < 20; i++)
                         {
@@ -556,13 +558,13 @@ namespace PA.ViewModel
                     list.Add(m);
                 }
                 Model_费用明细 mlast = new Model_费用明细();
-                mlast = GetFeeDetail(MonthList, decimal.Parse(yearfee));
+                mlast = GetFeeDetail(MonthList, decimal.Parse(yearfee),flag);
                 mlast.摘要 = "本月合计";
                 list.Add(mlast);
                 if (!MonthLastValue.Equals("01"))
                 {
                     Model_费用明细 mmm = new Model_费用明细();
-                    mmm = GetFeeDetail(YearList, decimal.Parse(yearfee));
+                    mmm = GetFeeDetail(YearList, decimal.Parse(yearfee),flag);
                     if (MonthLastValue.Equals("12"))
                     {
                         mmm.摘要 = "本年结账";
@@ -577,12 +579,12 @@ namespace PA.ViewModel
             return list;
         }
 
-        private Model_费用明细 GetFeeDetail(List<decimal> list,decimal SumFee)
+        private Model_费用明细 GetFeeDetail(List<decimal> list,decimal SumFee,bool flag)
         {
             Model_费用明细 m = new Model_费用明细();
             List<string> _list = new List<string>();
 
-            _list = ut.Turn(list[0].ToString(), 10);
+            _list = ut.Turn(list[0].ToString(), 10, flag);
             m.借方金额1 = _list[0];
             m.借方金额2 = _list[1];
             m.借方金额3 = _list[2];
@@ -594,7 +596,7 @@ namespace PA.ViewModel
             m.借方金额9 = _list[8];
             m.借方金额10 = _list[9];
 
-            _list = ut.Turn(list[1].ToString(), 10);
+            _list = ut.Turn(list[1].ToString(), 10, flag);
             m.贷方金额1 = _list[0];
             m.贷方金额2 = _list[1];
             m.贷方金额3 = _list[2];
@@ -607,7 +609,7 @@ namespace PA.ViewModel
             m.贷方金额10 = _list[9];
 
             _list.Clear();
-            _list = ut.Turn(SumFee.ToString(), 10);
+            _list = ut.Turn(SumFee.ToString(), 10, flag);
             m.余额1 = _list[0];
             m.余额2 = _list[1];
             m.余额3 = _list[2];
@@ -620,7 +622,7 @@ namespace PA.ViewModel
             m.余额10 = _list[9];
             _list.Clear();
 
-            _list = ut.Turn(list[2].ToString(), 10);
+            _list = ut.Turn(list[2].ToString(), 10, flag);
             m.金额31 = _list[0];
             m.金额32 = _list[1];
             m.金额33 = _list[2];
@@ -633,7 +635,7 @@ namespace PA.ViewModel
             m.金额40 = _list[9];
 
             _list.Clear();
-            _list = ut.Turn(list[3].ToString(), 10);
+            _list = ut.Turn(list[3].ToString(), 10, flag);
             m.金额41 = _list[0];
             m.金额42 = _list[1];
             m.金额43 = _list[2];
@@ -646,7 +648,7 @@ namespace PA.ViewModel
             m.金额50 = _list[9];
 
             _list.Clear();
-            _list = ut.Turn(list[4].ToString(), 10);
+            _list = ut.Turn(list[4].ToString(), 10, flag);
             m.金额51 = _list[0];
             m.金额52 = _list[1];
             m.金额53 = _list[2];
@@ -659,7 +661,7 @@ namespace PA.ViewModel
             m.金额60 = _list[9];
 
             _list.Clear();
-            _list = ut.Turn(list[5].ToString(), 10);
+            _list = ut.Turn(list[5].ToString(), 10, flag);
             m.金额61 = _list[0];
             m.金额62 = _list[1];
             m.金额63 = _list[2];
@@ -672,7 +674,7 @@ namespace PA.ViewModel
             m.金额70 = _list[9];
 
             _list.Clear();
-            _list = ut.Turn(list[6].ToString(), 10);
+            _list = ut.Turn(list[6].ToString(), 10, flag);
             m.金额71 = _list[0];
             m.金额72 = _list[1];
             m.金额73 = _list[2];
@@ -685,7 +687,7 @@ namespace PA.ViewModel
             m.金额80 = _list[9];
 
             _list.Clear();
-            _list = ut.Turn(list[7].ToString(), 10);
+            _list = ut.Turn(list[7].ToString(), 10, flag);
             m.金额81 = _list[0];
             m.金额82 = _list[1];
             m.金额83 = _list[2];
@@ -698,7 +700,7 @@ namespace PA.ViewModel
             m.金额90 = _list[9];
 
             _list.Clear();
-            _list = ut.Turn(list[8].ToString(), 10);
+            _list = ut.Turn(list[8].ToString(), 10, flag);
             m.金额91 = _list[0];
             m.金额92 = _list[1];
             m.金额93 = _list[2];
@@ -711,7 +713,7 @@ namespace PA.ViewModel
             m.金额100 = _list[9];
 
             _list.Clear();
-            _list = ut.Turn(list[9].ToString(), 10);
+            _list = ut.Turn(list[9].ToString(), 10, flag);
             m.金额101 = _list[0];
             m.金额102 = _list[1];
             m.金额103 = _list[2];
@@ -724,7 +726,7 @@ namespace PA.ViewModel
             m.金额110 = _list[9];
 
             _list.Clear();
-            _list = ut.Turn(list[10].ToString(), 10);
+            _list = ut.Turn(list[10].ToString(), 10, flag);
             m.金额111 = _list[0];
             m.金额112 = _list[1];
             m.金额113 = _list[2];
@@ -737,7 +739,7 @@ namespace PA.ViewModel
             m.金额120 = _list[9];
 
             _list.Clear();
-            _list = ut.Turn(list[11].ToString(), 10);
+            _list = ut.Turn(list[11].ToString(), 10, flag);
             m.金额121 = _list[0];
             m.金额122 = _list[1];
             m.金额123 = _list[2];
@@ -750,7 +752,7 @@ namespace PA.ViewModel
             m.金额130 = _list[9];
 
             _list.Clear();
-            _list = ut.Turn(list[12].ToString(), 10);
+            _list = ut.Turn(list[12].ToString(), 10, flag);
             m.金额131 = _list[0];
             m.金额132 = _list[1];
             m.金额133 = _list[2];
@@ -763,7 +765,7 @@ namespace PA.ViewModel
             m.金额140 = _list[9];
 
             _list.Clear();
-            _list = ut.Turn(list[13].ToString(), 10);
+            _list = ut.Turn(list[13].ToString(), 10, flag);
             m.金额141 = _list[0];
             m.金额142 = _list[1];
             m.金额143 = _list[2];
@@ -776,7 +778,7 @@ namespace PA.ViewModel
             m.金额150 = _list[9];
 
             _list.Clear();
-            _list = ut.Turn(list[14].ToString(), 10);
+            _list = ut.Turn(list[14].ToString(), 10, flag);
             m.金额151 = _list[0];
             m.金额152 = _list[1];
             m.金额153 = _list[2];
@@ -789,7 +791,7 @@ namespace PA.ViewModel
             m.金额160 = _list[9];
 
             _list.Clear();
-            _list = ut.Turn(list[15].ToString(), 10);
+            _list = ut.Turn(list[15].ToString(), 10, flag);
             m.金额161 = _list[0];
             m.金额162 = _list[1];
             m.金额163 = _list[2];
@@ -802,7 +804,7 @@ namespace PA.ViewModel
             m.金额170 = _list[9];
 
             _list.Clear();
-            _list = ut.Turn(list[16].ToString(), 10);
+            _list = ut.Turn(list[16].ToString(), 10, flag);
             m.金额171 = _list[0];
             m.金额172 = _list[1];
             m.金额173 = _list[2];
@@ -815,7 +817,7 @@ namespace PA.ViewModel
             m.金额180 = _list[9];
 
             _list.Clear();
-            _list = ut.Turn(list[17].ToString(), 10);
+            _list = ut.Turn(list[17].ToString(), 10, flag);
             m.金额181 = _list[0];
             m.金额182 = _list[1];
             m.金额183 = _list[2];
@@ -828,7 +830,7 @@ namespace PA.ViewModel
             m.金额190 = _list[9];
 
             _list.Clear();
-            _list = ut.Turn(list[18].ToString(), 10);
+            _list = ut.Turn(list[18].ToString(), 10, flag);
             m.金额191 = _list[0];
             m.金额192 = _list[1];
             m.金额193 = _list[2];
@@ -841,7 +843,7 @@ namespace PA.ViewModel
             m.金额200 = _list[9];
 
             _list.Clear();
-            _list = ut.Turn(list[19].ToString(), 10);
+            _list = ut.Turn(list[19].ToString(), 10, flag);
             m.金额201 = _list[0];
             m.金额202 = _list[1];
             m.金额203 = _list[2];
@@ -864,7 +866,7 @@ namespace PA.ViewModel
         {
             List<Model_科目明细账> list = new List<Model_科目明细账>();
             List<string> _list = new List<string>();
-            string mark = string.Empty;
+            bool flag = true;
 
             subject_id = subject_id.Split('\t')[0];
             detail = detail.Split('\t')[0];
@@ -887,7 +889,6 @@ namespace PA.ViewModel
             Model_科目明细账 firstRow = new Model_科目明细账();
             firstRow.摘要 = "承上年结余";
             firstRow.借或贷 = dr[0].ToString();
-            mark = firstRow.借或贷;
             firstRow.余额 = dr[1].ToString();
             _list = ut.Turn(firstRow.余额, 12);
             firstRow.余额1 = _list[0];
@@ -937,6 +938,11 @@ namespace PA.ViewModel
                     if (m.借方金额.Contains("-") || m.贷方金额.Contains("-"))
                     {
                         m.红字标记 = 1;
+                        flag = false;
+                    }
+                    else
+                    {
+                        flag = true;
                     }
                     yearfee -= Convert.ToDecimal(m.贷方金额) - Convert.ToDecimal(m.借方金额);
                     string tempvalue = yearfee.ToString();
@@ -956,7 +962,7 @@ namespace PA.ViewModel
                     m.贷方金额12 = _list[11];
 
                     _list.Clear();
-                    _list = ut.Turn(m.借方金额, 12);
+                    _list = ut.Turn(m.借方金额, 12, flag);
                     m.借方金额1 = _list[0];
                     m.借方金额2 = _list[1];
                     m.借方金额3 = _list[2];
@@ -1004,17 +1010,17 @@ namespace PA.ViewModel
                         if (isHasData)
                         {
                             Model_科目明细账 mm = new Model_科目明细账();
-                            mm = GetModel_Subject(MonthDebit, MonthCredit, MonthDebit - MonthCredit + decimal.Parse(firstRow.余额));
+                            mm = GetModel_Subject(MonthDebit, MonthCredit, MonthDebit - MonthCredit + decimal.Parse(firstRow.余额),flag);
                             mm.摘要 = "本月合计";
-                            mm.借或贷 = mark;
+                            mm.借或贷 = GetMark(MonthDebit,MonthCredit);
                             list.Add(mm);
 
                             if (!MonthLastValue.Equals("01"))
                             {
                                 Model_科目明细账 mmm = new Model_科目明细账();
-                                mmm = GetModel_Subject(YearDebit, YearCredit, MonthDebit - MonthCredit + decimal.Parse(firstRow.余额));
+                                mmm = GetModel_Subject(YearDebit, YearCredit, MonthDebit - MonthCredit + decimal.Parse(firstRow.余额),flag);
                                 mmm.摘要 = "本月累计";
-                                mmm.借或贷 = mark;
+                                mmm.借或贷 = GetMark(YearDebit,YearCredit);
                                 list.Add(mmm);
                             }
                         }
@@ -1033,14 +1039,14 @@ namespace PA.ViewModel
                     list.Add(m);
                 }
                 Model_科目明细账 mlast = new Model_科目明细账();
-                mlast = GetModel_Subject(MonthDebit, MonthCredit, yearfee);
+                mlast = GetModel_Subject(MonthDebit, MonthCredit, yearfee,flag);
                 mlast.摘要 = "本月合计";
-                mlast.借或贷 = mark;
+                mlast.借或贷 = GetMark(MonthDebit,MonthCredit);
                 list.Add(mlast);
                 if (!MonthLastValue.Equals("01"))
                 {
                     Model_科目明细账 mmm = new Model_科目明细账();
-                    mmm = GetModel_Subject(YearDebit, YearCredit, yearfee);
+                    mmm = GetModel_Subject(YearDebit, YearCredit, yearfee,flag);
                     if (MonthLastValue.Equals("12"))
                     {
                         mmm.摘要 = "本年结账";
@@ -1049,18 +1055,35 @@ namespace PA.ViewModel
                     {
                         mmm.摘要 = "本月累计";
                     }
-                    mmm.借或贷 = mark;
+                    mmm.借或贷 = GetMark(YearDebit, YearCredit);
                     list.Add(mmm);
                 }
             }
             return list;
         }
 
-        private Model_科目明细账 GetModel_Subject(decimal a,decimal b,decimal c)
+        private string GetMark(decimal a, decimal b)
+        {
+            string mark = string.Empty;
+            if (a == b)
+            {
+                mark = "平";
+            }
+            else if (a > b)
+            {
+                mark = "借";
+            }
+            else
+            {
+                mark = "贷";
+            }
+            return mark;
+        }
+        private Model_科目明细账 GetModel_Subject(decimal a,decimal b,decimal c,bool flag)
         {
             Model_科目明细账 m = new Model_科目明细账();
             List<string> _list = new List<string>();
-            _list = ut.Turn(a.ToString(), 12);
+            _list = ut.Turn(a.ToString(), 12, flag);
             m.借方金额1 = _list[0];
             m.借方金额2 = _list[1];
             m.借方金额3 = _list[2];
@@ -1074,7 +1097,7 @@ namespace PA.ViewModel
             m.借方金额11 = _list[10];
             m.借方金额12 = _list[11];
             _list.Clear();
-            _list = ut.Turn(b.ToString(), 12);
+            _list = ut.Turn(b.ToString(), 12, flag);
             m.贷方金额1 = _list[0];
             m.贷方金额2 = _list[1];
             m.贷方金额3 = _list[2];
