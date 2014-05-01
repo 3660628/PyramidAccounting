@@ -70,6 +70,14 @@ namespace PA.Model.DataGrid
             get { return mark; }
             set { mark = value; }
         }
+        private int red_mark;
+
+        public int 红字标记
+        {
+            get { return red_mark; }
+            set { red_mark = value; }
+        }
+
         private string excess;
 
         public string 余额

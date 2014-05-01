@@ -976,6 +976,16 @@
                             <TextBlock Text="角"	Grid.Column="212"	Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                             <TextBlock Text="分"	Grid.Column="213"	Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                             <DataGrid x:Name="DataGrid_费用明细账" Grid.Row="3" ItemsSource="{Binding}" Grid.ColumnSpan="214" CanUserAddRows="False" AutoGenerateColumns="False" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" HeadersVisibility="None" Background="#FFF6F6F6" BorderBrush="#FF99CCFF" Margin="0,-1,0,0" HorizontalScrollBarVisibility="Disabled" HorizontalGridLinesBrush="#FF99CCFF" VerticalGridLinesBrush="#FF99CCFF" VerticalScrollBarVisibility="Hidden" IsReadOnly="True">
+                                <DataGrid.Resources>
+                                    <Style TargetType="DataGridCell">
+                                        <Style.Triggers>
+                                            <DataTrigger Binding="{Binding 红字标记}" Value="1">
+                                                <Setter Property="Foreground" Value="Red">
+                                                </Setter>
+                                            </DataTrigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </DataGrid.Resources>
                                 <DataGrid.Columns>
                                     <DataGridTextColumn x:Name="fycolumn1" MinWidth="25" Binding="{Binding 月}"/>
                                     <DataGridTextColumn x:Name="fycolumn2" MinWidth="25" Binding="{Binding 日}"/>
@@ -1380,6 +1390,15 @@
                             <Label Content="金额" HorizontalContentAlignment="Center" Grid.Column="32" Grid.ColumnSpan="12"/>
                             <Label Content="√" VerticalContentAlignment="Center" Grid.Column="44" Grid.RowSpan="2"/>
                             <DataGrid x:Name="DataGrid_科目明细" Grid.Row="2" ItemsSource="{Binding}" Grid.ColumnSpan="45" IsReadOnly="True" CanUserAddRows="False" AutoGenerateColumns="False" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" BorderBrush="#FF99CCFF" HorizontalGridLinesBrush="#FF99CCFF" VerticalGridLinesBrush="#FF99CCFF" HeadersVisibility="None" Margin="0,-1,0,0" Background="#FFF6F6F6" HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Hidden">
+                                <DataGrid.Resources>
+                                    <Style TargetType="DataGridCell">
+                                        <Style.Triggers>
+                                            <DataTrigger Binding="{Binding 红字标记}" Value="1">
+                                                <Setter Property="Foreground" Value="Red"/>
+                                            </DataTrigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </DataGrid.Resources>
                                 <DataGrid.Columns>
                                     <DataGridTextColumn x:Name="column1" MinWidth="25" Binding="{Binding 月}"/>
                                     <DataGridTextColumn x:Name="column2" MinWidth="25" Binding="{Binding 日}"/>

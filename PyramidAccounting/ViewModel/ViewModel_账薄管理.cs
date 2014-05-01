@@ -220,6 +220,11 @@ namespace PA.ViewModel
                     m.借方金额 = d[3].ToString();
                     m.贷方金额 = d[4].ToString();
 
+                    if (m.贷方金额.Contains("-") || m.借方金额.Contains("-"))
+                    {
+                        m.红字标记 = 1;
+                    }
+
                     decimal.TryParse(m.借方金额, out debit);
                     decimal.TryParse(m.贷方金额, out credit);
                     yearfee = (Convert.ToDecimal(yearfee) - credit + debit).ToString();
@@ -859,10 +864,11 @@ namespace PA.ViewModel
         {
             List<Model_科目明细账> list = new List<Model_科目明细账>();
             List<string> _list = new List<string>();
+            string mark = string.Empty;
 
             subject_id = subject_id.Split('\t')[0];
             detail = detail.Split('\t')[0];
-            string sql = "select strftime(b.op_time),a.voucher_no,a.abstract,a.debit,a.credit,a.credit - a.debit,case when a.debit>a.credit then '借' when a.debit<a.credit then '贷' else '平' end  from " 
+            string sql = "select strftime(b.op_time),a.voucher_no,a.abstract,a.debit,a.credit from " 
                 + DBTablesName.T_VOUCHER_DETAIL
                 + " a left join " 
                 + DBTablesName.T_VOUCHER 
@@ -881,6 +887,7 @@ namespace PA.ViewModel
             Model_科目明细账 firstRow = new Model_科目明细账();
             firstRow.摘要 = "承上年结余";
             firstRow.借或贷 = dr[0].ToString();
+            mark = firstRow.借或贷;
             firstRow.余额 = dr[1].ToString();
             _list = ut.Turn(firstRow.余额, 12);
             firstRow.余额1 = _list[0];
@@ -926,7 +933,11 @@ namespace PA.ViewModel
                     m.摘要 = d[2].ToString();
                     m.借方金额 = d[3].ToString();
                     m.贷方金额 = d[4].ToString();
-                    m.借或贷 = d[6].ToString();
+
+                    if (m.借方金额.Contains("-") || m.贷方金额.Contains("-"))
+                    {
+                        m.红字标记 = 1;
+                    }
                     yearfee -= Convert.ToDecimal(m.贷方金额) - Convert.ToDecimal(m.借方金额);
                     string tempvalue = yearfee.ToString();
                     _list.Clear();
@@ -995,6 +1006,7 @@ namespace PA.ViewModel
                             Model_科目明细账 mm = new Model_科目明细账();
                             mm = GetModel_Subject(MonthDebit, MonthCredit, MonthDebit - MonthCredit + decimal.Parse(firstRow.余额));
                             mm.摘要 = "本月合计";
+                            mm.借或贷 = mark;
                             list.Add(mm);
 
                             if (!MonthLastValue.Equals("01"))
@@ -1002,6 +1014,7 @@ namespace PA.ViewModel
                                 Model_科目明细账 mmm = new Model_科目明细账();
                                 mmm = GetModel_Subject(YearDebit, YearCredit, MonthDebit - MonthCredit + decimal.Parse(firstRow.余额));
                                 mmm.摘要 = "本月累计";
+                                mmm.借或贷 = mark;
                                 list.Add(mmm);
                             }
                         }
@@ -1022,6 +1035,7 @@ namespace PA.ViewModel
                 Model_科目明细账 mlast = new Model_科目明细账();
                 mlast = GetModel_Subject(MonthDebit, MonthCredit, yearfee);
                 mlast.摘要 = "本月合计";
+                mlast.借或贷 = mark;
                 list.Add(mlast);
                 if (!MonthLastValue.Equals("01"))
                 {
@@ -1035,6 +1049,7 @@ namespace PA.ViewModel
                     {
                         mmm.摘要 = "本月累计";
                     }
+                    mmm.借或贷 = mark;
                     list.Add(mmm);
                 }
             }
