@@ -192,7 +192,7 @@ namespace PA.View.Pages.TwoTabControl
                 MessageBoxCommon.Show("请选择一级科目后再操作！");
                 return;
             }
-            PA.View.Pages.Pop.凭证录入.Page_凭证录入_子细目 page = new PA.View.Pages.Pop.凭证录入.Page_凭证录入_子细目(TextBox_一级科目.Text.ToString().Split('\t')[0]);
+            PA.View.Pages.Pop.凭证录入.Page_凭证录入_子细目 page = new PA.View.Pages.Pop.凭证录入.Page_凭证录入_子细目(TextBox_一级科目.Text.ToString().Split('\t')[0],false);
             page.FillDate += new Pages.Pop.凭证录入.Page_凭证录入_子细目_FillDateEventHandle(DoFillData);
             this.Frame_科目子细目.Content = page;
             this.Popup_科目子细目.IsOpen = true;

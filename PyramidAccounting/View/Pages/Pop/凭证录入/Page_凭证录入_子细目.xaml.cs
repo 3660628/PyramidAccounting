@@ -23,12 +23,22 @@ namespace PA.View.Pages.Pop.凭证录入
         public event Page_凭证录入_子细目_FillDateEventHandle FillDate;
         ComboBox_科目 cb = new ComboBox_科目();
         private string id;
+        private bool isTwo;
         private List<string> ChildData = new List<string>();
 
         public Page_凭证录入_子细目()
         {
             InitializeComponent();
             FillItemSource("");
+        }
+        
+        public Page_凭证录入_子细目(string id, bool isTwo)
+        {
+            InitializeComponent();
+            this.id = id;
+            this.isTwo = isTwo;
+            ChildData = cb.GetChildSubjectList("", id, isTwo);
+            this.ListBox_子细目.ItemsSource = ChildData;
         }
         private void FillItemSource(string condition)
         {
@@ -60,20 +70,7 @@ namespace PA.View.Pages.Pop.凭证录入
             }
             this.ListBox_子细目.ItemsSource = ItemsSourceData;
         }
-        public Page_凭证录入_子细目(string id)
-        {
-            InitializeComponent();
-            this.id = id;
-            ChildData = cb.GetChildSubjectList("", id);
-            this.ListBox_子细目.ItemsSource = ChildData;
-        }
-        public Page_凭证录入_子细目(string id, bool isTwo)
-        {
-            InitializeComponent();
-            this.id = id;
-            ChildData = cb.GetChildSubjectList("", id, true);
-            this.ListBox_子细目.ItemsSource = ChildData;
-        }
+        
 
         private void OnFillDate(string str)
         {
@@ -109,7 +106,7 @@ namespace PA.View.Pages.Pop.凭证录入
             }
             else
             {
-                ChildData = cb.GetChildSubjectList(textValue, id, true);
+                ChildData = cb.GetChildSubjectList(textValue, id, isTwo);
                 this.ListBox_子细目.ItemsSource = ChildData;
             }
         }

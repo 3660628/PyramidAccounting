@@ -33,27 +33,6 @@ namespace PA.Model.ComboBox
             }
             return list;
         }
-        public List<string> GetChildSubjectList(string condition,string id)
-        {
-            list = new List<string>();
-            if (string.IsNullOrEmpty(condition))
-            {
-                sql = "select subject_id,subject_name from " + DBTablesName.T_SUBJECT + " where parent_id LIKE '" + id + "%' order by subject_id";
-            }
-            else
-            {
-                sql = "select subject_id,subject_name from " + DBTablesName.T_SUBJECT + " where parent_id LIKE '" + id + "%' and subject_id like '" + condition +
-                        "%' order by subject_id";
-            }
-            DataBase db = new DataBase();
-            DataTable dt = db.Query(sql).Tables[0];
-            for (int i = 0; i < dt.Rows.Count; i++)
-            {
-                string str = dt.Rows[i][0] + "\t" + dt.Rows[i][1];
-                list.Add(str);
-            }
-            return list;
-        }
         /// <summary>
         /// 不显示三级科目
         /// </summary>
@@ -64,15 +43,22 @@ namespace PA.Model.ComboBox
         public List<string> GetChildSubjectList(string condition, string id, bool isTwo)
         {
             list = new List<string>();
-            if (string.IsNullOrEmpty(condition))
+            string sql1 = string.Empty;
+            string sql2 = string.Empty;
+            sql = "select subject_id,subject_name from " + DBTablesName.T_SUBJECT;
+            if (isTwo)
             {
-                sql = "select subject_id,subject_name from " + DBTablesName.T_SUBJECT + " where parent_id='" + id + "' order by subject_id";
+                sql1 = " where parent_id = '" + id + "'";
             }
             else
             {
-                sql = "select subject_id,subject_name from " + DBTablesName.T_SUBJECT + " where parent_id='" + id + "' and subject_id like '" + condition +
-                        "%' order by subject_id";
+                sql1 = " where parent_id like '" + id + "%'";
             }
+            if (!string.IsNullOrEmpty(condition))
+            {
+                sql2 = " and subject_id like '" + condition + "%'";
+            }
+            sql += sql1 + sql2 + " order by subject_id";
             DataBase db = new DataBase();
             DataTable dt = db.Query(sql).Tables[0];
             for (int i = 0; i < dt.Rows.Count; i++)
