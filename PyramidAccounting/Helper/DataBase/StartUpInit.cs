@@ -28,9 +28,9 @@ namespace PA.Helper.DataBase
 
             if (!File.Exists("Data\\" + currentDBName))
             {
-                MessageBoxCommon.Show("找不到数据库,请联系软件开发商！");
-                return false;
-                //new DBInitialize().Initialize();
+                //MessageBoxCommon.Show("找不到数据库,请联系软件开发商！");
+                //return false;
+                new DBInitialize().Initialize();
             }
             //判断是否将无密码数据库拷贝回来，再进行加密操作
             if (new XMLReader().ReadXML("注册").Equals("芝麻关门"))

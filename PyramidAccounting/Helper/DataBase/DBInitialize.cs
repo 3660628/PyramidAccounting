@@ -23,7 +23,7 @@ namespace PA.Helper.DataBase
             Log.Write("DBInitialize");
         }
 
-        /*
+        
         public void Initialize()
         {
             //新建数据库
@@ -35,6 +35,10 @@ namespace PA.Helper.DataBase
             SQLiteConnectionStringBuilder connstr = new SQLiteConnectionStringBuilder();
             SQLiteConnection conn = new SQLiteConnection();
             connstr.DataSource = dataSource;
+#if(!DEBUG)
+            connstr.Password = dbPassword;
+            new XMLWriter().WriteXML("注册", "true");
+#endif
             conn.ConnectionString = connstr.ToString();
             conn.Open();
             conn.Close();
@@ -112,7 +116,6 @@ namespace PA.Helper.DataBase
             }
             return list;
         }
-        */
         /// <summary>
         /// 获取数据库链接
         /// </summary>
