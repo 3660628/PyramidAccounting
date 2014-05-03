@@ -1191,9 +1191,9 @@ namespace PA.Helper.ExcelHelper
                 b202 += temp202;
             }
             decimal temp201b = 0m, temp202b = 0m;
-            decimal.TryParse(((xls.Range)xlWorkSheet.Cells[7, "B"]).Text, out temp201b);
+            decimal.TryParse(((xls.Range)xlWorkSheet.Cells[7, "E"]).Text, out temp201b);
             b201 += temp201b;
-            decimal.TryParse(((xls.Range)xlWorkSheet.Cells[7, "C"]).Text, out temp202b);
+            decimal.TryParse(((xls.Range)xlWorkSheet.Cells[7, "F"]).Text, out temp202b);
             b202 += temp202b;
             for (int i = 0; i < 14; i++)
             {
