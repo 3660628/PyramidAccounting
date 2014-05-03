@@ -127,7 +127,7 @@ namespace PA.ViewModel
             sqlList.Add(dropSql);
             string _sql1 = "create table sbtemp(subject_name text,period int,fee decimal)";
             sqlList.Add(_sql1);
-            string _sql2 = "insert into sbtemp select b.subject_name,a.PERIOD,a.fee from (SELECT a.DETAIL,b.PERIOD,total(a.DEBIT - a.CREDIT) AS fee FROM "
+            string _sql2 = "insert into sbtemp select b.subject_name,a.PERIOD,total(a.fee) from (SELECT a.DETAIL,b.PERIOD,total(a.DEBIT - a.CREDIT) AS fee FROM "
                     + DBTablesName.T_VOUCHER_DETAIL + " a LEFT JOIN "
                     + DBTablesName.T_VOUCHER + " b ON a.PARENTID = b.ID where b.REVIEW_MARK=1 and a.detail like '501%' GROUP BY a.DETAIL,b.PERIOD ) a LEFT JOIN "
                     + DBTablesName.T_SUBJECT 
