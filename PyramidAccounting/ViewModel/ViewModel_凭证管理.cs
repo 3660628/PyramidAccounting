@@ -274,5 +274,16 @@ namespace PA.ViewModel
             }
             return result;
         }
+        /// <summary>
+        /// 审核全部 20140504 Lugia
+        /// </summary>
+        /// <returns></returns>
+        public bool ReviewAll()
+        {
+            string sql = "update " + DBTablesName.T_VOUCHER + " set review_mark=1,REVIEWER='" + CommonInfo.真实姓名 + "' where review_mark=0";
+            List<string> lists = new List<string>();
+            lists.Add(sql);
+            return db.BatchOperate(lists);
+        }
     }
 }

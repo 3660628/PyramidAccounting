@@ -252,5 +252,29 @@ namespace PA.View.Pages.TwoTabControl
         {
             this.StackPanel_MoreButton.Visibility = System.Windows.Visibility.Collapsed;
         }
+
+        private void Button_全部审核_Click(object sender, RoutedEventArgs e)
+        {
+            this.StackPanel_MoreButton.Visibility = System.Windows.Visibility.Collapsed;
+            if (vsy.ValidateRuning() == false)
+            {
+                MessageBoxCommon.Show("试用期已过，不能使用此功能！");
+                return;
+            }
+            if (CommonInfo.权限值 >= 2)
+            {
+                bool? result = MessageBoxDel.Show("注意", "确认审核全部凭证？");
+                if (result == false)
+                {
+                    return;
+                }
+                new PA.ViewModel.ViewModel_凭证管理().ReviewAll();
+                ReflashData();
+            }
+            else
+            {
+                MessageBoxCommon.Show("您的权限不够，不能进行审核！");
+            }
+        }
     }
 }

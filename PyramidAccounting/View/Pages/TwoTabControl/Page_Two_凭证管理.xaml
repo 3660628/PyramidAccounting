@@ -75,6 +75,7 @@
                         </StackPanel.Effect>
                         <Button FocusVisualStyle="{x:Null}" x:Name="Button_打印" Content="打印" Height="25" Click="Button_打印_Click" BorderThickness="0" Background="White" BorderBrush="{x:Null}" Margin="0"/>
                         <Button FocusVisualStyle="{x:Null}" x:Name="Button_反审核" Content="反审核" Height="25" BorderThickness="0" Background="White" BorderBrush="{x:Null}" Margin="0" Click="Button_反审核_Click"/>
+                        <Button x:Name="Button_全部审核" FocusVisualStyle="{x:Null}" Height="25" Content="全部审核" Background="White" BorderThickness="0" BorderBrush="{x:Null}" Click="Button_全部审核_Click"/>
                     </StackPanel>
                 </Grid>
             </TabItem>
