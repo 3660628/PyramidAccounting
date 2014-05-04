@@ -218,7 +218,6 @@ namespace PA.ViewModel
                     detail.记账 = int.Parse(dr[8].ToString());
                     detail.借方 = decimal.Parse(dr[9].ToString());
                     detail.贷方 = decimal.Parse(dr[10].ToString());
-
                     detail.主科目名 = dr[6].ToString()+ " " +dr["MainSubjectName"].ToString();
                     detail.子细目 = dr[7].ToString() + " " + dr["TimesSubjectName"].ToString();
                     VoucherDetails.Add(detail);
@@ -244,7 +243,7 @@ namespace PA.ViewModel
                     detail.凭证号 = dr[4].ToString();
                     detail.摘要 = dr[5].ToString();
                     detail.科目编号 = dr[6].ToString();
-                    detail.子细目 = dr[7].ToString();
+                    detail.子细目ID = dr[7].ToString();
                     detail.记账 = int.Parse(dr[8].ToString());
                     detail.借方 = decimal.Parse(dr[9].ToString());
                     detail.贷方 = decimal.Parse(dr[10].ToString());
