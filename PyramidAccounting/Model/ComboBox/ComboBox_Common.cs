@@ -7,6 +7,7 @@ using PA.Model.DataGrid;
 using PA.Helper.DataBase;
 using PA.ViewModel;
 using PA.Helper.DataDefind;
+using System.IO;
 
 namespace PA.Model.ComboBox
 {
@@ -48,7 +49,12 @@ namespace PA.Model.ComboBox
         public List<string> GetComboBox_会计制度()
         {
             List<string> list = new List<string>();
-            list.Add("《行政单位会计制度》财预字[1998]49号");
+            string[] filesnames = Directory.GetFiles("Data//科目");
+            foreach (string filename in filesnames)
+            {
+                list.Add(filename.Replace("Data//科目\\","").Split('.')[0]);
+            }
+            //list.Add("《行政单位会计制度》财预字[1998]49号");
             return list;
         }
 
