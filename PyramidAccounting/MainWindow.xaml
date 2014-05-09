@@ -1,7 +1,7 @@
 ﻿<Window x:Name="Window_MainWindow" x:Class="PA.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="金字塔会计" Height="600" Width="960" WindowStartupLocation="CenterScreen" WindowStyle="None" AllowsTransparency="True" MouseLeftButtonDown="Window_MainWindow_MouseLeftButtonDown" SizeChanged="Window_MainWindow_SizeChanged">
+        Title="金字塔会计" Height="600" Width="960" WindowStartupLocation="CenterScreen" WindowStyle="None" AllowsTransparency="True" MouseLeftButtonDown="Window_MainWindow_MouseLeftButtonDown" SizeChanged="Window_MainWindow_SizeChanged" ResizeMode="CanResizeWithGrip" MinWidth="960" MinHeight="600">
 	<Window.Resources>
 		<Storyboard x:Key="Storyboard_MainWinLoad">
 			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="Window_MainWindow">
