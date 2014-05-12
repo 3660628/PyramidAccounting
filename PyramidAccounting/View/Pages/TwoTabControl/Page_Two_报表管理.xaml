@@ -41,7 +41,7 @@
                                 <RowDefinition/>
                             </Grid.RowDefinitions>
                             <Label x:Name="Label_编制单位1" Content="编制单位：" HorizontalAlignment="Left" Margin="0" VerticalAlignment="Top" Height="24" Width="70"/>
-                            <Label Content="单位：元" HorizontalAlignment="Right" Margin="0,0,10,0" VerticalAlignment="Top" Height="24" Width="58"/>
+                            <Label Content="单位：元（列至角分）" HorizontalAlignment="Right" Margin="0,0,10,0" VerticalAlignment="Top" Height="24" Width="Auto"/>
                             <Grid HorizontalAlignment="Stretch" Margin="0,25" VerticalAlignment="Top" Width="Auto" ShowGridLines="False">
                                 <Grid.RowDefinitions>
                                     <RowDefinition Height="25" />
@@ -111,69 +111,68 @@
                                 <Label Content="负债部类" HorizontalAlignment="Center" Grid.Column="5" VerticalAlignment="Center"  />
                                 <Label Content="年初数" HorizontalAlignment="Center" Grid.Column="6" VerticalAlignment="Center"  />
                                 <Label Content="期末数" HorizontalAlignment="Center" Grid.Column="7" VerticalAlignment="Center"  />
-                                <Label Content="一、资产类" HorizontalAlignment="Center" Grid.Column="1" Grid.Row="1" />
-                                <Label Content="二、负债类" HorizontalAlignment="Center" Grid.Column="5" Grid.Row="1" />
+                                <Label Content="一、资产类" HorizontalAlignment="Left" Grid.Column="1" Grid.Row="1" Margin="20,0,0,0" />
+                                <Label Content="二、负债类" HorizontalAlignment="Left" Grid.Column="5" Grid.Row="1" Margin="20,0,0,0" />
                                 <Label Content="101" HorizontalAlignment="Center" Grid.Row="2" />
-                                <Label Content="现金" HorizontalAlignment="Center" Grid.Column="1" Grid.Row="2" />
+                                <Label Content="现金" HorizontalAlignment="Left" Grid.Column="1" Grid.Row="2" Margin="40,0,0,0" />
                                 <Label Content="201" HorizontalAlignment="Center" Grid.Column="4" Grid.Row="2" />
-                                <Label Content="应邀预算款" HorizontalAlignment="Center" Grid.Column="5" Grid.Row="2" />
+                                <Label Content="应缴预算款" HorizontalAlignment="Left" Grid.Column="5" Grid.Row="2" Margin="40,0,0,0" />
                                 <Label Content="102" HorizontalAlignment="Center" Grid.Row="3" />
-                                <Label Content="银行存款" HorizontalAlignment="Center" Grid.Column="1" Grid.Row="3" />
+                                <Label Content="银行存款" HorizontalAlignment="Left" Grid.Column="1" Grid.Row="3" Margin="40,0,0,0" />
                                 <Label Content="202" HorizontalAlignment="Center" Grid.Column="4" Grid.Row="3" />
-                                <Label Content="应缴财政专户款" HorizontalAlignment="Center" Grid.Column="5" Grid.Row="3" />
+                                <Label Content="应缴财政专户款" HorizontalAlignment="Left" Grid.Column="5" Grid.Row="3" Margin="40,0,0,0" />
                                 <Label Content="103" HorizontalAlignment="Center" Grid.Row="4" />
-                                <Label Content="有价证劵" HorizontalAlignment="Center" Grid.Column="1" Grid.Row="4" />
+                                <Label Content="有价证劵" HorizontalAlignment="Left" Grid.Column="1" Grid.Row="4" Margin="40,0,0,0" />
                                 <Label Content="203" HorizontalAlignment="Center" Grid.Column="4" Grid.Row="4" />
-                                <Label Content="暂存款" HorizontalAlignment="Center" Grid.Column="5" Grid.Row="4" />
+                                <Label Content="暂存款" HorizontalAlignment="Left" Grid.Column="5" Grid.Row="4" Margin="40,0,0,0" />
                                 <Label Content="104" HorizontalAlignment="Center" Grid.Row="5" />
-                                <Label Content="暂付款" HorizontalAlignment="Center" Grid.Column="1" Grid.Row="5" />
+                                <Label Content="暂付款" HorizontalAlignment="Left" Grid.Column="1" Grid.Row="5" Margin="40,0,0,0" />
                                 <Label Content="211" HorizontalAlignment="Center" Grid.Column="4" Grid.Row="5" />
-                                <Label Content="应付工资（离退休费）" HorizontalAlignment="Center" Grid.Column="5" Grid.Row="5" />
+                                <Label Content="应付工资（离退休费）" HorizontalAlignment="Left" Grid.Column="5" Grid.Row="5" Margin="40,0,0,0" />
                                 <Label Content="105" HorizontalAlignment="Center" Grid.Row="6" />
-                                <Label Content="库存材料" HorizontalAlignment="Center" Grid.Column="1" Grid.Row="6" />
+                                <Label Content="库存材料" HorizontalAlignment="Left" Grid.Column="1" Grid.Row="6" Margin="40,0,0,0" />
                                 <Label Content="212" HorizontalAlignment="Center" Grid.Column="4" Grid.Row="6" />
-                                <Label Content="应付工资（部门）津贴补贴" HorizontalAlignment="Center" Grid.Column="5" Grid.Row="6" />
+                                <Label Content="应付工资（部门）津贴补贴" HorizontalAlignment="Left" Grid.Column="5" Grid.Row="6" Margin="40,0,0,0" />
                                 <Label Content="106" HorizontalAlignment="Center" Grid.Row="7" />
-                                <Label Content="固定资产" HorizontalAlignment="Center" Grid.Column="1" Grid.Row="7" />
+                                <Label Content="固定资产" HorizontalAlignment="Left" Grid.Column="1" Grid.Row="7" Margin="40,0,0,0" />
                                 <Label Content="213" HorizontalAlignment="Center" Grid.Column="4" Grid.Row="7" />
-                                <Label Content="应付其他个人收入" HorizontalAlignment="Center" Grid.Column="5" Grid.Row="7" />
+                                <Label Content="应付其他个人收入" HorizontalAlignment="Left" Grid.Column="5" Grid.Row="7" Margin="40,0,0,0" />
                                 <Label Content="107" HorizontalAlignment="Center" Grid.Row="8" />
-                                <Label Content="单位零余额账户用款额度（预算内）" HorizontalAlignment="Center" Grid.Column="1" Grid.Row="8" />
-                                <Label Content="负债合计" HorizontalAlignment="Center" Grid.Column="5" Grid.Row="8" />
+                                <Label Content="单位零余额账户用款额度（预算内）" HorizontalAlignment="Left" Grid.Column="1" Grid.Row="8" Margin="40,0,0,0" />
+                                <Label Content="负 债 合 计" HorizontalAlignment="Right" Grid.Column="5" Grid.Row="8" Margin="0,0,20,0" />
                                 <Label Content="108" HorizontalAlignment="Center" Grid.Row="9" />
-                                <Label Content="单位零余额账户用款额度（预算内）" HorizontalAlignment="Center" Grid.Column="1" Grid.Row="9" />
+                                <Label Content="单位零余额账户用款额度（预算内）" HorizontalAlignment="Left" Grid.Column="1" Grid.Row="9" Margin="40,0,0,0" />
                                 <Label Content="109" HorizontalAlignment="Center" Grid.Row="10" />
-                                <Label Content="单位零余额账户用款额度（预算内）" HorizontalAlignment="Center" Grid.Column="1" Grid.Row="10" />
-                                <Label Content="三、净资产类" HorizontalAlignment="Center" Grid.Column="5" Grid.Row="10" />
+                                <Label Content="单位零余额账户用款额度（预算内）" HorizontalAlignment="Left" Grid.Column="1" Grid.Row="10" Margin="40,0,0,0" />
+                                <Label Content="三、净资产类" HorizontalAlignment="Left" Grid.Column="5" Grid.Row="10" Margin="20,0,0,0" />
                                 <Label Content="110" HorizontalAlignment="Center" Grid.Row="11" />
-                                <Label Content="单位零余额账户用款额度（预算内）" HorizontalAlignment="Center" Grid.Column="1" Grid.Row="11" />
+                                <Label Content="单位零余额账户用款额度（预算内）" HorizontalAlignment="Left" Grid.Column="1" Grid.Row="11" Margin="40,0,0,0" />
                                 <Label Content="301" HorizontalAlignment="Center" Grid.Column="4" Grid.Row="11" />
-                                <Label Content="固定基金" HorizontalAlignment="Center" Grid.Column="5" Grid.Row="11" />
-                                <Label Content="资产合计" HorizontalAlignment="Center" Grid.Column="1" Grid.Row="12" />
+                                <Label Content="固定基金" HorizontalAlignment="Left" Grid.Column="5" Grid.Row="11" Margin="40,0,0,0" />
+                                <Label Content="资 产 合 计" HorizontalAlignment="Right" Grid.Column="1" Grid.Row="12" Margin="0,0,20,0" />
                                 <Label Content="303" HorizontalAlignment="Center" Grid.Column="4" Grid.Row="12" />
-                                <Label Content="结余" HorizontalAlignment="Center" Grid.Column="5" Grid.Row="12" />
-                                <Label Content="其中：经常性结余" HorizontalAlignment="Center" Grid.Column="5" Grid.Row="13" />
-                                <Label Content="专项结余" HorizontalAlignment="Center" Grid.Column="5" Grid.Row="14" />
-                                <Label Content="净资产合计" HorizontalAlignment="Center" Grid.Column="5" Grid.Row="15" />
+                                <Label Content="结余" HorizontalAlignment="Left" Grid.Column="5" Grid.Row="12" Margin="40,0,0,0" />
+                                <Label Content="其中：经常性结余" HorizontalAlignment="Left" Grid.Column="5" Grid.Row="13" Margin="40,0,0,0" />
+                                <Label Content="专项结余" HorizontalAlignment="Left" Grid.Column="5" Grid.Row="14" Margin="75,0,0,0" />
+                                <Label Content="净 资 产 合 计" HorizontalAlignment="Right" Grid.Column="5" Grid.Row="15" Margin="0,0,20,0" />
                                 <Label Content="501" HorizontalAlignment="Center" Grid.Row="17" />
-                                <Label Content="五、支出类" HorizontalAlignment="Center" Grid.Column="1" Grid.Row="16" />
+                                <Label Content="五、支出类" HorizontalAlignment="Left" Grid.Column="1" Grid.Row="16" Margin="20,0,0,0" />
                                 <Label Content="502" HorizontalAlignment="Center" Grid.Row="18" />
-                                <Label Content="经费支出" HorizontalAlignment="Center" Grid.Column="1" Grid.Row="17" />
-                                <Label Content="四、收入类" HorizontalAlignment="Center" Grid.Column="5" Grid.Row="17" />
+                                <Label Content="经费支出" HorizontalAlignment="Left" Grid.Column="1" Grid.Row="17" Margin="40,0,0,0" />
+                                <Label Content="四、收入类" HorizontalAlignment="Left" Grid.Column="5" Grid.Row="17" Margin="20,0,0,0" />
                                 <Label Content="505" HorizontalAlignment="Center" Grid.Row="19" />
-                                <Label Content="拨出经费" HorizontalAlignment="Center" Grid.Column="1" Grid.Row="18" />
+                                <Label Content="拨出经费" HorizontalAlignment="Left" Grid.Column="1" Grid.Row="18" Margin="40,0,0,0" />
                                 <Label Content="401" HorizontalAlignment="Center" Grid.Column="4" Grid.Row="18" />
-                                <Label Content="拨入经费" HorizontalAlignment="Center" Grid.Column="5" Grid.Row="18" />
-                                <Label Content="结转自筹基建" HorizontalAlignment="Center" Grid.Column="1" Grid.Row="19" />
+                                <Label Content="拨入经费" HorizontalAlignment="Left" Grid.Column="5" Grid.Row="18" Margin="40,0,0,0" />
+                                <Label Content="结转自筹基建" HorizontalAlignment="Left" Grid.Column="1" Grid.Row="19" Margin="40,0,0,0" />
                                 <Label Content="404" HorizontalAlignment="Center" Grid.Column="4" Grid.Row="19" />
-                                <Label Content="预算外资金收入" HorizontalAlignment="Center" Grid.Column="5" Grid.Row="19" />
-                                <Label Content="支出合计" HorizontalAlignment="Center" Grid.Column="1" Grid.Row="20" />
+                                <Label Content="预算外资金收入" HorizontalAlignment="Left" Grid.Column="5" Grid.Row="19" Margin="40,0,0,0" />
+                                <Label Content="支 出 合 计" HorizontalAlignment="Right" Grid.Column="1" Grid.Row="20" Margin="0,0,20,0" />
                                 <Label Content="407" HorizontalAlignment="Center" Grid.Column="4" Grid.Row="20" />
-                                <Label Content="其他收入" HorizontalAlignment="Center" Grid.Column="5" Grid.Row="20" />
-                                <Label Content="收入合计" HorizontalAlignment="Center" Grid.Column="5" Grid.Row="21" />
-                                <Label Content="资产部类总计" HorizontalAlignment="Center" Grid.Column="1" Grid.Row="23" />
+                                <Label Content="其他收入" HorizontalAlignment="Left" Grid.Column="5" Grid.Row="20" Margin="40,0,0,0" />
+                                <Label Content="收 入 合 计" HorizontalAlignment="Right" Grid.Column="5" Grid.Row="21" Margin="0,0,20,0" />
+                                <Label Content="资 产 部 类 总 计" HorizontalAlignment="Right" Grid.Column="1" Grid.Row="23" Margin="0,0,20,0" />
                                 <Label Content="负债部类总计" HorizontalAlignment="Center" Grid.Column="5" Grid.Row="23" />
-
                                 <!-- 这里开始写插入的值-->
                                 <!-- 101~110-->
                                 <Label x:Name="y1" Content="" HorizontalAlignment="Center" Grid.Row="2" Grid.Column="2" />

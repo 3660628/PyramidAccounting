@@ -166,6 +166,9 @@
     <Compile Include="View\Pages\TwoTabControl\Page_Two_报表管理.xaml.cs">
       <DependentUpon>Page_Two_报表管理.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\Pages\TwoTabControl\Page_Two_报表管理_事业.xaml.cs">
+      <DependentUpon>Page_Two_报表管理_事业.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\Pages\TwoTabControl\Page_Two_系统管理.xaml.cs">
       <DependentUpon>Page_Two_系统管理.xaml</DependentUpon>
     </Compile>
@@ -242,6 +245,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\Pages\TwoTabControl\Page_Two_报表管理.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Pages\TwoTabControl\Page_Two_报表管理_事业.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -22,48 +22,46 @@ using PA.View.ResourceDictionarys.MessageBox;
 
 namespace PA.View.Pages.TwoTabControl
 {
-
     /// <summary>
-    /// Interaction logic for Page_Two_报表管理.xaml
+    /// Interaction logic for Page_Two_报表管理_事业.xaml
     /// </summary>
-    public partial class Page_Two_报表管理 : Page
+    public partial class Page_Two_报表管理_事业 : Page
     {
         PA.Helper.XMLHelper.XMLReader xr = new Helper.XMLHelper.XMLReader();
         private ComboBox_Common cbc = new ComboBox_Common();
         private ViewModel_ReportManager vmr = new ViewModel_ReportManager();
         private ViewModel_操作日志 vm = new ViewModel_操作日志();
         private Model_操作日志 mr = new Model_操作日志();
-        public Page_Two_报表管理()
+        public Page_Two_报表管理_事业()
         {
             InitializeComponent();
             SubscribeToEvent();
-            this.Label_编制单位1.Content += "\t" +xr.ReadXML("公司");   //程序启动后加载当前公司名称
+            this.Label_编制单位1.Content += "\t" + xr.ReadXML("公司");   //程序启动后加载当前公司名称
             mr = vm.GetOperateLog();
             FreshComboBox();
         }
-
         /// <summary>
         /// 刷新日期下拉
         /// </summary>
         private void FreshComboBox()
         {
             this.ComboBox_Date.ItemsSource = cbc.GetComboBox_期数(1);
-            
 
-            this.ComboBox_Date1.ItemsSource = cbc.GetComboBox_期数(1);
 
-            this.ComboBox_Date2.ItemsSource = cbc.GetComboBox_期数(1);
+            //this.ComboBox_Date1.ItemsSource = cbc.GetComboBox_期数(1);
+
+            //this.ComboBox_Date2.ItemsSource = cbc.GetComboBox_期数(1);
             if (CommonInfo.当前期 == 1)
             {
                 this.ComboBox_Date.SelectedIndex = CommonInfo.当前期 - 1;
-                this.ComboBox_Date1.SelectedIndex = CommonInfo.当前期 - 1;
-                this.ComboBox_Date2.SelectedIndex = CommonInfo.当前期 - 1;
+                //this.ComboBox_Date1.SelectedIndex = CommonInfo.当前期 - 1;
+                //this.ComboBox_Date2.SelectedIndex = CommonInfo.当前期 - 1;
             }
             else
             {
                 this.ComboBox_Date.SelectedIndex = CommonInfo.当前期 - 2;
-                this.ComboBox_Date1.SelectedIndex = CommonInfo.当前期 - 2;
-                this.ComboBox_Date2.SelectedIndex = CommonInfo.当前期 - 2;
+                //this.ComboBox_Date1.SelectedIndex = CommonInfo.当前期 - 2;
+                //this.ComboBox_Date2.SelectedIndex = CommonInfo.当前期 - 2;
             }
             Label_账套名称.Content = "当前帐套名称：" + CommonInfo.账套信息;
             Label_操作员.Content = "操作员：" + CommonInfo.用户权限 + "\t" + CommonInfo.真实姓名;
@@ -85,17 +83,26 @@ namespace PA.View.Pages.TwoTabControl
         }
         #endregion
 
+        private List<Model_报表类> last_资产负债表 = new List<Model_报表类>();
         private void Button_生成1_Click(object sender, RoutedEventArgs e)
         {
             int value = ComboBox_Date.SelectedIndex;
-
             if (value == CommonInfo.当前期 - 1)
             {
                 MessageBoxCommon.Show("结账后方可生成报表!");
                 return;
             }
-            mr.日志 = "生成" + ComboBox_Date.Text + "资产负债表" ;
+            mr.日志 = "生成" + ComboBox_Date.Text + "资产负债表";
             vm.Insert(mr);
+
+            //清除上一次赋值的值
+            foreach (Model_报表类 m in last_资产负债表)
+            {
+                Label lb = FindName("inM" + m.编号) as Label;
+                lb.Content = "";
+                Label lb2 = FindName("inY" + m.编号) as Label;
+                lb2.Content = "";
+            }
 
             List<Model_报表类> list = new List<Model_报表类>();
             list = vmr.GetBalanceSheet(value + 1);
@@ -113,35 +120,35 @@ namespace PA.View.Pages.TwoTabControl
             decimal sumn5 = 0;
             if (list.Count > 0)
             {
-                for (int i = 0; i < list.Count; i++)
+                foreach (Model_报表类 m in list) 
                 {
-                    Label lb = FindName("y" + (i + 1)) as Label;
-                    lb.Content = list[i].年初数;
-                    Label lb2 = FindName("n" + (i + 1)) as Label;
-                    lb2.Content = list[i].期末数;
-                    decimal.TryParse(list[i].年初数, out dy);
-                    decimal.TryParse(list[i].期末数, out dn);
-                    if (i < 10)
+                    Label lb = FindName("y" + m.编号) as Label;
+                    lb.Content = m.年初数;
+                    Label lb2 = FindName("n" + m.编号) as Label;
+                    lb2.Content = m.期末数;
+                    decimal.TryParse(m.年初数, out dy);
+                    decimal.TryParse(m.期末数, out dn);
+                    if (m.编号.StartsWith("1"))
                     {
                         sumy1 += dy;
                         sumn1 += dn;
                     }
-                    else if (i >= 10 && i < 16)
+                    else if (m.编号.StartsWith("2"))
                     {
                         sumy2 += dy;
                         sumn2 += dn;
                     }
-                    else if (i >= 16 && i < 18)
+                    else if (m.编号.StartsWith("3"))
                     {
                         sumy3 += dy;
                         sumn3 += dn;
                     }
-                    else if (i >= 18 && i < 21)
+                    else if (m.编号.StartsWith("4"))
                     {
                         sumy4 += dy;
                         sumn4 += dn;
                     }
-                    else
+                    else if (m.编号.StartsWith("5"))
                     {
                         sumy5 += dy;
                         sumn5 += dn;
@@ -163,18 +170,12 @@ namespace PA.View.Pages.TwoTabControl
                 totalN1.Content = sumn1 + sumn5;
                 totalY2.Content = sumy2 + sumy3 + sumy4;
                 totalN2.Content = sumn2 + sumn3 + sumn4;
-                Label_填表人.Content = "填表人：" + CommonInfo.真实姓名 ;
+                Label_填表人.Content = "填表人：" + CommonInfo.真实姓名;
                 Label_填表日期.Content = "填表日期：" + DateTime.Now.ToLongDateString();
+                last_资产负债表 = list;
             }
             else
             {
-                for (int i = 0; i < 24; i++)
-                {
-                    Label lb = FindName("y" + (i + 1)) as Label;
-                    lb.Content = "";
-                    Label lb1 = FindName("n" + (i + 1)) as Label;
-                    lb1.Content = "";
-                }
                 for (int i = 0; i < 5; i++)
                 {
                     Label lb = FindName("sumY" + (i + 1)) as Label;
@@ -186,12 +187,14 @@ namespace PA.View.Pages.TwoTabControl
                 totalN2.Content = "";
                 totalY1.Content = "";
                 totalY2.Content = "";
+                Label_填表日期.Content = "填表日期：";
             }
+                
         }
 
         private List<Model_报表类> lastList_fee1 = new List<Model_报表类>();
         private List<Model_报表类> lastList_fee2 = new List<Model_报表类>();
-        private void Button_生成2_Click(object sender, RoutedEventArgs e)
+        /*private void Button_生成2_Click(object sender, RoutedEventArgs e)
         {
             int value = ComboBox_Date1.SelectedIndex;
 
@@ -215,16 +218,16 @@ namespace PA.View.Pages.TwoTabControl
                 inSumM2.Content = "";
                 inSumY2.Content = "";
             }
-            //第一次对一级科目赋值
+
             List<Model_报表类> list = new List<Model_报表类>();
-            list = vmr.GetIncomeAndExpenses(value+1);
+            list = vmr.GetIncomeAndExpenses(value + 1);
             decimal dy = 0;
             decimal dn = 0;
             decimal insumm1 = 0;
             decimal insumy1 = 0;
             decimal insumm2 = 0;
             decimal insumy2 = 0;
-            string temp = string.Empty ;
+            string temp = string.Empty;
             if (list.Count > 0)
             {
                 foreach (Model_报表类 m in list)
@@ -247,16 +250,16 @@ namespace PA.View.Pages.TwoTabControl
                     }
                 }
 
-                    inSumM1.Content = insumm1;
-                    inSumY1.Content = insumy1;
-                    inSumM2.Content = insumm2;
-                    inSumY2.Content = insumy2;
+                inSumM1.Content = insumm1;
+                inSumY1.Content = insumy1;
+                inSumM2.Content = insumm2;
+                inSumY2.Content = insumy2;
                 lastList_fee1 = list;
             }
 
             list.Clear();
-            //第一次对二级科目赋值
             list = vmr.GetIncomeAndExpensesForTwoSubject(value + 1);
+            //清除上一次赋值的值
             foreach (Model_报表类 m in lastList_fee2)
             {
                 Label lb = FindName("inM" + m.编号) as Label;
@@ -271,16 +274,16 @@ namespace PA.View.Pages.TwoTabControl
                 Label lb2 = FindName("inY" + m.编号) as Label;
                 lb2.Content = m.累计数;
             }
-            lastList_fee2 = list;    
+            lastList_fee2 = list;
         }
-
+        */
         private List<Model_报表类> LastList = new List<Model_报表类>();
         /// <summary>
         /// 行政费用明细表
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void Button_生成3_Click(object sender, RoutedEventArgs e)
+        /*private void Button_生成3_Click(object sender, RoutedEventArgs e)
         {
             int value = ComboBox_Date2.SelectedIndex;
 
@@ -554,16 +557,16 @@ namespace PA.View.Pages.TwoTabControl
                 }
             }
         }
-
+        */
         private void Button_BalanceSheetPrint_Click(object sender, RoutedEventArgs e)
         {
             string result = new PA.Helper.ExcelHelper.ExcelWriter().ExportBalanceSheet(ComboBox_Date.SelectedIndex + 1, CommonInfo.真实姓名, Label_填表日期.Content.ToString());
-            if(result != "")
+            if (result != "")
             {
                 MessageBoxCommon.Show(result);
             }
         }
-
+        /*
         private void Button_IncomeAndExpenditurePrint_Click(object sender, RoutedEventArgs e)
         {
             string result = new PA.Helper.ExcelHelper.ExcelWriter().ExportIncomeAndExpenditure(ComboBox_Date1.SelectedIndex + 1);
@@ -581,5 +584,6 @@ namespace PA.View.Pages.TwoTabControl
                 MessageBoxCommon.Show(result);
             }
         }
+         * */
     }
 }
