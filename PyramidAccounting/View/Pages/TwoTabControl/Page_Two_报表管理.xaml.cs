@@ -31,6 +31,7 @@ namespace PA.View.Pages.TwoTabControl
         PA.Helper.XMLHelper.XMLReader xr = new Helper.XMLHelper.XMLReader();
         private ComboBox_Common cbc = new ComboBox_Common();
         private ViewModel_ReportManager vmr = new ViewModel_ReportManager();
+        private ViewModel_科目管理 vms = new ViewModel_科目管理();
         private ViewModel_操作日志 vm = new ViewModel_操作日志();
         private Model_操作日志 mr = new Model_操作日志();
         public Page_Two_报表管理()
@@ -193,6 +194,7 @@ namespace PA.View.Pages.TwoTabControl
         private List<Model_报表类> lastList_fee2 = new List<Model_报表类>();
         private void Button_生成2_Click(object sender, RoutedEventArgs e)
         {
+            
             int value = ComboBox_Date1.SelectedIndex;
 
             if (value == CommonInfo.当前期 - 1)
@@ -256,7 +258,7 @@ namespace PA.View.Pages.TwoTabControl
 
             list.Clear();
             //第一次对二级科目赋值
-            list = vmr.GetIncomeAndExpensesForTwoSubject(value + 1);
+            list = vmr.GetIncomeAndExpensesForTwoSubject(value + 1,vms.GetIncomeAndOutSubjectList());
             foreach (Model_报表类 m in lastList_fee2)
             {
                 Label lb = FindName("inM" + m.编号) as Label;
@@ -301,7 +303,7 @@ namespace PA.View.Pages.TwoTabControl
             mr.日志 = "生成" + ComboBox_Date.Text + "行政费用支出明细表";
             vm.Insert(mr);
             List<Model_报表类> list = new List<Model_报表类>();
-            list = vmr.GetAdministrativeExpenseDetail(value + 1);
+            list = vmr.GetAdministrativeExpenseDetail(value + 1,501);
             decimal dy = 0;
             decimal dn = 0;
 

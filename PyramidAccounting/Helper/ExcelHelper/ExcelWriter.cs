@@ -1041,15 +1041,8 @@ namespace PA.Helper.ExcelHelper
             xlWorkSheet.Cells[16, "E"] = insumm2;
             xlWorkSheet.Cells[16, "F"] = insumy2;
 
-            //xlWorkSheet.Cells[7, "H"] = (insumy1 - insumy2);
-            //xlWorkSheet.Cells[8, "H"] = b3;
-
-            //xlWorkSheet.Cells[6, "H"] = ((insumy1 - insumy2) + b3);
-
-            //xlWorkSheet.Cells[16, "H"] = ((insumy1 - insumy2) + b3);
-
             data.Clear();
-            data = new PA.ViewModel.ViewModel_ReportManager().GetIncomeAndExpensesForTwoSubject(ParmPeroid);
+            data = new PA.ViewModel.ViewModel_ReportManager().GetIncomeAndExpensesForTwoSubject(ParmPeroid,new ViewModel.ViewModel_科目管理().GetIncomeAndOutSubjectList());
             if (data.Count > 0)
             {
                 foreach (Model_报表类 a in data)
@@ -1123,7 +1116,7 @@ namespace PA.Helper.ExcelHelper
             #endregion
 
             #region fill data
-            List<Model_报表类> data = new PA.ViewModel.ViewModel_ReportManager().GetAdministrativeExpenseDetail(ParmPeroid);
+            List<Model_报表类> data = new PA.ViewModel.ViewModel_ReportManager().GetAdministrativeExpenseDetail(ParmPeroid,501);
             if(data.Count <= 0)
             {
                 return "没有数据";

@@ -216,5 +216,21 @@ namespace PA.ViewModel
             sqlList.Add(sql);
             return db.BatchOperate(sqlList);
         }
+
+
+        public List<string> GetIncomeAndOutSubjectList()
+        {
+            List<string> list = new List<string>();
+            switch (CommonInfo.制度索引)
+            {
+                case "0":
+                    list = new List<string>() { "40101", "40102", "40401", "40402", "50101", "50102" };
+                    break;
+                case "1":
+                    list = new List<string>() { "40101", "40102", "40501", "50401", "50402", "30601", "30602" };
+                    break;
+            }
+            return list;
+        }
     }
 }
