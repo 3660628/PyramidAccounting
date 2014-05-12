@@ -566,6 +566,16 @@ namespace PA.View.Pages.TwoTabControl
                 MessageBoxCommon.Show(result);
             }
         }
+
+        private void Button_生成2_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Button_IncomeAndExpenditurePrint_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
         /*
         private void Button_IncomeAndExpenditurePrint_Click(object sender, RoutedEventArgs e)
         {

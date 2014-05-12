@@ -347,6 +347,146 @@
                     </ScrollViewer>
                 </Grid>
             </TabItem>
+            <TabItem FocusVisualStyle="{x:Null}" Header="收入支出总表" Margin="16,-1,-16,1" Template="{DynamicResource TabItemControlTemplate_TwoTabHeader}" Height="26" VerticalAlignment="Bottom">
+                <Grid Background="White">
+                    <ComboBox FocusVisualStyle="{x:Null}" x:Name="ComboBox_Date1" HorizontalAlignment="Left" Margin="7,10,0,0" VerticalAlignment="Top" Width="140"/>
+                    <Button FocusVisualStyle="{x:Null}" x:Name="Button_生成2" Content="生成" HorizontalAlignment="Right" Margin="0,10,76,0" VerticalAlignment="Top" Width="50" Height="20" Template="{DynamicResource ButtonControlTemplate_Common}" Click="Button_生成2_Click"/>
+                    <Button FocusVisualStyle="{x:Null}" x:Name="Button_IncomeAndExpenditurePrint" Content="打印" HorizontalAlignment="Right" Margin="0,10,11,0" VerticalAlignment="Top" Width="50" Template="{DynamicResource ButtonControlTemplate_Common}" Height="20" Click="Button_IncomeAndExpenditurePrint_Click"/>
+                    <ScrollViewer FocusVisualStyle="{x:Null}" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto" Margin="-3,40,0,-3">
+                        <Grid Margin="10,0,10,10" VerticalAlignment="Top">
+                            <Label x:Name="Label_编制单位2" Content="编制单位：" HorizontalAlignment="Left" Margin="0" VerticalAlignment="Top"/>
+                            <Label Content="单位：元" HorizontalAlignment="Right" Margin="0,0,10,0" VerticalAlignment="Top"/>
+                            <Grid Margin="0,25" VerticalAlignment="Top" Width="AUTO" ShowGridLines="False">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="25" />
+                                    <RowDefinition Height="25" />
+                                    <RowDefinition Height="25" />
+                                    <RowDefinition Height="25" />
+                                    <RowDefinition Height="25" />
+                                    <RowDefinition Height="25" />
+                                    <RowDefinition Height="25" />
+                                    <RowDefinition Height="25" />
+                                    <RowDefinition Height="25" />
+                                    <RowDefinition Height="25" />
+                                    <RowDefinition Height="25" />
+                                    <RowDefinition Height="25" />
+                                    <RowDefinition Height="25" />
+                                    <RowDefinition Height="25" />
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="1*" MinWidth="150" MaxWidth="200"/>
+                                    <ColumnDefinition MinWidth="80" Width="Auto"/>
+                                    <ColumnDefinition MinWidth="80" Width="Auto"/>
+                                    <ColumnDefinition Width="1*" MinWidth="150" MaxWidth="200"/>
+                                    <ColumnDefinition MinWidth="80" Width="Auto"/>
+                                    <ColumnDefinition MinWidth="80" Width="Auto"/>
+                                    <ColumnDefinition Width="1*" MinWidth="150" MaxWidth="200"/>
+                                    <ColumnDefinition MinWidth="80" Width="Auto"/>
+                                </Grid.ColumnDefinitions>
+                                <!--外边框-->
+                                <Border BorderBrush="#FF99CCFF" BorderThickness="1,1,1,1"  Grid.ColumnSpan="8" Grid.RowSpan="14"/>
+                                <!--第一行表头-->
+                                <Border BorderBrush="White" BorderThickness="0" Grid.Row="0" Grid.ColumnSpan="8" Background="#FF99CCFF"/>
+                                <Border BorderBrush="White" BorderThickness="0,0,1,0" Grid.Row="0" Grid.Column="2" Grid.RowSpan="1"/>
+                                <Border BorderBrush="White" BorderThickness="0,0,1,0" Grid.Row="0" Grid.Column="5" Grid.RowSpan="1"/>
+                                <!--第二行表头-->
+                                <Border BorderBrush="White" BorderThickness="0,1,0,0" Grid.Row="1" Grid.ColumnSpan="8" Background="#FF99CCFF"/>
+                                <Border BorderBrush="White" BorderThickness="0,0,1,0" Grid.Row="1" Grid.Column="0" Grid.RowSpan="1"/>
+                                <Border BorderBrush="White" BorderThickness="0,0,1,0" Grid.Row="1" Grid.Column="1" Grid.RowSpan="1"/>
+                                <Border BorderBrush="White" BorderThickness="0,0,1,0" Grid.Row="1" Grid.Column="2" Grid.RowSpan="1"/>
+                                <Border BorderBrush="White" BorderThickness="0,0,1,0" Grid.Row="1" Grid.Column="3" Grid.RowSpan="1"/>
+                                <Border BorderBrush="White" BorderThickness="0,0,1,0" Grid.Row="1" Grid.Column="4" Grid.RowSpan="1"/>
+                                <Border BorderBrush="White" BorderThickness="0,0,1,0" Grid.Row="1" Grid.Column="5" Grid.RowSpan="1"/>
+                                <Border BorderBrush="White" BorderThickness="0,0,1,0" Grid.Row="1" Grid.Column="6" Grid.RowSpan="1"/>
+                                <!--其他-->
+                                <Border BorderBrush="#FF99CCFF" BorderThickness="1,0,1,0" Grid.Row="2" Grid.Column="1" Grid.RowSpan="12"/>
+                                <Border BorderBrush="#FF99CCFF" BorderThickness="0,0,1,0" Grid.Row="2" Grid.Column="2" Grid.RowSpan="12"/>
+                                <Border BorderBrush="#FF99CCFF" BorderThickness="0,0,1,0" Grid.Row="2" Grid.Column="3" Grid.RowSpan="12"/>
+                                <Border BorderBrush="#FF99CCFF" BorderThickness="0,0,1,0" Grid.Row="2" Grid.Column="4" Grid.RowSpan="12"/>
+                                <Border BorderBrush="#FF99CCFF" BorderThickness="0,0,1,0" Grid.Row="2" Grid.Column="5" Grid.RowSpan="12"/>
+                                <Border BorderBrush="#FF99CCFF" BorderThickness="0,0,1,0" Grid.Row="2" Grid.Column="6" Grid.RowSpan="12"/>
+
+                                <Border BorderBrush="#FF99CCFF" BorderThickness="0,1,0,1" Grid.Row="3" Grid.ColumnSpan="8"/>
+                                <Border BorderBrush="#FF99CCFF" BorderThickness="0,1,0,1" Grid.Row="5" Grid.ColumnSpan="8"/>
+                                <Border BorderBrush="#FF99CCFF" BorderThickness="0,1,0,1" Grid.Row="7" Grid.ColumnSpan="8"/>
+                                <Border BorderBrush="#FF99CCFF" BorderThickness="0,1,0,1" Grid.Row="9" Grid.ColumnSpan="8"/>
+                                <Border BorderBrush="#FF99CCFF" BorderThickness="0,1,0,1" Grid.Row="11" Grid.ColumnSpan="8"/>
+                                <Border BorderBrush="#FF99CCFF" BorderThickness="0,1,0,0" Grid.Row="13" Grid.ColumnSpan="8"/>
+
+                                <Label Content="收入" HorizontalAlignment="Center"  Grid.ColumnSpan="3" VerticalAlignment="Center"/>
+                                <Label Content="支出" HorizontalAlignment="Center" Grid.Column="3"  Grid.ColumnSpan="3" VerticalAlignment="Center"/>
+                                <Label Content="结余" HorizontalAlignment="Center" Grid.Column="6"  Grid.ColumnSpan="2" VerticalAlignment="Center"/>
+                                <Label Content="项目" HorizontalAlignment="Center" Grid.Row="1" VerticalAlignment="Center"/>
+                                <Label Content="本月数" HorizontalAlignment="Center" Grid.Column="1" Grid.Row="1" VerticalAlignment="Center"/>
+                                <Label Content="本年累计" HorizontalAlignment="Center" Grid.Column="2" Grid.Row="1" VerticalAlignment="Center"/>
+                                <Label Content="项目" HorizontalAlignment="Center" Grid.Column="3" Grid.Row="1" VerticalAlignment="Center"/>
+                                <Label Content="本月数" HorizontalAlignment="Center" Grid.Column="4" Grid.Row="1" VerticalAlignment="Center"/>
+                                <Label Content="本年累计" HorizontalAlignment="Center" Grid.Column="5" Grid.Row="1" VerticalAlignment="Center"/>
+                                <Label Content="项目" HorizontalAlignment="Center" Grid.Column="6" Grid.Row="1" VerticalAlignment="Center"/>
+                                <Label Content="本年累计" HorizontalAlignment="Center" Grid.Column="7" Grid.Row="1" VerticalAlignment="Center"/>
+                                <Label Content="拨入经费" HorizontalAlignment="Left" Grid.Row="2"/>
+                                <Label Content="拨出经费" HorizontalAlignment="Left" Grid.Column="3" Grid.Row="2"/>
+                                <Label Content="结账当年结余" HorizontalAlignment="Left" Grid.Column="6" Grid.Row="2"/>
+                                <Label Content="其中:基本支出" HorizontalAlignment="Center" Grid.Row="3"/>
+                                <Label Content="经费支出" HorizontalAlignment="Left" Grid.Column="3" Grid.Row="3"/>
+                                <Label Content="其中:项目结余" HorizontalAlignment="Center" Grid.Column="6" Grid.Row="3"/>
+                                <Label Content="     项目支出" HorizontalAlignment="Center" Grid.Row="4"/>
+                                <Label Content="其中:基本支出" HorizontalAlignment="Center" Grid.Column="3" Grid.Row="4"/>
+                                <Label Content="以前年度结余" HorizontalAlignment="Center" Grid.Column="6" Grid.Row="4"/>
+                                <Label Content="预算外资金收入" HorizontalAlignment="Left" Grid.Row="5"/>
+                                <Label Content="     项目支出" HorizontalAlignment="Center" Grid.Column="3" Grid.Row="5"/>
+                                <Label Content="其中:基本支出" HorizontalAlignment="Center" Grid.Row="6"/>
+                                <Label Content="     项目支出" HorizontalAlignment="Center" Grid.Row="7"/>
+                                <Label Content="其他收入" HorizontalAlignment="Left" Grid.Row="8"/>
+                                <Label Content="结转自筹基建" HorizontalAlignment="Left" Grid.Column="3" Grid.Row="8"/>
+                                <Label Content="收入统计" HorizontalAlignment="Center" Grid.Row="13"/>
+                                <Label Content="支出统计" HorizontalAlignment="Center" Grid.Column="3" Grid.Row="13"/>
+                                <Label Content="累计结余" HorizontalAlignment="Center" Grid.Column="6" Grid.Row="13"/>
+
+                                <!--收入-->
+                                <Label x:Name="inM401" Content="" HorizontalAlignment="Center" Grid.Column="1" Grid.Row="2" />
+                                <Label x:Name="inY401" Content="" HorizontalAlignment="Center" Grid.Column="2" Grid.Row="2" />
+
+                                <Label x:Name="inM40101" Content="" HorizontalAlignment="Center" Grid.Column="1" Grid.Row="3" />
+                                <Label x:Name="inY40101" Content="" HorizontalAlignment="Center" Grid.Column="2" Grid.Row="3" />
+
+                                <Label x:Name="inM40102" Content="" HorizontalAlignment="Center" Grid.Column="1" Grid.Row="4" />
+                                <Label x:Name="inY40102" Content="" HorizontalAlignment="Center" Grid.Column="2" Grid.Row="4" />
+
+                                <Label x:Name="inM40401" Content="" HorizontalAlignment="Center" Grid.Column="1" Grid.Row="6" />
+                                <Label x:Name="inY40401" Content="" HorizontalAlignment="Center" Grid.Column="2" Grid.Row="6" />
+
+                                <Label x:Name="inM40402" Content="" HorizontalAlignment="Center" Grid.Column="1" Grid.Row="7" />
+                                <Label x:Name="inY40402" Content="" HorizontalAlignment="Center" Grid.Column="2" Grid.Row="7" />
+
+                                <Label x:Name="inM404" Content="" HorizontalAlignment="Center" Grid.Column="1" Grid.Row="5" />
+                                <Label x:Name="inY404" Content="" HorizontalAlignment="Center" Grid.Column="2" Grid.Row="5" />
+
+                                <Label x:Name="inM407" Content="" HorizontalAlignment="Center" Grid.Column="1" Grid.Row="8" />
+                                <Label x:Name="inY407" Content="" HorizontalAlignment="Center" Grid.Column="2" Grid.Row="8" />
+                                <!--支出-->
+                                <Label x:Name="inM501" Content="" HorizontalAlignment="Center" Grid.Column="4" Grid.Row="2" />
+                                <Label x:Name="inY501" Content="" HorizontalAlignment="Center" Grid.Column="5" Grid.Row="2" />
+                                <Label x:Name="inM502" Content="" HorizontalAlignment="Center" Grid.Column="4" Grid.Row="3" />
+                                <Label x:Name="inY502" Content="" HorizontalAlignment="Center" Grid.Column="5" Grid.Row="3" />
+                                <Label x:Name="inM505" Content="" HorizontalAlignment="Center" Grid.Column="4" Grid.Row="8" />
+                                <Label x:Name="inY505" Content="" HorizontalAlignment="Center" Grid.Column="5" Grid.Row="8" />
+                                <!--结余-->
+                                <Label x:Name="B1" Content="" HorizontalAlignment="Center" Grid.Column="7" Grid.Row="2" />
+                                <Label x:Name="B2" Content="" HorizontalAlignment="Center" Grid.Column="7" Grid.Row="3" />
+                                <Label x:Name="B3" Content="" HorizontalAlignment="Center" Grid.Column="7" Grid.Row="4" />
+                                <!--统计-->
+                                <Label x:Name="inSumM1" Content="" HorizontalAlignment="Center" Grid.Column="1" Grid.Row="13" />
+                                <Label x:Name="inSumY1" Content="" HorizontalAlignment="Center" Grid.Column="2" Grid.Row="13" />
+                                <Label x:Name="inSumM2" Content="" HorizontalAlignment="Center" Grid.Column="4" Grid.Row="13" />
+                                <Label x:Name="inSumY2" Content="" HorizontalAlignment="Center" Grid.Column="5" Grid.Row="13" />
+                                <Label x:Name="inSumY3" Content="" HorizontalAlignment="Center" Grid.Column="7" Grid.Row="13" />
+                            </Grid>
+                            <Label Content="编表说明：拨入经费中包括纳入预算管理的非税收入。" HorizontalAlignment="Left" Margin="0" VerticalAlignment="Bottom" RenderTransformOrigin="-0.146,0.317"/>
+                        </Grid>
+                    </ScrollViewer>
+                </Grid>
+            </TabItem>
         </TabControl>
     </Grid>
 </Page>
