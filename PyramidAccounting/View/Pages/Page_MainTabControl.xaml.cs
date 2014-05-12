@@ -12,6 +12,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using PA.Model.CustomEventArgs;
+using PA.Helper.DataDefind;
 
 namespace PA.View.Pages
 {
@@ -26,7 +27,14 @@ namespace PA.View.Pages
             this.Frame_快捷界面.Content = new PA.View.Pages.TwoTabControl.Page_Two_快捷界面();
             this.Frame_凭证管理.Content = new PA.View.Pages.TwoTabControl.Page_Two_凭证管理();
             this.Frame_账簿管理.Content = new PA.View.Pages.TwoTabControl.Page_Two_账簿管理();
-            this.Frame_报表管理.Content = new PA.View.Pages.TwoTabControl.Page_Two_报表管理();
+            if (CommonInfo.制度索引.Equals("0"))
+            {
+                this.Frame_报表管理.Content = new PA.View.Pages.TwoTabControl.Page_Two_报表管理();
+            }
+            else
+            {
+                this.Frame_报表管理.Content = new PA.View.Pages.TwoTabControl.Page_Two_报表管理_事业();
+            }
             this.Frame_系统管理.Content = new PA.View.Pages.TwoTabControl.Page_Two_系统管理();
             SubscribeToEvent();
         }

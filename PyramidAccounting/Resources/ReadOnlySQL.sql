@@ -26,7 +26,6 @@ CREATE TABLE T_VOUCHERDETAIL (							--凭证明细表
 );
 CREATE TABLE T_SUBJECT (								--科目表
     ID           INTEGER PRIMARY KEY NOT NULL,			--ID
-	SID		     TEXT,									--序号
     SUBJECT_ID   TEXT UNIQUE,							--科目编号
 	SUBJECT_TYPE INTEGER DEFAULT ( 999 ),				--科目类别   999表示未知 100二级 1000三级子细目 10000四级
     SUBJECT_NAME TEXT,									--科目名称

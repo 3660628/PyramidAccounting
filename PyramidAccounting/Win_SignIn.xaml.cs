@@ -63,10 +63,7 @@ namespace PA
             ComboBox_账套.DisplayMemberPath = "账套名称";
             ComboBox_账套.SelectedValuePath = "ID";
             ComboBox_账套.Text = new XMLReader().ReadXML("账套信息");
-
             CommonInfo.U盘设备ID = vsy.GetSystemValue((int)ENUM.EM_KEY.U盘标识);
-            //Log.Write(CommonInfo.U盘设备ID);
-
         }
 
         #region Button事件
