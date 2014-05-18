@@ -28,13 +28,13 @@ namespace PA.ViewModel
                 DataRow d = dt.Rows[i];
                 m.ID = Convert.ToInt32(d[1].ToString());
                 m.序号 = "" + (i + 1);
-                m.科目编号 = d[3].ToString();
-                m.科目名称 = d[5].ToString();
+                m.科目编号 = d[2].ToString();
+                m.科目名称 = d[4].ToString();
                 m.年初金额 = d[0].ToString();
-                m.Used_mark = Convert.ToInt32(d[7].ToString());
+                m.Used_mark = Convert.ToInt32(d[6].ToString());
                 m.是否启用 = m.Used_mark == 0 ? true : false;
                 int 借贷标记result = 1;
-                int.TryParse(d[8].ToString(), out 借贷标记result);
+                int.TryParse(d[7].ToString(), out 借贷标记result);
                 m.借贷标记 = (借贷标记result == 1) ? true : false;
                 list.Add(m);
             }

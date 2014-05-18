@@ -576,6 +576,16 @@ namespace PA.View.Pages.TwoTabControl
         {
 
         }
+
+        private void Button_生成3_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Button_AdministrativeExpensesSchedulePrint_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
         /*
         private void Button_IncomeAndExpenditurePrint_Click(object sender, RoutedEventArgs e)
         {
