@@ -8,6 +8,7 @@ using System.Data;
 using System.Data.OleDb;
 using System.IO;
 using PA.Model.DataGrid;
+using PA.Helper.DataDefind;
 
 namespace PA.Helper.ExcelHelper
 {
@@ -67,6 +68,11 @@ namespace PA.Helper.ExcelHelper
             #endregion
 
             #region fill data
+            List<Model_报表类> data = new PA.ViewModel.ViewModel_ReportManager().GetBalanceSheet(ParmPeroid);
+            if (data.Count < 1)
+            {
+                return "没有数据";
+            }
             decimal dy = 0;
             decimal dn = 0;
             decimal sumy1 = 0;
@@ -79,75 +85,77 @@ namespace PA.Helper.ExcelHelper
             decimal sumn4 = 0;
             decimal sumy5 = 0;
             decimal sumn5 = 0;
-            List<Model_报表类> data = new PA.ViewModel.ViewModel_ReportManager().GetBalanceSheet(ParmPeroid);
-            if (data.Count < 1)
+
+            int x = 1, y = 1;
+            DataSet ds;
+            if (!new PA.Helper.ExcelHelper.ExcelReader().ExcelDataSource(SourceXls, "Sheet1", out ds))
             {
-                return "没有数据";
+                return "出错了，请联系管理员。";
             }
-            for (int i = 0; i < data.Count; i++)
+            foreach (DataRow dr in ds.Tables[0].Rows)
             {
-                if (i < 10)
+                foreach (DataColumn dc in ds.Tables[0].Columns)
                 {
-                    xlWorkSheet.Cells[6 + i, "C"] = data[i].年初数;
-                    xlWorkSheet.Cells[6 + i, "D"] = data[i].期末数;
-                    decimal.TryParse(data[i].年初数, out dy);
-                    decimal.TryParse(data[i].期末数, out dn);
-                    sumy1 += dy;
-                    sumn1 += dn;
+                    string key = dr[dc].ToString();
+                    foreach (Model_报表类 a in data)
+                    {
+                        if (key == "y" + a.编号)
+                        {
+                            xlWorkSheet.Cells[y + 1, x] = a.年初数;
+                            xlWorkSheet.Cells[y + 1, x + 1] = a.期末数;
+                            decimal.TryParse(a.年初数, out dy);
+                            decimal.TryParse(a.期末数, out dn);
+                            if (a.编号.StartsWith("1"))
+                            {
+                                sumy1 += dy;
+                                sumn1 += dn;
+                            }
+                            else if (a.编号.StartsWith("2"))
+                            {
+                                sumy2 += dy;
+                                sumn2 += dn;
+                            }
+                            else if (a.编号.StartsWith("3"))
+                            {
+                                sumy3 += dy;
+                                sumn3 += dn;
+                            }
+                            else if (a.编号.StartsWith("4"))
+                            {
+                                sumy4 += dy;
+                                sumn4 += dn;
+                            }
+                            else if (a.编号.StartsWith("5"))
+                            {
+                                sumy5 += dy;
+                                sumn5 += dn;
+                            }
+                        }
+                    }
+                    x++;
                 }
-                else if (i >= 10 && i < 16)
-                {
-                    xlWorkSheet.Cells[6 + i - 10, "G"] = data[i].年初数;
-                    xlWorkSheet.Cells[6 + i - 10, "H"] = data[i].期末数;
-                    decimal.TryParse(data[i].年初数, out dy);
-                    decimal.TryParse(data[i].期末数, out dn);
-                    sumy2 += dy;
-                    sumn2 += dn;
-                }
-                else if (i >= 16 && i < 18)
-                {
-                    xlWorkSheet.Cells[i - 1, "G"] = data[i].年初数;
-                    xlWorkSheet.Cells[i - 1, "H"] = data[i].期末数;
-                    decimal.TryParse(data[i].年初数, out dy);
-                    decimal.TryParse(data[i].期末数, out dn);
-                    sumy3 += dy;
-                    sumn3 += dn;
-                }
-                else if (i >= 18 && i < 21)
-                {
-                    xlWorkSheet.Cells[4 + i, "G"] = data[i].年初数;
-                    xlWorkSheet.Cells[4 + i, "H"] = data[i].期末数;
-                    decimal.TryParse(data[i].年初数, out dy);
-                    decimal.TryParse(data[i].期末数, out dn);
-                    sumy4 += dy;
-                    sumn4 += dn;
-                }
-                else
-                {
-                    xlWorkSheet.Cells[i, "C"] = data[i].年初数;
-                    xlWorkSheet.Cells[i, "D"] = data[i].期末数;
-                    decimal.TryParse(data[i].年初数, out dy);
-                    decimal.TryParse(data[i].期末数, out dn);
-                    sumy5 += dy;
-                    sumn5 += dn;
-                }
+                y++;
+                x = 1;
             }
-            xlWorkSheet.Cells[16, "C"] = sumy1;
-            xlWorkSheet.Cells[16, "D"] = sumn1;
-            xlWorkSheet.Cells[12, "G"] = sumy2;
-            xlWorkSheet.Cells[12, "H"] = sumn2;
-            xlWorkSheet.Cells[19, "G"] = sumy3;
-            xlWorkSheet.Cells[19, "H"] = sumn3;
-            xlWorkSheet.Cells[25, "G"] = sumy4;
-            xlWorkSheet.Cells[25, "H"] = sumn4;
-            xlWorkSheet.Cells[24, "C"] = sumy5;
-            xlWorkSheet.Cells[24, "D"] = sumn5;
-            xlWorkSheet.Cells[27, "C"] = sumy1 + sumy5;
-            xlWorkSheet.Cells[27, "D"] = sumn1 + sumn5;
-            xlWorkSheet.Cells[27, "G"] = sumy2 + sumy3 + sumy4;
-            xlWorkSheet.Cells[27, "H"] = sumn2 + sumn3 + sumn4;
-            xlWorkSheet.Cells[28, "D"] = People;
-            xlWorkSheet.Cells[28, "E"] = Date;
+            xlWorkSheet.Cells[18, "C"] = sumy1;
+            xlWorkSheet.Cells[18, "D"] = sumn1;
+            xlWorkSheet.Cells[30, "C"] = sumy5;
+            xlWorkSheet.Cells[30, "D"] = sumn5;
+            xlWorkSheet.Cells[16, "G"] = sumy2;
+            xlWorkSheet.Cells[16, "H"] = sumn2;
+            xlWorkSheet.Cells[25, "G"] = sumy3;
+            xlWorkSheet.Cells[25, "H"] = sumn3;
+            xlWorkSheet.Cells[34, "G"] = sumy4;
+            xlWorkSheet.Cells[34, "H"] = sumn4;
+
+            xlWorkSheet.Cells[35, "C"] = sumy1 + sumy5;
+            xlWorkSheet.Cells[35, "D"] = sumn1 + sumn5;
+            xlWorkSheet.Cells[35, "G"] = sumy2 + sumy3 + sumy4;
+            xlWorkSheet.Cells[35, "H"] = sumn2 + sumn3 + sumn4;
+
+            xlWorkSheet.Cells[36, "A"] = "单位负责人：" + CommonInfo.真实姓名;
+            xlWorkSheet.Cells[36, "C"] = "填表人：" + CommonInfo.用户权限 + "\t" + CommonInfo.真实姓名;
+            xlWorkSheet.Cells[36, "F"] = "填表日期：" + DateTime.Now.ToLongDateString();
             #endregion
 
             xlApp.Visible = true;
