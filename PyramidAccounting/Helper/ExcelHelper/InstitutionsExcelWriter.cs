@@ -208,104 +208,59 @@ namespace PA.Helper.ExcelHelper
             {
                 return "没有数据";
             }
+
             decimal dy = 0;
             decimal dn = 0;
             decimal insumm1 = 0;
             decimal insumy1 = 0;
             decimal insumm2 = 0;
             decimal insumy2 = 0;
-            decimal b3 = 0;
-            if (data.Count > 0)
-            {
-                xlWorkSheet.Cells[6, "B"] = data[0].本期数;
-                xlWorkSheet.Cells[6, "C"] = data[0].累计数;
-                decimal.TryParse(data[0].累计数, out dy);
-                decimal.TryParse(data[0].本期数, out dn);
-                insumm1 += dn;
-                insumy1 += dy;
-            }
-            if (data.Count > 1)
-            {
-                xlWorkSheet.Cells[9, "B"] = data[1].本期数;
-                xlWorkSheet.Cells[9, "C"] = data[1].累计数;
-                decimal.TryParse(data[1].累计数, out dy);
-                decimal.TryParse(data[1].本期数, out dn);
-                insumm1 += dn;
-                insumy1 += dy;
-            }
-            if (data.Count > 2)
-            {
-                xlWorkSheet.Cells[12, "B"] = data[2].本期数;
-                xlWorkSheet.Cells[12, "C"] = data[2].累计数;
-                decimal.TryParse(data[2].累计数, out dy);
-                decimal.TryParse(data[2].本期数, out dn);
-                insumm1 += dn;
-                insumy1 += dy;
-            }
-            if (data.Count > 3)
-            {
-                xlWorkSheet.Cells[6, "E"] = data[3].本期数;
-                xlWorkSheet.Cells[6, "F"] = data[3].累计数;
-                decimal.TryParse(data[3].累计数, out dy);
-                decimal.TryParse(data[3].本期数, out dn);
-                insumy2 += dy;
-                insumm2 += dn;
-            }
-            if (data.Count > 4)
-            {
-                xlWorkSheet.Cells[7, "E"] = data[4].本期数;
-                xlWorkSheet.Cells[7, "F"] = data[4].累计数;
-                decimal.TryParse(data[4].累计数, out dy);
-                decimal.TryParse(data[4].本期数, out dn);
-                insumy2 += dy;
-                insumm2 += dn;
-            }
-            if (data.Count > 5)
-            {
-                xlWorkSheet.Cells[12, "E"] = data[5].本期数;
-                xlWorkSheet.Cells[12, "F"] = data[5].累计数;
-                decimal.TryParse(data[5].累计数, out dy);
-                decimal.TryParse(data[5].本期数, out dn);
-                insumy2 += dy;
-                insumm2 += dn;
-            }
 
-            decimal.TryParse(data[data.Count - 1].累计数, out b3);
-
-            xlWorkSheet.Cells[16, "B"] = insumm1;
-            xlWorkSheet.Cells[16, "C"] = insumy1;
-
-            xlWorkSheet.Cells[16, "E"] = insumm2;
-            xlWorkSheet.Cells[16, "F"] = insumy2;
-
-            data.Clear();
-            data = new PA.ViewModel.ViewModel_ReportManager().GetIncomeAndExpensesForTwoSubject(ParmPeroid, new ViewModel.ViewModel_科目管理().GetIncomeAndOutSubjectList());
-            if (data.Count > 0)
+            int x = 1, y = 1;
+            DataSet ds;
+            if (!new PA.Helper.ExcelHelper.ExcelReader().ExcelDataSource(SourceXls, "Sheet1", out ds))
             {
-                foreach (Model_报表类 a in data)
+                return "出错了，请联系管理员。";
+            }
+            foreach (DataRow dr in ds.Tables[0].Rows)
+            {
+                foreach (DataColumn dc in ds.Tables[0].Columns)
                 {
-                    if (a.编号 == "40101")
+                    string key = dr[dc].ToString();
+                    foreach (Model_报表类 m in data)
                     {
-                        xlWorkSheet.Cells[7, "B"] = a.本期数;
-                        xlWorkSheet.Cells[7, "C"] = a.累计数;
+                        if (key == "inM" + m.编号)
+                        {
+                            xlWorkSheet.Cells[y + 1, x] = m.本期数;
+                            xlWorkSheet.Cells[y + 1, x + 1] = m.累计数;
+                            decimal.TryParse(m.累计数, out dy);
+                            decimal.TryParse(m.本期数, out dn);
+                            if (m.编号.StartsWith("4"))
+                            {
+                                insumm1 += dn;
+                                insumy1 += dy;
+                            }
+                            else if (m.编号.StartsWith("5"))
+                            {
+                                insumy2 += dy;
+                                insumm2 += dn;
+                            }
+                            else if (m.编号.StartsWith("3"))
+                            {
+                                xlWorkSheet.Cells[6, "H"] = m.累计数;
+                            }
+                        }
                     }
-                    else if (a.编号 == "40102")
-                    {
-                        xlWorkSheet.Cells[8, "B"] = a.本期数;
-                        xlWorkSheet.Cells[8, "C"] = a.累计数;
-                    }
-                    else if (a.编号 == "40401")
-                    {
-                        xlWorkSheet.Cells[10, "B"] = a.本期数;
-                        xlWorkSheet.Cells[10, "C"] = a.累计数;
-                    }
-                    else if (a.编号 == "40402")
-                    {
-                        xlWorkSheet.Cells[11, "B"] = a.本期数;
-                        xlWorkSheet.Cells[11, "C"] = a.累计数;
-                    }
+                    x++;
                 }
+                y++;
+                x = 1;
             }
+            xlWorkSheet.Cells[22, "B"] = insumm1;
+            xlWorkSheet.Cells[22, "C"] = insumy1;
+            xlWorkSheet.Cells[22, "E"] = insumm2;
+            xlWorkSheet.Cells[22, "F"] = insumy2;
+
             #endregion
 
             xlApp.Visible = true;
@@ -358,101 +313,11 @@ namespace PA.Helper.ExcelHelper
             {
                 return "没有数据";
             }
-            //二级科目
-            decimal b101 = 0;
-            decimal b102 = 0;
-            decimal b201 = 0;
-            decimal b202 = 0;
-            decimal b301 = 0;
-            decimal b302 = 0;
-            decimal b401 = 0;
-            decimal b402 = 0;
 
-            int x = 1, y = 1;
-            DataSet ds;
-            if (!new PA.Helper.ExcelHelper.ExcelReader().ExcelDataSource(SourceXls, "Sheet1", out ds))
-            {
-                return "出错了，请联系管理员。";
-            }
-            foreach (DataRow dr in ds.Tables[0].Rows)
-            {
-                foreach (DataColumn dc in ds.Tables[0].Columns)
-                {
-                    if (dr[dc].ToString().StartsWith("@", false, null))
-                    {
-                        bool HasData = false;
-                        string key = dr[dc].ToString().Replace("@", "");
-                        foreach (Model_报表类 a in data)
-                        {
-                            if (key == a.编号)
-                            {
-                                xlWorkSheet.Cells[y + 1, x] = a.本期数;
-                                xlWorkSheet.Cells[y + 1, x + 1] = a.累计数;
-                                HasData = true;
-                            }
-                        }
-                        if (!HasData)
-                        {
-                            xlWorkSheet.Cells[y + 1, x] = "";
-                            xlWorkSheet.Cells[y + 1, x + 1] = "";
-                        }
-                    }
-                    x++;
-                }
-                y++;
-                x = 1;
-            }
 
-            //计算合计
-            for (int i = 0; i < 7; i++)
-            {
-                decimal temp101 = 0m, temp102 = 0m;
-                decimal.TryParse(((xls.Range)xlWorkSheet.Cells[i + 9, "B"]).Text, out temp101);
-                b101 += temp101;
-                decimal.TryParse(((xls.Range)xlWorkSheet.Cells[i + 9, "C"]).Text, out temp102);
-                b102 += temp102;
-            }
-            for (int i = 17; i < 34; i++)
-            {
-                decimal temp201 = 0m, temp202 = 0m;
-                decimal.TryParse(((xls.Range)xlWorkSheet.Cells[i, "B"]).Text, out temp201);
-                b201 += temp201;
-                decimal.TryParse(((xls.Range)xlWorkSheet.Cells[i, "C"]).Text, out temp202);
-                b202 += temp202;
-            }
-            decimal temp201b = 0m, temp202b = 0m;
-            decimal.TryParse(((xls.Range)xlWorkSheet.Cells[7, "E"]).Text, out temp201b);
-            b201 += temp201b;
-            decimal.TryParse(((xls.Range)xlWorkSheet.Cells[7, "F"]).Text, out temp202b);
-            b202 += temp202b;
-            for (int i = 0; i < 14; i++)
-            {
-                decimal temp301 = 0m, temp302 = 0m;
-                decimal.TryParse(((xls.Range)xlWorkSheet.Cells[i + 9, "E"]).Text, out temp301);
-                b301 += temp301;
-                decimal.TryParse(((xls.Range)xlWorkSheet.Cells[i + 9, "F"]).Text, out temp302);
-                b302 += temp302;
-            }
-            for (int i = 24; i < 30; i++)
-            {
-                decimal temp401 = 0m, temp402 = 0m;
-                decimal.TryParse(((xls.Range)xlWorkSheet.Cells[i, "E"]).Text, out temp401);
-                b401 += temp401;
-                decimal.TryParse(((xls.Range)xlWorkSheet.Cells[i, "F"]).Text, out temp402);
-                b402 += temp402;
-            }
 
-            xlWorkSheet.Cells[8, "B"] = b101;
-            xlWorkSheet.Cells[8, "C"] = b102;
-            xlWorkSheet.Cells[16, "B"] = b201;
-            xlWorkSheet.Cells[16, "C"] = b202;
-            xlWorkSheet.Cells[8, "E"] = b301;
-            xlWorkSheet.Cells[8, "F"] = b302;
-            xlWorkSheet.Cells[23, "E"] = b401;
-            xlWorkSheet.Cells[23, "F"] = b402;
 
-            xlWorkSheet.Cells[7, "B"] = (b101 + b201 + b301 + b401);
-            xlWorkSheet.Cells[7, "C"] = (b102 + b202 + b302 + b402);
+
             #endregion
 
             xlApp.Visible = true;
