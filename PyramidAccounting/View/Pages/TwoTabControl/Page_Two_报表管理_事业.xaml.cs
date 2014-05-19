@@ -196,7 +196,7 @@ namespace PA.View.Pages.TwoTabControl
         
         private void Button_BalanceSheetPrint_Click(object sender, RoutedEventArgs e)
         {
-            string result = new PA.Helper.ExcelHelper.ExcelWriter().ExportBalanceSheet(ComboBox_Date.SelectedIndex + 1, CommonInfo.真实姓名, Label_填表日期.Content.ToString());
+            string result = new PA.Helper.ExcelHelper.InstitutionsExcelWriter().ExportBalanceSheet(ComboBox_Date.SelectedIndex + 1, CommonInfo.真实姓名, Label_填表日期.Content.ToString());
             if (result != "")
             {
                 MessageBoxCommon.Show(result);
@@ -306,7 +306,7 @@ namespace PA.View.Pages.TwoTabControl
 
         private void Button_IncomeAndExpenditurePrint_Click(object sender, RoutedEventArgs e)
         {
-            string result = new PA.Helper.ExcelHelper.ExcelWriter().ExportIncomeAndExpenditure(ComboBox_Date1.SelectedIndex + 1);
+            string result = new PA.Helper.ExcelHelper.InstitutionsExcelWriter().ExportIncomeAndExpenditure(ComboBox_Date1.SelectedIndex + 1);
             if (result != "")
             {
                 MessageBoxCommon.Show(result);
@@ -1123,7 +1123,7 @@ namespace PA.View.Pages.TwoTabControl
 
         private void Button_AdministrativeExpensesSchedulePrint_Click(object sender, RoutedEventArgs e)
         {
-            string result = new PA.Helper.ExcelHelper.ExcelWriter().ExportAdministrativeExpensesSchedule(ComboBox_Date2.SelectedIndex + 1);
+            string result = new PA.Helper.ExcelHelper.InstitutionsExcelWriter().ExportAdministrativeExpensesSchedule(ComboBox_Date2.SelectedIndex + 1);
             if (result != "")
             {
                 MessageBoxCommon.Show(result);
