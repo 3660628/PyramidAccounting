@@ -37,8 +37,8 @@ namespace PA.Helper.ExcelHelper
             xls.Application xlApp = null;
             xls.Workbook xlWorkBook;
             xls.Worksheet xlWorkSheet;
-            string SourceXls = Path + @"Data\打印\资产负债表模板.xls";
-            string ExportXls = Path + @"Excel\打印\资产负债表" + DateNow + ".xls";
+            string SourceXls = Path + @"Data\打印\资产负债表（事业）模板.xls";
+            string ExportXls = Path + @"Excel\打印\资产负债表（事业）" + DateNow + ".xls";
             try
             {
                 File.Copy(SourceXls, ExportXls, true);
@@ -165,8 +165,8 @@ namespace PA.Helper.ExcelHelper
             xls.Application xlApp = null;
             xls.Workbook xlWorkBook;
             xls.Worksheet xlWorkSheet;
-            string SourceXls = Path + @"Data\打印\收入支出总表模板.xls";
-            string ExportXls = Path + @"Excel\打印\收入支出总表" + DateNow + ".xls";
+            string SourceXls = Path + @"Data\打印\收入支出总表（事业）模板.xls";
+            string ExportXls = Path + @"Excel\打印\收入支出总表（事业）" + DateNow + ".xls";
             try
             {
                 File.Copy(SourceXls, ExportXls, true);
@@ -315,8 +315,8 @@ namespace PA.Helper.ExcelHelper
             xls.Application xlApp = null;
             xls.Workbook xlWorkBook;
             xls.Worksheet xlWorkSheet;
-            string SourceXls = Path + @"Data\打印\行政费用支出明细表模板3.xls";
-            string ExportXls = Path + @"Excel\打印\行政费用支出明细表" + DateNow + ".xls";
+            string SourceXls = Path + @"Data\打印\事业及经营支出明细表.xls";
+            string ExportXls = Path + @"Excel\打印\事业及经营支出明细表" + DateNow + ".xls";
             try
             {
                 File.Copy(SourceXls, ExportXls, true);
