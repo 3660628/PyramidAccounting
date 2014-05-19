@@ -348,8 +348,8 @@
                                 <Label Content="     项目支出" HorizontalAlignment="Center" Grid.Row="7"/>
                                 <Label Content="其他收入" HorizontalAlignment="Left" Grid.Row="8"/>
                                 <Label Content="结转自筹基建" HorizontalAlignment="Left" Grid.Column="3" Grid.Row="8"/>
-                                <Label Content="收入统计" HorizontalAlignment="Center" Grid.Row="13"/>
-                                <Label Content="支出统计" HorizontalAlignment="Center" Grid.Column="3" Grid.Row="13"/>
+                                <Label Content="收入总计" HorizontalAlignment="Center" Grid.Row="13"/>
+                                <Label Content="支出总计" HorizontalAlignment="Center" Grid.Column="3" Grid.Row="13"/>
                                 <Label Content="累计结余" HorizontalAlignment="Center" Grid.Column="6" Grid.Row="13"/>
 
                                 <!--收入-->
@@ -374,10 +374,10 @@
                                 <Label x:Name="inM407" Content="" HorizontalAlignment="Center" Grid.Column="1" Grid.Row="8" />
                                 <Label x:Name="inY407" Content="" HorizontalAlignment="Center" Grid.Column="2" Grid.Row="8" />
                                 <!--支出-->
-                                <Label x:Name="inM501" Content="" HorizontalAlignment="Center" Grid.Column="4" Grid.Row="2" />
-                                <Label x:Name="inY501" Content="" HorizontalAlignment="Center" Grid.Column="5" Grid.Row="2" />
-                                <Label x:Name="inM502" Content="" HorizontalAlignment="Center" Grid.Column="4" Grid.Row="3" />
-                                <Label x:Name="inY502" Content="" HorizontalAlignment="Center" Grid.Column="5" Grid.Row="3" />
+                                <Label x:Name="inM502" Content="" HorizontalAlignment="Center" Grid.Column="4" Grid.Row="2" />
+                                <Label x:Name="inY502" Content="" HorizontalAlignment="Center" Grid.Column="5" Grid.Row="2" />
+                                <Label x:Name="inM501" Content="" HorizontalAlignment="Center" Grid.Column="4" Grid.Row="3" />
+                                <Label x:Name="inY501" Content="" HorizontalAlignment="Center" Grid.Column="5" Grid.Row="3" />
                                 <Label x:Name="inM505" Content="" HorizontalAlignment="Center" Grid.Column="4" Grid.Row="8" />
                                 <Label x:Name="inY505" Content="" HorizontalAlignment="Center" Grid.Column="5" Grid.Row="8" />
                                 <!--结余-->

@@ -40,13 +40,18 @@ namespace PA.ViewModel
         /// </summary>
         /// <param name="index"></param>
         /// <returns></returns>
-        public List<Model_报表类> GetIncomeAndExpenses(int index)
+        public List<Model_报表类> GetIncomeAndExpenses(int index, List<string> subList)
         {
+            string temp = string.Empty;
+            foreach (string s in subList)
+            {
+                temp += ",'" + s + "'";
+            }
             List<Model_报表类> list = new List<Model_报表类>();
             string sql = "SELECT a.SUBJECT_ID,a.fee,b.fee FROM (SELECT SUBJECT_ID,fee FROM " +
                 DBTablesName.T_FEE + " WHERE PERIOD = " + index + ") a LEFT JOIN (SELECT SUBJECT_ID,total(fee) AS fee FROM "
                 + DBTablesName.T_FEE + " WHERE PERIOD <= " + index + " GROUP BY SUBJECT_ID) b ON a.SUBJECT_ID = b.SUBJECT_ID "
-                + "WHERE a.SUBJECT_ID IN ('401','404','407','501','502','505') ";
+                + "WHERE a.SUBJECT_ID IN (" + temp.Substring(1, temp.Length - 1) + ") ";
             DataTable dt = db.Query(sql).Tables[0];
             foreach (DataRow d in dt.Rows)
             {
@@ -150,13 +155,59 @@ namespace PA.ViewModel
                 {
                     Model_报表类 m = new Model_报表类();
                     m.编号 = d[0].ToString();
-                    m.本期数 = d[2].ToString();
-                    m.累计数 = d[1].ToString();
+                    m.本期数 = d[1].ToString();
+                    m.累计数 = d[2].ToString();
                     list.Add(m);
                 }
             }
             return list;
-       
+        }
+
+        /// <summary>
+        /// 行政费用支出明细表    2014/4/20      a.DEBIT - a.CREDIT  改为 a.CREDIT - a.DEBIT
+        /// </summary>
+        /// <param name="index"></param>
+        /// <returns></returns>
+        public List<Model_事业报表类> GetExpenditureDetail(int index, int parentID)
+        {
+            List<string> sqlList = new List<string>();
+            List<Model_事业报表类> list = new List<Model_事业报表类>();
+            string dropSql = "drop table IF EXISTS expenditure_temp";
+            sqlList.Add(dropSql);
+            string _sql1 = "create table expenditure_temp(subject_name text,period int,fee,fee1,fee2 decimal)";
+            sqlList.Add(_sql1);
+            string _sql2 = "insert into expenditure_temp select b.subject_name,a.PERIOD,total(a.fee),total(a.fee1),total(b.fee1) from (select a.peroid as peroid,a.fee as fee,b.fee as fee1,c.fee as fee2 from (SELECT a.DETAIL,b.PERIOD,total(a.DEBIT - a.CREDIT) AS fee FROM "
+                    + DBTablesName.T_VOUCHER_DETAIL + " a LEFT JOIN "
+                    + DBTablesName.T_VOUCHER + " b ON a.PARENTID = b.ID where b.REVIEW_MARK=1 and a.detail like '" + parentID + "%' GROUP BY a.DETAIL,b.PERIOD ) a," +
+                    " (SELECT a.DETAIL,b.PERIOD,total(a.DEBIT - a.CREDIT) AS fee FROM "
+                    + DBTablesName.T_VOUCHER_DETAIL + " a LEFT JOIN "
+                    + DBTablesName.T_VOUCHER + " b ON a.PARENTID = b.ID where b.REVIEW_MARK=1 and a.detail like '" + parentID + "01%' GROUP BY a.DETAIL,b.PERIOD ) b," + " (SELECT a.DETAIL,b.PERIOD,total(a.DEBIT - a.CREDIT) AS fee FROM "
+                    + DBTablesName.T_VOUCHER_DETAIL + " a LEFT JOIN "
+                    + DBTablesName.T_VOUCHER + " b ON a.PARENTID = b.ID where b.REVIEW_MARK=1 and a.detail like '" + parentID + "02%' GROUP BY a.DETAIL,b.PERIOD ) c where a.subject_id=b.subject_id and b.subject_id=c.subject_id ) a LEFT JOIN "
+                    + DBTablesName.T_SUBJECT
+                    + " b ON a.DETAIL = b.subject_id group by a.PERIOD,b.SUBJECT_NAME";
+            sqlList.Add(_sql2);
+            bool flag = db.BatchOperate(sqlList);
+            if (flag)
+            {
+                string _sql3 = "select a.subject_name,a.fee,b.fee,a.fee1,b.fee1,a.fee2,b.fee2 from (select subject_name,fee,fee1,fee2 from expenditure_temp where period="
+                + index + ") a left join (select subject_name,sum(fee) as fee,sum(fee1) as fee1,sum(fee2) as fee2 from expenditure_temp where period<=" +
+                index + " group by subject_name) b on a.subject_name=b.subject_name";
+                DataTable dt = db.Query(_sql3).Tables[0];
+                foreach (DataRow d in dt.Rows)
+                {
+                    Model_事业报表类 m = new Model_事业报表类();
+                    m.编号 = d[0].ToString();
+                    m.本期数 = d[1].ToString();
+                    m.累计数 = d[2].ToString();
+                    m.本期数1 = d[3].ToString();
+                    m.累计数1 = d[4].ToString();
+                    m.本期数2 = d[5].ToString();
+                    m.累计数2 = d[6].ToString();
+                    list.Add(m);
+                }
+            }
+            return list;
         }
     }
 }

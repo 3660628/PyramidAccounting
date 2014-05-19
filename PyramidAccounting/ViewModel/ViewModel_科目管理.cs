@@ -232,5 +232,20 @@ namespace PA.ViewModel
             }
             return list;
         }
+
+        public List<string> GetOneSubjectList()
+        {
+            List<string> list = new List<string>();
+            switch (CommonInfo.制度索引)
+            {
+                case "0":
+                    list = new List<string>() { "401", "403", "407", "501", "502", "505" };
+                    break;
+                case "1":
+                    list = new List<string>() { "401", "403", "412", "405", "413", "404", "502", "516", "517", "504", "520", "512", "503", "306" };
+                    break;
+            }
+            return list;
+        }
     }
 }

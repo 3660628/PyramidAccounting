@@ -966,7 +966,7 @@ namespace PA.Helper.ExcelHelper
             #endregion
 
             #region fill data
-            List<Model_报表类> data = new PA.ViewModel.ViewModel_ReportManager().GetIncomeAndExpenses(ParmPeroid);
+            List<Model_报表类> data = new PA.ViewModel.ViewModel_ReportManager().GetIncomeAndExpenses(ParmPeroid,new ViewModel.ViewModel_科目管理().GetOneSubjectList());
             if (data.Count <= 0)
             {
                 return "没有数据";

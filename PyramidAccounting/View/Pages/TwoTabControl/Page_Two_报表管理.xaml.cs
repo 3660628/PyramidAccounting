@@ -219,7 +219,7 @@ namespace PA.View.Pages.TwoTabControl
             }
             //第一次对一级科目赋值
             List<Model_报表类> list = new List<Model_报表类>();
-            list = vmr.GetIncomeAndExpenses(value+1);
+            list = vmr.GetIncomeAndExpenses(value + 1, vms.GetOneSubjectList());
             decimal dy = 0;
             decimal dn = 0;
             decimal insumm1 = 0;
@@ -325,8 +325,6 @@ namespace PA.View.Pages.TwoTabControl
                     lb.Content = list[i].本期数;
                     Label lb2 = FindName("Label_L" + list[i].编号.Replace("（", "").Replace("）", "")) as Label;
                     lb2.Content = list[i].累计数;
-                    decimal.TryParse(list[i].本期数, out dn);
-                    decimal.TryParse(list[i].累计数, out dy);
                 }
                 //2级科目设置
                 #region 本期数赋值
@@ -536,11 +534,6 @@ namespace PA.View.Pages.TwoTabControl
                 Label_B402.Content = b402;
 
                 #endregion
-                Label_B102.Content = b102;
-                Label_B202.Content = b202;
-                Label_B302.Content = b302;
-                Label_B402.Content = b402;
-
                 Label_A01.Content = (b101 + b201 + b301 + b401);
                 Label_A02.Content = (b102 + b202 + b302 + b402);
                 LastList = list;
