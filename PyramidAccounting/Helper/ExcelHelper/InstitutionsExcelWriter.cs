@@ -11,6 +11,9 @@ using PA.Model.DataGrid;
 
 namespace PA.Helper.ExcelHelper
 {
+    /// <summary>
+    /// 事业单位报表导出Excel
+    /// </summary>
     class InstitutionsExcelWriter
     {
         private string Path = AppDomain.CurrentDomain.BaseDirectory;
