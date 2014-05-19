@@ -29,7 +29,7 @@
         <Label Content="会计制度：" HorizontalAlignment="Left" Margin="70,160,0,0" VerticalAlignment="Top"/>
         <Label Content="账套名称：" HorizontalAlignment="Left" Margin="70,220,0,0" VerticalAlignment="Top"/>
         <TextBox x:Name="TextBox_公司" HorizontalAlignment="Left" Margin="155,61,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="200" LostKeyboardFocus="TextBox_公司_LostKeyboardFocus" TextChanged="TextBox_公司_TextChanged" FontSize="14" Height="20"/>
-        <TextBox x:Name="TextBox_year" HorizontalAlignment="Left" Margin="155,111,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="70" FontSize="14" Height="20"/>
+        <TextBox x:Name="TextBox_year" HorizontalAlignment="Left" Margin="155,111,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="70" FontSize="14" Height="20" TextChanged="TextBox_year_TextChanged"/>
         <TextBox x:Name="TextBox_期" HorizontalAlignment="Left" Margin="258,111,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="70" FontSize="14" Height="20"/>
         <ComboBox x:Name="ComboBox_制度" HorizontalAlignment="Left" Margin="155,160,0,0" VerticalAlignment="Top" Width="250"/>
         <TextBox x:Name="TextBox_账套名称" HorizontalAlignment="Left" Margin="155,221,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="200" FontSize="14" Height="20"/>

@@ -452,16 +452,16 @@
                                 <Label Content="事业收入" HorizontalAlignment="Left" Grid.Row="7"/>
                                 <Label Content="其中:预算外资金收入" HorizontalAlignment="Left" Margin="30,0,0,0" Grid.Row="8"/>
                                 <Label Content="其他收入" HorizontalAlignment="Left" Grid.Row="9"/>
-                                <Label Content="小 计" HorizontalAlignment="Center" Grid.Row="10"/>
+                                <Label Content="小   计" HorizontalAlignment="Center" Grid.Row="10"/>
                                 <Label Content="结转自筹基建" HorizontalAlignment="Left" Grid.Column="3" Grid.Row="9"/>
-                                <Label Content="小 计" HorizontalAlignment="Center" Grid.Column="3" Grid.Row="10"/>
+                                <Label Content="小   计" HorizontalAlignment="Center" Grid.Column="3" Grid.Row="10"/>
                                 <Label Content="销售税金" HorizontalAlignment="Left" Grid.Column="3" Grid.Row="12"/>
-                                <Label Content="小 计" HorizontalAlignment="Center" Grid.Column="3" Grid.Row="13"/>
+                                <Label Content="小   计" HorizontalAlignment="Center" Grid.Column="3" Grid.Row="13"/>
                                 <Label Content="拨出专款" HorizontalAlignment="Left" Grid.Column="3" Grid.Row="15"/>
                                 <Label Content="专款支出" HorizontalAlignment="Left" Grid.Column="3" Grid.Row="16"/>
-                                <Label Content="小 计" HorizontalAlignment="Center" Grid.Column="3" Grid.Row="17"/>
+                                <Label Content="小   计" HorizontalAlignment="Center" Grid.Column="3" Grid.Row="17"/>
                                 <Label Content="拨入专款" HorizontalAlignment="Left" Grid.Row="12"/>
-                                <Label Content="小 计" HorizontalAlignment="Center" Grid.Row="13"/>
+                                <Label Content="小   计" HorizontalAlignment="Center" Grid.Row="13"/>
                                 <Label Content="收入总计" HorizontalAlignment="Center" Grid.Row="19"/>
                                 <Label Content="支出总计" HorizontalAlignment="Center" Grid.Column="3" Grid.Row="18"/>
                                 <Label Content="累计结余" HorizontalAlignment="Center" Grid.Column="6" Grid.Row="18"/>

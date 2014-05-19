@@ -378,6 +378,10 @@
                                 <Label x:Name="inY502" Content="" HorizontalAlignment="Center" Grid.Column="5" Grid.Row="2" />
                                 <Label x:Name="inM501" Content="" HorizontalAlignment="Center" Grid.Column="4" Grid.Row="3" />
                                 <Label x:Name="inY501" Content="" HorizontalAlignment="Center" Grid.Column="5" Grid.Row="3" />
+                                <Label x:Name="inM50101" Content="" HorizontalAlignment="Center" Grid.Column="4" Grid.Row="4" />
+                                <Label x:Name="inY50101" Content="" HorizontalAlignment="Center" Grid.Column="5" Grid.Row="4" />
+                                <Label x:Name="inM50102" Content="" HorizontalAlignment="Center" Grid.Column="4" Grid.Row="5" />
+                                <Label x:Name="inY50102" Content="" HorizontalAlignment="Center" Grid.Column="5" Grid.Row="5" />
                                 <Label x:Name="inM505" Content="" HorizontalAlignment="Center" Grid.Column="4" Grid.Row="8" />
                                 <Label x:Name="inY505" Content="" HorizontalAlignment="Center" Grid.Column="5" Grid.Row="8" />
                                 <!--结余-->

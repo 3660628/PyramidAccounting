@@ -54,10 +54,10 @@ namespace PA.ViewModel
                 Model_科目管理 m = new Model_科目管理();
                 DataRow d = dt.Rows[i];
                 m.ID = Convert.ToInt32(d[0].ToString());
-                m.科目编号 = d[2].ToString();
-                m.类别 = d[3].ToString();
-                m.科目名称 = d[4].ToString();
-                m.父ID = d[5].ToString();
+                m.科目编号 = d[1].ToString();
+                m.类别 = d[2].ToString();
+                m.科目名称 = d[3].ToString();
+                m.父ID = d[4].ToString();
                 m.借贷标记 = (d["Borrow_Mark"].ToString()=="1");
                 m.年初金额 = d["FEE"].ToString();
                 list.Add(m);
@@ -224,7 +224,7 @@ namespace PA.ViewModel
             switch (CommonInfo.制度索引)
             {
                 case "0":
-                    list = new List<string>() { "40101", "40102", "40401", "40402", "50101", "50102" };
+                    list = new List<string>() { "40101", "40102", "40401", "40402" };
                     break;
                 case "1":
                     list = new List<string>() { "40101", "40102", "40501", "50401", "50402", "30601", "30602" };

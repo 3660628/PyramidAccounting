@@ -208,5 +208,10 @@ namespace PA.View.Windows
             }
             this.TextBox_账套名称.Text = TextBox_year.Text.ToString() + TextBox_公司.Text.ToString() + "财务账";
         }
+
+        private void TextBox_year_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            TextBox_公司_TextChanged(this, null);
+        }
     }
 }

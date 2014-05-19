@@ -91,15 +91,14 @@ namespace PA.ViewModel
                 temp += ",'" + s + "'";
             }
             List<Model_报表类> list = new List<Model_报表类>();
-            string sql = "SELECT c.parent_id,total(w.fee1),total(w.fee2) FROM (SELECT a.DETAIL,a.fee as fee1,b.fee as fee2 FROM (SELECT a.DETAIL,a.CREDIT - a.DEBIT AS fee FROM "
+            string sql = "SELECT substr(c.parent_id,1,5),total(w.fee1),total(w.fee2) FROM (SELECT a.DETAIL,a.fee as fee1,b.fee as fee2 FROM (SELECT a.DETAIL,a.CREDIT - a.DEBIT AS fee FROM "
                 + DBTablesName.T_VOUCHER_DETAIL + " a LEFT JOIN "
                 + DBTablesName.T_VOUCHER + " b ON a.PARENTID = b.ID WHERE b.REVIEW_MARK = 1 AND b.PERIOD = "
                 + index + ") a LEFT JOIN (SELECT a.DETAIL,total(a.CREDIT) - total(a.DEBIT) AS fee FROM " 
                 + DBTablesName.T_VOUCHER_DETAIL + " a LEFT JOIN "
                 + DBTablesName.T_VOUCHER + " b ON a.PARENTID = b.ID WHERE b.REVIEW_MARK = 1 AND b.PERIOD <= "
-                + index + " GROUP BY a.DETAIL) b ON a.DETAIL = b.DETAIL WHERE substr(a.DETAIL,1,5) IN (SELECT t.SUBJECT_ID FROM " 
-                + DBTablesName.T_SUBJECT + " t WHERE t.PARENT_ID IN (" + temp.Substring(1,temp.Length-1) + "))) w LEFT JOIN "
-                + DBTablesName.T_SUBJECT + " c ON w.detail = c.subject_id GROUP BY c.PARENT_ID";
+                + index + " GROUP BY a.DETAIL) b ON a.DETAIL = b.DETAIL WHERE substr(a.DETAIL,1,5) IN (" + temp.Substring(1,temp.Length-1) + ")) w LEFT JOIN "
+                + DBTablesName.T_SUBJECT + " c ON w.detail = c.subject_id GROUP BY substr(c.parent_id,1,5)";
             DataTable dt = db.Query(sql).Tables[0];
             foreach (DataRow d in dt.Rows)
             {
@@ -111,7 +110,7 @@ namespace PA.ViewModel
                 }
                 else
                 {
-                    m.累计数 = d[2].ToString();
+                    m.累计数 = d[2].ToString().Replace("-","");
                 }
                 if (d[1].ToString().Equals("0"))
                 {
@@ -119,7 +118,7 @@ namespace PA.ViewModel
                 }
                 else
                 {
-                    m.本期数 = d[1].ToString();
+                    m.本期数 = d[1].ToString().Replace("-", "");
                 }
                 list.Add(m);
             }
