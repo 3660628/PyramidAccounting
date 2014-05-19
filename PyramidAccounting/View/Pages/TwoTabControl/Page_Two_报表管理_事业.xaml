@@ -513,6 +513,7 @@
                                 <Label x:Name="inY501" Content="" HorizontalAlignment="Center" Grid.Column="5" Grid.Row="15" />
                                 <Label x:Name="inM503" Content="" HorizontalAlignment="Center" Grid.Column="4" Grid.Row="16" />
                                 <Label x:Name="inY503" Content="" HorizontalAlignment="Center" Grid.Column="5" Grid.Row="16" />
+                                
                                 <!--结余-->
                                 <Label x:Name="B306" Content="" HorizontalAlignment="Center" Grid.Column="7" Grid.Row="2" />
                                 <Label x:Name="B30601" Content="" HorizontalAlignment="Center" Grid.Column="7" Grid.Row="3" />

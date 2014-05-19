@@ -381,6 +381,9 @@
     <None Include="Data\打印\三栏明细账模板.xls">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Include="Data\打印\事业及经营支出明细表.xls">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Include="Data\打印\固定资产登记模板.xls">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
@@ -388,6 +391,9 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Include="Data\打印\收入支出总表模板.xls">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Data\打印\收入支出总表（事业）模板.xls">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Include="Data\打印\管理费用模板18栏.xls">
@@ -400,6 +406,9 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Include="Data\打印\资产负债表模板.xls">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Data\打印\资产负债表（事业）模板.xls">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Include="Data\科目\《行政单位会计制度》财预字[1998]49号.xls">
