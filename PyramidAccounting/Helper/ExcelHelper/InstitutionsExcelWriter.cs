@@ -24,7 +24,7 @@ namespace PA.Helper.ExcelHelper
 
         #region 3.报表
         /// <summary>
-        /// 资产负债表
+        /// 资产负债表（事业）
         /// </summary>
         /// <param name="ParmPeroid"></param>
         /// <param name="People"></param>
@@ -154,7 +154,7 @@ namespace PA.Helper.ExcelHelper
             return result;
         }
         /// <summary>
-        /// 收入支出总表
+        /// 收入支出总表（事业）
         /// </summary>
         /// <param name="ParmPeroid"></param>
         /// <returns></returns>
@@ -304,7 +304,7 @@ namespace PA.Helper.ExcelHelper
             return result;
         }
         /// <summary>
-        /// 行政费用支出明细表
+        /// 事业及经营支出明细表
         /// </summary>
         /// <param name="ParmPeroid"></param>
         /// <returns></returns>
