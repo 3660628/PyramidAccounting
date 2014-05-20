@@ -300,6 +300,28 @@ namespace PA.Helper.ExcelHelper
                 x = 1;
             }
 
+            x = 1;
+            y = 1;
+            if (!new PA.Helper.ExcelHelper.ExcelReader().ExcelDataSource(ExportXls, "Sheet1", out ds))
+            {
+                return "出错了，请联系管理员。";
+            }
+            foreach (DataRow dr in ds.Tables[0].Rows)
+            {
+                foreach (DataColumn dc in ds.Tables[0].Columns)
+                {
+                    string key = dr[dc].ToString();
+                    if (key.StartsWith("in") || key.StartsWith("B"))
+                    {
+                        xlWorkSheet.Cells[y + 1, x] = "";
+                    }
+                    x++;
+                }
+                y++;
+                x = 1;
+            }
+
+
             #endregion
 
             xlApp.Visible = true;
