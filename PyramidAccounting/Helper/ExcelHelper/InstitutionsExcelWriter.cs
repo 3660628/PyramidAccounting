@@ -423,16 +423,16 @@ namespace PA.Helper.ExcelHelper
                     {
                         if (key == "Label_C" + m.编号.Replace("（", "").Replace("）", ""))
                         {
-                            xlWorkSheet.Cells[y + 1, x + 2] = m.本期数;
-                            xlWorkSheet.Cells[y + 1, x + 3] = m.累计数;
+                            xlWorkSheet.Cells[y + 1, x]  = m.本期数;
+                            xlWorkSheet.Cells[y + 1, x + 1] = m.累计数;
                         }
                     }
                     foreach (Model_报表类 m in data3)
                     {
                         if (key == "Label_E" + m.编号.Replace("（", "").Replace("）", ""))
                         {
-                            xlWorkSheet.Cells[y + 1, x + 4] = m.本期数;
-                            xlWorkSheet.Cells[y + 1, x + 5] = m.累计数;
+                            xlWorkSheet.Cells[y + 1, x] = m.本期数;
+                            xlWorkSheet.Cells[y + 1, x + 1] = m.累计数;
                         }
                     }
                     x++;
