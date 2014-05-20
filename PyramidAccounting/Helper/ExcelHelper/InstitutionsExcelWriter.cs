@@ -203,6 +203,8 @@ namespace PA.Helper.ExcelHelper
             #endregion
 
             #region fill data
+
+            //第一次对一级科目赋值
             List<Model_报表类> data = new PA.ViewModel.ViewModel_ReportManager().GetIncomeAndExpenses(ParmPeroid, new ViewModel.ViewModel_科目管理().GetOneSubjectList());
             if (data.Count <= 0)
             {
@@ -260,6 +262,43 @@ namespace PA.Helper.ExcelHelper
             xlWorkSheet.Cells[22, "C"] = insumy1;
             xlWorkSheet.Cells[22, "E"] = insumm2;
             xlWorkSheet.Cells[22, "F"] = insumy2;
+
+            //第一次对二级科目赋值
+            List<Model_报表类> data2 = new PA.ViewModel.ViewModel_ReportManager().GetIncomeAndExpensesForTwoSubject(ParmPeroid, new ViewModel.ViewModel_科目管理().GetIncomeAndOutSubjectList());
+            if (data2.Count <= 0)
+            {
+                return "没有数据";
+            }
+            x = 1;
+            y = 1;
+            foreach (DataRow dr in ds.Tables[0].Rows)
+            {
+                foreach (DataColumn dc in ds.Tables[0].Columns)
+                {
+                    string key = dr[dc].ToString();
+                    foreach (Model_报表类 m in data)
+                    {
+                        if (key == "inM" + m.编号)
+                        {
+                            xlWorkSheet.Cells[y + 1, x] = m.本期数;
+                            xlWorkSheet.Cells[y + 1, x + 1] = m.累计数;
+                            decimal.TryParse(m.累计数, out dy);
+                            decimal.TryParse(m.本期数, out dn);
+                            if (m.编号.StartsWith("30601"))
+                            {
+                                xlWorkSheet.Cells[7, "H"] = m.累计数;
+                            }
+                            else if (m.编号.StartsWith("30602"))
+                            {
+                                xlWorkSheet.Cells[8, "H"] = m.累计数;
+                            }
+                        }
+                    }
+                    x++;
+                }
+                y++;
+                x = 1;
+            }
 
             #endregion
 
