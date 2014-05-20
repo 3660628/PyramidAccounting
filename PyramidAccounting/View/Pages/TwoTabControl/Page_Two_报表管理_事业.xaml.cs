@@ -97,9 +97,9 @@ namespace PA.View.Pages.TwoTabControl
             //清除上一次赋值的值
             foreach (Model_报表类 m in last_资产负债表)
             {
-                Label lb = FindName("inM" + m.编号) as Label;
+                Label lb = FindName("y" + m.编号) as Label;
                 lb.Content = "";
-                Label lb2 = FindName("inY" + m.编号) as Label;
+                Label lb2 = FindName("n" + m.编号) as Label;
                 lb2.Content = "";
             }
 
@@ -314,7 +314,9 @@ namespace PA.View.Pages.TwoTabControl
         }
 
 
-        private List<Model_事业报表类> LastList = new List<Model_事业报表类>();
+        private List<Model_报表类> LastList = new List<Model_报表类>();
+        private List<Model_报表类> LastList_base = new List<Model_报表类>();
+        private List<Model_报表类> LastList_project = new List<Model_报表类>();
         private void Button_生成3_Click(object sender, RoutedEventArgs e)
         {
             int value = ComboBox_Date2.SelectedIndex;
@@ -331,20 +333,26 @@ namespace PA.View.Pages.TwoTabControl
                 lb.Content = "";
                 Label lb2 = FindName("Label_B" + LastList[i].编号.Replace("（", "").Replace("）", "")) as Label;
                 lb2.Content = "";
-                Label lb3 = FindName("Label_C" + LastList[i].编号.Replace("（", "").Replace("）", "")) as Label;
+            }
+            for (int i = 0; i < LastList_base.Count; i++)
+            {
+
+                Label lb3 = FindName("Label_C" + LastList_base[i].编号.Replace("（", "").Replace("）", "")) as Label;
                 lb3.Content = "";
-                Label lb4 = FindName("Label_D" + LastList[i].编号.Replace("（", "").Replace("）", "")) as Label;
+                Label lb4 = FindName("Label_D" + LastList_base[i].编号.Replace("（", "").Replace("）", "")) as Label;
                 lb4.Content = "";
-                Label lb5 = FindName("Label_E" + LastList[i].编号.Replace("（", "").Replace("）", "")) as Label;
+            }
+            for (int i = 0; i < LastList_project.Count; i++)
+            {
+                Label lb5 = FindName("Label_E" + LastList_project[i].编号.Replace("（", "").Replace("）", "")) as Label;
                 lb5.Content = "";
-                Label lb6 = FindName("Label_F" + LastList[i].编号.Replace("（", "").Replace("）", "")) as Label;
+                Label lb6 = FindName("Label_F" + LastList_project[i].编号.Replace("（", "").Replace("）", "")) as Label;
                 lb6.Content = "";
             }
-
             mr.日志 = "生成" + ComboBox_Date.Text + "事业及经营支出明细表";
             vm.Insert(mr);
-            List<Model_事业报表类> list = new List<Model_事业报表类>();
-            list = vmr.GetExpenditureDetail(value + 1, 504);
+            List<Model_报表类> list = new List<Model_报表类>();
+            list = vmr.GetAdministrativeExpenseDetail(value + 1, 504);
             decimal dn = 0;
 
             //二级科目
@@ -393,20 +401,30 @@ namespace PA.View.Pages.TwoTabControl
 
             if (list.Count > 0)
             {
-                foreach (Model_事业报表类 m in list) 
+                foreach (Model_报表类 m in list) 
                 {
                     Label lb = FindName("Label_A" + m.编号.Replace("（", "").Replace("）", "")) as Label;
                     lb.Content = m.本期数;
                     Label lb2 = FindName("Label_B" + m.编号.Replace("（", "").Replace("）", "")) as Label;
                     lb2.Content = m.累计数;
+                }
+                List<Model_报表类> list_base = new List<Model_报表类>();
+                list_base = vmr.GetAdministrativeExpenseDetail(value + 1, 50401);
+                foreach (Model_报表类 m in list_base)
+                {
                     Label lb3 = FindName("Label_C" + m.编号.Replace("（", "").Replace("）", "")) as Label;
-                    lb3.Content = m.本期数1;
+                    lb3.Content = m.本期数;
                     Label lb4 = FindName("Label_D" + m.编号.Replace("（", "").Replace("）", "")) as Label;
-                    lb4.Content = m.累计数1;
+                    lb4.Content = m.累计数;
+                }
+                List<Model_报表类> list_project = new List<Model_报表类>();
+                list_project = vmr.GetAdministrativeExpenseDetail(value + 1, 50402);
+                foreach (Model_报表类 m in list_project)
+                {
                     Label lb5 = FindName("Label_E" + m.编号.Replace("（", "").Replace("）", "")) as Label;
-                    lb5.Content = m.本期数2;
+                    lb5.Content = m.本期数;
                     Label lb6 = FindName("Label_F" + m.编号.Replace("（", "").Replace("）", "")) as Label;
-                    lb6.Content = m.累计数2;
+                    lb6.Content = m.累计数;
                 }
                 //2级科目设置 
                 #region 本期数赋值
@@ -1100,6 +1118,8 @@ namespace PA.View.Pages.TwoTabControl
                 Label_A05.Content = (b105 + b205 + b305 + b405 + b505 + b605 + b705);
                 Label_A06.Content = (b106 + b206 + b306 + b406 + b506 + b606 + b706);
                 LastList = list;
+                LastList_base = list_base;
+                LastList_project = list_project;
             }
             else
             {

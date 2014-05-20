@@ -308,7 +308,7 @@ namespace PA.Helper.ExcelHelper
             #endregion
 
             #region fill data
-            List<Model_事业报表类> data = new PA.ViewModel.ViewModel_ReportManager().GetExpenditureDetail(ParmPeroid, 504);
+            List<Model_报表类> data = new PA.ViewModel.ViewModel_ReportManager().GetAdministrativeExpenseDetail(ParmPeroid, 504);
             if (data.Count <= 0)
             {
                 return "没有数据";
@@ -371,16 +371,16 @@ namespace PA.Helper.ExcelHelper
                 foreach (DataColumn dc in ds.Tables[0].Columns)
                 {
                     string key = dr[dc].ToString();
-                    foreach (Model_事业报表类 m in data)
+                    foreach (Model_报表类 m in data)
                     {
                         if (key == "Label_A" + m.编号.Replace("（", "").Replace("）", ""))
                         {
                             xlWorkSheet.Cells[y + 1, x] = m.本期数;
                             xlWorkSheet.Cells[y + 1, x + 1] = m.累计数;
-                            xlWorkSheet.Cells[y + 1, x + 2] = m.本期数1;
-                            xlWorkSheet.Cells[y + 1, x + 3] = m.累计数1;
-                            xlWorkSheet.Cells[y + 1, x + 4] = m.本期数2;
-                            xlWorkSheet.Cells[y + 1, x + 5] = m.累计数2;
+                            //xlWorkSheet.Cells[y + 1, x + 2] = m.本期数1;
+                            //xlWorkSheet.Cells[y + 1, x + 3] = m.累计数1;
+                            //xlWorkSheet.Cells[y + 1, x + 4] = m.本期数2;
+                            //xlWorkSheet.Cells[y + 1, x + 5] = m.累计数2;
                         }
                     }
                     x++;
