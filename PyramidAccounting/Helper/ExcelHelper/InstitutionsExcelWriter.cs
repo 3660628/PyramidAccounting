@@ -348,11 +348,12 @@ namespace PA.Helper.ExcelHelper
 
             #region fill data
             List<Model_报表类> data = new PA.ViewModel.ViewModel_ReportManager().GetAdministrativeExpenseDetail(ParmPeroid, 504);
-            if (data.Count <= 0)
-            {
-                return "没有数据";
-            }
-
+            //if (data.Count <= 0)
+            //{
+            //    return "没有数据";
+            //}
+            List<Model_报表类> data2 = new PA.ViewModel.ViewModel_ReportManager().GetAdministrativeExpenseDetail(ParmPeroid, 50401);
+            List<Model_报表类> data3 = new PA.ViewModel.ViewModel_ReportManager().GetAdministrativeExpenseDetail(ParmPeroid, 50402);
             decimal dn = 0;
 
             //二级科目
@@ -416,11 +417,43 @@ namespace PA.Helper.ExcelHelper
                         {
                             xlWorkSheet.Cells[y + 1, x] = m.本期数;
                             xlWorkSheet.Cells[y + 1, x + 1] = m.累计数;
-                            //xlWorkSheet.Cells[y + 1, x + 2] = m.本期数1;
-                            //xlWorkSheet.Cells[y + 1, x + 3] = m.累计数1;
-                            //xlWorkSheet.Cells[y + 1, x + 4] = m.本期数2;
-                            //xlWorkSheet.Cells[y + 1, x + 5] = m.累计数2;
                         }
+                    }
+                    foreach (Model_报表类 m in data2)
+                    {
+                        if (key == "Label_C" + m.编号.Replace("（", "").Replace("）", ""))
+                        {
+                            xlWorkSheet.Cells[y + 1, x + 2] = m.本期数;
+                            xlWorkSheet.Cells[y + 1, x + 3] = m.累计数;
+                        }
+                    }
+                    foreach (Model_报表类 m in data3)
+                    {
+                        if (key == "Label_E" + m.编号.Replace("（", "").Replace("）", ""))
+                        {
+                            xlWorkSheet.Cells[y + 1, x + 4] = m.本期数;
+                            xlWorkSheet.Cells[y + 1, x + 5] = m.累计数;
+                        }
+                    }
+                    x++;
+                }
+                y++;
+                x = 1;
+            }
+            x = 1;
+            y = 1;
+            if (!new PA.Helper.ExcelHelper.ExcelReader().ExcelDataSource(ExportXls, "Sheet1", out ds))
+            {
+                return "出错了，请联系管理员。";
+            }
+            foreach (DataRow dr in ds.Tables[0].Rows)
+            {
+                foreach (DataColumn dc in ds.Tables[0].Columns)
+                {
+                    string key = dr[dc].ToString();
+                    if (key.StartsWith("Label_"))
+                    {
+                        xlWorkSheet.Cells[y + 1, x] = "";
                     }
                     x++;
                 }
@@ -463,12 +496,19 @@ namespace PA.Helper.ExcelHelper
                 decimal.TryParse(((xls.Range)xlWorkSheet.Cells[i, "G"]).Text, out temp601);
                 b206 += temp601;
             }
-            b201 += decimal.Parse(((xls.Range)xlWorkSheet.Cells[6, "I"]).Text);
-            b202 += decimal.Parse(((xls.Range)xlWorkSheet.Cells[6, "J"]).Text);
-            b203 += decimal.Parse(((xls.Range)xlWorkSheet.Cells[6, "K"]).Text);
-            b204 += decimal.Parse(((xls.Range)xlWorkSheet.Cells[6, "L"]).Text);
-            b205 += decimal.Parse(((xls.Range)xlWorkSheet.Cells[6, "M"]).Text);
-            b206 += decimal.Parse(((xls.Range)xlWorkSheet.Cells[6, "N"]).Text);
+            decimal tt1 = 0m, tt2 = 0m, tt3 = 0m, tt4 = 0m, tt5 = 0m, tt6 = 0m;
+            decimal.TryParse(((xls.Range)xlWorkSheet.Cells[6, "I"]).Text, out tt1);
+            b201 += tt1;
+            decimal.TryParse(((xls.Range)xlWorkSheet.Cells[6, "J"]).Text, out tt2);
+            b202 += tt2;
+            decimal.TryParse(((xls.Range)xlWorkSheet.Cells[6, "K"]).Text, out tt3);
+            b203 += tt3;
+            decimal.TryParse(((xls.Range)xlWorkSheet.Cells[6, "L"]).Text, out tt4);
+            b204 += tt4;
+            decimal.TryParse(((xls.Range)xlWorkSheet.Cells[6, "M"]).Text, out tt5);
+            b205 += tt5;
+            decimal.TryParse(((xls.Range)xlWorkSheet.Cells[6, "N"]).Text, out tt6);
+            b206 += tt6;
             //对个人和家庭的补助
             for (int i = 8; i < 15; i++)
             {
