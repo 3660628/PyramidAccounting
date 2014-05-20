@@ -276,7 +276,7 @@ namespace PA.Helper.ExcelHelper
                 foreach (DataColumn dc in ds.Tables[0].Columns)
                 {
                     string key = dr[dc].ToString();
-                    foreach (Model_报表类 m in data)
+                    foreach (Model_报表类 m in data2)
                     {
                         if (key == "inM" + m.编号)
                         {
