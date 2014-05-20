@@ -113,7 +113,6 @@
     <Compile Include="Model\ComboBox\ComboBox_科目.cs" />
     <Compile Include="Model\CustomEventArgs\MyEventArgs.cs" />
     <Compile Include="Model\Database\UpdateParm.cs" />
-    <Compile Include="Model\DataGrid\Model_事业报表类.cs" />
     <Compile Include="Model\DataGrid\Model_凭证单.cs" />
     <Compile Include="Model\DataGrid\Model_凭证明细.cs" />
     <Compile Include="Model\DataGrid\Model_凭证管理.cs" />
