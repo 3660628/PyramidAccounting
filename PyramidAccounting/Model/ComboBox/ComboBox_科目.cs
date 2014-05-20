@@ -90,10 +90,16 @@ namespace PA.Model.ComboBox
                         + "     d.SUBJECT_ID ParentID,                                              "
                         + "     d.subject_name ParentName                                           "
                         + " FROM                                                                    "
-                        + "     T_SUBJECT_0 a                                                       "
-                        + " LEFT JOIN T_SUBJECT_0 b ON substr(a.SUBJECT_ID, 0, 4) = b.SUBJECT_ID    "
-                        + " LEFT JOIN T_SUBJECT_0 c ON substr(a.SUBJECT_ID, 0, 6) = c.SUBJECT_ID    "
-                        + " LEFT JOIN T_SUBJECT_0 d ON substr(a.SUBJECT_ID, 0, 8) = d.SUBJECT_ID    "
+                        + DBTablesName.T_SUBJECT
+                        + " a LEFT JOIN "
+                        + DBTablesName.T_SUBJECT  
+                        + " b ON substr(a.SUBJECT_ID, 0, 4) = b.SUBJECT_ID    "
+                        + " LEFT JOIN "
+                        + DBTablesName.T_SUBJECT
+                        + "  c ON substr(a.SUBJECT_ID, 0, 6) = c.SUBJECT_ID    "
+                        + " LEFT JOIN "
+                        + DBTablesName.T_SUBJECT
+                        + "  d ON substr(a.SUBJECT_ID, 0, 8) = d.SUBJECT_ID    "
                         + " WHERE                                                                   "
                         + "     a.SUBJECT_ID NOT IN (                                               "
                         + "         SELECT                                                          "

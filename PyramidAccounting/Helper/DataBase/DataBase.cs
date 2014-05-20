@@ -312,7 +312,6 @@ namespace PA.Helper.DataBase
                         {
                             SQLiteCommand cmd = new SQLiteCommand();
                             cmd.CommandText = sql;
-                            cmd.Parameters.AddWithValue("@SID", list.序号);
                             cmd.Parameters.AddWithValue("@SUBJECT_ID", list.科目编号);
                             cmd.Parameters.AddWithValue("@SUBJECT_TYPE", list.类别);
                             cmd.Parameters.AddWithValue("@SUBJECT_NAME", list.科目名称);

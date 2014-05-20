@@ -163,7 +163,7 @@ namespace PA.ViewModel
         }
 
         /// <summary>
-        /// 行政费用支出明细表    2014/4/20      a.DEBIT - a.CREDIT  改为 a.CREDIT - a.DEBIT
+        /// 事业费用支出明细表    2014/4/20      a.DEBIT - a.CREDIT  改为 a.CREDIT - a.DEBIT
         /// </summary>
         /// <param name="index"></param>
         /// <returns></returns>
@@ -175,14 +175,14 @@ namespace PA.ViewModel
             sqlList.Add(dropSql);
             string _sql1 = "create table expenditure_temp(subject_name text,period int,fee,fee1,fee2 decimal)";
             sqlList.Add(_sql1);
-            string _sql2 = "insert into expenditure_temp select b.subject_name,a.PERIOD,total(a.fee),total(a.fee1),total(b.fee1) from (select a.peroid as peroid,a.fee as fee,b.fee as fee1,c.fee as fee2 from (SELECT a.DETAIL,b.PERIOD,total(a.DEBIT - a.CREDIT) AS fee FROM "
+            string _sql2 = "insert into expenditure_temp select b.subject_name,a.PERIOD,total(a.fee),total(a.fee1),total(a.fee2) from (select a.PERIOD as PERIOD,a.fee as fee,b.fee as fee1,c.fee as fee2,a.DETAIL from (SELECT a.subject_id,a.DETAIL,b.PERIOD,total(a.DEBIT - a.CREDIT) AS fee FROM "
                     + DBTablesName.T_VOUCHER_DETAIL + " a LEFT JOIN "
-                    + DBTablesName.T_VOUCHER + " b ON a.PARENTID = b.ID where b.REVIEW_MARK=1 and a.detail like '" + parentID + "%' GROUP BY a.DETAIL,b.PERIOD ) a," +
-                    " (SELECT a.DETAIL,b.PERIOD,total(a.DEBIT - a.CREDIT) AS fee FROM "
+                    + DBTablesName.T_VOUCHER + " b ON a.PARENTID = b.ID where b.REVIEW_MARK=1 and a.detail like '" + parentID + "%' GROUP BY a.DETAIL,b.PERIOD ) a left join " +
+                    " (SELECT a.subject_id,a.DETAIL,b.PERIOD,total(a.DEBIT - a.CREDIT) AS fee FROM "
                     + DBTablesName.T_VOUCHER_DETAIL + " a LEFT JOIN "
-                    + DBTablesName.T_VOUCHER + " b ON a.PARENTID = b.ID where b.REVIEW_MARK=1 and a.detail like '" + parentID + "01%' GROUP BY a.DETAIL,b.PERIOD ) b," + " (SELECT a.DETAIL,b.PERIOD,total(a.DEBIT - a.CREDIT) AS fee FROM "
+                    + DBTablesName.T_VOUCHER + " b ON a.PARENTID = b.ID where b.REVIEW_MARK=1 and a.detail like '" + parentID + "01%' GROUP BY a.DETAIL,b.PERIOD ) b on a.subject_id = b.subject_id left join (SELECT a.subject_id,a.DETAIL,b.PERIOD,total(a.DEBIT - a.CREDIT) AS fee FROM "
                     + DBTablesName.T_VOUCHER_DETAIL + " a LEFT JOIN "
-                    + DBTablesName.T_VOUCHER + " b ON a.PARENTID = b.ID where b.REVIEW_MARK=1 and a.detail like '" + parentID + "02%' GROUP BY a.DETAIL,b.PERIOD ) c where a.subject_id=b.subject_id and b.subject_id=c.subject_id ) a LEFT JOIN "
+                    + DBTablesName.T_VOUCHER + " b ON a.PARENTID = b.ID where b.REVIEW_MARK=1 and a.detail like '" + parentID + "02%' GROUP BY a.DETAIL,b.PERIOD ) c on  a.subject_id=c.subject_id ) a LEFT JOIN "
                     + DBTablesName.T_SUBJECT
                     + " b ON a.DETAIL = b.subject_id group by a.PERIOD,b.SUBJECT_NAME";
             sqlList.Add(_sql2);
