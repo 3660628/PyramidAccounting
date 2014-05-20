@@ -308,15 +308,269 @@ namespace PA.Helper.ExcelHelper
             #endregion
 
             #region fill data
-            List<Model_报表类> data = new PA.ViewModel.ViewModel_ReportManager().GetAdministrativeExpenseDetail(ParmPeroid, 501);
+            List<Model_事业报表类> data = new PA.ViewModel.ViewModel_ReportManager().GetExpenditureDetail(ParmPeroid, 504);
             if (data.Count <= 0)
             {
                 return "没有数据";
             }
 
+            decimal dn = 0;
 
+            //二级科目
+            decimal b101 = 0;
+            decimal b102 = 0;
+            decimal b103 = 0;
+            decimal b104 = 0;
+            decimal b105 = 0;
+            decimal b106 = 0;
+            decimal b201 = 0;
+            decimal b202 = 0;
+            decimal b203 = 0;
+            decimal b204 = 0;
+            decimal b205 = 0;
+            decimal b206 = 0;
+            decimal b301 = 0;
+            decimal b302 = 0;
+            decimal b303 = 0;
+            decimal b304 = 0;
+            decimal b305 = 0;
+            decimal b306 = 0;
+            decimal b401 = 0;
+            decimal b402 = 0;
+            decimal b403 = 0;
+            decimal b404 = 0;
+            decimal b405 = 0;
+            decimal b406 = 0;
+            decimal b501 = 0;
+            decimal b502 = 0;
+            decimal b503 = 0;
+            decimal b504 = 0;
+            decimal b505 = 0;
+            decimal b506 = 0;
+            decimal b601 = 0;
+            decimal b602 = 0;
+            decimal b603 = 0;
+            decimal b604 = 0;
+            decimal b605 = 0;
+            decimal b606 = 0;
+            decimal b701 = 0;
+            decimal b702 = 0;
+            decimal b703 = 0;
+            decimal b704 = 0;
+            decimal b705 = 0;
+            decimal b706 = 0;
 
+            int x = 1, y = 1;
+            DataSet ds;
+            if (!new PA.Helper.ExcelHelper.ExcelReader().ExcelDataSource(SourceXls, "Sheet1", out ds))
+            {
+                return "出错了，请联系管理员。";
+            }
+            foreach (DataRow dr in ds.Tables[0].Rows)
+            {
+                foreach (DataColumn dc in ds.Tables[0].Columns)
+                {
+                    string key = dr[dc].ToString();
+                    foreach (Model_事业报表类 m in data)
+                    {
+                        if (key == "Label_A" + m.编号.Replace("（", "").Replace("）", ""))
+                        {
+                            xlWorkSheet.Cells[y + 1, x] = m.本期数;
+                            xlWorkSheet.Cells[y + 1, x + 1] = m.累计数;
+                            xlWorkSheet.Cells[y + 1, x + 2] = m.本期数1;
+                            xlWorkSheet.Cells[y + 1, x + 3] = m.累计数1;
+                            xlWorkSheet.Cells[y + 1, x + 4] = m.本期数2;
+                            xlWorkSheet.Cells[y + 1, x + 5] = m.累计数2;
+                        }
+                    }
+                    x++;
+                }
+                y++;
+                x = 1;
+            }
 
+            //计算合计
+            //工资福利支出
+            for (int i = 8; i < 15; i++)
+            {
+                decimal temp101 = 0m, temp201 = 0m, temp301 = 0m, temp401 = 0m, temp501 = 0m, temp601 = 0m;
+                decimal.TryParse(((xls.Range)xlWorkSheet.Cells[i, "B"]).Text, out temp101);
+                b101 += temp101;
+                decimal.TryParse(((xls.Range)xlWorkSheet.Cells[i, "C"]).Text, out temp201);
+                b102 += temp201;
+                decimal.TryParse(((xls.Range)xlWorkSheet.Cells[i, "D"]).Text, out temp301);
+                b103 += temp301;
+                decimal.TryParse(((xls.Range)xlWorkSheet.Cells[i, "E"]).Text, out temp401);
+                b104 += temp401;
+                decimal.TryParse(((xls.Range)xlWorkSheet.Cells[i, "F"]).Text, out temp501);
+                b105 += temp501;
+                decimal.TryParse(((xls.Range)xlWorkSheet.Cells[i, "G"]).Text, out temp601);
+                b106 += temp601;
+            }
+            //商品和服务支出
+            for (int i = 16; i < 33; i++)
+            {
+                decimal temp101 = 0m, temp201 = 0m, temp301 = 0m, temp401 = 0m, temp501 = 0m, temp601 = 0m;
+                decimal.TryParse(((xls.Range)xlWorkSheet.Cells[i, "B"]).Text, out temp101);
+                b201 += temp101;
+                decimal.TryParse(((xls.Range)xlWorkSheet.Cells[i, "C"]).Text, out temp201);
+                b202 += temp201;
+                decimal.TryParse(((xls.Range)xlWorkSheet.Cells[i, "D"]).Text, out temp301);
+                b203 += temp301;
+                decimal.TryParse(((xls.Range)xlWorkSheet.Cells[i, "E"]).Text, out temp401);
+                b204 += temp401;
+                decimal.TryParse(((xls.Range)xlWorkSheet.Cells[i, "F"]).Text, out temp501);
+                b205 += temp501;
+                decimal.TryParse(((xls.Range)xlWorkSheet.Cells[i, "G"]).Text, out temp601);
+                b206 += temp601;
+            }
+            b201 += decimal.Parse(((xls.Range)xlWorkSheet.Cells[6, "I"]).Text);
+            b202 += decimal.Parse(((xls.Range)xlWorkSheet.Cells[6, "J"]).Text);
+            b203 += decimal.Parse(((xls.Range)xlWorkSheet.Cells[6, "K"]).Text);
+            b204 += decimal.Parse(((xls.Range)xlWorkSheet.Cells[6, "L"]).Text);
+            b205 += decimal.Parse(((xls.Range)xlWorkSheet.Cells[6, "M"]).Text);
+            b206 += decimal.Parse(((xls.Range)xlWorkSheet.Cells[6, "N"]).Text);
+            //对个人和家庭的补助
+            for (int i = 8; i < 15; i++)
+            {
+                decimal T1 = 0m, T2 = 0m, T3 = 0m, T4 = 0m, T5 = 0m, T6 = 0m;
+                decimal.TryParse(((xls.Range)xlWorkSheet.Cells[i, "I"]).Text, out T1);
+                b301 += T1;
+                decimal.TryParse(((xls.Range)xlWorkSheet.Cells[i, "J"]).Text, out T2);
+                b302 += T2;
+                decimal.TryParse(((xls.Range)xlWorkSheet.Cells[i, "K"]).Text, out T3);
+                b303 += T3;
+                decimal.TryParse(((xls.Range)xlWorkSheet.Cells[i, "L"]).Text, out T4);
+                b304 += T4;
+                decimal.TryParse(((xls.Range)xlWorkSheet.Cells[i, "M"]).Text, out T5);
+                b305 += T5;
+                decimal.TryParse(((xls.Range)xlWorkSheet.Cells[i, "N"]).Text, out T6);
+                b306 += T6;
+            }
+            //对企事业单位的补贴
+            for (int i = 16; i < 18; i++)
+            {
+                decimal T1 = 0m, T2 = 0m, T3 = 0m, T4 = 0m, T5 = 0m, T6 = 0m;
+                decimal.TryParse(((xls.Range)xlWorkSheet.Cells[i, "I"]).Text, out T1);
+                b401 += T1;
+                decimal.TryParse(((xls.Range)xlWorkSheet.Cells[i, "J"]).Text, out T2);
+                b402 += T2;
+                decimal.TryParse(((xls.Range)xlWorkSheet.Cells[i, "K"]).Text, out T3);
+                b403 += T3;
+                decimal.TryParse(((xls.Range)xlWorkSheet.Cells[i, "L"]).Text, out T4);
+                b404 += T4;
+                decimal.TryParse(((xls.Range)xlWorkSheet.Cells[i, "M"]).Text, out T5);
+                b405 += T5;
+                decimal.TryParse(((xls.Range)xlWorkSheet.Cells[i, "N"]).Text, out T6);
+                b406 += T6;
+            }
+            //债务利息支出
+            for (int i = 19; i < 20; i++)
+            {
+                decimal T1 = 0m, T2 = 0m, T3 = 0m, T4 = 0m, T5 = 0m, T6 = 0m;
+                decimal.TryParse(((xls.Range)xlWorkSheet.Cells[i, "I"]).Text, out T1);
+                b501 += T1;
+                decimal.TryParse(((xls.Range)xlWorkSheet.Cells[i, "J"]).Text, out T2);
+                b502 += T2;
+                decimal.TryParse(((xls.Range)xlWorkSheet.Cells[i, "K"]).Text, out T3);
+                b503 += T3;
+                decimal.TryParse(((xls.Range)xlWorkSheet.Cells[i, "L"]).Text, out T4);
+                b504 += T4;
+                decimal.TryParse(((xls.Range)xlWorkSheet.Cells[i, "M"]).Text, out T5);
+                b505 += T5;
+                decimal.TryParse(((xls.Range)xlWorkSheet.Cells[i, "N"]).Text, out T6);
+                b506 += T6;
+            }
+            //其他资本性支出
+            for (int i = 21; i < 30; i++)
+            {
+                decimal T1 = 0m, T2 = 0m, T3 = 0m, T4 = 0m, T5 = 0m, T6 = 0m;
+                decimal.TryParse(((xls.Range)xlWorkSheet.Cells[i, "I"]).Text, out T1);
+                b601 += T1;
+                decimal.TryParse(((xls.Range)xlWorkSheet.Cells[i, "J"]).Text, out T2);
+                b602 += T2;
+                decimal.TryParse(((xls.Range)xlWorkSheet.Cells[i, "K"]).Text, out T3);
+                b603 += T3;
+                decimal.TryParse(((xls.Range)xlWorkSheet.Cells[i, "L"]).Text, out T4);
+                b604 += T4;
+                decimal.TryParse(((xls.Range)xlWorkSheet.Cells[i, "M"]).Text, out T5);
+                b605 += T5;
+                decimal.TryParse(((xls.Range)xlWorkSheet.Cells[i, "N"]).Text, out T6);
+                b606 += T6;
+            }
+            //其他支出
+            for (int i = 31; i < 33; i++)
+            {
+                decimal T1 = 0m, T2 = 0m, T3 = 0m, T4 = 0m, T5 = 0m, T6 = 0m;
+                decimal.TryParse(((xls.Range)xlWorkSheet.Cells[i, "I"]).Text, out T1);
+                b701 += T1;
+                decimal.TryParse(((xls.Range)xlWorkSheet.Cells[i, "J"]).Text, out T2);
+                b702 += T2;
+                decimal.TryParse(((xls.Range)xlWorkSheet.Cells[i, "K"]).Text, out T3);
+                b703 += T3;
+                decimal.TryParse(((xls.Range)xlWorkSheet.Cells[i, "L"]).Text, out T4);
+                b704 += T4;
+                decimal.TryParse(((xls.Range)xlWorkSheet.Cells[i, "M"]).Text, out T5);
+                b705 += T5;
+                decimal.TryParse(((xls.Range)xlWorkSheet.Cells[i, "N"]).Text, out T6);
+                b706 += T6;
+            }
+
+            xlWorkSheet.Cells[7, "B"] = b101;
+            xlWorkSheet.Cells[7, "C"] = b102;
+            xlWorkSheet.Cells[7, "D"] = b103;
+            xlWorkSheet.Cells[7, "E"] = b104;
+            xlWorkSheet.Cells[7, "F"] = b105;
+            xlWorkSheet.Cells[7, "G"] = b106;
+
+            xlWorkSheet.Cells[15, "B"] = b201;
+            xlWorkSheet.Cells[15, "C"] = b202;
+            xlWorkSheet.Cells[15, "D"] = b203;
+            xlWorkSheet.Cells[15, "E"] = b204;
+            xlWorkSheet.Cells[15, "F"] = b205;
+            xlWorkSheet.Cells[15, "G"] = b206;
+
+            xlWorkSheet.Cells[7, "I"] = b301;
+            xlWorkSheet.Cells[7, "J"] = b302;
+            xlWorkSheet.Cells[7, "K"] = b303;
+            xlWorkSheet.Cells[7, "L"] = b304;
+            xlWorkSheet.Cells[7, "M"] = b305;
+            xlWorkSheet.Cells[7, "N"] = b306;
+
+            xlWorkSheet.Cells[15, "I"] = b401;
+            xlWorkSheet.Cells[15, "J"] = b402;
+            xlWorkSheet.Cells[15, "K"] = b403;
+            xlWorkSheet.Cells[15, "L"] = b404;
+            xlWorkSheet.Cells[15, "M"] = b405;
+            xlWorkSheet.Cells[15, "N"] = b406;
+
+            xlWorkSheet.Cells[18, "I"] = b501;
+            xlWorkSheet.Cells[18, "J"] = b502;
+            xlWorkSheet.Cells[18, "K"] = b503;
+            xlWorkSheet.Cells[18, "L"] = b504;
+            xlWorkSheet.Cells[18, "M"] = b505;
+            xlWorkSheet.Cells[18, "N"] = b506;
+
+            xlWorkSheet.Cells[20, "I"] = b601;
+            xlWorkSheet.Cells[20, "J"] = b602;
+            xlWorkSheet.Cells[20, "K"] = b603;
+            xlWorkSheet.Cells[20, "L"] = b604;
+            xlWorkSheet.Cells[20, "M"] = b605;
+            xlWorkSheet.Cells[20, "N"] = b606;
+
+            xlWorkSheet.Cells[30, "I"] = b701;
+            xlWorkSheet.Cells[30, "J"] = b702;
+            xlWorkSheet.Cells[30, "K"] = b703;
+            xlWorkSheet.Cells[30, "L"] = b704;
+            xlWorkSheet.Cells[30, "M"] = b705;
+            xlWorkSheet.Cells[30, "N"] = b706;
+
+            xlWorkSheet.Cells[6, "B"] = (b101 + b201 + b301 + b401 + b501 + b601 + b701);
+            xlWorkSheet.Cells[6, "C"] = (b102 + b202 + b302 + b402 + b502 + b602 + b702);
+            xlWorkSheet.Cells[6, "D"] = (b103 + b203 + b303 + b403 + b503 + b603 + b703);
+            xlWorkSheet.Cells[6, "E"] = (b104 + b204 + b304 + b404 + b504 + b604 + b704);
+            xlWorkSheet.Cells[6, "F"] = (b105 + b205 + b305 + b405 + b505 + b605 + b705);
+            xlWorkSheet.Cells[6, "G"] = (b106 + b206 + b306 + b406 + b506 + b606 + b706);
 
             #endregion
 
