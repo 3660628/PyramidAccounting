@@ -245,13 +245,14 @@ namespace PA.View.Pages.TwoTabControl
                 {
                     try
                     {
-                        Label lb = FindName("inM" + m.编号) as Label;
+                        Label lb = FindName("y" + m.编号) as Label;
                         lb.Content = m.本期数;
-                        Label lb2 = FindName("inY" + m.编号) as Label;
+                        Label lb2 = FindName("n" + m.编号) as Label;
                         lb2.Content = m.累计数;
                     }
-                    catch(Exception)
+                    catch(Exception ee)
                     {
+                        Log.Write(ee.Message);
                         MessageBoxCommon.Show("请补全子细目!");
                         return;
                     }
