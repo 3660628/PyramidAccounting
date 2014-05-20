@@ -300,6 +300,8 @@ namespace PA.Helper.ExcelHelper
                 x = 1;
             }
 
+            xlWorkBook.Save();
+            
             x = 1;
             y = 1;
             if (!new PA.Helper.ExcelHelper.ExcelReader().ExcelDataSource(ExportXls, "Sheet1", out ds))
@@ -462,6 +464,8 @@ namespace PA.Helper.ExcelHelper
                 y++;
                 x = 1;
             }
+
+            xlWorkBook.Save();
             x = 1;
             y = 1;
             if (!new PA.Helper.ExcelHelper.ExcelReader().ExcelDataSource(ExportXls, "Sheet1", out ds))
