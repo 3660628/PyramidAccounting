@@ -243,10 +243,19 @@ namespace PA.View.Pages.TwoTabControl
             {
                 foreach (Model_报表类 m in list)
                 {
-                    Label lb = FindName("inM" + m.编号) as Label;
-                    lb.Content = m.本期数;
-                    Label lb2 = FindName("inY" + m.编号) as Label;
-                    lb2.Content = m.累计数;
+                    try
+                    {
+                        Label lb = FindName("inM" + m.编号) as Label;
+                        lb.Content = m.本期数;
+                        Label lb2 = FindName("inY" + m.编号) as Label;
+                        lb2.Content = m.累计数;
+                    }
+                    catch(Exception)
+                    {
+                        MessageBoxCommon.Show("请补全子细目!");
+                        return;
+                    }
+
                     decimal.TryParse(m.累计数, out dy);
                     decimal.TryParse(m.本期数, out dn);
                     if (m.编号.StartsWith("4"))
