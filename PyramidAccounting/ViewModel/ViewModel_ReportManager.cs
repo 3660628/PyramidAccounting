@@ -48,10 +48,8 @@ namespace PA.ViewModel
                 temp += ",'" + s + "'";
             }
             List<Model_报表类> list = new List<Model_报表类>();
-            string sql = "SELECT a.SUBJECT_ID,a.fee,b.fee FROM (SELECT SUBJECT_ID,fee FROM " +
-                DBTablesName.T_FEE + " WHERE PERIOD = " + index + ") a LEFT JOIN (SELECT SUBJECT_ID,total(fee) AS fee FROM "
-                + DBTablesName.T_FEE + " WHERE PERIOD <= " + index + " GROUP BY SUBJECT_ID) b ON a.SUBJECT_ID = b.SUBJECT_ID "
-                + "WHERE a.SUBJECT_ID IN (" + temp.Substring(1, temp.Length - 1) + ") ";
+            string sql = "SELECT SUBJECT_ID,debit-credit,fee from " + DBTablesName.T_FEE
+                + " WHERE period=" + index + " and SUBJECT_ID IN (" + temp.Substring(1, temp.Length - 1) + ") ";
             DataTable dt = db.Query(sql).Tables[0];
             foreach (DataRow d in dt.Rows)
             {
@@ -71,7 +69,7 @@ namespace PA.ViewModel
                 }
                 else
                 {
-                    m.本期数 = d[1].ToString();
+                    m.本期数 = d[1].ToString().Replace("-","");
                 }
                 list.Add(m);
             }
@@ -91,14 +89,14 @@ namespace PA.ViewModel
                 temp += ",'" + s + "'";
             }
             List<Model_报表类> list = new List<Model_报表类>();
-            string sql = "SELECT substr(c.parent_id,1,5),total(w.fee1),total(w.fee2) FROM (SELECT a.DETAIL,a.fee as fee1,b.fee as fee2 FROM (SELECT a.DETAIL,a.CREDIT - a.DEBIT AS fee FROM "
+            string sql = "SELECT a.DETAIL,a.fee as fee1,b.fee as fee2 FROM (SELECT substr(a.DETAIL,1,5) as detail,total(a.CREDIT) - total(a.DEBIT) AS fee FROM "
                 + DBTablesName.T_VOUCHER_DETAIL + " a LEFT JOIN "
                 + DBTablesName.T_VOUCHER + " b ON a.PARENTID = b.ID WHERE b.REVIEW_MARK = 1 AND b.PERIOD = "
-                + index + ") a LEFT JOIN (SELECT a.DETAIL,total(a.CREDIT) - total(a.DEBIT) AS fee FROM " 
+                + index + " GROUP BY substr(a.DETAIL, 1, 5)) a LEFT JOIN (SELECT substr(a.DETAIL,1,5) as detail,total(a.CREDIT) - total(a.DEBIT) AS fee FROM " 
                 + DBTablesName.T_VOUCHER_DETAIL + " a LEFT JOIN "
                 + DBTablesName.T_VOUCHER + " b ON a.PARENTID = b.ID WHERE b.REVIEW_MARK = 1 AND b.PERIOD <= "
-                + index + " GROUP BY a.DETAIL) b ON a.DETAIL = b.DETAIL WHERE substr(a.DETAIL,1,5) IN (" + temp.Substring(1,temp.Length-1) + ")) w LEFT JOIN "
-                + DBTablesName.T_SUBJECT + " c ON w.detail = c.subject_id GROUP BY substr(c.parent_id,1,5)";
+                + index + " GROUP BY substr(a.DETAIL,1,5)) b ON a.DETAIL = b.DETAIL WHERE substr(a.DETAIL,1,5) IN (" 
+                + temp.Substring(1, temp.Length - 1) + ")";
             DataTable dt = db.Query(sql).Tables[0];
             foreach (DataRow d in dt.Rows)
             {
