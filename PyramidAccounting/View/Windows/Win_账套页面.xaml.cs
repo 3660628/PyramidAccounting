@@ -89,11 +89,12 @@ namespace PA.View.Windows
             m.当前期 = Convert.ToInt32(TextBox_期.Text.Trim());
 
             CommonInfo.制度索引 = m.制度索引.ToString();
+            CommonInfo.制表单位 = m.单位名称;
             lm.Add(m);
 
             //修改下次启动时帐套的显示
             xw.WriteXML("账套信息", m.账套名称);
-            xw.WriteXML("公司",TextBox_公司.Text.Trim());
+            xw.WriteXML("单位",TextBox_公司.Text.Trim());
 
             //数据创建步骤
             //1.创建账套

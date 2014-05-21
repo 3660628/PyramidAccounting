@@ -20,6 +20,13 @@ namespace PA.Helper.DataDefind
         private static int m_SoftwareState;
         private static string m_deviceID;
         private static string m_bookName;
+        private static string company;
+
+        public static string 制表单位
+        {
+            get { return CommonInfo.company; }
+            set { CommonInfo.company = value; }
+        }
 
         public static string 账套信息
         {

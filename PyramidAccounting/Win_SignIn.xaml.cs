@@ -110,6 +110,7 @@ namespace PA
                 CommonInfo.用户权限 = m.用户权限;
                 CommonInfo.权限值 = m.权限值;
                 CommonInfo.登录密码 = Password;
+                CommonInfo.制表单位 = xr.ReadXML("单位");
                 //先记录一些信息
                 Model_操作日志 mr = new Model_操作日志();
                 mr = vmr.GetOperateLog();
