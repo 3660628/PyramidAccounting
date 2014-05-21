@@ -949,20 +949,23 @@ namespace PA.Helper.ExcelHelper
             {
                 File.Copy(SourceXls, ExportXls, true);
             }
-            catch (FileNotFoundException)
+            catch (FileNotFoundException fe)
             {
+                Log.Write(fe.Message);
                 return "模板文件未找到";
             }
-            catch (IOException)
+            catch (IOException ioe)
             {
+                Log.Write(ioe.Message);
                 return "文件锁定，请关闭Excel再试";
             }
             try
             {
                 xlApp = new xls.Application();
             }
-            catch (Exception)
+            catch (Exception ee)
             {
+                Log.Write(ee.Message);
                 return "找不到EXCEL软件";
             }
             xlWorkBook = xlApp.Workbooks.Open(ExportXls);
