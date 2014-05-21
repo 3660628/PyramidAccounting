@@ -73,10 +73,6 @@ namespace PA.Helper.ExcelHelper
 
             #region fill data
             List<Model_报表类> data = new PA.ViewModel.ViewModel_ReportManager().GetBalanceSheet(ParmPeroid);
-            if (data.Count < 1)
-            {
-                return "没有数据";
-            }
             decimal dy = 0;
             decimal dn = 0;
             decimal sumy1 = 0;
@@ -210,10 +206,6 @@ namespace PA.Helper.ExcelHelper
 
             //第一次对一级科目赋值
             List<Model_报表类> data = new PA.ViewModel.ViewModel_ReportManager().GetIncomeAndExpenses(ParmPeroid, new ViewModel.ViewModel_科目管理().GetOneSubjectList());
-            if (data.Count <= 0)
-            {
-                return "没有数据";
-            }
 
             decimal dy = 0;
             decimal dn = 0;
@@ -269,10 +261,6 @@ namespace PA.Helper.ExcelHelper
 
             //第一次对二级科目赋值
             List<Model_报表类> data2 = new PA.ViewModel.ViewModel_ReportManager().GetIncomeAndExpensesForTwoSubject(ParmPeroid, new ViewModel.ViewModel_科目管理().GetIncomeAndOutSubjectList());
-            if (data2.Count <= 0)
-            {
-                return "没有数据";
-            }
             x = 1;
             y = 1;
             foreach (DataRow dr in ds.Tables[0].Rows)
@@ -376,10 +364,6 @@ namespace PA.Helper.ExcelHelper
 
             #region fill data
             List<Model_报表类> data = new PA.ViewModel.ViewModel_ReportManager().GetAdministrativeExpenseDetail(ParmPeroid, 504);
-            //if (data.Count <= 0)
-            //{
-            //    return "没有数据";
-            //}
             List<Model_报表类> data2 = new PA.ViewModel.ViewModel_ReportManager().GetAdministrativeExpenseDetail(ParmPeroid, 50401);
             List<Model_报表类> data3 = new PA.ViewModel.ViewModel_ReportManager().GetAdministrativeExpenseDetail(ParmPeroid, 50402);
 
