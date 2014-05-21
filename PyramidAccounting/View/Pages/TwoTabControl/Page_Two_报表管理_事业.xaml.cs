@@ -196,7 +196,7 @@ namespace PA.View.Pages.TwoTabControl
         
         private void Button_BalanceSheetPrint_Click(object sender, RoutedEventArgs e)
         {
-            string result = new PA.Helper.ExcelHelper.InstitutionsExcelWriter().ExportBalanceSheet(ComboBox_Date.SelectedIndex + 1, CommonInfo.真实姓名, Label_填表日期.Content.ToString());
+            string result = new PA.Helper.ExcelHelper.InstitutionsExcelWriter().ExportBalanceSheet(ComboBox_Date.SelectedIndex + 1, CommonInfo.真实姓名);
             if (result != "")
             {
                 MessageBoxCommon.Show(result);
@@ -302,8 +302,6 @@ namespace PA.View.Pages.TwoTabControl
                     B30602.Content = m.累计数;
                 }
             }
-            
-           
             lastList_fee2 = list;    
         }
 

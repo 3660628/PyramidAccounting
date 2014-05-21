@@ -35,7 +35,7 @@ namespace PA.Helper.ExcelHelper
         /// <param name="People"></param>
         /// <param name="Date"></param>
         /// <returns></returns>
-        public string ExportBalanceSheet(int ParmPeroid, string People, string Date)
+        public string ExportBalanceSheet(int ParmPeroid, string People)
         {
             string result = "";
             #region init Excel
@@ -137,6 +137,8 @@ namespace PA.Helper.ExcelHelper
                 y++;
                 x = 1;
             }
+            xlWorkSheet.Cells[2, "A"] = "编制单位：" + CommonInfo.制表单位;
+            xlWorkSheet.Cells[2, "D"] = DateTime.Today.ToLongDateString();
             xlWorkSheet.Cells[18, "C"] = sumy1;
             xlWorkSheet.Cells[18, "D"] = sumn1;
             xlWorkSheet.Cells[30, "C"] = sumy5;
@@ -154,7 +156,7 @@ namespace PA.Helper.ExcelHelper
             xlWorkSheet.Cells[35, "H"] = sumn2 + sumn3 + sumn4;
 
             xlWorkSheet.Cells[36, "A"] = "单位负责人：" + CommonInfo.真实姓名;
-            xlWorkSheet.Cells[36, "C"] = "填表人：" + CommonInfo.用户权限 + "\t" + CommonInfo.真实姓名;
+            xlWorkSheet.Cells[36, "C"] = "填表人：" + CommonInfo.真实姓名;
             xlWorkSheet.Cells[36, "F"] = "填表日期：" + DateTime.Now.ToLongDateString();
             #endregion
 
@@ -254,6 +256,9 @@ namespace PA.Helper.ExcelHelper
                 y++;
                 x = 1;
             }
+            xlWorkSheet.Cells[3, "A"] = "编制单位：" + CommonInfo.制表单位;
+            xlWorkSheet.Cells[3, "D"] = DateTime.Today.ToLongDateString();
+
             xlWorkSheet.Cells[22, "B"] = insumm1;
             xlWorkSheet.Cells[22, "C"] = insumy1;
             xlWorkSheet.Cells[22, "E"] = insumm2;
@@ -607,6 +612,8 @@ namespace PA.Helper.ExcelHelper
                 decimal.TryParse(((xls.Range)xlWorkSheet.Cells[i, "N"]).Text, out T6);
                 b706 += T6;
             }
+            xlWorkSheet.Cells[2, "A"] = "编制单位：" + CommonInfo.制表单位;
+            xlWorkSheet.Cells[1, "C"] = CommonInfo.年 + "年" + ParmPeroid + "月事业及经营支出明细表";
 
             xlWorkSheet.Cells[7, "B"] = b101;
             xlWorkSheet.Cells[7, "C"] = b102;

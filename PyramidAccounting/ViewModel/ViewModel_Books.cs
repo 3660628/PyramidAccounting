@@ -125,5 +125,10 @@ namespace PA.ViewModel
             sql = "select book_time,period,book_index from " + DBTablesName.T_BOOKS + " where id='" + CommonInfo.账薄号 + "'";
             return db.GetAllData(sql);
         }
+
+        public string GetYear()
+        {
+            return GetValue().Split('\t')[0].Substring(0,4);
+        }
     }
 }

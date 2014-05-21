@@ -9,6 +9,7 @@ using System.Data.OleDb;
 using System.IO;
 using PA.Model.DataGrid;
 using PA.Helper.DataBase;
+using PA.Helper.DataDefind;
 
 namespace PA.Helper.ExcelHelper
 {
@@ -808,7 +809,7 @@ namespace PA.Helper.ExcelHelper
         /// <param name="People"></param>
         /// <param name="Date"></param>
         /// <returns></returns>
-        public string ExportBalanceSheet(int ParmPeroid, string People, string Date)
+        public string ExportBalanceSheet(int ParmPeroid, string People)
         {
             string result = "";
             #region init Excel
@@ -907,6 +908,8 @@ namespace PA.Helper.ExcelHelper
                     sumn5 += dn;
                 }
             }
+            xlWorkSheet.Cells[3, "A"] = "编制单位：" + CommonInfo.制表单位;
+
             xlWorkSheet.Cells[16, "C"] = sumy1;
             xlWorkSheet.Cells[16, "D"] = sumn1;
             xlWorkSheet.Cells[12, "G"] = sumy2;
@@ -921,8 +924,8 @@ namespace PA.Helper.ExcelHelper
             xlWorkSheet.Cells[27, "D"] = sumn1 + sumn5;
             xlWorkSheet.Cells[27, "G"] = sumy2 + sumy3 + sumy4;
             xlWorkSheet.Cells[27, "H"] = sumn2 + sumn3 + sumn4;
-            xlWorkSheet.Cells[28, "D"] = People;
-            xlWorkSheet.Cells[28, "E"] = Date;
+            xlWorkSheet.Cells[28, "C"] = "填表人：" + People;
+            xlWorkSheet.Cells[28, "E"] = "填表日期：" + DateTime.Now.ToLongDateString();
             #endregion
 
             xlApp.Visible = true;
@@ -1028,6 +1031,9 @@ namespace PA.Helper.ExcelHelper
             xlWorkSheet.Cells[16, "C"] = insumy1;
             xlWorkSheet.Cells[16, "E"] = insumm2;
             xlWorkSheet.Cells[16, "F"] = insumy2;
+
+            xlWorkSheet.Cells[3, "A"] = "编制单位：" + CommonInfo.制表单位;
+            xlWorkSheet.Cells[3, "D"] = DateTime.Today.ToLongDateString();
 
             //第一次对二级科目赋值
             List<Model_报表类> data2 = new PA.ViewModel.ViewModel_ReportManager().GetIncomeAndExpensesForTwoSubject(ParmPeroid, new ViewModel.ViewModel_科目管理().GetIncomeAndOutSubjectList());
@@ -1223,6 +1229,8 @@ namespace PA.Helper.ExcelHelper
                 b402 += temp402;
             }
 
+            xlWorkSheet.Cells[3, "A"] = "编制单位：" + CommonInfo.制表单位;
+            xlWorkSheet.Cells[1, "B"] = CommonInfo.年 + "年" + ParmPeroid + "月行政经费支出明细表";
             xlWorkSheet.Cells[8, "B"] = b101;
             xlWorkSheet.Cells[8, "C"] = b102;
             xlWorkSheet.Cells[16, "B"] = b201;

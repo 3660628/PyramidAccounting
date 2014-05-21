@@ -38,7 +38,11 @@ namespace PA.View.Pages.TwoTabControl
         {
             InitializeComponent();
             SubscribeToEvent();
-            this.Label_编制单位1.Content += "\t" +xr.ReadXML("公司");   //程序启动后加载当前公司名称
+            for (int i = 1; i <= 3; i++)
+            {
+                Label lb = FindName("Label_编制单位" + i) as Label;
+                lb.Content = "编制单位：" + CommonInfo.制表单位;
+            }
             mr = vm.GetOperateLog();
             FreshComboBox();
         }
@@ -220,12 +224,12 @@ namespace PA.View.Pages.TwoTabControl
             //第一次对一级科目赋值
             List<Model_报表类> list = new List<Model_报表类>();
             list = vmr.GetIncomeAndExpenses(value + 1, vms.GetOneSubjectList());
-            decimal dy = 0;
-            decimal dn = 0;
-            decimal insumm1 = 0;
-            decimal insumy1 = 0;
-            decimal insumm2 = 0;
-            decimal insumy2 = 0;
+            decimal dy = 0m;
+            decimal dn = 0m;
+            decimal insumm1 = 0m;
+            decimal insumy1 = 0m;
+            decimal insumm2 = 0m;
+            decimal insumy2 = 0m;
             string temp = string.Empty ;
             if (list.Count > 0)
             {
@@ -237,12 +241,12 @@ namespace PA.View.Pages.TwoTabControl
                     lb2.Content = m.累计数;
                     decimal.TryParse(m.累计数, out dy);
                     decimal.TryParse(m.本期数, out dn);
-                    if (m.编号.StartsWith("40"))
+                    if (m.编号.StartsWith("4"))
                     {
                         insumm1 += dn;
                         insumy1 += dy;
                     }
-                    else if (m.编号.StartsWith("50"))
+                    else if (m.编号.StartsWith("5"))
                     {
                         insumy2 += dy;
                         insumm2 += dn;
@@ -552,7 +556,7 @@ namespace PA.View.Pages.TwoTabControl
 
         private void Button_BalanceSheetPrint_Click(object sender, RoutedEventArgs e)
         {
-            string result = new PA.Helper.ExcelHelper.ExcelWriter().ExportBalanceSheet(ComboBox_Date.SelectedIndex + 1, CommonInfo.真实姓名, Label_填表日期.Content.ToString());
+            string result = new PA.Helper.ExcelHelper.ExcelWriter().ExportBalanceSheet(ComboBox_Date.SelectedIndex + 1, CommonInfo.真实姓名);
             if(result != "")
             {
                 MessageBoxCommon.Show(result);

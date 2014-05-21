@@ -21,6 +21,13 @@ namespace PA.Helper.DataDefind
         private static string m_deviceID;
         private static string m_bookName;
         private static string company;
+        private static string year;
+
+        public static string 年
+        {
+            get { return CommonInfo.year; }
+            set { CommonInfo.year = value; }
+        }
 
         public static string 制表单位
         {

@@ -264,7 +264,7 @@
                     <ScrollViewer FocusVisualStyle="{x:Null}" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto" Margin="-3,40,0,-3">
                         <Grid Margin="10,0,10,10" VerticalAlignment="Top">
                             <Label x:Name="Label_编制单位2" Content="编制单位：" HorizontalAlignment="Left" Margin="0" VerticalAlignment="Top"/>
-                            <Label Content="单位：元" HorizontalAlignment="Right" Margin="0,0,10,0" VerticalAlignment="Top"/>
+                            <Label Content="单位：元（列至角分）" HorizontalAlignment="Right" Margin="0,0,10,0" VerticalAlignment="Top"/>
                             <Grid Margin="0,25" VerticalAlignment="Top" Width="AUTO" ShowGridLines="False">
                                 <Grid.RowDefinitions>
                                     <RowDefinition Height="25" />
@@ -408,7 +408,7 @@
                     <ScrollViewer FocusVisualStyle="{x:Null}" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto" Margin="0,50,0,0">
                         <Grid Margin="10,0,10,10" VerticalAlignment="Top">
                             <Label x:Name="Label_编制单位3" Content="编制单位：" HorizontalAlignment="Left" Margin="0" VerticalAlignment="Top"/>
-                            <Label Content="单位：元" HorizontalAlignment="Right" Margin="0,0,10,0" VerticalAlignment="Top"/>
+                            <Label Content="单位：元（列至角分）" HorizontalAlignment="Right" Margin="0,0,10,0" VerticalAlignment="Top"/>
                             <Grid Margin="0,25" VerticalAlignment="Top" Width="AUTO" ShowGridLines="False">
                                 <Grid.RowDefinitions>
                                     <RowDefinition Height="25" />

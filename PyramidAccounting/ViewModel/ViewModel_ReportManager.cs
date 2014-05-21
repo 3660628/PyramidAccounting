@@ -48,28 +48,29 @@ namespace PA.ViewModel
                 temp += ",'" + s + "'";
             }
             List<Model_报表类> list = new List<Model_报表类>();
-            string sql = "SELECT SUBJECT_ID,debit-credit,fee from " + DBTablesName.T_FEE
+            string sql = "SELECT SUBJECT_ID,debit,credit,fee from " + DBTablesName.T_FEE
                 + " WHERE period=" + index + " and SUBJECT_ID IN (" + temp.Substring(1, temp.Length - 1) + ") ";
             DataTable dt = db.Query(sql).Tables[0];
             foreach (DataRow d in dt.Rows)
             {
                 Model_报表类 m = new Model_报表类();
                 m.编号 = d[0].ToString();
-                if (d[2].ToString().Equals("0"))
+                if (d[3].ToString().Equals("0"))
                 {
                     m.累计数 = "";
                 }
                 else
                 {
-                    m.累计数 = d[2].ToString();
+                    m.累计数 = d[3].ToString();
                 }
-                if (d[1].ToString().Equals("0"))
+                decimal d1 = 0m;
+                decimal d2 = 0m;
+                decimal.TryParse(d[1].ToString(), out d1);
+                decimal.TryParse(d[2].ToString(), out d2);
+                m.本期数 = (d1 - d2).ToString().Replace("-", "");
+                if (m.本期数.Equals("0"))
                 {
                     m.本期数 = "";
-                }
-                else
-                {
-                    m.本期数 = d[1].ToString().Replace("-","");
                 }
                 list.Add(m);
             }
