@@ -6,6 +6,9 @@ using PA.Model.DataGrid;
 using PA.ViewModel;
 using PA.Helper.DataBase;
 using PA.Helper.DataDefind;
+using PA.Helper.ExcelHelper;
+using System.IO;
+using PA.Model.Others;
 
 namespace PA.ViewModel
 {
@@ -17,11 +20,31 @@ namespace PA.ViewModel
         /// 执行插入语句
         /// </summary>
         /// <param name="bookid"></param>
-        public bool Insert(string bookid)
+        public void Insert(string bookid)
         {
             string sql = "insert into " + DBTablesName.T_YEAR_FEE + "(subject_id,fee,bookid,parentid) select subject_id,0,'" + bookid + "',parent_id from " 
                 + DBTablesName.T_SUBJECT;
-            return db.Excute(sql);
+            bool flag = db.Excute(sql);
+            if (!flag)
+            {
+                List<string> list = new List<string>();
+                ExcelReader er = new ExcelReader();
+                List<Model_BalanceSheet> BalanceSheetDatas = new List<Model_BalanceSheet>();
+                string baseTableName = "T_SUBJECT";
+                string table_Sql = new Helper.SQLHelper.SQLReader().ReadSQL(2, baseTableName, DBTablesName.T_SUBJECT);
+                list.Add(table_Sql);
+                foreach (Model_BalanceSheet m in BalanceSheetDatas)
+                {
+                    string sql1 = "insert into " + DBTablesName.T_SUBJECT
+                        + "(subject_id,subject_type,subject_name) values ('" + m.Number + "'," + m.Type + ",'" + m.Name + "')";
+                    list.Add(sql1);
+                }
+                flag = db.BatchOperate(list);
+                if (flag)
+                {
+                    db.Excute(sql);
+                }
+            }
         }
 
         public bool Update()
