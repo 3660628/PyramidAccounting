@@ -973,110 +973,121 @@ namespace PA.Helper.ExcelHelper
             #endregion
 
             #region fill data
-            List<Model_报表类> data = new PA.ViewModel.ViewModel_ReportManager().GetIncomeAndExpenses(ParmPeroid,new ViewModel.ViewModel_科目管理().GetOneSubjectList());
-            if (data.Count <= 0)
-            {
-                return "没有数据";
-            }
+
+            //第一次对一级科目赋值
+            List<Model_报表类> data = new PA.ViewModel.ViewModel_ReportManager().GetIncomeAndExpenses(ParmPeroid, new ViewModel.ViewModel_科目管理().GetOneSubjectList());
+
             decimal dy = 0;
             decimal dn = 0;
             decimal insumm1 = 0;
             decimal insumy1 = 0;
             decimal insumm2 = 0;
             decimal insumy2 = 0;
-            decimal b3 = 0;
-            if (data.Count > 0)
-            {
-                xlWorkSheet.Cells[6, "B"] = data[0].本期数;
-                xlWorkSheet.Cells[6, "C"] = data[0].累计数;
-                decimal.TryParse(data[0].累计数, out dy);
-                decimal.TryParse(data[0].本期数, out dn);
-                insumm1 += dn;
-                insumy1 += dy;
-            }
-            if (data.Count > 1)
-            {
-                xlWorkSheet.Cells[9, "B"] = data[1].本期数;
-                xlWorkSheet.Cells[9, "C"] = data[1].累计数;
-                decimal.TryParse(data[1].累计数, out dy);
-                decimal.TryParse(data[1].本期数, out dn);
-                insumm1 += dn;
-                insumy1 += dy;
-            }
-            if (data.Count > 2)
-            {
-                xlWorkSheet.Cells[12, "B"] = data[2].本期数;
-                xlWorkSheet.Cells[12, "C"] = data[2].累计数;
-                decimal.TryParse(data[2].累计数, out dy);
-                decimal.TryParse(data[2].本期数, out dn);
-                insumm1 += dn;
-                insumy1 += dy;
-            }
-            if (data.Count > 3)
-            {
-                xlWorkSheet.Cells[6, "E"] = data[3].本期数;
-                xlWorkSheet.Cells[6, "F"] = data[3].累计数;
-                decimal.TryParse(data[3].累计数, out dy);
-                decimal.TryParse(data[3].本期数, out dn);
-                insumy2 += dy;
-                insumm2 += dn;
-            }
-            if (data.Count > 4)
-            {
-                xlWorkSheet.Cells[7, "E"] = data[4].本期数;
-                xlWorkSheet.Cells[7, "F"] = data[4].累计数;
-                decimal.TryParse(data[4].累计数, out dy);
-                decimal.TryParse(data[4].本期数, out dn);
-                insumy2 += dy;
-                insumm2 += dn;
-            }
-            if (data.Count > 5)
-            {
-                xlWorkSheet.Cells[12, "E"] = data[5].本期数;
-                xlWorkSheet.Cells[12, "F"] = data[5].累计数;
-                decimal.TryParse(data[5].累计数, out dy);
-                decimal.TryParse(data[5].本期数, out dn);
-                insumy2 += dy;
-                insumm2 += dn;
-            }
 
-            decimal.TryParse(data[data.Count - 1].累计数, out b3);
-
+            int x = 1, y = 1;
+            DataSet ds;
+            if (!new PA.Helper.ExcelHelper.ExcelReader().ExcelDataSource(SourceXls, "Sheet1", out ds))
+            {
+                return "出错了，请联系管理员。";
+            }
+            foreach (DataRow dr in ds.Tables[0].Rows)
+            {
+                foreach (DataColumn dc in ds.Tables[0].Columns)
+                {
+                    string key = dr[dc].ToString();
+                    foreach (Model_报表类 m in data)
+                    {
+                        if (key == "inM" + m.编号)
+                        {
+                            xlWorkSheet.Cells[y + 1, x] = m.本期数;
+                            xlWorkSheet.Cells[y + 1, x + 1] = m.累计数;
+                            decimal.TryParse(m.累计数, out dy);
+                            decimal.TryParse(m.本期数, out dn);
+                            if (m.编号.StartsWith("4"))
+                            {
+                                insumm1 += dn;
+                                insumy1 += dy;
+                            }
+                            else if (m.编号.StartsWith("5"))
+                            {
+                                insumy2 += dy;
+                                insumm2 += dn;
+                            }
+                            else if (m.编号.StartsWith("3"))
+                            {
+                                xlWorkSheet.Cells[6, "H"] = m.累计数;
+                            }
+                        }
+                    }
+                    x++;
+                }
+                y++;
+                x = 1;
+            }
             xlWorkSheet.Cells[16, "B"] = insumm1;
             xlWorkSheet.Cells[16, "C"] = insumy1;
-
             xlWorkSheet.Cells[16, "E"] = insumm2;
             xlWorkSheet.Cells[16, "F"] = insumy2;
 
-            data.Clear();
-            data = new PA.ViewModel.ViewModel_ReportManager().GetIncomeAndExpensesForTwoSubject(ParmPeroid,new ViewModel.ViewModel_科目管理().GetIncomeAndOutSubjectList());
-            if (data.Count > 0)
+            //第一次对二级科目赋值
+            List<Model_报表类> data2 = new PA.ViewModel.ViewModel_ReportManager().GetIncomeAndExpensesForTwoSubject(ParmPeroid, new ViewModel.ViewModel_科目管理().GetIncomeAndOutSubjectList());
+            x = 1;
+            y = 1;
+            foreach (DataRow dr in ds.Tables[0].Rows)
             {
-                foreach (Model_报表类 a in data)
+                foreach (DataColumn dc in ds.Tables[0].Columns)
                 {
-                    if (a.编号 == "40101")
+                    string key = dr[dc].ToString();
+                    foreach (Model_报表类 m in data2)
                     {
-                        xlWorkSheet.Cells[7, "B"] = a.本期数;
-                        xlWorkSheet.Cells[7, "C"] = a.累计数;
+                        if (key == "inM" + m.编号)
+                        {
+                            xlWorkSheet.Cells[y + 1, x] = m.本期数;
+                            xlWorkSheet.Cells[y + 1, x + 1] = m.累计数;
+                            decimal.TryParse(m.累计数, out dy);
+                            decimal.TryParse(m.本期数, out dn);
+                            if (m.编号.StartsWith("30601"))
+                            {
+                                xlWorkSheet.Cells[7, "H"] = m.累计数;
+                            }
+                            else if (m.编号.StartsWith("30602"))
+                            {
+                                xlWorkSheet.Cells[8, "H"] = m.累计数;
+                            }
+                        }
                     }
-                    else if (a.编号 == "40102")
-                    {
-                        xlWorkSheet.Cells[8, "B"] = a.本期数;
-                        xlWorkSheet.Cells[8, "C"] = a.累计数;
-                    }
-                    else if (a.编号 == "40401")
-                    {
-                        xlWorkSheet.Cells[10, "B"] = a.本期数;
-                        xlWorkSheet.Cells[10, "C"] = a.累计数;
-                    }
-                    else if (a.编号 == "40402")
-                    {
-                        xlWorkSheet.Cells[11, "B"] = a.本期数;
-                        xlWorkSheet.Cells[11, "C"] = a.累计数;
-                    }
+                    x++;
                 }
+                y++;
+                x = 1;
             }
+
+            xlWorkBook.Save();
+
+            x = 1;
+            y = 1;
+            if (!new PA.Helper.ExcelHelper.ExcelReader().ExcelDataSource(ExportXls, "Sheet1", out ds))
+            {
+                return "出错了，请联系管理员。";
+            }
+            foreach (DataRow dr in ds.Tables[0].Rows)
+            {
+                foreach (DataColumn dc in ds.Tables[0].Columns)
+                {
+                    string key = dr[dc].ToString();
+                    if (key.StartsWith("in") || key.StartsWith("B"))
+                    {
+                        xlWorkSheet.Cells[y + 1, x] = "";
+                    }
+                    x++;
+                }
+                y++;
+                x = 1;
+            }
+
+
             #endregion
+
 
             xlApp.Visible = true;
             releaseObject(xlWorkSheet);

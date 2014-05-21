@@ -382,7 +382,6 @@ namespace PA.Helper.ExcelHelper
             //}
             List<Model_报表类> data2 = new PA.ViewModel.ViewModel_ReportManager().GetAdministrativeExpenseDetail(ParmPeroid, 50401);
             List<Model_报表类> data3 = new PA.ViewModel.ViewModel_ReportManager().GetAdministrativeExpenseDetail(ParmPeroid, 50402);
-            decimal dn = 0;
 
             //二级科目
             decimal b101 = 0;
