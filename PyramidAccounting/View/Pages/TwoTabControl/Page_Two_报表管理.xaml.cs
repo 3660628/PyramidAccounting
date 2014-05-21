@@ -346,9 +346,7 @@ namespace PA.View.Pages.TwoTabControl
                 b101 += dn;
                 decimal.TryParse(Label_B其他.Content.ToString(), out dn);
                 b101 += dn;
-
-                Label_B101.Content = b101;
-
+                    Label_B101.Content = b101;
                 decimal.TryParse(Label_B办公费.Content.ToString(), out dn);
                 b201 += dn;
                 decimal.TryParse(Label_B印刷费.Content.ToString(), out dn);
@@ -385,9 +383,7 @@ namespace PA.View.Pages.TwoTabControl
                 b201 += dn;
                 decimal.TryParse(Label_B其他商品和服务支出.Content.ToString(), out dn);
                 b201 += dn;
-
-                Label_B201.Content = b201;
-
+                    Label_B201.Content = b201;
                 decimal.TryParse(Label_B离休费.Content.ToString(), out dn);
                 b301 += dn;
                 decimal.TryParse(Label_B退休费.Content.ToString(), out dn);
@@ -416,9 +412,7 @@ namespace PA.View.Pages.TwoTabControl
                 b301 += dn;
                 decimal.TryParse(Label_B其他对个人和家庭的补助支出.Content.ToString(), out dn);
                 b301 += dn;
-
-                Label_B301.Content = b301;
-
+                    Label_B301.Content = b301;
                 decimal.TryParse(Label_B房屋建筑物购建.Content.ToString(), out dn);
                 b401 += dn;
                 decimal.TryParse(Label_B办公设备购置费.Content.ToString(), out dn);
@@ -431,8 +425,7 @@ namespace PA.View.Pages.TwoTabControl
                 b401 += dn;
                 decimal.TryParse(Label_B其他资本性支出.Content.ToString(), out dn);
                 b401 += dn;
-
-                Label_B401.Content = b401;
+                    Label_B401.Content = b401;
                 #endregion
 
                 #region 年累计
@@ -450,9 +443,7 @@ namespace PA.View.Pages.TwoTabControl
                 b102 += dy;
                 decimal.TryParse(Label_L其他.Content.ToString(), out dy);
                 b102 += dy;
-
-                Label_B102.Content = b102;
-
+                    Label_B102.Content = b102;
                 decimal.TryParse(Label_L办公费.Content.ToString(), out dy);
                 b202 += dy;
                 decimal.TryParse(Label_L印刷费.Content.ToString(), out dy);
@@ -489,8 +480,7 @@ namespace PA.View.Pages.TwoTabControl
                 b202 += dy;
                 decimal.TryParse(Label_L其他商品和服务支出.Content.ToString(), out dy);
                 b202 += dy;
-
-                Label_B202.Content = b202;
+                    Label_B202.Content = b202;
                 decimal.TryParse(Label_L离休费.Content.ToString(), out dy);
                 b302 += dy;
                 decimal.TryParse(Label_L退休费.Content.ToString(), out dy);
@@ -519,9 +509,7 @@ namespace PA.View.Pages.TwoTabControl
                 b302 += dy;
                 decimal.TryParse(Label_L其他对个人和家庭的补助支出.Content.ToString(), out dy);
                 b302 += dy;
-
-                Label_B302.Content = b302;
-
+                    Label_B302.Content = b302;
                 decimal.TryParse(Label_L房屋建筑物购建.Content.ToString(), out dy);
                 b402 += dy;
                 decimal.TryParse(Label_L办公设备购置费.Content.ToString(), out dy);
@@ -534,9 +522,18 @@ namespace PA.View.Pages.TwoTabControl
                 b402 += dy;
                 decimal.TryParse(Label_L其他资本性支出.Content.ToString(), out dy);
                 b402 += dy;
-
-                Label_B402.Content = b402;
-
+                    Label_B402.Content = b402;
+                for (int i = 1; i <= 4; i++)
+                {
+                    for (int j = 1; j <= 2; j++)
+                    {
+                        Label lb = FindName("Label_B" + i + "0" + j) as Label;
+                        if (lb.Content.ToString().Equals("0"))
+                        {
+                            lb.Content = "";
+                        }
+                    }
+                }
                 #endregion
                 Label_A01.Content = (b101 + b201 + b301 + b401);
                 Label_A02.Content = (b102 + b202 + b302 + b402);

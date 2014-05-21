@@ -443,9 +443,7 @@ namespace PA.View.Pages.TwoTabControl
                 b101 += dn;            
                 decimal.TryParse(Label_A其他.Content.ToString(), out dn);
                 b101 += dn;
-
-                Label_B101.Content = b101;
-
+                    Label_B101.Content = b101;
                 decimal.TryParse(Label_A办公费.Content.ToString(), out dn);
                 b201 += dn;
                 decimal.TryParse(Label_A印刷费.Content.ToString(), out dn);
@@ -482,9 +480,7 @@ namespace PA.View.Pages.TwoTabControl
                 b201 += dn;
                 decimal.TryParse(Label_A其他商品和服务支出.Content.ToString(), out dn);
                 b201 += dn;
-
-                Label_B201.Content = b201;
-
+                    Label_B201.Content = b201;
                 decimal.TryParse(Label_A退休费.Content.ToString(), out dn);
                 b301 += dn;            
                 decimal.TryParse(Label_A退职役费.Content.ToString(), out dn);
@@ -500,21 +496,17 @@ namespace PA.View.Pages.TwoTabControl
                 decimal.TryParse(Label_A其他对个人和家庭的补助支出.Content.ToString(), out dn);
                 b301 += dn;
 
-                Label_B301.Content = b301;
-
+                    Label_B301.Content = b301;
                 decimal.TryParse(Label_A事业单位补贴.Content.ToString(), out dn);
                 b401 += dn;
                 decimal.TryParse(Label_A其他对企事业单位的补贴支出.Content.ToString(), out dn);
                 b401 += dn;
-
-                Label_B401.Content = b401;
+                    Label_B401.Content = b401;
 
                 decimal.TryParse(Label_A向国家银行借款付息.Content.ToString(), out dn);
                 b501 += dn;
                 b501 += dn;
-
-                Label_B501.Content = b501;
-
+                    Label_B501.Content = b501;
                 decimal.TryParse(Label_A房屋建筑物购建.Content.ToString(), out dn);
                 b601 += dn;
                 decimal.TryParse(Label_A办公设备购置费.Content.ToString(), out dn);
@@ -534,13 +526,13 @@ namespace PA.View.Pages.TwoTabControl
                 decimal.TryParse(Label_A其他资本性支出.Content.ToString(), out dn);
                 b601 += dn;
 
-                Label_B601.Content = b601;
+                    Label_B601.Content = b601;
 
                 decimal.TryParse(Label_A未划分的项目支出.Content.ToString(), out dn);
                 b701 += dn;
                 decimal.TryParse(Label_A其他支出.Content.ToString(), out dn);
                 b701 += dn;
-                Label_B701.Content = b701;
+                    Label_B701.Content = b701;
                 #endregion
                 #region 本期数赋值
                 decimal.TryParse(Label_B基本工资.Content.ToString(), out dn);
@@ -557,8 +549,7 @@ namespace PA.View.Pages.TwoTabControl
                 b102 += dn;
                 decimal.TryParse(Label_B其他.Content.ToString(), out dn);
                 b102 += dn;
-
-                Label_B102.Content = b102;
+                    Label_B102.Content = b102;
 
                 decimal.TryParse(Label_B办公费.Content.ToString(), out dn);
                 b202 += dn;
@@ -596,8 +587,7 @@ namespace PA.View.Pages.TwoTabControl
                 b202 += dn;
                 decimal.TryParse(Label_B其他商品和服务支出.Content.ToString(), out dn);
                 b202 += dn;
-
-                Label_B202.Content = b202;
+                    Label_B202.Content = b202;
 
                 decimal.TryParse(Label_B退休费.Content.ToString(), out dn);
                 b302 += dn;
@@ -1112,6 +1102,17 @@ namespace PA.View.Pages.TwoTabControl
                 b706 += dn;
                 Label_B706.Content = b706;
                 #endregion
+                for (int i = 1; i <= 7; i++)
+                {
+                    for (int j = 1; j <= 6; j++)
+                    {
+                        Label lb = FindName("Label_B" + i + "0" + j) as Label;
+                        if (lb.Content.ToString().Equals("0"))
+                        {
+                            lb.Content = "";
+                        }
+                    }
+                }
                 Label_A01.Content = (b101 + b201 + b301 + b401 + b501 + b601 + b701);
                 Label_A02.Content = (b102 + b202 + b302 + b402 + b502 + b602 + b702);
                 Label_A03.Content = (b103 + b203 + b303 + b403 + b503 + b603 + b703);
