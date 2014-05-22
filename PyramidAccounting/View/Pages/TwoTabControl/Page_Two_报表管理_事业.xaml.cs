@@ -244,11 +244,6 @@ namespace PA.View.Pages.TwoTabControl
             list = vmr.GetIncomeAndExpenses(value + 1, vms.GetOneSubjectList());
             decimal dy = 0;
             decimal dn = 0;
-            decimal insumm1 = 0;
-            decimal insumy1 = 0;
-            decimal insumm2 = 0;
-            decimal insumy2 = 0;
-
             decimal total01 = 0;
             decimal total02 = 0;
             decimal total03 = 0;
@@ -278,8 +273,6 @@ namespace PA.View.Pages.TwoTabControl
                         decimal.TryParse(m.本期数, out dn);
                         if (m.编号.StartsWith("4"))
                         {
-                            insumm1 += dn;
-                            insumy1 += dy;
                             if (m.编号.Equals("404"))
                             {
                                 total03 += dn;
@@ -293,8 +286,6 @@ namespace PA.View.Pages.TwoTabControl
                         }
                         else if (m.编号.StartsWith("5"))
                         {
-                            insumy2 += dy;
-                            insumm2 += dn;
                             if (m.编号.Equals("512"))
                             {
                                 total07 += dn;
@@ -324,11 +315,13 @@ namespace PA.View.Pages.TwoTabControl
                 Total09.Content = total09 == 0 ? "" : "" + total09;
                 Total10.Content = total10 == 0 ? "" : "" + total10;
 
-                inSumM1.Content = insumm1;
-                inSumY1.Content = insumy1;
-                inSumM2.Content = insumm2;
-                inSumY2.Content = insumy2;
-                B306.Content = (insumy1 - insumy2);
+                inSumM1.Content = total01 + total03;
+                inSumY1.Content = total02 + total04;
+                inSumM2.Content = total05 + total07 + total09;
+                inSumY2.Content = total06 + total08 + total10;
+                decimal tmp = (total05 + total07 + total09) - (total06 + total08 + total10);
+                B306.Content = tmp;
+                inSumY3.Content = tmp;
                 lastList_fee1 = list;
             }
 
