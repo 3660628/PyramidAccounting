@@ -908,6 +908,7 @@ namespace PA.Helper.ExcelHelper
                     sumn5 += dn;
                 }
             }
+            xlWorkSheet.Cells[1, "C"] = CommonInfo.年 + " 年 " + ParmPeroid + " 月 资 产 负 债 表（行 政）";
             xlWorkSheet.Cells[3, "A"] = "编制单位：" + CommonInfo.制表单位;
 
             xlWorkSheet.Cells[16, "C"] = sumy1;
@@ -986,6 +987,7 @@ namespace PA.Helper.ExcelHelper
             decimal insumy1 = 0;
             decimal insumm2 = 0;
             decimal insumy2 = 0;
+            decimal insumy3 = 0;
 
             int x = 1, y = 1;
             DataSet ds;
@@ -1002,8 +1004,15 @@ namespace PA.Helper.ExcelHelper
                     {
                         if (key == "inM" + m.编号)
                         {
-                            xlWorkSheet.Cells[y + 1, x] = m.本期数;
-                            xlWorkSheet.Cells[y + 1, x + 1] = m.累计数;
+                            if (!m.编号.StartsWith("3"))
+                            {
+                                xlWorkSheet.Cells[y + 1, x] = m.本期数;
+                                xlWorkSheet.Cells[y + 1, x + 1] = m.累计数;
+                            }
+                            else
+                            {
+                                xlWorkSheet.Cells[y + 1, x] = m.累计数;
+                            }
                             decimal.TryParse(m.累计数, out dy);
                             decimal.TryParse(m.本期数, out dn);
                             if (m.编号.StartsWith("4"))
@@ -1018,7 +1027,7 @@ namespace PA.Helper.ExcelHelper
                             }
                             else if (m.编号.StartsWith("3"))
                             {
-                                xlWorkSheet.Cells[6, "H"] = m.累计数;
+                                insumy3 = dy;
                             }
                         }
                     }
@@ -1027,11 +1036,13 @@ namespace PA.Helper.ExcelHelper
                 y++;
                 x = 1;
             }
+            xlWorkSheet.Cells[1, "D"] = CommonInfo.年 + " 年 " + ParmPeroid + " 月 收 入 支 出 总 表（行 政）";
             xlWorkSheet.Cells[16, "B"] = insumm1;
             xlWorkSheet.Cells[16, "C"] = insumy1;
             xlWorkSheet.Cells[16, "E"] = insumm2;
             xlWorkSheet.Cells[16, "F"] = insumy2;
-
+            xlWorkSheet.Cells[16, "H"] = insumy3;
+            xlWorkSheet.Cells[6, "H"] = insumy3;
             xlWorkSheet.Cells[3, "A"] = "编制单位：" + CommonInfo.制表单位;
             xlWorkSheet.Cells[3, "D"] = DateTime.Today.ToLongDateString();
 

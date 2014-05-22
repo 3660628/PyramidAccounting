@@ -235,21 +235,28 @@ namespace PA.View.Pages.TwoTabControl
             {
                 foreach (Model_报表类 m in list)
                 {
-                    Label lb = FindName("inM" + m.编号) as Label;
-                    lb.Content = m.本期数;
-                    Label lb2 = FindName("inY" + m.编号) as Label;
-                    lb2.Content = m.累计数;
-                    decimal.TryParse(m.累计数, out dy);
-                    decimal.TryParse(m.本期数, out dn);
-                    if (m.编号.StartsWith("4"))
+                    if (m.编号.StartsWith("3"))
                     {
-                        insumm1 += dn;
-                        insumy1 += dy;
+                        inM303.Content = m.累计数;
                     }
-                    else if (m.编号.StartsWith("5"))
+                    else
                     {
-                        insumy2 += dy;
-                        insumm2 += dn;
+                        Label lb = FindName("inM" + m.编号) as Label;
+                        lb.Content = m.本期数;
+                        Label lb2 = FindName("inY" + m.编号) as Label;
+                        lb2.Content = m.累计数;
+                        decimal.TryParse(m.累计数, out dy);
+                        decimal.TryParse(m.本期数, out dn);
+                        if (m.编号.StartsWith("4"))
+                        {
+                            insumm1 += dn;
+                            insumy1 += dy;
+                        }
+                        else if (m.编号.StartsWith("5"))
+                        {
+                            insumy2 += dy;
+                            insumm2 += dn;
+                        }
                     }
                 }
 
@@ -257,6 +264,7 @@ namespace PA.View.Pages.TwoTabControl
                     inSumY1.Content = insumy1;
                     inSumM2.Content = insumm2;
                     inSumY2.Content = insumy2;
+                    inSumY3.Content = inM303.Content;
                 lastList_fee1 = list;
             }
 

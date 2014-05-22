@@ -335,13 +335,13 @@
                                 <Label Content="本年累计" HorizontalAlignment="Center" Grid.Column="7" Grid.Row="1" VerticalAlignment="Center"/>
                                 <Label Content="拨入经费" HorizontalAlignment="Left" Grid.Row="2"/>
                                 <Label Content="拨出经费" HorizontalAlignment="Left" Grid.Column="3" Grid.Row="2"/>
-                                <Label Content="结账当年结余" HorizontalAlignment="Left" Grid.Column="6" Grid.Row="2"/>
+                                <Label Content="结余" HorizontalAlignment="Left" Grid.Column="6" Grid.Row="2"/>
                                 <Label Content="其中:基本支出" HorizontalAlignment="Center" Grid.Row="3"/>
                                 <Label Content="经费支出" HorizontalAlignment="Left" Grid.Column="3" Grid.Row="3"/>
-                                <Label Content="其中:项目结余" HorizontalAlignment="Center" Grid.Column="6" Grid.Row="3"/>
+                                <Label Content="其中:项目结余" HorizontalAlignment="Left" Margin="40,0,0,0" Grid.Column="6" Grid.Row="3"/>
                                 <Label Content="     项目支出" HorizontalAlignment="Center" Grid.Row="4"/>
                                 <Label Content="其中:基本支出" HorizontalAlignment="Center" Grid.Column="3" Grid.Row="4"/>
-                                <Label Content="以前年度结余" HorizontalAlignment="Center" Grid.Column="6" Grid.Row="4"/>
+                                <Label Content="以前年度结余" HorizontalAlignment="Left" Margin="40,0,0,0" Grid.Column="6" Grid.Row="4"/>
                                 <Label Content="预算外资金收入" HorizontalAlignment="Left" Grid.Row="5"/>
                                 <Label Content="     项目支出" HorizontalAlignment="Center" Grid.Column="3" Grid.Row="5"/>
                                 <Label Content="其中:基本支出" HorizontalAlignment="Center" Grid.Row="6"/>
@@ -385,9 +385,9 @@
                                 <Label x:Name="inM505" Content="" HorizontalAlignment="Center" Grid.Column="4" Grid.Row="8" />
                                 <Label x:Name="inY505" Content="" HorizontalAlignment="Center" Grid.Column="5" Grid.Row="8" />
                                 <!--结余-->
-                                <Label x:Name="B1" Content="" HorizontalAlignment="Center" Grid.Column="7" Grid.Row="2" />
-                                <Label x:Name="B2" Content="" HorizontalAlignment="Center" Grid.Column="7" Grid.Row="3" />
-                                <Label x:Name="B3" Content="" HorizontalAlignment="Center" Grid.Column="7" Grid.Row="4" />
+                                <Label x:Name="inM303" Content="" HorizontalAlignment="Center" Grid.Column="7" Grid.Row="2" />
+                                <Label x:Name="inM30301" Content="" HorizontalAlignment="Center" Grid.Column="7" Grid.Row="3" />
+                                <Label x:Name="inM30302" Content="" HorizontalAlignment="Center" Grid.Column="7" Grid.Row="4" />
                                 <!--统计-->
                                 <Label x:Name="inSumM1" Content="" HorizontalAlignment="Center" Grid.Column="1" Grid.Row="13" />
                                 <Label x:Name="inSumY1" Content="" HorizontalAlignment="Center" Grid.Column="2" Grid.Row="13" />

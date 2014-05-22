@@ -31,6 +31,14 @@ namespace PA.ViewModel
                 m.编号 = d[0].ToString();
                 m.年初数 = d[2].ToString();
                 m.期末数 = d[1].ToString();
+                if (m.年初数.Equals("0"))
+                {
+                    m.年初数 = "";
+                }
+                if (m.期末数.Equals("0"))
+                {
+                    m.期末数 = "";
+                }
                 list.Add(m);
             }
             return list;
