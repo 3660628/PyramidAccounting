@@ -75,6 +75,10 @@ namespace PA.View.Pages.TwoTabControl
             Label_操作员.Content = "操作员：" + CommonInfo.用户权限 + "\t" +CommonInfo.真实姓名;
             Label_当前期数.Content = "当前期数：第" + CommonInfo.当前期 + "期";
         }
+        private void TextBox_Search_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            ReflashData();
+        }
         private void ReflashData()
         {
             int DateSelectIndex = this.ComboBox_Date.SelectedIndex;
@@ -93,6 +97,10 @@ namespace PA.View.Pages.TwoTabControl
             if (DateSelectIndex != 0)
             {
                 DateParm = " and PERIOD=" + DateSelectIndex;
+            }
+            if (!string.IsNullOrEmpty(TextBox_Search.Text))
+            {
+                ReviewParm += " and detail.VOUCHER_NO like '" + TextBox_Search.Text.Trim() + "%'";  
             }
             Data_本期凭证 = new PA.ViewModel.ViewModel_凭证管理().GetData(DateParm + ReviewParm);
             this.DataGrid_本期凭证.ItemsSource = Data_本期凭证;
@@ -276,5 +284,7 @@ namespace PA.View.Pages.TwoTabControl
                 MessageBoxCommon.Show("您的权限不够，不能进行审核！");
             }
         }
+
+      
     }
 }
