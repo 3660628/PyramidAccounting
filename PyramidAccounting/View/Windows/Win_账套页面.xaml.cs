@@ -87,6 +87,7 @@ namespace PA.View.Windows
             m.会计制度 = ComboBox_制度.Text.Trim();
             m.制度索引 = ComboBox_制度.SelectedIndex;
             m.当前期 = Convert.ToInt32(TextBox_期.Text.Trim());
+            CommonInfo.年 = TextBox_year.Text;
 
             CommonInfo.制度索引 = m.制度索引.ToString();
             CommonInfo.制表单位 = m.单位名称;
@@ -205,6 +206,53 @@ namespace PA.View.Windows
         private void TextBox_year_TextChanged(object sender, TextChangedEventArgs e)
         {
             TextBox_公司_TextChanged(this, null);
+        }
+
+        private void TextBox_year_PreviewKeyDown(object sender, KeyEventArgs e)
+        {
+            TextBox txt = sender as TextBox;
+            if ((e.Key >= Key.NumPad0 && e.Key <= Key.NumPad9) || e.Key == Key.Back || e.Key == Key.Tab)
+            {
+                if (txt.Text.Contains(".") && e.Key == Key.Decimal)
+                {
+                    e.Handled = true;
+                    return;
+                }
+                e.Handled = false;
+            }
+            else if (((e.Key >= Key.D0 && e.Key <= Key.D9) || e.Key == Key.OemPeriod) && e.KeyboardDevice.Modifiers != ModifierKeys.Shift)
+            {
+                if (txt.Text.Contains(".") && e.Key == Key.OemPeriod)
+                {
+                    e.Handled = true;
+                    return;
+                }
+                e.Handled = false;
+            }
+            else
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void TextBox_year_MouseWheel(object sender, MouseWheelEventArgs e)
+        {
+            TextBox tb = sender as TextBox;
+            int max=0;
+            max = tb.Name.Equals("TextBox_year") ? 9999 : 12;
+            int i = 0;
+            Int32.TryParse(tb.Text, out i);
+            if (e.Delta > 0 && i != max)
+            {
+                i++;
+            }
+
+            if (e.Delta < 0 && i != 1)
+            {
+                i--;
+            }
+            tb.Text = i.ToString();
+            tb.SelectAll();
         }
     }
 }
