@@ -111,7 +111,6 @@ namespace PA
                 CommonInfo.权限值 = m.权限值;
                 CommonInfo.登录密码 = Password;
                 CommonInfo.制表单位 = xr.ReadXML("单位");
-                CommonInfo.年 = vmb.GetYear();
                 //先记录一些信息
                 Model_操作日志 mr = new Model_操作日志();
                 mr = vmr.GetOperateLog();
@@ -135,6 +134,7 @@ namespace PA
                     CommonInfo.制度索引 = vmb.GetStandardIndex();
                     CommonInfo.是否初始化年初数 = new ViewModel_年初金额().IsSaved();
                     CommonInfo.当前期 = vmb.GetPeriod();
+                    CommonInfo.年 = vmb.GetYear();
                     //这里写日志信息
                     mr.日志 = "登录了账套：" + bookname;
                     vmr.Insert(mr);

@@ -137,6 +137,7 @@ namespace PA.Helper.ExcelHelper
                 y++;
                 x = 1;
             }
+            xlWorkSheet.Cells[1, "C"] = CommonInfo.年 + " 年 " + ParmPeroid + " 月 资 产 负 债 表 ( 事 业 )";
             xlWorkSheet.Cells[2, "A"] = "编制单位：" + CommonInfo.制表单位;
             xlWorkSheet.Cells[2, "D"] = DateTime.Today.ToLongDateString();
             xlWorkSheet.Cells[18, "C"] = sumy1;
@@ -211,10 +212,16 @@ namespace PA.Helper.ExcelHelper
 
             decimal dy = 0;
             decimal dn = 0;
-            decimal insumm1 = 0;
-            decimal insumy1 = 0;
-            decimal insumm2 = 0;
-            decimal insumy2 = 0;
+            decimal total01 = 0;
+            decimal total02 = 0;
+            decimal total03 = 0;
+            decimal total04 = 0;
+            decimal total05 = 0;
+            decimal total06 = 0;
+            decimal total07 = 0;
+            decimal total08 = 0;
+            decimal total09 = 0;
+            decimal total10 = 0;
 
             int x = 1, y = 1;
             DataSet ds;
@@ -237,18 +244,39 @@ namespace PA.Helper.ExcelHelper
                             decimal.TryParse(m.本期数, out dn);
                             if (m.编号.StartsWith("4"))
                             {
-                                insumm1 += dn;
-                                insumy1 += dy;
+                                if (m.编号.Equals("404"))
+                                {
+                                    total03 += dn;
+                                    total04 += dy;
+                                }
+                                else
+                                {
+                                    total01 += dn;
+                                    total02 += dy;
+                                }
                             }
                             else if (m.编号.StartsWith("5"))
                             {
-                                insumy2 += dy;
-                                insumm2 += dn;
+                                if (m.编号.Equals("512"))
+                                {
+                                    total07 += dn;
+                                    total08 += dy;
+                                }
+                                else if (m.编号.Equals("501") || m.编号.Equals("503"))
+                                {
+                                    total09 += dn;
+                                    total10 += dy;
+                                }
+                                else
+                                {
+                                    total05 += dn;
+                                    total06 += dy;
+                                }
                             }
-                            else if (m.编号.StartsWith("3"))
-                            {
-                                xlWorkSheet.Cells[6, "H"] = m.累计数;
-                            }
+                            //else if (m.编号.StartsWith("3"))
+                            //{
+                            //    xlWorkSheet.Cells[6, "H"] = m.累计数;
+                            //}
                         }
                     }
                     x++;
@@ -256,13 +284,29 @@ namespace PA.Helper.ExcelHelper
                 y++;
                 x = 1;
             }
+            xlWorkSheet.Cells[1, "D"] = CommonInfo.年 + " 年 " + ParmPeroid + " 月 收 入 支 出 总 表 （ 事 业 ）";
             xlWorkSheet.Cells[3, "A"] = "编制单位：" + CommonInfo.制表单位;
             xlWorkSheet.Cells[3, "D"] = DateTime.Today.ToLongDateString();
 
-            xlWorkSheet.Cells[22, "B"] = insumm1;
-            xlWorkSheet.Cells[22, "C"] = insumy1;
-            xlWorkSheet.Cells[22, "E"] = insumm2;
-            xlWorkSheet.Cells[22, "F"] = insumy2;
+            //小计赋值
+            xlWorkSheet.Cells[14, "B"] = total01 == 0 ? "" : "" + total01;
+            xlWorkSheet.Cells[14, "C"] = total02 == 0 ? "" : "" + total02;
+            xlWorkSheet.Cells[17, "B"] = total03 == 0 ? "" : "" + total03;
+            xlWorkSheet.Cells[17, "C"] = total04 == 0 ? "" : "" + total04;
+            xlWorkSheet.Cells[14, "E"] = total05 == 0 ? "" : "" + total05;
+            xlWorkSheet.Cells[14, "F"] = total06 == 0 ? "" : "" + total06;    
+            xlWorkSheet.Cells[17, "E"] = total07 == 0 ? "" : "" + total07;
+            xlWorkSheet.Cells[17, "F"] = total08 == 0 ? "" : "" + total08;
+            xlWorkSheet.Cells[21, "E"] = total09 == 0 ? "" : "" + total09;
+            xlWorkSheet.Cells[21, "F"] = total10 == 0 ? "" : "" + total10;
+
+            xlWorkSheet.Cells[22, "B"] = total01 + total03;
+            xlWorkSheet.Cells[22, "C"] = total02 + total04;
+            xlWorkSheet.Cells[22, "E"] = total05 + total07 + total09;
+            xlWorkSheet.Cells[22, "F"] = total06 + total08 + total10;
+            decimal temp = (total05 + total07 + total09) - (total06 + total08 + total10);
+            xlWorkSheet.Cells[6, "H"] = temp;
+            xlWorkSheet.Cells[22, "H"] = temp;
 
             //第一次对二级科目赋值
             List<Model_报表类> data2 = new PA.ViewModel.ViewModel_ReportManager().GetIncomeAndExpensesForTwoSubject(ParmPeroid, new ViewModel.ViewModel_科目管理().GetIncomeAndOutSubjectList());
@@ -281,11 +325,11 @@ namespace PA.Helper.ExcelHelper
                             xlWorkSheet.Cells[y + 1, x + 1] = m.累计数;
                             decimal.TryParse(m.累计数, out dy);
                             decimal.TryParse(m.本期数, out dn);
-                            if (m.编号.StartsWith("30601"))
+                            if (m.编号.Equals("30601"))
                             {
                                 xlWorkSheet.Cells[7, "H"] = m.累计数;
                             }
-                            else if (m.编号.StartsWith("30602"))
+                            else if (m.编号.Equals("30602"))
                             {
                                 xlWorkSheet.Cells[8, "H"] = m.累计数;
                             }

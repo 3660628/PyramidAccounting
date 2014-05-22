@@ -488,9 +488,20 @@
                                 <Label x:Name="inY40501" Content="" HorizontalAlignment="Center" Grid.Column="2" Grid.Row="8" />
                                 <Label x:Name="inM413" Content="" HorizontalAlignment="Center" Grid.Column="1" Grid.Row="9" />
                                 <Label x:Name="inY413" Content="" HorizontalAlignment="Center" Grid.Column="2" Grid.Row="9" />
-                                <Label x:Name="inM404" Content="" HorizontalAlignment="Center" Grid.Column="1" Grid.Row="5" />
-                                <Label x:Name="inY404" Content="" HorizontalAlignment="Center" Grid.Column="2" Grid.Row="5" />
 
+                                <Label x:Name="inM404" Content="" HorizontalAlignment="Center" Grid.Column="1" Grid.Row="12" />
+                                <Label x:Name="inY404" Content="" HorizontalAlignment="Center" Grid.Column="2" Grid.Row="12" />
+                                
+                                <Label x:Name="Total01" Content="" HorizontalAlignment="Center" Grid.Column="1" Grid.Row="10" />
+                                <Label x:Name="Total02" Content="" HorizontalAlignment="Center" Grid.Column="2" Grid.Row="10" />
+                                <Label x:Name="Total05" Content="" HorizontalAlignment="Center" Grid.Column="4" Grid.Row="10" />
+                                <Label x:Name="Total06" Content="" HorizontalAlignment="Center" Grid.Column="5" Grid.Row="10" />
+                                <Label x:Name="Total03" Content="" HorizontalAlignment="Center" Grid.Column="1" Grid.Row="13" />
+                                <Label x:Name="Total04" Content="" HorizontalAlignment="Center" Grid.Column="2" Grid.Row="13" />
+                                <Label x:Name="Total07" Content="" HorizontalAlignment="Center" Grid.Column="4" Grid.Row="13" />
+                                <Label x:Name="Total08" Content="" HorizontalAlignment="Center" Grid.Column="5" Grid.Row="13" />
+                                <Label x:Name="Total09" Content="" HorizontalAlignment="Center" Grid.Column="4" Grid.Row="17" />
+                                <Label x:Name="Total10" Content="" HorizontalAlignment="Center" Grid.Column="5" Grid.Row="17" />
                                 
                                 <!--支出-->
                                 <Label x:Name="inM502" Content="" HorizontalAlignment="Center" Grid.Column="4" Grid.Row="2" />

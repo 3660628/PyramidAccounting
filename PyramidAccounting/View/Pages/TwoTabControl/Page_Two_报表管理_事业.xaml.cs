@@ -226,6 +226,16 @@ namespace PA.View.Pages.TwoTabControl
                 inSumY1.Content = "";
                 inSumM2.Content = "";
                 inSumY2.Content = "";
+                Total01.Content = "";
+                Total02.Content = "";
+                Total03.Content = "";
+                Total04.Content = "";
+                Total05.Content = "";
+                Total06.Content = "";
+                Total07.Content = "";
+                Total08.Content = "";
+                Total09.Content = "";
+                Total10.Content = "";
                 B306.Content = "";
                 
             }
@@ -238,16 +248,27 @@ namespace PA.View.Pages.TwoTabControl
             decimal insumy1 = 0;
             decimal insumm2 = 0;
             decimal insumy2 = 0;
+
+            decimal total01 = 0;
+            decimal total02 = 0;
+            decimal total03 = 0;
+            decimal total04 = 0;
+            decimal total05 = 0;
+            decimal total06 = 0;
+            decimal total07 = 0;
+            decimal total08 = 0;
+            decimal total09 = 0;
+            decimal total10 = 0;
             string temp = string.Empty;
             if (list.Count > 0)
             {
                 foreach (Model_报表类 m in list)
                 {
-                    if (m.编号.StartsWith("3"))
-                    {
-                        B306.Content = m.累计数;
-                    }
-                    else 
+                    //if (m.编号.StartsWith("3"))
+                    //{
+                    //    B306.Content = m.累计数;
+                    //}
+                    //else 
                     {
                         Label lb = FindName("inM" + m.编号) as Label;
                         lb.Content = m.本期数;
@@ -259,19 +280,55 @@ namespace PA.View.Pages.TwoTabControl
                         {
                             insumm1 += dn;
                             insumy1 += dy;
+                            if (m.编号.Equals("404"))
+                            {
+                                total03 += dn;
+                                total04 += dy;
+                            }
+                            else
+                            {
+                                total01 += dn;
+                                total02 += dy;
+                            }
                         }
                         else if (m.编号.StartsWith("5"))
                         {
                             insumy2 += dy;
                             insumm2 += dn;
+                            if (m.编号.Equals("512"))
+                            {
+                                total07 += dn;
+                                total08 += dy;
+                            }
+                            else if (m.编号.Equals("501") || m.编号.Equals("503"))
+                            {
+                                total09 += dn;
+                                total10 += dy;
+                            }
+                            else
+                            {
+                                total05 += dn;
+                                total06 += dy;
+                            }
                         }
                     }
                 }
+                Total01.Content = total01 == 0 ? "" : "" + total01;
+                Total02.Content = total02 == 0 ? "" : "" + total02;
+                Total03.Content = total03 == 0 ? "" : "" + total03;
+                Total04.Content = total04 == 0 ? "" : "" + total04;
+                Total05.Content = total05 == 0 ? "" : "" + total05;
+                Total06.Content = total06 == 0 ? "" : "" + total06;
+                Total07.Content = total07 == 0 ? "" : "" + total07;
+                Total08.Content = total08 == 0 ? "" : "" + total08;
+                Total09.Content = total09 == 0 ? "" : "" + total09;
+                Total10.Content = total10 == 0 ? "" : "" + total10;
 
                 inSumM1.Content = insumm1;
                 inSumY1.Content = insumy1;
                 inSumM2.Content = insumm2;
                 inSumY2.Content = insumy2;
+                B306.Content = (insumy1 - insumy2);
                 lastList_fee1 = list;
             }
 
@@ -293,11 +350,11 @@ namespace PA.View.Pages.TwoTabControl
                 lb.Content = m.本期数;
                 Label lb2 = FindName("inY" + m.编号) as Label;
                 lb2.Content = m.累计数;
-                if (m.编号.StartsWith("30601"))
+                if (m.编号.Equals("30601"))
                 {
                     B30601.Content = m.累计数;
                 }
-                else if (m.编号.StartsWith("30602"))
+                else if (m.编号.Equals("30602"))
                 {
                     B30602.Content = m.累计数;
                 }

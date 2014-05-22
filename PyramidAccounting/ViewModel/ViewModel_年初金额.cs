@@ -29,7 +29,9 @@ namespace PA.ViewModel
             {
                 List<string> list = new List<string>();
                 ExcelReader er = new ExcelReader();
+                DirectoryInfo theFolder = new DirectoryInfo("Data\\科目");
                 List<Model_BalanceSheet> BalanceSheetDatas = new List<Model_BalanceSheet>();
+                BalanceSheetDatas = er.ReadBalanceSheet(theFolder.GetFiles()[Int32.Parse(CommonInfo.制度索引)].FullName);
                 string baseTableName = "T_SUBJECT";
                 string table_Sql = new Helper.SQLHelper.SQLReader().ReadSQL(2, baseTableName, DBTablesName.T_SUBJECT);
                 list.Add(table_Sql);
