@@ -84,8 +84,11 @@ namespace PA.View.Windows
         }
         private void Button_Close_Click(object sender, RoutedEventArgs e)
         {
+            if (DataGrid_子细目.Items.Count != 0)
+            {
+                OnRerflashData();
+            }
             this.Close();
-            OnRerflashData();
         }
 
         private void Window_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
