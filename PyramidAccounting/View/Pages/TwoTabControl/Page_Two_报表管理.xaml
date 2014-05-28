@@ -44,30 +44,30 @@
                             <Label Content="单位：元（列至角分）" HorizontalAlignment="Right" Margin="0,0,10,0" VerticalAlignment="Top" Height="24" Width="Auto"/>
                             <Grid HorizontalAlignment="Stretch" Margin="0,25" VerticalAlignment="Top" Width="Auto" ShowGridLines="False">
                                 <Grid.RowDefinitions>
-                                    <RowDefinition Height="25" />
-                                    <RowDefinition Height="25" />
-                                    <RowDefinition Height="25" />
-                                    <RowDefinition Height="25" />
-                                    <RowDefinition Height="25" />
-                                    <RowDefinition Height="25" />
-                                    <RowDefinition Height="25" />
-                                    <RowDefinition Height="25" />
-                                    <RowDefinition Height="25" />
-                                    <RowDefinition Height="25" />
-                                    <RowDefinition Height="25" />
-                                    <RowDefinition Height="25" />
-                                    <RowDefinition Height="25" />
-                                    <RowDefinition Height="25" />
-                                    <RowDefinition Height="25" />
-                                    <RowDefinition Height="25" />
-                                    <RowDefinition Height="25" />
-                                    <RowDefinition Height="25" />
-                                    <RowDefinition Height="25" />
-                                    <RowDefinition Height="25" />
-                                    <RowDefinition Height="25" />
-                                    <RowDefinition Height="25" />
-                                    <RowDefinition Height="25" />
-                                    <RowDefinition Height="25" />
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
                                 </Grid.RowDefinitions>
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="Auto"/>
@@ -267,20 +267,20 @@
                             <Label Content="单位：元（列至角分）" HorizontalAlignment="Right" Margin="0,0,10,0" VerticalAlignment="Top"/>
                             <Grid Margin="0,25" VerticalAlignment="Top" Width="AUTO" ShowGridLines="False">
                                 <Grid.RowDefinitions>
-                                    <RowDefinition Height="25" />
-                                    <RowDefinition Height="25" />
-                                    <RowDefinition Height="25" />
-                                    <RowDefinition Height="25" />
-                                    <RowDefinition Height="25" />
-                                    <RowDefinition Height="25" />
-                                    <RowDefinition Height="25" />
-                                    <RowDefinition Height="25" />
-                                    <RowDefinition Height="25" />
-                                    <RowDefinition Height="25" />
-                                    <RowDefinition Height="25" />
-                                    <RowDefinition Height="25" />
-                                    <RowDefinition Height="25" />
-                                    <RowDefinition Height="25" />
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
                                 </Grid.RowDefinitions>
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="1*" MinWidth="150" MaxWidth="200"/>
@@ -411,36 +411,36 @@
                             <Label Content="单位：元（列至角分）" HorizontalAlignment="Right" Margin="0,0,10,0" VerticalAlignment="Top"/>
                             <Grid Margin="0,25" VerticalAlignment="Top" Width="AUTO" ShowGridLines="False">
                                 <Grid.RowDefinitions>
-                                    <RowDefinition Height="25" />
-                                    <RowDefinition Height="25" />
-                                    <RowDefinition Height="25" />
-                                    <RowDefinition Height="25" />
-                                    <RowDefinition Height="25" />
-                                    <RowDefinition Height="25" />
-                                    <RowDefinition Height="25" />
-                                    <RowDefinition Height="25" />
-                                    <RowDefinition Height="25" />
-                                    <RowDefinition Height="25" />
-                                    <RowDefinition Height="25" />
-                                    <RowDefinition Height="25" />
-                                    <RowDefinition Height="25" />
-                                    <RowDefinition Height="25" />
-                                    <RowDefinition Height="25" />
-                                    <RowDefinition Height="25" />
-                                    <RowDefinition Height="25" />
-                                    <RowDefinition Height="25" />
-                                    <RowDefinition Height="25" />
-                                    <RowDefinition Height="25" />
-                                    <RowDefinition Height="25" />
-                                    <RowDefinition Height="25" />
-                                    <RowDefinition Height="25" />
-                                    <RowDefinition Height="25" />
-                                    <RowDefinition Height="25" />
-                                    <RowDefinition Height="25" />
-                                    <RowDefinition Height="25" />
-                                    <RowDefinition Height="25" />
-                                    <RowDefinition Height="25" />
-                                    <RowDefinition Height="25" />
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
                                 </Grid.RowDefinitions>
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="190" MinWidth="150" MaxWidth="200"/>
