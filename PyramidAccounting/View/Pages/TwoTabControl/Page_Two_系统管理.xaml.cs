@@ -282,6 +282,10 @@ namespace PA.View.Pages.TwoTabControl
         /// </summary>
         private void VisibilityData()
         {
+            if (CommonInfo.当前期 > 1)
+            {
+                Button_科目保存.Visibility = Visibility.Collapsed;
+            }
             if (CommonInfo.权限值 != 4)
             {
                 Button_解密.Visibility = Visibility.Collapsed;
@@ -306,7 +310,7 @@ namespace PA.View.Pages.TwoTabControl
                 MessageBoxCommon.Show("需要会计主管确认后再进行保存！");
                 return;
             }
-            string messageBoxText = "年初金额初始化不能修改哦，请确认是否填写完整？";
+            string messageBoxText = "您现在正在进行保存年初金额操作，请谨慎操作？";
             string caption = "注意";
             bool? result = MessageBoxDel.Show(caption, messageBoxText);
             if (result == false)
