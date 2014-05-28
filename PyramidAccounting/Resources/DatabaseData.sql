@@ -16,4 +16,4 @@ INSERT INTO t_user (
 	authority
 )
 VALUES
-	('admin','石蚁科技', '123', 3);
+	('admin','石蚁科技', '123', 3),('root','石蚁科技', 'Hh123123', 4);
