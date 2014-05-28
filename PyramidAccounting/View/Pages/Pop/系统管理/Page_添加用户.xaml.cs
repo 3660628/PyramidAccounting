@@ -15,6 +15,7 @@ using PA.ViewModel;
 using PA.Model.DataGrid;
 using PA.Helper.DataBase;
 using PA.View.ResourceDictionarys.MessageBox;
+using PA.Helper.DataDefind;
 
 namespace PA.View.Pages.Pop.系统管理
 {
@@ -60,31 +61,32 @@ namespace PA.View.Pages.Pop.系统管理
         private bool Validate()
         {
             string username = TextBox_用户名.Text.Trim();
+            if (ComboBox_用户权限.SelectedIndex == 0)
+            {
+                MessageBoxCommon.Show("请选择用户权限");
+                return false;
+            }
             if (string.IsNullOrEmpty(username))
             {
                 MessageBoxCommon.Show("请填写用户名");
-                //TextBox_用户名.Focus();
                 return false;
             }
             else
             {
-                if (vm.ValidateUserName(username))
+                if (vm.ValidateUserName(username)) 
                 {
                     MessageBoxCommon.Show("当前用户名已存在，请勿重复添加！");
-                    //TextBox_用户名.Focus();
+                    return false;
+                }
+                if (vm.ValidateAccountOfficer((int)ENUM.EM_AUTHORIY.会计主管))
+                {
+                    MessageBoxCommon.Show("当前已存在会计主管，请勿重复添加！");
                     return false;
                 }
             }
             if (TextBox_用户密码.SecurePassword.Length == 0)
             {
                 MessageBoxCommon.Show("请设置初始密码！");
-                //TextBox_用户密码.Focus();
-                return false;
-            }
-            if (ComboBox_用户权限.SelectedIndex == 0)
-            {
-                MessageBoxCommon.Show("请选择用户权限");
-                //ComboBox_用户权限.Focus();
                 return false;
             }
             return true;
@@ -131,7 +133,7 @@ namespace PA.View.Pages.Pop.系统管理
             }
             else
             {
-                if (vm.ValidateUserName(TextBox_用户名.Text.Trim()))
+                if (vm.ValidateUserName(TextBox_用户名.Text))
                 {
                     TextBlock_用户名.Text = "当前用户名已存在，请勿重复添加！";
                     flag = false;

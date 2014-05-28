@@ -22,5 +22,14 @@ namespace PA.Helper.DataDefind
             备份标识 = 333,
             会计制度 = 111
         }
+
+        public enum EM_AUTHORIY
+        {
+            记账员 = 0,
+            审核员 = 1,
+            会计主管 = 2,
+            管理员 = 3,
+            超级管理员 = 4
+        }
     }
 }

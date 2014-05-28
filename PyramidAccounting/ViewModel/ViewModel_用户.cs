@@ -128,10 +128,27 @@ namespace PA.ViewModel
             return db.IsExist(sql);
         }
 
+        /// <summary>
+        /// 用户名
+        /// </summary>
+        /// <param name="username"></param>
+        /// <returns></returns>
         public bool ValidateUserName(string username)
         {
             sql = "select 1 from " + DBTablesName.T_USER + " where username='" + username + "' and delete_mark=0";
             return db.IsExist(sql);
+        }
+
+        public bool ValidateAccountOfficer(int authority)
+        {
+            sql = "select 1 from " + DBTablesName.T_USER + " where authority='" + authority + "' and delete_mark=0";
+            return db.IsExist(sql);
+        }
+
+        public string GetUserName(int authority)
+        {
+            string sql = "select REALNAME from " + DBTablesName.T_USER + " where authority=" + authority + " and delete_mark=0";
+            return db.GetSelectValue(sql);
         }
     }
 }

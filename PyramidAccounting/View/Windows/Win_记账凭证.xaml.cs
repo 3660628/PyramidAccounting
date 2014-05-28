@@ -14,6 +14,7 @@ using System.Data;
 using PA.Model.DataGrid;
 using PA.Model.CustomEventArgs;
 using PA.View.ResourceDictionarys.MessageBox;
+using PA.Helper.DataDefind;
 
 namespace PA.View.Windows
 {
@@ -115,6 +116,7 @@ namespace PA.View.Windows
             {
                 this.DatePicker_Date.SelectedDate = DateTime.Now;
                 this.Label_制单人.Content = PA.Helper.DataDefind.CommonInfo.真实姓名;
+                this.Label_会计主管.Content = new ViewModel.ViewModel_用户().GetUserName((int)ENUM.EM_AUTHORIY.会计主管);
             }
             this.DataGrid_凭证明细.ItemsSource = VoucherDetailsNow;
             VoucherDetails.Clear();

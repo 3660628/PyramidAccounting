@@ -162,7 +162,7 @@ namespace PA.Helper.DataBase
 
 
         /// <summary>
-        /// 判断数据是否存在
+        /// 判断数据是否存在,true表示存在，false表示不存在
         /// </summary>
         /// <param name="sql"></param>
         /// <returns></returns>
