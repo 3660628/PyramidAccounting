@@ -116,7 +116,7 @@ namespace PA.View.Windows
             {
                 ViewModel.ViewModel_用户 vu = new ViewModel.ViewModel_用户();
                 this.DatePicker_Date.SelectedDate = DateTime.Now;
-                this.Label_制单人.Content = vu.GetUserInfo((int)ENUM.EM_AUTHORIY.记账员);
+                this.Label_制单人.Content = vu.GetUserName((int)ENUM.EM_AUTHORIY.记账员);
                 this.Label_会计主管.Content = vu.GetUserName((int)ENUM.EM_AUTHORIY.会计主管);
             }
             this.DataGrid_凭证明细.ItemsSource = VoucherDetailsNow;

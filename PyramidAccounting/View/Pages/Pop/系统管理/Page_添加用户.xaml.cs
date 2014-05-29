@@ -78,10 +78,10 @@ namespace PA.View.Pages.Pop.系统管理
                     MessageBoxCommon.Show("当前用户名已存在，请勿重复添加！");
                     return false;
                 }
-                if (vm.ValidateAccountOfficer((int)ENUM.EM_AUTHORIY.会计主管))
+                if (ComboBox_用户权限.SelectedIndex == 3 && (vm.ValidateAccountOfficer((int)ENUM.EM_AUTHORIY.会计主管))) 
                 {
                     MessageBoxCommon.Show("当前已存在会计主管，请勿重复添加！");
-                    return false;
+                    return false;   
                 }
             }
             if (TextBox_用户密码.SecurePassword.Length == 0)
