@@ -247,5 +247,14 @@ namespace PA.ViewModel
             }
             return list;
         }
+
+        public string GetMaxSubjectID(string parentID)
+        {
+            string sql = "select max(subject_id) from " + DBTablesName.T_SUBJECT + " where subject_id like '" + parentID + "%'";
+            string result = db.GetSelectValue(sql);
+            int c = 0;
+            int.TryParse(result.Substring(result.Length - 2, 2), out c);
+            return result.Substring(0, result.Length - 2) + (100 + c + 1).ToString().Substring(1, 2);
+        }
     }
 }

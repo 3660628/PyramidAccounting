@@ -80,7 +80,7 @@ namespace PA.View.Windows
             {
                 this.ComboBox_New_父ID.SelectedValue = ComboboxText;
             }
-            this.TextBox_New_子细目编号.Text = this.ComboBox_New_父ID.Text;
+            this.TextBox_New_子细目编号.Text = vm.GetMaxSubjectID(this.ComboBox_New_父ID.Text);
         }
         private void Button_Close_Click(object sender, RoutedEventArgs e)
         {
@@ -145,10 +145,14 @@ namespace PA.View.Windows
             string Number = this.TextBox_New_子细目编号.Text;
             string Name   = this.TextBox_New_子细目名称.Text;
             string Money  = this.TextBox_New_年初数.Text;
-            if (string.IsNullOrEmpty(Number) || string.IsNullOrEmpty(Name) || string.IsNullOrEmpty(Money))
+            if (string.IsNullOrEmpty(Number) || string.IsNullOrEmpty(Name))
             {
                 MessageBoxCommon.Show("数据不能为空");
                 return;
+            }
+            if (string.IsNullOrEmpty(Money))
+            {
+                Money = "0";
             }
             string ParentsID = this.ComboBox_New_父ID.Text;
             List<Model_科目管理> details = new List<Model_科目管理>();
@@ -182,6 +186,7 @@ namespace PA.View.Windows
             {
                 MessageBoxCommon.Show("添加不成功,请检查编号是否唯一！");
             }
+
         }
         /// <summary>
         /// Lugia

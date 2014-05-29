@@ -146,7 +146,7 @@
                 </Style>
             </TextBox.Style>
         </TextBox>
-        <Button FocusVisualStyle="{x:Null}" x:Name="Button_New_Add子细目" Content="添加" HorizontalAlignment="Left" Margin="380,91,0,0" VerticalAlignment="Top" Width="50" Height="22" Template="{DynamicResource ButtonControlTemplate_CommonBlue}" Foreground="White" Click="Button_New_Add子细目_Click"/>
+        <Button FocusVisualStyle="{x:Null}" x:Name="Button_New_Add子细目" Content="添加" HorizontalAlignment="Left" Margin="380,91,0,0" VerticalAlignment="Top" Width="50" Height="22" Template="{DynamicResource ButtonControlTemplate_CommonBlue}" Foreground="White" Click="Button_New_Add子细目_Click" IsDefault="True"/>
         <ComboBox x:Name="ComboBox_New_父ID" HorizontalAlignment="Left" Margin="290,91,0,0" VerticalAlignment="Top" Width="80" Height="22" ToolTip="选择所属科目编号；若选择的是二级科目，则该新增科目为三级科目" DropDownClosed="ComboBox_New_父ID_DropDownClosed"/>
         <Button FocusVisualStyle="{x:Null}" x:Name="Button_Del" Content="删除" HorizontalAlignment="right" Margin="0,558,10,0" VerticalAlignment="Top" Width="50" Click="Button_Del_Click" Template="{DynamicResource ButtonControlTemplate_Common}" Height="22"/>
     </Grid>
