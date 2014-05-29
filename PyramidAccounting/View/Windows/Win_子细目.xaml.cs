@@ -216,7 +216,7 @@ namespace PA.View.Windows
 
         private void ComboBox_New_父ID_DropDownClosed(object sender, EventArgs e)
         {
-            this.TextBox_New_子细目编号.Text = this.ComboBox_New_父ID.Text;
+            this.TextBox_New_子细目编号.Text = vm.GetMaxSubjectID(this.ComboBox_New_父ID.Text);
             ComboboxText = this.ComboBox_New_父ID.Text;
         }
 

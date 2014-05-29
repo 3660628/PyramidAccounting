@@ -23,10 +23,10 @@
             <Label Content="子细目管理" HorizontalAlignment="Left" Margin="10,0,0,0" VerticalAlignment="Top" Foreground="White" FontWeight="Bold"/>
         </Grid>
         <Button x:Name="Button_Close" Content="Button" HorizontalAlignment="Right" VerticalAlignment="Top" Width="28" Template="{DynamicResource ButtonControlTemplate_Close}" Height="20" Margin="0" Click="Button_Close_Click"/>
-        <Label x:Name="Label_科目编号" Content="所属科目编号：" HorizontalAlignment="Left" Margin="10,30,0,0" VerticalAlignment="Top" Width="94"/>
-        <TextBox x:Name="TextBox_科目编号" HorizontalAlignment="Left" Margin="110,35,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" RenderTransformOrigin="0.197,0.332" IsReadOnly="True" BorderThickness="0,0,0,1"/>
+        <Label x:Name="Label_科目编号" Content="所属科目编号：" HorizontalAlignment="Left" Margin="10,30,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="TextBox_科目编号" HorizontalAlignment="Left" VerticalContentAlignment="Center" Margin="130,35,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" IsReadOnly="True" BorderThickness="0,0,0,1"/>
         <Label x:Name="Label_科目名称" Content="所属科目名称：" HorizontalAlignment="Left" Margin="10,60,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="TextBox_科目名称" HorizontalAlignment="Left" Margin="110,65,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" IsReadOnly="True" MinWidth="120" BorderThickness="0,0,0,1"/>
+        <TextBox x:Name="TextBox_科目名称" HorizontalAlignment="Left" VerticalContentAlignment="Center" Margin="130,65,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" IsReadOnly="True" MinWidth="120" BorderThickness="0,0,0,1"/>
         <DataGrid x:Name="DataGrid_子细目" ItemsSource="{Binding}" HorizontalAlignment="Stretch" Margin="10,118,10,37" CanUserAddRows="False" AutoGenerateColumns="False" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle_凭证管理}" BorderBrush="#FF99CCFF" HeadersVisibility="Column" SelectionMode="Single" CellEditEnding="DataGrid_子细目_CellEditEnding" CanUserReorderColumns="False" CanUserSortColumns="False" CanUserResizeRows="False" CanUserResizeColumns="False" BeginningEdit="DataGrid_子细目_BeginningEdit" HorizontalGridLinesBrush="#FF99CCFF" VerticalGridLinesBrush="#FF99CCFF">
             <DataGrid.Resources>
                 <Style TargetType="DataGridCell">

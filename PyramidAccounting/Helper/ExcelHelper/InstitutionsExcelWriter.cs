@@ -542,7 +542,7 @@ namespace PA.Helper.ExcelHelper
                 b106 += temp601;
             }
             //商品和服务支出
-            for (int i = 16; i < 33; i++)
+            for (int i = 16; i < 34; i++)
             {
                 decimal temp101 = 0m, temp201 = 0m, temp301 = 0m, temp401 = 0m, temp501 = 0m, temp601 = 0m;
                 decimal.TryParse(((xls.Range)xlWorkSheet.Cells[i, "B"]).Text, out temp101);
@@ -558,21 +558,21 @@ namespace PA.Helper.ExcelHelper
                 decimal.TryParse(((xls.Range)xlWorkSheet.Cells[i, "G"]).Text, out temp601);
                 b206 += temp601;
             }
-            decimal tt1 = 0m, tt2 = 0m, tt3 = 0m, tt4 = 0m, tt5 = 0m, tt6 = 0m;
-            decimal.TryParse(((xls.Range)xlWorkSheet.Cells[6, "I"]).Text, out tt1);
-            b201 += tt1;
-            decimal.TryParse(((xls.Range)xlWorkSheet.Cells[6, "J"]).Text, out tt2);
-            b202 += tt2;
-            decimal.TryParse(((xls.Range)xlWorkSheet.Cells[6, "K"]).Text, out tt3);
-            b203 += tt3;
-            decimal.TryParse(((xls.Range)xlWorkSheet.Cells[6, "L"]).Text, out tt4);
-            b204 += tt4;
-            decimal.TryParse(((xls.Range)xlWorkSheet.Cells[6, "M"]).Text, out tt5);
-            b205 += tt5;
-            decimal.TryParse(((xls.Range)xlWorkSheet.Cells[6, "N"]).Text, out tt6);
-            b206 += tt6;
+            //decimal tt1 = 0m, tt2 = 0m, tt3 = 0m, tt4 = 0m, tt5 = 0m, tt6 = 0m;
+            //decimal.TryParse(((xls.Range)xlWorkSheet.Cells[6, "I"]).Text, out tt1);
+            //b201 += tt1;
+            //decimal.TryParse(((xls.Range)xlWorkSheet.Cells[6, "J"]).Text, out tt2);
+            //b202 += tt2;
+            //decimal.TryParse(((xls.Range)xlWorkSheet.Cells[6, "K"]).Text, out tt3);
+            //b203 += tt3;
+            //decimal.TryParse(((xls.Range)xlWorkSheet.Cells[6, "L"]).Text, out tt4);
+            //b204 += tt4;
+            //decimal.TryParse(((xls.Range)xlWorkSheet.Cells[6, "M"]).Text, out tt5);
+            //b205 += tt5;
+            //decimal.TryParse(((xls.Range)xlWorkSheet.Cells[6, "N"]).Text, out tt6);
+            //b206 += tt6;
             //对个人和家庭的补助
-            for (int i = 8; i < 15; i++)
+            for (int i = 7; i < 15; i++)
             {
                 decimal T1 = 0m, T2 = 0m, T3 = 0m, T4 = 0m, T5 = 0m, T6 = 0m;
                 decimal.TryParse(((xls.Range)xlWorkSheet.Cells[i, "I"]).Text, out T1);

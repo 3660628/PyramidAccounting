@@ -37,7 +37,7 @@
                         <TextBox.Resources>
                             <VisualBrush x:Key="HelpBrush" TileMode="None" Opacity="0.3" Stretch="None" AlignmentX="Left">
                                 <VisualBrush.Visual>
-                                    <TextBlock Text="搜索框    支持搜索凭证号"/>
+                                    <TextBlock Text="搜索框  可搜索凭证号"/>
                                 </VisualBrush.Visual>
                             </VisualBrush>
                         </TextBox.Resources>
