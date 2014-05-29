@@ -1132,12 +1132,12 @@ namespace PA.ViewModel
         /// <summary>
         /// 结账
         /// </summary>
-        public bool CheckOut()
+        public bool CheckOut(int peroid)
         {
             string sql = "INSERT INTO " + DBTablesName.T_FEE
                           + "(OP_TIME,PERIOD,SUBJECT_ID,VOUCHER_NUMS,COMMENTS,DEBIT,CREDIT,MARK,DELETE_MARK,FEE) ";
             sql += "select op_time,period,subject_id,voucher_nums,comments,case when debit is null then 0 else debit end, case when credit is null then 0 else credit end,mark,0,"
-                + "case when fee is null then 0 else fee end from (select datetime('now', 'localtime') as op_time," + CommonInfo.当前期
+                + "case when fee is null then 0 else fee end from (select datetime('now', 'localtime') as op_time," + peroid
                 + " as period,b.subject_id as subject_id,t.voucher_nums as voucher_nums,b.SUBJECT_ID || '汇总' AS comments,t.DEBIT as debit,t.CREDIT as credit,b.mark as mark," 
                 + "round(abs(b.mark*b.fee-total(t.credit -t.debit)),2) as fee from "
                 + DBTablesName.T_FEE + " b left join ("
@@ -1149,10 +1149,10 @@ namespace PA.ViewModel
                 + " WHERE PARENTID IN (  "
                 + "SELECT ID  FROM   "
                 + DBTablesName.T_VOUCHER
-                + " WHERE period = " + CommonInfo.当前期
+                + " WHERE period = " + peroid
                 + " and review_mark=1) GROUP BY "
                 + "SUBJECT_ID  ORDER BY SUBJECT_ID ) t on t.subject_id=b.subject_id where b.period = "
-                + (CommonInfo.当前期-1) + " group by b.subject_id) a";          
+                + (peroid - 1) + " group by b.subject_id) a";          
             bool flag = db.Excute(sql);
             if (flag)
             {

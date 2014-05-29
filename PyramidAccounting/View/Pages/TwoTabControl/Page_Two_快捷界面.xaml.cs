@@ -127,7 +127,7 @@ namespace PA.View.Pages.TwoTabControl
                     {
                         if (CommonInfo.验证密码.Equals(CommonInfo.登录密码))
                         {
-                            bool flag = vm.CheckOut();
+                            bool flag = vm.CheckOut(CommonInfo.当前期);
                             if (flag)
                             {
                                 MessageBoxCommon.Show("结账完毕！");

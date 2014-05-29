@@ -148,7 +148,8 @@ namespace PA.ViewModel
         public string GetUserName(int authority)
         {
             string sql = "select REALNAME from " + DBTablesName.T_USER + " where authority=" + authority + " and delete_mark=0";
-            return db.GetSelectValue(sql);
+            string result = db.GetSelectValue(sql);
+            return string.IsNullOrEmpty(result)?CommonInfo.真实姓名:result;
         }
     }
 }

@@ -18,6 +18,7 @@ using PA.View.Windows;
 using PA.Helper.XMLHelper;
 using PA.Model.DataGrid;
 using PA.Helper.Tools;
+using System.IO;
 
 namespace PA
 {
@@ -29,10 +30,12 @@ namespace PA
         private ViewModel_操作日志 vmr = new ViewModel_操作日志();
         private ViewModel_Books vmb = new ViewModel_Books();
         private ViewModel_系统管理 vsy = new ViewModel_系统管理();
+        private static string UpdateFilePath = AppDomain.CurrentDomain.BaseDirectory + "update.sql";
 
         public Win_SignIn()
         {
             InitializeComponent();
+            Update();
             Load();
         }
 
@@ -44,6 +47,42 @@ namespace PA
             this.Top = Top;
             Load();
         }
+        private void Update()
+        {
+            string sql = "";
+            bool flag = Read(out sql);
+            flag = new PA.Helper.DataBase.DataBase().Excute(sql);
+            if (flag)
+            {
+                File.Delete(UpdateFilePath);
+            }
+        }
+
+        internal bool Read(out string Reuslt)
+        {
+            bool flag = true;
+            Reuslt = "";
+            if (!File.Exists(UpdateFilePath))
+            {
+                return false;
+            }
+            try
+            {
+                using (StreamReader sr = new StreamReader(UpdateFilePath))
+                {
+                    Reuslt = sr.ReadToEnd();
+                }
+            }
+            catch (Exception e)
+            {
+                flag = false;
+                // Let the user know what went wrong.
+                Console.WriteLine("The file could not be read:");
+                Console.WriteLine(e.Message);
+            }
+            return flag;
+        }
+
         private void Load()
         {
             bool flag = new PA.Helper.DataBase.StartUpInit().Init();

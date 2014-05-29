@@ -114,9 +114,10 @@ namespace PA.View.Windows
             }
             if (isFirstInit)
             {
+                ViewModel.ViewModel_用户 vu = new ViewModel.ViewModel_用户();
                 this.DatePicker_Date.SelectedDate = DateTime.Now;
-                this.Label_制单人.Content = PA.Helper.DataDefind.CommonInfo.真实姓名;
-                this.Label_会计主管.Content = new ViewModel.ViewModel_用户().GetUserName((int)ENUM.EM_AUTHORIY.会计主管);
+                this.Label_制单人.Content = vu.GetUserInfo((int)ENUM.EM_AUTHORIY.记账员);
+                this.Label_会计主管.Content = vu.GetUserName((int)ENUM.EM_AUTHORIY.会计主管);
             }
             this.DataGrid_凭证明细.ItemsSource = VoucherDetailsNow;
             VoucherDetails.Clear();
@@ -220,15 +221,15 @@ namespace PA.View.Windows
                 }
                 else
                 {
-                    if(!VoucherNum.Contains(VoucherDetails[i * 6].凭证号))
-                    {
-                        VoucherNum.Add(VoucherDetails[i * 6].凭证号);
-                    }
-                    else
-                    {
-                        MessageBoxCommon.Show("凭证号不能相同");
-                        return false;
-                    }
+                   if(!VoucherNum.Contains(VoucherDetails[i * 6].凭证号))
+                   {
+                     VoucherNum.Add(VoucherDetails[i * 6].凭证号);
+                   }
+                   else
+                   {
+                      MessageBoxCommon.Show("凭证号不能相同");
+                      return false;
+                   }
                 }
             }
             int temp;
