@@ -252,6 +252,10 @@ namespace PA.ViewModel
         {
             string sql = "select max(subject_id) from " + DBTablesName.T_SUBJECT + " where subject_id like '" + parentID + "%'";
             string result = db.GetSelectValue(sql);
+            if (result.Length == parentID.Length)
+            {
+                return parentID + "01";
+            }
             int c = 0;
             int.TryParse(result.Substring(result.Length - 2, 2), out c);
             return result.Substring(0, result.Length - 2) + (100 + c + 1).ToString().Substring(1, 2);

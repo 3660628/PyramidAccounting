@@ -549,6 +549,8 @@ namespace PA.View.Pages.TwoTabControl
                 b301 += dn;            
                 decimal.TryParse(Label_A其他对个人和家庭的补助支出.Content.ToString(), out dn);
                 b301 += dn;
+                decimal.TryParse(Label_A住房维修补贴.Content.ToString(), out dn);
+                b301 += dn;
 
                     Label_B301.Content = b301;
                 decimal.TryParse(Label_A事业单位补贴.Content.ToString(), out dn);
@@ -656,6 +658,8 @@ namespace PA.View.Pages.TwoTabControl
                 decimal.TryParse(Label_B住房公积金.Content.ToString(), out dn);
                 b302 += dn;
                 decimal.TryParse(Label_B其他对个人和家庭的补助支出.Content.ToString(), out dn);
+                b302 += dn;
+                decimal.TryParse(Label_B住房维修补贴.Content.ToString(), out dn);
                 b302 += dn;
 
                 Label_B302.Content = b302;
@@ -770,7 +774,10 @@ namespace PA.View.Pages.TwoTabControl
                 decimal.TryParse(Label_C住房公积金.Content.ToString(), out dn);
                 b303 += dn;
                 decimal.TryParse(Label_C其他对个人和家庭的补助支出.Content.ToString(), out dn);
+                b303 += dn; 
+                decimal.TryParse(Label_C住房维修补贴.Content.ToString(), out dn);
                 b303 += dn;
+
 
                 Label_B303.Content = b303;
 
@@ -885,7 +892,8 @@ namespace PA.View.Pages.TwoTabControl
                 b304 += dn;
                 decimal.TryParse(Label_D其他对个人和家庭的补助支出.Content.ToString(), out dn);
                 b304 += dn;
-
+                decimal.TryParse(Label_D住房维修补贴.Content.ToString(), out dn);
+                b304 += dn;
                 Label_B304.Content = b304;
 
                 decimal.TryParse(Label_D事业单位补贴.Content.ToString(), out dn);
@@ -999,7 +1007,8 @@ namespace PA.View.Pages.TwoTabControl
                 b305 += dn;
                 decimal.TryParse(Label_E其他对个人和家庭的补助支出.Content.ToString(), out dn);
                 b305 += dn;
-
+                decimal.TryParse(Label_E住房维修补贴.Content.ToString(), out dn);
+                b305 += dn;
                 Label_B305.Content = b305;
 
                 decimal.TryParse(Label_E事业单位补贴.Content.ToString(), out dn);
@@ -1113,7 +1122,8 @@ namespace PA.View.Pages.TwoTabControl
                 b306 += dn;
                 decimal.TryParse(Label_F其他对个人和家庭的补助支出.Content.ToString(), out dn);
                 b306 += dn;
-
+                decimal.TryParse(Label_F住房维修补贴.Content.ToString(), out dn);
+                b306 += dn;
                 Label_B306.Content = b306;
 
                 decimal.TryParse(Label_F事业单位补贴.Content.ToString(), out dn);

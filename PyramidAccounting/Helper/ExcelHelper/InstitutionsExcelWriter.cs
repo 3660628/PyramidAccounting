@@ -673,12 +673,12 @@ namespace PA.Helper.ExcelHelper
             xlWorkSheet.Cells[15, "F"] = b205;
             xlWorkSheet.Cells[15, "G"] = b206;
 
-            xlWorkSheet.Cells[7, "I"] = b301;
-            xlWorkSheet.Cells[7, "J"] = b302;
-            xlWorkSheet.Cells[7, "K"] = b303;
-            xlWorkSheet.Cells[7, "L"] = b304;
-            xlWorkSheet.Cells[7, "M"] = b305;
-            xlWorkSheet.Cells[7, "N"] = b306;
+            xlWorkSheet.Cells[6, "I"] = b301;
+            xlWorkSheet.Cells[6, "J"] = b302;
+            xlWorkSheet.Cells[6, "K"] = b303;
+            xlWorkSheet.Cells[6, "L"] = b304;
+            xlWorkSheet.Cells[6, "M"] = b305;
+            xlWorkSheet.Cells[6, "N"] = b306;
 
             xlWorkSheet.Cells[15, "I"] = b401;
             xlWorkSheet.Cells[15, "J"] = b402;

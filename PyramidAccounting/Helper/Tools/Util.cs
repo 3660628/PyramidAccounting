@@ -51,6 +51,10 @@ namespace PA.Helper.Tools
                     temp = temp.Substring(0, 2);
                     value = value.Split('.')[0] + temp;
                 }
+                else if (value.StartsWith("0."))
+                {
+                    value = value.Split('.')[1];
+                }
                 value = value.Replace(".", "");
                 length = value.Length;
                 char[] cc = value.ToCharArray();
