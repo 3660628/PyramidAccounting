@@ -40,7 +40,7 @@
                             <Grid.RowDefinitions>
                                 <RowDefinition/>
                             </Grid.RowDefinitions>
-                            <Label x:Name="Label_编制单位1" Content="编制单位：" HorizontalAlignment="Left" Margin="0" VerticalAlignment="Top" Height="24" Width="70"/>
+                            <Label x:Name="Label_编制单位1" Content="编制单位：" HorizontalAlignment="Left" Margin="0" VerticalAlignment="Top" Height="24"/>
                             <Label Content="单位：元（列至角分）" HorizontalAlignment="Right" Margin="0,0,10,0" VerticalAlignment="Top" Height="24" Width="Auto"/>
                             <Grid HorizontalAlignment="Stretch" Margin="0,25" VerticalAlignment="Top" Width="Auto" ShowGridLines="False">
                                 <Grid.RowDefinitions>
@@ -133,7 +133,7 @@
                                 <Label Content="102" HorizontalAlignment="Center" Grid.Row="3" />
                                 <Label Content="银行存款" HorizontalAlignment="Left" Grid.Column="1" Grid.Row="3" Margin="40,0,0,0" />
                                 <Label Content="202" HorizontalAlignment="Center" Grid.Column="4" Grid.Row="3" />
-                                <Label Content="应付票据" HorizontalAlignment="Left" Grid.Column="5" Grid.Row="3" Margin="40,0,0,0" />
+                                <Label Content="应收票据" HorizontalAlignment="Left" Grid.Column="5" Grid.Row="3" Margin="40,0,0,0" />
                                 <Label Content="103" HorizontalAlignment="Center" Grid.Row="4" />
                                 <Label Content="单位零余额账户用款额度（预算内）" HorizontalAlignment="Left" Grid.Column="1" Grid.Row="4" Margin="40,0,0,0" />
                                 <Label Content="203" HorizontalAlignment="Center" Grid.Column="4" Grid.Row="4" />
@@ -141,7 +141,7 @@
                                 <Label Content="104" HorizontalAlignment="Center" Grid.Row="5" />
                                 <Label Content="单位零余额账户用款额度（预算外）" HorizontalAlignment="Left" Grid.Column="1" Grid.Row="5" Margin="40,0,0,0" />
                                 <Label Content="204" HorizontalAlignment="Center" Grid.Column="4" Grid.Row="5" />
-                                <Label Content="预收账款" HorizontalAlignment="Left" Grid.Column="5" Grid.Row="5" Margin="40,0,0,0" />
+                                <Label Content="预付账款" HorizontalAlignment="Left" Grid.Column="5" Grid.Row="5" Margin="40,0,0,0" />
                                 <Label Content="105" HorizontalAlignment="Center" Grid.Row="6" />
                                 <Label Content="应收票据" HorizontalAlignment="Left" Grid.Column="1" Grid.Row="6" Margin="40,0,0,0" />
                                 <Label Content="207" HorizontalAlignment="Center" Grid.Column="4" Grid.Row="6"/>
@@ -154,13 +154,13 @@
                                 <Label Content="其他应付款" HorizontalAlignment="Left" Grid.Column="5" Grid.Row="6" Margin="40,0,0,0" />
                                 <Label Content="106" HorizontalAlignment="Center" Grid.Row="7" />
                                 <Label Content="应收账款" HorizontalAlignment="Left" Grid.Column="1" Grid.Row="7" Margin="40,0,0,0" />
-                                <Label Content="应缴财政转户款" HorizontalAlignment="Left" Grid.Column="5" Grid.Row="7" Margin="40,0,0,0" />
+                                <Label Content="应缴财政专户款" HorizontalAlignment="Left" Grid.Column="5" Grid.Row="8" Margin="40,0,0,0" />
                                 <Label Content="108" HorizontalAlignment="Center" Grid.Row="8" />
-                                <Label Content="预收账款" HorizontalAlignment="Left" Grid.Column="1" Grid.Row="8" Margin="40,0,0,0" />
-                                <Label Content="应缴税金" HorizontalAlignment="Left" Grid.Column="5" Grid.Row="8" Margin="40,0,0,0" />
-                                <Label Content="应付工资（离退休费）" HorizontalAlignment="Left" Grid.Column="5" Grid.Row="9" Margin="40,0,0,0" />
-                                <Label Content="应付地方（部门）津贴补贴" HorizontalAlignment="Left" Grid.Column="5" Grid.Row="10" Margin="40,0,0,0" />
-                                <Label Content="应付工资（离退休费）" HorizontalAlignment="Left" Grid.Column="5" Grid.Row="11" Margin="40,0,0,0" />
+                                <Label Content="预付账款" HorizontalAlignment="Left" Grid.Column="1" Grid.Row="8" Margin="40,0,0,0" />
+                                <Label Content="应交税金" HorizontalAlignment="Left" Grid.Column="5" Grid.Row="9" Margin="40,0,0,0" />
+                                <Label Content="应缴预算款" HorizontalAlignment="Left" Grid.Column="5" Grid.Row="7" Margin="40,0,0,0" />
+                                <Label Content="应付地方（部门）津贴补贴" HorizontalAlignment="Left" Grid.Column="5" Grid.Row="11" Margin="40,0,0,0" />
+                                <Label Content="应付工资（离退休费）" HorizontalAlignment="Left" Grid.Column="5" Grid.Row="10" Margin="40,0,0,0" />
                                 <Label Content="应付其他个人收入" HorizontalAlignment="Left" Grid.Column="5" Grid.Row="12" Margin="40,0,0,0" />
                                 <Label Content="负 债 合 计" HorizontalAlignment="Right" Grid.Column="5" Grid.Row="13" Margin="0,0,20,0" />
                                 <Label Content="110" HorizontalAlignment="Center" Grid.Row="9" />

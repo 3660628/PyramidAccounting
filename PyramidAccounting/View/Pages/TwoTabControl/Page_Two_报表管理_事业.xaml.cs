@@ -37,7 +37,11 @@ namespace PA.View.Pages.TwoTabControl
         {
             InitializeComponent();
             SubscribeToEvent();
-            this.Label_编制单位1.Content += "\t" + xr.ReadXML("公司");   //程序启动后加载当前公司名称
+            for (int i = 1; i <= 3; i++)
+            {
+                Label lb = FindName("Label_编制单位" + i) as Label;
+                lb.Content = "编制单位：" + CommonInfo.制表单位;
+            }
             mr = vm.GetOperateLog();
             FreshComboBox();
         }

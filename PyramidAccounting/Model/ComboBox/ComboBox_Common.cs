@@ -29,13 +29,12 @@ namespace PA.Model.ComboBox
             ds = db.Query(sql);
             if (ds != null)
             {
-                DataTable dt = ds.Tables[0];
-                for (int i = 0; i < dt.Rows.Count; i++)
+                DataTable dt = db.Query(sql).Tables[0];
+                foreach(DataRow d in dt.Rows)
                 {
-                    DataRow dr = dt.Rows[i];
                     Model_账套 m = new Model_账套();
-                    m.ID = dr[0].ToString();
-                    m.账套名称 = dr[1].ToString();
+                    m.ID = d[0].ToString();
+                    m.账套名称 = d[1].ToString();
                     list.Add(m);
                 }
             }
