@@ -25,8 +25,8 @@ namespace PA.Helper.DataBase
             folderList.Add("Excel");
             folderList.Add("Excel\\打印");
             this.CheckFolder(folderList);
-
-            if (!File.Exists("Data\\" + currentDBName))
+            string str = System.Environment.CurrentDirectory + "Data\\" + currentDBName;
+            if (!File.Exists(str))
             {
                 //MessageBoxCommon.Show("找不到数据库,请联系软件开发商！");
                 //return false;
