@@ -26,8 +26,7 @@ namespace PA.Helper.DataBase
             folderList.Add("Excel\\打印");
             this.CheckFolder(folderList);
             string str = "Data\\" + currentDBName;
-            FileInfo fi = new FileInfo(str);
-            if (!File.Exists(str)||fi.Length==0)
+            if (!File.Exists(str))
             {
                 new DBInitialize().Initialize();
             }

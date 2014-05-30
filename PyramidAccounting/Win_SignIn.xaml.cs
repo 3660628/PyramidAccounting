@@ -35,8 +35,8 @@ namespace PA
         public Win_SignIn()
         {
             InitializeComponent();
-            Update();
             Load();
+            Update();
         }
 
         public Win_SignIn(double Left, double Top)
