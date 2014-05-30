@@ -25,11 +25,10 @@ namespace PA.Helper.DataBase
             folderList.Add("Excel");
             folderList.Add("Excel\\打印");
             this.CheckFolder(folderList);
-            string str = System.Environment.CurrentDirectory + "\\Data\\" + currentDBName;
-            if (!File.Exists(str))
+            string str = "Data\\" + currentDBName;
+            FileInfo fi = new FileInfo(str);
+            if (!File.Exists(str)||fi.Length==0)
             {
-                //MessageBoxCommon.Show("找不到数据库,请联系软件开发商！");
-                //return false;
                 new DBInitialize().Initialize();
             }
             //判断是否将无密码数据库拷贝回来，再进行加密操作
