@@ -259,11 +259,11 @@ namespace PA.View.Pages.TwoTabControl
             {
                 foreach (Model_报表类 m in list)
                 {
-                    //if (m.编号.StartsWith("3"))
-                    //{
-                    //    B306.Content = m.累计数;
-                    //}
-                    //else 
+                    if (m.编号.StartsWith("3"))
+                    {
+                        continue;
+                    }
+                    else 
                     {
                         Label lb = FindName("inM" + m.编号) as Label;
                         lb.Content = m.本期数;

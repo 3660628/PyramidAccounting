@@ -146,7 +146,7 @@ namespace PA.ViewModel
             sqlList.Add(_sql1);
             string _sql2 = "insert into sbtemp select b.subject_name,a.PERIOD,total(a.fee) from (SELECT a.DETAIL,b.PERIOD,total(a.DEBIT - a.CREDIT) AS fee FROM "
                     + DBTablesName.T_VOUCHER_DETAIL + " a LEFT JOIN "
-                    + DBTablesName.T_VOUCHER + " b ON a.PARENTID = b.ID where b.REVIEW_MARK=1 and a.detail like '" + parentID + "%' GROUP BY a.DETAIL,b.PERIOD ) a LEFT JOIN "
+                    + DBTablesName.T_VOUCHER + " b ON a.PARENTID = b.ID where b.REVIEW_MARK=1 and b.delete_mark<>-1 and a.detail like '" + parentID + "%' GROUP BY a.DETAIL,b.PERIOD ) a LEFT JOIN "
                     + DBTablesName.T_SUBJECT 
                     + " b ON a.DETAIL = b.subject_id group by a.PERIOD,b.SUBJECT_NAME";
             sqlList.Add(_sql2);
