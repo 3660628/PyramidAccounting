@@ -323,7 +323,7 @@ namespace PA.View.Pages.TwoTabControl
                 inSumY1.Content = total02 + total04;
                 inSumM2.Content = total05 + total07 + total09;
                 inSumY2.Content = total06 + total08 + total10;
-                decimal tmp = (total05 + total07 + total09) - (total06 + total08 + total10);
+                decimal tmp = (total02 + total04) - (total06 + total08 + total10);
                 B306.Content = tmp;
                 inSumY3.Content = tmp;
                 lastList_fee1 = list;

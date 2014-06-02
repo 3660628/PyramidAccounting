@@ -304,7 +304,7 @@ namespace PA.Helper.ExcelHelper
             xlWorkSheet.Cells[22, "C"] = total02 + total04;
             xlWorkSheet.Cells[22, "E"] = total05 + total07 + total09;
             xlWorkSheet.Cells[22, "F"] = total06 + total08 + total10;
-            decimal temp = (total05 + total07 + total09) - (total06 + total08 + total10);
+            decimal temp = (total02 + total04) - (total06 + total08 + total10);
             xlWorkSheet.Cells[6, "H"] = temp;
             xlWorkSheet.Cells[22, "H"] = temp;
 
