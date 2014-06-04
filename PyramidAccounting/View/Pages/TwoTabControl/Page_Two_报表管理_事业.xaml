@@ -609,10 +609,10 @@
                                 <Border BorderBrush="White" BorderThickness="0,0,1,0" Margin="0" Grid.Column="8" Grid.RowSpan="3" Background="#FF99CCFF"/>
                                 <Border BorderBrush="White" BorderThickness="0,1,0,0" Grid.Column="1" Margin="0" Grid.Row="1" Background="#FF99CCFF" Grid.ColumnSpan="2"/>
                                 <Border BorderBrush="White" BorderThickness="0,1,0,0" Grid.Column="3" Margin="0" Grid.Row="1" Background="#FF99CCFF" Grid.ColumnSpan="2"/>
-                                <Border BorderBrush="White" BorderThickness="0,1,0,0" Grid.Column="5" Margin="0" Grid.Row="1" Background="#FF99CCFF" Grid.ColumnSpan="2"/>
-                                <Border BorderBrush="White" BorderThickness="0,1,0,0" Grid.Column="9" Margin="0" Grid.Row="1" Background="#FF99CCFF" Grid.ColumnSpan="2"/>
-                                <Border BorderBrush="White" BorderThickness="0,1,0,0" Grid.Column="11" Margin="0" Grid.Row="1" Background="#FF99CCFF" Grid.ColumnSpan="2"/>
-                                <Border BorderBrush="White" BorderThickness="0,1,0,0" Grid.Column="13" Margin="0" Grid.Row="1" Background="#FF99CCFF" Grid.ColumnSpan="2"/>
+                                <Border BorderBrush="White" BorderThickness="1,1,0,0" Grid.Column="5" Margin="0" Grid.Row="1" Background="#FF99CCFF" Grid.ColumnSpan="2"/>
+                                <Border BorderBrush="White" BorderThickness="1,1,0,0" Grid.Column="9" Margin="0" Grid.Row="1" Background="#FF99CCFF" Grid.ColumnSpan="2"/>
+                                <Border BorderBrush="White" BorderThickness="1,1,0,0" Grid.Column="11" Margin="0" Grid.Row="1" Background="#FF99CCFF" Grid.ColumnSpan="2"/>
+                                <Border BorderBrush="White" BorderThickness="1,1,0,0" Grid.Column="13" Margin="0" Grid.Row="1" Background="#FF99CCFF" Grid.ColumnSpan="2"/>
                                 <!--第三行表头-->
                                 <Border BorderBrush="White" BorderThickness="0,1,0,0" Grid.Column="1" Margin="0" Grid.Row="2" Background="#FF99CCFF"/>
                                 <Border BorderBrush="White" BorderThickness="1,1,0,0" Grid.Column="2" Margin="0" Grid.Row="2" Background="#FF99CCFF"/>

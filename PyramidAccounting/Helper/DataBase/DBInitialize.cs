@@ -20,7 +20,6 @@ namespace PA.Helper.DataBase
         private XMLWriter xw = new XMLWriter();
         public DBInitialize()
         {
-            Log.Write("DBInitialize");
         }
 
         
