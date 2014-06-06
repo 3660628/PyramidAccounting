@@ -214,7 +214,7 @@ namespace PA.View.Windows
             List<string> VoucherNum = new List<string>();
             for (int i = 0; i < PageAll; i++)
             {
-                if(VoucherDetails[i * 6].凭证号 == "")
+                if(VoucherDetails[i * 6].凭证号.Equals(""))
                 {
                     MessageBoxCommon.Show("凭证号不能为空");
                     return false;
@@ -285,11 +285,11 @@ namespace PA.View.Windows
 
         private void Button_保存_Click(object sender, RoutedEventArgs e)
         {
+            GetData();
             if (!CheckData())
             {
                 return;
             }
-            GetData();
             if(new PA.ViewModel.ViewModel_凭证管理().InsertData(Voucher, VoucherDetails))
             {
                 if (!isNew)
@@ -308,11 +308,11 @@ namespace PA.View.Windows
 
         private void Button_保存并新增_Click(object sender, RoutedEventArgs e)
         {
+            GetData();
             if (!CheckData())
             {
                 return;
             }
-            GetData();
             if(new PA.ViewModel.ViewModel_凭证管理().InsertData(Voucher, VoucherDetails))
             {
                 OnSubmit();
