@@ -86,7 +86,7 @@ namespace PA.View.Pages.TwoTabControl
             #endregion
             #region 5.关于我们
             this.Label_状态.Content = rg.GetVersionMessage();
-            this.Laber_Version.Content = "版本V" + Application.ResourceAssembly.GetName().Version.ToString();
+            this.Label_Version.Content = "版本V" + Application.ResourceAssembly.GetName().Version.ToString();
             #endregion
         }
 

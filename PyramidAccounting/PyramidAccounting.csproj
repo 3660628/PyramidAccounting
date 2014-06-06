@@ -427,6 +427,7 @@
     <Content Include="Lib\Microsoft.Office.Interop.Excel.dll" />
     <Content Include="Resources\DatabaseData.sql" />
     <Content Include="Resources\ReadOnlySQL.sql" />
+    <Resource Include="View\Images\Logo\stoneantLogo.png" />
     <Resource Include="View\Images\icon\80.80\凭证审核_Dis.png" />
     <Resource Include="View\Images\icon\80.80\凭证录入_Dis.png" />
     <Resource Include="View\Images\icon\80.80\报表查询_Dis.png" />

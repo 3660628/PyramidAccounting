@@ -5,7 +5,7 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:input="clr-namespace:System.Windows.Input;assembly=PresentationCore"
       mc:Ignorable="d" 
-      d:DesignHeight="570" d:DesignWidth="800" FontFamily="NSimSun" TextOptions.TextFormattingMode="Display"
+      d:DesignHeight="570" d:DesignWidth="800" TextOptions.TextFormattingMode="Display"
 	Title="Page_Two_系统管理">
     <Page.Resources>
         <Storyboard x:Key="Storyboard_GridPopVisibility">
@@ -189,7 +189,7 @@
                                 <TextBlock Text="天(D)" HorizontalAlignment="Left" Margin="306,16,0,0" VerticalAlignment="Top"/>
                                 <TextBlock Text="数据备份路径(R):" HorizontalAlignment="Left" Margin="30,74,0,0" VerticalAlignment="Top"/>
                                 <TextBox x:Name="backup_filePath" HorizontalAlignment="Left" Height="23" Margin="151,70,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="450" VerticalContentAlignment="Center" IsReadOnly="True"/>
-                                <Button FocusVisualStyle="{x:Null}" Content="浏览(B)..." HorizontalAlignment="Left" Margin="630,71,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click"  Foreground="White" Height="20" Template="{DynamicResource ButtonControlTemplate_CommonBlue}"/>
+                                <Button FocusVisualStyle="{x:Null}" Content="浏览..." HorizontalAlignment="Left" Margin="630,71,0,0" VerticalAlignment="Top" Width="80" Click="Button_Click"  Foreground="White" Height="30" Template="{DynamicResource ButtonControlTemplate_CommonBlue}"/>
                                 <TextBlock HorizontalAlignment="Left" Margin="29,45,0,0" FontSize="12" TextWrapping="Wrap" Text="提示：建议备份数据存放在与软件不同硬盘位置" VerticalAlignment="Top" Width="317"/>
                             </Grid>
                         </Expander>
@@ -198,13 +198,13 @@
                                 <TextBlock Text="请选择需要恢复的数据文件:" HorizontalAlignment="Left" Margin="30,10,0,0" VerticalAlignment="Top"/>
                                 <TextBlock Text="文件位置(V):" HorizontalAlignment="Left" Margin="30,36,0,0" VerticalAlignment="Top"/>
                                 <TextBox x:Name="Recover_filepath" HorizontalAlignment="Left" Height="23" Margin="151,30,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="450" VerticalContentAlignment="Center" IsReadOnly="True"/>
-                                <Button FocusVisualStyle="{x:Null}" x:Name="Button_Brower" Content="浏览(B)..." HorizontalAlignment="Left" Margin="630,31,0,0" VerticalAlignment="Top" Width="75" Foreground="White" Height="20" Template="{DynamicResource ButtonControlTemplate_CommonBlue}"/>
+                                <Button FocusVisualStyle="{x:Null}" x:Name="Button_Brower" Content="浏览..." HorizontalAlignment="Left" Margin="630,31,0,0" VerticalAlignment="Top" Width="80" Foreground="White" Height="30" Template="{DynamicResource ButtonControlTemplate_CommonBlue}"/>
                             </Grid>
                         </Expander>
                     </StackPanel>
-                    <Button FocusVisualStyle="{x:Null}" x:Name="ButtonBackUp" Content="备份" HorizontalAlignment="Left" Margin="546,484,0,0" VerticalAlignment="Top" Width="70" Click="Button_备份_Click" Background="#7FFF00"  Foreground="White" Height="20" FontWeight="Black" Style="{StaticResource GlassButton}" Template="{DynamicResource ButtonControlTemplate_CommonBlue}"/>
-                    <Button FocusVisualStyle="{x:Null}" x:Name="Button_Recover" Content="恢复" HorizontalAlignment="Left" Margin="633,484,0,0" VerticalAlignment="Top" Width="70" Click="Button_Recover_Click" Background="Red" Foreground="White" Height="20" FontWeight="Black" Style="{StaticResource GlassButton}" Template="{DynamicResource ButtonControlTemplate_CommonBlue}"/>
-                    <Button FocusVisualStyle="{x:Null}" x:Name="Button_save" Content="保存" HorizontalAlignment="Left" Margin="720,484,0,0" VerticalAlignment="Top" Width="70" Click="Button_save_Click" Background="#00BFFF" Foreground="White" Height="20" FontWeight="Black" Style="{StaticResource GlassButton}" Template="{DynamicResource ButtonControlTemplate_CommonBlue}"/>
+                    <Button FocusVisualStyle="{x:Null}" x:Name="ButtonBackUp" Content="备份" HorizontalAlignment="Left" Margin="546,484,0,0" VerticalAlignment="Top" Width="80" Click="Button_备份_Click" Background="#7FFF00"  Foreground="White" Height="30" FontWeight="Black" Style="{StaticResource GlassButton}" Template="{DynamicResource ButtonControlTemplate_CommonBlue}"/>
+                    <Button FocusVisualStyle="{x:Null}" x:Name="Button_Recover" Content="恢复" HorizontalAlignment="Left" Margin="633,484,0,0" VerticalAlignment="Top" Width="80" Click="Button_Recover_Click" Background="Red" Foreground="White" Height="30" FontWeight="Black" Style="{StaticResource GlassButton}" Template="{DynamicResource ButtonControlTemplate_CommonBlue}"/>
+                    <Button FocusVisualStyle="{x:Null}" x:Name="Button_save" Content="保存" HorizontalAlignment="Left" Margin="720,484,0,0" VerticalAlignment="Top" Width="80" Click="Button_save_Click" Background="#00BFFF" Foreground="White" Height="30" FontWeight="Black" Style="{StaticResource GlassButton}" Template="{DynamicResource ButtonControlTemplate_CommonBlue}"/>
                 </Grid>
             </TabItem>
             <TabItem FocusVisualStyle="{x:Null}" Header="操作记录" Margin="32,-1,-32,1" Template="{DynamicResource TabItemControlTemplate_TwoTabHeader}">
@@ -236,38 +236,36 @@
                 </Grid>
             </TabItem>
             <TabItem Header="关于我们" FocusVisualStyle="{x:Null}" Margin="40,-1,-40,1" Template="{DynamicResource TabItemControlTemplate_TwoTabHeader}" >
-                <Grid Background="Snow">
+                <Grid>
                     <Grid.RowDefinitions>
-                        <RowDefinition Height="150*"/>
+                        <RowDefinition Height="7*"/>
                         <RowDefinition Height="50*"/>
-                        <RowDefinition Height="50*"/>
-                        <RowDefinition Height="50*"/>
-                        <RowDefinition Height="50*"/>
-                        <RowDefinition Height="70*"/>
-                        <RowDefinition Height="50*"/>
-                        <RowDefinition Height="250*"/>
                     </Grid.RowDefinitions>
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="163*"/>
+                        <ColumnDefinition Width="42*"/>
+                        <ColumnDefinition Width="289*"/>
                     </Grid.ColumnDefinitions>
-                    <Image HorizontalAlignment="Left" Height="190" Margin="0,36,0,0" VerticalAlignment="Top" Width="197" Grid.RowSpan="6"/>
-                    <Label Content="金字塔会计软件" HorizontalAlignment="Left" Margin="40,25,0,0" VerticalAlignment="Top" FontSize="18" Grid.Column="1" FontWeight="ExtraBold"/>
-                    <Label Content="Copyright © 2014 StoneAnt. All Rights Reserved" Margin="50,0,0,0" HorizontalAlignment="Left"  VerticalAlignment="Center" Width="Auto" Grid.Row="4"/>
-                    <Label Content="客服热线：0754-85837039" Margin="50,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Center" Width="279" Grid.Row="2" />
-                    <Label x:Name="Laber_Version" Content="Label" Margin="50,0,0,0" HorizontalAlignment="Left"  VerticalAlignment="Center"  Grid.Row="1"/>
-                    <Label Content="企业QQ： 2095250852" Margin="50,0,0,0" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center" Grid.Row="3"/>
-                    <Label x:Name="Label_状态" Content="Label" HorizontalAlignment="Left" Margin="50,10,0,0" VerticalAlignment="Top" Grid.Row="6" />
-                    <Grid x:Name="Grid_Register" Grid.Row="7" Grid.ColumnSpan="2">
+                    <Image Grid.Column="1" HorizontalAlignment="Right" VerticalAlignment="Bottom" Source="/View/Images/Logo/stoneantLogo.png" Grid.Row="1" Height="178" Width="188"/>
+                    <Label Content="金字塔财务管理软件" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="36" Grid.Column="1" Grid.Row="1" Height="56"/>
+                    <Label x:Name="Label_Version" Content="版本：" HorizontalAlignment="Left" Margin="10,80,0,0" VerticalAlignment="Top" Grid.Column="1" FontSize="16" Grid.Row="1" Height="30"/>
+                    <Label Content="客服热线：0754-85837039" HorizontalAlignment="Left" Margin="10,120,0,0" VerticalAlignment="Top" Grid.Column="1" FontSize="16" Grid.Row="1" Height="30"/>
+                    <Label Content="企业QQ：2095250852" HorizontalAlignment="Left" Margin="10,160,0,0" VerticalAlignment="Top" Grid.Column="1" FontSize="16" Grid.Row="1" Height="30"/>
+                    <Label Content="Copyright © 2014 StoneAnt. All Rights Reserved" HorizontalAlignment="Left" Margin="10,200,0,0" VerticalAlignment="Top" Grid.Row="1" Grid.Column="1" FontSize="16" Height="30"/>
+                    <Label x:Name="Label_状态" Content="Label" HorizontalAlignment="Left" Margin="10,240,0,0" VerticalAlignment="Top" Height="30" Grid.Row="1" FontSize="16" VerticalContentAlignment="Top" Grid.Column="1" />
+                    <Button x:Name="Button_解密" Content="解密" Foreground="White" Grid.Column="1" HorizontalAlignment="Left" Margin="587,23,0,0" VerticalAlignment="Top" Width="80" Template="{DynamicResource ButtonControlTemplate_CommonBlue}" Click="Button_解密_Click" Grid.Row="1" Height="30"/>
+                    <Grid x:Name="Grid_Register" VerticalAlignment="Bottom" Grid.Row="1" Grid.Column="1" Margin="0,0,10,100">
                         <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="109*" />
-                            <ColumnDefinition Width="400"/>
-                            <ColumnDefinition Width="200*" />
+                            <ColumnDefinition Width="100" />
+                            <ColumnDefinition Width="200*"/>
                         </Grid.ColumnDefinitions>
-                        <Label Content="注册码：" Margin="50,10,0,0" HorizontalAlignment="Left"  VerticalAlignment="Top" Grid.Column="0"/>
-                        <TextBox x:Name="TextBox_注册" HorizontalAlignment="Center" Height="20" TextWrapping="Wrap" VerticalAlignment="Top" Width="375" Grid.Column="1" Margin="0,10,25,0" VerticalContentAlignment="Center"/>
-                        <Button FocusVisualStyle="{x:Null}" x:Name="Button_注册" Content="注册" HorizontalAlignment="Left" Margin="10,10,0,0"  VerticalAlignment="Top" Foreground="White" Height="20" Width="75" Grid.Column="2" Click="Button_注册_Click" Template="{DynamicResource ButtonControlTemplate_CommonBlue}" />
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+                        <Label Content="注册码：" FontSize="16" Margin="10,0,20,0" HorizontalAlignment="Left"  VerticalAlignment="Center" Grid.Column="0" Height="30" Padding="5,0" VerticalContentAlignment="Center"/>
+                        <TextBox x:Name="TextBox_注册" HorizontalAlignment="Left" Height="30" TextWrapping="Wrap" VerticalAlignment="Center" Width="350" Grid.Column="1" Margin="10,0,0,0" VerticalContentAlignment="Center"/>
+                        <Button x:Name="Button_注册"  FocusVisualStyle="{x:Null}" Content="注册" HorizontalAlignment="Center" Margin="20,20,20,0"  VerticalAlignment="Center" Foreground="White" Height="30" Width="80" Grid.Column="1" Grid.Row="1" Click="Button_注册_Click" Template="{DynamicResource ButtonControlTemplate_CommonBlue}" />
                     </Grid>
-                    <Button x:Name="Button_解密" Content="解密" Height="20" Foreground="White" HorizontalAlignment="Left" Margin="690,22,0,0" VerticalAlignment="Top" Width="75" Template="{DynamicResource ButtonControlTemplate_CommonBlue}" Click="Button_解密_Click"/>
                 </Grid>
             </TabItem>
         </TabControl>
