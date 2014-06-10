@@ -4,7 +4,7 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       mc:Ignorable="d" 
-      d:DesignHeight="225" d:DesignWidth="200" FontFamily="NSimSun" TextOptions.TextFormattingMode="Display"
+      d:DesignHeight="225" d:DesignWidth="200" FontFamily="SimSun" TextOptions.TextFormattingMode="Display"
 	Title="Page_凭证录入_子细目" Loaded="Page_Loaded">
 
     <Grid>

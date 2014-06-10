@@ -4,7 +4,7 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       mc:Ignorable="d" 
-      d:DesignHeight="550" d:DesignWidth="500" FontFamily="NSimSun" TextOptions.TextFormattingMode="Display"
+      d:DesignHeight="550" d:DesignWidth="500" FontFamily="SimSun" TextOptions.TextFormattingMode="Display"
 	Title="Page_修改用户">
 
     <Grid Background="White">

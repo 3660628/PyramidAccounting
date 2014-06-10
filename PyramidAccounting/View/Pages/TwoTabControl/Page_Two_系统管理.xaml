@@ -5,7 +5,7 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:input="clr-namespace:System.Windows.Input;assembly=PresentationCore"
       mc:Ignorable="d" 
-      d:DesignHeight="570" d:DesignWidth="800" TextOptions.TextFormattingMode="Display"
+      d:DesignHeight="570" d:DesignWidth="800" TextOptions.TextFormattingMode="Display" FontFamily="SimSun"
 	Title="Page_Two_系统管理">
     <Page.Resources>
         <Storyboard x:Key="Storyboard_GridPopVisibility">
