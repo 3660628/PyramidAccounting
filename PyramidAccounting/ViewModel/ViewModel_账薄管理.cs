@@ -146,7 +146,7 @@ namespace PA.ViewModel
             string _tempstr = string.Empty;
             foreach(string i in lst)
             {
-                _tempstr += ",sum(case when t.detail='"
+                _tempstr += ",total(case when t.detail='"
                     + i.Split('\t')[0] 
                     + "' then (t.fee1+t.fee2) else '0' end) as '" 
                     + i.Split('\t')[1]
@@ -158,7 +158,7 @@ namespace PA.ViewModel
             }
 
             List<Model_费用明细> list = new List<Model_费用明细>();
-            string sql = "select strftime(time),number,comments,sum(fee1),sum(fee2)"
+            string sql = "select strftime(time),number,comments,total(fee1),total(fee2)"
                 + _tempstr
                 + " from " 
                 + "(select b.op_time as time ,a.voucher_no as number,a.abstract as comments,a.debit as fee1,a.credit as fee2,a.detail as detail from "

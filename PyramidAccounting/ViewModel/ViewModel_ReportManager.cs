@@ -153,7 +153,7 @@ namespace PA.ViewModel
             bool flag = db.BatchOperate(sqlList);
             if ( flag )
             {
-                string _sql3 = "select b.subject_name,a.fee,b.fee from (select subject_name,sum(fee) as fee from sbtemp where period<=" +
+                string _sql3 = "select b.subject_name,a.fee,b.fee from (select subject_name,total(fee) as fee from sbtemp where period<=" +
                 index + " group by subject_name) b left join  (select subject_name,fee from sbtemp where period="
                 + index + ") a on a.subject_name=b.subject_name";
                 DataTable dt = db.Query(_sql3).Tables[0];
