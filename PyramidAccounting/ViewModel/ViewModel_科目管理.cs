@@ -227,7 +227,7 @@ namespace PA.ViewModel
                     list = new List<string>() { "40101", "40102", "40401", "40402" };
                     break;
                 case "1":
-                    list = new List<string>() { "40101", "40102", "40501", "50401", "50402", "30601", "30602" };
+                    list = new List<string>() { "40101", "40102", "40501", "30601", "30602" };
                     break;
             }
             return list;
