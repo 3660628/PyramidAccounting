@@ -715,16 +715,16 @@
                                 <Label x:Name="Label_B102" Content="" HorizontalAlignment="Center"   Grid.Column="2" Grid.Row="4" />
                                 <Label x:Name="Label_B201" Content="" HorizontalAlignment="Center"   Grid.Column="1" Grid.Row="12" />
                                 <Label x:Name="Label_B202" Content="" HorizontalAlignment="Center"   Grid.Column="2" Grid.Row="12" />
-                                <Label x:Name="Label_B301" Content="" HorizontalAlignment="Center"   Grid.Column="9" Grid.Row="3" />
-                                <Label x:Name="Label_B302" Content="" HorizontalAlignment="Center"   Grid.Column="10" Grid.Row="3" />
-                                <Label x:Name="Label_B401" Content="" HorizontalAlignment="Center"   Grid.Column="9" Grid.Row="12" />
-                                <Label x:Name="Label_B402" Content="" HorizontalAlignment="Center"   Grid.Column="10" Grid.Row="12" />
-                                <Label x:Name="Label_B501" Content="" HorizontalAlignment="Center"   Grid.Column="9"  Grid.Row="15" />
-                                <Label x:Name="Label_B502" Content="" HorizontalAlignment="Center"   Grid.Column="10" Grid.Row="15" />
-                                <Label x:Name="Label_B601" Content="" HorizontalAlignment="Center"   Grid.Column="9"  Grid.Row="17" />
-                                <Label x:Name="Label_B602" Content="" HorizontalAlignment="Center"   Grid.Column="10" Grid.Row="17" />
-                                <Label x:Name="Label_B701" Content="" HorizontalAlignment="Center"   Grid.Column="9"  Grid.Row="27" />
-                                <Label x:Name="Label_B702" Content="" HorizontalAlignment="Center"   Grid.Column="10" Grid.Row="27" />
+                                <Label x:Name="Label_B301" Content="" HorizontalAlignment="Center"   Grid.Column="5" Grid.Row="3" />
+                                <Label x:Name="Label_B302" Content="" HorizontalAlignment="Center"   Grid.Column="6" Grid.Row="3" />
+                                <Label x:Name="Label_B401" Content="" HorizontalAlignment="Center"   Grid.Column="5" Grid.Row="12" />
+                                <Label x:Name="Label_B402" Content="" HorizontalAlignment="Center"   Grid.Column="6" Grid.Row="12" />
+                                <Label x:Name="Label_B501" Content="" HorizontalAlignment="Center"   Grid.Column="5"  Grid.Row="15" />
+                                <Label x:Name="Label_B502" Content="" HorizontalAlignment="Center"   Grid.Column="6" Grid.Row="15" />
+                                <Label x:Name="Label_B601" Content="" HorizontalAlignment="Center"   Grid.Column="5"  Grid.Row="17" />
+                                <Label x:Name="Label_B602" Content="" HorizontalAlignment="Center"   Grid.Column="6" Grid.Row="17" />
+                                <Label x:Name="Label_B701" Content="" HorizontalAlignment="Center"   Grid.Column="5"  Grid.Row="27" />
+                                <Label x:Name="Label_B702" Content="" HorizontalAlignment="Center"   Grid.Column="6" Grid.Row="27" />
                                 <!--三级科目合计支出-->
                                 <Label x:Name="Label_A基本工资" Content="" HorizontalAlignment="Center" Grid.Column="1" Grid.Row="5"/>
                                 <Label x:Name="Label_B基本工资" Content="" HorizontalAlignment="Center" Grid.Column="2" Grid.Row="5"/>
@@ -855,10 +855,10 @@
                                
                             </Grid>
                             <Label Content="补充资料：编制人数______________________________" HorizontalAlignment="Left" VerticalAlignment="Bottom"/>
-                            <Label Content="在职人数______________________________" HorizontalAlignment="Left" Margin="200,0,0,0" VerticalAlignment="Bottom"/>
-                            <Label Content="离休人数______________________________" HorizontalAlignment="Left" Margin="338,0,0,0" VerticalAlignment="Bottom"/>
-                            <Label Content="退休人数______________________________" HorizontalAlignment="Left" Margin="476,0,0,0" VerticalAlignment="Bottom"/>
-                            <Label Content="机动车车辆核编数（实际数______________________________）" HorizontalAlignment="Left" Margin="614,0,0,0" VerticalAlignment="Bottom"/>
+                            <Label Content="在职人数______________________________" HorizontalAlignment="Left" Margin="220,0,0,0" VerticalAlignment="Bottom"/>
+                            <Label Content="离休人数______________________________" HorizontalAlignment="Left" Margin="375,0,0,0" VerticalAlignment="Bottom"/>
+                            <Label Content="退休人数______________________________" HorizontalAlignment="Left" Margin="525,0,0,0" VerticalAlignment="Bottom"/>
+                            <Label Content="机动车车辆核编数（实际数______________________________）" HorizontalAlignment="Left" Margin="680,0,0,0" VerticalAlignment="Bottom"/>
                         </Grid>
                     </ScrollViewer>
                 </Grid>
