@@ -40,7 +40,7 @@ namespace PyramidAccounting
                 stringBuilder.AppendFormat("/n {0}", e.Exception.InnerException.Message);
             }
             stringBuilder.AppendFormat("/n {0}", e.Exception.StackTrace);
-            MessageBox.Show(stringBuilder.ToString());
+            MessageBox.Show("应用程序出现了未捕获的异常，请联系开发商。");
             PA.Helper.DataBase.Log.Write(stringBuilder.ToString());
             e.Handled = true;
         }  
