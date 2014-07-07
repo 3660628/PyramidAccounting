@@ -500,7 +500,6 @@ namespace PA.View.Pages.TwoTabControl
 
                 decimal.TryParse(Label_A向国家银行借款付息.Content.ToString(), out dn);
                 b501 += dn;
-                b501 += dn;
                     Label_B501.Content = b501;
                 decimal.TryParse(Label_A房屋建筑物购建.Content.ToString(), out dn);
                 b601 += dn;
@@ -611,7 +610,6 @@ namespace PA.View.Pages.TwoTabControl
                 Label_B402.Content = b402;
 
                 decimal.TryParse(Label_B向国家银行借款付息.Content.ToString(), out dn);
-                b502 += dn;
                 b502 += dn;
 
                 Label_B502.Content = b502;

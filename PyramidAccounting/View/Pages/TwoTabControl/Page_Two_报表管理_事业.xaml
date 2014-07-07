@@ -687,14 +687,14 @@
                                 <Label Content="6.住房公积金" VerticalContentAlignment="Center" HorizontalAlignment="Left" Grid.Column="4" Grid.Row="9"/>
                                 <Label Content="6.电费" VerticalContentAlignment="Center" HorizontalAlignment="Left" Grid.Row="18"/>
                                 <Label Content="7.邮电费" VerticalContentAlignment="Center" HorizontalAlignment="Left" Grid.Row="19"/>
-                                <Label Content="7.其他对个人和家庭的补助支出" VerticalContentAlignment="Center" HorizontalAlignment="Left" Grid.Column="4" Grid.Row="10"/>
+                                <Label Content="7.其他对个人和家庭的补助支出" FontSize="12" VerticalContentAlignment="Center" HorizontalAlignment="Left" Grid.Column="4" Grid.Row="10"/>
                                 <Label Content="8.住房维修补贴" VerticalContentAlignment="Center" HorizontalAlignment="Left" Grid.Column="4" Grid.Row="11"/>
                                 <Label Content="8.交通费" VerticalContentAlignment="Center" HorizontalAlignment="Left" Grid.Row="20"/>
                                 <Label Content="对企事业单位的补贴" VerticalContentAlignment="Center" HorizontalAlignment="Center" Grid.Column="4" Grid.Row="12"/>
                                 <Label Content="9.差旅费" VerticalContentAlignment="Center" HorizontalAlignment="Left" Grid.Row="21"/>
                                 <Label Content="10.维修（护）费" VerticalContentAlignment="Center" HorizontalAlignment="Left" Grid.Row="22"/>
                                 <Label Content="1.事业单位补贴" VerticalContentAlignment="Center" HorizontalAlignment="Left" Grid.Column="4" Grid.Row="13"/>
-                                <Label Content="2.其他对企事业单位的补贴支出" VerticalContentAlignment="Center" HorizontalAlignment="Left" Grid.Column="4" Grid.Row="14"/>
+                                <Label Content="2.其他对企事业单位的补贴支出" FontSize="12" VerticalContentAlignment="Center" HorizontalAlignment="Left" Grid.Column="4" Grid.Row="14"/>
                                 <Label Content="11.会议费" VerticalContentAlignment="Center" HorizontalAlignment="Left" Grid.Row="23"/>
                                 <Label Content="债务利息支出" VerticalContentAlignment="Center" HorizontalAlignment="Center" Grid.Column="4" Grid.Row="15"/>
                                 <Label Content="12.培训费" VerticalContentAlignment="Center" HorizontalAlignment="Left" Grid.Row="24"/>

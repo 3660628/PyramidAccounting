@@ -496,45 +496,45 @@ namespace PA.Helper.ExcelHelper
             for (int i = 7; i < 15; i++)
             {
                 decimal T1 = 0m, T2 = 0m;
-                decimal.TryParse(((xls.Range)xlWorkSheet.Cells[i, "I"]).Text, out T1);
+                decimal.TryParse(((xls.Range)xlWorkSheet.Cells[i, "E"]).Text, out T1);
                 b301 += T1;
-                decimal.TryParse(((xls.Range)xlWorkSheet.Cells[i, "J"]).Text, out T2);
+                decimal.TryParse(((xls.Range)xlWorkSheet.Cells[i, "F"]).Text, out T2);
                 b302 += T2;
             }
             //对企事业单位的补贴
             for (int i = 16; i < 18; i++)
             {
                 decimal T1 = 0m, T2 = 0m;
-                decimal.TryParse(((xls.Range)xlWorkSheet.Cells[i, "I"]).Text, out T1);
+                decimal.TryParse(((xls.Range)xlWorkSheet.Cells[i, "E"]).Text, out T1);
                 b401 += T1;
-                decimal.TryParse(((xls.Range)xlWorkSheet.Cells[i, "J"]).Text, out T2);
+                decimal.TryParse(((xls.Range)xlWorkSheet.Cells[i, "F"]).Text, out T2);
                 b402 += T2;
             }
             //债务利息支出
             for (int i = 19; i < 20; i++)
             {
                 decimal T1 = 0m, T2 = 0m;
-                decimal.TryParse(((xls.Range)xlWorkSheet.Cells[i, "I"]).Text, out T1);
+                decimal.TryParse(((xls.Range)xlWorkSheet.Cells[i, "E"]).Text, out T1);
                 b501 += T1;
-                decimal.TryParse(((xls.Range)xlWorkSheet.Cells[i, "J"]).Text, out T2);
+                decimal.TryParse(((xls.Range)xlWorkSheet.Cells[i, "F"]).Text, out T2);
                 b502 += T2;
             }
             //其他资本性支出
             for (int i = 21; i < 30; i++)
             {
                 decimal T1 = 0m, T2 = 0m;
-                decimal.TryParse(((xls.Range)xlWorkSheet.Cells[i, "I"]).Text, out T1);
+                decimal.TryParse(((xls.Range)xlWorkSheet.Cells[i, "E"]).Text, out T1);
                 b601 += T1;
-                decimal.TryParse(((xls.Range)xlWorkSheet.Cells[i, "J"]).Text, out T2);
+                decimal.TryParse(((xls.Range)xlWorkSheet.Cells[i, "F"]).Text, out T2);
                 b602 += T2;
             }
             //其他支出
             for (int i = 31; i < 33; i++)
             {
                 decimal T1 = 0m, T2 = 0m;
-                decimal.TryParse(((xls.Range)xlWorkSheet.Cells[i, "I"]).Text, out T1);
+                decimal.TryParse(((xls.Range)xlWorkSheet.Cells[i, "E"]).Text, out T1);
                 b701 += T1;
-                decimal.TryParse(((xls.Range)xlWorkSheet.Cells[i, "J"]).Text, out T2);
+                decimal.TryParse(((xls.Range)xlWorkSheet.Cells[i, "F"]).Text, out T2);
                 b702 += T2;
             }
             xlWorkSheet.Cells[2, "A"] = "编制单位：" + CommonInfo.制表单位;
