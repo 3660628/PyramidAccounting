@@ -880,7 +880,7 @@ namespace PA.ViewModel
                 + detail + "' order by b.op_time";
 
             //查年初数
-            string sql2 = "select case when b.borrow_mark=1 then '借' else '贷' end,abs(a.fee*b.borrow_mark) from " 
+            string sql2 = "select case when b.borrow_mark=1 then '借' else '贷' end,a.fee*b.borrow_mark from " 
                 + DBTablesName.T_YEAR_FEE + " a left join " + DBTablesName.T_SUBJECT
                 + " b on a.subject_id=b.subject_id where "
                 + " a.subject_id='" + detail + "' and a.bookid='" + CommonInfo.账薄号 + "'";
