@@ -18,7 +18,7 @@ namespace PA.ViewModel
         /// </summary>
         /// <param name="whereParm"></param>
         /// <returns></returns>
-        public List<Model_凭证管理> GetData(string whereParm)
+        internal List<Model_凭证管理> GetData(string whereParm)
         {
             List<Model_凭证管理> datas = new List<Model_凭证管理>();
             Guid LastID = Guid.Empty;
@@ -83,7 +83,7 @@ namespace PA.ViewModel
             return datas;
         }
 
-        public bool InsertData(Model_凭证单 Voucher, List<Model_凭证明细> VoucherDetails)
+        internal bool InsertData(Model_凭证单 Voucher, List<Model_凭证明细> VoucherDetails)
         {
             bool isEmpty = true;
             decimal CountBorrow = 0m;
@@ -116,7 +116,7 @@ namespace PA.ViewModel
             return !isEmpty;
         }
 
-        public void Review(Guid id)
+        internal void Review(Guid id)
         {
             string sql = "update " + DBTablesName.T_VOUCHER + " set review_mark=1,REVIEWER='" + CommonInfo.真实姓名 + "' where id='" + id + "'";
             List<string> lists = new List<string>();
@@ -124,7 +124,7 @@ namespace PA.ViewModel
             db.BatchOperate(lists);
         }
 
-        public void UnReview(Guid id)
+        internal void UnReview(Guid id)
         {
             string sql = "update " + DBTablesName.T_VOUCHER + " set review_mark=0,REVIEWER='" + CommonInfo.真实姓名 + "' where id='" + id + "'";
             List<string> lists = new List<string>();
@@ -132,14 +132,14 @@ namespace PA.ViewModel
             db.BatchOperate(lists);
         }
 
-        public void Delete(Guid id)
+        internal void Delete(Guid id)
         {
             string sql = "update " + DBTablesName.T_VOUCHER + " set DELETE_MARK=-1 where id='" + id + "'";
             List<string> lists = new List<string>();
             lists.Add(sql);
             db.BatchOperate(lists);
         }
-        public void DeleteAsModify(Guid id)
+        internal void DeleteAsModify(Guid id)
         {
             string sql2 = "Delete from " + DBTablesName.T_VOUCHER_DETAIL + " where parentid='" + id + "'";
             string sql1 = "Delete from " + DBTablesName.T_VOUCHER + " where id='" + id + "'";
@@ -153,7 +153,7 @@ namespace PA.ViewModel
         /// </summary>
         /// <param name="period"></param>
         /// <returns></returns>
-        public bool IsReview(int period)
+        internal bool IsReview(int period)
         {
             string sql = "select 1 from " + DBTablesName.T_VOUCHER 
                 + " where REVIEW_MARK=0 and delete_mark=0 and period=" + period + "";
@@ -167,7 +167,22 @@ namespace PA.ViewModel
                 return true;
             }
         }
-        public Model_凭证单 GetVoucher(Guid guid)
+
+        internal bool IsVOUCHER_NOExist(string no)
+        {
+            string sql = "select 1 from " + DBTablesName.T_VOUCHER_DETAIL + " a left join " + DBTablesName.T_VOUCHER + " b on a.PARENTID=b.id"
+                + " where b.delete_mark=0 and b.period=" + CommonInfo.当前期 + " and a.VOUCHER_NO='" + no + "'";
+            DataTable dt = db.Query(sql).Tables[0];
+            if (dt.Rows.Count > 0)
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+        }
+        internal Model_凭证单 GetVoucher(Guid guid)
         {
             Model_凭证单 Voucher = new Model_凭证单();
             string sql = "select * from " + DBTablesName.T_VOUCHER + " where id='" + guid + "'";
@@ -188,7 +203,7 @@ namespace PA.ViewModel
             }
             return Voucher;
         }
-        public List<Model_凭证明细> GetVoucherDetails(Guid guid)
+        internal List<Model_凭证明细> GetVoucherDetails(Guid guid)
         {
             string LastVoucherNum = "";
             int CountNum = 0;
@@ -263,7 +278,7 @@ namespace PA.ViewModel
             }
             return VoucherDetails;
         }
-        public int GetPageNum(Guid guid)
+        internal int GetPageNum(Guid guid)
         {
             int result = 1;
             string sql = "select count(*) from (SELECT count(*) FROM " + DBTablesName.T_VOUCHER_DETAIL + " WHERE PARENTID = '"+ guid +"' GROUP BY VOUCHER_NO)";
@@ -278,7 +293,7 @@ namespace PA.ViewModel
         /// 审核全部 20140504 Lugia
         /// </summary>
         /// <returns></returns>
-        public bool ReviewAll()
+        internal bool ReviewAll()
         {
             string sql = "update " + DBTablesName.T_VOUCHER + " set review_mark=1,REVIEWER='" + CommonInfo.真实姓名 + "' where review_mark=0";
             List<string> lists = new List<string>();

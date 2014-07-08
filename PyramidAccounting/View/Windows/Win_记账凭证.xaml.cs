@@ -23,6 +23,7 @@ namespace PA.View.Windows
     public partial class Win_记账凭证 : Window
     {
         public static event Win_记账凭证_Submit ESubmit;
+        private ViewModel.ViewModel_凭证管理 vmp = new ViewModel.ViewModel_凭证管理();
         Model_凭证单 Voucher = new Model_凭证单();
         List<Model_凭证明细> VoucherDetails = new List<Model_凭证明细>();//所有DataGrid数据集合
         List<Model_凭证明细> VoucherDetailsNow = new List<Model_凭证明细>();//当前DataGrid的数据
@@ -231,7 +232,13 @@ namespace PA.View.Windows
                       return false;
                    }
                 }
+                if (!vmp.IsVOUCHER_NOExist(VoucherDetails[i * 6].凭证号))
+                {
+                    MessageBoxCommon.Show("凭证号已存在,请勿重复添加！");
+                    return false;
+                }
             }
+           
             int temp;
             if (!int.TryParse(this.TextBox_附属单证.Text.Trim(), out temp))
             {
