@@ -45,6 +45,10 @@ namespace PA.View.Pages.Pop.凭证录入
             {
                 OnFillDate(this.ListBox_科目.SelectedValue.ToString());
             }
+            if (ListBox_科目.Items.Count == 1)
+            {
+                OnFillDate(this.ListBox_科目.Items[0].ToString());
+            }
         }
 
         private void TextBox_科目搜索_TextChanged(object sender, TextChangedEventArgs e)
