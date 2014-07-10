@@ -29,12 +29,11 @@ namespace PA.ViewModel
             List<Model_总账> list = new List<Model_总账>();
             string id = subject_id.Split('\t')[0];
             string name = subject_id.Split('\t')[1];
-            string sql = "select strftime(op_time),VOUCHER_NUMS,COMMENTS,DEBIT,CREDIT,FEE,mark from "
+            string sql = "select strftime(op_time),VOUCHER_NUMS,COMMENTS,DEBIT,CREDIT,FEE*mark from "
                 + DBTablesName.T_FEE + " where " + WhereParm + " delete_mark=0 and subject_id='" + id + "' order by op_time";
 
             DataSet ds = new DataSet();
-            decimal debit = 0;
-            decimal credit = 0;
+            decimal fee = 0;
             ds = db.Query(sql);
             if (ds != null)
             {
@@ -56,28 +55,9 @@ namespace PA.ViewModel
                     m.贷方金额 = d[4].ToString();
                     m.余额 = d[5].ToString();
 
-                    decimal.TryParse(m.贷方金额, out credit);
-                    decimal.TryParse(m.借方金额, out debit);
+                    decimal.TryParse(m.余额, out fee);
 
-                    if (count == 0)
-                    {
-                        m.借或贷 = d[6].ToString().Equals("1") ? "借" : "贷";
-                    }
-                    else
-                    {
-                        if (credit == debit)
-                        {
-                            m.借或贷 = "平";
-                        }
-                        else if (credit > debit)
-                        {
-                            m.借或贷 = "贷";
-                        }
-                        else
-                        {
-                            m.借或贷 = "借";
-                        }
-                    }
+                    m.借或贷 = GetMark(fee);
                     string temp = string.Empty;
                     List<string> _list = new List<string>();
 
@@ -1012,7 +992,7 @@ namespace PA.ViewModel
                             Model_科目明细账 mm = new Model_科目明细账();
                             mm = GetModel_Subject(MonthDebit, MonthCredit, MonthDebit - MonthCredit + decimal.Parse(firstRow.余额),flag);
                             mm.摘要 = "本月合计";
-                            mm.借或贷 = GetMark(MonthDebit,MonthCredit);
+                            mm.借或贷 = GetMark(yearfee);
                             list.Add(mm);
 
                             if (!MonthLastValue.Equals("01"))
@@ -1020,7 +1000,7 @@ namespace PA.ViewModel
                                 Model_科目明细账 mmm = new Model_科目明细账();
                                 mmm = GetModel_Subject(YearDebit, YearCredit, MonthDebit - MonthCredit + decimal.Parse(firstRow.余额),flag);
                                 mmm.摘要 = "本月累计";
-                                mmm.借或贷 = GetMark(YearDebit,YearCredit);
+                                mmm.借或贷 = GetMark(yearfee);
                                 list.Add(mmm);
                             }
                         }
@@ -1041,7 +1021,7 @@ namespace PA.ViewModel
                 Model_科目明细账 mlast = new Model_科目明细账();
                 mlast = GetModel_Subject(MonthDebit, MonthCredit, yearfee,flag);
                 mlast.摘要 = "本月合计";
-                mlast.借或贷 = GetMark(MonthDebit,MonthCredit);
+                mlast.借或贷 = GetMark(yearfee);
                 list.Add(mlast);
                 if (!MonthLastValue.Equals("01"))
                 {
@@ -1055,27 +1035,27 @@ namespace PA.ViewModel
                     {
                         mmm.摘要 = "本月累计";
                     }
-                    mmm.借或贷 = GetMark(YearDebit, YearCredit);
+                    mmm.借或贷 = GetMark(yearfee);
                     list.Add(mmm);
                 }
             }
             return list;
         }
 
-        private string GetMark(decimal a, decimal b)
+        private string GetMark(decimal yearfee)
         {
             string mark = string.Empty;
-            if (a == b)
+            if (yearfee < 0)
+            {
+                mark = "贷";
+            }
+            else if (yearfee == 0)
             {
                 mark = "平";
             }
-            else if (a > b)
-            {
-                mark = "借";
-            }
             else
             {
-                mark = "贷";
+                mark = "借";
             }
             return mark;
         }
