@@ -232,7 +232,7 @@ namespace PA.View.Windows
                       return false;
                    }
                 }
-                if (!vmp.IsVOUCHER_NOExist(VoucherDetails[i * 6].凭证号))
+                if (!vmp.IsVOUCHER_NOExist(VoucherDetails[i * 6].凭证号) && isNew) 
                 {
                     MessageBoxCommon.Show("凭证号已存在,请勿重复添加！");
                     return false;
