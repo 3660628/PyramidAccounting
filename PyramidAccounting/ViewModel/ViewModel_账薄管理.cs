@@ -1130,7 +1130,7 @@ namespace PA.ViewModel
                 + "SELECT ID  FROM   "
                 + DBTablesName.T_VOUCHER
                 + " WHERE period = " + peroid
-                + " and review_mark=1) GROUP BY "
+                + " and review_mark=1 and delete_mark=0 ) GROUP BY "
                 + "SUBJECT_ID  ORDER BY SUBJECT_ID ) t on t.subject_id=b.subject_id where b.period = "
                 + (peroid - 1) + " group by b.subject_id) a";          
             bool flag = db.Excute(sql);
