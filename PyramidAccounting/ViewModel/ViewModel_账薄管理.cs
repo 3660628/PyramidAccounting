@@ -29,8 +29,8 @@ namespace PA.ViewModel
             List<Model_总账> list = new List<Model_总账>();
             string id = subject_id.Split('\t')[0];
             string name = subject_id.Split('\t')[1];
-            string sql = "select strftime(op_time),VOUCHER_NUMS,COMMENTS,DEBIT,CREDIT,FEE*mark from "
-                + DBTablesName.T_FEE + " where " + WhereParm + " delete_mark=0 and subject_id='" + id + "' order by op_time";
+            string sql = "select strftime(op_time),VOUCHER_NUMS,COMMENTS,DEBIT,CREDIT,total(FEE*mark) from "
+                + DBTablesName.T_FEE + " where " + WhereParm + " delete_mark=0 and subject_id='" + id + "' group by period order by op_time";
 
             DataSet ds = new DataSet();
             decimal fee = 0;
@@ -53,10 +53,8 @@ namespace PA.ViewModel
                     m.摘要 = d[2].ToString();
                     m.借方金额 = d[3].ToString();
                     m.贷方金额 = d[4].ToString();
-                    m.余额 = d[5].ToString();
-
-                    decimal.TryParse(m.余额, out fee);
-
+                    decimal.TryParse(d[5].ToString(), out fee);
+                    m.余额 = fee.ToString();
                     m.借或贷 = GetMark(fee);
                     string temp = string.Empty;
                     List<string> _list = new List<string>();
