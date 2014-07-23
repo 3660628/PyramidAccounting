@@ -23,8 +23,8 @@ namespace PA.View.Windows
     public partial class Win_记账凭证 : Window
     {
         public static event Win_记账凭证_Submit ESubmit;
-        private ViewModel.ViewModel_凭证管理 vmp = new ViewModel.ViewModel_凭证管理();
         Model_凭证单 Voucher = new Model_凭证单();
+        private ViewModel.ViewModel_凭证管理 vmp = new ViewModel.ViewModel_凭证管理();
         List<Model_凭证明细> VoucherDetails = new List<Model_凭证明细>();//所有DataGrid数据集合
         List<Model_凭证明细> VoucherDetailsNow = new List<Model_凭证明细>();//当前DataGrid的数据
         private int CellId;
@@ -55,7 +55,7 @@ namespace PA.View.Windows
         #region 自定义事件
         private void OnSubmit()
         {
-            if(ESubmit != null)
+            if (ESubmit != null)
             {
                 ESubmit(this, new MyEventArgs());
             }
@@ -138,17 +138,17 @@ namespace PA.View.Windows
             VoucherDetails = new PA.ViewModel.ViewModel_凭证管理().GetVoucherDetails(guid);
             this.DatePicker_Date.SelectedDate = Voucher.制表时间;
             this.TextBox_附属单证.Text = Voucher.附属单证数.ToString();
-            this.Label_借方合计.Content = Voucher.合计借方金额;
-            this.Label_贷方合计.Content = Voucher.合计贷方金额;
+            this.Label_借方合计.Content = Voucher.合计借方金额.ToString().Contains(".") ? Voucher.合计借方金额.ToString("f2") : Voucher.合计借方金额.ToString();
+            this.Label_贷方合计.Content = Voucher.合计贷方金额.ToString().Contains(".") ? Voucher.合计贷方金额.ToString("f2") : Voucher.合计贷方金额.ToString();
             for (int i = 0; i < 6; i++)
             {
                 Model_凭证明细 a = new Model_凭证明细();
                 a.序号 = i;
                 VoucherDetailsNow.Add(a);
             }
-            for (int i = 0; i < VoucherDetails.Count; i++ )
+            for (int i = 0; i < VoucherDetails.Count; i++)
             {
-                if(i<6)
+                if (i < 6)
                 {
                     VoucherDetailsNow[i] = VoucherDetails[i];
                 }
@@ -215,30 +215,29 @@ namespace PA.View.Windows
             List<string> VoucherNum = new List<string>();
             for (int i = 0; i < PageAll; i++)
             {
-                if(VoucherDetails[i * 6].凭证号.Equals(""))
+                if (VoucherDetails[i * 6].凭证号 == "")
                 {
                     MessageBoxCommon.Show("凭证号不能为空");
                     return false;
                 }
                 else
                 {
-                   if(!VoucherNum.Contains(VoucherDetails[i * 6].凭证号))
-                   {
-                     VoucherNum.Add(VoucherDetails[i * 6].凭证号);
-                   }
-                   else
-                   {
-                      MessageBoxCommon.Show("凭证号不能相同");
-                      return false;
-                   }
-                }
-                if (!vmp.IsVOUCHER_NOExist(VoucherDetails[i * 6].凭证号) && isNew) 
-                {
-                    MessageBoxCommon.Show("凭证号已存在,请勿重复添加！");
-                    return false;
+                    if (!VoucherNum.Contains(VoucherDetails[i * 6].凭证号))
+                    {
+                        VoucherNum.Add(VoucherDetails[i * 6].凭证号);
+                    }
+                    else
+                    {
+                        MessageBoxCommon.Show("凭证号不能相同");
+                        return false;
+                    }
+                    if (!vmp.IsVOUCHER_NOExist(VoucherDetails[i * 6].凭证号) && isNew)
+                    {
+                        MessageBoxCommon.Show("凭证号已存在,请勿重复添加！");
+                        return false;
+                    }
                 }
             }
-           
             int temp;
             if (!int.TryParse(this.TextBox_附属单证.Text.Trim(), out temp))
             {
@@ -256,8 +255,8 @@ namespace PA.View.Windows
                 count借方 += VoucherDetails[i].借方;
                 count贷方 += VoucherDetails[i].贷方;
             }
-            this.Label_借方合计.Content = count借方.ToString();
-            this.Label_贷方合计.Content = count贷方.ToString();
+            this.Label_借方合计.Content = count借方.ToString().Contains(".") ? count借方.ToString("f2") : count借方.ToString();
+            this.Label_贷方合计.Content = count贷方.ToString().Contains(".") ? count贷方.ToString("f2") : count贷方.ToString();
         }
 
         /// <summary>
@@ -297,14 +296,14 @@ namespace PA.View.Windows
             {
                 return;
             }
-            if(new PA.ViewModel.ViewModel_凭证管理().InsertData(Voucher, VoucherDetails))
+            if (new PA.ViewModel.ViewModel_凭证管理().InsertData(Voucher, VoucherDetails))
             {
                 if (!isNew)
                 {
                     new PA.ViewModel.ViewModel_凭证管理().DeleteAsModify(guid);
                 }
                 OnSubmit();
-                Button_Close_Click(null,null);
+                Button_Close_Click(null, null);
             }
             else
             {
@@ -320,7 +319,7 @@ namespace PA.View.Windows
             {
                 return;
             }
-            if(new PA.ViewModel.ViewModel_凭证管理().InsertData(Voucher, VoucherDetails))
+            if (new PA.ViewModel.ViewModel_凭证管理().InsertData(Voucher, VoucherDetails))
             {
                 OnSubmit();
                 InitData(false);
@@ -335,7 +334,7 @@ namespace PA.View.Windows
         {
             new PA.Helper.ExcelHelper.ExcelWriter().ExportVouchers(guid);
         }
-        
+
         private void DataGrid_凭证明细_Cell_MouseDoubleClick(object sender, RoutedEventArgs e)
         {
             if (Voucher.审核标志 == 1)
@@ -465,13 +464,13 @@ namespace PA.View.Windows
 
         private void Button_Previous_Click(object sender, RoutedEventArgs e)
         {
-            if(PageNow > 1)
+            if (PageNow > 1)
             {
                 SaveVoucherDetails();
                 PageNow--;
                 this.TextBlock_PageNum.Text = PageNow + "/" + PageAll;
                 VoucherDetailsNow = new List<Model_凭证明细>();
-                for (int i = 0; i < 6; i++ )
+                for (int i = 0; i < 6; i++)
                 {
                     VoucherDetailsNow.Add(VoucherDetails[(PageNow - 1) * 6 + i]);
                 }
@@ -501,11 +500,11 @@ namespace PA.View.Windows
         {
             if (e.Delta < 0)
             {
-                Button_Next_Click(null,null);
+                Button_Next_Click(null, null);
             }
             else if (e.Delta > 0)
             {
-                Button_Previous_Click(null,null);
+                Button_Previous_Click(null, null);
             }
         }
         #endregion
