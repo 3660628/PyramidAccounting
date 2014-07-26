@@ -1,11 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Configuration;
-using System.Data;
-using System.Linq;
-using System.Windows;
-using System.Diagnostics;
+﻿using System.Diagnostics;
 using System.Text;
+using System.Windows;
 using System.Windows.Threading;
 
 namespace PyramidAccounting
@@ -27,7 +22,6 @@ namespace PyramidAccounting
                 Application.Current.Shutdown();
                 return;
             }
-
             base.OnStartup(e);
         }
 
@@ -43,6 +37,6 @@ namespace PyramidAccounting
             MessageBox.Show("应用程序出现了未捕获的异常，请联系开发商。");
             PA.Helper.DataBase.Log.Write(stringBuilder.ToString());
             e.Handled = true;
-        }  
+        }
     }
 }
