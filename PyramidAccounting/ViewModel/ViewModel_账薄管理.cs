@@ -1115,7 +1115,7 @@ namespace PA.ViewModel
             string sql = "INSERT INTO " + DBTablesName.T_FEE
                           + "(OP_TIME,PERIOD,SUBJECT_ID,VOUCHER_NUMS,COMMENTS,DEBIT,CREDIT,MARK,DELETE_MARK,FEE) ";
             sql += "select op_time,period,subject_id,voucher_nums,comments,case when debit is null then 0 else debit end, case when credit is null then 0 else credit end,mark,0,"
-                + "case when fee is null then 0 else fee end from (select datetime('now', 'localtime') as op_time," + peroid
+                + "case when fee is null then 0 else fee end from (select '" + GetLastDay(peroid) + "' as op_time," + peroid
                 + " as period,b.subject_id as subject_id,t.voucher_nums as voucher_nums,b.SUBJECT_ID || '汇总' AS comments,t.DEBIT as debit,t.CREDIT as credit,b.mark as mark," 
                 + "round(abs(b.mark*b.fee-total(t.credit -t.debit)),2) as fee from "
                 + DBTablesName.T_FEE + " b left join ("
@@ -1137,6 +1137,14 @@ namespace PA.ViewModel
                 CommonInfo.当前期++;
             }
             return flag;
+        }
+
+        private string GetLastDay(int peroid)
+        {
+            string date = new ViewModel_Books().GetYear() + "/" + peroid + "/1";
+            DateTime dt;
+            DateTime.TryParse(date, out dt);
+            return dt.AddMonths(1).AddSeconds(-1).ToString("yyyy-MM-dd HH:mm:ss");
         }
     }
 }
