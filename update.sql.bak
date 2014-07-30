@@ -1,0 +1,2 @@
+update T_FEE_20140528140344 set fee='0.47' where subject_id = '210';
+update t_yearfee set fee='0.47' where subject_id='210';
