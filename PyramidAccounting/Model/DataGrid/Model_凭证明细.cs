@@ -81,7 +81,7 @@ namespace PA.Model.DataGrid
         public string 摘要
         {
             get { return abstract_comments; }
-            set { abstract_comments = value; }
+            set { abstract_comments = value; NotifyPropertyChanged("摘要"); }
         }
 
         public string 父节点ID

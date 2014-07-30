@@ -24,8 +24,10 @@ namespace PA.View.Windows
     {
         public static event Win_记账凭证_Submit ESubmit;
         Model_凭证单 Voucher = new Model_凭证单();
+        private ViewModel.ViewModel_凭证管理 vmp = new ViewModel.ViewModel_凭证管理();
         List<Model_凭证明细> VoucherDetails = new List<Model_凭证明细>();//所有DataGrid数据集合
         List<Model_凭证明细> VoucherDetailsNow = new List<Model_凭证明细>();//当前DataGrid的数据
+        private List<object> DataGridContextMenu = new List<object>();
         private int CellId;
 
         private int PageNow = 1;//当前页面
@@ -40,8 +42,9 @@ namespace PA.View.Windows
             this.Button_打印.Visibility = System.Windows.Visibility.Collapsed;
             InitData(true);
             Voucher.当前期 = PA.Helper.DataDefind.CommonInfo.当前期;
+            InitializeDataGridContextMenu();
         }
-
+      
         public Win_记账凭证(Guid guid)
         {
             InitializeComponent();
@@ -49,12 +52,48 @@ namespace PA.View.Windows
             FillData(guid);
             this.Button_保存并新增.Visibility = System.Windows.Visibility.Collapsed;
             isNew = false;
+            InitializeDataGridContextMenu();
+        }
+
+        private void InitializeDataGridContextMenu()
+        {
+            MenuItem b = new MenuItem();
+            b.Header = "删除行";
+            b.HorizontalContentAlignment = System.Windows.HorizontalAlignment.Left;
+            b.VerticalContentAlignment = System.Windows.VerticalAlignment.Center;
+            b.Click += MenuItem_Click;
+            DataGridContextMenu.Add(b);
+            this.DataGrid_凭证明细.ContextMenu.ItemsSource = DataGridContextMenu;
+        }
+
+        private void MenuItem_Click(object sender, RoutedEventArgs e)
+        {
+            #region 删除方法
+            if (DataGrid_凭证明细.SelectedCells.Count != 0)
+            {
+                Model_凭证明细 m = DataGrid_凭证明细.SelectedCells[0].Item as Model_凭证明细;
+                if (m.ID != 0) 
+                {
+                    bool flag = vmp.DeleteDetail(m.ID);
+                    if (!flag)
+                    {
+                        MessageBoxCommon.Show("删除不成功！未找到对应数据！");
+                    }
+                }
+                m.摘要 = "";
+                m.主科目名 = "";
+                m.子细目 = "";
+                m.借方 = 0;
+                m.贷方 = 0;
+                Count合计();
+            }
+            #endregion 
         }
 
         #region 自定义事件
         private void OnSubmit()
         {
-            if(ESubmit != null)
+            if (ESubmit != null)
             {
                 ESubmit(this, new MyEventArgs());
             }
@@ -137,17 +176,17 @@ namespace PA.View.Windows
             VoucherDetails = new PA.ViewModel.ViewModel_凭证管理().GetVoucherDetails(guid);
             this.DatePicker_Date.SelectedDate = Voucher.制表时间;
             this.TextBox_附属单证.Text = Voucher.附属单证数.ToString();
-            this.Label_借方合计.Content = Voucher.合计借方金额;
-            this.Label_贷方合计.Content = Voucher.合计贷方金额;
+            this.Label_借方合计.Content = Voucher.合计借方金额.ToString().Contains(".") ? Voucher.合计借方金额.ToString("f2") : Voucher.合计借方金额.ToString();
+            this.Label_贷方合计.Content = Voucher.合计贷方金额.ToString().Contains(".") ? Voucher.合计贷方金额.ToString("f2") : Voucher.合计贷方金额.ToString();
             for (int i = 0; i < 6; i++)
             {
                 Model_凭证明细 a = new Model_凭证明细();
                 a.序号 = i;
                 VoucherDetailsNow.Add(a);
             }
-            for (int i = 0; i < VoucherDetails.Count; i++ )
+            for (int i = 0; i < VoucherDetails.Count; i++)
             {
-                if(i<6)
+                if (i < 6)
                 {
                     VoucherDetailsNow[i] = VoucherDetails[i];
                 }
@@ -214,22 +253,27 @@ namespace PA.View.Windows
             List<string> VoucherNum = new List<string>();
             for (int i = 0; i < PageAll; i++)
             {
-                if(VoucherDetails[i * 6].凭证号.Equals(""))
+                if (VoucherDetails[i * 6].凭证号 == "")
                 {
                     MessageBoxCommon.Show("凭证号不能为空");
                     return false;
                 }
                 else
                 {
-                   if(!VoucherNum.Contains(VoucherDetails[i * 6].凭证号))
-                   {
-                     VoucherNum.Add(VoucherDetails[i * 6].凭证号);
-                   }
-                   else
-                   {
-                      MessageBoxCommon.Show("凭证号不能相同");
-                      return false;
-                   }
+                    if (!VoucherNum.Contains(VoucherDetails[i * 6].凭证号))
+                    {
+                        VoucherNum.Add(VoucherDetails[i * 6].凭证号);
+                    }
+                    else
+                    {
+                        MessageBoxCommon.Show("凭证号不能相同");
+                        return false;
+                    }
+                    if (!vmp.IsVOUCHER_NOExist(VoucherDetails[i * 6].凭证号) && isNew)
+                    {
+                        MessageBoxCommon.Show("凭证号已存在,请勿重复添加！");
+                        return false;
+                    }
                 }
             }
             int temp;
@@ -249,8 +293,8 @@ namespace PA.View.Windows
                 count借方 += VoucherDetails[i].借方;
                 count贷方 += VoucherDetails[i].贷方;
             }
-            this.Label_借方合计.Content = count借方.ToString();
-            this.Label_贷方合计.Content = count贷方.ToString();
+            this.Label_借方合计.Content = count借方.ToString().Contains(".") ? count借方.ToString("f2") : count借方.ToString();
+            this.Label_贷方合计.Content = count贷方.ToString().Contains(".") ? count贷方.ToString("f2") : count贷方.ToString();
         }
 
         /// <summary>
@@ -290,14 +334,14 @@ namespace PA.View.Windows
             {
                 return;
             }
-            if(new PA.ViewModel.ViewModel_凭证管理().InsertData(Voucher, VoucherDetails))
+            if (new PA.ViewModel.ViewModel_凭证管理().InsertData(Voucher, VoucherDetails))
             {
                 if (!isNew)
                 {
                     new PA.ViewModel.ViewModel_凭证管理().DeleteAsModify(guid);
                 }
                 OnSubmit();
-                Button_Close_Click(null,null);
+                Button_Close_Click(null, null);
             }
             else
             {
@@ -313,7 +357,7 @@ namespace PA.View.Windows
             {
                 return;
             }
-            if(new PA.ViewModel.ViewModel_凭证管理().InsertData(Voucher, VoucherDetails))
+            if (new PA.ViewModel.ViewModel_凭证管理().InsertData(Voucher, VoucherDetails))
             {
                 OnSubmit();
                 InitData(false);
@@ -328,7 +372,7 @@ namespace PA.View.Windows
         {
             new PA.Helper.ExcelHelper.ExcelWriter().ExportVouchers(guid);
         }
-        
+
         private void DataGrid_凭证明细_Cell_MouseDoubleClick(object sender, RoutedEventArgs e)
         {
             if (Voucher.审核标志 == 1)
@@ -458,13 +502,13 @@ namespace PA.View.Windows
 
         private void Button_Previous_Click(object sender, RoutedEventArgs e)
         {
-            if(PageNow > 1)
+            if (PageNow > 1)
             {
                 SaveVoucherDetails();
                 PageNow--;
                 this.TextBlock_PageNum.Text = PageNow + "/" + PageAll;
                 VoucherDetailsNow = new List<Model_凭证明细>();
-                for (int i = 0; i < 6; i++ )
+                for (int i = 0; i < 6; i++)
                 {
                     VoucherDetailsNow.Add(VoucherDetails[(PageNow - 1) * 6 + i]);
                 }
@@ -494,11 +538,11 @@ namespace PA.View.Windows
         {
             if (e.Delta < 0)
             {
-                Button_Next_Click(null,null);
+                Button_Next_Click(null, null);
             }
             else if (e.Delta > 0)
             {
-                Button_Previous_Click(null,null);
+                Button_Previous_Click(null, null);
             }
         }
         #endregion

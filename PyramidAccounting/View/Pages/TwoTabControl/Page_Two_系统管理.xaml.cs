@@ -126,6 +126,10 @@ namespace PA.View.Pages.TwoTabControl
                 this.Label_密码错误.Visibility = System.Windows.Visibility.Visible;
                 return;
             }
+            else
+            {
+                this.Label_密码错误.Visibility = Visibility.Collapsed;
+            }
             if (NewPasswordRepeat.Equals(NewPassword))
             {
                 if (vm.UpdatePassword(username, NewPassword))

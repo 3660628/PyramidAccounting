@@ -45,6 +45,9 @@
         <Button FocusVisualStyle="{x:Null}" x:Name="Button_Next" Content="&gt;" HorizontalAlignment="Right" Margin="0,0,90,11" VerticalAlignment="Bottom" Width="20" Height="20" Template="{DynamicResource ButtonControlTemplate_Common}" Click="Button_Next_Click"/>
 
         <DataGrid x:Name="DataGrid_凭证明细" Margin="10,97,10,0" VerticalAlignment="Top" AutoGenerateColumns="False" CanUserReorderColumns="False" CanUserResizeColumns="False" CanUserSortColumns="False" CanUserAddRows="False" CanUserDeleteRows="False" CanUserResizeRows="False" SelectionMode="Single" HeadersVisibility="Column" RowHeight="40" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle_凭证录入}" HorizontalGridLinesBrush="#FF99CCFF" VerticalGridLinesBrush="#FF99CCFF" HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Disabled" Height="271" ScrollViewer.CanContentScroll="False" CellStyle="{DynamicResource DataGridCellStyle_凭证录入}" CellEditEnding="DataGrid_凭证明细_CellEditEnding" SelectionUnit="Cell" BorderBrush="#FF99CCFF">
+            <DataGrid.ContextMenu>
+                <ContextMenu></ContextMenu>
+            </DataGrid.ContextMenu>
             <DataGrid.Resources>
                 <Style TargetType="DataGridRow">
                     <EventSetter Event="MouseDoubleClick" Handler="DataGrid_凭证明细_Cell_MouseDoubleClick" />

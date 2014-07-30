@@ -94,6 +94,16 @@ namespace PA.View.Pages.Pop.凭证录入
                     }
                 }
             }
+            if (ListBox_子细目.Items.Count == 1)
+            {
+                foreach (string str in ChildData)
+                {
+                    if (str.Split('\t')[0] == this.ListBox_子细目.Items[0].ToString().Split('\t')[0])
+                    {
+                        OnFillDate(str);
+                    }
+                }
+            }
         }
 
         private void TextBox_子细目_TextChanged(object sender, TextChangedEventArgs e)

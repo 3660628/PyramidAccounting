@@ -29,12 +29,11 @@ namespace PA.ViewModel
             List<Model_总账> list = new List<Model_总账>();
             string id = subject_id.Split('\t')[0];
             string name = subject_id.Split('\t')[1];
-            string sql = "select strftime(op_time),VOUCHER_NUMS,COMMENTS,DEBIT,CREDIT,FEE,mark from "
-                + DBTablesName.T_FEE + " where " + WhereParm + " delete_mark=0 and subject_id='" + id + "' order by op_time";
+            string sql = "select strftime(op_time),VOUCHER_NUMS,COMMENTS,DEBIT,CREDIT,total(FEE*mark) from "
+                + DBTablesName.T_FEE + " where " + WhereParm + " delete_mark=0 and subject_id='" + id + "' group by period order by op_time";
 
             DataSet ds = new DataSet();
-            decimal debit = 0;
-            decimal credit = 0;
+            decimal fee = 0;
             ds = db.Query(sql);
             if (ds != null)
             {
@@ -54,30 +53,9 @@ namespace PA.ViewModel
                     m.摘要 = d[2].ToString();
                     m.借方金额 = d[3].ToString();
                     m.贷方金额 = d[4].ToString();
-                    m.余额 = d[5].ToString();
-
-                    decimal.TryParse(m.贷方金额, out credit);
-                    decimal.TryParse(m.借方金额, out debit);
-
-                    if (count == 0)
-                    {
-                        m.借或贷 = d[6].ToString().Equals("1") ? "借" : "贷";
-                    }
-                    else
-                    {
-                        if (credit == debit)
-                        {
-                            m.借或贷 = "平";
-                        }
-                        else if (credit > debit)
-                        {
-                            m.借或贷 = "贷";
-                        }
-                        else
-                        {
-                            m.借或贷 = "借";
-                        }
-                    }
+                    decimal.TryParse(d[5].ToString(), out fee);
+                    m.余额 = fee.ToString();
+                    m.借或贷 = GetMark(fee);
                     string temp = string.Empty;
                     List<string> _list = new List<string>();
 
@@ -880,7 +858,7 @@ namespace PA.ViewModel
                 + detail + "' order by b.op_time";
 
             //查年初数
-            string sql2 = "select case when b.borrow_mark=1 then '借' else '贷' end,abs(a.fee*b.borrow_mark) from " 
+            string sql2 = "select case when b.borrow_mark=1 then '借' else '贷' end,a.fee*b.borrow_mark from " 
                 + DBTablesName.T_YEAR_FEE + " a left join " + DBTablesName.T_SUBJECT
                 + " b on a.subject_id=b.subject_id where "
                 + " a.subject_id='" + detail + "' and a.bookid='" + CommonInfo.账薄号 + "'";
@@ -1012,7 +990,7 @@ namespace PA.ViewModel
                             Model_科目明细账 mm = new Model_科目明细账();
                             mm = GetModel_Subject(MonthDebit, MonthCredit, MonthDebit - MonthCredit + decimal.Parse(firstRow.余额),flag);
                             mm.摘要 = "本月合计";
-                            mm.借或贷 = GetMark(MonthDebit,MonthCredit);
+                            mm.借或贷 = GetMark(yearfee);
                             list.Add(mm);
 
                             if (!MonthLastValue.Equals("01"))
@@ -1020,7 +998,7 @@ namespace PA.ViewModel
                                 Model_科目明细账 mmm = new Model_科目明细账();
                                 mmm = GetModel_Subject(YearDebit, YearCredit, MonthDebit - MonthCredit + decimal.Parse(firstRow.余额),flag);
                                 mmm.摘要 = "本月累计";
-                                mmm.借或贷 = GetMark(YearDebit,YearCredit);
+                                mmm.借或贷 = GetMark(yearfee);
                                 list.Add(mmm);
                             }
                         }
@@ -1041,7 +1019,7 @@ namespace PA.ViewModel
                 Model_科目明细账 mlast = new Model_科目明细账();
                 mlast = GetModel_Subject(MonthDebit, MonthCredit, yearfee,flag);
                 mlast.摘要 = "本月合计";
-                mlast.借或贷 = GetMark(MonthDebit,MonthCredit);
+                mlast.借或贷 = GetMark(yearfee);
                 list.Add(mlast);
                 if (!MonthLastValue.Equals("01"))
                 {
@@ -1055,27 +1033,27 @@ namespace PA.ViewModel
                     {
                         mmm.摘要 = "本月累计";
                     }
-                    mmm.借或贷 = GetMark(YearDebit, YearCredit);
+                    mmm.借或贷 = GetMark(yearfee);
                     list.Add(mmm);
                 }
             }
             return list;
         }
 
-        private string GetMark(decimal a, decimal b)
+        private string GetMark(decimal yearfee)
         {
             string mark = string.Empty;
-            if (a == b)
+            if (yearfee < 0)
+            {
+                mark = "贷";
+            }
+            else if (yearfee == 0)
             {
                 mark = "平";
             }
-            else if (a > b)
-            {
-                mark = "借";
-            }
             else
             {
-                mark = "贷";
+                mark = "借";
             }
             return mark;
         }
@@ -1137,7 +1115,7 @@ namespace PA.ViewModel
             string sql = "INSERT INTO " + DBTablesName.T_FEE
                           + "(OP_TIME,PERIOD,SUBJECT_ID,VOUCHER_NUMS,COMMENTS,DEBIT,CREDIT,MARK,DELETE_MARK,FEE) ";
             sql += "select op_time,period,subject_id,voucher_nums,comments,case when debit is null then 0 else debit end, case when credit is null then 0 else credit end,mark,0,"
-                + "case when fee is null then 0 else fee end from (select datetime('now', 'localtime') as op_time," + peroid
+                + "case when fee is null then 0 else fee end from (select '" + GetLastDay(peroid) + "' as op_time," + peroid
                 + " as period,b.subject_id as subject_id,t.voucher_nums as voucher_nums,b.SUBJECT_ID || '汇总' AS comments,t.DEBIT as debit,t.CREDIT as credit,b.mark as mark," 
                 + "round(abs(b.mark*b.fee-total(t.credit -t.debit)),2) as fee from "
                 + DBTablesName.T_FEE + " b left join ("
@@ -1150,7 +1128,7 @@ namespace PA.ViewModel
                 + "SELECT ID  FROM   "
                 + DBTablesName.T_VOUCHER
                 + " WHERE period = " + peroid
-                + " and review_mark=1) GROUP BY "
+                + " and review_mark=1 and delete_mark=0 ) GROUP BY "
                 + "SUBJECT_ID  ORDER BY SUBJECT_ID ) t on t.subject_id=b.subject_id where b.period = "
                 + (peroid - 1) + " group by b.subject_id) a";          
             bool flag = db.Excute(sql);
@@ -1159,6 +1137,14 @@ namespace PA.ViewModel
                 CommonInfo.当前期++;
             }
             return flag;
+        }
+
+        private string GetLastDay(int peroid)
+        {
+            string date = new ViewModel_Books().GetYear() + "/" + peroid + "/1";
+            DateTime dt;
+            DateTime.TryParse(date, out dt);
+            return dt.AddMonths(1).AddSeconds(-1).ToString("yyyy-MM-dd HH:mm:ss");
         }
     }
 }

@@ -124,6 +124,7 @@ namespace PA.Helper.DataBase
             
             SQLiteConnection conn = new SQLiteConnection();
             SQLiteConnectionStringBuilder connstr = new SQLiteConnectionStringBuilder();
+            connstr.JournalMode = SQLiteJournalModeEnum.Wal;
             connstr.DataSource = dataSource;
             if (new XMLReader().ReadXML("注册").Equals("true"))
             {
