@@ -5,6 +5,8 @@ using System.Data;
 using System.Linq;
 using System.Windows;
 using System.Diagnostics;
+using System.Text;
+using System.Windows.Threading;
 
 namespace PyramidAccounting
 {
@@ -28,5 +30,19 @@ namespace PyramidAccounting
 
             base.OnStartup(e);
         }
+
+        void App_DispatcherUnhandledException(object sender, DispatcherUnhandledExceptionEventArgs e)
+        {
+            StringBuilder stringBuilder = new StringBuilder();
+            stringBuilder.AppendFormat("应用程序出现了未捕获的异常，{0}/n", e.Exception.Message);
+            if (e.Exception.InnerException != null)
+            {
+                stringBuilder.AppendFormat("/n {0}", e.Exception.InnerException.Message);
+            }
+            stringBuilder.AppendFormat("/n {0}", e.Exception.StackTrace);
+            MessageBox.Show("应用程序出现了未捕获的异常，请联系开发商。");
+            PA.Helper.DataBase.Log.Write(stringBuilder.ToString());
+            e.Handled = true;
+        }  
     }
 }

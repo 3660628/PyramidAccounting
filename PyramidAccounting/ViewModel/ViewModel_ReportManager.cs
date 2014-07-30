@@ -25,12 +25,23 @@ namespace PA.ViewModel
                 + DBTablesName.T_FEE + " WHERE PERIOD = 0 GROUP BY	SUBJECT_ID	) b ON a.SUBJECT_ID = b.SUBJECT_ID "
                 + "WHERE a.SUBJECT_ID IN (SELECT subject_id FROM " + DBTablesName.T_SUBJECT + " WHERE parent_id = '0') ";
             DataTable dt = db.Query(sql).Tables[0];
+            decimal temp = 0m;
             foreach (DataRow d in dt.Rows)
             {
                 Model_报表类 m = new Model_报表类();
                 m.编号 = d[0].ToString();
                 m.年初数 = d[2].ToString();
                 m.期末数 = d[1].ToString();
+                if (m.年初数.Contains("."))
+                {
+                    decimal.TryParse(m.年初数, out temp);
+                    m.年初数 = temp.ToString("f2");
+                }
+                if (m.期末数.Contains("."))
+                {
+                    decimal.TryParse(m.期末数, out temp);
+                    m.期末数 = temp.ToString("f2");
+                }
                 if (m.年初数.Equals("0"))
                 {
                     m.年初数 = "";
@@ -59,6 +70,7 @@ namespace PA.ViewModel
             string sql = "SELECT SUBJECT_ID,debit,credit,fee from " + DBTablesName.T_FEE
                 + " WHERE period=" + index + " and SUBJECT_ID IN (" + temp.Substring(1, temp.Length - 1) + ") ";
             DataTable dt = db.Query(sql).Tables[0];
+            decimal dd = 0m;
             foreach (DataRow d in dt.Rows)
             {
                 Model_报表类 m = new Model_报表类();
@@ -79,6 +91,16 @@ namespace PA.ViewModel
                 if (m.本期数.Equals("0"))
                 {
                     m.本期数 = "";
+                }
+                if (m.本期数.Contains("."))
+                {
+                    decimal.TryParse(m.本期数, out dd);
+                    m.本期数 = dd.ToString("f2");
+                }
+                if (m.累计数.Contains("."))
+                {
+                    decimal.TryParse(m.累计数, out dd);
+                    m.累计数 = dd.ToString("f2");
                 }
                 list.Add(m);
             }
@@ -107,6 +129,7 @@ namespace PA.ViewModel
                 + index + " GROUP BY substr(a.DETAIL,1,5)) b ON a.DETAIL = b.DETAIL WHERE substr(a.DETAIL,1,5) IN (" 
                 + temp.Substring(1, temp.Length - 1) + ")";
             DataTable dt = db.Query(sql).Tables[0];
+            decimal dd = 0m;
             foreach (DataRow d in dt.Rows)
             {
                 Model_报表类 m = new Model_报表类();
@@ -126,6 +149,16 @@ namespace PA.ViewModel
                 else
                 {
                     m.本期数 = d[1].ToString().Replace("-", "");
+                }
+                if (m.本期数.Contains("."))
+                {
+                    decimal.TryParse(m.本期数, out dd);
+                    m.本期数 = dd.ToString("f2");
+                }
+                if (m.累计数.Contains("."))
+                {
+                    decimal.TryParse(m.累计数, out dd);
+                    m.累计数 = dd.ToString("f2");
                 }
                 list.Add(m);
             }
@@ -157,12 +190,31 @@ namespace PA.ViewModel
                 index + " group by subject_name) b left join  (select subject_name,fee from sbtemp where period="
                 + index + ") a on a.subject_name=b.subject_name";
                 DataTable dt = db.Query(_sql3).Tables[0];
+                decimal temp = 0m;
                 foreach (DataRow d in dt.Rows)
                 {
                     Model_报表类 m = new Model_报表类();
                     m.编号 = d[0].ToString();
                     m.本期数 = d[1].ToString();
                     m.累计数 = d[2].ToString();
+                    if (m.本期数.Contains("."))
+                    {
+                        decimal.TryParse(m.本期数, out temp);
+                        m.本期数 = temp.ToString("f2");
+                    }
+                    if (m.累计数.Contains("."))
+                    {
+                        decimal.TryParse(m.累计数, out temp);
+                        m.累计数 = temp.ToString("f2");
+                    }
+                    if (m.本期数.Equals("0"))
+                    {
+                        m.本期数 = "";
+                    }
+                    if (m.累计数.Equals("0"))
+                    {
+                        m.累计数 = "";
+                    }
                     list.Add(m);
                 }
             }
