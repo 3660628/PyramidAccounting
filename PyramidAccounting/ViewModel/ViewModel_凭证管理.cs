@@ -132,6 +132,10 @@ namespace PA.ViewModel
             db.BatchOperate(lists);
         }
 
+        /// <summary>
+        /// 删除凭证
+        /// </summary>
+        /// <param name="id"></param>
         internal void Delete(Guid id)
         {
             string sql = "update " + DBTablesName.T_VOUCHER + " set DELETE_MARK=-1 where id='" + id + "'";
@@ -139,6 +143,11 @@ namespace PA.ViewModel
             lists.Add(sql);
             db.BatchOperate(lists);
         }
+
+        /// <summary>
+        /// 为了防止错误操作，先删除后增加
+        /// </summary>
+        /// <param name="id"></param>
         internal void DeleteAsModify(Guid id)
         {
             string sql2 = "Delete from " + DBTablesName.T_VOUCHER_DETAIL + " where parentid='" + id + "'";
@@ -148,6 +157,13 @@ namespace PA.ViewModel
             lists.Add(sql1);
             db.BatchOperate(lists);
         }
+
+        internal bool DeleteDetail(int id)
+        {
+            string sql = "delete from " + DBTablesName.T_VOUCHER_DETAIL + " where id=" + id;
+            return db.Excute(sql);
+        }
+
         /// <summary>
         /// 用于结账前判断是否存在未审核的凭证单
         /// </summary>

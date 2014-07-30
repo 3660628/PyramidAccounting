@@ -27,6 +27,7 @@ namespace PA.View.Windows
         private ViewModel.ViewModel_凭证管理 vmp = new ViewModel.ViewModel_凭证管理();
         List<Model_凭证明细> VoucherDetails = new List<Model_凭证明细>();//所有DataGrid数据集合
         List<Model_凭证明细> VoucherDetailsNow = new List<Model_凭证明细>();//当前DataGrid的数据
+        private List<object> DataGridContextMenu = new List<object>();
         private int CellId;
 
         private int PageNow = 1;//当前页面
@@ -41,8 +42,9 @@ namespace PA.View.Windows
             this.Button_打印.Visibility = System.Windows.Visibility.Collapsed;
             InitData(true);
             Voucher.当前期 = PA.Helper.DataDefind.CommonInfo.当前期;
+            InitializeDataGridContextMenu();
         }
-
+      
         public Win_记账凭证(Guid guid)
         {
             InitializeComponent();
@@ -50,6 +52,42 @@ namespace PA.View.Windows
             FillData(guid);
             this.Button_保存并新增.Visibility = System.Windows.Visibility.Collapsed;
             isNew = false;
+            InitializeDataGridContextMenu();
+        }
+
+        private void InitializeDataGridContextMenu()
+        {
+            MenuItem b = new MenuItem();
+            b.Header = "删除行";
+            b.HorizontalContentAlignment = System.Windows.HorizontalAlignment.Left;
+            b.VerticalContentAlignment = System.Windows.VerticalAlignment.Center;
+            b.Click += MenuItem_Click;
+            DataGridContextMenu.Add(b);
+            this.DataGrid_凭证明细.ContextMenu.ItemsSource = DataGridContextMenu;
+        }
+
+        private void MenuItem_Click(object sender, RoutedEventArgs e)
+        {
+            #region 删除方法
+            if (DataGrid_凭证明细.SelectedCells.Count != 0)
+            {
+                Model_凭证明细 m = DataGrid_凭证明细.SelectedCells[0].Item as Model_凭证明细;
+                if (m.ID != 0) 
+                {
+                    bool flag = vmp.DeleteDetail(m.ID);
+                    if (!flag)
+                    {
+                        MessageBoxCommon.Show("删除不成功！未找到对应数据！");
+                    }
+                }
+                m.摘要 = "";
+                m.主科目名 = "";
+                m.子细目 = "";
+                m.借方 = 0;
+                m.贷方 = 0;
+                Count合计();
+            }
+            #endregion 
         }
 
         #region 自定义事件
