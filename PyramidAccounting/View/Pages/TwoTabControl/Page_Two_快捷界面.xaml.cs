@@ -119,7 +119,7 @@ namespace PA.View.Pages.TwoTabControl
             int temp = 0;
             if (mark)
             {
-                bool? result2 = MessageBoxDel.Show("注意", "当前将进行结账操作，是否继续？");
+                bool? result2 = MessageBoxDel.Show("注意", "正在进行第" + CommonInfo.当前期 + "期结账操作，确认是否继续？");
                 if (result2 == true)
                 {
                     bool? result = MessageBoxInput.Show("安全确认，请输入密码");
