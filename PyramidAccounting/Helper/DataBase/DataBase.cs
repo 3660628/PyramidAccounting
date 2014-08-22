@@ -203,11 +203,11 @@ namespace PA.Helper.DataBase
                             cmd.Parameters.AddWithValue("@ID", list.ID);
                             cmd.Parameters.AddWithValue("@BOOK_NAME", list.账套名称);
                             cmd.Parameters.AddWithValue("@COMPANY_NAME", list.单位名称);
-                            cmd.Parameters.AddWithValue("@BOOK_TIME",list.启用期间);
+                            cmd.Parameters.AddWithValue("@BOOK_TIME", list.启用期间);
                             cmd.Parameters.AddWithValue("@CREATE_DATE", list.创建时间);
                             cmd.Parameters.AddWithValue("@ACCOUNTING_SYSTEM", list.会计制度);
                             cmd.Parameters.AddWithValue("@PERIOD", list.当前期);
-                            cmd.Parameters.AddWithValue("@BOOK_INDEX",list.制度索引);
+                            cmd.Parameters.AddWithValue("@BOOK_INDEX", list.制度索引);
                             cmd.Connection = conn;
                             cmd.ExecuteNonQuery();
                         }
@@ -300,9 +300,9 @@ namespace PA.Helper.DataBase
                         #endregion
                         break;
                     case "T_YEARFEE":
-                    #region T_YEARFEE
+                        #region T_YEARFEE
 
-                    #endregion
+                        #endregion
                         break;
                     case "T_SUBJECT":   //科目管理
                         #region T_SUBJECT
@@ -317,13 +317,13 @@ namespace PA.Helper.DataBase
                             cmd.Parameters.AddWithValue("@SUBJECT_NAME", list.科目名称);
                             cmd.Parameters.AddWithValue("@PARENT_ID", list.父ID);
                             cmd.Parameters.AddWithValue("@USED_MARK", list.是否启用);
-                            cmd.Parameters.AddWithValue("@Borrow_Mark", list.借贷标记?1:-1);
+                            cmd.Parameters.AddWithValue("@Borrow_Mark", list.借贷标记 ? 1 : -1);
                             cmd.Connection = conn;
                             cmd.ExecuteNonQuery();
                         }
                         #endregion
                         break;
-                    case "T_FIXEDASSETS":   
+                    case "T_FIXEDASSETS":
                         #region 固定资产
                         sql = PA.Helper.DataDefind.SqlString.Insert_T_FIXEDASSETS;
                         List<Model_固定资产> 固定资产List = Values.OfType<Model_固定资产>().ToList();
@@ -352,7 +352,7 @@ namespace PA.Helper.DataBase
                 strans.Commit();
                 flag = true;
             }
-            catch(Exception ee)
+            catch (Exception ee)
             {
                 strans.Rollback();
                 Log.Write(ee.Message);
@@ -426,7 +426,7 @@ namespace PA.Helper.DataBase
                 strans.Commit();
                 flag = true;
             }
-            catch(Exception ee)
+            catch (Exception ee)
             {
                 strans.Rollback();
                 Console.WriteLine(ee.ToString());
@@ -439,43 +439,43 @@ namespace PA.Helper.DataBase
             return flag;
         }
 
-        //public bool UpdatePackage(List<UpdateParm> lists)
-        //{
-        //    bool flag = false;
-        //    string sql = string.Empty;
-        //    SQLiteConnection conn = DBInitialize.getDBConnection();
-        //    conn.Open();
-        //    SQLiteTransaction strans = conn.BeginTransaction();
-        //    try
-        //    {
-        //        foreach (UpdateParm list in lists)
-        //        {
-        //            sql = PA.Helper.DataDefind.SqlString.Update_Sql;
-        //            SQLiteCommand cmd = new SQLiteCommand();
-        //            sql = sql.Replace("@tableName", list.TableName);
-        //            sql = sql.Replace("@key", list.Key);
-        //            sql = sql.Replace("@value", list.Value);
-        //            sql = sql.Replace("@whereParm", list.WhereParm);
-        //            cmd.CommandText = sql;
-        //            cmd.Connection = conn;
-        //            cmd.ExecuteNonQuery();
-        //        }
-        //        strans.Commit();
-        //        flag = true;
-        //    }
-        //    catch(Exception ee)
-        //    {
-        //        strans.Rollback();
-        //        Log.Write(ee.Message);
-        //        Log.Write(sql);
-        //    }
-        //    finally
-        //    {
-        //        conn.Close();
-        //        conn.Dispose();
-        //    }
-        //    return flag;
-        //}
+        /// <summary>
+        /// 登陆专用，fix万能密码
+        /// </summary>
+        /// <param name="sql"></param>
+        /// <param name="userName"></param>
+        /// <param name="password"></param>
+        /// <param name="result"></param>
+        /// <returns></returns>
+        internal string ParametersLogin(string sql, string userName, string password)
+        {
+            string result = "";
+            SQLiteConnection conn = DBInitialize.GetDBConnection();
+            conn.Open();
+            SQLiteCommand cmd = new SQLiteCommand();
+            try
+            {
+                cmd.CommandText = sql;
+                cmd.Parameters.Add(new SQLiteParameter("Name", userName));
+                cmd.Parameters.Add(new SQLiteParameter("Password", password));
+                cmd.Connection = conn;
+                SQLiteDataReader reader = cmd.ExecuteReader();
+                if (reader.Read())
+                {
+                    result = reader.GetValue(0).ToString();
+                }
+            }
+            catch (Exception e)
+            {
+                Log.Write(e.Message);
+            }
+            finally
+            {
+                conn.Close();
+                conn.Dispose();
+            }
+            return result;
+        }
 
     }
 }

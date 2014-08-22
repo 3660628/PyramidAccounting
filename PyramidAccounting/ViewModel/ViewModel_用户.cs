@@ -120,12 +120,20 @@ namespace PA.ViewModel
             sql = "UPDATE " + DBTablesName.T_USER + " SET PASSWORD='" + password + "' where USERNAME='" + username + "'";
             return db.Excute(sql);
         }
-        public bool ValidateAccount(string username,string password)
+        public bool ValidateAccount(string username, string password)
         {
             sql = "SELECT * "
-                + " FROM " + DBTablesName.T_USER + " WHERE USERNAME='" + username + "'"
-                + " AND PASSWORD='" + password + "' and delete_mark=0";
-            return db.IsExist(sql);
+                + " FROM " + DBTablesName.T_USER + " WHERE USERNAME=@Name"
+                + " AND PASSWORD=@Password and delete_mark=0";
+            string result = db.ParametersLogin(sql, username, password);
+            if(result.Length > 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
 
         /// <summary>
@@ -149,7 +157,7 @@ namespace PA.ViewModel
         {
             string sql = "select REALNAME from " + DBTablesName.T_USER + " where authority=" + authority + " and delete_mark=0";
             string result = db.GetSelectValue(sql);
-            return string.IsNullOrEmpty(result)?CommonInfo.真实姓名:result;
+            return string.IsNullOrEmpty(result) ? CommonInfo.真实姓名 : result;
         }
     }
 }
