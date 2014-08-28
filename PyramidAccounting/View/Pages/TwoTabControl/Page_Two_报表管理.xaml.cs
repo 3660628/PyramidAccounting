@@ -333,9 +333,9 @@ namespace PA.View.Pages.TwoTabControl
             {
                 for (int i = 0; i < list.Count; i++)
                 {
-                    Label lb = FindName("Label_B" + list[i].编号.Replace("（", "").Replace("）", "")) as Label;
+                    Label lb = FindName("Label_B" + list[i].编号.Replace("（", "").Replace("(", "").Replace("）", "").Replace(")", "")) as Label;
                     lb.Content = list[i].本期数;
-                    Label lb2 = FindName("Label_L" + list[i].编号.Replace("（", "").Replace("）", "")) as Label;
+                    Label lb2 = FindName("Label_L" + list[i].编号.Replace("（", "").Replace("(", "").Replace("）", "").Replace(")", "")) as Label;
                     lb2.Content = list[i].累计数;
                 }
                 //2级科目设置
