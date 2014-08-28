@@ -156,7 +156,7 @@ namespace PA.Helper.ExcelHelper
             xlWorkSheet.Cells[35, "G"] = sumy2 + sumy3 + sumy4;
             xlWorkSheet.Cells[35, "H"] = sumn2 + sumn3 + sumn4;
 
-            xlWorkSheet.Cells[36, "A"] = "单位负责人：" + CommonInfo.真实姓名;
+            xlWorkSheet.Cells[36, "A"] = "单位负责人：林广正";
             xlWorkSheet.Cells[36, "C"] = "填表人：" + CommonInfo.真实姓名;
             xlWorkSheet.Cells[36, "F"] = "填表日期：" + DateTime.Now.ToLongDateString();
             #endregion
