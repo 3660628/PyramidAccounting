@@ -306,9 +306,9 @@ namespace PA.View.Pages.TwoTabControl
             //清除上一次赋值的值
             for (int i = 0; i < LastList.Count; i++)
             {
-                Label lb = FindName("Label_B" + LastList[i].编号.Replace("（", "").Replace("）", "")) as Label;
+                Label lb = FindName("Label_B" + LastList[i].编号.Replace("（", "").Replace("(", "").Replace("）", "").Replace(")", "")) as Label;
                 lb.Content = "";
-                Label lb2 = FindName("Label_L" + LastList[i].编号.Replace("（", "").Replace("）", "")) as Label;
+                Label lb2 = FindName("Label_L" + LastList[i].编号.Replace("（", "").Replace("(", "").Replace("）", "").Replace(")", "")) as Label;
                 lb2.Content = "";
             }
 
