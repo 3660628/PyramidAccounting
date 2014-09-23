@@ -384,9 +384,9 @@ namespace PA.View.Pages.TwoTabControl
             //清除上一次赋值的值
             for (int i = 0; i < LastList.Count; i++)
             {
-                Label lb = FindName("Label_A" + LastList[i].编号.Replace("（", "").Replace("）", "")) as Label;
+                Label lb = FindName("Label_A" + LastList[i].编号.Replace("（", "").Replace("(", "").Replace("）", "").Replace(")", "")) as Label;
                 lb.Content = "";
-                Label lb2 = FindName("Label_B" + LastList[i].编号.Replace("（", "").Replace("）", "")) as Label;
+                Label lb2 = FindName("Label_B" + LastList[i].编号.Replace("（", "").Replace("(", "").Replace("）", "").Replace(")", "")) as Label;
                 lb2.Content = "";
             }
             mr.日志 = "生成" + ComboBox_Date.Text + "事业及经营支出明细表";
@@ -415,9 +415,9 @@ namespace PA.View.Pages.TwoTabControl
             {
                 foreach (Model_报表类 m in list) 
                 {
-                    Label lb = FindName("Label_A" + m.编号.Replace("（", "").Replace("）", "")) as Label;
+                    Label lb = FindName("Label_A" + m.编号.Replace("（", "").Replace("(", "").Replace("）", "").Replace(")", "")) as Label;
                     lb.Content = m.本期数;
-                    Label lb2 = FindName("Label_B" + m.编号.Replace("（", "").Replace("）", "")) as Label;
+                    Label lb2 = FindName("Label_B" + m.编号.Replace("（", "").Replace("(", "").Replace("）", "").Replace(")", "")) as Label;
                     lb2.Content = m.累计数;
                 }
                 //2级科目设置 
