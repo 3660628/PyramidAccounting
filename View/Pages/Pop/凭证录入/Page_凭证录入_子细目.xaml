@@ -1,0 +1,15 @@
+﻿<Page x:Class="PA.View.Pages.Pop.凭证录入.Page_凭证录入_子细目"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      mc:Ignorable="d" 
+      d:DesignHeight="225" d:DesignWidth="200" FontFamily="SimSun" TextOptions.TextFormattingMode="Display"
+	Title="Page_凭证录入_子细目" Loaded="Page_Loaded">
+
+    <Grid>
+        <ListBox x:Name="ListBox_子细目" Margin="0,38,0,0" BorderThickness="0,1,0,0" MouseDoubleClick="ListBox_子细目_MouseDoubleClick"/>
+        <TextBox x:Name="TextBox_子细目" HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" TextChanged="TextBox_子细目_TextChanged" Height="20" FontSize="14" VerticalContentAlignment="Center"/>
+        <Button x:Name="Button_确定" Content="确定" HorizontalAlignment="Left" Margin="137,10,-12,0" VerticalAlignment="Top" Width="40" Click="Button_确定_Click" IsDefault="True" Template="{DynamicResource ButtonControlTemplate_Common}" Height="18"/>
+    </Grid>
+</Page>
