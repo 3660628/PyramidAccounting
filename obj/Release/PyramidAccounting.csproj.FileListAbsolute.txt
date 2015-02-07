@@ -1,0 +1,105 @@
+D:\WorkSpaces\Visual Studio\PyramidAccounting\PyramidAccounting\bin\Release\PyramidAccounting.exe.config
+D:\WorkSpaces\Visual Studio\PyramidAccounting\PyramidAccounting\bin\Release\Data\打印\三栏明细账模板.xls
+D:\WorkSpaces\Visual Studio\PyramidAccounting\PyramidAccounting\bin\Release\Data\打印\固定资产登记模板.xls
+D:\WorkSpaces\Visual Studio\PyramidAccounting\PyramidAccounting\bin\Release\Data\打印\总账模板.xls
+D:\WorkSpaces\Visual Studio\PyramidAccounting\PyramidAccounting\bin\Release\Data\打印\收入支出总表模板.xls
+D:\WorkSpaces\Visual Studio\PyramidAccounting\PyramidAccounting\bin\Release\Data\打印\记账凭证模板.xls
+D:\WorkSpaces\Visual Studio\PyramidAccounting\PyramidAccounting\bin\Release\Data\打印\资产负债表模板.xls
+D:\WorkSpaces\Visual Studio\PyramidAccounting\PyramidAccounting\bin\Release\Data\科目\《行政单位会计制度》财预字[1998]49号.xls
+D:\WorkSpaces\Visual Studio\PyramidAccounting\PyramidAccounting\bin\Release\Docs\dotNetFx40_Full_setup.exe
+D:\WorkSpaces\Visual Studio\PyramidAccounting\PyramidAccounting\bin\Release\Docs\vcredist_x86.exe
+D:\WorkSpaces\Visual Studio\PyramidAccounting\PyramidAccounting\bin\Release\Docs\安装说明.txt
+D:\WorkSpaces\Visual Studio\PyramidAccounting\PyramidAccounting\bin\Release\PyramidAccounting.exe
+D:\WorkSpaces\Visual Studio\PyramidAccounting\PyramidAccounting\bin\Release\PyramidAccounting.pdb
+D:\WorkSpaces\Visual Studio\PyramidAccounting\PyramidAccounting\bin\Release\System.Data.SQLite.dll
+D:\WorkSpaces\Visual Studio\PyramidAccounting\PyramidAccounting\obj\Release\MainWindow.baml
+D:\WorkSpaces\Visual Studio\PyramidAccounting\PyramidAccounting\obj\Release\View\Pages\Page_MainTabControl.baml
+D:\WorkSpaces\Visual Studio\PyramidAccounting\PyramidAccounting\obj\Release\View\Pages\Pop\凭证录入\Page_凭证录入_子细目.baml
+D:\WorkSpaces\Visual Studio\PyramidAccounting\PyramidAccounting\obj\Release\View\Pages\Pop\凭证录入\Page_凭证录入_科目.baml
+D:\WorkSpaces\Visual Studio\PyramidAccounting\PyramidAccounting\obj\Release\View\Pages\Pop\系统管理\Page_修改用户.baml
+D:\WorkSpaces\Visual Studio\PyramidAccounting\PyramidAccounting\obj\Release\View\Pages\Pop\系统管理\Page_子细目管理.baml
+D:\WorkSpaces\Visual Studio\PyramidAccounting\PyramidAccounting\obj\Release\View\Pages\Pop\系统管理\Page_添加用户.baml
+D:\WorkSpaces\Visual Studio\PyramidAccounting\PyramidAccounting\obj\Release\View\Pages\Pop\账簿管理\Page_添加固定资产.baml
+D:\WorkSpaces\Visual Studio\PyramidAccounting\PyramidAccounting\obj\Release\View\Pages\TwoTabControl\Page_Two_凭证管理.baml
+D:\WorkSpaces\Visual Studio\PyramidAccounting\PyramidAccounting\obj\Release\View\Pages\TwoTabControl\Page_Two_快捷界面.baml
+D:\WorkSpaces\Visual Studio\PyramidAccounting\PyramidAccounting\obj\Release\View\Pages\TwoTabControl\Page_Two_系统管理.baml
+D:\WorkSpaces\Visual Studio\PyramidAccounting\PyramidAccounting\obj\Release\View\Pages\TwoTabControl\Page_Two_账簿管理.baml
+D:\WorkSpaces\Visual Studio\PyramidAccounting\PyramidAccounting\obj\Release\View\ResourceDictionarys\Button\ButtonCommon.baml
+D:\WorkSpaces\Visual Studio\PyramidAccounting\PyramidAccounting\obj\Release\View\ResourceDictionarys\Button\ButtonShortcut.baml
+D:\WorkSpaces\Visual Studio\PyramidAccounting\PyramidAccounting\obj\Release\View\ResourceDictionarys\Button\GlassButton.baml
+D:\WorkSpaces\Visual Studio\PyramidAccounting\PyramidAccounting\obj\Release\View\ResourceDictionarys\Button\MinMaxClose.baml
+D:\WorkSpaces\Visual Studio\PyramidAccounting\PyramidAccounting\obj\Release\View\ResourceDictionarys\CheckBox\SliderCheckBox.baml
+D:\WorkSpaces\Visual Studio\PyramidAccounting\PyramidAccounting\obj\Release\View\ResourceDictionarys\ComboBox\ComboBoxCommon.baml
+D:\WorkSpaces\Visual Studio\PyramidAccounting\PyramidAccounting\obj\Release\View\ResourceDictionarys\DataGrid\DataGridCell.baml
+D:\WorkSpaces\Visual Studio\PyramidAccounting\PyramidAccounting\obj\Release\View\ResourceDictionarys\DataGrid\DataGridCommon.baml
+D:\WorkSpaces\Visual Studio\PyramidAccounting\PyramidAccounting\obj\Release\View\ResourceDictionarys\DataGrid\DataGridHeader.baml
+D:\WorkSpaces\Visual Studio\PyramidAccounting\PyramidAccounting\obj\Release\View\ResourceDictionarys\DataGrid\VoucherMoneyEditing.baml
+D:\WorkSpaces\Visual Studio\PyramidAccounting\PyramidAccounting\obj\Release\View\ResourceDictionarys\DataGrid\VoucherMoneyShow.baml
+D:\WorkSpaces\Visual Studio\PyramidAccounting\PyramidAccounting\obj\Release\View\ResourceDictionarys\MessageBox\MessageBoxCommon.baml
+D:\WorkSpaces\Visual Studio\PyramidAccounting\PyramidAccounting\obj\Release\View\ResourceDictionarys\MessageBox\MessageBoxDel.baml
+D:\WorkSpaces\Visual Studio\PyramidAccounting\PyramidAccounting\obj\Release\View\ResourceDictionarys\MessageBox\MessageBoxInput.baml
+D:\WorkSpaces\Visual Studio\PyramidAccounting\PyramidAccounting\obj\Release\View\ResourceDictionarys\ScrollViewer\ScrollBarCommon.baml
+D:\WorkSpaces\Visual Studio\PyramidAccounting\PyramidAccounting\obj\Release\View\ResourceDictionarys\ScrollViewer\ScrollViewerCommon.baml
+D:\WorkSpaces\Visual Studio\PyramidAccounting\PyramidAccounting\obj\Release\View\ResourceDictionarys\TabControl\MainTabControl.baml
+D:\WorkSpaces\Visual Studio\PyramidAccounting\PyramidAccounting\obj\Release\View\ResourceDictionarys\TabControl\TabControl科目管理.baml
+D:\WorkSpaces\Visual Studio\PyramidAccounting\PyramidAccounting\obj\Release\View\ResourceDictionarys\TabControl\TwoTabControl.baml
+D:\WorkSpaces\Visual Studio\PyramidAccounting\PyramidAccounting\obj\Release\View\ResourceDictionarys\TextBlock\TextBlockCommon.baml
+D:\WorkSpaces\Visual Studio\PyramidAccounting\PyramidAccounting\obj\Release\View\Windows\Win_子细目.baml
+D:\WorkSpaces\Visual Studio\PyramidAccounting\PyramidAccounting\obj\Release\Win_SignIn.baml
+D:\WorkSpaces\Visual Studio\PyramidAccounting\PyramidAccounting\obj\Release\View\Windows\Win_记账凭证.baml
+D:\WorkSpaces\Visual Studio\PyramidAccounting\PyramidAccounting\obj\Release\View\Windows\Win_账套页面.baml
+D:\WorkSpaces\Visual Studio\PyramidAccounting\PyramidAccounting\obj\Release\App.baml
+D:\WorkSpaces\Visual Studio\PyramidAccounting\PyramidAccounting\obj\Release\MainWindow.g.cs
+D:\WorkSpaces\Visual Studio\PyramidAccounting\PyramidAccounting\obj\Release\View\Pages\Page_MainTabControl.g.cs
+D:\WorkSpaces\Visual Studio\PyramidAccounting\PyramidAccounting\obj\Release\View\Pages\Pop\凭证录入\Page_凭证录入_子细目.g.cs
+D:\WorkSpaces\Visual Studio\PyramidAccounting\PyramidAccounting\obj\Release\View\Pages\Pop\凭证录入\Page_凭证录入_科目.g.cs
+D:\WorkSpaces\Visual Studio\PyramidAccounting\PyramidAccounting\obj\Release\View\Pages\Pop\系统管理\Page_修改用户.g.cs
+D:\WorkSpaces\Visual Studio\PyramidAccounting\PyramidAccounting\obj\Release\View\Pages\Pop\系统管理\Page_子细目管理.g.cs
+D:\WorkSpaces\Visual Studio\PyramidAccounting\PyramidAccounting\obj\Release\View\Pages\Pop\系统管理\Page_添加用户.g.cs
+D:\WorkSpaces\Visual Studio\PyramidAccounting\PyramidAccounting\obj\Release\View\Pages\Pop\账簿管理\Page_添加固定资产.g.cs
+D:\WorkSpaces\Visual Studio\PyramidAccounting\PyramidAccounting\obj\Release\View\Pages\TwoTabControl\Page_Two_凭证管理.g.cs
+D:\WorkSpaces\Visual Studio\PyramidAccounting\PyramidAccounting\obj\Release\View\Pages\TwoTabControl\Page_Two_快捷界面.g.cs
+D:\WorkSpaces\Visual Studio\PyramidAccounting\PyramidAccounting\obj\Release\View\Pages\TwoTabControl\Page_Two_报表管理.g.cs
+D:\WorkSpaces\Visual Studio\PyramidAccounting\PyramidAccounting\obj\Release\View\Pages\TwoTabControl\Page_Two_系统管理.g.cs
+D:\WorkSpaces\Visual Studio\PyramidAccounting\PyramidAccounting\obj\Release\View\Pages\TwoTabControl\Page_Two_账簿管理.g.cs
+D:\WorkSpaces\Visual Studio\PyramidAccounting\PyramidAccounting\obj\Release\View\ResourceDictionarys\MessageBox\MessageBoxCommon.g.cs
+D:\WorkSpaces\Visual Studio\PyramidAccounting\PyramidAccounting\obj\Release\View\ResourceDictionarys\MessageBox\MessageBoxDel.g.cs
+D:\WorkSpaces\Visual Studio\PyramidAccounting\PyramidAccounting\obj\Release\View\ResourceDictionarys\MessageBox\MessageBoxInput.g.cs
+D:\WorkSpaces\Visual Studio\PyramidAccounting\PyramidAccounting\obj\Release\View\Windows\Win_子细目.g.cs
+D:\WorkSpaces\Visual Studio\PyramidAccounting\PyramidAccounting\obj\Release\Win_SignIn.g.cs
+D:\WorkSpaces\Visual Studio\PyramidAccounting\PyramidAccounting\obj\Release\View\Windows\Win_记账凭证.g.cs
+D:\WorkSpaces\Visual Studio\PyramidAccounting\PyramidAccounting\obj\Release\View\Windows\Win_账套页面.g.cs
+D:\WorkSpaces\Visual Studio\PyramidAccounting\PyramidAccounting\obj\Release\App.g.cs
+D:\WorkSpaces\Visual Studio\PyramidAccounting\PyramidAccounting\obj\Release\PyramidAccounting_Content.g.cs
+D:\WorkSpaces\Visual Studio\PyramidAccounting\PyramidAccounting\obj\Release\PyramidAccounting_MarkupCompile.cache
+D:\WorkSpaces\Visual Studio\PyramidAccounting\PyramidAccounting\obj\Release\PyramidAccounting_MarkupCompile.lref
+D:\WorkSpaces\Visual Studio\PyramidAccounting\PyramidAccounting\obj\Release\View\Pages\TwoTabControl\Page_Two_报表管理.baml
+D:\WorkSpaces\Visual Studio\PyramidAccounting\PyramidAccounting\obj\Release\PyramidAccounting.g.resources
+D:\WorkSpaces\Visual Studio\PyramidAccounting\PyramidAccounting\obj\Release\PA.Properties.Resources.resources
+D:\WorkSpaces\Visual Studio\PyramidAccounting\PyramidAccounting\obj\Release\PyramidAccounting.csproj.GenerateResource.Cache
+D:\WorkSpaces\Visual Studio\PyramidAccounting\PyramidAccounting\obj\Release\PyramidAccounting.exe
+D:\WorkSpaces\Visual Studio\PyramidAccounting\PyramidAccounting\obj\Release\PyramidAccounting.pdb
+D:\WorkSpaces\Visual Studio\PyramidAccounting\PyramidAccounting\bin\Release\Data\打印\管理费用模板18栏.xls
+D:\WorkSpaces\Visual Studio\PyramidAccounting\PyramidAccounting\bin\Release\Data\打印\行政费用支出明细表模板3.xls
+F:\1\PyramidAccounting.exe.config
+F:\1\Data\打印\三栏明细账模板.xls
+F:\1\Data\打印\固定资产登记模板.xls
+F:\1\Data\打印\总账模板.xls
+F:\1\Data\打印\收入支出总表模板.xls
+F:\1\Data\打印\管理费用模板18栏.xls
+F:\1\Data\打印\行政费用支出明细表模板3.xls
+F:\1\Data\打印\记账凭证模板.xls
+F:\1\Data\打印\资产负债表模板.xls
+F:\1\Data\科目\《行政单位会计制度》财预字[1998]49号.xls
+F:\1\Docs\dotNetFx40_Full_setup.exe
+F:\1\Docs\vcredist_x86.exe
+F:\1\Docs\安装说明.txt
+F:\1\PyramidAccounting.exe
+F:\1\PyramidAccounting.pdb
+D:\WorkSpaces\Visual Studio\PyramidAccounting\PyramidAccounting\obj\Release\PyramidAccounting.csprojResolveAssemblyReference.cache
+D:\WorkSpaces\Visual Studio\PyramidAccounting\PyramidAccounting\bin\Release\Data\打印\事业及经营支出明细表.xls
+D:\WorkSpaces\Visual Studio\PyramidAccounting\PyramidAccounting\bin\Release\Data\打印\收入支出总表（事业）模板.xls
+D:\WorkSpaces\Visual Studio\PyramidAccounting\PyramidAccounting\bin\Release\Data\打印\资产负债表（事业）模板.xls
+D:\WorkSpaces\Visual Studio\PyramidAccounting\PyramidAccounting\bin\Release\Data\科目\事业单位会计制度.xls
+D:\WorkSpaces\Visual Studio\PyramidAccounting\PyramidAccounting\obj\Release\View\Pages\TwoTabControl\Page_Two_报表管理_事业.g.cs
+D:\WorkSpaces\Visual Studio\PyramidAccounting\PyramidAccounting\obj\Release\View\Pages\TwoTabControl\Page_Two_报表管理_事业.baml
